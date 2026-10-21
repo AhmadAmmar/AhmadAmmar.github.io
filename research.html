@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research | Ahmad Ammar</title>
+<meta name="description" content="Doctoral research on estimating the energy efficiency of buildings from Earth observation and geospatial data in Greater London and Belfast, with earlier work on GEDI LiDAR mangrove mapping and deep-learning building extraction.">
+<meta name="author" content="Ahmad Ammar">
+<link rel="canonical" href="https://ahmadammar.github.io/research.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Research | Ahmad Ammar">
+<meta property="og:description" content="Doctoral research on estimating the energy efficiency of buildings from Earth observation and geospatial data in Greater London and Belfast, with earlier work on GEDI LiDAR mangrove mapping and deep-learning building extraction.">
+<meta property="og:url" content="https://ahmadammar.github.io/research.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+<script src="assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">Ahmad <span>Ammar</span></a>
+    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="index.html">About</a>
+      <a href="research.html" aria-current="page">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="projects.html">Projects</a>
+      <a href="writing.html">Writing</a>
+      <a href="cv.html">CV</a>
+    </nav>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</header>
+<main id="content">
+<header class="page-head">
+  <p class="eyebrow">Research</p>
+  <h1>Mapping how efficiently cities use energy, from space</h1>
+  <p class="lede">Buildings account for a large share of energy use and emissions, yet the evidence needed to plan retrofit is patchy, expensive to collect and quickly out of date. My work tests how far open satellite and geospatial data can fill that gap.</p>
+</header>
+
+<div class="cv-layout">
+  <aside class="toc" aria-label="On this page">
+    <p class="title">On this page</p>
+    <ol>
+      <li><a href="#phd">Doctoral project</a></li>
+      <li><a href="#questions">Questions and objectives</a></li>
+      <li><a href="#data">Data and methods</a></li>
+      <li><a href="#review">Systematic review</a></li>
+      <li><a href="#gbem">Open code: GBEM</a></li>
+      <li><a href="#talks">Talks and reports</a></li>
+      <li><a href="#earlier">Earlier research</a></li>
+    </ol>
+  </aside>
+
+  <div class="prose">
+    <section id="phd">
+      <h2 style="margin-top:0">Doctoral project</h2>
+      <p><strong>Assessing energy efficiency of buildings: the role of remote sensing data and geospatial methods.</strong> PhD, School of Geography and Environmental Sciences, Ulster University (started September 2024), supervised by <a href="https://www.ulster.ac.uk/staff/s-bhatti">Dr Saad Bhatti</a>. Funded by a Department for the Economy (DfE) International PhD scholarship.</p>
+      <p>Energy Performance Certificates (EPCs) rate dwellings from A (most efficient) to G. They are the main evidence base for retrofit policy in the UK, but they cover only part of the stock, they are issued when homes are sold or let, and they age quickly. The project asks whether features that can be measured for every building, from satellite imagery, open maps and climate reanalysis, can predict EPC bands well enough to be useful at city scale.</p>
+      <p>The object of study is deliberately energy <em>efficiency</em> (the ordinal EPC band), not energy consumption. That keeps the work tied to what retrofit and housing policy actually use, and it makes the labels comparable between cities.</p>
+      <div class="callout">
+        <p><strong>Study areas.</strong> <em>Greater London</em> is the data-rich area where methods are developed. <em>Belfast</em> is the transfer test: a smaller city with fewer certificates, different housing and different data vintages, which exposes class imbalance and coverage problems that a single large city hides.</p>
+      </div>
+    </section>
+
+    <section id="questions">
+      <h2>Questions and objectives</h2>
+      <p>The central question is whether remotely sensed and spatial proxies can estimate building EPC bands <em>robustly enough to scale</em>: across a city, across years, and between places with very different amounts of data. The confirmation-stage objectives are:</p>
+      <ol>
+        <li>A systematic, scoping and scientometric review of geospatial and remote-sensing methods for building energy efficiency (see <a href="#review">below</a>).</li>
+        <li>Reproducible building-level databases for London and Belfast, linking certificates, addresses and footprints through the Unique Property Reference Number (UPRN).</li>
+        <li>Robust baseline models for EPC bands, binary and multiclass, at point and zonal level.</li>
+        <li>Calibrated and interpretable multimodal extensions, adding only data sources that the literature gives a reason to expect will help.</li>
+        <li>Tests of spatial and temporal generalisation (new areas, new cities, new years) and translation of the results into policy-relevant maps.</li>
+      </ol>
+      <p>A few principles run through the design: open, repeatable and temporally comparable data are preferred over bespoke high-resolution sources; classical models (random forests, gradient-boosted trees) are proved properly before deep learning is considered; every method choice carries an explicit reason; and models, seeds, folds and data provenance are saved so that results can be reproduced.</p>
+    </section>
+
+    <section id="data">
+      <h2>Data and methods</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Source</th><th>What it describes</th></tr></thead>
+          <tbody>
+            <tr><td>Domestic EPC register (England and Wales; Northern Ireland)</td><td>Labels: the A&ndash;G band and assessment attributes</td></tr>
+            <tr><td>Sentinel-1 SAR</td><td>Structure, roughness and density of the built form</td></tr>
+            <tr><td>Sentinel-2 and Landsat optical imagery</td><td>Roof and surface materials, vegetation, spectral built-up indices</td></tr>
+            <tr><td>Landsat and MODIS land surface temperature</td><td>Thermal behaviour and surface urban heat</td></tr>
+            <tr><td>VIIRS night-time lights</td><td>Activity and occupancy</td></tr>
+            <tr><td>ERA5 reanalysis</td><td>Local climate and heating and cooling demand</td></tr>
+            <tr><td>OpenStreetMap and building footprints</td><td>Building geometry, density and neighbourhood form</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Satellite composites are produced in Google Earth Engine for several years (2020 to 2025, including heat and cold events), then processed locally in Python and PyQGIS into point- and zone-level features for each certificate. Part of the work is checking which features stay stable from year to year, because a model that is to be used over time cannot lean on features that do not.</p>
+    </section>
+
+    <section id="review">
+      <h2>Systematic review (in preparation)</h2>
+      <p><em>Remote sensing and geospatial methods for estimating the energy efficiency of buildings: a systematic and bibliometric review.</em> The review follows PRISMA 2020 with the PRISMA-S search extension, adds a bibliometric layer (growth, keyword networks, where research is produced and where it is applied) and synthesises the rating-estimation studies without meta-analysis (SWiM). Its focus is on how studies validate their models and whether any test them on unseen areas or years, which is where the doctoral project aims to contribute.</p>
+    </section>
+
+    <section id="gbem">
+      <h2>Open code: GBEM</h2>
+      <p><a href="https://github.com/AhmadAmmar/GBEM"><strong>GBEM: Geospatial Building Energy Mapping</strong></a> holds the project's code: data preparation (EPC certificates, UPRN and coordinate linkage, OpenStreetMap buildings, Earth Engine extraction, spectral indices, zonal statistics), the machine-learning experiments, figures and maps, and the complete analysis pipeline of the systematic review (screening, bibliometric indicators, keyword networks, word clouds, maps of research origin, country profiles, tables). It is released under the Apache 2.0 licence, copyright Ulster University, and stores no building-level data.</p>
+      <p><a class="btn" href="https://github.com/AhmadAmmar/GBEM"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg> AhmadAmmar/GBEM</a></p>
+    </section>
+
+    <section id="talks">
+      <h2>Talks and reports</h2>
+      <ul>
+        <li><strong>Geospatial urban energy efficiency assessment.</strong> PhD confirmation report and presentation, Ulster University, October&ndash;November 2025.</li>
+        <li><strong>GeoML-driven urban energy efficiency assessment.</strong> Research presentation (first-year PhD), June 2025.</li>
+      </ul>
+    </section>
+
+    <section id="earlier">
+      <h2>Earlier research</h2>
+      <h3>GEDI LiDAR for mangrove canopy height and biomass, Indus Delta (MS, 2023)</h3>
+      <p>MS dissertation at the Geospatial Research and Education Lab, Institute of Space Technology, Islamabad, supervised by Dr Hammad Gilani. I developed a wall-to-wall approach for canopy height and above-ground biomass density in the Indus Delta mangroves. Random forest models in Google Earth Engine predicted GEDI L2A RH98 heights and L4B biomass from features of ALOS PALSAR-2, Sentinel-1 SAR and Sentinel-2 optical imagery, and the continuous maps were validated against field plots. <a href="http://www.bit.ly/3vtyVOc">Abstract</a>.</p>
+      <h3>Deep-learning extraction of urban features from fused imagery (BS, 2019)</h3>
+      <p>Final-year project at the Institute of Geo-Information and Earth Observation, PMAS Arid Agriculture University Rawalpindi, supervised by Dr Hasan Ali Baig. An end-to-end pipeline in Keras and fastai compared U-Net, SSD and Mask R-CNN for building extraction from fused multisource satellite and aerial data; U-Net performed best, with an F1 score of 0.89. The code and a ready-to-use dataset are on <a href="https://github.com/GeospatialGeeks/Satellite-Image-Building-Segmentation">GitHub</a>.</p>
+      <p>Shorter projects on air quality, urban growth, floods, snow, water quality and land cover are listed on the <a href="projects.html#eo">projects page</a> and in the <a href="cv.html#projects">CV</a>.</p>
+    </section>
+  </div>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="bar">
+    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated October 2026</div>
+    <div class="social">
+      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

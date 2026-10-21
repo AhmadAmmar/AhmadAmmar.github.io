@@ -1,0 +1,97 @@
+title: Research
+description: Doctoral research on estimating the energy efficiency of buildings from Earth observation and geospatial data in Greater London and Belfast, with earlier work on GEDI LiDAR mangrove mapping and deep-learning building extraction.
+nav: research
+out: research.html
+---
+<header class="page-head">
+  <p class="eyebrow">Research</p>
+  <h1>Mapping how efficiently cities use energy, from space</h1>
+  <p class="lede">Buildings account for a large share of energy use and emissions, yet the evidence needed to plan retrofit is patchy, expensive to collect and quickly out of date. My work tests how far open satellite and geospatial data can fill that gap.</p>
+</header>
+
+<div class="cv-layout">
+  <aside class="toc" aria-label="On this page">
+    <p class="title">On this page</p>
+    <ol>
+      <li><a href="#phd">Doctoral project</a></li>
+      <li><a href="#questions">Questions and objectives</a></li>
+      <li><a href="#data">Data and methods</a></li>
+      <li><a href="#review">Systematic review</a></li>
+      <li><a href="#gbem">Open code: GBEM</a></li>
+      <li><a href="#talks">Talks and reports</a></li>
+      <li><a href="#earlier">Earlier research</a></li>
+    </ol>
+  </aside>
+
+  <div class="prose">
+    <section id="phd">
+      <h2 style="margin-top:0">Doctoral project</h2>
+      <p><strong>Assessing energy efficiency of buildings: the role of remote sensing data and geospatial methods.</strong> PhD, School of Geography and Environmental Sciences, Ulster University (started September 2024), supervised by <a href="https://www.ulster.ac.uk/staff/s-bhatti">Dr Saad Bhatti</a>. Funded by a Department for the Economy (DfE) International PhD scholarship.</p>
+      <p>Energy Performance Certificates (EPCs) rate dwellings from A (most efficient) to G. They are the main evidence base for retrofit policy in the UK, but they cover only part of the stock, they are issued when homes are sold or let, and they age quickly. The project asks whether features that can be measured for every building, from satellite imagery, open maps and climate reanalysis, can predict EPC bands well enough to be useful at city scale.</p>
+      <p>The object of study is deliberately energy <em>efficiency</em> (the ordinal EPC band), not energy consumption. That keeps the work tied to what retrofit and housing policy actually use, and it makes the labels comparable between cities.</p>
+      <div class="callout">
+        <p><strong>Study areas.</strong> <em>Greater London</em> is the data-rich area where methods are developed. <em>Belfast</em> is the transfer test: a smaller city with fewer certificates, different housing and different data vintages, which exposes class imbalance and coverage problems that a single large city hides.</p>
+      </div>
+    </section>
+
+    <section id="questions">
+      <h2>Questions and objectives</h2>
+      <p>The central question is whether remotely sensed and spatial proxies can estimate building EPC bands <em>robustly enough to scale</em>: across a city, across years, and between places with very different amounts of data. The confirmation-stage objectives are:</p>
+      <ol>
+        <li>A systematic, scoping and scientometric review of geospatial and remote-sensing methods for building energy efficiency (see <a href="#review">below</a>).</li>
+        <li>Reproducible building-level databases for London and Belfast, linking certificates, addresses and footprints through the Unique Property Reference Number (UPRN).</li>
+        <li>Robust baseline models for EPC bands, binary and multiclass, at point and zonal level.</li>
+        <li>Calibrated and interpretable multimodal extensions, adding only data sources that the literature gives a reason to expect will help.</li>
+        <li>Tests of spatial and temporal generalisation (new areas, new cities, new years) and translation of the results into policy-relevant maps.</li>
+      </ol>
+      <p>A few principles run through the design: open, repeatable and temporally comparable data are preferred over bespoke high-resolution sources; classical models (random forests, gradient-boosted trees) are proved properly before deep learning is considered; every method choice carries an explicit reason; and models, seeds, folds and data provenance are saved so that results can be reproduced.</p>
+    </section>
+
+    <section id="data">
+      <h2>Data and methods</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Source</th><th>What it describes</th></tr></thead>
+          <tbody>
+            <tr><td>Domestic EPC register (England and Wales; Northern Ireland)</td><td>Labels: the A&ndash;G band and assessment attributes</td></tr>
+            <tr><td>Sentinel-1 SAR</td><td>Structure, roughness and density of the built form</td></tr>
+            <tr><td>Sentinel-2 and Landsat optical imagery</td><td>Roof and surface materials, vegetation, spectral built-up indices</td></tr>
+            <tr><td>Landsat and MODIS land surface temperature</td><td>Thermal behaviour and surface urban heat</td></tr>
+            <tr><td>VIIRS night-time lights</td><td>Activity and occupancy</td></tr>
+            <tr><td>ERA5 reanalysis</td><td>Local climate and heating and cooling demand</td></tr>
+            <tr><td>OpenStreetMap and building footprints</td><td>Building geometry, density and neighbourhood form</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Satellite composites are produced in Google Earth Engine for several years (2020 to 2025, including heat and cold events), then processed locally in Python and PyQGIS into point- and zone-level features for each certificate. Part of the work is checking which features stay stable from year to year, because a model that is to be used over time cannot lean on features that do not.</p>
+    </section>
+
+    <section id="review">
+      <h2>Systematic review (in preparation)</h2>
+      <p><em>Remote sensing and geospatial methods for estimating the energy efficiency of buildings: a systematic and bibliometric review.</em> The review follows PRISMA 2020 with the PRISMA-S search extension, adds a bibliometric layer (growth, keyword networks, where research is produced and where it is applied) and synthesises the rating-estimation studies without meta-analysis (SWiM). Its focus is on how studies validate their models and whether any test them on unseen areas or years, which is where the doctoral project aims to contribute.</p>
+    </section>
+
+    <section id="gbem">
+      <h2>Open code: GBEM</h2>
+      <p><a href="https://github.com/AhmadAmmar/GBEM"><strong>GBEM: Geospatial Building Energy Mapping</strong></a> holds the project's code: data preparation (EPC certificates, UPRN and coordinate linkage, OpenStreetMap buildings, Earth Engine extraction, spectral indices, zonal statistics), the machine-learning experiments, figures and maps, and the complete analysis pipeline of the systematic review (screening, bibliometric indicators, keyword networks, word clouds, maps of research origin, country profiles, tables). It is released under the Apache 2.0 licence, copyright Ulster University, and stores no building-level data.</p>
+      <p><a class="btn" href="https://github.com/AhmadAmmar/GBEM">{{icon:github}} AhmadAmmar/GBEM</a></p>
+    </section>
+
+    <section id="talks">
+      <h2>Talks and reports</h2>
+      <ul>
+        <li><strong>Geospatial urban energy efficiency assessment.</strong> PhD confirmation report and presentation, Ulster University, October&ndash;November 2025.</li>
+        <li><strong>GeoML-driven urban energy efficiency assessment.</strong> Research presentation (first-year PhD), June 2025.</li>
+      </ul>
+    </section>
+
+    <section id="earlier">
+      <h2>Earlier research</h2>
+      <h3>GEDI LiDAR for mangrove canopy height and biomass, Indus Delta (MS, 2023)</h3>
+      <p>MS dissertation at the Geospatial Research and Education Lab, Institute of Space Technology, Islamabad, supervised by Dr Hammad Gilani. I developed a wall-to-wall approach for canopy height and above-ground biomass density in the Indus Delta mangroves. Random forest models in Google Earth Engine predicted GEDI L2A RH98 heights and L4B biomass from features of ALOS PALSAR-2, Sentinel-1 SAR and Sentinel-2 optical imagery, and the continuous maps were validated against field plots. <a href="http://www.bit.ly/3vtyVOc">Abstract</a>.</p>
+      <h3>Deep-learning extraction of urban features from fused imagery (BS, 2019)</h3>
+      <p>Final-year project at the Institute of Geo-Information and Earth Observation, PMAS Arid Agriculture University Rawalpindi, supervised by Dr Hasan Ali Baig. An end-to-end pipeline in Keras and fastai compared U-Net, SSD and Mask R-CNN for building extraction from fused multisource satellite and aerial data; U-Net performed best, with an F1 score of 0.89. The code and a ready-to-use dataset are on <a href="https://github.com/GeospatialGeeks/Satellite-Image-Building-Segmentation">GitHub</a>.</p>
+      <p>Shorter projects on air quality, urban growth, floods, snow, water quality and land cover are listed on the <a href="{{root}}projects.html#eo">projects page</a> and in the <a href="{{root}}cv.html#projects">CV</a>.</p>
+    </section>
+  </div>
+</div>
