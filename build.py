@@ -143,12 +143,20 @@ def render(meta, body):
     return out, head + body.strip("\n") + "\n" + foot
 
 
+# pages on this host that are not built here: the EGM305 atlas and the sites of other repositories
+# (GitHub Pages serves them under this domain, so this sitemap may list them)
+EXTRA_URLS = ["teaching/egm305/atlas/", "GBEM/", "marxist-economics/"]
+
+
 def sitemap(outs):
-    urls = "\n".join(
-        "  <url><loc>{}/{}</loc></url>".format(SITE_URL, o.replace("index.html", ""))
-        for o in sorted(outs) if o != "404.html"
-    )
+    paths = [o.replace("index.html", "") for o in sorted(outs) if o != "404.html"] + EXTRA_URLS
+    urls = "\n".join("  <url><loc>{}/{}</loc></url>".format(SITE_URL, p) for p in paths)
     return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "\n</urlset>\n"
+
+
+def robots():
+    """robots.txt for the whole host (also read for /GBEM/ and /marxist-economics/): allow all, point to the sitemap"""
+    return f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n"
 
 
 def main():
@@ -161,6 +169,7 @@ def main():
         outs.append(out)
         print("wrote", out)
     (HERE / "sitemap.xml").write_text(sitemap(outs), encoding="utf-8", newline="\n")
+    (HERE / "robots.txt").write_text(robots(), encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":
