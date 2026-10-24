@@ -49,8 +49,9 @@
       <li><a href="#phd">Doctoral project</a></li>
       <li><a href="#questions">Questions and objectives</a></li>
       <li><a href="#data">Data and methods</a></li>
+      <li><a href="#atlas">Atlas of results</a></li>
       <li><a href="#review">Systematic review</a></li>
-      <li><a href="#gbem">Open code: GBEM</a></li>
+      <li><a href="#gbem">Open code and tools</a></li>
       <li><a href="#talks">Talks and reports</a></li>
       <li><a href="#earlier">Earlier research</a></li>
     </ol>
@@ -59,7 +60,7 @@
   <div class="prose">
     <section id="phd">
       <h2 style="margin-top:0">Doctoral project</h2>
-      <p><strong>Assessing energy efficiency of buildings: the role of remote sensing data and geospatial methods.</strong> PhD, School of Geography and Environmental Sciences, Ulster University (started September 2024), supervised by <a href="https://www.ulster.ac.uk/staff/s-bhatti">Dr Saad Bhatti</a>. Funded by a Department for the Economy (DfE) International PhD scholarship.</p>
+      <p><strong>Assessing energy efficiency of buildings: the role of remote sensing data and geospatial methods.</strong> PhD, School of Geography and Environmental Sciences, Ulster University (started September 2024), supervised by <a href="https://www.ulster.ac.uk/staff/s-bhatti">Dr Saad Bhatti</a>, Dr Paul McKenzie and Dr Muhammad Irfan. Funded by a Vice-Chancellor&rsquo;s Research Scholarship (VCRS), Ulster University.</p>
       <p>Energy Performance Certificates (EPCs) rate dwellings from A (most efficient) to G. They are the main evidence base for retrofit policy in the UK, but they cover only part of the stock, they are issued when homes are sold or let, and they age quickly. The project asks whether features that can be measured for every building, from satellite imagery, open maps and climate reanalysis, can predict EPC bands well enough to be useful at city scale.</p>
       <p>The object of study is deliberately energy <em>efficiency</em> (the ordinal EPC band), not energy consumption. That keeps the work tied to what retrofit and housing policy actually use, and it makes the labels comparable between cities.</p>
       <div class="callout">
@@ -92,11 +93,20 @@
             <tr><td>Landsat and MODIS land surface temperature</td><td>Thermal behaviour and surface urban heat</td></tr>
             <tr><td>VIIRS night-time lights</td><td>Activity and occupancy</td></tr>
             <tr><td>ERA5 reanalysis</td><td>Local climate and heating and cooling demand</td></tr>
-            <tr><td>OpenStreetMap and building footprints</td><td>Building geometry, density and neighbourhood form</td></tr>
+            <tr><td>OpenStreetMap and building footprints (Overture Maps)</td><td>Building geometry, shared walls, density, streets and neighbourhood form</td></tr>
+            <tr><td>Airborne LiDAR (Environment Agency; OpenDataNI)</td><td>Building height, storeys and roof form</td></tr>
+            <tr><td>Satellite embeddings (Google, annual)</td><td>Learned summaries of the surroundings, compared with engineered features</td></tr>
           </tbody>
         </table>
       </div>
       <p>Satellite composites are produced in Google Earth Engine for several years (2020 to 2025, including heat and cold events), then processed locally in Python and PyQGIS into point- and zone-level features for each certificate. Part of the work is checking which features stay stable from year to year, because a model that is to be used over time cannot lean on features that do not.</p>
+      <p>Models (gradient-boosted trees, with random forests for comparison) are validated with spatially blocked cross-validation, so that every prediction comes from a model that has not seen the surrounding area, and the results are set against the agreement of the certificates with themselves: a home certified twice in a short time does not always receive the same band, which sets a ceiling on what any model can achieve. Estimates are compared at the scale of homes, streets, grid cells and neighbourhoods, and transferred between the two cities.</p>
+    </section>
+
+    <section id="atlas">
+      <h2>Atlas of results</h2>
+      <p>The <a href="https://ahmadammar.github.io/GBEM/"><strong>GBEM Atlas</strong></a> maps the energy performance of the housing stock in Greater London and Greater Belfast by 250 m grid cell, neighbourhood and street: certified ratings, hotspots, rankings, trends, retrofit needs (elements rated poor), urban form types and model results. It shows aggregates of at least ten certificates per unit and no data on individual homes.</p>
+      <p><a class="btn primary" href="https://ahmadammar.github.io/GBEM/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg> Open the atlas</a></p>
     </section>
 
     <section id="review">
@@ -105,9 +115,10 @@
     </section>
 
     <section id="gbem">
-      <h2>Open code: GBEM</h2>
+      <h2>Open code and tools</h2>
       <p><a href="https://github.com/AhmadAmmar/GBEM"><strong>GBEM: Geospatial Building Energy Mapping</strong></a> holds the project's code: data preparation (EPC certificates, UPRN and coordinate linkage, OpenStreetMap buildings, Earth Engine extraction, spectral indices, zonal statistics), the machine-learning experiments, figures and maps, and the complete analysis pipeline of the systematic review (screening, bibliometric indicators, keyword networks, word clouds, maps of research origin, country profiles, tables). It is released under the Apache 2.0 licence, copyright Ulster University, and stores no building-level data.</p>
       <p><a class="btn" href="https://github.com/AhmadAmmar/GBEM"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg> AhmadAmmar/GBEM</a></p>
+      <p>Two general tools came out of the project and are shared for other researchers: <a href="https://github.com/GeospatialGeeks/research-helpers">research-helpers</a>, a Python package for verified references, Word versions of LaTeX papers and theses, spatial cross-validation and literature-review screening, and an unofficial <a href="https://github.com/GeospatialGeeks/ulster-thesis-template">Ulster University thesis template</a> with matching PDF and Word builds.</p>
     </section>
 
     <section id="talks">
