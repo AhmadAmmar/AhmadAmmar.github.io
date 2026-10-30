@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connecting securely | Ahmad Ammar</title>
+<meta name="description" content="SSH keys, passphrases, multi-factor authentication and a login shortcut.">
+<meta name="author" content="Ahmad Ammar">
+<link rel="canonical" href="https://ahmadammar.github.io/teaching/hpc/connect/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Connecting securely | Ahmad Ammar">
+<meta property="og:description" content="SSH keys, passphrases, multi-factor authentication and a login shortcut.">
+<meta property="og:url" content="https://ahmadammar.github.io/teaching/hpc/connect/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script src="../../../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
+    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="../../../index.html">About</a>
+      <a href="../../../research.html">Research</a>
+      <a href="../../../teaching.html" aria-current="page">Teaching</a>
+      <a href="../../../projects.html">Projects</a>
+      <a href="../../../writing.html">Writing</a>
+      <a href="../../../cv.html">CV</a>
+    </nav>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</header>
+<main id="content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/hpc/">HPC tutorial</a> / Connecting securely</nav>
+<header class="page-head">
+  <p class="eyebrow">HPC tutorial</p>
+  <h1>Connecting securely</h1>
+</header>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="../../../teaching/hpc/">Getting started on an HPC cluster</a></li>
+      <li><a href="../../../teaching/hpc/concepts/">What a cluster is</a></li>
+      <li><a href="../../../teaching/hpc/shell/">The command line</a></li>
+      <li><a href="../../../teaching/hpc/connect/" aria-current="page">Connecting securely</a></li>
+      <li><a href="../../../teaching/hpc/files/">Files and storage</a></li>
+      <li><a href="../../../teaching/hpc/software/">Software, environments and containers</a></li>
+      <li><a href="../../../teaching/hpc/slurm/">Running jobs with Slurm</a></li>
+      <li><a href="../../../teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
+      <li><a href="../../../teaching/hpc/practice/">Measuring and good practice</a></li>
+      <li><a href="../../../teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
+    </ol>
+    <p><a href="../../../files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="how-ssh-keys-work">How SSH keys work</h2>
+
+<p><strong>SSH</strong> (Secure Shell) is an encrypted remote terminal
+
+(OpenSSH, n.d.). Instead of a password, it can use a matched pair of
+
+files. The <strong>public key</strong> is like a padlock: you can give
+
+out copies, and the cluster fits one to your account. The
+
+<strong>private key</strong> is the only thing that opens it, and it
+
+stays on your computer. A <strong>passphrase</strong> locks the private
+
+key in case your laptop is stolen.</p>
+
+<p><strong>Never share your private key, its passphrase or your MFA
+
+secret with anybody</strong>, including IT staff, a colleague or an AI
+
+assistant. Only the file ending in <code>.pub</code> is safe to
+
+send.</p>
+
+<h2 id="step-1-make-a-key-pair">Step 1: Make a key pair</h2>
+
+<pre class="powershell"><code># laptop (PowerShell on Windows 10 or later; on macOS or Linux, use ~/.ssh/ instead)
+
+
+
+# Make the folder that SSH looks in. -Force means no error if it exists
+
+mkdir $HOME\.ssh -Force
+
+
+
+# -t chooses the key type, -b its size in bits, -f the file name
+
+ssh-keygen -t rsa -b 4096 -f $HOME\.ssh\my-kelvin-key</code></pre>
+
+<p>Set a passphrase when asked: Kelvin2 requires one. Nothing appears as
+
+you type, which is normal. This creates <code>my-kelvin-key</code>
+
+(private) and <code>my-kelvin-key.pub</code> (public). A forgotten
+
+passphrase cannot be recovered: you have to make a new pair.</p>
+
+<h2 id="step-2-give-the-cluster-your-public-key">Step 2: Give the
+
+cluster your public key</h2>
+
+<p>Each cluster has its own process. <strong>Kelvin2 only:</strong>
+
+apply through the <a
+
+href="https://www.qub.ac.uk/sites/ni-hpc/Kelvin2/Access/">access
+
+page</a>; the documentation says to allow 48 hours. If you are outside
+
+the QUB network, as Ulster University users are, you send NI-HPC the
+
+public key, as set out in <a
+
+href="https://ni-hpc.github.io/nihpc-documentation/Connecting%20to%20Kelvin2/">their
+
+connection guide</a>.</p>
+
+<pre class="powershell"><code># laptop
+
+# Copy the public key to the clipboard, ready to paste
+
+Get-Content $HOME\.ssh\my-kelvin-key.pub | Set-Clipboard</code></pre>
+
+<h2 id="step-3-log-in-and-set-up-mfa">Step 3: Log in, and set up
+
+MFA</h2>
+
+<pre class="powershell"><code># laptop
+
+# -p: network port. -i: which private key. Then username@address
+
+ssh -p 55890 -i $HOME\.ssh\my-kelvin-key &lt;username&gt;@login.kelvin.alces.network</code></pre>
+
+<p><strong>Kelvin2 only.</strong> Port 55890 and this address are for
+
+connecting from outside the QUB network. From inside it, the address is
+
+<code>kelvin2.qub.ac.uk</code> on the normal port. MFA is mandatory. On
+
+first login, generate it:</p>
+
+<pre class="bash"><code># cluster
+
+/opt/flight/bin/flight mfa generate</code></pre>
+
+<p>Scan the QR code into an authenticator app. From then on, each login
+
+asks for <code>Verification code:</code>. If you lose the app, NI-HPC
+
+can reset it.</p>
+
+<p>You land on one of four login nodes, shown in your prompt:
+
+<code>[&lt;username&gt;@login1 [kelvin2] ~]$</code>. The first time you
+
+reach a new login node you may see a warning about the host's identity.
+
+The connection guide explains what to do; read it rather than clicking
+
+through.</p>
+
+<h2 id="step-4-make-a-shortcut">Step 4: Make a shortcut</h2>
+
+<p>The file <code>.ssh/config</code> on your laptop stores settings
+
+under a nickname. Open it with <code>notepad $HOME\.ssh\config</code>,
+
+and add the lines below. Comments must be on their own line in this
+
+file.</p>
+
+<pre class="text"><code># laptop: .ssh/config
+
+# The nickname you will type
+
+Host kelvin
+
+  # The real address
+
+  HostName login.kelvin.alces.network
+
+  Port 55890
+
+  User &lt;username&gt;
+
+  # Your private key
+
+  IdentityFile ~/.ssh/my-kelvin-key
+
+  # Send a small signal every 60 seconds, so that idle sessions stay up
+
+  ServerAliveInterval 60</code></pre>
+
+<p>Now <code>ssh kelvin</code> is enough, and <code>scp</code>
+
+understands <code>kelvin:</code> as well.</p>
+
+<h2 id="step-5-optional-stop-retyping-the-passphrase">Step 5: Optional:
+
+stop retyping the passphrase</h2>
+
+<pre class="powershell"><code># laptop (the first line may need an administrator PowerShell)
+
+
+
+# Have the Windows SSH agent start automatically
+
+Get-Service ssh-agent | Set-Service -StartupType Automatic
+
+Start-Service ssh-agent
+
+
+
+# Hand it your key: it holds the unlocked key in memory
+
+ssh-add $HOME\.ssh\my-kelvin-key</code></pre>
+
+<p>You will still need the MFA code. <code>exit</code> ends a
+
+session.</p>
+
+<p>If you prefer a graphical program on Windows, NI-HPC's guide also
+
+covers MobaXterm and PuTTY.</p>
+
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/hpc/shell/">&larr; The command line</a><a href="../../../teaching/hpc/files/">Files and storage &rarr;</a></nav>
+<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="bar">
+    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated October 2026</div>
+    <div class="social">
+      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

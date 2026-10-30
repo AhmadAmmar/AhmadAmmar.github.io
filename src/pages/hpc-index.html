@@ -1,0 +1,76 @@
+title: Getting started on an HPC cluster
+description: A from-scratch tutorial on high-performance computing for researchers, with worked examples on NI-HPC's Kelvin2 that carry over to other Slurm clusters.
+nav: teaching
+out: teaching/hpc/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / HPC tutorial</nav>
+<header class="page-head">
+  <p class="eyebrow">HPC tutorial</p>
+  <h1>Getting started on an HPC cluster</h1>
+</header>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/hpc/" aria-current="page">Getting started on an HPC cluster</a></li>
+      <li><a href="{{root}}teaching/hpc/concepts/">What a cluster is</a></li>
+      <li><a href="{{root}}teaching/hpc/shell/">The command line</a></li>
+      <li><a href="{{root}}teaching/hpc/connect/">Connecting securely</a></li>
+      <li><a href="{{root}}teaching/hpc/files/">Files and storage</a></li>
+      <li><a href="{{root}}teaching/hpc/software/">Software, environments and containers</a></li>
+      <li><a href="{{root}}teaching/hpc/slurm/">Running jobs with Slurm</a></li>
+      <li><a href="{{root}}teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
+      <li><a href="{{root}}teaching/hpc/practice/">Measuring and good practice</a></li>
+      <li><a href="{{root}}teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
+    </ol>
+    <p><a href="{{root}}files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p>This is the guide I wanted when I first logged into a supercomputer
+as a PhD researcher whose background was in geography, not computing. It
+assumes you have never used a command line. By the end, you will have
+logged in securely, moved files, installed software, and run a small
+parameter sweep of many jobs.</p>
+<p>The examples use <a
+href="https://ni-hpc.github.io/nihpc-documentation">Kelvin2</a>, the
+cluster run by the Northern Ireland High Performance Computing service
+(NI-HPC). Most of what you learn carries over to any Linux cluster that
+uses the Slurm scheduler. <strong>Kelvin2 only</strong> marks details
+specific to that system; check your own cluster's documentation for the
+equivalents.</p>
+<h2 id="how-to-use-it">How to use it</h2>
+<p>Read in order if you are new, or jump in if you are not. Blocks of
+code are labelled with where they run, because typing a command on the
+wrong computer is the most common beginner's mistake:</p>
+<ul>
+<li><code>laptop</code> means a terminal on your own computer.</li>
+<li><code>cluster</code> means after you have logged in.</li>
+</ul>
+<p>Lines beginning with <code>#</code> are comments, which the computer
+ignores. In this guide, they explain the line beneath them. Anything in
+<code>&lt;angle brackets&gt;</code> is a placeholder to replace, without
+keeping the brackets.</p>
+<h2 id="other-good-guides">Other good guides</h2>
+<p>This guide is my own, written from setting up on Kelvin2, and it is
+not an official NI-HPC document. Always treat the official documentation
+as the authority on your cluster's rules.</p>
+<ul>
+<li><a href="https://ni-hpc.github.io/nihpc-documentation">NI-HPC
+documentation</a>: the official reference for Kelvin2.</li>
+<li><a
+href="https://iamdonovan.github.io/teaching/hpc-intro/index.html">Introduction
+to high performance computing</a> by Bob McNabb: a workshop on the shell
+and on running jobs, on two other university clusters. I recommend it
+alongside this guide.</li>
+<li><a href="https://swcarpentry.github.io/shell-novice/">The Unix
+Shell</a> from Software Carpentry, and <a
+href="https://carpentries-incubator.github.io/hpc-intro/">Introduction
+to High-Performance Computing</a> from HPC Carpentry.</li>
+</ul>
+<p>Corrections are welcome: contact details are at the foot of the
+page.</p>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><span></span><a href="{{root}}teaching/hpc/concepts/">What a cluster is &rarr;</a></nav>
+<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+  </article>
+</div>

@@ -230,3 +230,12 @@ th { font-weight: 600; color: var(--muted); font-size: .82rem; text-transform: u
   tr { break-inside: avoid; }
   .skills dt { margin-top: .5rem; }
 }
+
+/* HPC tutorial */
+.hpc-body { min-width: 0; }
+.hpc-body pre { overflow-x: auto; background: var(--surface-2); padding: .9rem 1rem; border-radius: 8px; font-size: .85em; line-height: 1.45; }
+.hpc-body pre code { background: none; padding: 0; font-size: inherit; }
+.hpc-body table { display: block; overflow-x: auto; border-collapse: collapse; margin: 1.1rem 0; }
+.hpc-body th, .hpc-body td { border-bottom: 1px solid var(--surface-2); padding: .4rem .7rem; text-align: left; vertical-align: top; }
+.hpc-pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; flex-wrap: wrap; }
+.hpc-licence { font-size: .85em; margin-top: 1.5rem; opacity: .8; }
