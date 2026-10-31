@@ -4,7 +4,7 @@ slug: index
 description: A from-scratch tutorial on high-performance computing for researchers, with worked examples on NI-HPC's Kelvin2 that carry over to other Slurm clusters.
 ---
 
-This is the guide I wanted when I first logged into a supercomputer as a PhD researcher whose background was in geography, not computing. It assumes you have never used a command line. By the end, you will have logged in securely, moved files, installed software, built confidence with seven small practice jobs on real data, and run a parameter sweep of many jobs. A final chapter carries these skills to other clusters, the cloud and everyday Linux administration.
+This is the guide I wanted when I first logged into a supercomputer as a PhD researcher. I trained in geo-informatics and remote sensing, which combine geography, geospatial science, programming and mathematics, yet a shared supercomputer was still new to me. It assumes you have never used a command line. By the end, you will have logged in securely, moved files, installed software, built confidence with seven small practice jobs on real data, and run a parameter sweep of many jobs. A final chapter carries these skills to other clusters, the cloud and everyday Linux administration.
 
 The examples use [Kelvin2](https://ni-hpc.github.io/nihpc-documentation), the cluster run by the Northern Ireland High Performance Computing service (NI-HPC). Most of what you learn carries over to any Linux cluster that uses the Slurm scheduler. **Kelvin2 only** marks details specific to that system; check your own cluster's documentation for the equivalents.
 

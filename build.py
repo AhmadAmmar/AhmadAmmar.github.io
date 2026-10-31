@@ -62,7 +62,7 @@ HEAD = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
-<meta name="author" content="Ahmad Ammar">
+<meta name="author" content="{author}">
 <link rel="canonical" href="{canonical}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
@@ -131,7 +131,7 @@ def render(meta, body):
     title = meta["title"] if meta.get("nav") == "about" else meta["title"] + " | Ahmad Ammar"
     head = HEAD.format(
         title=title, description=meta["description"], canonical=canonical, root=root,
-        nav=nav, extra_head=meta.get("head", ""),
+        nav=nav, extra_head=meta.get("head", ""), author=meta.get("author", "Ahmad Ammar"),
         icon_menu=ICONS["menu"], icon_sun=ICONS["sun"],
     )
     foot = FOOT.format(
