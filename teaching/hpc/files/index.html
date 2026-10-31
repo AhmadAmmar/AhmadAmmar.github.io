@@ -52,8 +52,10 @@
       <li><a href="../../../teaching/hpc/files/" aria-current="page">Files and storage</a></li>
       <li><a href="../../../teaching/hpc/software/">Software, environments and containers</a></li>
       <li><a href="../../../teaching/hpc/slurm/">Running jobs with Slurm</a></li>
+      <li><a href="../../../teaching/hpc/first-jobs/">Seven exercises to build confidence</a></li>
       <li><a href="../../../teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
       <li><a href="../../../teaching/hpc/practice/">Measuring and good practice</a></li>
+      <li><a href="../../../teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="../../../teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
     <p><a href="../../../files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
@@ -61,15 +63,9 @@
   <article class="hpc-body">
 <h2 id="where-things-go">Where things go</h2>
 
-<p>Clusters have several storage areas with different rules. Learn yours
+<p>Clusters have several storage areas with different rules. Learn yours before you create anything big.</p>
 
-before you create anything big.</p>
-
-<p><strong>Kelvin2 only</strong>, according to the <a
-
-href="https://ni-hpc.github.io/nihpc-documentation/Quickstart%20Guide/">quick-start
-
-guide</a>:</p>
+<p><strong>Kelvin2 only</strong>, according to the <a href="https://ni-hpc.github.io/nihpc-documentation/Quickstart%20Guide/">quick-start guide</a>:</p>
 
 <table>
 
@@ -87,7 +83,7 @@ guide</a>:</p>
 
 <thead>
 
-<tr>
+<tr class="header">
 
 <th>Area</th>
 
@@ -103,7 +99,7 @@ guide</a>:</p>
 
 <tbody>
 
-<tr>
+<tr class="odd">
 
 <td>Home</td>
 
@@ -115,7 +111,7 @@ guide</a>:</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td>Scratch</td>
 
@@ -127,7 +123,7 @@ guide</a>:</p>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td>Temp</td>
 
@@ -139,7 +135,7 @@ guide</a>:</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td>McClayRDS</td>
 
@@ -157,13 +153,7 @@ guide</a>:</p>
 
 <p><code>quota -s</code> shows your actual allocation.</p>
 
-<p>The key rule: <strong>scratch is not a backup and not an
-
-archive.</strong> Keep a copy of results that matter on your
-
-institution's storage, and ask your support team what, if anything, is
-
-backed up.</p>
+<p>The key rule: <strong>scratch is not a backup and not an archive.</strong> Keep a copy of results that matter on your institution's storage, and ask your support team what, if anything, is backed up.</p>
 
 <h2 id="a-tidy-project">A tidy project</h2>
 
@@ -189,13 +179,7 @@ ln -s /mnt/scratch2/users/$USER/project ~/project/scratch</code></pre>
 
 <h2 id="moving-files-with-scp">Moving files with scp</h2>
 
-<p><code>scp source destination</code> copies securely. A remote
-
-location is written <code>kelvin:path</code>, using your shortcut.
-
-<strong>Run it from your laptop</strong>, in a separate terminal from
-
-your cluster session.</p>
+<p><code>scp source destination</code> copies securely. A remote location is written <code>kelvin:path</code>, using your shortcut. <strong>Run it from your laptop</strong>, in a separate terminal from your cluster session.</p>
 
 <pre class="powershell"><code># laptop
 
@@ -217,29 +201,17 @@ scp -r &quot;D:\My Work\code&quot; kelvin:~/project/
 
 scp kelvin:~/project/scratch/outputs/results.tgz &quot;D:\My Work&quot;</code></pre>
 
-<p>Without the shortcut, the port needs a <strong>capital</strong>
-
-<code>-P</code>, unlike <code>ssh</code>, which uses a lower-case
-
-<code>-p</code>:</p>
+<p>Without the shortcut, the port needs a <strong>capital</strong> <code>-P</code>, unlike <code>ssh</code>, which uses a lower-case <code>-p</code>:</p>
 
 <pre class="powershell"><code># laptop
 
 scp -P 55890 -i $HOME\.ssh\my-kelvin-key data.csv &lt;username&gt;@login.kelvin.alces.network:~/project/</code></pre>
 
-<p><strong>A Windows trap.</strong> Do not end a quoted folder with a
-
-backslash. In <code>"D:\My Work\"</code>, the <code>\"</code> is read as
-
-a literal quote mark, and you get a confusing "No such file or
-
-directory". Write <code>"D:\My Work"</code>.</p>
+<p><strong>A Windows trap.</strong> Do not end a quoted folder with a backslash. In <code>"D:\My Work\"</code>, the <code>\"</code> is read as a literal quote mark, and you get a confusing "No such file or directory". Write <code>"D:\My Work"</code>.</p>
 
 <h2 id="many-small-files-pack-first">Many small files: pack first</h2>
 
-<p>Sending thousands of small files one by one is slow, and hard on
-
-shared storage. Pack, send, unpack:</p>
+<p>Sending thousands of small files one by one is slow, and hard on shared storage. Pack, send, unpack:</p>
 
 <pre class="powershell"><code># laptop
 
@@ -255,37 +227,19 @@ scp code.tgz kelvin:~/project/</code></pre>
 
 cd ~/project &amp;&amp; tar xzf code.tgz &amp;&amp; rm code.tgz</code></pre>
 
-<p>Coming back, pack only what you need, such as summaries rather than
-
-every raw output.</p>
+<p>Coming back, pack only what you need, such as summaries rather than every raw output.</p>
 
 <h2 id="large-transfers">Large transfers</h2>
 
-<p><strong>Kelvin2 only.</strong> For large amounts of data, use a data
-
-movement node rather than a login node:
-
-<code>dm1.kelvin.alces.network</code> or
-
-<code>dm2.kelvin.alces.network</code>. Tools such as <code>rsync</code>
-
-can resume an interrupted transfer. MobaXterm and WinSCP offer drag and
-
-drop.</p>
+<p><strong>Kelvin2 only.</strong> For large amounts of data, use a data movement node rather than a login node: <code>dm1.kelvin.alces.network</code> or <code>dm2.kelvin.alces.network</code>. Tools such as <code>rsync</code> can resume an interrupted transfer. MobaXterm and WinSCP offer drag and drop.</p>
 
 <h2 id="files-that-arrive-read-only">Files that arrive read-only</h2>
 
-<p>Copied files can keep restrictive permissions, leading to
-
-<code>Permission denied</code> when you edit them.
-
-<code>chmod -R u+w ~/project/code</code> gives you write permission on
-
-everything in that folder.</p>
+<p>Copied files can keep restrictive permissions, leading to <code>Permission denied</code> when you edit them. <code>chmod -R u+w ~/project/code</code> gives you write permission on everything in that folder.</p>
 
 
 <nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/hpc/connect/">&larr; Connecting securely</a><a href="../../../teaching/hpc/software/">Software, environments and containers &rarr;</a></nav>
-<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
   </article>
 </div>
 </main>

@@ -19,8 +19,10 @@ out: teaching/hpc/slurm/index.html
       <li><a href="{{root}}teaching/hpc/files/">Files and storage</a></li>
       <li><a href="{{root}}teaching/hpc/software/">Software, environments and containers</a></li>
       <li><a href="{{root}}teaching/hpc/slurm/" aria-current="page">Running jobs with Slurm</a></li>
+      <li><a href="{{root}}teaching/hpc/first-jobs/">Seven exercises to build confidence</a></li>
       <li><a href="{{root}}teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
       <li><a href="{{root}}teaching/hpc/practice/">Measuring and good practice</a></li>
+      <li><a href="{{root}}teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="{{root}}teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
     <p><a href="{{root}}files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
@@ -34,24 +36,24 @@ out: teaching/hpc/slurm/index.html
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th><code>srun ... --pty bash</code></th>
 <th><code>sbatch script.sh</code></th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Style</td>
 <td>Interactive: you get a shell on a compute node</td>
 <td>Hand it in and walk away</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Good for</td>
 <td>Short tests, installs</td>
 <td>All real work</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>If you disconnect</td>
 <td>Work stops</td>
 <td>It carries on</td>
@@ -77,9 +79,7 @@ date                                 # when did it run?</code></pre>
 sbatch first.sh                # hand it in. Prints: Submitted batch job &lt;jobid&gt;
 squeue -u $USER                # my jobs. PD means pending, R means running
 cat first_&lt;jobid&gt;.out          # read what it printed</code></pre>
-<p>When your job vanishes from <code>squeue</code>, it has ended, either
-successfully or not, so always read the log. By default a job starts in
-the folder from which you submitted it.</p>
+<p>When your job vanishes from <code>squeue</code>, it has ended, either successfully or not, so always read the log. By default a job starts in the folder from which you submitted it.</p>
 <h2 id="the-settings-you-need">The settings you need</h2>
 <table>
 <colgroup>
@@ -88,114 +88,107 @@ the folder from which you submitted it.</p>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Setting</th>
 <th>Meaning</th>
 <th>Choosing it</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>--job-name</code></td>
 <td>A label</td>
 <td>Short and useful</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>--time</code></td>
 <td>Hard limit, also <code>days-hh:mm:ss</code></td>
-<td>Run a test, and add a margin. An accurate limit helps a job start
-sooner</td>
+<td>Run a test, and add a margin. An accurate limit helps a job start sooner</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>--cpus-per-task</code></td>
 <td>Cores for a threaded program</td>
 <td>Only what it can actually use</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>--ntasks</code></td>
 <td>Separate processes, as in MPI</td>
 <td>1, unless you use MPI</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>--nodes</code></td>
 <td>Number of nodes</td>
 <td>Usually leave it, unless using MPI</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>--mem</code> or <code>--mem-per-cpu</code></td>
 <td>Memory</td>
 <td>Check real use with <code>sacct</code>, then trim it</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>--partition</code> or <code>-p</code></td>
 <td>Which queue</td>
 <td>See below</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>--output</code>, <code>--error</code></td>
 <td>Files for printed output and errors</td>
-<td>Use <code>%x</code> job name, <code>%j</code> job ID,
-<code>%A</code> array ID, <code>%a</code> task number. The folder must
-already exist, or the log is lost</td>
+<td>Use <code>%x</code> job name, <code>%j</code> job ID, <code>%A</code> array ID, <code>%a</code> task number. The folder must already exist, or the log is lost</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>--array</code></td>
 <td>Many tasks; see the next chapter</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>--gres=gpu:&lt;type&gt;:1</code></td>
 <td>A GPU</td>
 <td>Only on GPU partitions, and only if your code uses it</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>--mail-type</code>, <code>--mail-user</code></td>
 <td>Email on start and end</td>
 <td>Handy for long jobs; avoid it for arrays</td>
 </tr>
 </tbody>
 </table>
-<p>The definitive list is in the <a
-href="https://slurm.schedmd.com/sbatch.html"><code>sbatch</code>
-manual</a>.</p>
-<p>Partitions, <strong>Kelvin2 only</strong>, from <a
-href="https://ni-hpc.github.io/nihpc-documentation/Running%20Jobs/">Running
-Jobs</a>; check there for changes:</p>
+<p>The definitive list is in the <a href="https://slurm.schedmd.com/sbatch.html"><code>sbatch</code> manual</a>.</p>
+<p>Partitions, <strong>Kelvin2 only</strong>, from <a href="https://ni-hpc.github.io/nihpc-documentation/Running%20Jobs/">Running Jobs</a>; check there for changes:</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Partition</th>
 <th>Time limit</th>
 <th>For</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td><code>k2-hipri</code> (default)</td>
 <td>3 hours</td>
 <td>Short jobs</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>k2-medpri</code></td>
 <td>24 hours</td>
 <td>Longer jobs</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>k2-lowpri</code></td>
 <td>Not listed</td>
 <td>Long jobs</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>k2-himem</code></td>
 <td>3 days</td>
 <td>Very large memory</td>
 </tr>
-<tr>
+<tr class="odd">
 <td><code>k2-gpu-*</code></td>
 <td>3 days</td>
 <td>GPUs</td>
 </tr>
-<tr>
+<tr class="even">
 <td><code>k2-sandbox</code></td>
 <td>See <code>sinfo</code></td>
 <td>Testing, per the Green HPC page</td>
@@ -210,19 +203,11 @@ scancel &lt;jobid&gt;                 # cancel a job
 scancel -u $USER                # cancel all my jobs. Careful
 sinfo -s                        # a summary of partitions
 sacct -j &lt;jobid&gt; --format=JobID,Elapsed,MaxRSS,State    # after it ends: time, peak memory, outcome</code></pre>
-<p>Job states you will see include <code>COMPLETED</code>,
-<code>FAILED</code>, <code>TIMEOUT</code> (it hit <code>--time</code>),
-and <code>OUT_OF_MEMORY</code>.</p>
+<p>Job states you will see include <code>COMPLETED</code>, <code>FAILED</code>, <code>TIMEOUT</code> (it hit <code>--time</code>), and <code>OUT_OF_MEMORY</code>.</p>
 <h2 id="start-small">Start small</h2>
-<p>Test on a tiny case before running at scale. A good first job proves
-that it runs on a compute node (<code>hostname</code>), has the cores
-you asked for (<code>nproc</code>), finds your software, and can see
-your files. NI-HPC's <a
-href="https://ni-hpc.github.io/nihpc-documentation/Green%20HPC/">Green
-HPC page</a> makes the same point on carbon grounds: failed jobs waste
-energy too.</p>
+<p>Test on a tiny case before running at scale. A good first job proves that it runs on a compute node (<code>hostname</code>), has the cores you asked for (<code>nproc</code>), finds your software, and can see your files. NI-HPC's <a href="https://ni-hpc.github.io/nihpc-documentation/Green%20HPC/">Green HPC page</a> makes the same point on carbon grounds: failed jobs waste energy too.</p>
 
-<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/hpc/software/">&larr; Software, environments and containers</a><a href="{{root}}teaching/hpc/arrays/">Job arrays: a parameter sweep &rarr;</a></nav>
-<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/hpc/software/">&larr; Software, environments and containers</a><a href="{{root}}teaching/hpc/first-jobs/">Seven exercises to build confidence &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
   </article>
 </div>

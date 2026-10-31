@@ -52,24 +52,16 @@
       <li><a href="../../../teaching/hpc/files/">Files and storage</a></li>
       <li><a href="../../../teaching/hpc/software/">Software, environments and containers</a></li>
       <li><a href="../../../teaching/hpc/slurm/">Running jobs with Slurm</a></li>
+      <li><a href="../../../teaching/hpc/first-jobs/">Seven exercises to build confidence</a></li>
       <li><a href="../../../teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
       <li><a href="../../../teaching/hpc/practice/">Measuring and good practice</a></li>
+      <li><a href="../../../teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="../../../teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
     <p><a href="../../../files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
   </aside>
   <article class="hpc-body">
-<p>A <strong>shell</strong> reads what you type and runs it. On Windows
-
-you will probably use PowerShell to connect; on the cluster, you will be
-
-using <code>bash</code>. macOS and Linux terminals work almost the same
-
-as <code>bash</code>. For a longer course, see Shotts (2019) or <a
-
-href="https://swcarpentry.github.io/shell-novice/">Software
-
-Carpentry</a>.</p>
+<p>A <strong>shell</strong> reads what you type and runs it. On Windows you will probably use PowerShell to connect; on the cluster, you will be using <code>bash</code>. macOS and Linux terminals work almost the same as <code>bash</code>. For a longer course, see Shotts (2019) or <a href="https://swcarpentry.github.io/shell-novice/">Software Carpentry</a>.</p>
 
 <h2 id="anatomy-of-a-command">Anatomy of a command</h2>
 
@@ -77,15 +69,7 @@ Carpentry</a>.</p>
 
 ls -l ~/project</code></pre>
 
-<p><code>ls</code> is the command: what to do (list files).
-
-<code>-l</code> is an option: how to do it (long format).
-
-<code>~/project</code> is the argument: what to act on. Spaces separate
-
-the parts, so a path containing a space needs double quotes, or the
-
-shell reads it as two things.</p>
+<p><code>ls</code> is the command: what to do (list files). <code>-l</code> is an option: how to do it (long format). <code>~/project</code> is the argument: what to act on. Spaces separate the parts, so a path containing a space needs double quotes, or the shell reads it as two things.</p>
 
 <h2 id="paths">Paths</h2>
 
@@ -93,7 +77,7 @@ shell reads it as two things.</p>
 
 <thead>
 
-<tr>
+<tr class="header">
 
 <th>Symbol</th>
 
@@ -105,7 +89,7 @@ shell reads it as two things.</p>
 
 <tbody>
 
-<tr>
+<tr class="odd">
 
 <td><code>~</code></td>
 
@@ -113,7 +97,7 @@ shell reads it as two things.</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>.</code> and <code>..</code></td>
 
@@ -121,7 +105,7 @@ shell reads it as two things.</p>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>/</code></td>
 
@@ -129,7 +113,7 @@ shell reads it as two things.</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>*</code></td>
 
@@ -137,7 +121,7 @@ shell reads it as two things.</p>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>$HOME</code>, <code>$USER</code></td>
 
@@ -149,11 +133,7 @@ shell reads it as two things.</p>
 
 </table>
 
-<p>Linux names are case-sensitive, so <code>Data</code> and
-
-<code>data</code> differ. Windows writes <code>C:\Users\me</code>, and
-
-Linux writes <code>/users/me</code>.</p>
+<p>Linux names are case-sensitive, so <code>Data</code> and <code>data</code> differ. Windows writes <code>C:\Users\me</code>, and Linux writes <code>/users/me</code>.</p>
 
 <h2 id="commands-worth-knowing">Commands worth knowing</h2>
 
@@ -169,7 +149,7 @@ Linux writes <code>/users/me</code>.</p>
 
 <thead>
 
-<tr>
+<tr class="header">
 
 <th>Command</th>
 
@@ -181,7 +161,7 @@ Linux writes <code>/users/me</code>.</p>
 
 <tbody>
 
-<tr>
+<tr class="odd">
 
 <td><code>pwd</code></td>
 
@@ -189,7 +169,7 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>ls</code>, <code>ls -l</code>, <code>ls -t</code></td>
 
@@ -197,7 +177,7 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>cd folder</code>, <code>cd ..</code>, <code>cd</code></td>
 
@@ -205,7 +185,7 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>mkdir -p a/b</code></td>
 
@@ -213,7 +193,7 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>cp a b</code>, <code>cp -r a b</code></td>
 
@@ -221,7 +201,7 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>mv a b</code></td>
 
@@ -229,17 +209,15 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>rm file</code></td>
 
-<td>Delete. <strong>There is no recycle bin.</strong> Look first with
-
-<code>ls</code></td>
+<td>Delete. <strong>There is no recycle bin.</strong> Look first with <code>ls</code></td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>ln -s target name</code></td>
 
@@ -247,7 +225,7 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>cat</code>, <code>head -5</code>, <code>tail -20</code></td>
 
@@ -255,7 +233,7 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>less file</code></td>
 
@@ -263,7 +241,7 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>wc -l</code></td>
 
@@ -271,17 +249,15 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>grep "text" file</code></td>
 
-<td>Show lines containing text. <code>-i</code> ignores case,
-
-<code>-l</code> lists only file names</td>
+<td>Show lines containing text. <code>-i</code> ignores case, <code>-l</code> lists only file names</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>sed -i 's/old/new/' file</code></td>
 
@@ -289,19 +265,15 @@ Linux writes <code>/users/me</code>.</p>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>chmod u+x file</code></td>
 
-<td>Let yourself (<code>u</code>) execute (<code>x</code>) a file.
-
-<code>chmod -R u+w folder</code> lets you write to everything in a
-
-folder</td>
+<td>Let yourself (<code>u</code>) execute (<code>x</code>) a file. <code>chmod -R u+w folder</code> lets you write to everything in a folder</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>tar czf a.tgz folder</code></td>
 
@@ -309,7 +281,7 @@ folder</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>tar xzf a.tgz</code></td>
 
@@ -317,7 +289,7 @@ folder</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>df -h .</code>, <code>du -sh folder</code></td>
 
@@ -325,7 +297,7 @@ folder</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>hostname</code>, <code>nproc</code></td>
 
@@ -333,7 +305,7 @@ folder</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>man ls</code></td>
 
@@ -345,11 +317,7 @@ folder</td>
 
 </table>
 
-<p>To edit on the cluster, <code>nano file</code> is the easiest editor
-
-if it is installed: the keys are listed at the bottom. NI-HPC's guide
-
-uses <code>vi</code>, which is powerful but odd at first.</p>
+<p>To edit on the cluster, <code>nano file</code> is the easiest editor if it is installed: the keys are listed at the bottom. NI-HPC's guide uses <code>vi</code>, which is powerful but odd at first.</p>
 
 <h2 id="joining-commands">Joining commands</h2>
 
@@ -421,13 +389,7 @@ done</code></pre>
 
 <h2 id="windows-line-endings">Windows line endings</h2>
 
-<p>Windows ends each line of text with two invisible characters
-
-(carriage return, line feed), and Linux with one. A script written on
-
-Windows can fail on Linux with baffling errors such as
-
-<code>$'\r': command not found</code>. Fix it on the cluster:</p>
+<p>Windows ends each line of text with two invisible characters (carriage return, line feed), and Linux with one. A script written on Windows can fail on Linux with baffling errors such as <code>$'\r': command not found</code>. Fix it on the cluster:</p>
 
 <pre class="bash"><code># cluster
 
@@ -437,7 +399,7 @@ sed -i &#39;s/\r$//&#39; myscript.sh</code></pre>
 
 
 <nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/hpc/concepts/">&larr; What a cluster is</a><a href="../../../teaching/hpc/connect/">Connecting securely &rarr;</a></nav>
-<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
   </article>
 </div>
 </main>

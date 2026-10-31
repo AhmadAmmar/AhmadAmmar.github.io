@@ -8,7 +8,7 @@ description: SSH keys, passphrases, multi-factor authentication and a login shor
 
 **SSH** (Secure Shell) is an encrypted remote terminal (OpenSSH, n.d.). Instead of a password, it can use a matched pair of files. The **public key** is like a padlock: you can give out copies, and the cluster fits one to your account. The **private key** is the only thing that opens it, and it stays on your computer. A **passphrase** locks the private key in case your laptop is stolen.
 
-**Never share your private key, its passphrase or your MFA secret with anybody**, including IT staff, a colleague or an AI assistant. Only the file ending in `.pub` is safe to send.
+**Never share your private key, its passphrase or your MFA secret with anybody**, including IT staff or a colleague. Only the file ending in `.pub` is safe to send.
 
 ## Step 1: Make a key pair
 

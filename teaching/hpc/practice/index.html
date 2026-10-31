@@ -52,8 +52,10 @@
       <li><a href="../../../teaching/hpc/files/">Files and storage</a></li>
       <li><a href="../../../teaching/hpc/software/">Software, environments and containers</a></li>
       <li><a href="../../../teaching/hpc/slurm/">Running jobs with Slurm</a></li>
+      <li><a href="../../../teaching/hpc/first-jobs/">Seven exercises to build confidence</a></li>
       <li><a href="../../../teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
       <li><a href="../../../teaching/hpc/practice/" aria-current="page">Measuring and good practice</a></li>
+      <li><a href="../../../teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="../../../teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
     <p><a href="../../../files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
@@ -73,7 +75,7 @@
 
 <thead>
 
-<tr>
+<tr class="header">
 
 <th>Term</th>
 
@@ -85,7 +87,7 @@
 
 <tbody>
 
-<tr>
+<tr class="odd">
 
 <td>Wall time</td>
 
@@ -93,17 +95,15 @@
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td>Core time</td>
 
-<td>Sum of the time on each core. 10 tasks of 1 minute each: 1 minute of
-
-wall time, 10 of core time</td>
+<td>Sum of the time on each core. 10 tasks of 1 minute each: 1 minute of wall time, 10 of core time</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td>Queue wait</td>
 
@@ -111,7 +111,7 @@ wall time, 10 of core time</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td>Speed-up</td>
 
@@ -119,7 +119,7 @@ wall time, 10 of core time</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td>Efficiency</td>
 
@@ -145,11 +145,7 @@ wall time, 10 of core time</td>
 
 sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,State &gt; jobs.txt</code></pre>
 
-<p>Times are in whole seconds, which is too coarse for tasks of a few
-
-seconds. Time those from inside the job with
-
-<code>date +%s.%N</code>.</p>
+<p>Times are in whole seconds, which is too coarse for tasks of a few seconds. Time those from inside the job with <code>date +%s.%N</code>.</p>
 
 <h2 id="benchmarking-fairly">Benchmarking fairly</h2>
 
@@ -157,23 +153,13 @@ seconds. Time those from inside the job with
 
 <ul>
 
-<li>Compare like with like: same program, version, input and output
+<li>Compare like with like: same program, version, input and output settings.</li>
 
-settings.</li>
+<li>Report what you measured. "First task start to last task end" and "submission to finish" are different numbers.</li>
 
-<li>Report what you measured. "First task start to last task end" and
+<li>Separate setup from running. If your script copies files between submissions, you are timing the copying. I made this mistake in my own first test.</li>
 
-"submission to finish" are different numbers.</li>
-
-<li>Separate setup from running. If your script copies files between
-
-submissions, you are timing the copying. I made this mistake in my own
-
-first test.</li>
-
-<li>Repeat. Shared systems vary with load. Report a range, not your best
-
-run.</li>
+<li>Repeat. Shared systems vary with load. Report a range, not your best run.</li>
 
 <li>Say what you projected, and what you measured.</li>
 
@@ -187,25 +173,17 @@ run.</li>
 
 <ul>
 
-<li>Keep code in version control, such as git. Keep raw data unchanged,
+<li>Keep code in version control, such as git. Keep raw data unchanged, with scripts that make everything else from it.</li>
 
-with scripts that make everything else from it.</li>
+<li>Never overwrite results. Use dated output folders: <code>outputs/$(date +%Y-%m-%d_%H%M)</code>.</li>
 
-<li>Never overwrite results. Use dated output folders:
-
-<code>outputs/$(date +%Y-%m-%d_%H%M)</code>.</li>
-
-<li>Record versions: <code>module list</code>,
-
-<code>conda env export</code>, <code>git rev-parse HEAD</code>.</li>
+<li>Record versions: <code>module list</code>, <code>conda env export</code>, <code>git rev-parse HEAD</code>.</li>
 
 <li>Keep job scripts, as they are the record of what you did.</li>
 
 <li>Make jobs restartable.</li>
 
-<li>Read your inputs back: check a run's settings, such as the simulated
-
-period, before you describe it.</li>
+<li>Read your inputs back: check a run's settings, such as the simulated period, before you describe it.</li>
 
 <li>Copy results off scratch.</li>
 
@@ -217,39 +195,23 @@ period, before you describe it.</li>
 
 <li>No heavy work on login nodes.</li>
 
-<li>Ask for what you need, not the maximum. Over-asking makes your own
-
-job queue for longer, and blocks others.</li>
+<li>Ask for what you need, not the maximum. Over-asking makes your own job queue for longer, and blocks others.</li>
 
 <li>Avoid millions of tiny files. Pack them, or write summaries.</li>
 
-<li>Run only what you need. Smarter sampling can replace brute force, as
-
-NI-HPC's <a
-
-href="https://ni-hpc.github.io/nihpc-documentation/Green%20HPC/">Green
-
-HPC page</a> notes.</li>
+<li>Run only what you need. Smarter sampling can replace brute force, as NI-HPC's <a href="https://ni-hpc.github.io/nihpc-documentation/Green%20HPC/">Green HPC page</a> notes.</li>
 
 <li>Read your cluster's acceptable use policy.</li>
 
-<li>Acknowledge the service in your papers. <strong>Kelvin2:</strong>
+<li>Acknowledge the service in your papers. <strong>Kelvin2:</strong> "We are grateful for use of the computing resources from the Northern Ireland High Performance Computing (NI-HPC) service funded by EPSRC (EP/T022175)."</li>
 
-"We are grateful for use of the computing resources from the Northern
-
-Ireland High Performance Computing (NI-HPC) service funded by EPSRC
-
-(EP/T022175)."</li>
-
-<li>When stuck, write to the support team with your job ID, the exact
-
-command and the error message.</li>
+<li>When stuck, write to the support team with your job ID, the exact command and the error message.</li>
 
 </ul>
 
 
-<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/hpc/arrays/">&larr; Job arrays: a parameter sweep</a><a href="../../../teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet &rarr;</a></nav>
-<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/hpc/arrays/">&larr; Job arrays: a parameter sweep</a><a href="../../../teaching/hpc/beyond/">Other clusters, the cloud and Linux basics &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
   </article>
 </div>
 </main>

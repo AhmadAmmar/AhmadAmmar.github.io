@@ -19,33 +19,21 @@ out: teaching/hpc/arrays/index.html
       <li><a href="{{root}}teaching/hpc/files/">Files and storage</a></li>
       <li><a href="{{root}}teaching/hpc/software/">Software, environments and containers</a></li>
       <li><a href="{{root}}teaching/hpc/slurm/">Running jobs with Slurm</a></li>
+      <li><a href="{{root}}teaching/hpc/first-jobs/">Seven exercises to build confidence</a></li>
       <li><a href="{{root}}teaching/hpc/arrays/" aria-current="page">Job arrays: a parameter sweep</a></li>
       <li><a href="{{root}}teaching/hpc/practice/">Measuring and good practice</a></li>
+      <li><a href="{{root}}teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="{{root}}teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
     <p><a href="{{root}}files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
   </aside>
   <article class="hpc-body">
-<p>Say you want to run one program on hundreds of inputs. Submitting
-hundreds of separate jobs is clumsy. A <strong>job array</strong>
-submits them as one, with each <strong>task</strong> told its number
-(SchedMD, n.d.).</p>
-<p>This chapter builds a working sweep. Download the three files: <a
-href="{{root}}teaching/hpc/examples/heat_loss.py"><code>heat_loss.py</code></a>, <a
-href="{{root}}teaching/hpc/examples/make_cases.py"><code>make_cases.py</code></a> and <a
-href="{{root}}teaching/hpc/examples/run_sweep.sh"><code>run_sweep.sh</code></a>. The
-"simulation" estimates a building's yearly heating need, but you can
-swap in your own program.</p>
+<p>Say you want to run one program on hundreds of inputs. Submitting hundreds of separate jobs is clumsy. A <strong>job array</strong> submits them as one, with each <strong>task</strong> told its number (SchedMD, n.d.).</p>
+<p>This chapter builds a working sweep. Download the three files: <a href="{{root}}teaching/hpc/examples/heat_loss.py"><code>heat_loss.py</code></a>, <a href="{{root}}teaching/hpc/examples/make_cases.py"><code>make_cases.py</code></a> and <a href="{{root}}teaching/hpc/examples/run_sweep.sh"><code>run_sweep.sh</code></a>. The "simulation" estimates a building's yearly heating need, but you can swap in your own program.</p>
 <h2 id="the-science-in-one-paragraph">The science in one paragraph</h2>
-<p>Heat flows out through a wall in proportion to its area, how leaky it
-is (its <strong>U-value</strong>, in W per m² per kelvin) and the
-temperature difference. Air leaking out takes heat too: warming 1 m³ of
-air by 1 K takes about 0.33 Wh. <strong>Degree days</strong> measure how
-cold a year is, summing how far each day falls below a base temperature.
-So heat in kWh per year is:</p>
+<p>Heat flows out through a wall in proportion to its area, how leaky it is (its <strong>U-value</strong>, in W per m² per kelvin) and the temperature difference. Air leaking out takes heat too: warming 1 m³ of air by 1 K takes about 0.33 Wh. <strong>Degree days</strong> measure how cold a year is, summing how far each day falls below a base temperature. So heat in kWh per year is:</p>
 <p>Q = (U × A + 0.33 × n × V) × DD × 24 / 1000</p>
-<p>where A is wall area, n is air changes per hour, V is volume and DD
-is degree days.</p>
+<p>where A is wall area, n is air changes per hour, V is volume and DD is degree days.</p>
 <h2 id="step-1-the-program">Step 1: the program</h2>
 <p><strong>heat_loss.py</strong></p>
 <pre class="python"><code>#!/usr/bin/env python3
@@ -112,8 +100,7 @@ for number, (u, ach, hdd) in enumerate(itertools.product(U_WALL, AIR_CHANGES, DE
     (folder / f&quot;case_{number:03d}.json&quot;).write_text(json.dumps(case))
 
 print(f&quot;wrote {number + 1} cases to {folder}&quot;)</code></pre>
-<p>Three settings, each with three values, give 3 × 3 × 3 = 27
-combinations.</p>
+<p>Three settings, each with three values, give 3 × 3 × 3 = 27 combinations.</p>
 <pre class="bash"><code># cluster, in a project folder holding the three files
 
 # Find your Python first. Look for a module with: module avail 2&gt;&amp;1 | grep -i python
@@ -121,14 +108,9 @@ module load &lt;python-module&gt;
 python3 make_cases.py cases
 ls cases | head                # case_000.json, case_001.json ...
 python3 heat_loss.py cases/case_000.json &amp;&amp; cat cases/case_000.out    # 11016.0</code></pre>
-<p>The last line is your test. For the first case, U = 2.1, A = 90, n =
-1, V = 200 and DD = 1800, so by hand: (189 + 66) × 1800 × 24 / 1000 =
-11016. Then delete that output, with <code>rm cases/case_000.out</code>,
-so that the job below runs every case.</p>
+<p>The last line is your test. For the first case, U = 2.1, A = 90, n = 1, V = 200 and DD = 1800, so by hand: (189 + 66) × 1800 × 24 / 1000 = 11016. Then delete that output, with <code>rm cases/case_000.out</code>, so that the job below runs every case.</p>
 <h2 id="step-3-the-job-script">Step 3: the job script</h2>
-<p>Running one input per task works, but very short tasks are wasteful,
-because starting each one has a cost. So <strong>pack</strong> several
-runs into each task.</p>
+<p>Running one input per task works, but very short tasks are wasteful, because starting each one has a cost. So <strong>pack</strong> several runs into each task.</p>
 <p><strong>run_sweep.sh</strong></p>
 <pre class="bash"><code>#!/bin/bash
 # Runs a block of cases on one core, as one task of a Slurm job array.
@@ -163,14 +145,9 @@ for f in &quot;${CASES[@]:start:PER}&quot;; do
 done
 
 echo &quot;task $SLURM_ARRAY_TASK_ID finished its block, starting at case $start on $(hostname)&quot;</code></pre>
-<p>Add your <code>module load</code> line just before the
-<code>mapfile</code> line. Slurm usually passes your session's
-environment on to the job, but stating it in the script is what makes
-the job repeatable.</p>
+<p>Add your <code>module load</code> line just before the <code>mapfile</code> line. Slurm usually passes your session's environment on to the job, but stating it in the script is what makes the job repeatable.</p>
 <h2 id="step-4-how-many-tasks">Step 4: how many tasks?</h2>
-<p>With N cases and P per task, divide and round up, so that the last
-few cases are covered. Tasks are numbered from 0. For 27 cases at 5 per
-task, that is 6 tasks, numbered 0 to 5.</p>
+<p>With N cases and P per task, divide and round up, so that the last few cases are covered. Tasks are numbered from 0. For 27 cases at 5 per task, that is 6 tasks, numbered 0 to 5.</p>
 <pre class="bash"><code># cluster
 
 # Line endings, if you edited on Windows
@@ -187,17 +164,14 @@ LAST=$(( (N + PER - 1) / PER - 1 ))
 echo &quot;$N cases, tasks 0 to $LAST&quot;
 
 sbatch --array=0-$LAST run_sweep.sh cases $PER</code></pre>
-<p>A useful extra: <code>--array=0-99%10</code> runs at most 10 tasks at
-once, which is polite on a busy system.</p>
+<p>A useful extra: <code>--array=0-99%10</code> runs at most 10 tasks at once, which is polite on a busy system.</p>
 <h2 id="step-5-did-it-all-work">Step 5: did it all work?</h2>
 <pre class="bash"><code># cluster
 squeue -u $USER                       # wait until it is empty
 ls cases/*.out | wc -l                # expect 27
 grep -l FAILED logs/*.out | wc -l     # expect 0
 tail -2 logs/sweep_*_0.out            # read one log</code></pre>
-<p>If some failed, resubmit the same command. Because each task skips
-cases that already have an output, only the missing ones run. Being safe
-to re-run like this makes large runs much less stressful.</p>
+<p>If some failed, resubmit the same command. Because each task skips cases that already have an output, only the missing ones run. Being safe to re-run like this makes large runs much less stressful.</p>
 <h2 id="step-6-collect-the-results">Step 6: collect the results</h2>
 <pre class="bash"><code># cluster
 # A loop that prints each case&#39;s name and answer into a CSV file.
@@ -208,42 +182,34 @@ head -3 results.csv</code></pre>
 scp kelvin:~/project/results.csv &quot;D:\My Work&quot;</code></pre>
 <h2 id="choosing-a-packing">Choosing a packing</h2>
 <table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th></th>
 <th>Few runs per task (many tasks)</th>
 <th>Many runs per task (few tasks)</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Finishes</td>
 <td>Sooner, if cores are free</td>
 <td>Later: each task takes longer</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Overhead</td>
 <td>Higher: more starts, more load on the scheduler</td>
 <td>Lower</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>After a failure</td>
 <td>Less lost</td>
 <td>More to redo, unless it is restart-safe</td>
 </tr>
 </tbody>
 </table>
-<p>There is no single right answer. Test with your own program, with
-care: submit each setting separately, repeat it, and keep the copying of
-files out of your timing. If you are planning a very large run, ask your
-support team what they prefer.</p>
+<p>There is no single right answer. Test with your own program, with care: submit each setting separately, repeat it, and keep the copying of files out of your timing. If you are planning a very large run, ask your support team what they prefer.</p>
 
-<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/hpc/slurm/">&larr; Running jobs with Slurm</a><a href="{{root}}teaching/hpc/practice/">Measuring and good practice &rarr;</a></nav>
-<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/hpc/first-jobs/">&larr; Seven exercises to build confidence</a><a href="{{root}}teaching/hpc/practice/">Measuring and good practice &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
   </article>
 </div>

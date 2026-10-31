@@ -19,20 +19,17 @@ out: teaching/hpc/concepts/index.html
       <li><a href="{{root}}teaching/hpc/files/">Files and storage</a></li>
       <li><a href="{{root}}teaching/hpc/software/">Software, environments and containers</a></li>
       <li><a href="{{root}}teaching/hpc/slurm/">Running jobs with Slurm</a></li>
+      <li><a href="{{root}}teaching/hpc/first-jobs/">Seven exercises to build confidence</a></li>
       <li><a href="{{root}}teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
       <li><a href="{{root}}teaching/hpc/practice/">Measuring and good practice</a></li>
+      <li><a href="{{root}}teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="{{root}}teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
     <p><a href="{{root}}files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
   </aside>
   <article class="hpc-body">
 <h2 id="the-idea">The idea</h2>
-<p>Picture a laptop as one cook in one kitchen. A cluster is a building
-with hundreds of kitchens, each with dozens of cooks. It rarely makes
-one cook much faster. What it gives you is the ability to cook thousands
-of dishes at once, or to share out one enormous dish. There is a
-reception desk where you hand in orders, and a head waiter who decides
-which kitchen is free.</p>
+<p>Picture a laptop as one cook in one kitchen. A cluster is a building with hundreds of kitchens, each with dozens of cooks. It rarely makes one cook much faster. What it gives you is the ability to cook thousands of dishes at once, or to share out one enormous dish. There is a reception desk where you hand in orders, and a head waiter who decides which kitchen is free.</p>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -40,66 +37,58 @@ which kitchen is free.</p>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Word</th>
 <th>Meaning</th>
 <th>In the picture</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>Node</td>
 <td>One computer in the cluster</td>
 <td>A kitchen</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Core</td>
-<td>One independent processing unit in a node; it runs one stream of
-instructions at a time</td>
+<td>One independent processing unit in a node; it runs one stream of instructions at a time</td>
 <td>A cook</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Memory (RAM)</td>
 <td>Fast working space that empties when the job ends</td>
 <td>The worktop</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Login node</td>
-<td>The computer you arrive at. For editing, moving files and submitting
-work</td>
+<td>The computer you arrive at. For editing, moving files and submitting work</td>
 <td>Reception</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Compute node</td>
 <td>Where jobs run</td>
 <td>The kitchens</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Scheduler</td>
-<td>Software that queues jobs and allocates resources. Slurm (Yoo et
-al., 2003) is widely used</td>
+<td>Software that queues jobs and allocates resources. Slurm (Yoo et al., 2003) is widely used</td>
 <td>The head waiter</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Partition</td>
 <td>A named queue of nodes with its own rules</td>
 <td>A type of kitchen</td>
 </tr>
-<tr>
+<tr class="even">
 <td>Job</td>
 <td>One piece of work submitted to the scheduler</td>
 <td>An order</td>
 </tr>
 </tbody>
 </table>
-<p>The login node is shared with everyone. <strong>Do not run heavy work
-there</strong>: it slows the system for others, and your process may be
-killed.</p>
+<p>The login node is shared with everyone. <strong>Do not run heavy work there</strong>: it slows the system for others, and your process may be killed.</p>
 <h2 id="do-you-need-one">Do you need one?</h2>
-<p>A cluster helps when your work is too big, too long or too repetitive
-for your computer. It will not speed up one ordinary program that can
-only use a single core, beyond any difference in the processor. Three
-common patterns:</p>
+<p>A cluster helps when your work is too big, too long or too repetitive for your computer. It will not speed up one ordinary program that can only use a single core, beyond any difference in the processor. Three common patterns:</p>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -107,56 +96,37 @@ common patterns:</p>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>Pattern</th>
 <th>Example</th>
 <th>What it needs</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Many independent runs, called "many-task" (Raicu et al., 2008) or
-"embarrassingly parallel"</td>
+<tr class="odd">
+<td>Many independent runs, called "many-task" (Raicu et al., 2008) or "embarrassingly parallel"</td>
 <td>A parameter sweep, or one analysis per file</td>
 <td>Job arrays. Often no code changes</td>
 </tr>
-<tr>
+<tr class="even">
 <td>One program sharing memory on a node</td>
 <td>A threaded model, or machine learning on many cores</td>
 <td><code>--cpus-per-task</code>, and a program that can use them</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>One program across nodes</td>
 <td>A large fluid simulation, using MPI</td>
-<td><code>--ntasks</code>, <code>--nodes</code>, and an MPI-aware
-program</td>
+<td><code>--ntasks</code>, <code>--nodes</code>, and an MPI-aware program</td>
 </tr>
 </tbody>
 </table>
-<p>Asking for more cores does not by itself make a program use them.
-Even a parallel program has limits: the part that cannot be shared sets
-a ceiling on the speed-up, an idea known as Amdahl's law (Amdahl, 1967).
-If 10% of the work must run in series, then no number of cores can make
-it more than 10 times faster.</p>
-<p>This guide concentrates on the first pattern, which is what many
-researchers need first. The habits in Wilson et al. (2014) are worth
-reading too.</p>
+<p>Asking for more cores does not by itself make a program use them. Even a parallel program has limits: the part that cannot be shared sets a ceiling on the speed-up, an idea known as Amdahl's law (Amdahl, 1967). If 10% of the work must run in series, then no number of cores can make it more than 10 times faster.</p>
+<p>This guide concentrates on the first pattern, which is what many researchers need first. The habits in Wilson et al. (2014) are worth reading too.</p>
 <h2 id="kelvin2-in-brief">Kelvin2 in brief</h2>
-<p><strong>Kelvin2 only.</strong> The <a
-href="https://www.qub.ac.uk/sites/ni-hpc/Kelvin2/">official pages</a>
-describe about 100 standard compute nodes with 128 cores each (two AMD
-EPYC 7702 processors) and nearly 800 GB of memory, 8 high-memory nodes,
-GPU nodes, and 2 PB of scratch storage, joined by InfiniBand networking.
-Figures differ slightly between NI-HPC's pages and change over time. To
-see what exists now, use <code>sinfo</code>.</p>
-<p>Access is for researchers at Queen's University Belfast and Ulster
-University, and others through national schemes: see NI-HPC's <a
-href="https://www.qub.ac.uk/sites/ni-hpc/Kelvin2/Access/">access
-page</a>. The <a
-href="https://ni-hpc.github.io/nihpc-documentation">acceptable use
-policy</a> is on the documentation home page. Read it first.</p>
+<p><strong>Kelvin2 only.</strong> The <a href="https://www.qub.ac.uk/sites/ni-hpc/Kelvin2/">official pages</a> describe about 100 standard compute nodes with 128 cores each (two AMD EPYC 7702 processors) and nearly 800 GB of memory, 8 high-memory nodes, GPU nodes, and 2 PB of scratch storage, joined by InfiniBand networking. Figures differ slightly between NI-HPC's pages and change over time. To see what exists now, use <code>sinfo</code>.</p>
+<p>Access is for researchers at Queen's University Belfast and Ulster University, and others through national schemes: see NI-HPC's <a href="https://www.qub.ac.uk/sites/ni-hpc/Kelvin2/Access/">access page</a>. The <a href="https://ni-hpc.github.io/nihpc-documentation">acceptable use policy</a> is on the documentation home page. Read it first.</p>
 
 <nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/hpc/">&larr; Getting started on an HPC cluster</a><a href="{{root}}teaching/hpc/shell/">The command line &rarr;</a></nav>
-<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
   </article>
 </div>

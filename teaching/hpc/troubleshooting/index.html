@@ -52,8 +52,10 @@
       <li><a href="../../../teaching/hpc/files/">Files and storage</a></li>
       <li><a href="../../../teaching/hpc/software/">Software, environments and containers</a></li>
       <li><a href="../../../teaching/hpc/slurm/">Running jobs with Slurm</a></li>
+      <li><a href="../../../teaching/hpc/first-jobs/">Seven exercises to build confidence</a></li>
       <li><a href="../../../teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
       <li><a href="../../../teaching/hpc/practice/">Measuring and good practice</a></li>
+      <li><a href="../../../teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="../../../teaching/hpc/troubleshooting/" aria-current="page">Troubleshooting and cheat sheet</a></li>
     </ol>
     <p><a href="../../../files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
@@ -75,7 +77,7 @@
 
 <thead>
 
-<tr>
+<tr class="header">
 
 <th>Symptom</th>
 
@@ -89,19 +91,17 @@
 
 <tbody>
 
-<tr>
+<tr class="odd">
 
 <td><code>Permission denied (publickey)</code></td>
 
 <td>Wrong key, username or port, or the key is not installed yet</td>
 
-<td>Check <code>.ssh/config</code>, and that the cluster has your
-
-key</td>
+<td>Check <code>.ssh/config</code>, and that the cluster has your key</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td>Host identification warning</td>
 
@@ -111,7 +111,7 @@ key</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>scp</code>: "No such file" with a stray <code>"</code></td>
 
@@ -121,7 +121,7 @@ key</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>scp</code>: wrong port</td>
 
@@ -131,7 +131,7 @@ key</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>Killed</code> on the login node</td>
 
@@ -141,31 +141,27 @@ key</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>CondaError: Run 'conda init'</code></td>
 
 <td>Shell not set up for conda</td>
 
-<td><code>conda init</code>, then log in again; or call the
-
-environment's Python directly</td>
+<td><code>conda init</code>, then log in again; or call the environment's Python directly</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>EnvironmentLocationNotFound</code></td>
 
-<td>The environment was never created, often as an earlier step
-
-failed</td>
+<td>The environment was never created, often as an earlier step failed</td>
 
 <td>Scroll up and fix the first error</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>SRE module mismatch</code> or strange Python errors</td>
 
@@ -175,7 +171,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>No module named ...</code> in a job</td>
 
@@ -185,7 +181,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>rustup</code> says no default toolchain</td>
 
@@ -195,7 +191,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td>Downloads fail in a job</td>
 
@@ -205,7 +201,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td><code>Permission denied</code> on your own files</td>
 
@@ -215,7 +211,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td><code>$'\r': command not found</code></td>
 
@@ -225,7 +221,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td>No log file appears</td>
 
@@ -235,7 +231,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td>State <code>TIMEOUT</code></td>
 
@@ -245,7 +241,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td>State <code>OUT_OF_MEMORY</code></td>
 
@@ -255,7 +251,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td>Stuck on <code>PD</code> for ages</td>
 
@@ -265,7 +261,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="even">
 
 <td>Files vanished from scratch</td>
 
@@ -275,7 +271,7 @@ failed</td>
 
 </tr>
 
-<tr>
+<tr class="odd">
 
 <td>Pasted lines ran in an odd order</td>
 
@@ -289,11 +285,7 @@ failed</td>
 
 </table>
 
-<p>The general method: read the <strong>first</strong> error rather than
-
-the last, as later errors are often consequences. Then search for its
-
-exact text.</p>
+<p>The general method: read the <strong>first</strong> error rather than the last, as later errors are often consequences. Then search for its exact text.</p>
 
 <h2 id="cheat-sheet">Cheat sheet</h2>
 
@@ -329,99 +321,33 @@ scp kelvin:~/project/file &quot;D:\My Work&quot;         # download</code></pre>
 
 <h2 id="references">References</h2>
 
-<p>Amdahl, G.M. (1967) 'Validity of the single processor approach to
+<p>Amdahl, G.M. (1967) 'Validity of the single processor approach to achieving large scale computing capabilities', <em>AFIPS Spring Joint Computer Conference</em>, pp. 483-485. <a href="https://doi.org/10.1145/1465482.1465560" class="uri">https://doi.org/10.1145/1465482.1465560</a></p>
 
-achieving large scale computing capabilities', <em>AFIPS Spring Joint
+<p>Klabnik, S. and Nichols, C. (n.d.) <em>The Rust Programming Language</em>. <a href="https://doc.rust-lang.org/book/" class="uri">https://doc.rust-lang.org/book/</a></p>
 
-Computer Conference</em>, pp. 483-485. <a
+<p>Kurtzer, G.M., Sochat, V. and Bauer, M.W. (2017) 'Singularity: scientific containers for mobility of compute', <em>PLoS ONE</em>, 12(5), e0177459. <a href="https://doi.org/10.1371/journal.pone.0177459" class="uri">https://doi.org/10.1371/journal.pone.0177459</a></p>
 
-href="https://doi.org/10.1145/1465482.1465560"
+<p>McNabb, R. (n.d.) <em>Introduction to high performance computing</em>. <a href="https://iamdonovan.github.io/teaching/hpc-intro/index.html" class="uri">https://iamdonovan.github.io/teaching/hpc-intro/index.html</a></p>
 
-class="uri">https://doi.org/10.1145/1465482.1465560</a></p>
+<p>Merkel, D. (2014) 'Docker: lightweight Linux containers for consistent development and deployment', <em>Linux Journal</em>, 2014(239).</p>
 
-<p>Klabnik, S. and Nichols, C. (n.d.) <em>The Rust Programming
+<p>NI-HPC (n.d.) <em>NI-HPC documentation</em>. <a href="https://ni-hpc.github.io/nihpc-documentation" class="uri">https://ni-hpc.github.io/nihpc-documentation</a></p>
 
-Language</em>. <a href="https://doc.rust-lang.org/book/"
+<p>OpenSSH (n.d.) <em>OpenSSH manual pages</em>. <a href="https://www.openssh.com/manual.html" class="uri">https://www.openssh.com/manual.html</a></p>
 
-class="uri">https://doc.rust-lang.org/book/</a></p>
+<p>Raicu, I., Foster, I.T. and Zhao, Y. (2008) 'Many-task computing for grids and supercomputers', <em>Workshop on Many-Task Computing on Grids and Supercomputers</em>, pp. 1-11. <a href="https://doi.org/10.1109/MTAGS.2008.4777912" class="uri">https://doi.org/10.1109/MTAGS.2008.4777912</a></p>
 
-<p>Kurtzer, G.M., Sochat, V. and Bauer, M.W. (2017) 'Singularity:
+<p>SchedMD (n.d.) <em>Slurm job array support</em>. <a href="https://slurm.schedmd.com/job_array.html" class="uri">https://slurm.schedmd.com/job_array.html</a></p>
 
-scientific containers for mobility of compute', <em>PLoS ONE</em>,
+<p>Shotts, W. (2019) <em>The Linux Command Line</em>. 5th internet edn. <a href="https://linuxcommand.org/tlcl.php" class="uri">https://linuxcommand.org/tlcl.php</a></p>
 
-12(5), e0177459. <a href="https://doi.org/10.1371/journal.pone.0177459"
+<p>Wilson, G., Aruliah, D.A., Brown, C.T., et al. (2014) 'Best practices for scientific computing', <em>PLoS Biology</em>, 12(1), e1001745. <a href="https://doi.org/10.1371/journal.pbio.1001745" class="uri">https://doi.org/10.1371/journal.pbio.1001745</a></p>
 
-class="uri">https://doi.org/10.1371/journal.pone.0177459</a></p>
-
-<p>McNabb, R. (n.d.) <em>Introduction to high performance
-
-computing</em>. <a
-
-href="https://iamdonovan.github.io/teaching/hpc-intro/index.html"
-
-class="uri">https://iamdonovan.github.io/teaching/hpc-intro/index.html</a></p>
-
-<p>Merkel, D. (2014) 'Docker: lightweight Linux containers for
-
-consistent development and deployment', <em>Linux Journal</em>,
-
-2014(239).</p>
-
-<p>NI-HPC (n.d.) <em>NI-HPC documentation</em>. <a
-
-href="https://ni-hpc.github.io/nihpc-documentation"
-
-class="uri">https://ni-hpc.github.io/nihpc-documentation</a></p>
-
-<p>OpenSSH (n.d.) <em>OpenSSH manual pages</em>. <a
-
-href="https://www.openssh.com/manual.html"
-
-class="uri">https://www.openssh.com/manual.html</a></p>
-
-<p>Raicu, I., Foster, I.T. and Zhao, Y. (2008) 'Many-task computing for
-
-grids and supercomputers', <em>Workshop on Many-Task Computing on Grids
-
-and Supercomputers</em>, pp. 1-11. <a
-
-href="https://doi.org/10.1109/MTAGS.2008.4777912"
-
-class="uri">https://doi.org/10.1109/MTAGS.2008.4777912</a></p>
-
-<p>SchedMD (n.d.) <em>Slurm job array support</em>. <a
-
-href="https://slurm.schedmd.com/job_array.html"
-
-class="uri">https://slurm.schedmd.com/job_array.html</a></p>
-
-<p>Shotts, W. (2019) <em>The Linux Command Line</em>. 5th internet edn.
-
-<a href="https://linuxcommand.org/tlcl.php"
-
-class="uri">https://linuxcommand.org/tlcl.php</a></p>
-
-<p>Wilson, G., Aruliah, D.A., Brown, C.T., et al. (2014) 'Best practices
-
-for scientific computing', <em>PLoS Biology</em>, 12(1), e1001745. <a
-
-href="https://doi.org/10.1371/journal.pbio.1001745"
-
-class="uri">https://doi.org/10.1371/journal.pbio.1001745</a></p>
-
-<p>Yoo, A.B., Jette, M.A. and Grondona, M. (2003) 'SLURM: Simple Linux
-
-Utility for Resource Management', in <em>Job Scheduling Strategies for
-
-Parallel Processing</em>. Springer, pp. 44-60. <a
-
-href="https://doi.org/10.1007/10968987_3"
-
-class="uri">https://doi.org/10.1007/10968987_3</a></p>
+<p>Yoo, A.B., Jette, M.A. and Grondona, M. (2003) 'SLURM: Simple Linux Utility for Resource Management', in <em>Job Scheduling Strategies for Parallel Processing</em>. Springer, pp. 44-60. <a href="https://doi.org/10.1007/10968987_3" class="uri">https://doi.org/10.1007/10968987_3</a></p>
 
 
-<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/hpc/practice/">&larr; Measuring and good practice</a><span></span></nav>
-<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/hpc/beyond/">&larr; Other clusters, the cloud and Linux basics</a><span></span></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
   </article>
 </div>
 </main>

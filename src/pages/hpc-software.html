@@ -19,21 +19,18 @@ out: teaching/hpc/software/index.html
       <li><a href="{{root}}teaching/hpc/files/">Files and storage</a></li>
       <li><a href="{{root}}teaching/hpc/software/" aria-current="page">Software, environments and containers</a></li>
       <li><a href="{{root}}teaching/hpc/slurm/">Running jobs with Slurm</a></li>
+      <li><a href="{{root}}teaching/hpc/first-jobs/">Seven exercises to build confidence</a></li>
       <li><a href="{{root}}teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
       <li><a href="{{root}}teaching/hpc/practice/">Measuring and good practice</a></li>
+      <li><a href="{{root}}teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="{{root}}teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
     <p><a href="{{root}}files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
   </aside>
   <article class="hpc-body">
-<p>You do not have administrator rights on a shared cluster, so
-<code>sudo</code> and system-wide installs are out. There are four main
-ways to get software, and it is best to try them in this order.</p>
+<p>You do not have administrator rights on a shared cluster, so <code>sudo</code> and system-wide installs are out. There are four main ways to get software, and it is best to try them in this order.</p>
 <h2 id="step-1-modules">Step 1: Modules</h2>
-<p>Many programs and versions are installed but hidden.
-<strong>Modules</strong> make one available by changing your session's
-environment variables, such as <code>PATH</code>, the list of folders
-searched for programs.</p>
+<p>Many programs and versions are installed but hidden. <strong>Modules</strong> make one available by changing your session's environment variables, such as <code>PATH</code>, the list of folders searched for programs.</p>
 <pre class="bash"><code># cluster
 module avail                         # list everything; press space to page, q to quit
 module avail 2&gt;&amp;1 | grep -i python   # search it; 2&gt;&amp;1 sends its list through the pipe
@@ -41,17 +38,9 @@ module load &lt;name&gt;                   # make one available
 module list                          # what is loaded now
 module unload &lt;name&gt;                 # remove one
 module purge                         # remove all</code></pre>
-<p>Names and versions differ between clusters and over time, so look
-them up rather than copying them from a guide. Put
-<code>module load</code> lines in your job scripts, so that each run
-gets the same software.</p>
+<p>Names and versions differ between clusters and over time, so look them up rather than copying them from a guide. Put <code>module load</code> lines in your job scripts, so that each run gets the same software.</p>
 <h2 id="step-2-conda-environments">Step 2: Conda environments</h2>
-<p>An <strong>environment</strong> is a private folder with its own
-Python and packages, so that projects do not interfere with each other.
-<strong>Conda</strong> installs them, along with non-Python libraries,
-which matters for scientific packages such as GDAL. Work out compatible
-versions on a compute node, because the solve can use a lot of memory,
-and a login node may kill it (you will see <code>Killed</code>).</p>
+<p>An <strong>environment</strong> is a private folder with its own Python and packages, so that projects do not interfere with each other. <strong>Conda</strong> installs them, along with non-Python libraries, which matters for scientific packages such as GDAL. Work out compatible versions on a compute node, because the solve can use a lot of memory, and a login node may kill it (you will see <code>Killed</code>).</p>
 <pre class="bash"><code># cluster
 
 # Ask for an interactive shell on a compute node: 4 cores, 16 GB, 1 hour
@@ -65,13 +54,8 @@ conda create -y -p ~/project/envs/sci -c conda-forge python=3.12 pandas scipy
 
 # Back to the login node
 exit</code></pre>
-<p>A conda environment can hold tens of thousands of small files, which
-eats into a file quota on home, so NI-HPC suggests that such installs
-can go on scratch. Scratch purges unused files, however, so keep a
-recipe: <code>conda env export &gt; environment.yml</code> lets you
-rebuild it.</p>
-<p>In a job, the most robust way to use an environment is often to call
-its Python by its full path:</p>
+<p>A conda environment can hold tens of thousands of small files, which eats into a file quota on home, so NI-HPC suggests that such installs can go on scratch. Scratch purges unused files, however, so keep a recipe: <code>conda env export &gt; environment.yml</code> lets you rebuild it.</p>
+<p>In a job, the most robust way to use an environment is often to call its Python by its full path:</p>
 <pre class="bash"><code># cluster, in a job script
 
 # Clear variables that can point Python at the wrong libraries
@@ -79,19 +63,9 @@ unset PYTHONPATH PYTHONHOME
 
 # Use the environment&#39;s own Python directly: no activate needed
 ~/project/envs/sci/bin/python my_script.py</code></pre>
-<p>Why the <code>unset</code>? <strong>A Kelvin2 example.</strong> One
-conda module I used set <code>PYTHONPATH</code> to its own library
-folder, so that Python 3.12 from my environment loaded the wrong files
-and crashed with <code>SRE module mismatch</code>. Clearing the variable
-fixed it. Environment variables quietly change how programs behave, so
-when something inexplicable happens, look at them with
-<code>echo "$PYTHONPATH"</code> or <code>env</code>.</p>
+<p>Why the <code>unset</code>? <strong>A Kelvin2 example.</strong> One conda module I used set <code>PYTHONPATH</code> to its own library folder, so that Python 3.12 from my environment loaded the wrong files and crashed with <code>SRE module mismatch</code>. Clearing the variable fixed it. Environment variables quietly change how programs behave, so when something inexplicable happens, look at them with <code>echo "$PYTHONPATH"</code> or <code>env</code>.</p>
 <h2 id="step-3-compiling-from-source">Step 3: Compiling from source</h2>
-<p><strong>Compiling</strong> turns human-readable source code into a
-program for a particular kind of machine. Compute nodes may have
-restricted internet access, so the usual pattern is to download on the
-login node and build in a job. An example in Rust, using its build tool
-<code>cargo</code> (Klabnik and Nichols, n.d.):</p>
+<p><strong>Compiling</strong> turns human-readable source code into a program for a particular kind of machine. Compute nodes may have restricted internet access, so the usual pattern is to download on the login node and build in a job. An example in Rust, using its build tool <code>cargo</code> (Klabnik and Nichols, n.d.):</p>
 <pre class="bash"><code># cluster, login node: light work, downloads only
 
 # Load the Rust installer
@@ -130,25 +104,13 @@ cargo build --offline --release -j 8
 mkdir -p ~/project/bin
 cp &quot;$CARGO_TARGET_DIR/release/myprogram&quot; ~/project/bin/
 echo BUILD OK</code></pre>
-<p><strong>Check the result before you trust it.</strong> Run a case
-with a known answer, ideally one you have also run elsewhere, and
-compare the numbers.</p>
+<p><strong>Check the result before you trust it.</strong> Run a case with a known answer, ideally one you have also run elsewhere, and compare the numbers.</p>
 <h2 id="step-4-containers">Step 4: Containers</h2>
 <h3 id="what-containerisation-is">What containerisation is</h3>
-<p>A <strong>container</strong> packages a program with the exact
-libraries it depends on and runs it isolated from the rest of the
-system. Everything lives in an <strong>image</strong>, a read-only
-template built from a recipe. Run an image and you get a container.</p>
-<p>Think of a shipping container: what is inside does not depend on the
-ship. "It works on my machine" becomes "it works wherever this image
-runs". This helps with reproducibility, and with software that is hard
-to install.</p>
-<p>A container is not a virtual machine. A virtual machine emulates a
-whole computer, with its own operating system kernel. A container shares
-the host's kernel, so it starts quickly and with little overhead
-(Merkel, 2014).</p>
-<p><strong>Dockerisation</strong> means packaging your application as a
-Docker image, through a recipe called a <code>Dockerfile</code>:</p>
+<p>A <strong>container</strong> packages a program with the exact libraries it depends on and runs it isolated from the rest of the system. Everything lives in an <strong>image</strong>, a read-only template built from a recipe. Run an image and you get a container.</p>
+<p>Think of a shipping container: what is inside does not depend on the ship. "It works on my machine" becomes "it works wherever this image runs". This helps with reproducibility, and with software that is hard to install.</p>
+<p>A container is not a virtual machine. A virtual machine emulates a whole computer, with its own operating system kernel. A container shares the host's kernel, so it starts quickly and with little overhead (Merkel, 2014).</p>
+<p><strong>Dockerisation</strong> means packaging your application as a Docker image, through a recipe called a <code>Dockerfile</code>:</p>
 <pre class="dockerfile"><code># FROM: start from a ready-made image
 FROM python:3.12-slim
 # COPY: put our code inside the image
@@ -163,12 +125,8 @@ docker build -t heatloss .
 # Run it. --rm tidies up afterwards. -v shows a laptop folder inside the container as /data
 docker run --rm -v &quot;$(pwd):/data&quot; heatloss /data/case_000.json</code></pre>
 <h3 id="why-not-docker-on-a-cluster">Why not Docker on a cluster?</h3>
-<p>Docker normally relies on a background service with root
-(administrator) privileges. On a shared system, that is a security
-problem, so clusters rarely provide it (Kurtzer et al., 2017).</p>
-<p><strong>Apptainer</strong> (formerly Singularity) was designed for
-this setting. It runs as an ordinary user, and a container is a single
-file that you can copy around. It can also convert Docker images:</p>
+<p>Docker normally relies on a background service with root (administrator) privileges. On a shared system, that is a security problem, so clusters rarely provide it (Kurtzer et al., 2017).</p>
+<p><strong>Apptainer</strong> (formerly Singularity) was designed for this setting. It runs as an ordinary user, and a container is a single file that you can copy around. It can also convert Docker images:</p>
 <pre class="bash"><code># cluster; check the module name with: module avail 2&gt;&amp;1 | grep -i apptainer
 module load &lt;apptainer-module&gt;
 
@@ -177,15 +135,9 @@ apptainer pull heatloss.sif docker://&lt;dockerhub-user&gt;/heatloss
 
 # Run it. --bind makes a cluster folder visible inside the container
 apptainer run --bind &quot;$PWD:/data&quot; heatloss.sif /data/case_000.json</code></pre>
-<p>Which to use? If a module exists, use it, as central builds are often
-tuned for the machine. If a Python stack is all you need, conda is
-simple. If you compiled something once and it works, that is fine too.
-Use a container when a program is hard to install, or when others must
-reproduce your exact software. See the <a
-href="https://apptainer.org/docs/user/latest/">Apptainer
-documentation</a> for more.</p>
+<p>Which to use? If a module exists, use it, as central builds are often tuned for the machine. If a Python stack is all you need, conda is simple. If you compiled something once and it works, that is fine too. Use a container when a program is hard to install, or when others must reproduce your exact software. See the <a href="https://apptainer.org/docs/user/latest/">Apptainer documentation</a> for more.</p>
 
 <nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/hpc/files/">&larr; Files and storage</a><a href="{{root}}teaching/hpc/slurm/">Running jobs with Slurm &rarr;</a></nav>
-<p class="hpc-licence">&copy; Ahmad Ammar. Text and code licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. An independent guide, not an official NI-HPC document.</p>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
   </article>
 </div>
