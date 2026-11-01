@@ -138,6 +138,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 `wien_temperature(0.5)` returns 5796.0.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-prsa2016" class="csl-entry">

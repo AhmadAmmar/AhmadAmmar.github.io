@@ -150,6 +150,8 @@ Near the ground the air rubs against the surface: grass, trees, buildings, hills
 
 </div>
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-holton2013" class="csl-entry">

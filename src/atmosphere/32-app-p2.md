@@ -160,6 +160,8 @@ Every figure in this part was drawn for it as vector graphics, in the document i
 
 - Values for the planets (albedos, average temperatures) are rounded here; current measured values are in Williams (2024).
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-forster2021" class="csl-entry">

@@ -85,7 +85,9 @@ Examining all your graphs, do you think the troposphere is the same thickness ac
 
 ![Question 11: the tropopause heights of the four profiles against latitude. The grey band shows the typical pattern  citep hoinka1998,wallace2006 : about 16 to 17 ,km over the tropics, falling steeply](/teaching/atmosphere/fig/f-08.png)\
 
-**Figure 7.2.** Question 11: the tropopause heights of the four profiles against latitude. The grey band shows the typical pattern (Hoinka 1998; Wallace and Hobbs 2006): about 16 to 17 km over the tropics, falling steeply across the subtropics and middle latitudes, to about 8 to 9 km near the poles. Florida is plotted at its middle latitude, 28$^{\circ}$N; the standard atmosphere at 45$^{\circ}$N.  <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">  <div id="ref-hoinka1998" class="csl-entry">  Hoinka, K.P. (1998) Statistics of the global tropopause pressure. Monthly Weather Review 126, 3303–3325. [https://doi.org/10.1175/1520-0493(1998)126\<3303:SOTGTP\>2.0.CO;2](https://doi.org/10.1175/1520-0493(1998)126<3303:SOTGTP>2.0.CO;2)  </div>  <div id="ref-wallace2006" class="csl-entry">  Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.  </div>  </div>
+**Figure 7.2.** Question 11: the tropopause heights of the four profiles against latitude. The grey band shows the typical pattern (Hoinka 1998; Wallace and Hobbs 2006): about 16 to 17 km over the tropics, falling steeply across the subtropics and middle latitudes, to about 8 to 9 km near the poles. Florida is plotted at its middle latitude, 28$^{\circ}$N; the standard atmosphere at 45$^{\circ}$N.  ## References
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">  <div id="ref-hoinka1998" class="csl-entry">  Hoinka, K.P. (1998) Statistics of the global tropopause pressure. Monthly Weather Review 126, 3303–3325. [https://doi.org/10.1175/1520-0493(1998)126\<3303:SOTGTP\>2.0.CO;2](https://doi.org/10.1175/1520-0493(1998)126<3303:SOTGTP>2.0.CO;2)  </div>  <div id="ref-wallace2006" class="csl-entry">  Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.  </div>  </div>
 
 **The reasons.** Three effects work together.
 
@@ -139,6 +141,8 @@ At the ground the tropics are the warmest places on Earth. But high up, at 16 to
 4.  $H=R_dT/g$: $287\times249/9.81=7.29$ km against $287\times233/9.81=6.82$ km, about 0.47 km (7 %) larger. Every pressure level therefore sits about 7 % higher above the ground in the warm column: 500 hPa, for example, at about 5.1 km instead of 4.7 km.
 
 </div>
+
+## References
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 

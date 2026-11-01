@@ -91,7 +91,7 @@ If the Earth has a black-body temperature of 14 $^{\circ}\mathrm{C}$, what is 
 <div class="box box-answer"><p class="box-title">Answer to Question 2b</p>
 
 
-$E_{\text{Earth}}=5.67\times10^{-8}\times287.16^{4}=\textbf{385.5\,\ensuremath{\mathrm{W\,m^{-2}}}}$.
+$E_{\text{Earth}}=5.67\times10^{-8}\times287.16^{4}=\textbf{385.5\,}{\mathrm{W\,m^{-2}}}\textbf{}$.
 
 </div>
 
@@ -257,6 +257,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
         return SIGMA * t_k ** 4
 
 `emission(5796)` returns about $6.399\times10^{7}$ and `emission(287.16)` about 385.5.
+
+## References
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 

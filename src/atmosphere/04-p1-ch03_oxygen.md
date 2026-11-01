@@ -184,6 +184,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 `partial_pressure(pressure_halving(12))` returns 47.6, the jet’s oxygen partial pressure in hPa.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-noaa1976" class="csl-entry">

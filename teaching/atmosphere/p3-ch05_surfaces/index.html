@@ -88,119 +88,55 @@
   <article class="hpc-body">
 <p><em>This chapter answers Motion Q1 to Q6.</em></p>
 <h2 id="what-a-pressure-surface-is">24.1 What a pressure surface is</h2>
-<p>Upper-air charts do not show pressure at a fixed height; they show
-the <em>height at which the pressure has a chosen value</em>. The chart
-for 500 hPa, for example, is a map of the height of the surface on which
-the pressure is 500 hPa. Such a surface is called a <strong>pressure
-surface</strong> (or isobaric surface). Where the pressure surface is
-high, the pressure at a fixed level nearby is high; where it is low, the
-pressure is low. The height contours on the chart therefore play the
-part of isobars, and the wind blows along them (Chapter <a
-href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-ch:geo">25</a>).</p>
-<p>Pressure surfaces are not flat. They are high over warm air and low
-over cold air, and that single fact explains Questions 1 to 6.</p>
-<h2 id="why-cold-air-gives-low-pressure-surfaces">24.2 Why cold air
-gives low pressure surfaces</h2>
-<p>Pressure at a point is the weight of the air above it. A column of
-cold air is denser, so a given amount of air (a given pressure drop)
-occupies less height. A column of warm air is less dense, so the same
-pressure drop is spread over a greater height: the warm column is
-thicker. Start both columns with the same pressure at the ground and the
-500 hPa surface will be lower over the cold one than over the warm one,
-and the difference grows with height.</p>
-<p>The exact relationship is the <strong>hypsometric equation</strong>
-(Wallace and Hobbs 2006, ch. 3). It is the exponential law of Part I,
-<span class="math inline">\(p=p_0e^{-z/H}\)</span> with <span
-class="math inline">\(H=R_dT/g\)</span> (Part I, Eq. (<a
-href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>)),
-written for a layer: for the layer between pressures <span
-class="math inline">\(p_1\)</span> (lower) and <span
-class="math inline">\(p_2\)</span> (upper), <span
-class="math display">\[\Delta z =
-z_2-z_1=\frac{R_d\,\overline{T}}{g}\,\ln\frac{p_1}{p_2},\tag{24.1}\]</span>
-<em>where</em></p>
+<p>Upper-air charts do not show pressure at a fixed height; they show the <em>height at which the pressure has a chosen value</em>. The chart for 500 hPa, for example, is a map of the height of the surface on which the pressure is 500 hPa. Such a surface is called a <strong>pressure surface</strong> (or isobaric surface). Where the pressure surface is high, the pressure at a fixed level nearby is high; where it is low, the pressure is low. The height contours on the chart therefore play the part of isobars, and the wind blows along them (Chapter <a href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-ch:geo">25</a>).</p>
+<p>Pressure surfaces are not flat. They are high over warm air and low over cold air, and that single fact explains Questions 1 to 6.</p>
+<h2 id="why-cold-air-gives-low-pressure-surfaces">24.2 Why cold air gives low pressure surfaces</h2>
+<p>Pressure at a point is the weight of the air above it. A column of cold air is denser, so a given amount of air (a given pressure drop) occupies less height. A column of warm air is less dense, so the same pressure drop is spread over a greater height: the warm column is thicker. Start both columns with the same pressure at the ground and the 500 hPa surface will be lower over the cold one than over the warm one, and the difference grows with height.</p>
+<p>The exact relationship is the <strong>hypsometric equation</strong> (Wallace and Hobbs 2006, ch. 3). It is the exponential law of Part I, <span class="math inline">\(p=p_0e^{-z/H}\)</span> with <span class="math inline">\(H=R_dT/g\)</span> (Part I, Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>)), written for a layer: for the layer between pressures <span class="math inline">\(p_1\)</span> (lower) and <span class="math inline">\(p_2\)</span> (upper), <span class="math display">\[\Delta z = z_2-z_1=\frac{R_d\,\overline{T}}{g}\,\ln\frac{p_1}{p_2},\tag{24.1}\]</span> <em>where</em></p>
 <table>
 <tbody>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(\Delta
-z\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\Delta z\)</span></td>
 <td style="text-align: left;">thickness of the layer (m)</td>
 <td style="text-align: left;">calculated</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(\overline{T}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\overline{T}\)</span></td>
 <td style="text-align: left;">mean temperature of the layer (K)</td>
 <td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(R_d\)</span></td>
-<td style="text-align: left;">gas constant for dry air (J kg<span
-class="math inline">\(^{-1}\)</span> K<span
-class="math inline">\(^{-1}\)</span>)</td>
+<td style="text-align: left;"><span class="math inline">\(R_d\)</span></td>
+<td style="text-align: left;">gas constant for dry air (J kg<span class="math inline">\(^{-1}\)</span> K<span class="math inline">\(^{-1}\)</span>)</td>
 <td style="text-align: left;">287</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(g\)</span></td>
-<td style="text-align: left;">acceleration due to gravity (m s<span
-class="math inline">\(^{-2}\)</span>)</td>
+<td style="text-align: left;"><span class="math inline">\(g\)</span></td>
+<td style="text-align: left;">acceleration due to gravity (m s<span class="math inline">\(^{-2}\)</span>)</td>
 <td style="text-align: left;">9.81</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(p_1,\
-p_2\)</span></td>
-<td style="text-align: left;">pressures at the bottom and top of the
-layer (hPa)</td>
+<td style="text-align: left;"><span class="math inline">\(p_1,\ p_2\)</span></td>
+<td style="text-align: left;">pressures at the bottom and top of the layer (hPa)</td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
-<p>The thickness <span class="math inline">\(\Delta z\)</span> is
-directly proportional to the mean temperature. Part I used the same law
-the other way round, to find the scale height of a layer from a sounding
-(Part I, Eq. (<a
-href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:Hdata">8.1</a>)),
-and to explain why the troposphere is thickest over the warm tropics
-(Part I, § <a
-href="/teaching/atmosphere/p1-ch06_lapse/#p1-sec:q11">7.4</a>).</p>
+<p>The thickness <span class="math inline">\(\Delta z\)</span> is directly proportional to the mean temperature. Part I used the same law the other way round, to find the scale height of a layer from a sounding (Part I, Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:Hdata">8.1</a>)), and to explain why the troposphere is thickest over the warm tropics (Part I, § <a href="/teaching/atmosphere/p1-ch06_lapse/#p1-sec:q11">7.4</a>).</p>
 <div class="box box-worked">
 <p class="box-title">
 Worked example: thickness of the 1000 to 500 hPa layer
 </p>
-<p>For a cold layer with <span
-class="math inline">\(\overline{T}=-10\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> <span
-class="math inline">\(=263.15\)</span> K, <span
-class="math display">\[\Delta
-z=\frac{287\times263.15}{9.81}\ln\frac{1000}{500}=7699\times0.693=5339\
-\mathrm{m}.\]</span> For a warm layer with <span
-class="math inline">\(\overline{T}=+10\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> <span
-class="math inline">\(=283.15\)</span> K the result is 5745 m. A
-20-degree difference in mean temperature makes the layer 406 m thicker,
-about 20 m per degree.</p>
+<p>For a cold layer with <span class="math inline">\(\overline{T}=-10\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> <span class="math inline">\(=263.15\)</span> K, <span class="math display">\[\Delta z=\frac{287\times263.15}{9.81}\ln\frac{1000}{500}=7699\times0.693=5339\ \mathrm{m}.\]</span> For a warm layer with <span class="math inline">\(\overline{T}=+10\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> <span class="math inline">\(=283.15\)</span> K the result is 5745 m. A 20-degree difference in mean temperature makes the layer 406 m thicker, about 20 m per degree.</p>
 </div>
 <p><a id="p3-fig:columns"></a></p>
-<p><img src="/teaching/atmosphere/fig/f-42.png"
-alt="Two columns of air that start with the same pressure at the ground (1013 ,hPa). Each pressure level sits higher over the warm column, and the difference (the slope of the surface) grows with height: 1" /><br />
+<p><img src="/teaching/atmosphere/fig/f-42.png" alt="Two columns of air that start with the same pressure at the ground (1013 ,hPa). Each pressure level sits higher over the warm column, and the difference (the slope of the surface) grows with height: 1" /><br />
 </p>
-<p><strong>Figure 24.1.</strong> Two columns of air that start with the
-same pressure at the ground (1013 hPa). Each pressure level sits higher
-over the warm column, and the difference (the slope of the surface)
-grows with height: 103 m at 850 hPa, 216 m at 700 hPa, 413 m at 500 hPa
-and 712 m at 300 hPa. (The heights come from the hypsometric equation
-with a constant mean temperature.)</p>
+<p><strong>Figure 24.1.</strong> Two columns of air that start with the same pressure at the ground (1013 hPa). Each pressure level sits higher over the warm column, and the difference (the slope of the surface) grows with height: 103 m at 850 hPa, 216 m at 700 hPa, 413 m at 500 hPa and 712 m at 300 hPa. (The heights come from the hypsometric equation with a constant mean temperature.)</p>
 <h2 id="the-data">24.3 The data</h2>
-<p>Table <a
-href="/teaching/atmosphere/p3-ch05_surfaces/#p3-tab:twoplaces">24.1</a>
-gives the pressure level, the height and the temperature at two places,
-Saskatoon in Canada and Monterrey in Mexico (about 2 990 km apart,
-Monterrey to the south):</p>
+<p>Table <a href="/teaching/atmosphere/p3-ch05_surfaces/#p3-tab:twoplaces">24.1</a> gives the pressure level, the height and the temperature at two places, Saskatoon in Canada and Monterrey in Mexico (about 2 990 km apart, Monterrey to the south):</p>
 <table style="width:97%;">
-<caption>Table 24.1. Pressure levels over Saskatoon and
-Monterrey.</caption>
+<caption>Table 24.1. Pressure levels over Saskatoon and Monterrey.</caption>
 <colgroup>
 <col style="width: 23%" />
 <col style="width: 11%" />
@@ -211,10 +147,8 @@ Monterrey.</caption>
 <thead>
 <tr>
 <th style="text-align: right;"></th>
-<th colspan="2"
-style="text-align: right;"><strong>Saskatoon</strong></th>
-<th colspan="2"
-style="text-align: right;"><strong>Monterrey</strong></th>
+<th colspan="2" style="text-align: right;"><strong>Saskatoon</strong></th>
+<th colspan="2" style="text-align: right;"><strong>Monterrey</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -228,274 +162,136 @@ style="text-align: right;"><strong>Monterrey</strong></th>
 <tr>
 <td style="text-align: right;">300 mb</td>
 <td style="text-align: right;">8700 m</td>
-<td style="text-align: right;"><span
-class="math inline">\(-47\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(-47\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
 <td style="text-align: right;">9500 m</td>
-<td style="text-align: right;"><span
-class="math inline">\(-38\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(-38\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: right;">500 mb</td>
 <td style="text-align: right;">5400 m</td>
-<td style="text-align: right;"><span
-class="math inline">\(-25\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(-25\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
 <td style="text-align: right;">5700 m</td>
-<td style="text-align: right;"><span
-class="math inline">\(-12\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(-12\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: right;">850 mb</td>
 <td style="text-align: right;">1360 m</td>
-<td style="text-align: right;"><span
-class="math inline">\(-1\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: right;"><span class="math inline">\(-1\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
 <td style="text-align: right;">1500 m</td>
-<td style="text-align: right;">15 <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: right;">15 <span class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Notice that Monterrey is warmer at every level, and every one of its
-pressure surfaces is higher.</p>
+<p>Notice that Monterrey is warmer at every level, and every one of its pressure surfaces is higher.</p>
 <h2 id="p3-sec:s1q1">24.4 Question 1: plot the pressure surfaces</h2>
 <div class="box box-question">
 <p class="box-title">
 The question
 </p>
-<p>Following the example of 850 mb, plot the heights of the 500 and
-300 mb levels on a diagram with Saskatoon on the left and Monterrey on
-the right, draw lines connecting the two points for each level, and
-label each line.</p>
+<p>Following the example of 850 mb, plot the heights of the 500 and 300 mb levels on a diagram with Saskatoon on the left and Monterrey on the right, draw lines connecting the two points for each level, and label each line.</p>
 </div>
 <p><strong>Method.</strong></p>
 <ol type="1">
-<li><p>The diagram has Saskatoon on the left and Monterrey on the right,
-with height up the sides (0 to 10 000 m). The 850 mb line, from 1360 m
-to 1500 m, is the example: from 1360 m to 1500 m.</p></li>
-<li><p>For 500 mb put a dot at 5400 m above Saskatoon and a dot at
-5700 m above Monterrey. Join them with a straight line and label it “500
-mb”.</p></li>
-<li><p>For 300 mb put dots at 8700 m (Saskatoon) and 9500 m (Monterrey),
-join them, and label the line “300 mb”.</p></li>
+<li><p>The diagram has Saskatoon on the left and Monterrey on the right, with height up the sides (0 to 10 000 m). The 850 mb line, from 1360 m to 1500 m, is the example: from 1360 m to 1500 m.</p></li>
+<li><p>For 500 mb put a dot at 5400 m above Saskatoon and a dot at 5700 m above Monterrey. Join them with a straight line and label it “500 mb”.</p></li>
+<li><p>For 300 mb put dots at 8700 m (Saskatoon) and 9500 m (Monterrey), join them, and label the line “300 mb”.</p></li>
 </ol>
 <p><a id="p3-fig:s1q1"></a></p>
-<p><img src="/teaching/atmosphere/fig/f-43.png"
-alt="The diagram completed for Question 1. The 500 and 300 ,mb lines slope up towards Monterrey, and the slope is greater for the higher level." /><br />
+<p><img src="/teaching/atmosphere/fig/f-43.png" alt="The diagram completed for Question 1. The 500 and 300 ,mb lines slope up towards Monterrey, and the slope is greater for the higher level." /><br />
 </p>
-<p><strong>Figure 24.2.</strong> The diagram completed for Question 1.
-The 500 and 300 mb lines slope up towards Monterrey, and the slope is
-greater for the higher level.</p>
+<p><strong>Figure 24.2.</strong> The diagram completed for Question 1. The 500 and 300 mb lines slope up towards Monterrey, and the slope is greater for the higher level.</p>
 <div class="box box-answer">
 <p class="box-title">
 Answer to Motion Q1
 </p>
-<p>Two lines are added to the diagram: 500 mb from 5400 m (Saskatoon) to
-5700 m (Monterrey), and 300 mb from 8700 m to 9500 m. Each rises to the
-right, more steeply than the one below it.</p>
+<p>Two lines are added to the diagram: 500 mb from 5400 m (Saskatoon) to 5700 m (Monterrey), and 300 mb from 8700 m to 9500 m. Each rises to the right, more steeply than the one below it.</p>
 </div>
-<h2 id="questions-2-and-3-where-does-pressure-fall-fastest">24.5
-Questions 2 and 3: where does pressure fall fastest?</h2>
+<h2 id="questions-2-and-3-where-does-pressure-fall-fastest">24.5 Questions 2 and 3: where does pressure fall fastest?</h2>
 <div class="box box-answer">
 <p class="box-title">
 Answer to Motion Q2
 </p>
-<p><strong>Saskatoon.</strong> Its pressure surfaces are lower: the
-500 mb surface is reached at 5400 m instead of 5700 m, the 300 mb
-surface at 8700 m instead of 9500 m. Less height is needed to use up the
-same pressure, so pressure falls faster with height.</p>
+<p><strong>Saskatoon.</strong> Its pressure surfaces are lower: the 500 mb surface is reached at 5400 m instead of 5700 m, the 300 mb surface at 8700 m instead of 9500 m. Less height is needed to use up the same pressure, so pressure falls faster with height.</p>
 </div>
 <div class="box box-answer">
 <p class="box-title">
 Answer to Motion Q3
 </p>
-<p><strong>Saskatoon is colder at each height</strong> (<span
-class="math inline">\(-1\)</span> against 15 <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> at 850 mb, <span
-class="math inline">\(-25\)</span> against <span
-class="math inline">\(-12\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> at 500 mb, <span
-class="math inline">\(-47\)</span> against <span
-class="math inline">\(-38\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> at 300 mb). Cold air
-is denser, so a column of it is thinner: the pressure falls faster with
-height.</p>
+<p><strong>Saskatoon is colder at each height</strong> (<span class="math inline">\(-1\)</span> against 15 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> at 850 mb, <span class="math inline">\(-25\)</span> against <span class="math inline">\(-12\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> at 500 mb, <span class="math inline">\(-47\)</span> against <span class="math inline">\(-38\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> at 300 mb). Cold air is denser, so a column of it is thinner: the pressure falls faster with height.</p>
 </div>
-<p><strong>Check with the hypsometric equation.</strong> Use the mean of
-the two temperatures that bound each layer. <span
-class="math display">\[\begin{align*}
-\text{Saskatoon:}\ \Delta
-z_{850\to300}&amp;=29.27\,[\,260.15\ln\tfrac{850}{500}+237.15\ln\tfrac{500}{300}\,]=29.27\,[138.0+121.1]=7587\
-\mathrm{m},\\
-\text{Monterrey:}\ \Delta
-z_{850\to300}&amp;=29.27\,[\,274.65\ln\tfrac{850}{500}+248.15\ln\tfrac{500}{300}\,]=29.27\,[145.7+126.8]=7976\
-\mathrm{m}.
-\end{align*}\]</span> The rounded heights give <span
-class="math inline">\(8700-1360=7340\)</span> m and <span
-class="math inline">\(9500-1500=8000\)</span> m. Monterrey agrees to
-0.3 %; Saskatoon is 3 % off, because the figure’s numbers are rounded.
-The warmer column is thicker, as predicted.</p>
-<h2 id="question-4-which-point-has-the-higher-pressure">24.6 Question 4:
-which point has the higher pressure?</h2>
+<p><strong>Check with the hypsometric equation.</strong> Use the mean of the two temperatures that bound each layer. <span class="math display">\[\begin{align*}
+\text{Saskatoon:}\ \Delta z_{850\to300}&amp;=29.27\,[\,260.15\ln\tfrac{850}{500}+237.15\ln\tfrac{500}{300}\,]=29.27\,[138.0+121.1]=7587\ \mathrm{m},\\
+\text{Monterrey:}\ \Delta z_{850\to300}&amp;=29.27\,[\,274.65\ln\tfrac{850}{500}+248.15\ln\tfrac{500}{300}\,]=29.27\,[145.7+126.8]=7976\ \mathrm{m}.
+\end{align*}\]</span> The rounded heights give <span class="math inline">\(8700-1360=7340\)</span> m and <span class="math inline">\(9500-1500=8000\)</span> m. Monterrey agrees to 0.3 %; Saskatoon is 3 % off, because the figure’s numbers are rounded. The warmer column is thicker, as predicted.</p>
+<h2 id="question-4-which-point-has-the-higher-pressure">24.6 Question 4: which point has the higher pressure?</h2>
 <div class="box box-question">
 <p class="box-title">
 The question
 </p>
-<p>Both points x and z are at 9000 m. Which has the highest pressure? At
-9000 m write H where the pressure is higher and L where it is lower,
-then draw an arrow between them showing the direction of the horizontal
-pressure gradient force.</p>
+<p>Both points x and z are at 9000 m. Which has the highest pressure? At 9000 m write H where the pressure is higher and L where it is lower, then draw an arrow between them showing the direction of the horizontal pressure gradient force.</p>
 </div>
 <p><strong>Method.</strong></p>
 <ol type="1">
-<li><p>Pressure decreases with height. At a given height, being
-<em>below</em> a pressure surface means a <em>higher</em> pressure than
-the surface’s value, and being <em>above</em> it means a lower
-pressure.</p></li>
-<li><p>Point x is above Saskatoon at 9000 m. The 300 mb surface there is
-at 8700 m, so x is above it: its pressure is <em>less than</em>
-300 mb.</p></li>
-<li><p>Point z is above Monterrey at 9000 m. The 300 mb surface there is
-at 9500 m, so z is below it: its pressure is <em>more than</em>
-300 mb.</p></li>
-<li><p>So z has the higher pressure: write H at z (the Monterrey side)
-and L at x (the Saskatoon side).</p></li>
-<li><p>The pressure gradient force points from high to low: draw the
-arrow from z towards x, that is towards Saskatoon.</p></li>
+<li><p>Pressure decreases with height. At a given height, being <em>below</em> a pressure surface means a <em>higher</em> pressure than the surface’s value, and being <em>above</em> it means a lower pressure.</p></li>
+<li><p>Point x is above Saskatoon at 9000 m. The 300 mb surface there is at 8700 m, so x is above it: its pressure is <em>less than</em> 300 mb.</p></li>
+<li><p>Point z is above Monterrey at 9000 m. The 300 mb surface there is at 9500 m, so z is below it: its pressure is <em>more than</em> 300 mb.</p></li>
+<li><p>So z has the higher pressure: write H at z (the Monterrey side) and L at x (the Saskatoon side).</p></li>
+<li><p>The pressure gradient force points from high to low: draw the arrow from z towards x, that is towards Saskatoon.</p></li>
 </ol>
-<p><img src="/teaching/atmosphere/fig/f-44.png"
-alt="Question 4. At 9000 ,m x is above the 300 ,mb line (pressure below 300 ,mb, L) and z is below it (pressure above 300 ,mb, H). The pressure gradient force points from z to x: from Monterrey towards Sas" /><br />
+<p><img src="/teaching/atmosphere/fig/f-44.png" alt="Question 4. At 9000 ,m x is above the 300 ,mb line (pressure below 300 ,mb, L) and z is below it (pressure above 300 ,mb, H). The pressure gradient force points from z to x: from Monterrey towards Sas" /><br />
 </p>
-<p>Question 4. At 9000 m x is above the 300 mb line (pressure below
-300 mb, L) and z is below it (pressure above 300 mb, H). The pressure
-gradient force points from z to x: from Monterrey towards Saskatoon.</p>
+<p>Question 4. At 9000 m x is above the 300 mb line (pressure below 300 mb, L) and z is below it (pressure above 300 mb, H). The pressure gradient force points from z to x: from Monterrey towards Saskatoon.</p>
 <div class="box box-answer">
 <p class="box-title">
 Answer to Motion Q4
 </p>
-<p><strong>z</strong> has the higher pressure, because it lies below the
-300 mb line at 9000 m. Write <strong>H at z</strong> and <strong>L at
-x</strong>, and draw the pressure gradient force from z towards x
-(towards Saskatoon).</p>
+<p><strong>z</strong> has the higher pressure, because it lies below the 300 mb line at 9000 m. Write <strong>H at z</strong> and <strong>L at x</strong>, and draw the pressure gradient force from z towards x (towards Saskatoon).</p>
 </div>
-<p><strong>How big are the pressures?</strong> You can estimate them.
-Above the 300 mb level at Saskatoon, pressure falls about 1 % every
-66 m, so 300 m above the 8700 m level it is about <span
-class="math inline">\(300\,e^{-0.045}=287\)</span> mb. At Monterrey,
-9000 m is 500 m below the 9500 m level of 300 mb, so the pressure is
-higher, about 321 mb. The difference between the two places is therefore
-about 34 mb, over 2 990 km.</p>
-<h2 id="question-5-where-is-the-pressure-gradient-greater">24.7 Question
-5: where is the pressure gradient greater?</h2>
+<p><strong>How big are the pressures?</strong> You can estimate them. Above the 300 mb level at Saskatoon, pressure falls about 1 % every 66 m, so 300 m above the 8700 m level it is about <span class="math inline">\(300\,e^{-0.045}=287\)</span> mb. At Monterrey, 9000 m is 500 m below the 9500 m level of 300 mb, so the pressure is higher, about 321 mb. The difference between the two places is therefore about 34 mb, over 2 990 km.</p>
+<h2 id="question-5-where-is-the-pressure-gradient-greater">24.7 Question 5: where is the pressure gradient greater?</h2>
 <div class="box box-answer">
 <p class="box-title">
 Answer to Motion Q5
 </p>
-<p>The pressure gradient is greater at <strong>9000 m</strong>. The
-pressure surfaces differ in height by <span
-class="math inline">\(9500-8700=800\)</span> m between the two places at
-the 300 mb level, but only by <span
-class="math inline">\(1500-1360=140\)</span> m at the 850 mb level
-(about 1500 m).</p>
+<p>The pressure gradient is greater at <strong>9000 m</strong>. The pressure surfaces differ in height by <span class="math inline">\(9500-8700=800\)</span> m between the two places at the 300 mb level, but only by <span class="math inline">\(1500-1360=140\)</span> m at the 850 mb level (about 1500 m).</p>
 </div>
-<p>The slope of the surfaces is what drives the wind. The slope grows
-with height: 140 m at 850 mb, 300 m at 500 mb and 800 m at 300 mb. If
-you compare pressures at a fixed height instead, you find the same
-thing: about 15 mb between the two places at 1500 m, but about 34 mb at
-9000 m.</p>
-<p><img src="/teaching/atmosphere/fig/f-45.png"
-alt="The slope of the pressure surfaces between Saskatoon and Monterrey increases with height." /><br />
+<p>The slope of the surfaces is what drives the wind. The slope grows with height: 140 m at 850 mb, 300 m at 500 mb and 800 m at 300 mb. If you compare pressures at a fixed height instead, you find the same thing: about 15 mb between the two places at 1500 m, but about 34 mb at 9000 m.</p>
+<p><img src="/teaching/atmosphere/fig/f-45.png" alt="The slope of the pressure surfaces between Saskatoon and Monterrey increases with height." /><br />
 </p>
-<p>The slope of the pressure surfaces between Saskatoon and Monterrey
-increases with height.</p>
+<p>The slope of the pressure surfaces between Saskatoon and Monterrey increases with height.</p>
 <div class="box box-ask">
 <p class="box-title">
 A question that comes up
 </p>
-<p><strong>The pressure itself is smaller at 9000 m. How can the
-gradient be greater?</strong><br />
-Because what drives the wind is the <em>change</em> of pressure from
-place to place, and that depends on the temperature difference
-accumulated in the whole layer below. On a pressure surface the force
-per unit mass is <span class="math inline">\(-g\,\Delta z/\Delta
-n\)</span>, and it does not depend on the air density at all. The slope
-<span class="math inline">\(\Delta z/\Delta n\)</span> grows with height
-as the colder column’s thickness deficit adds up, so the force does
-too.</p>
+<p><strong>The pressure itself is smaller at 9000 m. How can the gradient be greater?</strong><br />
+Because what drives the wind is the <em>change</em> of pressure from place to place, and that depends on the temperature difference accumulated in the whole layer below. On a pressure surface the force per unit mass is <span class="math inline">\(-g\,\Delta z/\Delta n\)</span>, and it does not depend on the air density at all. The slope <span class="math inline">\(\Delta z/\Delta n\)</span> grows with height as the colder column’s thickness deficit adds up, so the force does too.</p>
 </div>
-<h2 id="question-6-what-this-means-for-the-wind">24.8 Question 6: what
-this means for the wind</h2>
+<h2 id="question-6-what-this-means-for-the-wind">24.8 Question 6: what this means for the wind</h2>
 <div class="box box-answer">
 <p class="box-title">
 Answer to Motion Q6
 </p>
-<p>Wind speeds at <strong>9000 m should be greater</strong>, because the
-pressure gradient force is greater there.</p>
+<p>Wind speeds at <strong>9000 m should be greater</strong>, because the pressure gradient force is greater there.</p>
 </div>
-<p>You can put numbers on this. The geostrophic wind (Chapter <a
-href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-ch:geo">25</a>) is
-<span class="math inline">\(V_g=(g/f)\,\Delta z/\Delta n\)</span>,
-Eq. (<a
-href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-eq:geo">25.1</a>),
-where <span class="math inline">\(\Delta z\)</span> is the difference in
-height of a pressure surface over a distance <span
-class="math inline">\(\Delta n\)</span>. The two places are <span
-class="math inline">\(\Delta n=2\,990\)</span> km apart, at a mean
-latitude of <span class="math inline">\(39^\circ\)</span>, where <span
-class="math inline">\(f=2\times7.292\times10^{-5}\times\sin39^\circ=9.16\times10^{-5}\)</span> s<span
-class="math inline">\(^{-1}\)</span>.</p>
+<p>You can put numbers on this. The geostrophic wind (Chapter <a href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-ch:geo">25</a>) is <span class="math inline">\(V_g=(g/f)\,\Delta z/\Delta n\)</span>, Eq. (<a href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-eq:geo">25.1</a>), where <span class="math inline">\(\Delta z\)</span> is the difference in height of a pressure surface over a distance <span class="math inline">\(\Delta n\)</span>. The two places are <span class="math inline">\(\Delta n=2\,990\)</span> km apart, at a mean latitude of <span class="math inline">\(39^\circ\)</span>, where <span class="math inline">\(f=2\times7.292\times10^{-5}\times\sin39^\circ=9.16\times10^{-5}\)</span> s<span class="math inline">\(^{-1}\)</span>.</p>
 <div class="box box-worked">
 <p class="box-title">
 Worked example: wind estimates from the slopes
 </p>
 <p><span class="math display">\[\begin{align*}
-\text{850 mb:}\quad
-V_g&amp;=\frac{9.81}{9.16\times10^{-5}}\times\frac{140}{2.99\times10^{6}}=5.0\
-\ensuremath{\mathrm{m\,s^{-1}}},\\
-\text{500 mb:}\quad
-V_g&amp;=\frac{9.81}{9.16\times10^{-5}}\times\frac{300}{2.99\times10^{6}}=10.7\
-\ensuremath{\mathrm{m\,s^{-1}}},\\
-\text{300 mb:}\quad
-V_g&amp;=\frac{9.81}{9.16\times10^{-5}}\times\frac{800}{2.99\times10^{6}}=28.6\
-\ensuremath{\mathrm{m\,s^{-1}}}.
-\end{align*}\]</span> The wind blows from west to east (Monterrey, with
-the higher surfaces, is to the south, on the right of the wind in the
-Northern Hemisphere).</p>
+\text{850 mb:}\quad V_g&amp;=\frac{9.81}{9.16\times10^{-5}}\times\frac{140}{2.99\times10^{6}}=5.0\ \ensuremath{\mathrm{m\,s^{-1}}},\\
+\text{500 mb:}\quad V_g&amp;=\frac{9.81}{9.16\times10^{-5}}\times\frac{300}{2.99\times10^{6}}=10.7\ \ensuremath{\mathrm{m\,s^{-1}}},\\
+\text{300 mb:}\quad V_g&amp;=\frac{9.81}{9.16\times10^{-5}}\times\frac{800}{2.99\times10^{6}}=28.6\ \ensuremath{\mathrm{m\,s^{-1}}}.
+\end{align*}\]</span> The wind blows from west to east (Monterrey, with the higher surfaces, is to the south, on the right of the wind in the Northern Hemisphere).</p>
 </div>
-<p><img src="/teaching/atmosphere/fig/f-46.png"
-alt="Geostrophic wind estimated from the slope of the pressure surfaces between the two places. The wind speeds up fivefold from 850 to 300 ,mb." /><br />
+<p><img src="/teaching/atmosphere/fig/f-46.png" alt="Geostrophic wind estimated from the slope of the pressure surfaces between the two places. The wind speeds up fivefold from 850 to 300 ,mb." /><br />
 </p>
-<p>Geostrophic wind estimated from the slope of the pressure surfaces
-between the two places. The wind speeds up fivefold from 850 to
-300 mb.</p>
-<p>These numbers are rough: the heights are rounded, and only two places
-are used. Real winds at 300 mb are often 50 to 80 <span
-class="math inline">\(\mathrm{m\,s^{-1}}\)</span>. The lesson is
-nevertheless exact. <strong>The faster the temperature falls towards the
-pole, the faster the westerly winds aloft, and they strengthen with
-height.</strong> This is the <strong>thermal wind</strong>, and it is
-why the jet streams sit near 10 km above the zone where the temperature
-contrast is greatest.</p>
-<h2 id="an-experiment-change-the-temperatures">24.9 An experiment:
-change the temperatures</h2>
-<p>Replace Saskatoon and Monterrey by two columns that both start at
-1013 hPa and have constant mean temperatures <span
-class="math inline">\(T_1\)</span> and <span
-class="math inline">\(T_2\)</span>. The hypsometric equation then gives
-the height of each surface. If <span
-class="math inline">\(T_1=T_2\)</span> every surface is flat: there is
-no horizontal pressure gradient and no wind, however cold the air.
-Increase the contrast and the surfaces tilt, increasingly steeply with
-height.</p>
+<p>Geostrophic wind estimated from the slope of the pressure surfaces between the two places. The wind speeds up fivefold from 850 to 300 mb.</p>
+<p>These numbers are rough: the heights are rounded, and only two places are used. Real winds at 300 mb are often 50 to 80 <span class="math inline">\(\mathrm{m\,s^{-1}}\)</span>. The lesson is nevertheless exact. <strong>The faster the temperature falls towards the pole, the faster the westerly winds aloft, and they strengthen with height.</strong> This is the <strong>thermal wind</strong>, and it is why the jet streams sit near 10 km above the zone where the temperature contrast is greatest.</p>
+<h2 id="an-experiment-change-the-temperatures">24.9 An experiment: change the temperatures</h2>
+<p>Replace Saskatoon and Monterrey by two columns that both start at 1013 hPa and have constant mean temperatures <span class="math inline">\(T_1\)</span> and <span class="math inline">\(T_2\)</span>. The hypsometric equation then gives the height of each surface. If <span class="math inline">\(T_1=T_2\)</span> every surface is flat: there is no horizontal pressure gradient and no wind, however cold the air. Increase the contrast and the surfaces tilt, increasingly steeply with height.</p>
 <table>
-<caption>Surface slopes and geostrophic winds for two columns with mean
-temperatures of <span class="math inline">\(-25\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> and 0 <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>, 2 000 km apart at
-45<span class="math inline">\(^{\circ}\)</span> latitude.</caption>
+<caption>Surface slopes and geostrophic winds for two columns with mean temperatures of <span class="math inline">\(-25\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> and 0 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>, 2 000 km apart at 45<span class="math inline">\(^{\circ}\)</span> latitude.</caption>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -507,8 +303,7 @@ class="math inline">\(^{\circ}\mathrm{C}\)</span>, 2 000 km apart at
 <th style="text-align: right;"><strong>Level</strong></th>
 <th style="text-align: right;"><strong>Height, cold column</strong></th>
 <th style="text-align: right;"><strong>Height, warm column</strong></th>
-<th style="text-align: right;"><strong>Slope</strong> /
-<strong>wind</strong></th>
+<th style="text-align: right;"><strong>Slope</strong> / <strong>wind</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -516,53 +311,38 @@ class="math inline">\(^{\circ}\mathrm{C}\)</span>, 2 000 km apart at
 <td style="text-align: right;">850 hPa</td>
 <td style="text-align: right;">1274 m</td>
 <td style="text-align: right;">1403 m</td>
-<td style="text-align: right;">128 m / 6 <span
-class="math inline">\(\mathrm{m\,s^{-1}}\)</span></td>
+<td style="text-align: right;">128 m / 6 <span class="math inline">\(\mathrm{m\,s^{-1}}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: right;">700 hPa</td>
 <td style="text-align: right;">2685 m</td>
 <td style="text-align: right;">2955 m</td>
-<td style="text-align: right;">270 m / 13 <span
-class="math inline">\(\mathrm{m\,s^{-1}}\)</span></td>
+<td style="text-align: right;">270 m / 13 <span class="math inline">\(\mathrm{m\,s^{-1}}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: right;">500 hPa</td>
 <td style="text-align: right;">5129 m</td>
 <td style="text-align: right;">5645 m</td>
-<td style="text-align: right;">517 m / 25 <span
-class="math inline">\(\mathrm{m\,s^{-1}}\)</span></td>
+<td style="text-align: right;">517 m / 25 <span class="math inline">\(\mathrm{m\,s^{-1}}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: right;">300 hPa</td>
 <td style="text-align: right;">8839 m</td>
 <td style="text-align: right;">9729 m</td>
-<td style="text-align: right;">890 m / 42 <span
-class="math inline">\(\mathrm{m\,s^{-1}}\)</span></td>
+<td style="text-align: right;">890 m / 42 <span class="math inline">\(\mathrm{m\,s^{-1}}\)</span></td>
 </tr>
 </tbody>
 </table>
-<h2 id="try-it-yourself-practice-set-24">24.10 Try it yourself: Practice
-Set 24</h2>
+<h2 id="try-it-yourself-practice-set-24">24.10 Try it yourself: Practice Set 24</h2>
 <div class="box box-try">
 <p class="box-title">
 Practice Set 24: pressure surfaces
 </p>
 <ol type="1">
-<li><p>Find the thickness of the 1000 to 500 hPa layer for mean
-temperatures of <span class="math inline">\(-10\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> and <span
-class="math inline">\(+10\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>, and the
-difference.</p></li>
-<li><p>At 40<span class="math inline">\(^{\circ}\)</span>N the 500 hPa
-surface is at 5520 m over town A and 5640 m over town B, which lies
-800 km due south of A. Estimate the geostrophic wind and say from which
-direction it blows.</p></li>
-<li><p>The 500 mb heights over two stations are 5400 m (P) and 5600 m
-(Q). Which has the colder air beneath it?</p></li>
-<li><p>The 500 hPa surface slopes up from north to south. Which way does
-the wind blow in the Northern Hemisphere?</p></li>
+<li><p>Find the thickness of the 1000 to 500 hPa layer for mean temperatures of <span class="math inline">\(-10\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> and <span class="math inline">\(+10\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>, and the difference.</p></li>
+<li><p>At 40<span class="math inline">\(^{\circ}\)</span>N the 500 hPa surface is at 5520 m over town A and 5640 m over town B, which lies 800 km due south of A. Estimate the geostrophic wind and say from which direction it blows.</p></li>
+<li><p>The 500 mb heights over two stations are 5400 m (P) and 5600 m (Q). Which has the colder air beneath it?</p></li>
+<li><p>The 500 hPa surface slopes up from north to south. Which way does the wind blow in the Northern Hemisphere?</p></li>
 </ol>
 </div>
 <div class="box box-answer">
@@ -570,38 +350,22 @@ the wind blow in the Northern Hemisphere?</p></li>
 Answers to Practice Set 24
 </p>
 <ol type="1">
-<li><p><span class="math inline">\(5339\)</span> m and <span
-class="math inline">\(5745\)</span> m (see the worked example); the warm
-layer is <span class="math inline">\(406\)</span> m thicker.</p></li>
-<li><p><span
-class="math inline">\(f=2\times7.292\times10^{-5}\sin40\ensuremath{^{\circ}}=9.37\times10^{-5}\)</span> s<span
-class="math inline">\(^{-1}\)</span>; <span
-class="math inline">\(V_g=\dfrac{9.81}{9.37\times10^{-5}}\times\dfrac{120}{8\times10^{5}}=15.7\
-\ensuremath{\mathrm{m\,s^{-1}}}\)</span> (about 30 kt). B is to the
-south and has the higher surface, so the wind has high pressure on its
-right: it is a <strong>westerly</strong> (blowing from west to
-east).</p></li>
-<li><p>P, because a column that is colder is thinner and has lower
-pressure surfaces.</p></li>
-<li><p>With the low heights to the north (on the left of the wind), the
-wind blows from west to east, a westerly. Pressure surfaces that rise
-towards the equator give westerly winds, which is the pattern over
-mid-latitudes.</p></li>
+<li><p><span class="math inline">\(5339\)</span> m and <span class="math inline">\(5745\)</span> m (see the worked example); the warm layer is <span class="math inline">\(406\)</span> m thicker.</p></li>
+<li><p><span class="math inline">\(f=2\times7.292\times10^{-5}\sin40\ensuremath{^{\circ}}=9.37\times10^{-5}\)</span> s<span class="math inline">\(^{-1}\)</span>; <span class="math inline">\(V_g=\dfrac{9.81}{9.37\times10^{-5}}\times\dfrac{120}{8\times10^{5}}=15.7\ \ensuremath{\mathrm{m\,s^{-1}}}\)</span> (about 30 kt). B is to the south and has the higher surface, so the wind has high pressure on its right: it is a <strong>westerly</strong> (blowing from west to east).</p></li>
+<li><p>P, because a column that is colder is thinner and has lower pressure surfaces.</p></li>
+<li><p>With the low heights to the north (on the left of the wind), the wind blows from west to east, a westerly. Pressure surfaces that rise towards the equator give westerly winds, which is the pattern over mid-latitudes.</p></li>
 </ol>
 </div>
 <h2 id="thickness-in-python">24.11 Thickness in Python</h2>
-<p>These functions compute the equations of this chapter, and the book’s
-tests check them against its answers.</p>
+<p>These functions compute the equations of this chapter, and the book’s tests check them against its answers.</p>
 <pre><code>def thickness(mean_t_k, p1_hpa, p2_hpa):
     &quot;&quot;&quot;Hypsometric equation: thickness (m) of the layer between two pressures.&quot;&quot;&quot;
     return R_D * mean_t_k / G * math.log(p1_hpa / p2_hpa)</code></pre>
-<p>A warmer mean temperature gives a larger result: the warmer column is
-thicker.</p>
-<div id="refs" class="references csl-bib-body hanging-indent"
-data-entry-spacing="0" role="list">
+<p>A warmer mean temperature gives a larger result: the warmer column is thicker.</p>
+<h2 id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-wallace2006" class="csl-entry" role="listitem">
-Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An
-introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
+Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
 </div>
 </div>
 

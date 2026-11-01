@@ -244,6 +244,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 `100 * fraction_above(11.2)` returns 25.0 and `pressure_halving(5.6)` returns 500.0.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-noaa1976" class="csl-entry">

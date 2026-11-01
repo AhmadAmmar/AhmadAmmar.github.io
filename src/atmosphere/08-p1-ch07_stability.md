@@ -163,6 +163,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 `dry_adiabatic_lapse_rate()` returns 9.77, which rounds to the 9.8 $^{\circ}\mathrm{C\,km^{-1}}$ used in this chapter.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-wallace2006" class="csl-entry">

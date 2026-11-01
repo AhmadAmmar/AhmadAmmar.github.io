@@ -239,6 +239,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 `intensity_percent(sun_angle(zenith_angle(60, -23.5)))` returns about 11.3.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-lutgens2019" class="csl-entry">

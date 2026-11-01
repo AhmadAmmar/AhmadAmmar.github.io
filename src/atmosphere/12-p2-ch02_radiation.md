@@ -207,6 +207,8 @@ Use $c=3.00\times10^{8}$ m s$^{-1}$ and $h=6.626\times10^{-34}$ J s.
 
 </div>
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-lutgens2019" class="csl-entry">

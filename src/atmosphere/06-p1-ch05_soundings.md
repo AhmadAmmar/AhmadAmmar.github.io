@@ -258,6 +258,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 `tropopause(z, t)` returns (9383, $-51.05$) for Hillsborough and (11482, $-62.05$) for St John’s.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-ahrens2022" class="csl-entry">

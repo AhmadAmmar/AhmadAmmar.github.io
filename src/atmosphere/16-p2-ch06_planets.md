@@ -254,6 +254,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 `solar_constant(1.52)` returns about 592, the sunlight reaching Mars.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-ahrens2022" class="csl-entry">

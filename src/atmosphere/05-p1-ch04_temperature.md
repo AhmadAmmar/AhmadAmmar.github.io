@@ -71,7 +71,9 @@ Figure [5.1](/teaching/atmosphere/p1-ch04_temperature/#p1-fig:layers) extends t
 
 ![The U.S.  Standard Atmosphere from the ground to 100 ,km  citep noaa1976 . Temperature falls through the troposphere, is constant and then rises through the stratosphere, falls again through the mesos](/teaching/atmosphere/fig/f-05.png)\
 
-**Figure 5.1.** The U.S. Standard Atmosphere from the ground to 100 km (NOAA et al. 1976). Temperature falls through the troposphere, is constant and then rises through the stratosphere, falls again through the mesosphere, and rises in the thermosphere. The shaded bands are the layers; the dashed lines are the pauses between them.  <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">  <div id="ref-noaa1976" class="csl-entry">  NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S. Government Printing Office, Washington, DC.  </div>  </div>
+**Figure 5.1.** The U.S. Standard Atmosphere from the ground to 100 km (NOAA et al. 1976). Temperature falls through the troposphere, is constant and then rises through the stratosphere, falls again through the mesosphere, and rises in the thermosphere. The shaded bands are the layers; the dashed lines are the pauses between them.  ## References
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">  <div id="ref-noaa1976" class="csl-entry">  NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S. Government Printing Office, Washington, DC.  </div>  </div>
 
 Troposphere (surface to about 11 km).
 
@@ -146,6 +148,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
         return 15.0 - 6.5 * min(z_km, 11.0)
 
 `standard_temperature(8)` returns $-37.0$ and `standard_temperature(14)` returns $-56.5$.
+
+## References
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 

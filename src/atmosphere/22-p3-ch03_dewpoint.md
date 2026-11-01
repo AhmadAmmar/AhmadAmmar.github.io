@@ -257,6 +257,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 `dew_point(10)` returns about 13.8, the answer to Moisture Q5.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-bolton1980" class="csl-entry">

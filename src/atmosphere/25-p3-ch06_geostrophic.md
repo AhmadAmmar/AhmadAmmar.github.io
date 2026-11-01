@@ -226,6 +226,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 `geostrophic_wind(60, 5e5, 45)` returns about 11.4 $\mathrm{m\,s^{-1}}$.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-holton2013" class="csl-entry">

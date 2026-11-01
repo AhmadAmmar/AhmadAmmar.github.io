@@ -43,6 +43,8 @@ The conventions of the whole book are in § [1.3](/teaching/atmosphere/how-to-
 
 - **Units** are written as powers: $\mathrm{W\,m^{-2}}$ means watts per square metre. Wavelengths are in micrometres, $1\,\ensuremath{\mu\mathrm{m}}=10^{-6}$ m.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-ahrens2022" class="csl-entry">

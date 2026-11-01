@@ -82,6 +82,8 @@ No. One day shows weather; climate is the average over many years. But this day 
 
 </div>
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-lutgens2019" class="csl-entry">

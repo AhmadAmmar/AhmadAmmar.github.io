@@ -59,50 +59,18 @@ out: teaching/atmosphere/p1-ch07_stability/index.html
 <p class="box-title">
 The question
 </p>
-<p>In St John’s, how much is the pressure drop between 140 m and 3006 m?
-How much is the pressure drop between 23 834 m and 26 404 m? Seeing that
-the difference in altitude is almost the same, why is the difference in
-pressure so dissimilar?</p>
+<p>In St John’s, how much is the pressure drop between 140 m and 3006 m? How much is the pressure drop between 23 834 m and 26 404 m? Seeing that the difference in altitude is almost the same, why is the difference in pressure so dissimilar?</p>
 </div>
-<p><strong>The two drops.</strong> From Table <a
-href="/teaching/atmosphere/p1-ch05_soundings/#p1-tab:soundings">6.1</a>
-(St John’s): <span class="math display">\[\begin{align*}
-\text{lower layer:}&amp;\quad 1005-700=305\
-\ensuremath{\mathrm{hPa}}\quad\text{over}\quad 3006-140=2866\
-\mathrm{m},\\
-\text{upper layer:}&amp;\quad 30-20=10\
-\ensuremath{\mathrm{hPa}}\quad\text{over}\quad 26\,404-23\,834=2570\
-\mathrm{m}.
+<p><strong>The two drops.</strong> From Table <a href="/teaching/atmosphere/p1-ch05_soundings/#p1-tab:soundings">6.1</a> (St John’s): <span class="math display">\[\begin{align*}
+\text{lower layer:}&amp;\quad 1005-700=305\ \ensuremath{\mathrm{hPa}}\quad\text{over}\quad 3006-140=2866\ \mathrm{m},\\
+\text{upper layer:}&amp;\quad 30-20=10\ \ensuremath{\mathrm{hPa}}\quad\text{over}\quad 26\,404-23\,834=2570\ \mathrm{m}.
 \end{align*}\]</span></p>
-<p><strong>Look at fractions, not amounts.</strong> In the lower layer
-the pressure falls to <span class="math inline">\(700/1005=0.70\)</span>
-of its starting value, a fall of 30 %; in the upper layer it falls to
-<span class="math inline">\(20/30=0.67\)</span>, a fall of 33 %. The
-<em>fractional</em> drops over these similar depths are almost the same.
-That is exactly what exponential decay means (§ <a
-href="/teaching/atmosphere/p1-ch02_pressure/#p1-sec:exponential">3.3</a>):
-each kilometre removes the same <em>fraction</em> of the air above, so
-where there is a lot of air (near the ground) the same fraction is a
-large amount, and where there is little (at 24 km, only 3 % of the
-atmosphere is above) it is a tiny amount. Plotted on a logarithmic
-pressure axis, an exponential becomes a straight line (Figure <a
-href="/teaching/atmosphere/p1-ch07_stability/#p1-fig:q12">8.1</a>).</p>
+<p><strong>Look at fractions, not amounts.</strong> In the lower layer the pressure falls to <span class="math inline">\(700/1005=0.70\)</span> of its starting value, a fall of 30 %; in the upper layer it falls to <span class="math inline">\(20/30=0.67\)</span>, a fall of 33 %. The <em>fractional</em> drops over these similar depths are almost the same. That is exactly what exponential decay means (§ <a href="/teaching/atmosphere/p1-ch02_pressure/#p1-sec:exponential">3.3</a>): each kilometre removes the same <em>fraction</em> of the air above, so where there is a lot of air (near the ground) the same fraction is a large amount, and where there is little (at 24 km, only 3 % of the atmosphere is above) it is a tiny amount. Plotted on a logarithmic pressure axis, an exponential becomes a straight line (Figure <a href="/teaching/atmosphere/p1-ch07_stability/#p1-fig:q12">8.1</a>).</p>
 <p><a id="p1-fig:q12"></a></p>
-<p><img src="/teaching/atmosphere/fig/f-09.png"
-alt="Question 12: the St John&#39;s sounding with pressure on a logarithmic axis (decreasing to the right, so that height and falling pressure go the same way). An exponential decay is a straight line here; th" /><br />
+<p><img src="/teaching/atmosphere/fig/f-09.png" alt="Question 12: the St John&#39;s sounding with pressure on a logarithmic axis (decreasing to the right, so that height and falling pressure go the same way). An exponential decay is a straight line here; th" /><br />
 </p>
-<p><strong>Figure 8.1.</strong> Question 12: the St John’s sounding with
-pressure on a logarithmic axis (decreasing to the right, so that height
-and falling pressure go the same way). An exponential decay is a
-straight line here; the slope is steeper (shorter scale height) where
-the air is colder.</p>
-<p><strong>The data even measure the scale height.</strong> Rearranging
-Eq. (<a
-href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>) for
-two levels gives the scale height of the layer between them (Appendix <a
-href="/teaching/atmosphere/app-p1/#p1-sec:der-expo">A.2.1</a>): <span
-class="math display">\[H=\frac{z_2-z_1}{\ln(p_1/p_2)}.\tag{8.1}\]</span>
-<em>where</em></p>
+<p><strong>Figure 8.1.</strong> Question 12: the St John’s sounding with pressure on a logarithmic axis (decreasing to the right, so that height and falling pressure go the same way). An exponential decay is a straight line here; the slope is steeper (shorter scale height) where the air is colder.</p>
+<p><strong>The data even measure the scale height.</strong> Rearranging Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>) for two levels gives the scale height of the layer between them (Appendix <a href="/teaching/atmosphere/app-p1/#p1-sec:der-expo">A.2.1</a>): <span class="math display">\[H=\frac{z_2-z_1}{\ln(p_1/p_2)}.\tag{8.1}\]</span> <em>where</em></p>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -111,90 +79,36 @@ class="math display">\[H=\frac{z_2-z_1}{\ln(p_1/p_2)}.\tag{8.1}\]</span>
 </colgroup>
 <tbody>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(H\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(H\)</span></td>
 <td style="text-align: left;">scale height of the layer (km)</td>
 <td style="text-align: left;">calculated</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(z_1,\
-z_2\)</span></td>
-<td style="text-align: left;">heights of the bottom and top of the layer
-(km)</td>
+<td style="text-align: left;"><span class="math inline">\(z_1,\ z_2\)</span></td>
+<td style="text-align: left;">heights of the bottom and top of the layer (km)</td>
 <td style="text-align: left;">from the sounding</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(p_1,\
-p_2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(p_1,\ p_2\)</span></td>
 <td style="text-align: left;">pressures at those heights (hPa)</td>
 <td style="text-align: left;">from the sounding</td>
 </tr>
 </tbody>
 </table>
-<p>For the lower layer <span
-class="math inline">\(H=2.866/\ln(1005/700)=2.866/0.362=7.9\)</span> km;
-for the upper layer <span
-class="math inline">\(H=2.570/\ln(30/20)=2.570/0.405=6.3\)</span> km. By
-Eq. (<a
-href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>), <span
-class="math inline">\(H=R_dT/g\)</span>, so these correspond to
-temperatures of <span class="math inline">\(gH/R_d=271\)</span> K (<span
-class="math inline">\(-2\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>) and 218 K (<span
-class="math inline">\(-55\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>): exactly the
-temperatures measured in those layers. The upper layer is colder, so its
-air is denser for its pressure and its pressure falls off over a shorter
-distance.</p>
+<p>For the lower layer <span class="math inline">\(H=2.866/\ln(1005/700)=2.866/0.362=7.9\)</span> km; for the upper layer <span class="math inline">\(H=2.570/\ln(30/20)=2.570/0.405=6.3\)</span> km. By Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>), <span class="math inline">\(H=R_dT/g\)</span>, so these correspond to temperatures of <span class="math inline">\(gH/R_d=271\)</span> K (<span class="math inline">\(-2\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>) and 218 K (<span class="math inline">\(-55\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>): exactly the temperatures measured in those layers. The upper layer is colder, so its air is denser for its pressure and its pressure falls off over a shorter distance.</p>
 <div class="box box-answer">
 <p class="box-title">
 Answer to Question 12
 </p>
-<p>Between 140 and 3006 m the pressure drops by
-<strong>305 hPa</strong>; between 23 834 and 26 404 m by only
-<strong>10 hPa</strong>. Pressure decreases
-<strong>exponentially</strong> with height: each step up removes about
-the same <em>fraction</em> of the air above (30 % and 33 % here), not
-the same amount. Near the ground there is a great deal of air above,
-compressed by its own weight, so the same fraction is a large drop; at
-24 km only about 3 % of the atmosphere remains above, so the drop is
-tiny.</p>
+<p>Between 140 and 3006 m the pressure drops by <strong>305 hPa</strong>; between 23 834 and 26 404 m by only <strong>10 hPa</strong>. Pressure decreases <strong>exponentially</strong> with height: each step up removes about the same <em>fraction</em> of the air above (30 % and 33 % here), not the same amount. Near the ground there is a great deal of air above, compressed by its own weight, so the same fraction is a large drop; at 24 km only about 3 % of the atmosphere remains above, so the drop is tiny.</p>
 </div>
-<h2 id="p1-sec:density">8.2 “Cold air sinks”? Density depends on
-pressure too</h2>
-<p>Everyday experience says cold air sinks: cold draughts collect at the
-floor, frost forms in hollows. That is true when cold and warm air are
-side by side at the <em>same pressure</em>, because by the gas law,
-Eq. (<a
-href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>),
-<span class="math inline">\(\rho=p/(R_dT)\)</span> and lower <span
-class="math inline">\(T\)</span> means higher <span
-class="math inline">\(\rho\)</span>. But in the vertical the pressure
-changes enormously, and pressure wins. Using the Hillsborough sounding:
-<span class="math display">\[\begin{align*}
-\text{surface (1001 hPa, 11.05
-}^{\circ}\mathrm{C}\text{):}\quad&amp;\rho=\frac{100\,100}{287\times284.2}=1.23\
-\mathrm{kg\,m^{-3}},\\
-\text{tropopause (282 hPa,
-}-51.05\,\ensuremath{^{\circ}\mathrm{C}}):\quad&amp;\rho=\frac{28\,200}{287\times222.1}=0.44\
-\mathrm{kg\,m^{-3}}.
-\end{align*}\]</span> The cold air at the tropopause is only a third as
-dense as the warm air at the ground: it is lighter, not heavier, and it
-does not “fall through” the air below it.</p>
-<h2 id="p1-sec:adiabatic">8.3 What happens to air that moves up or
-down</h2>
-<p>The full answer needs one more idea. Air that moves vertically
-changes its pressure, and so its temperature. A parcel of air brought
-<em>down</em> is squeezed by the rising pressure, and the work done in
-compressing it warms it; a parcel that rises expands and cools. If no
-heat is exchanged with its surroundings (the process is
-<em>adiabatic</em>), dry air warms or cools at a fixed rate, the
-<strong>dry adiabatic lapse rate</strong> (Wallace and Hobbs 2006, ch.
-3): <span
-class="math display">\[\Gamma_d=\frac{g}{c_p}=\frac{9.81}{1004}\
-\mathrm{K\,m^{-1}}=9.8\
-\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}.\tag{8.2}\]</span>
-<em>where</em></p>
+<h2 id="p1-sec:density">8.2 “Cold air sinks”? Density depends on pressure too</h2>
+<p>Everyday experience says cold air sinks: cold draughts collect at the floor, frost forms in hollows. That is true when cold and warm air are side by side at the <em>same pressure</em>, because by the gas law, Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>), <span class="math inline">\(\rho=p/(R_dT)\)</span> and lower <span class="math inline">\(T\)</span> means higher <span class="math inline">\(\rho\)</span>. But in the vertical the pressure changes enormously, and pressure wins. Using the Hillsborough sounding: <span class="math display">\[\begin{align*}
+\text{surface (1001 hPa, 11.05 }^{\circ}\mathrm{C}\text{):}\quad&amp;\rho=\frac{100\,100}{287\times284.2}=1.23\ \mathrm{kg\,m^{-3}},\\
+\text{tropopause (282 hPa, }-51.05\,\ensuremath{^{\circ}\mathrm{C}}):\quad&amp;\rho=\frac{28\,200}{287\times222.1}=0.44\ \mathrm{kg\,m^{-3}}.
+\end{align*}\]</span> The cold air at the tropopause is only a third as dense as the warm air at the ground: it is lighter, not heavier, and it does not “fall through” the air below it.</p>
+<h2 id="p1-sec:adiabatic">8.3 What happens to air that moves up or down</h2>
+<p>The full answer needs one more idea. Air that moves vertically changes its pressure, and so its temperature. A parcel of air brought <em>down</em> is squeezed by the rising pressure, and the work done in compressing it warms it; a parcel that rises expands and cools. If no heat is exchanged with its surroundings (the process is <em>adiabatic</em>), dry air warms or cools at a fixed rate, the <strong>dry adiabatic lapse rate</strong> (Wallace and Hobbs 2006, ch. 3): <span class="math display">\[\Gamma_d=\frac{g}{c_p}=\frac{9.81}{1004}\ \mathrm{K\,m^{-1}}=9.8\ \ensuremath{^{\circ}\mathrm{C\,km^{-1}}}.\tag{8.2}\]</span> <em>where</em></p>
 <table>
 <colgroup>
 <col style="width: 33%" />
@@ -203,44 +117,24 @@ class="math display">\[\Gamma_d=\frac{g}{c_p}=\frac{9.81}{1004}\
 </colgroup>
 <tbody>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(\Gamma_d\)</span></td>
-<td style="text-align: left;">dry adiabatic lapse rate (<span
-class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>)</td>
+<td style="text-align: left;"><span class="math inline">\(\Gamma_d\)</span></td>
+<td style="text-align: left;">dry adiabatic lapse rate (<span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>)</td>
 <td style="text-align: left;">9.8</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(g\)</span></td>
-<td style="text-align: left;">acceleration due to gravity (m s<span
-class="math inline">\(^{-2}\)</span>)</td>
+<td style="text-align: left;"><span class="math inline">\(g\)</span></td>
+<td style="text-align: left;">acceleration due to gravity (m s<span class="math inline">\(^{-2}\)</span>)</td>
 <td style="text-align: left;">9.81</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(c_p\)</span></td>
-<td style="text-align: left;">specific heat of dry air at constant
-pressure (J kg<span class="math inline">\(^{-1}\)</span> K<span
-class="math inline">\(^{-1}\)</span>)</td>
-<td style="text-align: left;">1004, Table <a
-href="/teaching/atmosphere/app-constants/#tab:constants">D.1</a></td>
+<td style="text-align: left;"><span class="math inline">\(c_p\)</span></td>
+<td style="text-align: left;">specific heat of dry air at constant pressure (J kg<span class="math inline">\(^{-1}\)</span> K<span class="math inline">\(^{-1}\)</span>)</td>
+<td style="text-align: left;">1004, Table <a href="/teaching/atmosphere/app-constants/#tab:constants">D.1</a></td>
 </tr>
 </tbody>
 </table>
-<p>The derivation is in Appendix <a
-href="/teaching/atmosphere/app-p1/#p1-sec:der-dalr">A.2.2</a>. The same
-rate decides the height of cloud base in Part III: rising air cools at
-9.8 <span
-class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> until it
-reaches its dew point (Part III, § <a
-href="/teaching/atmosphere/p3-ch03_dewpoint/#p3-sec:cloudbase">22.8</a>).</p>
-<p>A convenient way to compare air at different heights is to ask what
-temperature each parcel would have if brought down adiabatically to the
-standard level of 1000 hPa. That temperature is the <strong>potential
-temperature</strong>: <span
-class="math display">\[\theta=T\left(\frac{1000\
-\ensuremath{\mathrm{hPa}}}{p}\right)^{R_d/c_p}=T\left(\frac{1000}{p}\right)^{0.286}.\tag{8.3}\]</span>
-<em>where</em></p>
+<p>The derivation is in Appendix <a href="/teaching/atmosphere/app-p1/#p1-sec:der-dalr">A.2.2</a>. The same rate decides the height of cloud base in Part III: rising air cools at 9.8 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> until it reaches its dew point (Part III, § <a href="/teaching/atmosphere/p3-ch03_dewpoint/#p3-sec:cloudbase">22.8</a>).</p>
+<p>A convenient way to compare air at different heights is to ask what temperature each parcel would have if brought down adiabatically to the standard level of 1000 hPa. That temperature is the <strong>potential temperature</strong>: <span class="math display">\[\theta=T\left(\frac{1000\ \ensuremath{\mathrm{hPa}}}{p}\right)^{R_d/c_p}=T\left(\frac{1000}{p}\right)^{0.286}.\tag{8.3}\]</span> <em>where</em></p>
 <table>
 <colgroup>
 <col style="width: 14%" />
@@ -249,152 +143,65 @@ class="math display">\[\theta=T\left(\frac{1000\
 </colgroup>
 <tbody>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(\theta\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\theta\)</span></td>
 <td style="text-align: left;">potential temperature (K)</td>
 <td style="text-align: left;">calculated</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(T\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(T\)</span></td>
 <td style="text-align: left;">temperature of the parcel (K)</td>
 <td style="text-align: left;">from the sounding</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(p\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(p\)</span></td>
 <td style="text-align: left;">pressure of the parcel (hPa)</td>
 <td style="text-align: left;">from the sounding</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span
-class="math inline">\(R_d/c_p\)</span></td>
-<td style="text-align: left;">ratio of the gas constant to the specific
-heat</td>
-<td style="text-align: left;"><span
-class="math inline">\(287/1004=0.286\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(R_d/c_p\)</span></td>
+<td style="text-align: left;">ratio of the gas constant to the specific heat</td>
+<td style="text-align: left;"><span class="math inline">\(287/1004=0.286\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>Potential temperature does not change when air moves up or down
-adiabatically, so it labels a parcel the way a name does: two parcels
-with the same <span class="math inline">\(\theta\)</span> would have the
-same temperature if brought to the same level.</p>
+<p>Potential temperature does not change when air moves up or down adiabatically, so it labels a parcel the way a name does: two parcels with the same <span class="math inline">\(\theta\)</span> would have the same temperature if brought to the same level.</p>
 <p><a id="p1-fig:theta"></a></p>
-<p><img src="/teaching/atmosphere/fig/f-10.png"
-alt="Question 13: potential temperature, Eq. eqref p1-eq:theta , for both soundings up to 16 ,km. It increases with height everywhere, which means the atmosphere is stable: any parcel moved down arrives w" /><br />
+<p><img src="/teaching/atmosphere/fig/f-10.png" alt="Question 13: potential temperature, Eq. eqref p1-eq:theta , for both soundings up to 16 ,km. It increases with height everywhere, which means the atmosphere is stable: any parcel moved down arrives w" /><br />
 </p>
-<p><strong>Figure 8.2.</strong> Question 13: potential temperature,
-Eq. (<a
-href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>), for
-both soundings up to 16 km. It increases with height everywhere, which
-means the atmosphere is stable: any parcel moved down arrives warmer,
-and so lighter, than the air around it. The increase is slow in the
-troposphere and fast in the stratosphere.</p>
-<h2 id="p1-sec:q13">8.4 Question 13: why the cold air aloft does not
-sink</h2>
+<p><strong>Figure 8.2.</strong> Question 13: potential temperature, Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>), for both soundings up to 16 km. It increases with height everywhere, which means the atmosphere is stable: any parcel moved down arrives warmer, and so lighter, than the air around it. The increase is slow in the troposphere and fast in the stratosphere.</p>
+<h2 id="p1-sec:q13">8.4 Question 13: why the cold air aloft does not sink</h2>
 <div class="box box-question">
 <p class="box-title">
 The question
 </p>
-<p>Thinking of your previous answer, if cold air is supposed to sink,
-why is the colder air of the upper troposphere not flowing down to the
-surface?</p>
+<p>Thinking of your previous answer, if cold air is supposed to sink, why is the colder air of the upper troposphere not flowing down to the surface?</p>
 </div>
-<p><strong>Follow a parcel down.</strong> Take the air at the
-Hillsborough tropopause, <span
-class="math inline">\(-51.05\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> (222.1 K) at 282 hPa,
-and bring it down to the ground. As it sinks it is compressed and warms
-at 9.8 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>.
-Its potential temperature, Eq. (<a
-href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>),
-tells us where it would end up: <span
-class="math display">\[\theta=222.1\times\left(\frac{1000}{282}\right)^{0.286}=222.1\times1.436=318.9\
-\mathrm{K}=45.8\ \ensuremath{^{\circ}\mathrm{C}}.\]</span> It would
-arrive at the surface at about 46 <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>, some 35 <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> <em>warmer</em> than
-the 11 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> air
-already there. Warmer air at the same pressure is less dense, so the
-parcel would be buoyant and would be pushed straight back up. The cold
-air aloft is not “waiting to fall”: it is held up because it would
-become warm, and light, on the way down.</p>
-<p>This is general. Whenever the temperature in the atmosphere falls
-with height more slowly than 9.8 <span
-class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> (the standard
-6.5 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>, or
-the 6.65 <span
-class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> of
-Question 9), the potential temperature increases with height (Figure <a
-href="/teaching/atmosphere/p1-ch07_stability/#p1-fig:theta">8.2</a>) and
-the air is <strong>stably stratified</strong>: air displaced downwards
-comes back up, and air displaced upwards sinks back. The atmosphere is
-layered like oil on water, but the layers are sorted by potential
-temperature, not by temperature.</p>
+<p><strong>Follow a parcel down.</strong> Take the air at the Hillsborough tropopause, <span class="math inline">\(-51.05\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> (222.1 K) at 282 hPa, and bring it down to the ground. As it sinks it is compressed and warms at 9.8 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>. Its potential temperature, Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>), tells us where it would end up: <span class="math display">\[\theta=222.1\times\left(\frac{1000}{282}\right)^{0.286}=222.1\times1.436=318.9\ \mathrm{K}=45.8\ \ensuremath{^{\circ}\mathrm{C}}.\]</span> It would arrive at the surface at about 46 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>, some 35 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> <em>warmer</em> than the 11 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> air already there. Warmer air at the same pressure is less dense, so the parcel would be buoyant and would be pushed straight back up. The cold air aloft is not “waiting to fall”: it is held up because it would become warm, and light, on the way down.</p>
+<p>This is general. Whenever the temperature in the atmosphere falls with height more slowly than 9.8 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> (the standard 6.5 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>, or the 6.65 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> of Question 9), the potential temperature increases with height (Figure <a href="/teaching/atmosphere/p1-ch07_stability/#p1-fig:theta">8.2</a>) and the air is <strong>stably stratified</strong>: air displaced downwards comes back up, and air displaced upwards sinks back. The atmosphere is layered like oil on water, but the layers are sorted by potential temperature, not by temperature.</p>
 <div class="box box-answer">
 <p class="box-title">
 Answer to Question 13
 </p>
-<p>The upper air is cold but it is at very low pressure, so it is
-<strong>much less dense</strong> than the air near the ground (0.44
-against 1.23 kg m<span class="math inline">\(^{-3}\)</span> at
-Hillsborough): “cold air sinks” compares air at the same pressure. If
-the upper air did sink, it would be <strong>compressed and warm
-up</strong> at about 9.8 <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span> per km; the tropopause
-air over Hillsborough would reach the ground at about <strong>46 <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span></strong>, far warmer
-and lighter than the surface air, and would rise again. Because the
-temperature falls with height more slowly than air warms on descent, the
-atmosphere is <strong>stably layered</strong>: its potential temperature
-increases with height.</p>
+<p>The upper air is cold but it is at very low pressure, so it is <strong>much less dense</strong> than the air near the ground (0.44 against 1.23 kg m<span class="math inline">\(^{-3}\)</span> at Hillsborough): “cold air sinks” compares air at the same pressure. If the upper air did sink, it would be <strong>compressed and warm up</strong> at about 9.8 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> per km; the tropopause air over Hillsborough would reach the ground at about <strong>46 <span class="math inline">\(^{\circ}\mathrm{C}\)</span></strong>, far warmer and lighter than the surface air, and would rise again. Because the temperature falls with height more slowly than air warms on descent, the atmosphere is <strong>stably layered</strong>: its potential temperature increases with height.</p>
 </div>
 <div class="box box-ask">
 <p class="box-title">
 A question that comes up
 </p>
 <p><strong>Then when does air overturn?</strong><br />
-When the temperature falls with height <em>faster</em> than 9.8 <span
-class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>, a rising
-parcel stays warmer than its surroundings and keeps rising: the air is
-unstable, and convection overturns it. This happens over ground heated
-strongly by the Sun, where the lowest layer can exceed the dry adiabatic
-rate. In the Hillsborough sounding the lowest 1.3 km cools at 9.5 <span
-class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>, almost
-exactly the dry adiabatic rate: a well-mixed layer stirred by the wind
-and by heating from the ground.</p>
+When the temperature falls with height <em>faster</em> than 9.8 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>, a rising parcel stays warmer than its surroundings and keeps rising: the air is unstable, and convection overturns it. This happens over ground heated strongly by the Sun, where the lowest layer can exceed the dry adiabatic rate. In the Hillsborough sounding the lowest 1.3 km cools at 9.5 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>, almost exactly the dry adiabatic rate: a well-mixed layer stirred by the wind and by heating from the ground.</p>
 </div>
-<h2 id="try-it-yourself-practice-set-8">8.5 Try it yourself: Practice
-Set 8</h2>
+<h2 id="try-it-yourself-practice-set-8">8.5 Try it yourself: Practice Set 8</h2>
 <div class="box box-try">
 <p class="box-title">
 Practice Set 8: pressure and stability
 </p>
-<p>Use <span class="math inline">\(R_d=287\)</span> J kg<span
-class="math inline">\(^{-1}\)</span> K<span
-class="math inline">\(^{-1}\)</span>, <span
-class="math inline">\(c_p=1004\)</span> J kg<span
-class="math inline">\(^{-1}\)</span> K<span
-class="math inline">\(^{-1}\)</span>, <span
-class="math inline">\(g=9.81\)</span> m s<span
-class="math inline">\(^{-2}\)</span> and kelvin <span
-class="math inline">\(=\ensuremath{^{\circ}\mathrm{C}}+273.15\)</span>.</p>
+<p>Use <span class="math inline">\(R_d=287\)</span> J kg<span class="math inline">\(^{-1}\)</span> K<span class="math inline">\(^{-1}\)</span>, <span class="math inline">\(c_p=1004\)</span> J kg<span class="math inline">\(^{-1}\)</span> K<span class="math inline">\(^{-1}\)</span>, <span class="math inline">\(g=9.81\)</span> m s<span class="math inline">\(^{-2}\)</span> and kelvin <span class="math inline">\(=\ensuremath{^{\circ}\mathrm{C}}+273.15\)</span>.</p>
 <ol type="1">
-<li><p>What is the density of air at 500 hPa and <span
-class="math inline">\(-20\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>?</p></li>
-<li><p>What is the potential temperature of the tropopause air over St
-John’s (212 hPa, <span class="math inline">\(-62.05\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>)?</p></li>
-<li><p>From the Hillsborough sounding, find the scale height of the
-layer from 1001 hPa (38 m) to 500 hPa (5414 m), and the temperature it
-corresponds to.</p></li>
-<li><p>Air at 5414 m over Hillsborough (<span
-class="math inline">\(-22.45\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>) is brought down to
-the ground (38 m) without exchanging heat. Roughly what temperature
-would it have?</p></li>
+<li><p>What is the density of air at 500 hPa and <span class="math inline">\(-20\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>?</p></li>
+<li><p>What is the potential temperature of the tropopause air over St John’s (212 hPa, <span class="math inline">\(-62.05\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>)?</p></li>
+<li><p>From the Hillsborough sounding, find the scale height of the layer from 1001 hPa (38 m) to 500 hPa (5414 m), and the temperature it corresponds to.</p></li>
+<li><p>Air at 5414 m over Hillsborough (<span class="math inline">\(-22.45\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>) is brought down to the ground (38 m) without exchanging heat. Roughly what temperature would it have?</p></li>
 </ol>
 </div>
 <div class="box box-answer">
@@ -402,35 +209,14 @@ would it have?</p></li>
 Answers to Practice Set 8
 </p>
 <ol type="1">
-<li><p><span
-class="math inline">\(\rho=50\,000/(287\times253.15)=0.688\)</span> kg m<span
-class="math inline">\(^{-3}\)</span>, Eq. (<a
-href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>):
-just over half the surface density.</p></li>
-<li><p><span
-class="math inline">\(\theta=211.1\times(1000/212)^{0.286}=328.8\)</span> K
-(55.7 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>), Eq. (<a
-href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>).</p></li>
-<li><p><span
-class="math inline">\(H=5.376/\ln(1001/500)=5.376/0.694=7.74\)</span> km,
-Eq. (<a
-href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:Hdata">8.1</a>);
-<span class="math inline">\(T=gH/R_d=9.81\times7744/287=265\)</span> K
-(<span class="math inline">\(-8\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>), close to the average
-temperature of that layer.</p></li>
-<li><p>It warms by about <span
-class="math inline">\(9.8\times5.4=53\)</span> <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>, to about 30 <span
-class="math inline">\(^{\circ}\mathrm{C}\)</span>, Eq. (<a
-href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>):
-19 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> warmer than
-the surface air, so it would rise again.</p></li>
+<li><p><span class="math inline">\(\rho=50\,000/(287\times253.15)=0.688\)</span> kg m<span class="math inline">\(^{-3}\)</span>, Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>): just over half the surface density.</p></li>
+<li><p><span class="math inline">\(\theta=211.1\times(1000/212)^{0.286}=328.8\)</span> K (55.7 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>), Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>).</p></li>
+<li><p><span class="math inline">\(H=5.376/\ln(1001/500)=5.376/0.694=7.74\)</span> km, Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:Hdata">8.1</a>); <span class="math inline">\(T=gH/R_d=9.81\times7744/287=265\)</span> K (<span class="math inline">\(-8\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>), close to the average temperature of that layer.</p></li>
+<li><p>It warms by about <span class="math inline">\(9.8\times5.4=53\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>, to about 30 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>, Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>): 19 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> warmer than the surface air, so it would rise again.</p></li>
 </ol>
 </div>
 <h2 id="stability-in-python">8.6 Stability in Python</h2>
-<p>These functions compute the equations of this chapter, and the book’s
-tests check them against its answers.</p>
+<p>These functions compute the equations of this chapter, and the book’s tests check them against its answers.</p>
 <pre><code>def scale_height_from_data(p1_hpa, p2_hpa, dz_km):
     &quot;&quot;&quot;Scale height (km) from two pressures dz_km apart.&quot;&quot;&quot;
     return dz_km / math.log(p1_hpa / p2_hpa)
@@ -442,15 +228,11 @@ def dry_adiabatic_lapse_rate():
 def potential_temperature(t_c, p_hpa):
     &quot;&quot;&quot;Potential temperature (K) of air at t_c (deg C) and p_hpa.&quot;&quot;&quot;
     return (t_c + 273.15) * (1000.0 / p_hpa) ** (R_D / C_P)</code></pre>
-<p><code>dry_adiabatic_lapse_rate()</code> returns 9.77, which rounds to
-the 9.8 <span
-class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> used in this
-chapter.</p>
-<div id="refs" class="references csl-bib-body hanging-indent"
-data-entry-spacing="0" role="list">
+<p><code>dry_adiabatic_lapse_rate()</code> returns 9.77, which rounds to the 9.8 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> used in this chapter.</p>
+<h2 id="references">References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-wallace2006" class="csl-entry" role="listitem">
-Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An
-introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
+Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
 </div>
 </div>
 

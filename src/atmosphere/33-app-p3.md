@@ -174,6 +174,8 @@ Every figure in this part was drawn for it and is vector graphics: the curves an
 
 - World Meteorological Organization (2019): the definition of the station model and its codes.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-ahrens2022" class="csl-entry">

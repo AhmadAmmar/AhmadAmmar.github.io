@@ -250,6 +250,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
 
 A warmer mean temperature gives a larger result: the warmer column is thicker.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-wallace2006" class="csl-entry">

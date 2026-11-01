@@ -51,7 +51,7 @@ If the Earth receives 1368 $\mathrm{W\,m^{-2}}$ solar radiation at the equato
 <div class="box box-answer"><p class="box-title">Answer to Question 4b</p>
 
 
-Reflected: $0.3\times1368=\textbf{410.4\,\ensuremath{\mathrm{W\,m^{-2}}}}$. Absorbed: $0.7\times1368=\textbf{957.6\,\ensuremath{\mathrm{W\,m^{-2}}}}$.
+Reflected: $0.3\times1368=\textbf{410.4\,}{\mathrm{W\,m^{-2}}}\textbf{}$. Absorbed: $0.7\times1368=\textbf{957.6\,}{\mathrm{W\,m^{-2}}}\textbf{}$.
 
 </div>
 
@@ -113,7 +113,7 @@ If we take the average incoming solar radiation, then how much is reflected back
 <div class="box box-answer"><p class="box-title">Answer to Question 4c</p>
 
 
-Reflected: $0.3\times341=\textbf{102.3\,\ensuremath{\mathrm{W\,m^{-2}}}}$. Absorbed: $0.7\times341=\textbf{238.7\,\ensuremath{\mathrm{W\,m^{-2}}}}$.
+Reflected: $0.3\times341=\textbf{102.3\,}{\mathrm{W\,m^{-2}}}\textbf{}$. Absorbed: $0.7\times341=\textbf{238.7\,}{\mathrm{W\,m^{-2}}}\textbf{}$.
 
 </div>
 
@@ -329,6 +329,8 @@ These functions compute the equations of this chapter, and the book’s tests ch
         return (e_wm2 / SIGMA) ** 0.25
 
 `absorbed(341, 0.3)` returns 238.7.
+
+## References
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 

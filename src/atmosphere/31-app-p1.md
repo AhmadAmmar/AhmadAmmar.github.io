@@ -79,6 +79,8 @@ Every figure in Part I was drawn for it in the document itself with TikZ and pg
 
 The soundings are single ascents on a single day; they illustrate the structure of the atmosphere and should not be read as climatological averages (§ [9.4](/teaching/atmosphere/p1-ch08_climates/#p1-sec:q14)).
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-noaa1976" class="csl-entry">

@@ -69,6 +69,8 @@ The questions and data in this book grew out of the practicals of EGM305 The Atm
 
 Good textbooks for going further are Lutgens et al. (2019) and Ahrens and Henson (2022). A free textbook with worked examples is Stull (2017). For more depth, Wallace and Hobbs (2006) treats the physics at the next level up.
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-ahrens2022" class="csl-entry">

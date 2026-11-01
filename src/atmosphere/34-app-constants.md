@@ -42,6 +42,8 @@ Each part works with the rounded values below. The precise values are given for 
 
 </div>
 
+## References
+
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
 
 <div id="ref-holton2013" class="csl-entry">
