@@ -1,0 +1,485 @@
+title: 4. Reading the graph, and oxygen at altitude
+description: 4. Reading the graph, and oxygen at altitude: The Atmosphere, a book worked step by step.
+nav: teaching
+out: teaching/atmosphere/p1-ch03_oxygen/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/atmosphere/">The Atmosphere</a> / 4. Reading the graph, and oxygen at altitude</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>4. Reading the graph, and oxygen at altitude</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch03_oxygen/" aria-current="page">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p><em>This chapter answers Questions 3 and 4.</em></p>
+<h2 id="p1-sec:reading">4.1 Reading values from a graph, and checking
+them</h2>
+<p>A graph turns a rule into a tool: once the curve of Figure <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-fig:q1graph">3.2</a> is
+drawn, any height can be looked up without calculation. To read a
+value:</p>
+<ol type="1">
+<li><p>Find the height on the vertical axis (convert metres to
+kilometres first: 8848 m <span
+class="math inline">\(=8.848\)</span> km).</p></li>
+<li><p>Draw a horizontal line across to the curve.</p></li>
+<li><p>From the meeting point, draw a vertical line down to the
+percentage axis and up to the pressure axis, and read both.</p></li>
+</ol>
+<p>A hand-drawn curve and a ruler give two significant figures at best.
+The exact value comes from Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>):
+divide the height by 5.6 km to get the number of halvings <span
+class="math inline">\(x\)</span>, then <span
+class="math inline">\(f=2^{-x}\)</span>. On a calculator, <span
+class="math inline">\(2^{-x}\)</span> is entered as
+<code>2 ^ (-x)</code> or computed as <span
+class="math inline">\(e^{-0.6931\,x}\)</span>.</p>
+<div class="box box-worked">
+<p class="box-title">
+Worked example: the summit of Everest, 8848 m
+</p>
+<p>Number of halvings: <span
+class="math inline">\(x=8.848/5.6=1.580\)</span>. Fraction above: <span
+class="math inline">\(f=2^{-1.580}=0.3345\)</span>, so
+<strong>33.4 %</strong> of the atmosphere is above the summit. Pressure:
+<span class="math inline">\(1000\times0.3345=\)</span>
+<strong>334 hPa</strong>, Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:pressure">3.6</a>).
+Graph check: 8.8 km lies between 5.6 km (50 %) and 11.2 km (25 %),
+closer to 11.2, so the answer must be between 25 and 50 %, nearer 25. It
+is.</p>
+</div>
+<h2 id="p1-sec:q3">4.2 Question 3: five heights</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>Using the graph you just drew, estimate the percentage of atmosphere
+above and the total pressure for the following heights: Portstewart
+strand (0 m); the top of Mount Everest (8848 m); the cruising altitude
+of a jumbo jet (12 km); Machu Picchu, Peru (2430 m); the world-record
+hot-air balloon (21 027 m).</p>
+</div>
+<table style="width:99%;">
+<caption>Table 4.1. Question 3 by the halving rule, Eqs. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>)
+and (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:pressure">3.6</a>).
+The last column gives the U.S. Standard Atmosphere for comparison (NOAA
+et al. 1976).</caption>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Place</strong></th>
+<th style="text-align: right;"><strong>Height (km)</strong></th>
+<th style="text-align: right;"><strong>Halvings <span
+class="math inline">\(x\)</span></strong></th>
+<th style="text-align: right;"><strong>% above</strong></th>
+<th style="text-align: right;"><strong>Pressure (hPa)</strong></th>
+<th style="text-align: right;"><strong>Std. atm. (hPa)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Portstewart strand</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">1000</td>
+<td style="text-align: right;">1013</td>
+</tr>
+<tr>
+<td style="text-align: left;">Machu Picchu</td>
+<td style="text-align: right;">2.430</td>
+<td style="text-align: right;">0.434</td>
+<td style="text-align: right;">74.0</td>
+<td style="text-align: right;">740</td>
+<td style="text-align: right;">753</td>
+</tr>
+<tr>
+<td style="text-align: left;">Everest summit</td>
+<td style="text-align: right;">8.848</td>
+<td style="text-align: right;">1.580</td>
+<td style="text-align: right;">33.4</td>
+<td style="text-align: right;">334</td>
+<td style="text-align: right;">314</td>
+</tr>
+<tr>
+<td style="text-align: left;">Jumbo jet</td>
+<td style="text-align: right;">12.000</td>
+<td style="text-align: right;">2.143</td>
+<td style="text-align: right;">22.6</td>
+<td style="text-align: right;">226</td>
+<td style="text-align: right;">193</td>
+</tr>
+<tr>
+<td style="text-align: left;">Record balloon</td>
+<td style="text-align: right;">21.027</td>
+<td style="text-align: right;">3.755</td>
+<td style="text-align: right;">7.4</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">47</td>
+</tr>
+</tbody>
+</table>
+<p><a id="p1-fig:q3"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-03.png"
+alt="Question 3 read from the graph. For each place, go across from its height to the curve and down to the percentage axis; the pressure is ten times the percentage." /><br />
+</p>
+<p><strong>Figure 4.1.</strong> Question 3 read from the graph. For each
+place, go across from its height to the curve and down to the percentage
+axis; the pressure is ten times the percentage.</p>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Question 3
+</p>
+<p>Portstewart strand: <strong>100 %, 1000 hPa</strong>. Everest:
+<strong>33.4 %, 334 hPa</strong>. Jumbo jet at 12 km: <strong>22.6 %,
+226 hPa</strong>. Machu Picchu: <strong>74.0 %, 740 hPa</strong>. Record
+balloon: <strong>7.4 %, 74 hPa</strong>. (Values read from a hand-drawn
+graph within about <span class="math inline">\(\pm2\)</span> percentage
+points are fine.)</p>
+</div>
+<p><strong>Check against measurement.</strong> On the summit of Everest
+the barometric pressure has been measured: 253 mmHg, which is 337 hPa
+(West et al. 1983), within 1 % of the rule’s 334 hPa. The standard
+atmosphere gives only 314 hPa there, because it describes a cooler,
+mid-latitude column; Everest stands at 28<span
+class="math inline">\(^{\circ}\)</span>N, where the warm air column
+holds the pressure up at height (West 1996). For the jet and the
+balloon, high in the cold upper air, the rule overestimates the
+pressure, for the reason given in § <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-sec:rulecheck">3.6</a>.</p>
+<h2 id="p1-sec:composition">4.3 What “21 % oxygen” means</h2>
+<p>Dry air is a mixture of gases: by volume about 78 % nitrogen, 21 %
+oxygen and 0.9 % argon, with carbon dioxide and other trace gases making
+up the rest; precise values are 78.08, 20.95 and 0.93 % (Wallace and
+Hobbs 2006, ch. 1). “By volume” means by number of molecules: of every
+hundred molecules of dry air, about 21 are oxygen. Up to about 80 km the
+air is stirred so thoroughly that these proportions stay the same at
+every height. So the air on Everest is still 21 % oxygen. What changes
+is how many molecules there are in each breath.</p>
+<h2 id="p1-sec:dalton">4.4 Partial pressure</h2>
+<p>In a mixture of gases each gas contributes to the total pressure in
+proportion to its share of the molecules. The contribution of one gas is
+its <strong>partial pressure</strong>, and the partial pressures add up
+to the total (Dalton’s law). For oxygen <span
+class="math display">\[p_{\mathrm{O_2}}=x_{\mathrm{O_2}}\,p=0.21\,p
+.\tag{4.1}\]</span> <em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p_{\mathrm{O_2}}\)</span></td>
+<td style="text-align: left;">partial pressure of oxygen (hPa)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(x_{\mathrm{O_2}}\)</span></td>
+<td style="text-align: left;">fraction of the molecules that are
+oxygen</td>
+<td style="text-align: left;">0.21, rounded</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p\)</span></td>
+<td style="text-align: left;">total air pressure (hPa)</td>
+<td style="text-align: left;">from Question 3</td>
+</tr>
+</tbody>
+</table>
+<p>At sea level <span
+class="math inline">\(p_{\mathrm{O_2}}=0.21\times1000=210\)</span> hPa
+and <span
+class="math inline">\(p_{\mathrm{N_2}}=0.78\times1000=780\)</span> hPa.
+The partial pressure of oxygen is what matters to the body: it pushes
+oxygen from the lungs into the blood. Halve the total pressure and you
+halve the oxygen partial pressure, even though the air is still 21 %
+oxygen. The same idea of a partial pressure returns for water vapour in
+Part III, as the vapour pressure <span class="math inline">\(e\)</span>
+(§ <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-sec:vp">21.2</a>).</p>
+<h2 id="p1-sec:q4">4.5 Question 4: oxygen at five heights</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>The partial pressure of each gas drops at the same rate as the total
+atmospheric pressure. Use your answers to Question 3 to first calculate
+the partial pressure of oxygen at different elevations. Then use your
+answer to calculate the percentage of oxygen available compared to the
+atmosphere at sea level.</p>
+</div>
+<p><strong>Method.</strong></p>
+<ol type="1">
+<li><p>Partial pressure: multiply each pressure from Question 3 by 0.21,
+Eq. (<a
+href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>).</p></li>
+<li><p>Percentage: the second part of the question can be read in two
+ways, and the two readings give different numbers (Table <a
+href="/teaching/atmosphere/p1-ch03_oxygen/#p1-tab:q4">4.2</a>).</p>
+<ul>
+<li><p><em>(a) Oxygen as a percentage of the sea-level atmosphere:</em>
+divide the oxygen partial pressure by the sea-level <em>total</em>
+pressure, 1000 hPa.</p></li>
+<li><p><em>(b) Oxygen available compared with sea level:</em> divide the
+oxygen partial pressure by the sea-level <em>oxygen</em> partial
+pressure, 210 hPa. This says how much oxygen each breath brings compared
+with a breath at the coast.</p></li>
+</ul></li>
+</ol>
+<table>
+<caption>Table 4.2. Question 4. Partial pressure of oxygen, Eq. (<a
+href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>), and
+the two percentages.</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Place</strong></th>
+<th style="text-align: right;"><strong>Pressure (hPa)</strong></th>
+<th style="text-align: right;"><strong><span
+class="math inline">\(p_{\mathrm{O_2}}\)</span> (hPa)</strong></th>
+<th style="text-align: right;"><strong>(a) <span
+class="math inline">\(p_{\mathrm{O_2}}/1000\)</span></strong></th>
+<th style="text-align: right;"><strong>(b) <span
+class="math inline">\(p_{\mathrm{O_2}}/210\)</span></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Portstewart strand</td>
+<td style="text-align: right;">1000</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">21.0 %</td>
+<td style="text-align: right;">100 %</td>
+</tr>
+<tr>
+<td style="text-align: left;">Machu Picchu</td>
+<td style="text-align: right;">740</td>
+<td style="text-align: right;">155.5</td>
+<td style="text-align: right;">15.5 %</td>
+<td style="text-align: right;">74 %</td>
+</tr>
+<tr>
+<td style="text-align: left;">Everest summit</td>
+<td style="text-align: right;">334</td>
+<td style="text-align: right;">70.2</td>
+<td style="text-align: right;">7.0 %</td>
+<td style="text-align: right;">33 %</td>
+</tr>
+<tr>
+<td style="text-align: left;">Jumbo jet</td>
+<td style="text-align: right;">226</td>
+<td style="text-align: right;">47.6</td>
+<td style="text-align: right;">4.8 %</td>
+<td style="text-align: right;">23 %</td>
+</tr>
+<tr>
+<td style="text-align: left;">Record balloon</td>
+<td style="text-align: right;">74</td>
+<td style="text-align: right;">15.6</td>
+<td style="text-align: right;">1.6 %</td>
+<td style="text-align: right;">7.4 %</td>
+</tr>
+</tbody>
+</table>
+<p><a id="p1-fig:q4"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-04.png"
+alt="Question 4: the partial pressure of oxygen at the five places. The air is 21 , % oxygen at all of them; what falls is the number of molecules in each breath, in step with the total pressure (Table re" /><br />
+</p>
+<p><strong>Figure 4.2.</strong> Question 4: the partial pressure of
+oxygen at the five places. The air is 21 % oxygen at all of them; what
+falls is the number of molecules in each breath, in step with the total
+pressure (Table <a
+href="/teaching/atmosphere/p1-ch03_oxygen/#p1-tab:q4">4.2</a>).</p>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Question 4
+</p>
+<p>Partial pressure of oxygen: Portstewart <strong>210 hPa</strong>;
+Machu Picchu <strong>155 hPa</strong>; Everest <strong>70 hPa</strong>;
+jumbo jet <strong>48 hPa</strong>; record balloon
+<strong>16 hPa</strong>. As a percentage of the sea-level atmosphere:
+21, 15.5, 7.0, 4.8 and 1.6 %. Compared with the oxygen available at sea
+level: 100, 74, 33, 23 and 7 %. On Everest each breath brings only a
+third of the oxygen it brings at sea level.</p>
+</div>
+<div class="box box-key">
+<p class="box-title">
+Two ways to give the percentage
+</p>
+<p>The second reading answers “how much oxygen is available compared
+with sea level” and is the more useful for explaining breathlessness. It
+is simply the percentage of the atmosphere above you from Question 3:
+since the oxygen fraction does not change with height, the available
+oxygen falls in exactly the same proportion as the total pressure.</p>
+</div>
+<h2 id="p1-sec:altitude">4.6 Why it matters</h2>
+<ul>
+<li><p><strong>Machu Picchu</strong> (about three-quarters of sea-level
+oxygen): most visitors notice breathlessness on climbing stairs; the
+body adjusts within days by breathing faster and making more red blood
+cells.</p></li>
+<li><p><strong>Everest</strong> (a third): close to the limit of human
+survival without bottled oxygen. Climbers acclimatise for weeks, and
+most use supplementary oxygen near the summit (West et al.
+1983).</p></li>
+<li><p><strong>A jet at 12 km</strong> (under a quarter): a person would
+lose consciousness within minutes. Airliner cabins are therefore
+pressurised, to roughly the pressure found at about 2 km, and oxygen
+masks drop if the pressure is lost.</p></li>
+<li><p><strong>The record balloon at 21 km</strong> (7 %): no human
+could breathe this air; balloonists wear pressure suits or ride in
+sealed gondolas.</p></li>
+</ul>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>If the air is still 21 % oxygen at the top of Everest, why is
+it harder to breathe?</strong><br />
+Because “21 %” is a proportion, not an amount. At the summit each
+lungful of air contains only a third as many molecules of every gas as
+at sea level, so it delivers a third as much oxygen. The lungs move
+oxygen into the blood in proportion to its partial pressure, 70 hPa
+instead of 210.</p>
+</div>
+<h2 id="try-it-yourself-practice-set-4">4.7 Try it yourself: Practice
+Set 4</h2>
+<div class="box box-try">
+<p class="box-title">
+Practice Set 4: reading heights and partial pressures
+</p>
+<p>Use the halving rule and an oxygen fraction of 0.21.</p>
+<ol type="1">
+<li><p>Ben Nevis is 1345 m high. What are the pressure and the oxygen
+partial pressure at the summit?</p></li>
+<li><p>Kilimanjaro is 5895 m high. Find the pressure, the oxygen partial
+pressure, and the oxygen available compared with sea level.</p></li>
+<li><p>On a summit the pressure is 600 hPa. What percentage of the air
+molecules there are oxygen? What is the oxygen partial pressure? At what
+height is the summit, by the rule?</p></li>
+<li><p>What is the partial pressure of nitrogen on the summit of
+Everest?</p></li>
+</ol>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Answers to Practice Set 4
+</p>
+<ol type="1">
+<li><p><span class="math inline">\(x=1.345/5.6=0.240\)</span>; <span
+class="math inline">\(f=2^{-0.240}=0.847\)</span>; pressure 847 hPa;
+<span
+class="math inline">\(p_{\mathrm{O_2}}=0.21\times847=178\)</span> hPa.</p></li>
+<li><p><span class="math inline">\(x=5.895/5.6=1.053\)</span>; <span
+class="math inline">\(f=0.482\)</span>; pressure 482 hPa; <span
+class="math inline">\(p_{\mathrm{O_2}}=101\)</span> hPa; 48 % of the
+sea-level oxygen.</p></li>
+<li><p>Still 21 % (the proportion does not change). <span
+class="math inline">\(p_{\mathrm{O_2}}=0.21\times600=126\)</span> hPa.
+Height: <span class="math inline">\(2^{-z/5.6}=0.6\)</span>, so <span
+class="math inline">\(z=5.6\times\log_2(1/0.6)=5.6\times0.737=4.1\)</span> km.</p></li>
+<li><p><span
+class="math inline">\(0.78\times334=261\)</span> hPa.</p></li>
+</ol>
+</div>
+<h2 id="oxygen-in-python">4.8 Oxygen in Python</h2>
+<p>These functions compute the equations of this chapter, and the book’s
+tests check them against its answers.</p>
+<pre><code>def partial_pressure(p_hpa, gas_fraction=0.21):
+    &quot;&quot;&quot;Partial pressure (hPa) of a gas that makes up gas_fraction of the molecules.&quot;&quot;&quot;
+    return gas_fraction * p_hpa</code></pre>
+<p><code>partial_pressure(pressure_halving(12))</code> returns 47.6, the
+jet’s oxygen partial pressure in hPa.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-noaa1976" class="csl-entry" role="listitem">
+NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S.
+Government Printing Office, Washington, DC.
+</div>
+<div id="ref-wallace2006" class="csl-entry" role="listitem">
+Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An
+introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
+</div>
+<div id="ref-west1996" class="csl-entry" role="listitem">
+West, J.B. (1996) Prediction of barometric pressures at high altitudes
+with the use of model atmospheres. Journal of Applied Physiology 81,
+1850–1854. <a href="https://doi.org/10.1152/jappl.1996.81.4.1850"
+class="uri">https://doi.org/10.1152/jappl.1996.81.4.1850</a>
+</div>
+<div id="ref-west1983" class="csl-entry" role="listitem">
+West, J.B., Lahiri, S., Maret, K.H., Peters, R.M. and Pizzo, C.J. (1983)
+Barometric pressures at extreme altitudes on Mt. Everest: Physiological
+significance. Journal of Applied Physiology 54, 1188–1194. <a
+href="https://doi.org/10.1152/jappl.1983.54.5.1188"
+class="uri">https://doi.org/10.1152/jappl.1983.54.5.1188</a>
+</div>
+</div>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/atmosphere/p1-ch02_pressure/">&larr; 3. How much air is above you: the halving rule</a><a href="{{root}}teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="{{root}}teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

@@ -1,0 +1,443 @@
+title: 25. The geostrophic wind
+description: 25. The geostrophic wind: The Atmosphere, a book worked step by step.
+nav: teaching
+out: teaching/atmosphere/p3-ch06_geostrophic/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/atmosphere/">The Atmosphere</a> / 25. The geostrophic wind</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>25. The geostrophic wind</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch06_geostrophic/" aria-current="page">25. The geostrophic wind</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p><em>This chapter answers Motion Q7.</em></p>
+<h2 id="two-forces-in-balance">25.1 Two forces in balance</h2>
+<p>High above the ground, friction can be ignored. Only the pressure
+gradient force and the Coriolis force act. Suppose they are equal in
+size and opposite in direction. Then the total force is zero, the air
+does not accelerate, and the wind is steady. That wind is the
+<strong>geostrophic wind</strong> (“earth-turning” wind).</p>
+<div class="box box-key">
+<p class="box-title">
+The geostrophic wind
+</p>
+<p>The geostrophic wind is the wind for which the pressure gradient
+force and the Coriolis force exactly balance. It blows <em>along</em>
+the isobars (or the height contours on a pressure-surface chart), with
+low pressure on its left in the Northern Hemisphere and on its right in
+the Southern Hemisphere.</p>
+</div>
+<p>Writing the two forces per unit mass, the balance is <span
+class="math display">\[\underbrace{\frac{1}{\rho}\,\frac{\Delta
+p}{\Delta n}}_{\text{pressure gradient
+force}}=\underbrace{f\,V_g}_{\text{Coriolis force}},\]</span> so that
+the geostrophic wind speed is (Holton and Hakim 2013, ch. 3) <span
+class="math display">\[V_g=\frac{1}{\rho f}\frac{\Delta p}{\Delta
+n}=\frac{g}{f}\,\frac{\Delta z}{\Delta n}.\tag{25.1}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(V_g\)</span></td>
+<td style="text-align: left;">geostrophic wind speed (<span
+class="math inline">\(\mathrm{m\,s^{-1}}\)</span>)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\rho\)</span></td>
+<td style="text-align: left;">air density (kg m<span
+class="math inline">\(^{-3}\)</span>)</td>
+<td style="text-align: left;">about 1.2 near the ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(f\)</span></td>
+<td style="text-align: left;">Coriolis parameter, <span
+class="math inline">\(2\Omega\sin\varphi\)</span> (s<span
+class="math inline">\(^{-1}\)</span>)</td>
+<td style="text-align: left;"><span
+class="math inline">\(\Omega=7.292\times10^{-5}\)</span> s<span
+class="math inline">\(^{-1}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(\Delta
+p/\Delta n\)</span></td>
+<td style="text-align: left;">pressure gradient across the isobars
+(Pa m<span class="math inline">\(^{-1}\)</span>)</td>
+<td style="text-align: left;">from a surface map</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(\Delta
+z/\Delta n\)</span></td>
+<td style="text-align: left;">slope of a pressure surface (m m<span
+class="math inline">\(^{-1}\)</span>)</td>
+<td style="text-align: left;">from an upper-air chart</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(g\)</span></td>
+<td style="text-align: left;">acceleration due to gravity (m s<span
+class="math inline">\(^{-2}\)</span>)</td>
+<td style="text-align: left;">9.81</td>
+</tr>
+</tbody>
+</table>
+<p>The last form is for a pressure surface, where <span
+class="math inline">\(\Delta z\)</span> is the difference in height of
+the surface over the distance <span class="math inline">\(\Delta
+n\)</span>. It is the form used with the 500 hPa heights in this
+part.</p>
+<h2 id="how-the-balance-comes-about-the-four-stages">25.2 How the
+balance comes about: the four stages</h2>
+<p>Figure <a
+href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-fig:adjN">25.1</a>
+follows a parcel of air as the balance is established. Think of a parcel
+of air that is at rest between a region of higher pressure (south) and
+lower pressure (north) in the Northern Hemisphere.</p>
+<ol type="1">
+<li><p><strong>At rest.</strong> The parcel is on the high-pressure
+side. No motion means no Coriolis force, so only the pressure gradient
+force acts, pointing north, towards low pressure. The parcel starts to
+move northward.</p></li>
+<li><p><strong>Moving northward.</strong> As soon as it moves, the
+Coriolis force appears, at right angles and to the right of the motion:
+towards the east. The parcel’s path bends to the right.</p></li>
+<li><p><strong>Moving north-east.</strong> The speed has grown, so the
+Coriolis force is larger, and since it is at right angles to the motion
+it now points partly south, against the pressure force. The path keeps
+bending.</p></li>
+<li><p><strong>Moving east.</strong> The parcel is now moving along the
+isobars. The Coriolis force points exactly south, equal and opposite to
+the pressure gradient force pointing north. The forces balance, the
+speed stops growing, and the wind blows steadily to the east.</p></li>
+</ol>
+<p><a id="p3-fig:adjN"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-47.png"
+alt="The four stages of the adjustment, computed for two 500 ,hPa height lines 60 ,m and 500 ,km apart at 45 deg N. The parcel starts at rest on the high side. At each numbered position the red arrow is th" /><br />
+</p>
+<p><strong>Figure 25.1.</strong> The four stages of the adjustment,
+computed for two 500 hPa height lines 60 m and 500 km apart at 45<span
+class="math inline">\(^{\circ}\)</span>N. The parcel starts at rest on
+the high side. At each numbered position the red arrow is the pressure
+gradient force, the blue arrow is the Coriolis force and the black arrow
+is the wind. The path bends to the right until the wind is along the
+isobars and the forces balance (stage 4).</p>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Why does the parcel not just keep accelerating towards low
+pressure?</strong><br />
+Because as soon as it speeds up, the Coriolis force grows in proportion,
+and it turns the motion aside. Without any damping the parcel would
+overshoot and loop around the balance state (an <em>inertial
+oscillation</em> with a period of <span
+class="math inline">\(2\pi/f\)</span>, about 17 hours at 45<span
+class="math inline">\(^{\circ}\)</span>). In the real atmosphere the
+oscillations are damped as the adjustment radiates energy away in waves,
+and the air settles to the balance. The figure above includes a little
+damping, which pulls the velocity towards the geostrophic wind, so that
+the settling is visible. Its final state is the geostrophic wind.</p>
+</div>
+<p><img src="/teaching/atmosphere/fig/f-48.png"
+alt="The two components of the parcel&#39;s velocity against time. The eastward component rises to the geostrophic value (dashed) and the northward component dies away to zero: the air ends up blowing along th" /><br />
+</p>
+<p>The two components of the parcel’s velocity against time. The
+eastward component rises to the geostrophic value (dashed) and the
+northward component dies away to zero: the air ends up blowing along the
+isobars.</p>
+<h2 id="question-7-the-northern-hemisphere">25.3 Question 7: the
+Northern Hemisphere</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>Mark the side with the higher pressure with an H and the side with
+the lower pressure with an L.</p>
+</div>
+<p><strong>Method.</strong></p>
+<ol type="1">
+<li><p>The lines are labelled with the <em>height</em> of the 500 hPa
+surface: 5460 m on the upper line and 5520 m on the lower line.</p></li>
+<li><p>A pressure surface is higher where the pressure is higher. So the
+line with the larger height, 5520 m, is on the high-pressure side. Write
+<strong>H</strong> at the 5520 m line (bottom).</p></li>
+<li><p>Write <strong>L</strong> at the 5460 m line (top).</p></li>
+<li><p>Check with the arrows: the pressure gradient force <span
+class="math inline">\(F_{pg}\)</span> is drawn pointing up, from H to L,
+as it should.</p></li>
+</ol>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Motion Q7, part 1
+</p>
+<p><strong>H at the 5520 m line (south, bottom); L at the 5460 m line
+(north, top).</strong> The pressure gradient force points from H to L
+(north); the Coriolis force points to the right of the wind, south; the
+geostrophic wind blows to the east, with low pressure on its left.</p>
+</div>
+<h2 id="question-7-the-southern-hemisphere">25.4 Question 7: the
+Southern Hemisphere</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>Now consider the Southern Hemisphere. Mark H and L, and draw the
+pressure gradient force, the Coriolis force and the resulting
+geostrophic wind.</p>
+</div>
+<p><strong>What changes.</strong> In the Southern Hemisphere the
+Coriolis force acts to the <strong>left</strong> of the motion.
+Everything else is the same: the pressure gradient force still points
+from high to low, and the balance must still be between two opposite
+forces. The result is a mirror image of Figure <a
+href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-fig:adjN">25.1</a>.</p>
+<ol type="1">
+<li><p>The two lines are 5640 m (top) and 5580 m (bottom). The larger
+height is the high-pressure side: <strong>H</strong> at the 5640 m line
+(top), <strong>L</strong> at the 5580 m line (bottom).</p></li>
+<li><p>Draw the pressure gradient force <span
+class="math inline">\(F_{pg}\)</span> from H to L:
+<strong>downwards</strong>.</p></li>
+<li><p>The Coriolis force must be equal and opposite, so it points
+<strong>upwards</strong>, towards H. (To check: an eastward wind has its
+left-hand side to the north, which is up the page. The Coriolis force
+acts to the left, so it points up. <span
+class="math inline">\(\checkmark\)</span>)</p></li>
+<li><p>The wind blows between them, to the <strong>east</strong>, with
+the low pressure on its right.</p></li>
+</ol>
+<p><a id="p3-fig:adjS"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-49.png"
+alt="The Southern Hemisphere. The Coriolis force turns the parcel to the left. At the end (stage 4) the pressure gradient force points down towards L, the Coriolis force points up towards H, and the wind b" /><br />
+</p>
+<p><strong>Figure 25.3.</strong> The Southern Hemisphere. The Coriolis
+force turns the parcel to the left. At the end (stage 4) the pressure
+gradient force points down towards L, the Coriolis force points up
+towards H, and the wind blows to the east with the low pressure on its
+right.</p>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Motion Q7, part 2
+</p>
+<p><strong>H at the 5640 m line (top); L at the 5580 m line
+(bottom).</strong> Draw <span class="math inline">\(F_{pg}\)</span>
+<strong>down</strong> (towards L) and the Coriolis force
+<strong>up</strong> (towards H), of equal length; the geostrophic wind
+<strong>W</strong> points <strong>east</strong> between them.</p>
+</div>
+<p><img src="/teaching/atmosphere/fig/f-50.png"
+alt="The two answers side by side. In both figures the wind blows east. In the north the low pressure (5460 ,m) is on its left; in the south the low pressure (5580 ,m) is on its right." /><br />
+</p>
+<p>The two answers side by side. In both figures the wind blows east. In
+the north the low pressure (5460 m) is on its left; in the south the low
+pressure (5580 m) is on its right.</p>
+<h2 id="buys-ballots-law">25.5 Buys-Ballot’s law</h2>
+<p>You can find where the low pressure lies, without a map, from the
+wind alone:</p>
+<ul>
+<li><p><strong>Northern Hemisphere:</strong> stand with your back to the
+wind; low pressure is on your <strong>left</strong>.</p></li>
+<li><p><strong>Southern Hemisphere:</strong> stand with your back to the
+wind; low pressure is on your <strong>right</strong>.</p></li>
+</ul>
+<p>This is Buys-Ballot’s law. It follows directly from the balance: the
+pressure gradient force points towards low pressure and the Coriolis
+force (to the right in the north) points away from it, so low pressure
+is on the left of the wind.</p>
+<p><img src="/teaching/atmosphere/fig/f-51.png"
+alt="Buys-Ballot&#39;s law. With your back to the wind, low pressure is on the left in the north and on the right in the south." /><br />
+</p>
+<p>Buys-Ballot’s law. With your back to the wind, low pressure is on the
+left in the north and on the right in the south.</p>
+<h2 id="how-fast-is-the-geostrophic-wind">25.6 How fast is the
+geostrophic wind?</h2>
+<div class="box box-worked">
+<p class="box-title">
+Worked example: the wind implied by the lines of Figure <a
+href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-fig:adjN">25.1</a>
+</p>
+<p>Suppose the two height lines, 60 m apart, are 500 km apart on the
+chart, at 45<span class="math inline">\(^{\circ}\)</span>N. Then <span
+class="math display">\[\begin{align*}
+f&amp;=2\times7.292\times10^{-5}\sin45\ensuremath{^{\circ}}=1.03\times10^{-4}\
+\mathrm{s^{-1}},\
+V_g&amp;=\frac{g\,\Delta z}{f\,\Delta
+n}=\frac{9.81\times60}{1.03\times10^{-4}\times5\times10^{5}}=11.4\
+\ensuremath{\mathrm{m\,s^{-1}}}
+\end{align*}\]</span> which is 22 knots or 41 km h<span
+class="math inline">\(^{-1}\)</span>. If the lines were closer, 300 km
+apart, the wind would be 19 <span
+class="math inline">\(\mathrm{m\,s^{-1}}\)</span>; at the same spacing
+but 60<span class="math inline">\(^{\circ}\)</span>N it would be
+9.3 <span class="math inline">\(\mathrm{m\,s^{-1}}\)</span>; at 30<span
+class="math inline">\(^{\circ}\)</span>N, 16.1 <span
+class="math inline">\(\mathrm{m\,s^{-1}}\)</span>.</p>
+</div>
+<p><img src="/teaching/atmosphere/fig/f-52.png"
+alt="The geostrophic wind for a given height difference rises as the lines get closer together and as the latitude decreases (because f falls). Near the equator f to0 and the formula breaks down." /><br />
+</p>
+<p>The geostrophic wind for a given height difference rises as the lines
+get closer together and as the latitude decreases (because <span
+class="math inline">\(f\)</span> falls). Near the equator <span
+class="math inline">\(f\to0\)</span> and the formula breaks down.</p>
+<h2 id="when-is-the-wind-not-geostrophic">25.7 When is the wind not
+geostrophic?</h2>
+<p>The balance is an excellent approximation for the winds a kilometre
+or more above the ground at middle and high latitudes, but not
+always.</p>
+<ul>
+<li><p><strong>Near the ground,</strong> friction acts, and the balance
+changes (Chapter <a
+href="/teaching/atmosphere/p3-ch07_friction/#p3-ch:fric">26</a>).</p></li>
+<li><p><strong>Near the equator,</strong> <span
+class="math inline">\(f\)</span> is so small that the balance
+fails.</p></li>
+<li><p><strong>Where the isobars curve strongly,</strong> as round a
+hurricane or a tight low, the centrifugal force matters; the result is
+the <em>gradient wind</em>.</p></li>
+<li><p><strong>When the pattern changes quickly,</strong> the air
+accelerates, as in a developing storm.</p></li>
+</ul>
+<h2 id="questions-that-come-up">25.8 Questions that come up</h2>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Is the geostrophic wind along or across the
+isobars?</strong><br />
+Along. Because the two forces are at right angles to the wind, and the
+pressure gradient force is at right angles to the isobars, the wind must
+be parallel to the isobars. This is a much better description of
+upper-air winds than the picture of air flowing “from high to low”.</p>
+</div>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>On Figure <a
+href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-fig:adjN">25.1</a>,
+why is H at the bottom? Surely high pressure is up?</strong><br />
+“Up” on the page is north, not height. The H and L mark the pressure on
+a horizontal map at the 500 hPa level: higher pressure to the south
+(bottom of the page), lower to the north (top).</p>
+</div>
+<h2 id="try-it-yourself-practice-set-25">25.9 Try it yourself: Practice
+Set 25</h2>
+<div class="box box-try">
+<p class="box-title">
+Practice Set 25: geostrophic wind
+</p>
+<ol type="1">
+<li><p>The 500 hPa height lines 5460 m and 5520 m are 400 km apart at
+50<span class="math inline">\(^{\circ}\)</span>N. Find the geostrophic
+wind.</p></li>
+<li><p>In the Southern Hemisphere the 500 hPa heights are 5600 m at
+40<span class="math inline">\(^{\circ}\)</span>S and 5500 m at 50<span
+class="math inline">\(^{\circ}\)</span>S. Which way does the wind
+blow?</p></li>
+<li><p>At what latitude would the lines of Figure <a
+href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-fig:adjN">25.1</a>
+(60 m in 500 km) give a geostrophic wind of 20 <span
+class="math inline">\(\mathrm{m\,s^{-1}}\)</span>?</p></li>
+<li><p>In the Northern Hemisphere a pilot flying with the wind directly
+behind notes that the low pressure is on the pilot’s left. Is this
+consistent with Buys-Ballot’s law?</p></li>
+</ol>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Answers to Practice Set 25
+</p>
+<ol type="1">
+<li><p><span
+class="math inline">\(f=2\times7.292\times10^{-5}\sin50\ensuremath{^{\circ}}=1.117\times10^{-4}\)</span>;
+<span
+class="math inline">\(V_g=\dfrac{9.81\times60}{1.117\times10^{-4}\times4\times10^{5}}=13.2\
+\ensuremath{\mathrm{m\,s^{-1}}}\)</span> (26 kt).</p></li>
+<li><p>The heights fall towards the pole, so the low is to the south. In
+the Southern Hemisphere low pressure is on the right of the wind, so the
+wind blows from <strong>west to east</strong> (a westerly), as in the
+Southern Ocean.</p></li>
+<li><p><span class="math inline">\(\sin\varphi=\dfrac{g\Delta z}{2\Omega
+V_g\Delta n}=\dfrac{588.6}{1458}=0.404\)</span>, so <span
+class="math inline">\(\varphi=23.8\ensuremath{^{\circ}}\)</span>.</p></li>
+<li><p>Yes: with your back to the wind, low pressure on the left is
+exactly Buys-Ballot’s law for the Northern Hemisphere.</p></li>
+</ol>
+</div>
+<h2 id="the-geostrophic-wind-in-python">25.10 The geostrophic wind in
+Python</h2>
+<p>These functions compute the equations of this chapter, and the book’s
+tests check them against its answers.</p>
+<pre><code>def coriolis_parameter(lat_deg):
+    &quot;&quot;&quot;Coriolis parameter (per second) at a latitude.&quot;&quot;&quot;
+    return 2.0 * OMEGA * math.sin(math.radians(lat_deg))
+
+def geostrophic_wind(dz_m, dn_m, lat_deg):
+    &quot;&quot;&quot;Geostrophic wind (m/s) from the height change of a pressure surface over a distance.&quot;&quot;&quot;
+    return G / coriolis_parameter(lat_deg) * dz_m / dn_m</code></pre>
+<p><code>geostrophic_wind(60, 5e5, 45)</code> returns about 11.4 <span
+class="math inline">\(\mathrm{m\,s^{-1}}\)</span>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-holton2013" class="csl-entry" role="listitem">
+Holton, J.R. and Hakim, G.J. (2013) An introduction to dynamic
+meteorology, 5th ed. Academic Press, Amsterdam.
+</div>
+</div>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/atmosphere/p3-ch05_surfaces/">&larr; 24. Pressure surfaces and the pressure gradient</a><a href="{{root}}teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="{{root}}teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

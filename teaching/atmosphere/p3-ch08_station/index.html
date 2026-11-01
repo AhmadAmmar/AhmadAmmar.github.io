@@ -1,0 +1,667 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>27. Reading a station model | Ahmad Ammar</title>
+<meta name="description" content="27. Reading a station model: The Atmosphere, a book worked step by step.">
+<meta name="author" content="Ahmad Ammar">
+<link rel="canonical" href="https://ahmadammar.github.io/teaching/atmosphere/p3-ch08_station/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="27. Reading a station model | Ahmad Ammar">
+<meta property="og:description" content="27. Reading a station model: The Atmosphere, a book worked step by step.">
+<meta property="og:url" content="https://ahmadammar.github.io/teaching/atmosphere/p3-ch08_station/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script src="../../../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
+    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="../../../index.html">About</a>
+      <a href="../../../research.html">Research</a>
+      <a href="../../../teaching.html" aria-current="page">Teaching</a>
+      <a href="../../../projects.html">Projects</a>
+      <a href="../../../writing.html">Writing</a>
+      <a href="../../../cv.html">CV</a>
+    </nav>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</header>
+<main id="content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/atmosphere/">The Atmosphere</a> / 27. Reading a station model</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>27. Reading a station model</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="../../../teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="../../../teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch08_station/" aria-current="page">27. Reading a station model</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="../../../teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="../../../teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="../../../teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="../../../teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="../../../teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="../../../files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p><em>This chapter answers Map Q12.</em></p>
+<h2 id="why-a-station-model">27.1 Why a station model?</h2>
+<p>About 10 000 weather stations around the world measure as many as 18
+quantities at each observation: temperature, dew point, pressure, wind,
+cloud, weather, and more. To show all that on one map the World
+Meteorological Organization (WMO) fixed a compact way of drawing an
+observation, the <strong>station model</strong>. Every number and symbol
+has a fixed position around a small circle that marks the station. Once
+you know the positions, a map becomes a table you can read at a
+glance.</p>
+<h2 id="the-anatomy-of-a-station-model">27.2 The anatomy of a station
+model</h2>
+<p><a id="p3-fig:anatomy"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-59.png"
+alt="A station model with every field labelled. This example reads: temperature 45 , degF, dew point 38 , degF, pressure 1014.7 ,hPa, rising by 2.8 ,hPa in the last three hours, three-quarters of the sky c" /><br />
+</p>
+<p><strong>Figure 27.1.</strong> A station model with every field
+labelled. This example reads: temperature 45 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span>, dew point 38 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span>, pressure 1014.7 hPa,
+rising by 2.8 hPa in the last three hours, three-quarters of the sky
+covered, continuous rain, and a wind of 20 knots from the
+north-west.</p>
+<table>
+<caption>Where each quantity sits around the circle.</caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Position</strong></th>
+<th style="text-align: left;"><strong>What it shows</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Top left</td>
+<td style="text-align: left;">air temperature, in <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> here</td>
+</tr>
+<tr>
+<td style="text-align: left;">Bottom left</td>
+<td style="text-align: left;">dew-point temperature</td>
+</tr>
+<tr>
+<td style="text-align: left;">Top right</td>
+<td style="text-align: left;">pressure: three digits (tenths of a
+hectopascal)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Right, below the pressure</td>
+<td style="text-align: left;">pressure change over the last 3 hours
+(with a symbol for its pattern)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Left of the circle</td>
+<td style="text-align: left;">present weather symbol</td>
+</tr>
+<tr>
+<td style="text-align: left;">The circle itself</td>
+<td style="text-align: left;">sky cover (how much is filled)</td>
+</tr>
+<tr>
+<td style="text-align: left;">A line from the circle</td>
+<td style="text-align: left;">wind: the staff points
+<strong>from</strong> where the wind blows, barbs give the speed</td>
+</tr>
+</tbody>
+</table>
+<h2 id="decoding-the-pressure">27.3 Decoding the pressure</h2>
+<p>Only three digits are plotted, in tenths of a hectopascal, and the
+leading digits are left off. Sea-level pressure almost always lies
+between about 950 and 1050 hPa, so the missing digits can be restored
+without doubt.</p>
+<div class="box box-key">
+<p class="box-title">
+The pressure rule
+</p>
+<ol type="1">
+<li><p>Put a decimal point before the last digit: <span
+class="math inline">\(117\to11.7\)</span>.</p></li>
+<li><p>If the three-digit number is <strong>less than 500</strong>, put
+<strong>10</strong> in front: <span
+class="math inline">\(11.7\to1011.7\)</span> hPa.</p></li>
+<li><p>If it is <strong>500 or more</strong>, put <strong>9</strong> in
+front: <span
+class="math inline">\(998\to99.8\to999.8\)</span> hPa.</p></li>
+</ol>
+</div>
+<table>
+<caption>Examples of the pressure rule (the first four are the models of
+Question 12).</caption>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 23%" />
+<col style="width: 30%" />
+<col style="width: 14%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Code</strong></th>
+<th style="text-align: center;"><strong>Decimal point</strong></th>
+<th style="text-align: center;"><strong><span
+class="math inline">\(&lt;500\)</span> or <span
+class="math inline">\(\ge500\)</span>?</strong></th>
+<th style="text-align: center;"><strong>Prefix</strong></th>
+<th style="text-align: left;"><strong>Pressure</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">024</td>
+<td style="text-align: center;">02.4</td>
+<td style="text-align: center;"><span
+class="math inline">\(&lt;500\)</span></td>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;"><strong>1002.4 hPa</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">998</td>
+<td style="text-align: center;">99.8</td>
+<td style="text-align: center;"><span
+class="math inline">\(\ge500\)</span></td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"><strong>999.8 hPa</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">117</td>
+<td style="text-align: center;">11.7</td>
+<td style="text-align: center;"><span
+class="math inline">\(&lt;500\)</span></td>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;"><strong>1011.7 hPa</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">997</td>
+<td style="text-align: center;">99.7</td>
+<td style="text-align: center;"><span
+class="math inline">\(\ge500\)</span></td>
+<td style="text-align: center;">9</td>
+<td style="text-align: left;"><strong>999.7 hPa</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">147</td>
+<td style="text-align: center;">14.7</td>
+<td style="text-align: center;"><span
+class="math inline">\(&lt;500\)</span></td>
+<td style="text-align: center;">10</td>
+<td style="text-align: left;">1014.7 hPa</td>
+</tr>
+</tbody>
+</table>
+<h2 id="temperature-and-dew-point">27.4 Temperature and dew point</h2>
+<p>Both are in degrees Fahrenheit here. To convert to Celsius, subtract
+32 and multiply by 5/9: <span
+class="math display">\[T(\ensuremath{^{\circ}\mathrm{C}})=\tfrac{5}{9}\,[T(\ensuremath{^{\circ}\mathrm{F}})-32].\tag{27.1}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(T(\ensuremath{^{\circ}\mathrm{C}}),\
+T(\ensuremath{^{\circ}\mathrm{F}})\)</span></td>
+<td style="text-align: left;">the same temperature in Celsius and in
+Fahrenheit</td>
+<td style="text-align: left;"><span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> from the station
+model</td>
+</tr>
+</tbody>
+</table>
+<p>So 37 <span class="math inline">\(^{\circ}\mathrm{F}\)</span> is
+2.8 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>, 63 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> is 17.2 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>, and 21 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> is <span
+class="math inline">\(-6.1\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p>
+<p>The <strong>dew point is the water-vapour measure of Chapter <a
+href="/teaching/atmosphere/p3-ch03_dewpoint/#p3-ch:dew">22</a></strong>,
+and the gap between the two, <span class="math inline">\(T-T_d\)</span>,
+tells you how close the air is to saturation. A gap of 3 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> means nearly saturated
+air (fog, rain or thick cloud likely); a gap of 20 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> means dry air. You can
+turn the pair into a relative humidity with the formula <span
+class="math inline">\(\mathrm{RH}=100\,e_s(T_d)/e_s(T)\)</span>.</p>
+<h2 id="sky-cover">27.5 Sky cover</h2>
+<p>The circle is filled in proportion to the cloud cover. Here it is in
+tenths. The shading grows clockwise from the top, as in Figure <a
+href="/teaching/atmosphere/p3-ch08_station/#p3-fig:sky">27.2</a>.</p>
+<p><a id="p3-fig:sky"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-60.png"
+alt="The sky-cover symbols: from clear (empty) through half (right half filled) to overcast (filled), and an obscured sky (a cross). The ``9/10&#39;&#39; symbol is filled with a vertical gap: overcast with small o" /><br />
+</p>
+<p><strong>Figure 27.2.</strong> The sky-cover symbols: from clear
+(empty) through half (right half filled) to overcast (filled), and an
+obscured sky (a cross). The “9/10” symbol is filled with a vertical gap:
+overcast with small openings.</p>
+<h2 id="wind-the-barbs">27.6 Wind: the barbs</h2>
+<p>The wind is drawn as a straight line, the <strong>staff</strong>,
+that starts at the circle and points <strong>towards the direction the
+wind comes from</strong>, as a weather vane does. At the free end are
+short lines, the <strong>barbs</strong>, that tell you the speed in
+knots.</p>
+<ul>
+<li><p>a <strong>half barb</strong>: 5 knots;</p></li>
+<li><p>a <strong>full barb</strong>: 10 knots;</p></li>
+<li><p>a <strong>pennant</strong> (a filled triangle): 50
+knots;</p></li>
+<li><p>no barb but a staff: 1 to 2 knots; a circle round the station and
+no staff: calm.</p></li>
+</ul>
+<p><img src="/teaching/atmosphere/fig/f-61.png"
+alt="Wind barbs for the Northern Hemisphere, drawn with the staff pointing up (a north wind) and the barbs on the right. Add the barbs: 10 + 10 + 5 = 25 knots." /><br />
+</p>
+<p>Wind barbs for the Northern Hemisphere, drawn with the staff pointing
+up (a north wind) and the barbs on the right. Add the barbs: 10 + 10 + 5
+= 25 knots.</p>
+<p><strong>To read a barb.</strong></p>
+<ol type="1">
+<li><p>Find the staff and follow it from the circle to its free end. The
+wind comes <em>from</em> that direction: a staff pointing to the lower
+left is a wind from the south-west.</p></li>
+<li><p>Count the barbs at the free end: pennants (50), full barbs (10),
+half barbs (5). Add them.</p></li>
+<li><p>Convert if you wish: 1 knot <span class="math inline">\(=0.514\
+\ensuremath{\mathrm{m\,s^{-1}}}\)</span>, so 25 knots <span
+class="math inline">\(=12.9\
+\ensuremath{\mathrm{m\,s^{-1}}}\)</span>.</p></li>
+</ol>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>The staff points where the wind comes from, but the air is
+moving the other way. Which way do I draw a streamline?</strong><br />
+Away from the barbs, i.e. in the direction <em>opposite</em> to the
+staff. A staff pointing to the south-west means the air is heading
+north-east. Keep that in mind in Chapter <a
+href="/teaching/atmosphere/p3-ch09_streamlines/#p3-ch:stream">28</a>.</p>
+</div>
+<h2 id="present-weather-and-pressure-tendency">27.7 Present weather and
+pressure tendency</h2>
+<p><img src="/teaching/atmosphere/fig/f-62.png"
+alt="The present-weather symbols used here." /><br />
+</p>
+<p>The present-weather symbols used here.</p>
+<p><img src="/teaching/atmosphere/fig/f-63.png"
+alt="The barometric tendency symbols: how the pressure has changed in the last three hours. A line rising to the right means rising pressure, one falling to the right means falling pressure." /><br />
+</p>
+<p>The barometric tendency symbols: how the pressure has changed in the
+last three hours. A line rising to the right means rising pressure, one
+falling to the right means falling pressure.</p>
+<p>The number next to the symbol, for example <span
+class="math inline">\(+17\)</span> or <span
+class="math inline">\(-11\)</span>, is the pressure change in tenths of
+a hectopascal: <span class="math inline">\(+17\)</span> is a rise of
+1.7 hPa in three hours, <span class="math inline">\(-11\)</span> a fall
+of 1.1 hPa. Rapid falls often warn of a storm approaching; rising
+pressure usually brings improving weather.</p>
+<h2 id="p3-sec:sheetmodels">27.8 Question 12: the four station
+models</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>Decode the information from each of the following station models.</p>
+</div>
+<p><strong>Method.</strong> For each model work down this list:
+pressure; temperature; dew point; sky cover; and, where shown, current
+weather, wind speed, wind direction, pressure change and tendency.</p>
+<h3 class="unnumbered" id="model-1">Model 1</h3>
+<div class="center">
+<p><img src="/teaching/atmosphere/fig/f-68.png" alt="Figure" /><br />
+</p>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Model 1
+</p>
+<p><strong>Pressure:</strong> 024 <span
+class="math inline">\(\to\)</span> 02.4 <span
+class="math inline">\(\to\)</span> <strong>1002.4 hPa</strong><br />
+<strong>Temperature:</strong> <strong>37 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span></strong> (2.8 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)<strong>Dew
+point:</strong> <strong>21 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span></strong> (<span
+class="math inline">\(-6.1\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)<br />
+<strong>Sky cover:</strong> empty circle: <strong>0 %</strong> (clear).
+No staff, only a ring round the circle: <strong>calm</strong>. RH <span
+class="math inline">\(\approx52\,\%\)</span>.</p>
+</div>
+<h3 class="unnumbered" id="model-2">Model 2</h3>
+<div class="center">
+<p><img src="/teaching/atmosphere/fig/f-67.png" alt="Figure" /><br />
+</p>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Model 2
+</p>
+<p><strong>Pressure:</strong> 998 <span
+class="math inline">\(\to\)</span> 99.8 <span
+class="math inline">\(\to\)</span> <strong>999.8 hPa</strong><br />
+<strong>Temperature:</strong> <strong>63 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span></strong> (17.2 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)<strong>Dew
+point:</strong> <strong>60 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span></strong> (15.6 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)<br />
+<strong>Current weather:</strong> <strong>thunder with intermittent
+rain</strong>. Sky half filled (5/10); no staff: calm. RH <span
+class="math inline">\(\approx90\,\%\)</span>.</p>
+</div>
+<h3 class="unnumbered" id="model-3">Model 3</h3>
+<div class="center">
+<p><img src="/teaching/atmosphere/fig/f-66.png" alt="Figure" /><br />
+</p>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Model 3
+</p>
+<p><strong>Pressure:</strong> 117 <span
+class="math inline">\(\to\)</span> 11.7 <span
+class="math inline">\(\to\)</span> <strong>1011.7 hPa</strong><br />
+<strong>Temperature:</strong> <strong>43 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span></strong> (6.1 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)<strong>Dew
+point:</strong> <strong>20 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span></strong> (<span
+class="math inline">\(-6.7\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)<strong>Sky
+cover:</strong> empty circle, <strong>0 %</strong><br />
+<strong>Wind:</strong> staff to the lower left: <strong>from the
+south-west</strong>; two full barbs and a half barb: <strong>25
+knots</strong><br />
+<strong>Pressure change:</strong> <span
+class="math inline">\(+17\)</span>: <strong><span
+class="math inline">\(+1.7\)</span> mb</strong>,
+<strong>rising</strong></p>
+</div>
+<h3 class="unnumbered" id="model-4">Model 4</h3>
+<div class="center">
+<p><img src="/teaching/atmosphere/fig/f-65.png" alt="Figure" /><br />
+</p>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Model 4
+</p>
+<p><strong>Pressure:</strong> 997 <span
+class="math inline">\(\to\)</span> 99.7 <span
+class="math inline">\(\to\)</span> <strong>999.7 mb</strong><br />
+<strong>Temperature:</strong> <strong>27 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span></strong> (<span
+class="math inline">\(-2.8\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)<strong>Dew
+point:</strong> <strong>20 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span></strong> (<span
+class="math inline">\(-6.7\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)<br />
+<strong>Sky cover:</strong> filled circle, <strong>100 %Current
+weather:</strong> <strong>continuous snow</strong><br />
+<strong>Wind:</strong> staff to the upper left: <strong>from the
+north-west</strong>, <strong>25 knots</strong><br />
+<strong>Pressure change:</strong> <span
+class="math inline">\(-11\)</span>: <strong><span
+class="math inline">\(-1.1\)</span> mb</strong>,
+<strong>falling</strong></p>
+</div>
+<table>
+<caption>All four models decoded.</caption>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;"><strong>Model 1</strong></th>
+<th style="text-align: center;"><strong>Model 2</strong></th>
+<th style="text-align: center;"><strong>Model 3</strong></th>
+<th style="text-align: center;"><strong>Model 4</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Barometric pressure (mb)</td>
+<td style="text-align: center;">1002.4</td>
+<td style="text-align: center;">999.8</td>
+<td style="text-align: center;">1011.7</td>
+<td style="text-align: center;">999.7</td>
+</tr>
+<tr>
+<td style="text-align: left;">Temperature (<span
+class="math inline">\(^{\circ}\mathrm{F}\)</span>)</td>
+<td style="text-align: center;">37</td>
+<td style="text-align: center;">63</td>
+<td style="text-align: center;">43</td>
+<td style="text-align: center;">27</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dew point (<span
+class="math inline">\(^{\circ}\mathrm{F}\)</span>)</td>
+<td style="text-align: center;"><strong>21</strong></td>
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr>
+<td style="text-align: left;">Sky coverage (%)</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr>
+<td style="text-align: left;">Current weather</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">thunder, interm. rain</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">continuous snow</td>
+</tr>
+<tr>
+<td style="text-align: left;">Wind speed (knots)</td>
+<td style="text-align: center;">calm</td>
+<td style="text-align: center;">calm</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr>
+<td style="text-align: left;">Wind direction (from)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">south-west</td>
+<td style="text-align: center;">north-west</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pressure change in 3 h (mb)</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;"><span
+class="math inline">\(+1.7\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(-1.1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Tendency</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">rising</td>
+<td style="text-align: center;">falling</td>
+</tr>
+</tbody>
+</table>
+<h2 id="what-the-models-tell-you">27.9 What the models tell you</h2>
+<p>Putting the numbers together gives each station a story.</p>
+<ul>
+<li><p><strong>Model 1:</strong> cold, dry (the dew point is 16 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> below the
+temperature), clear and calm: a cold, high-pressure night.</p></li>
+<li><p><strong>Model 2:</strong> warm and very humid (the dew point only
+3 <span class="math inline">\(^{\circ}\mathrm{F}\)</span> below the
+temperature), with thunder and rain: unstable, thundery air.</p></li>
+<li><p><strong>Model 3:</strong> clear and windy with rising pressure:
+air moving away from a low towards a high, after a front has
+passed.</p></li>
+<li><p><strong>Model 4:</strong> overcast, snowing, 27 <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span>, wind 25 knots and
+falling pressure: a depression is arriving or overhead.</p></li>
+</ul>
+<h2 id="try-it-yourself-practice-set-27">27.10 Try it yourself: Practice
+Set 27</h2>
+<p>Decode each of the three models in Figure <a
+href="/teaching/atmosphere/p3-ch08_station/#p3-fig:practiceG">27.6</a>
+(pressure, temperature and dew point in <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> and <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>, relative humidity,
+sky cover, weather, wind speed and direction, pressure change and
+tendency), then check against the answers below.</p>
+<p><a id="p3-fig:practiceG"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-64.png"
+alt="Three station models to decode." /><br />
+</p>
+<p><strong>Figure 27.6.</strong> Three station models to decode.</p>
+<div class="box box-answer">
+<p class="box-title">
+Answers to Practice Set 27
+</p>
+<ol type="1">
+<li><p><strong>150</strong> <span class="math inline">\(\to\)</span>
+15.0 <span class="math inline">\(\to\)</span>
+<strong>1015.0 hPa</strong>. <span
+class="math inline">\(T=72\)</span> <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> (22.2 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>), <span
+class="math inline">\(T_d=65\)</span> <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> (18.3 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>), RH <span
+class="math inline">\(\approx79\,\%\)</span>. Sky: 2–3/10 (about 25 %).
+Wind: staff pointing straight down: <strong>from the south</strong>, one
+full barb and a half barb: <strong>15 knots</strong>. Tendency: <span
+class="math inline">\(+21\)</span> <span
+class="math inline">\(\to\)</span> up 2.1 hPa, rising then steady. No
+weather symbol: fair, warm and humid.</p></li>
+<li><p><strong>975</strong> (<span
+class="math inline">\(\ge500\)</span>) <span
+class="math inline">\(\to\)</span> 97.5 <span
+class="math inline">\(\to\)</span> <strong>997.5 hPa</strong>. <span
+class="math inline">\(T=48\)</span> <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> (8.9 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>), <span
+class="math inline">\(T_d=47\)</span> <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> (8.3 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>); RH <span
+class="math inline">\(\approx96\,\%\)</span>. Overcast (100 %).
+Continuous rain. Wind from the <strong>north-east</strong>, three full
+barbs and a half barb: <strong>35 knots</strong>. Pressure <span
+class="math inline">\(-32\)</span>: down 3.2 hPa, falling
+steadily.</p></li>
+<li><p><strong>084</strong> (<span
+class="math inline">\(&lt;500\)</span>) <span
+class="math inline">\(\to\)</span> 08.4 <span
+class="math inline">\(\to\)</span> <strong>1008.4 hPa</strong>. <span
+class="math inline">\(T=5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span> (<span
+class="math inline">\(-15\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>), <span
+class="math inline">\(T_d=3\)</span> <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span>; RH <span
+class="math inline">\(\approx91\,\%\)</span>. Sky: 6/10. Continuous
+drizzle. Wind from the <strong>west</strong>, one full barb:
+<strong>10 knots</strong>. Pressure <span
+class="math inline">\(-4\)</span>: down 0.4 hPa, rising then
+falling.</p></li>
+</ol>
+</div>
+<h2 id="station-models-in-python">27.11 Station models in Python</h2>
+<p>These functions compute the equations of this chapter, and the book’s
+tests check them against its answers.</p>
+<pre><code>def fahrenheit_to_celsius(t_f):
+    &quot;&quot;&quot;Temperature in deg C from deg F.&quot;&quot;&quot;
+    return (t_f - 32.0) * 5.0 / 9.0
+
+def decode_pressure(code):
+    &quot;&quot;&quot;Sea-level pressure (hPa) from a three-digit station-model code.&quot;&quot;&quot;
+    return (1000.0 if code &lt; 500 else 900.0) + code / 10.0
+
+def knots_to_ms(knots):
+    &quot;&quot;&quot;Wind speed in m/s from knots.&quot;&quot;&quot;
+    return 0.514 * knots</code></pre>
+<p><code>decode_pressure(247)</code> returns 1024.7 and
+<code>decode_pressure(987)</code> returns 998.7.</p>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/atmosphere/p3-ch07_friction/">&larr; 26. Wind near the ground: friction</a><a href="../../../teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="../../../teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="bar">
+    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
+    <div class="social">
+      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

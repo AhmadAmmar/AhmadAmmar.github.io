@@ -1,0 +1,924 @@
+title: C. Part III: formulas, stations, derivations and symbols
+description: C. Part III: formulas, stations, derivations and symbols: The Atmosphere, a book worked step by step.
+nav: teaching
+out: teaching/atmosphere/app-p3/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/atmosphere/">The Atmosphere</a> / C. Part III: formulas, stations, derivations and symbols</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>C. Part III: formulas, stations, derivations and symbols</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p3/" aria-current="page">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="p3-app:formulas">C.1 Formulas</h2>
+<table>
+<caption>The relationships used in this part.</caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Quantity</strong></th>
+<th style="text-align: left;"><strong>Formula</strong></th>
+<th style="text-align: left;"><strong>Where, and what for</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Saturation vapour pressure</td>
+<td style="text-align: left;"><span
+class="math inline">\(e_s(T)=6.112\exp\!\left[\dfrac{17.67\,T}{T+243.5}\right]\)</span>
+hPa (<span class="math inline">\(T\)</span> in <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)</td>
+<td style="text-align: left;">the table, dew point</td>
+</tr>
+<tr>
+<td style="text-align: left;">Saturation mixing ratio</td>
+<td style="text-align: left;"><span
+class="math inline">\(w_s=\dfrac{622\,e_s}{p-e_s}\)</span> <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>, with <span
+class="math inline">\(p=995.5\)</span> hPa</td>
+<td style="text-align: left;">the table</td>
+</tr>
+<tr>
+<td style="text-align: left;">Mixing ratio from RH</td>
+<td style="text-align: left;"><span
+class="math inline">\(w=w_s\times\mathrm{RH}/100\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-eq:wrh">21.4</a>);
+Moisture Q3, Q6</td>
+</tr>
+<tr>
+<td style="text-align: left;">Relative humidity</td>
+<td style="text-align: left;"><span
+class="math inline">\(\mathrm{RH}=100\,w/w_s=100\,e/e_s\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-eq:rh">21.3</a>);
+Moisture Q1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Vapour pressure from <span
+class="math inline">\(w\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(e=\dfrac{w\,p}{622+w}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-eq:we">21.2</a>); dew
+point (formula)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dew point</td>
+<td style="text-align: left;"><span
+class="math inline">\(T_d=\dfrac{243.5\,\ln(e/6.112)}{17.67-\ln(e/6.112)}\)</span></td>
+<td style="text-align: left;">Moisture Q5, Q6</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rule of thumb</td>
+<td style="text-align: left;"><span
+class="math inline">\(\mathrm{RH}\approx100-5\,(T-T_d)\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch03_dewpoint/#p3-eq:thumb">22.1</a>);
+checks</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cloud base</td>
+<td style="text-align: left;"><span
+class="math inline">\(z\approx125\,(T-T_d)\)</span> m</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch03_dewpoint/#p3-eq:cloudbase">22.3</a>);
+cloud height</td>
+</tr>
+<tr>
+<td style="text-align: left;">Condensed water</td>
+<td style="text-align: left;"><span
+class="math inline">\(w-w_s(T)\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch03_dewpoint/#p3-eq:condensed">22.2</a>);
+below dew point</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hypsometric equation</td>
+<td style="text-align: left;"><span class="math inline">\(\Delta
+z=\dfrac{R_d\,\overline{T}}{g}\ln\dfrac{p_1}{p_2}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch05_surfaces/#p3-eq:hyps">24.1</a>);
+Motion Q1–Q6</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pressure gradient force</td>
+<td style="text-align: left;"><span
+class="math inline">\(-\dfrac{1}{\rho}\dfrac{\Delta p}{\Delta
+n}=-g\dfrac{\Delta z}{\Delta n}\)</span> (on a pressure surface)</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch04_forces/#p3-eq:pgf">23.1</a>);
+Chapters <a
+href="/teaching/atmosphere/p3-ch04_forces/#p3-ch:forces">23</a>–<a
+href="/teaching/atmosphere/p3-ch07_friction/#p3-ch:fric">26</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Coriolis parameter</td>
+<td style="text-align: left;"><span
+class="math inline">\(f=2\Omega\sin\varphi\)</span>, <span
+class="math inline">\(\Omega=7.292\times10^{-5}\,\mathrm{s^{-1}}\)</span></td>
+<td style="text-align: left;">Motion Q7</td>
+</tr>
+<tr>
+<td style="text-align: left;">Coriolis force</td>
+<td style="text-align: left;"><span class="math inline">\(fV\)</span>
+per unit mass</td>
+<td style="text-align: left;">Motion Q8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Geostrophic wind</td>
+<td style="text-align: left;"><span
+class="math inline">\(V_g=\dfrac{1}{\rho f}\dfrac{\Delta p}{\Delta
+n}=\dfrac{g}{f}\dfrac{\Delta z}{\Delta n}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-eq:geo">25.1</a>);
+Motion Q6, Q7</td>
+</tr>
+<tr>
+<td style="text-align: left;">Wind with friction</td>
+<td style="text-align: left;"><span
+class="math inline">\(\alpha=\arctan(k/f)\)</span>, <span
+class="math inline">\(V=V_g\cos\alpha\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch07_friction/#p3-eq:friction">26.1</a>);
+Motion Q9–Q11</td>
+</tr>
+<tr>
+<td style="text-align: left;">Temperature</td>
+<td style="text-align: left;"><span
+class="math inline">\(T(\ensuremath{^{\circ}\mathrm{C}})=\tfrac59[T(\ensuremath{^{\circ}\mathrm{F}})-32]\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p3-ch08_station/#p3-eq:ftoc">27.1</a>); Map
+Q12</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pressure code</td>
+<td style="text-align: left;">3 digits: decimal before last; prefix 10
+if <span class="math inline">\(&lt;500\)</span>, 9 if <span
+class="math inline">\(\ge500\)</span></td>
+<td style="text-align: left;">Map Q12</td>
+</tr>
+<tr>
+<td style="text-align: left;">Knots</td>
+<td style="text-align: left;">1 kt <span
+class="math inline">\(=0.514\ensuremath{\mathrm{m\,s^{-1}}}=1.85\)</span> km h<span
+class="math inline">\(^{-1}\)</span></td>
+<td style="text-align: left;">Map Q12</td>
+</tr>
+<tr>
+<td style="text-align: left;">Interpolation</td>
+<td style="text-align: left;">fraction <span
+class="math inline">\(=\dfrac{v_{\mathrm{wanted}}-v_1}{v_2-v_1}\)</span></td>
+<td style="text-align: left;">Map Q14</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constants.</strong> <span
+class="math inline">\(g=9.81\)</span> m s<span
+class="math inline">\(^{-2}\)</span>; <span
+class="math inline">\(R_d=287\)</span> J kg<span
+class="math inline">\(^{-1}\)</span> K<span
+class="math inline">\(^{-1}\)</span>; <span
+class="math inline">\(\rho\approx1.2\)</span> kg m<span
+class="math inline">\(^{-3}\)</span> near the ground; <span
+class="math inline">\(\Omega=7.292\times10^{-5}\)</span> s<span
+class="math inline">\(^{-1}\)</span>; Earth’s radius 6371 km.</p>
+<h2 id="p3-app:stations">C.2 The 34 stations of Figures 8 and 10</h2>
+<p>Temperatures and dew points are in <span
+class="math inline">\(^{\circ}\mathrm{F}\)</span>; the pressure is the
+three-digit code and the decoded value in hPa; cloud cover is in percent
+(the filled fraction of the circle); the wind is the direction it comes
+<strong>from</strong> and its speed in knots (counted from the barbs, so
+approximate). Positions are good to about 10 km. A dash means that no
+value is available (station 9 has no dew point).</p>
+<table style="width:99%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;"><strong>#</strong></th>
+<th style="text-align: left;"><strong>Position</strong></th>
+<th style="text-align: right;"><strong>Temp.</strong></th>
+<th style="text-align: right;"><strong>Dew</strong></th>
+<th style="text-align: right;"><strong>Code</strong></th>
+<th style="text-align: right;"><strong>hPa</strong></th>
+<th style="text-align: right;"><strong>Sky</strong></th>
+<th style="text-align: left;"><strong>Wind</strong></th>
+<th style="text-align: left;"><strong>Weather</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><strong>#</strong></td>
+<td style="text-align: left;"><strong>Position</strong></td>
+<td style="text-align: right;"><strong>Temp.</strong></td>
+<td style="text-align: right;"><strong>Dew</strong></td>
+<td style="text-align: right;"><strong>Code</strong></td>
+<td style="text-align: right;"><strong>hPa</strong></td>
+<td style="text-align: right;"><strong>Sky</strong></td>
+<td style="text-align: left;"><strong>Wind</strong></td>
+<td style="text-align: left;"><strong>Weather</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;"></td>
+<td style="text-align: left;">44.6°N, 98.4°W</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">1011.0</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">NNW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">44.3°N, 92.9°W</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">096</td>
+<td style="text-align: right;">1009.6</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">E 10</td>
+<td style="text-align: left;">rain (continuous)</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">44.3°N, 85.6°W</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">1015.4</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">ENE 15</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">42.7°N, 98.7°W</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">1012.4</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">NW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">42.5°N, 95.9°W</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">088</td>
+<td style="text-align: right;">1008.8</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">NW 20</td>
+<td style="text-align: left;">rain (intermittent)</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">43.4°N, 88.8°W</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">084</td>
+<td style="text-align: right;">1008.4</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">SE 20</td>
+<td style="text-align: left;">rain (continuous)</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">42.9°N, 85.8°W</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">1013.2</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">ESE 20</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">42.0°N, 91.3°W</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">024</td>
+<td style="text-align: right;">1002.4</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">NE 10</td>
+<td style="text-align: left;">rain (continuous)</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">41.2°N, 93.9°W</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">–</td>
+<td style="text-align: right;">026</td>
+<td style="text-align: right;">1002.6</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">WNW 10</td>
+<td style="text-align: left;">rain (continuous)</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">41.6°N, 86.0°W</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">1012.4</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">E 5</td>
+<td style="text-align: left;">rain (continuous)</td>
+</tr>
+<tr>
+<td style="text-align: right;">11</td>
+<td style="text-align: left;">40.6°N, 83.1°W</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">163</td>
+<td style="text-align: right;">1016.3</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">ESE 2</td>
+<td style="text-align: left;">rain (intermittent)</td>
+</tr>
+<tr>
+<td style="text-align: right;">12</td>
+<td style="text-align: left;">40.8°N, 100.3°W</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">1012.4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">NW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">13</td>
+<td style="text-align: left;">40.8°N, 89.9°W</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">029</td>
+<td style="text-align: right;">1002.9</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">SSW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">14</td>
+<td style="text-align: left;">40.1°N, 86.4°W</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">097</td>
+<td style="text-align: right;">1009.7</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">E 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">15</td>
+<td style="text-align: left;">39.6°N, 98.5°W</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: right;">1010.3</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">NW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">16</td>
+<td style="text-align: left;">39.7°N, 95.0°W</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">069</td>
+<td style="text-align: right;">1006.9</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">NW 25</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">17</td>
+<td style="text-align: left;">39.8°N, 92.7°W</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">040</td>
+<td style="text-align: right;">1004.0</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">SSW 25</td>
+<td style="text-align: left;">thunder, rain</td>
+</tr>
+<tr>
+<td style="text-align: right;">18</td>
+<td style="text-align: left;">39.1°N, 90.4°W</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">044</td>
+<td style="text-align: right;">1004.4</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">SSW 10</td>
+<td style="text-align: left;">rain (continuous)</td>
+</tr>
+<tr>
+<td style="text-align: right;">19</td>
+<td style="text-align: left;">38.7°N, 87.6°W</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">099</td>
+<td style="text-align: right;">1009.9</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">S 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">20</td>
+<td style="text-align: left;">38.0°N, 86.3°W</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">111</td>
+<td style="text-align: right;">1011.1</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">S 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">21</td>
+<td style="text-align: left;">37.7°N, 100.5°W</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">1012.6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">NW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">22</td>
+<td style="text-align: left;">38.0°N, 97.5°W</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">109</td>
+<td style="text-align: right;">1010.9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">NW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">23</td>
+<td style="text-align: left;">37.2°N, 93.7°W</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">075</td>
+<td style="text-align: right;">1007.5</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">SSW 10</td>
+<td style="text-align: left;">rain (continuous)</td>
+</tr>
+<tr>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">36.3°N, 86.5°W</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">149</td>
+<td style="text-align: right;">1014.9</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">S 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">36.0°N, 97.3°W</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">126</td>
+<td style="text-align: right;">1012.6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">WNW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">26</td>
+<td style="text-align: left;">35.7°N, 89.8°W</td>
+<td style="text-align: right;">70</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">140</td>
+<td style="text-align: right;">1014.0</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">S 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">34.9°N, 100.8°W</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">1012.8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">WNW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">28</td>
+<td style="text-align: left;">35.0°N, 93.9°W</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">114</td>
+<td style="text-align: right;">1011.4</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: left;">SW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">29</td>
+<td style="text-align: left;">34.6°N, 92.5°W</td>
+<td style="text-align: right;">66</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">124</td>
+<td style="text-align: right;">1012.4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">SSW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">30</td>
+<td style="text-align: left;">33.3°N, 98.7°W</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">120</td>
+<td style="text-align: right;">1012.0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">NW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">31</td>
+<td style="text-align: left;">31.9°N, 97.0°W</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">1012.8</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">WSW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">32</td>
+<td style="text-align: left;">32.5°N, 93.7°W</td>
+<td style="text-align: right;">63</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">153</td>
+<td style="text-align: right;">1015.3</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">S 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">32.6°N, 90.2°W</td>
+<td style="text-align: right;">69</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">171</td>
+<td style="text-align: right;">1017.1</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">SSW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">34</td>
+<td style="text-align: left;">33.1°N, 87.0°W</td>
+<td style="text-align: right;">72</td>
+<td style="text-align: right;">64</td>
+<td style="text-align: right;">194</td>
+<td style="text-align: right;">1019.4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">SSW 10</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>The map figures in this part are drawn from this table.</p>
+<h2 id="p3-app:derivations">C.3 Derivations for the curious</h2>
+<p>Nothing in this appendix is needed to answer the questions, but each
+result is used in the chapters. They are short.</p>
+<h3 id="c.3.1-mixing-ratio-and-vapour-pressure">C.3.1 Mixing ratio and
+vapour pressure</h3>
+<p>Treat the dry air and the water vapour as ideal gases at the same
+temperature <span class="math inline">\(T\)</span> and volume. Their
+densities are <span class="math inline">\(\rho_d=(p-e)/(R_dT)\)</span>
+and <span class="math inline">\(\rho_v=e/(R_vT)\)</span>, where <span
+class="math inline">\(p\)</span> is the total pressure, <span
+class="math inline">\(e\)</span> the vapour pressure and <span
+class="math inline">\(R_d\)</span>, <span
+class="math inline">\(R_v\)</span> the gas constants of dry air and of
+water vapour. The mixing ratio is <span
+class="math display">\[w=\frac{\rho_v}{\rho_d}=\frac{R_d}{R_v}\,\frac{e}{p-e}=\varepsilon\,\frac{e}{p-e},\qquad
+\varepsilon=\frac{R_d}{R_v}=\frac{18.02}{28.96}=0.622 .\]</span>
+Multiplied by 1000 this is the <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> of Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a>:
+<span class="math inline">\(w=622\,e/(p-e)\)</span>.</p>
+<h3 id="c.3.2-saturation-vapour-pressure">C.3.2 Saturation vapour
+pressure</h3>
+<p>The Clausius–Clapeyron equation relates the change of the saturation
+vapour pressure of water to temperature: <span
+class="math display">\[\frac{d
+e_s}{dT}=\frac{L_v\,e_s}{R_v\,T^{2}},\]</span> where <span
+class="math inline">\(L_v=2.5\times10^{6}\)</span> J kg<span
+class="math inline">\(^{-1}\)</span> is the latent heat of vaporisation.
+At 15 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> this gives
+<span class="math inline">\(\frac{1}{e_s}\frac{de_s}{dT}=6.9\,\%\
+\mathrm{K^{-1}}\)</span>, which is why the curve of Figure <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-fig:es">21.1</a> is
+steep and bends upward. Integrating with a constant <span
+class="math inline">\(L_v\)</span> gives an exponential in <span
+class="math inline">\(-1/T\)</span>; fitting the result over the range
+of the atmosphere gives the convenient empirical form <span
+class="math display">\[e_s(T)=6.112\exp\!\left[\frac{17.67\,T}{T+243.5}\right]\
+\mathrm{hPa}\qquad (T\ \text{in
+}\ensuremath{^{\circ}\mathrm{C}}),\]</span> which reproduces the values
+of Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a> to
+better than 0.2 % between <span class="math inline">\(-20\)</span> and
+40 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p>
+<h3 id="c.3.3-the-dew-point">C.3.3 The dew point</h3>
+<p>The dew point is the temperature at which the saturation vapour
+pressure equals the actual vapour pressure <span
+class="math inline">\(e\)</span>. Setting <span
+class="math inline">\(e_s(T_d)=e\)</span> in the empirical form and
+solving for <span class="math inline">\(T_d\)</span> gives, with <span
+class="math inline">\(x=\ln(e/6.112)\)</span>, <span
+class="math display">\[T_d=\frac{243.5\,x}{17.67-x}.\]</span> For the
+sample of Question 6, <span class="math inline">\(w=21.78\)</span> <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>, <span
+class="math inline">\(p=995.5\)</span> hPa: <span
+class="math inline">\(e=21.78\times995.5/(622+21.78)=33.68\)</span> hPa,
+<span class="math inline">\(x=1.7066\)</span>, <span
+class="math inline">\(T_d=26.03\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p>
+<h3 id="c.3.4-cloud-base-from-the-dew-point">C.3.4 Cloud base from the
+dew point</h3>
+<p>A rising unsaturated parcel cools at the dry adiabatic rate <span
+class="math inline">\(\Gamma_d=g/c_p=9.8\)</span> K km<span
+class="math inline">\(^{-1}\)</span>. Its dew point falls more slowly,
+because the vapour pressure falls with the pressure: about 1.8 K km<span
+class="math inline">\(^{-1}\)</span>. The gap <span
+class="math inline">\(T-T_d\)</span> therefore closes at <span
+class="math inline">\(9.8-1.8=8\)</span> K km<span
+class="math inline">\(^{-1}\)</span>, so the parcel saturates after
+rising <span class="math inline">\((T-T_d)/8\)</span> km <span
+class="math inline">\(\approx125\,(T-T_d)\)</span> m.</p>
+<h3 id="c.3.5-the-hypsometric-equation">C.3.5 The hypsometric
+equation</h3>
+<p>The vertical balance (hydrostatic balance) says that pressure falls
+with height by the weight of the air: <span
+class="math inline">\(dp=-\rho g\,dz\)</span>. Using the ideal gas law
+<span class="math inline">\(\rho=p/(R_dT)\)</span>, <span
+class="math display">\[dz=-\frac{R_dT}{g}\frac{dp}{p}.\]</span>
+Integrating from <span class="math inline">\(p_1\)</span> (lower) to
+<span class="math inline">\(p_2\)</span> (upper) with the mean
+temperature <span class="math inline">\(\overline{T}\)</span> of the
+layer, <span
+class="math display">\[z_2-z_1=\frac{R_d\overline{T}}{g}\ln\frac{p_1}{p_2}.\]</span>
+Thickness is proportional to the mean temperature: that is why pressure
+surfaces rise over warm air.</p>
+<h3 id="c.3.6-the-pressure-gradient-force-on-a-pressure-surface">C.3.6
+The pressure gradient force on a pressure surface</h3>
+<p>At a fixed height the horizontal pressure gradient force per unit
+mass is <span class="math inline">\(-\frac{1}{\rho}\frac{\partial
+p}{\partial n}\)</span>. On a surface of constant pressure, the height
+varies with position, and the hydrostatic relation <span
+class="math inline">\(\partial p/\partial z=-\rho g\)</span> converts
+the horizontal pressure gradient at fixed height into a height gradient
+along the surface: <span
+class="math display">\[-\frac{1}{\rho}\left(\frac{\partial p}{\partial
+n}\right)_z=-g\left(\frac{\partial z}{\partial n}\right)_p .\]</span>
+The density has disappeared: the force depends only on the slope of the
+pressure surface. This is why questions about the slope of the surfaces
+are questions about the force.</p>
+<h3 id="c.3.7-the-geostrophic-wind">C.3.7 The geostrophic wind</h3>
+<p>For a wind <span class="math inline">\(V\)</span> blowing along the
+isobars, the pressure gradient force <span
+class="math inline">\(g\,\Delta z/\Delta n\)</span> and the Coriolis
+force <span class="math inline">\(fV\)</span> act at right angles to the
+wind and to each other’s line, in opposite directions. Setting them
+equal, <span class="math display">\[fV_g=g\frac{\Delta z}{\Delta
+n}\quad\Longrightarrow\quad V_g=\frac{g}{f}\frac{\Delta z}{\Delta
+n}.\]</span> In terms of pressure: <span
+class="math inline">\(V_g=\Delta p/(\rho f\,\Delta n)\)</span>.</p>
+<h3 id="c.3.8-the-steady-wind-with-friction">C.3.8 The steady wind with
+friction</h3>
+<p>Take <span class="math inline">\(x\)</span> east, <span
+class="math inline">\(y\)</span> north, a pressure gradient force <span
+class="math inline">\((P_x,P_y)\)</span>, Coriolis acceleration <span
+class="math inline">\((fv,-fu)\)</span> and a linear drag <span
+class="math inline">\((-ku,-kv)\)</span>. In a steady state the three
+add to zero: <span class="math display">\[P_x+fv-ku=0,\qquad P_y-fu-kv=0
+.\]</span> Solving the pair for <span class="math inline">\(u\)</span>
+and <span class="math inline">\(v\)</span>, <span
+class="math display">\[u=\frac{kP_x+fP_y}{k^2+f^2},\qquad
+v=\frac{kP_y-fP_x}{k^2+f^2}.\]</span> For the low on the north side and
+isobars running east–west (<span class="math inline">\(P_x=0\)</span>,
+<span class="math inline">\(P_y=P&gt;0\)</span>) this gives <span
+class="math inline">\(u=fP/(k^2+f^2)\)</span> and <span
+class="math inline">\(v=kP/(k^2+f^2)\)</span>: a wind with a component
+towards the low. The angle to the isobars satisfies <span
+class="math inline">\(\tan\alpha=v/u=k/f\)</span> and the speed is <span
+class="math inline">\(\sqrt{u^2+v^2}=P/\sqrt{k^2+f^2}=V_g\cos\alpha\)</span>,
+with <span class="math inline">\(V_g=P/f\)</span>. For <span
+class="math inline">\(k=0\)</span> this is the geostrophic wind.</p>
+<h3 id="c.3.9-pressure-at-a-height-between-two-reported-levels">C.3.9
+Pressure at a height between two reported levels</h3>
+<p>In Question 4 the pressure at 9000 m was estimated from the reported
+levels. Between two levels with pressures <span
+class="math inline">\(p_a\)</span> and <span
+class="math inline">\(p_b\)</span> at heights <span
+class="math inline">\(z_a\)</span> and <span
+class="math inline">\(z_b\)</span>, the pressure was interpolated
+linearly in <span class="math inline">\(\ln p\)</span>: <span
+class="math display">\[\ln p=\ln p_a+(\ln p_b-\ln
+p_a)\frac{z-z_a}{z_b-z_a},\]</span> which is the exact result for an
+isothermal layer. Above the highest level an isothermal extension <span
+class="math inline">\(p=p_{300}\exp[-g(z-z_{300})/(R_dT)]\)</span> was
+used.</p>
+<h2 id="p3-app:symbols">C.4 Weather symbols: quick reference</h2>
+<p>The symbols used on the maps. Cover the right-hand descriptions and
+test yourself.</p>
+<p><img src="/teaching/atmosphere/fig/f-83.png"
+alt="Sky cover: no cloud, le1/10 , 2--3/10, 4/10, 5/10, 6/10, 7--8/10, 9/10, 10/10 (overcast), obscured." /><br />
+</p>
+<p>Sky cover: no cloud, <span class="math inline">\(\le1/10\)</span>,
+2–3/10, 4/10, 5/10, 6/10, 7–8/10, 9/10, 10/10 (overcast), obscured.</p>
+<p><img src="/teaching/atmosphere/fig/f-84.png"
+alt="Wind barbs (staff pointing north, from the north): calm, 1--2, 5, 10, 15, 20, 25, 30, 40, 50, 60, 65, 75 and 105 knots." /><br />
+</p>
+<p>Wind barbs (staff pointing north, from the north): calm, 1–2, 5, 10,
+15, 20, 25, 30, 40, 50, 60, 65, 75 and 105 knots.</p>
+<p><img src="/teaching/atmosphere/fig/f-85.png"
+alt="Present weather: intermittent rain, continuous rain, continuous snow, continuous drizzle, fog, thunder heard, thunder with intermittent rain." /><br />
+</p>
+<p>Present weather: intermittent rain, continuous rain, continuous snow,
+continuous drizzle, fog, thunder heard, thunder with intermittent
+rain.</p>
+<p><img src="/teaching/atmosphere/fig/f-86.png"
+alt="Barometric tendency over the past three hours." /><br />
+</p>
+<p>Barometric tendency over the past three hours.</p>
+<h2 id="p3-app:about">C.5 About the figures, the data and further
+reading</h2>
+<h3 id="c.5.1-how-the-figures-were-made">C.5.1 How the figures were
+made</h3>
+<p>Every figure in this part was drawn for it and is vector graphics:
+the curves and glasses, the force diagrams and the weather maps are all
+drawn in the document itself with TikZ and pgfplots, so they stay sharp
+at any size.</p>
+<ul>
+<li><p>The <strong>saturation curves</strong> are computed from the
+formulas of Appendix <a
+href="/teaching/atmosphere/app-p3/#p3-app:formulas">C.1</a>; the dots
+are the values of Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a>.</p></li>
+<li><p>The <strong>geostrophic adjustment</strong> (Figures in
+Chapter <a
+href="/teaching/atmosphere/p3-ch06_geostrophic/#p3-ch:geo">25</a>) is
+the numerical solution of the equations of motion of a parcel released
+at rest between two height lines, with a gentle damping that relaxes the
+velocity towards the geostrophic wind.</p></li>
+<li><p>The <strong>four circulation systems</strong> (Chapter <a
+href="/teaching/atmosphere/p3-ch07_friction/#p3-ch:fric">26</a>) are
+computed from the steady force balance of Appendix <a
+href="/teaching/atmosphere/app-p3/#p3-app:derivations">C.3</a>, with
+friction equal to 0.6 times the Coriolis force.</p></li>
+<li><p>The <strong>map</strong>: state outlines are boundaries from
+Natural Earth (public domain), drawn in the Lambert conformal conic
+projection, fitted so that the stations fall on the right states. The 34
+stations are listed in Appendix <a
+href="/teaching/atmosphere/app-p3/#p3-app:stations">C.2</a>.</p></li>
+<li><p>The <strong>isobars</strong> are contours of a smooth
+thin-plate-spline surface through the 34 station pressures; the
+<strong>cloud and rain areas</strong> are contours of distance-weighted
+averages of the station cover and rain reports; the
+<strong>streamlines</strong> follow a smoothed wind field made from the
+34 barbs. The <strong>fronts</strong> were placed by hand, from the
+temperature, dew-point and wind contrasts, as an analyst would.</p></li>
+</ul>
+<h3 id="c.5.2-limits-to-bear-in-mind">C.5.2 Limits to bear in mind</h3>
+<ul>
+<li><p>Station values were read from a plotted teaching map: wind speeds
+are estimated by counting barbs, and a few cloud-cover values could
+differ by one tenth.</p></li>
+<li><p>The geostrophic-wind estimates between Saskatoon and Monterrey
+use only two places and rounded heights. They show the right behaviour
+(increase of wind with height) but not exact winds.</p></li>
+<li><p>The fronts and the isobars are <em>analyses</em>: reasonable
+analysts can draw them slightly differently. What matters is that every
+rule is respected (isobars never cross, fronts follow the contrasts of
+temperature, moisture and wind).</p></li>
+</ul>
+<h3 id="c.5.3-further-reading">C.5.3 Further reading</h3>
+<ul>
+<li><p>Ahrens and Henson (2022): the standard introduction; the station
+model, humidity and the forces on the wind are all treated at this
+level.</p></li>
+<li><p>Stull (2017): a free textbook that includes the hypsometric
+equation, the geostrophic wind and station models with worked
+examples.</p></li>
+<li><p>Wallace and Hobbs (2006): thermodynamics of moist air, the
+balance of forces, and fronts and cyclones.</p></li>
+<li><p>Holton and Hakim (2013): the geostrophic wind, thermal wind and
+friction at a more advanced level.</p></li>
+<li><p>Bolton (1980): the saturation vapour pressure formula used
+here.</p></li>
+<li><p>World Meteorological Organization (2019): the definition of the
+station model and its codes.</p></li>
+</ul>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-ahrens2022" class="csl-entry" role="listitem">
+Ahrens, C.D. and Henson, R. (2022) Meteorology today: An introduction to
+weather, climate, and the environment, 13th ed. Cengage Learning,
+Boston, MA.
+</div>
+<div id="ref-bolton1980" class="csl-entry" role="listitem">
+Bolton, D. (1980) The computation of equivalent potential temperature.
+Monthly Weather Review 108, 1046–1053. <a
+href="https://doi.org/10.1175/1520-0493(1980)108%3C1046:TCOEPT%3E2.0.CO;2">https://doi.org/10.1175/1520-0493(1980)108&lt;1046:TCOEPT&gt;2.0.CO;2</a>
+</div>
+<div id="ref-holton2013" class="csl-entry" role="listitem">
+Holton, J.R. and Hakim, G.J. (2013) An introduction to dynamic
+meteorology, 5th ed. Academic Press, Amsterdam.
+</div>
+<div id="ref-stull2017" class="csl-entry" role="listitem">
+Stull, R. (2017) <a
+href="https://www.eoas.ubc.ca/books/Practical_Meteorology/">Practical
+meteorology: An algebra-based survey of atmospheric science</a>.
+University of British Columbia, Vancouver.
+</div>
+<div id="ref-wallace2006" class="csl-entry" role="listitem">
+Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An
+introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
+</div>
+<div id="ref-wmo2019" class="csl-entry" role="listitem">
+World Meteorological Organization (2019) Manual on codes, volume I.1:
+International codes (WMO-No. 306). WMO, Geneva.
+</div>
+</div>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/atmosphere/app-p2/">&larr; B. Part II: formulas, derivations, data and symbols</a><a href="{{root}}teaching/atmosphere/app-constants/">D. Constants, units and conversions &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="{{root}}teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

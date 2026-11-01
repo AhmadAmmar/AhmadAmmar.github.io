@@ -1,0 +1,478 @@
+title: A. Part I: formulas, derivations and symbols
+description: A. Part I: formulas, derivations and symbols: The Atmosphere, a book worked step by step.
+nav: teaching
+out: teaching/atmosphere/app-p1/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/atmosphere/">The Atmosphere</a> / A. Part I: formulas, derivations and symbols</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>A. Part I: formulas, derivations and symbols</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p1/" aria-current="page">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="p1-sec:formulas">A.1 Formulas</h2>
+<p>Every formula used in Part I, with the equation number where it is
+introduced and explained.</p>
+<div class="center">
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Quantity</strong></th>
+<th style="text-align: left;"><strong>Formula</strong></th>
+<th style="text-align: left;"><strong>Where, and what for</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Ideal gas law</td>
+<td style="text-align: left;"><span class="math inline">\(p=\rho
+R_dT\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>);
+density from pressure and temperature (Q13)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hydrostatic balance</td>
+<td style="text-align: left;"><span class="math inline">\(\Delta
+p/\Delta z=-\rho g\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>); why
+pressure falls with height</td>
+</tr>
+<tr>
+<td style="text-align: left;">Exponential pressure</td>
+<td style="text-align: left;"><span
+class="math inline">\(p=p_0e^{-z/H}\)</span>, <span
+class="math inline">\(H=R_dT/g\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>); scale
+height (Q1, Q12)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fraction of the atmosphere above</td>
+<td style="text-align: left;"><span
+class="math inline">\(f=2^{-z/5.6}\)</span> (<span
+class="math inline">\(z\)</span> in km)</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>);
+Q1, Q3</td>
+</tr>
+<tr>
+<td style="text-align: left;">After <span
+class="math inline">\(n\)</span> halvings</td>
+<td style="text-align: left;"><span
+class="math inline">\(f_n=1/2^{n}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:halving">3.5</a>);
+Table <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-tab:table1">3.1</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Pressure from the fraction</td>
+<td style="text-align: left;"><span
+class="math inline">\(p=1000\,f\)</span> hPa</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:pressure">3.6</a>);
+Q2, Q3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Partial pressure of oxygen</td>
+<td style="text-align: left;"><span
+class="math inline">\(p_{\mathrm{O_2}}=0.21\,p\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>);
+Q4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lapse rate</td>
+<td style="text-align: left;"><span class="math inline">\(\Gamma=-\Delta
+T/\Delta z\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:lapse">5.1</a>);
+Q5, Q7–Q10</td>
+</tr>
+<tr>
+<td style="text-align: left;">Standard atmosphere</td>
+<td style="text-align: left;"><span
+class="math inline">\(T=15-6.5\,z\)</span> to 11 km, then <span
+class="math inline">\(-56.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:stdT">5.2</a>);
+Q5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Scale height from data</td>
+<td style="text-align: left;"><span
+class="math inline">\(H=(z_2-z_1)/\ln(p_1/p_2)\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:Hdata">8.1</a>);
+Q12</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dry adiabatic lapse rate</td>
+<td style="text-align: left;"><span
+class="math inline">\(\Gamma_d=g/c_p=9.8\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>);
+Q13</td>
+</tr>
+<tr>
+<td style="text-align: left;">Potential temperature</td>
+<td style="text-align: left;"><span
+class="math inline">\(\theta=T(1000/p)^{0.286}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>);
+Q13</td>
+</tr>
+<tr>
+<td style="text-align: left;">Kelvin and Celsius</td>
+<td style="text-align: left;"><span
+class="math inline">\(T_{\mathrm{K}}=T_{\ensuremath{^{\circ}\mathrm{C}}}+273.15\)</span></td>
+<td style="text-align: left;">§ <a
+href="/teaching/atmosphere/how-to-use/#sec:conventions">1.3</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="p1-sec:derivations">A.2 Derivations for the curious</h2>
+<h3 id="p1-sec:der-expo">A.2.1 Pressure falls exponentially with
+height</h3>
+<p>Start from hydrostatic balance, Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>),
+written for a very thin layer, <span class="math inline">\(dp/dz=-\rho
+g\)</span>, and replace the density using the gas law, Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>),
+<span class="math inline">\(\rho=p/(R_dT)\)</span>: <span
+class="math display">\[\frac{dp}{dz}=-\frac{g}{R_dT}\,p\qquad\Longrightarrow\qquad\frac{dp}{p}=-\frac{dz}{H},\qquad
+H=\frac{R_dT}{g}.\]</span> The rate of fall of <span
+class="math inline">\(p\)</span> is proportional to <span
+class="math inline">\(p\)</span> itself. If <span
+class="math inline">\(T\)</span> (and so <span
+class="math inline">\(H\)</span>) is taken as constant, integrating from
+sea level (<span class="math inline">\(z=0\)</span>, <span
+class="math inline">\(p=p_0\)</span>) to height <span
+class="math inline">\(z\)</span> gives <span
+class="math inline">\(\ln(p/p_0)=-z/H\)</span>, that is <span
+class="math display">\[p=p_0\,e^{-z/H},\]</span> which is Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>). The
+pressure halves when <span
+class="math inline">\(e^{-z/H}=\tfrac12\)</span>, at <span
+class="math inline">\(z_{1/2}=H\ln2=0.693\,H\)</span>; the 5.6 km
+corresponds to <span class="math inline">\(H=8.08\)</span> km. Writing
+the same law for two levels and dividing, <span
+class="math inline">\(p_1/p_2=e^{(z_2-z_1)/H}\)</span>, so <span
+class="math inline">\(\ln(p_1/p_2)=(z_2-z_1)/H\)</span>: rearranged,
+this is Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:Hdata">8.1</a>),
+which gives the scale height of a layer from two lines of a
+sounding.</p>
+<p><strong>Without calculus.</strong> Divide the atmosphere into thin
+slabs, each <span class="math inline">\(\Delta z\)</span> thick. By
+Eqs. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>) and
+(<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>),
+crossing one slab lowers the pressure by <span
+class="math inline">\(\Delta p=\rho g\,\Delta z=p\,\Delta z/H\)</span>:
+the same <em>fraction</em> <span class="math inline">\(\Delta
+z/H\)</span> of whatever pressure there is. Removing the same fraction
+again and again is exactly what an exponential does.</p>
+<h3 id="p1-sec:der-dalr">A.2.2 The dry adiabatic lapse rate and
+potential temperature</h3>
+<p>The first law of thermodynamics for one kilogram of air says that
+heat added goes into warming the air and into the work it does as it
+expands: <span class="math inline">\(dq=c_p\,dT-dp/\rho\)</span>. In an
+adiabatic process no heat is added, <span
+class="math inline">\(dq=0\)</span>, so <span
+class="math display">\[c_p\,dT=\frac{dp}{\rho}.\]</span> For air moving
+vertically through an atmosphere in hydrostatic balance, <span
+class="math inline">\(dp=-\rho g\,dz\)</span>, Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>).
+Substituting, <span
+class="math display">\[c_p\,dT=-g\,dz\qquad\Longrightarrow\qquad\frac{dT}{dz}=-\frac{g}{c_p}=-\frac{9.81}{1004}=-0.0098\
+\mathrm{K\,m^{-1}},\]</span> which is Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>): dry
+air cools by 9.8 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> per km as it rises and
+warms by the same amount as it sinks. Alternatively, dividing <span
+class="math inline">\(c_p\,dT=dp/\rho\)</span> by <span
+class="math inline">\(T\)</span> and using <span
+class="math inline">\(1/\rho=R_dT/p\)</span> gives <span
+class="math inline">\(c_p\,dT/T=R_d\,dp/p\)</span>; integrating from
+<span class="math inline">\((T,p)\)</span> to <span
+class="math inline">\((\theta,1000\ \ensuremath{\mathrm{hPa}})\)</span>,
+<span
+class="math display">\[c_p\ln\frac{\theta}{T}=R_d\ln\frac{1000}{p}\qquad\Longrightarrow\qquad\theta=T\left(\frac{1000}{p}\right)^{R_d/c_p},\]</span>
+which is Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>),
+with <span class="math inline">\(R_d/c_p=287/1004=0.286\)</span>
+(Wallace and Hobbs 2006, ch. 3).</p>
+<h2 id="p1-sec:symbols">A.3 Symbols</h2>
+<table>
+<caption>Table A.1. The symbols used in Part I. Each equation’s own
+<em>where</em> list repeats the symbols it uses.</caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;"><span
+class="math inline">\(\textbf{Symbol}\)</span></th>
+<th style="text-align: left;"><strong>Meaning</strong></th>
+<th style="text-align: left;"><strong>Unit</strong></th>
+<th style="text-align: left;"><strong>First used</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\textbf{Symbol}\)</span></td>
+<td style="text-align: left;"><strong>Meaning</strong></td>
+<td style="text-align: left;"><strong>Unit</strong></td>
+<td style="text-align: left;"><strong>First used</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(c_p\)</span></td>
+<td style="text-align: left;">specific heat of dry air at constant
+pressure</td>
+<td style="text-align: left;">J kg<span
+class="math inline">\(^{-1}\)</span> K<span
+class="math inline">\(^{-1}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(f\)</span></td>
+<td style="text-align: left;">fraction of the atmosphere above a
+height</td>
+<td style="text-align: left;">–</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(g\)</span></td>
+<td style="text-align: left;">acceleration due to gravity</td>
+<td style="text-align: left;">m s<span
+class="math inline">\(^{-2}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\Gamma\)</span></td>
+<td style="text-align: left;">lapse rate</td>
+<td style="text-align: left;"><span
+class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:lapse">5.1</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\Gamma_d\)</span></td>
+<td style="text-align: left;">dry adiabatic lapse rate</td>
+<td style="text-align: left;"><span
+class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(H\)</span></td>
+<td style="text-align: left;">scale height</td>
+<td style="text-align: left;">km</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p\)</span></td>
+<td style="text-align: left;">pressure</td>
+<td style="text-align: left;">hPa or Pa</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p_0\)</span></td>
+<td style="text-align: left;">pressure at sea level</td>
+<td style="text-align: left;">hPa</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p_{\mathrm{O_2}}\)</span></td>
+<td style="text-align: left;">partial pressure of oxygen</td>
+<td style="text-align: left;">hPa</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(R_d\)</span></td>
+<td style="text-align: left;">gas constant for dry air</td>
+<td style="text-align: left;">J kg<span
+class="math inline">\(^{-1}\)</span> K<span
+class="math inline">\(^{-1}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\rho\)</span></td>
+<td style="text-align: left;">density of the air</td>
+<td style="text-align: left;">kg m<span
+class="math inline">\(^{-3}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;">temperature</td>
+<td style="text-align: left;">K or <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\theta\)</span></td>
+<td style="text-align: left;">potential temperature</td>
+<td style="text-align: left;">K</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(x_{\mathrm{O_2}}\)</span></td>
+<td style="text-align: left;">fraction of the molecules that are
+oxygen</td>
+<td style="text-align: left;">–</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(z\)</span></td>
+<td style="text-align: left;">height above sea level</td>
+<td style="text-align: left;">m or km</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="p1-sec:about">A.4 About the figures and the data</h2>
+<p>Every figure in Part I was drawn for it in the document itself with
+TikZ and pgfplots, from the data and the equations in the text.</p>
+<ul>
+<li><p>The <strong>halving-rule curves</strong> (Figures <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-fig:q1graph">3.2</a> and
+<a href="/teaching/atmosphere/p1-ch03_oxygen/#p1-fig:q3">4.1</a>) are
+Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>);
+the dashed comparison curve and the layered profile of Figure <a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-fig:layers">5.1</a>
+are the U.S. Standard Atmosphere (NOAA et al. 1976).</p></li>
+<li><p>The <strong>soundings</strong> (Figures <a
+href="/teaching/atmosphere/p1-ch05_soundings/#p1-fig:soundings">6.1</a>,
+<a href="/teaching/atmosphere/p1-ch06_lapse/#p1-fig:florida">7.1</a> and
+<a href="/teaching/atmosphere/p1-ch07_stability/#p1-fig:q12">8.1</a>)
+plot the values of Tables <a
+href="/teaching/atmosphere/p1-ch05_soundings/#p1-tab:soundings">6.1</a>
+and <a
+href="/teaching/atmosphere/p1-ch06_lapse/#p1-tab:florida">7.1</a>,
+joined by straight lines.</p></li>
+<li><p>The <strong>potential temperatures</strong> (Figure <a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-fig:theta">8.2</a>) are
+computed from the soundings with Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>), and
+the <strong>oxygen partial pressures</strong> (Figure <a
+href="/teaching/atmosphere/p1-ch03_oxygen/#p1-fig:q4">4.2</a>) with
+Eq. (<a
+href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>).</p></li>
+<li><p>The <strong>hydrostatic slab</strong> (Figure <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-fig:slab">3.1</a>) is a
+diagram of the forces in Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>).</p></li>
+<li><p>The <strong>tropopause band</strong> of Figure <a
+href="/teaching/atmosphere/p1-ch06_lapse/#p1-fig:troplat">7.2</a> and
+the <strong>ocean-current sketch</strong> of Figure <a
+href="/teaching/atmosphere/p1-ch08_climates/#p1-fig:atlantic">9.1</a>
+are schematic: they show the pattern, not measurements.</p></li>
+</ul>
+<p>The soundings are single ascents on a single day; they illustrate the
+structure of the atmosphere and should not be read as climatological
+averages (§ <a
+href="/teaching/atmosphere/p1-ch08_climates/#p1-sec:q14">9.4</a>).</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-noaa1976" class="csl-entry" role="listitem">
+NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S.
+Government Printing Office, Washington, DC.
+</div>
+<div id="ref-wallace2006" class="csl-entry" role="listitem">
+Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An
+introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
+</div>
+</div>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/atmosphere/p3-ch11_revision/">&larr; 30. Putting Part III together</a><a href="{{root}}teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="{{root}}teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

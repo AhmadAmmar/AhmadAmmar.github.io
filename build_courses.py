@@ -23,6 +23,8 @@ COURSES = {
     "hpc": dict(name="HPC tutorial", title="Getting started on an HPC cluster", pdf="HPC_tutorial_Ahmad_Ammar.pdf",
                 note=f"{CODE_TEXT} Data as credited in the starter kit. An independent guide, not an official NI-HPC document. {VCRS}"),
     "latex": dict(name="LaTeX guide", title="LaTeX from first principles", pdf="LaTeX_guide_Ahmad_Ammar.pdf", note=f"{CODE_TEXT} {VCRS}"),
+    "atmosphere": dict(pandoc=["--mathjax"], name="The Atmosphere", title="The Atmosphere: a book worked step by step", pdf="The_Atmosphere_Ahmad_Ammar.pdf",
+                note='Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="{{root}}teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\\\(","\\\\)"]],displayMath:[["\\\\[","\\\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>'),
     "git-ci": dict(name="Git and automation guide", title="Git, testing and automation for research", pdf="Git_CI_guide_Ahmad_Ammar.pdf", note=f"{CODE_TEXT} {VCRS}"),
 }
 
@@ -69,7 +71,7 @@ def web(course, cfg, items):
     for i, (meta, body) in enumerate(items):
         slug = meta["slug"]
         out = f"teaching/{course}/index.html" if slug == "index" else f"teaching/{course}/{slug}/index.html"
-        html = pandoc(body, "-t", "html", "--no-highlight")
+        html = pandoc(body, "-t", "html", "--no-highlight", *cfg.get("pandoc", []))
         html = html.replace('href="examples/', f'href="{{{{root}}}}teaching/{course}/examples/')
         side = "\n".join(f'      <li><a href="{href(course, m["slug"])}"' + (' aria-current="page"' if m["slug"] == slug else "")
                          + f'>{m["title"]}</a></li>' for m, _ in items)
@@ -101,7 +103,7 @@ def full(course, cfg, items):
     side, body = [], []
     for meta, text in items:
         slug = meta["slug"]
-        html = pandoc(text, "-t", "html", "--no-highlight", f"--id-prefix={slug}-", "--shift-heading-level-by=1")
+        html = pandoc(text, "-t", "html", "--no-highlight", f"--id-prefix={slug}-", "--shift-heading-level-by=1", *cfg.get("pandoc", []))
         html = html.replace('href="examples/', f'href="{{{{root}}}}teaching/{course}/examples/')
         html = re.sub(rf'href="(?:\.\./)?({slugs})/?"', lambda m: f'href="#ch-{m[1]}"', html)
         html = re.sub(r'<p>Prefer one long page\?.*?</p>\n?', "", html)

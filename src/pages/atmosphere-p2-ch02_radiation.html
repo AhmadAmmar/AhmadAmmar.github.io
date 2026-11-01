@@ -1,0 +1,578 @@
+title: 12. What radiation is
+description: 12. What radiation is: The Atmosphere, a book worked step by step.
+nav: teaching
+out: teaching/atmosphere/p2-ch02_radiation/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/atmosphere/">The Atmosphere</a> / 12. What radiation is</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>12. What radiation is</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch02_radiation/" aria-current="page">12. What radiation is</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p><em>This chapter builds the ideas that every question of this part
+uses. It answers no question directly; Chapters <a
+href="/teaching/atmosphere/p2-ch03_wien/#p2-ch:wien">13</a> to <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-ch:sun">18</a> refer
+back to it.</em></p>
+<h2 id="p2-sec:what">12.1 Energy that needs no material to travel</h2>
+<p>Energy moves from place to place in three ways. <em>Conduction</em>
+passes it from molecule to molecule through contact (a spoon warming in
+hot tea). <em>Convection</em> carries it in a moving fluid (warm air
+rising from a radiator). <em>Radiation</em> needs no material at all: it
+is energy travelling as an electromagnetic wave, a ripple of electric
+and magnetic fields (Lutgens et al. 2019, ch. 2). Between the Sun and
+the Earth there are 150 million kilometres of almost empty space, so
+radiation is the only way the Sun’s energy can reach us.</p>
+<p>Two properties of radiation matter here:</p>
+<ul>
+<li><p><strong>It carries energy.</strong> The body that emits it loses
+energy; the body that absorbs it gains energy and warms.</p></li>
+<li><p><strong>It comes in many wavelengths.</strong> Radio waves,
+microwaves, infrared, visible light, ultraviolet and X-rays are all the
+same kind of thing. They differ only in wavelength.</p></li>
+</ul>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Is this the same as radioactivity?</strong><br />
+No. In meteorology “radiation” always means electromagnetic radiation:
+sunlight, the infrared glow of the ground, and so on. Radioactivity is
+the decay of unstable atomic nuclei, an entirely different process. Only
+the word is shared.</p>
+</div>
+<h2 id="p2-sec:wave">12.2 Wavelength, frequency and speed</h2>
+<p>A wave is a repeating pattern of crests and troughs. The
+<strong>wavelength</strong> <span class="math inline">\(\lambda\)</span>
+(the Greek letter lambda) is the distance from one crest to the next
+(Figure <a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-fig:wave">12.1</a>).
+The <strong>frequency</strong> <span class="math inline">\(f\)</span> is
+the number of crests that pass a point each second. Shake one end of a
+rope slowly and the crests are far apart; shake it quickly and they
+bunch up.</p>
+<p>All electromagnetic waves travel through space at the same speed, the
+speed of light <span class="math inline">\(c\)</span>. In one second a
+source sends out <span class="math inline">\(f\)</span> crests, each
+<span class="math inline">\(\lambda\)</span> apart, and together they
+cover the distance the wave travels in one second: <span
+class="math display">\[c=f\lambda .\tag{12.1}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(c\)</span></td>
+<td style="text-align: left;">speed of light (m s<span
+class="math inline">\(^{-1}\)</span>)</td>
+<td style="text-align: left;"><span
+class="math inline">\(3.00\times10^{8}\)</span>, Table <a
+href="/teaching/atmosphere/app-p2/#p2-tab:constants">B.3</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(f\)</span></td>
+<td style="text-align: left;">frequency: crests per second (s<span
+class="math inline">\(^{-1}\)</span>, or hertz, Hz)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\lambda\)</span></td>
+<td style="text-align: left;">wavelength (m)</td>
+<td style="text-align: left;">given or calculated</td>
+</tr>
+</tbody>
+</table>
+<p>Because <span class="math inline">\(c\)</span> is fixed, frequency
+and wavelength are tied together: a short wavelength means a high
+frequency, and a long wavelength a low one.</p>
+<p><a id="p2-fig:wave"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-12.png"
+alt="Wavelength and frequency. Both waves move at the speed of light, so the one whose source oscillates faster (blue) has its crests closer together, Eq. eqref p2-eq:cfl . Not to scale: the crests of the" /><br />
+</p>
+<p><strong>Figure 12.1.</strong> Wavelength and frequency. Both waves
+move at the speed of light, so the one whose source oscillates faster
+(blue) has its crests closer together, Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:cfl">12.1</a>). Not
+to scale: the crests of the Earth’s infrared are about 10 <span
+class="math inline">\(\mu\mathrm{m}\)</span> apart, a seventh of the
+width of a hair.</p>
+<div class="box box-worked">
+<p class="box-title">
+Worked example: the frequencies of sunlight and of the Earth’s glow
+</p>
+<p>Rearranging Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:cfl">12.1</a>),
+<span class="math inline">\(f=c/\lambda\)</span>. For the Sun’s peak
+wavelength of 0.5 <span
+class="math inline">\(\mu\mathrm{m}\)</span> <span
+class="math inline">\(=0.5\times10^{-6}\)</span> m: <span
+class="math display">\[f_{\text{Sun}}=\frac{3.00\times10^{8}}{0.5\times10^{-6}}=6.0\times10^{14}\
+\text{Hz}.\]</span> For the Earth’s peak near 10 <span
+class="math inline">\(\mu\mathrm{m}\)</span> <span
+class="math inline">\(=10\times10^{-6}\)</span> m: <span
+class="math display">\[f_{\text{Earth}}=\frac{3.00\times10^{8}}{10\times10^{-6}}=3.0\times10^{13}\
+\text{Hz}.\]</span> Sunlight oscillates twenty times faster than the
+Earth’s infrared, because its wavelength is twenty times shorter.</p>
+</div>
+<h2 id="p2-sec:photons">12.3 Photons: radiation comes in packets</h2>
+<p>Radiation is emitted and absorbed in separate packets of energy
+called <strong>photons</strong>, much as rain arrives as separate drops.
+The energy of one photon depends only on its frequency (Planck 1901):
+<span
+class="math display">\[\varepsilon=hf=\frac{hc}{\lambda},\tag{12.2}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\varepsilon\)</span></td>
+<td style="text-align: left;">energy of one photon (J)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(h\)</span></td>
+<td style="text-align: left;">Planck’s constant (J s)</td>
+<td style="text-align: left;"><span
+class="math inline">\(6.626\times10^{-34}\)</span>, Table <a
+href="/teaching/atmosphere/app-p2/#p2-tab:constants">B.3</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(f,\ c,\
+\lambda\)</span></td>
+<td style="text-align: left;">as in Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:cfl">12.1</a>)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>where the second form follows from substituting <span
+class="math inline">\(f=c/\lambda\)</span> from Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:cfl">12.1</a>). So
+<strong>the shorter the wavelength, the more energy each photon
+carries</strong>: <span class="math display">\[\begin{align*}
+\varepsilon_{0.5\,\ensuremath{\mu\mathrm{m}}}&amp;=\frac{(6.626\times10^{-34})(3.00\times10^{8})}{0.5\times10^{-6}}=3.98\times10^{-19}\
+\text{J},\\
+\varepsilon_{10\,\ensuremath{\mu\mathrm{m}}}&amp;=\frac{(6.626\times10^{-34})(3.00\times10^{8})}{10\times10^{-6}}=1.99\times10^{-20}\
+\text{J}.
+\end{align*}\]</span> A photon of sunlight carries twenty times the
+energy of a photon of the Earth’s infrared. This is why ultraviolet
+light, with even shorter wavelengths, can break chemical bonds and burn
+skin, while infrared only warms.</p>
+<h2 id="p2-sec:spectrum">12.4 The electromagnetic spectrum</h2>
+<p>Table <a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-tab:spectrum">12.1</a>
+and Figure <a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-fig:spectrum">12.2</a>
+arrange the kinds of radiation by wavelength. Two ranges matter for the
+atmosphere. The Sun emits mostly between about 0.2 and 4 <span
+class="math inline">\(\mu\mathrm{m}\)</span> (ultraviolet, visible and
+near infrared): this is called <strong>shortwave</strong> radiation. The
+Earth and its atmosphere emit mostly between about 4 and 100 <span
+class="math inline">\(\mu\mathrm{m}\)</span> (thermal infrared): this is
+<strong>longwave</strong> radiation. Most of the Sun’s ultraviolet never
+reaches the ground: ozone absorbs it, and that absorption is what warms
+the stratosphere in the temperature profiles of Part I ( § <a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-sec:layers">5.4</a>).</p>
+<table>
+<caption>Table 12.1. The electromagnetic spectrum. All of these are
+photons; they differ only in wavelength and so in energy per photon,
+Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:photon">12.2</a>).</caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Type</strong></th>
+<th style="text-align: left;"><strong>Wavelength</strong></th>
+<th style="text-align: left;"><strong>Energy per photon</strong></th>
+<th style="text-align: left;"><strong>Example source</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Radio</td>
+<td style="text-align: left;">metres to kilometres</td>
+<td style="text-align: left;">smallest</td>
+<td style="text-align: left;">transmitters</td>
+</tr>
+<tr>
+<td style="text-align: left;">Microwave</td>
+<td style="text-align: left;">1 mm to 1 m</td>
+<td style="text-align: left;">very small</td>
+<td style="text-align: left;">ovens; radar</td>
+</tr>
+<tr>
+<td style="text-align: left;">Infrared</td>
+<td style="text-align: left;">0.75 to 1000 <span
+class="math inline">\(\mu\mathrm{m}\)</span></td>
+<td style="text-align: left;">small</td>
+<td style="text-align: left;">the Earth, people, warm objects (peak near
+10 <span class="math inline">\(\mu\mathrm{m}\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Visible</td>
+<td style="text-align: left;">0.4 to 0.75 <span
+class="math inline">\(\mu\mathrm{m}\)</span></td>
+<td style="text-align: left;">moderate</td>
+<td style="text-align: left;">the Sun (peak near 0.5 <span
+class="math inline">\(\mu\mathrm{m}\)</span>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ultraviolet</td>
+<td style="text-align: left;">0.01 to 0.4 <span
+class="math inline">\(\mu\mathrm{m}\)</span></td>
+<td style="text-align: left;">large</td>
+<td style="text-align: left;">the Sun; mostly absorbed by ozone</td>
+</tr>
+<tr>
+<td style="text-align: left;">X-ray, gamma</td>
+<td style="text-align: left;">shorter still</td>
+<td style="text-align: left;">largest</td>
+<td style="text-align: left;">medical X-rays; radioactive decay</td>
+</tr>
+</tbody>
+</table>
+<p><a id="p2-fig:spectrum"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-13.png"
+alt="The part of the spectrum that matters for the atmosphere. Solar (shortwave) and terrestrial (longwave) radiation meet near 4 , um." /><br />
+</p>
+<p><strong>Figure 12.2.</strong> The part of the spectrum that matters
+for the atmosphere. Solar (shortwave) and terrestrial (longwave)
+radiation meet near 4 <span
+class="math inline">\(\mu\mathrm{m}\)</span>.</p>
+<h2 id="p2-sec:everything">12.5 Why everything above absolute zero
+radiates</h2>
+<p>The first law of radiation says that <em>all objects continually
+radiate energy</em>. Why?</p>
+<p><strong>Absolute zero</strong> (<span
+class="math inline">\(0\)</span> K, or <span
+class="math inline">\(-273.15\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>) is the lowest
+possible temperature, at which the particles of a substance have the
+least possible motion. The kelvin scale starts there; that is why the
+radiation laws need temperatures in kelvin (§ <a
+href="/teaching/atmosphere/p2-ch01_orientation/#p2-sec:conventions">11.2</a>).</p>
+<p>All matter (rock, soil, sea, ice, cloud, air, people) is made of
+atoms that contain negative electrons and positive nuclei. Above
+absolute zero these particles are always vibrating and colliding, so
+their electric charges are always being jostled. Moving charges send out
+electromagnetic waves, just as a radio transmitter drives electrons up
+and down an aerial. So <span class="math display">\[\text{above }0\text{
+K}\ \Rightarrow\ \text{particles move}\ \Rightarrow\ \text{charges are
+jostled}\ \Rightarrow\ \text{radiation is emitted.}\]</span> Cold things
+radiate too, only less. An ice cube at <span
+class="math inline">\(-10\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> gives off about
+270 <span class="math inline">\(\mathrm{W\,m^{-2}}\)</span>, and your
+skin about 500 <span
+class="math inline">\(\mathrm{W\,m^{-2}}\)</span> (you will be able to
+check both with Eq. (<a
+href="/teaching/atmosphere/p2-ch04_stefan/#p2-eq:sb">14.1</a>) in
+Chapter <a
+href="/teaching/atmosphere/p2-ch04_stefan/#p2-ch:stefan">14</a>). A
+thermal camera sees people in the dark for exactly this reason. Ordinary
+objects look dark only because almost all their emission is infrared,
+which our eyes cannot see.</p>
+<h2 id="p2-sec:blackbody">12.6 Black bodies</h2>
+<div class="box box-key">
+<p class="box-title">
+Definition
+</p>
+<p>A <strong>black body</strong> is an ideal object that absorbs
+<em>all</em> the radiation falling on it, at every wavelength, and
+reflects none. At any given temperature it also <em>emits</em> the most
+radiation that any object at that temperature can emit, at every
+wavelength.</p>
+</div>
+<p>The last law, <em>good absorbers are good emitters</em>, is
+Kirchhoff’s law: at each wavelength, the fraction of incoming radiation
+a surface absorbs equals the fraction of black-body radiation it emits.
+That fraction is the <strong>emissivity</strong>, <span
+class="math inline">\(\epsilon\)</span>, between 0 and 1; a black body
+has <span class="math inline">\(\epsilon=1\)</span> at all wavelengths
+(Wallace and Hobbs 2006, ch. 4).</p>
+<p>No real object is a perfect black body, but many come close at some
+wavelengths. Snow is white (a poor absorber) in visible light but almost
+black in the thermal infrared, where its emissivity is close to 1; most
+natural surfaces, water and thick cloud behave nearly as black bodies in
+the infrared. The Sun is close to a black body over the whole spectrum.
+This is why the black-body laws work so well here.</p>
+<h2 id="p2-sec:planck">12.7 The Planck curve</h2>
+<p>How much energy does a black body emit at each wavelength? Imagine
+sorting all the radiation leaving a hot plate into wavelength “bins” and
+plotting how much energy lands in each bin. The result is a
+<strong>spectrum</strong>, and for a black body its shape was found by
+Planck (1901): <span
+class="math display">\[B_\lambda(T)=\frac{2hc^{2}}{\lambda^{5}}\;\frac{1}{\exp\!\left(\dfrac{hc}{\lambda
+k_{B}T}\right)-1}.\tag{12.3}\]</span> <em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(B_\lambda\)</span></td>
+<td style="text-align: left;">spectral radiance: power per unit area,
+per unit solid angle, per unit wavelength (W m<span
+class="math inline">\(^{-2}\)</span> sr<span
+class="math inline">\(^{-1}\)</span> m<span
+class="math inline">\(^{-1}\)</span>)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(h,\
+c\)</span></td>
+<td style="text-align: left;">as in Eqs. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:cfl">12.1</a>) and
+(<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:photon">12.2</a>)</td>
+<td style="text-align: left;">Table <a
+href="/teaching/atmosphere/app-p2/#p2-tab:constants">B.3</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(k_B\)</span></td>
+<td style="text-align: left;">Boltzmann’s constant (J K<span
+class="math inline">\(^{-1}\)</span>)</td>
+<td style="text-align: left;"><span
+class="math inline">\(1.381\times10^{-23}\)</span>, Table <a
+href="/teaching/atmosphere/app-p2/#p2-tab:constants">B.3</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\lambda\)</span></td>
+<td style="text-align: left;">wavelength (m)</td>
+<td style="text-align: left;">the horizontal axis</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;">absolute temperature of the body (K)</td>
+<td style="text-align: left;">e.g. 5796 K for the Sun (Question 1)</td>
+</tr>
+</tbody>
+</table>
+<p>You will not need to calculate with Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:planck">12.3</a>).
+What matters is the shape it draws (Figure <a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-fig:planck-sun-earth">12.3</a>)
+and the two laws that come out of it.</p>
+<ul>
+<li><p><strong>The curve rises steeply, peaks, then tails off
+slowly.</strong> At short wavelengths each photon is expensive in
+energy, Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:photon">12.2</a>),
+and only the most energetic particles can make it, so emission falls off
+a cliff. At long wavelengths photons are cheap but each carries little,
+so the curve tails off gradually.</p></li>
+<li><p><strong>The position of the peak</strong> says <em>what kind</em>
+of radiation the body mainly emits. Hotter bodies peak at shorter
+wavelengths. This is Wien’s law (Chapter <a
+href="/teaching/atmosphere/p2-ch03_wien/#p2-ch:wien">13</a>).</p></li>
+<li><p><strong>The area under the curve</strong> is the <em>total</em>
+radiation emitted. Hotter bodies have far larger areas. This is the
+Stefan–Boltzmann law (Chapter <a
+href="/teaching/atmosphere/p2-ch04_stefan/#p2-ch:stefan">14</a>).</p></li>
+</ul>
+<p>A geographer’s analogy is the storm hydrograph. Its peak tells you
+<em>when</em> discharge was greatest; the area under it tells you the
+total <em>volume</em> of water. The Planck curve is read in the same
+way, with energy in place of water and wavelength in place of time.</p>
+<p><a id="p2-fig:planck-sun-earth"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-14.png"
+alt="Black-body spectra of the Sun and the Earth from Eq. eqref p2-eq:planck , each divided by its own peak value so that both can be seen on one graph. The two curves hardly overlap: the Sun&#39;s radiation" /><br />
+</p>
+<p><strong>Figure 12.3.</strong> Black-body spectra of the Sun and the
+Earth from Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:planck">12.3</a>),
+each divided by its own peak value so that both can be seen on one
+graph. The two curves hardly overlap: the Sun’s radiation is shortwave
+and the Earth’s longwave. On a common scale the Earth curve would be
+invisible, because per square metre the Sun emits about 166 000 times
+more energy (Chapter <a
+href="/teaching/atmosphere/p2-ch04_stefan/#p2-ch:stefan">14</a>).</p>
+<div class="box box-key">
+<p class="box-title">
+Four laws of radiation, and where each is used
+</p>
+<ol type="1">
+<li><p><em>All objects continually radiate energy over a range of
+wavelengths</em> (§ <a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-sec:everything">12.5</a>;
+the spread is the Planck curve, Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:planck">12.3</a>)).</p></li>
+<li><p><em>Hotter objects radiate more total energy per unit area</em>:
+the Stefan–Boltzmann law, Eq. (<a
+href="/teaching/atmosphere/p2-ch04_stefan/#p2-eq:sb">14.1</a>), used in
+Questions 2 and 4.</p></li>
+<li><p><em>Hotter objects radiate more at short wavelengths</em>: Wien’s
+displacement law, Eq. (<a
+href="/teaching/atmosphere/p2-ch03_wien/#p2-eq:wien">13.1</a>), used in
+Questions 1 and 3.</p></li>
+<li><p><em>Good absorbers are good emitters</em>; the perfect one is a
+black body (§ <a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-sec:blackbody">12.6</a>),
+the assumption behind Questions 3 and 4.</p></li>
+</ol>
+</div>
+<h2 id="questions-that-come-up">12.8 Questions that come up</h2>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>If the air radiates too, why do we not feel
+it?</strong><br />
+We do. On a clear night the ground cools quickly because it radiates to
+a cold sky; under cloud it stays warmer because the cloud radiates back
+to it. That downward infrared from cloud and air is part of the
+greenhouse effect of Chapter <a
+href="/teaching/atmosphere/p2-ch07_balance/#p2-ch:balance">17</a>.</p>
+</div>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>When does an object start to glow visibly?</strong><br />
+When enough of its Planck curve reaches into the visible. For a black
+body this begins at roughly 800 K, with a dull red glow, as in an
+electric hob ring. At the Sun’s temperature the peak is in the middle of
+the visible.</p>
+</div>
+<h2 id="try-it-yourself-practice-set-12">12.9 Try it yourself: Practice
+Set 12</h2>
+<div class="box box-try">
+<p class="box-title">
+Practice Set 12: waves and photons
+</p>
+<p>Use <span class="math inline">\(c=3.00\times10^{8}\)</span> m s<span
+class="math inline">\(^{-1}\)</span> and <span
+class="math inline">\(h=6.626\times10^{-34}\)</span> J s.</p>
+<ol type="1">
+<li><p>What is the frequency of light with a wavelength of 0.5 <span
+class="math inline">\(\mu\mathrm{m}\)</span>?</p></li>
+<li><p>What is the energy of one photon of wavelength 10 <span
+class="math inline">\(\mu\mathrm{m}\)</span>?</p></li>
+<li><p>A microwave oven works at a wavelength of 12.2 cm. What is its
+frequency?</p></li>
+<li><p>How many times more energy does a 0.3 <span
+class="math inline">\(\mu\mathrm{m}\)</span> ultraviolet photon carry
+than a 3 <span class="math inline">\(\mu\mathrm{m}\)</span> infrared
+photon?</p></li>
+<li><p>Name the part of the spectrum, and say whether it is shortwave or
+longwave, for radiation of 0.3, 0.55, 2 and 15 <span
+class="math inline">\(\mu\mathrm{m}\)</span>.</p></li>
+</ol>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Answers to Practice Set 12
+</p>
+<ol type="1">
+<li><p><span
+class="math inline">\(f=c/\lambda=3.00\times10^{8}/0.5\times10^{-6}=6.0\times10^{14}\)</span> Hz,
+Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:cfl">12.1</a>).</p></li>
+<li><p><span
+class="math inline">\(\varepsilon=hc/\lambda=(6.626\times10^{-34})(3.00\times10^{8})/(10\times10^{-6})=1.99\times10^{-20}\)</span> J,
+Eq. (<a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-eq:photon">12.2</a>).</p></li>
+<li><p><span
+class="math inline">\(f=3.00\times10^{8}/0.122=2.46\times10^{9}\)</span> Hz
+(2.46 GHz).</p></li>
+<li><p>The energy is inversely proportional to the wavelength, so the
+ratio is <span class="math inline">\(3/0.3=10\)</span> times.</p></li>
+<li><p>0.3 <span class="math inline">\(\mu\mathrm{m}\)</span>:
+ultraviolet, shortwave. 0.55 <span
+class="math inline">\(\mu\mathrm{m}\)</span>: visible (green),
+shortwave. 2 <span class="math inline">\(\mu\mathrm{m}\)</span>: near
+infrared, shortwave (still part of the solar spectrum). 15 <span
+class="math inline">\(\mu\mathrm{m}\)</span>: thermal infrared,
+longwave.</p></li>
+</ol>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-lutgens2019" class="csl-entry" role="listitem">
+Lutgens, F.K., Tarbuck, E.J. and Herman, R.L. (2019) The atmosphere: An
+introduction to meteorology, 14th ed. Pearson, New York.
+</div>
+<div id="ref-planck1901" class="csl-entry" role="listitem">
+Planck, M. (1901) Ueber das Gesetz der Energieverteilung im
+Normalspectrum. Annalen der Physik 309, 553–563. <a
+href="https://doi.org/10.1002/andp.19013090310"
+class="uri">https://doi.org/10.1002/andp.19013090310</a>
+</div>
+<div id="ref-wallace2006" class="csl-entry" role="listitem">
+Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An
+introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
+</div>
+</div>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/atmosphere/p2-ch01_orientation/">&larr; 11. Part II at a glance</a><a href="{{root}}teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="{{root}}teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

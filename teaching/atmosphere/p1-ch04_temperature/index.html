@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5. Temperature with height: the standard atmosphere | Ahmad Ammar</title>
+<meta name="description" content="5. Temperature with height: the standard atmosphere: The Atmosphere, a book worked step by step.">
+<meta name="author" content="Ahmad Ammar">
+<link rel="canonical" href="https://ahmadammar.github.io/teaching/atmosphere/p1-ch04_temperature/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="5. Temperature with height: the standard atmosphere | Ahmad Ammar">
+<meta property="og:description" content="5. Temperature with height: the standard atmosphere: The Atmosphere, a book worked step by step.">
+<meta property="og:url" content="https://ahmadammar.github.io/teaching/atmosphere/p1-ch04_temperature/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script src="../../../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
+    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="../../../index.html">About</a>
+      <a href="../../../research.html">Research</a>
+      <a href="../../../teaching.html" aria-current="page">Teaching</a>
+      <a href="../../../projects.html">Projects</a>
+      <a href="../../../writing.html">Writing</a>
+      <a href="../../../cv.html">CV</a>
+    </nav>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</header>
+<main id="content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/atmosphere/">The Atmosphere</a> / 5. Temperature with height: the standard atmosphere</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>5. Temperature with height: the standard atmosphere</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="../../../teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="../../../teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch04_temperature/" aria-current="page">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="../../../teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="../../../teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="../../../teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="../../../teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="../../../teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="../../../teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="../../../teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="../../../teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="../../../files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p><em>This chapter answers Question 5 and introduces the layers of the
+atmosphere used in Questions 6 to 11.</em></p>
+<h2 id="p1-sec:lapse">5.1 Temperature and the lapse rate</h2>
+<p>Temperature measures how fast the molecules of the air are moving:
+the warmer the air, the faster they move. Unlike pressure, temperature
+does not fall steadily all the way up. It falls, then rises, then falls
+and rises again, and those reversals divide the atmosphere into layers
+(§ <a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-sec:layers">5.4</a>).</p>
+<p>The rate at which the temperature falls with height is the
+<strong>lapse rate</strong>: <span
+class="math display">\[\Gamma=-\frac{\Delta T}{\Delta
+z}=\frac{T_{\text{lower}}-T_{\text{upper}}}{z_{\text{upper}}-z_{\text{lower}}}.\tag{5.1}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\Gamma\)</span></td>
+<td style="text-align: left;">lapse rate (<span
+class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>, the same as
+<span class="math inline">\(\mathrm{K\,km^{-1}}\)</span>)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(\Delta
+T\)</span></td>
+<td style="text-align: left;">change in temperature going up (<span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)</td>
+<td style="text-align: left;">from a table or graph</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(\Delta
+z\)</span></td>
+<td style="text-align: left;">change in height (km)</td>
+<td style="text-align: left;">from a table or graph</td>
+</tr>
+</tbody>
+</table>
+<p>The minus sign makes the lapse rate <em>positive</em> when the
+temperature falls with height, which is the usual case in the lowest
+layer. A negative lapse rate means the temperature <em>rises</em> with
+height: an <strong>inversion</strong> (§ <a
+href="/teaching/atmosphere/p1-ch05_soundings/#p1-sec:inversions">6.3</a>).
+A lapse rate of zero means the temperature does not change: an
+<strong>isothermal</strong> layer.</p>
+<h2 id="p1-sec:standard">5.2 The standard atmosphere</h2>
+<p>Real temperature profiles change from day to day and from place to
+place. For aircraft instruments, engineering and comparison,
+meteorologists use an agreed average: the <strong>standard
+atmosphere</strong>. Near the ground it is defined by (NOAA et al.
+1976): <span class="math display">\[T(z)=\begin{cases}15-6.5\,z &amp;
+0\le z\le11\ \mathrm{km},\\[2pt] -56.5 &amp; 11\le z\le20\
+\mathrm{km},\end{cases}\tag{5.2}\]</span> <em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(T(z)\)</span></td>
+<td style="text-align: left;">temperature at height <span
+class="math inline">\(z\)</span> (<span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(z\)</span></td>
+<td style="text-align: left;">height above sea level (km)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(15\)</span></td>
+<td style="text-align: left;">sea-level temperature (<span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)</td>
+<td style="text-align: left;">288.15 K</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(6.5\)</span></td>
+<td style="text-align: left;">the standard (“normal”) lapse rate (<span
+class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span>)</td>
+<td style="text-align: left;">agreed value</td>
+</tr>
+</tbody>
+</table>
+<p>At sea level the standard pressure is 1013.25 hPa and the standard
+temperature 15 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>.
+The temperature falls by 6.5 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> for every kilometre up
+to 11 km, the standard <strong>tropopause</strong>, where it reaches
+<span class="math inline">\(-56.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>, and then stays
+constant.</p>
+<h2 id="p1-sec:q5">5.3 Question 5: the standard atmosphere</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>In the troposphere temperature decreases by 6.5 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> per km in the lowest
+11 km; this is called the average or normal lapse rate. Based on this
+average lapse rate, work out the temperature of the “standard
+atmosphere” at 2000, 4000, 6000, 8000 and 10 000 m. You are given
+15 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> at sea level,
+8.5 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> at 1000 m,
+and <span class="math inline">\(-56.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> at 11 000, 14 000 and
+16 000 m.</p>
+</div>
+<p><strong>Method.</strong> Use Eq. (<a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:stdT">5.2</a>).
+For each height up to 11 km, convert to kilometres and subtract <span
+class="math inline">\(6.5\times z\)</span> from 15 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. Above 11 km the
+temperature stays at <span class="math inline">\(-56.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. <span
+class="math display">\[T(2\ \mathrm{km})=15-6.5\times2=15-13=2\
+\ensuremath{^{\circ}\mathrm{C}},\qquad T(8\
+\mathrm{km})=15-6.5\times8=15-52=-37\
+\ensuremath{^{\circ}\mathrm{C}}.\]</span></p>
+<table>
+<caption>Table 5.1. The standard atmosphere. Values in bold are the
+answers to Question 5; the others are given in the question.</caption>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Height (m)</th>
+<th style="text-align: right;">0</th>
+<th style="text-align: right;">1000</th>
+<th style="text-align: right;">2000</th>
+<th style="text-align: right;">4000</th>
+<th style="text-align: right;">6000</th>
+<th style="text-align: right;">8000</th>
+<th style="text-align: right;">10 000</th>
+<th style="text-align: right;">11 000</th>
+<th style="text-align: right;">14 000</th>
+<th style="text-align: right;">16 000</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(T\)</span>
+(<span class="math inline">\(^{\circ}\mathrm{C}\)</span>)</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">8.5</td>
+<td style="text-align: right;"><strong>2</strong></td>
+<td style="text-align: right;"><span
+class="math inline">\(\boldsymbol{-11}\)</span></td>
+<td style="text-align: right;"><span
+class="math inline">\(\boldsymbol{-24}\)</span></td>
+<td style="text-align: right;"><span
+class="math inline">\(\boldsymbol{-37}\)</span></td>
+<td style="text-align: right;"><span
+class="math inline">\(\boldsymbol{-50}\)</span></td>
+<td style="text-align: right;"><span
+class="math inline">\(-56.5\)</span></td>
+<td style="text-align: right;"><span
+class="math inline">\(-56.5\)</span></td>
+<td style="text-align: right;"><span
+class="math inline">\(-56.5\)</span></td>
+</tr>
+</tbody>
+</table>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Question 5
+</p>
+<p>At 2000, 4000, 6000, 8000 and 10 000 m the standard temperatures are
+<strong>2, <span class="math inline">\(-\)</span><!-- -->11, <span
+class="math inline">\(-\)</span><!-- -->24, <span
+class="math inline">\(-\)</span><!-- -->37 and <span
+class="math inline">\(-\)</span><!-- -->50 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span></strong>. At 11 000 m
+the temperature reaches <span class="math inline">\(-56.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> and stays there to
+16 000 m (Table <a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-tab:table2">5.1</a>).</p>
+</div>
+<p><strong>Check.</strong> The given values agree with the rule: <span
+class="math inline">\(15-6.5\times1=8.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> at 1000 m and <span
+class="math inline">\(15-6.5\times11=-56.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> at 11 000 m. Each 2 km
+step lowers the temperature by 13 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p>
+<h2 id="p1-sec:layers">5.4 The layers of the atmosphere</h2>
+<p>Figure <a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-fig:layers">5.1</a>
+extends the standard atmosphere to 100 km. The turning points of the
+temperature (the <em>pauses</em>) divide it into four layers.</p>
+<p><a id="p1-fig:layers"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-05.png"
+alt="The U.S. Standard Atmosphere from the ground to 100 ,km citep noaa1976 . Temperature falls through the troposphere, is constant and then rises through the stratosphere, falls again through the mesos" /><br />
+</p>
+<strong>Figure 5.1.</strong> The U.S. Standard Atmosphere from the
+ground to 100 km (NOAA et al. 1976). Temperature falls through the
+troposphere, is constant and then rises through the stratosphere, falls
+again through the mesosphere, and rises in the thermosphere. The shaded
+bands are the layers; the dashed lines are the pauses between them.
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-noaa1976" class="csl-entry" role="listitem">
+NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S.
+Government Printing Office, Washington, DC.
+</div>
+</div>
+<dl>
+<dt>Troposphere (surface to about 11 km).</dt>
+<dd>
+<p>Temperature falls with height, on average by 6.5 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> per km. The air is
+heated mainly from below: sunlight passes largely through it and warms
+the ground, which then warms the air (Part II, § <a
+href="/teaching/atmosphere/p2-ch07_balance/#p2-sec:q4e">17.7</a>).
+Rising air also cools as it expands (Chapter <a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-ch:stability">8</a>).
+About three-quarters of the air and nearly all the water vapour are
+here, and almost all weather happens here.</p>
+</dd>
+<dt>Stratosphere (about 11 to 50 km).</dt>
+<dd>
+<p>Temperature is constant at first, then rises with height. The warming
+comes from ozone, which absorbs the Sun’s ultraviolet radiation
+(Part II, § <a
+href="/teaching/atmosphere/p2-ch02_radiation/#p2-sec:spectrum">12.4</a>).
+Warm air sitting on cooler air is very stable, so the stratosphere is
+calm and layered.</p>
+</dd>
+<dt>Mesosphere (about 50 to 85 km).</dt>
+<dd>
+<p>Temperature falls again, to the coldest values in the atmosphere,
+below <span class="math inline">\(-85\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> at the mesopause.</p>
+</dd>
+<dt>Thermosphere (above about 90 km).</dt>
+<dd>
+<p>Temperature rises steeply, as the few molecules there absorb the most
+energetic solar radiation.</p>
+</dd>
+</dl>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Is the thermosphere really hot?</strong><br />
+Its molecules move very fast, which is what a high temperature means,
+and in sunlight the upper thermosphere reaches several hundred degrees.
+But they are so few that they would hardly heat anything: an unprotected
+thermometer there would lose more by radiating than it gained from the
+rare collisions, and would read very cold. Temperature and heat are not
+the same thing.</p>
+</div>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Why does the troposphere get colder going up, when it is
+closer to the Sun?</strong><br />
+The extra closeness is negligible (a few kilometres in 150 million).
+What matters is where the heating happens. Sunlight passes mostly
+through the air and is absorbed by the ground, so the troposphere is
+heated from below, like a pan of water on a hob, and is warmest at the
+bottom.</p>
+</div>
+<h2 id="try-it-yourself-practice-set-5">5.5 Try it yourself: Practice
+Set 5</h2>
+<div class="box box-try">
+<p class="box-title">
+Practice Set 5: lapse rates and the standard atmosphere
+</p>
+<ol type="1">
+<li><p>The temperature falls from 20 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> at the ground to <span
+class="math inline">\(-10\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> at 5 km. What is the
+lapse rate?</p></li>
+<li><p>What is the standard-atmosphere temperature at 3 km? At the
+summit of Everest (8848 m)?</p></li>
+<li><p>At what height does the standard atmosphere reach 0 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>?</p></li>
+<li><p>Convert <span class="math inline">\(-56.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> to kelvin.</p></li>
+<li><p>Over a layer from 1.2 to 1.6 km the temperature rises from <span
+class="math inline">\(-2\)</span> to 0 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. What is its lapse
+rate, and what is such a layer called?</p></li>
+</ol>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Answers to Practice Set 5
+</p>
+<ol type="1">
+<li><p><span
+class="math inline">\(\Gamma=(20-(-10))/5=6\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>,
+Eq. (<a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:lapse">5.1</a>).</p></li>
+<li><p><span class="math inline">\(15-6.5\times3=-4.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>; <span
+class="math inline">\(15-6.5\times8.848=-42.5\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>, Eq. (<a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:stdT">5.2</a>).</p></li>
+<li><p><span class="math inline">\(15-6.5\,z=0\)</span> gives <span
+class="math inline">\(z=15/6.5=2.31\)</span> km.</p></li>
+<li><p><span
+class="math inline">\(-56.5+273.15=216.65\)</span> K.</p></li>
+<li><p><span
+class="math inline">\(\Gamma=(-2-0)/(1.6-1.2)=-5\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>:
+negative, so the temperature rises with height. It is an
+inversion.</p></li>
+</ol>
+</div>
+<h2 id="the-standard-atmosphere-in-python">5.6 The standard atmosphere
+in Python</h2>
+<p>These functions compute the equations of this chapter, and the book’s
+tests check them against its answers.</p>
+<pre><code>def standard_temperature(z_km):
+    &quot;&quot;&quot;Standard-atmosphere temperature (deg C): 15 - 6.5 z up to 11 km, then constant.&quot;&quot;&quot;
+    return 15.0 - 6.5 * min(z_km, 11.0)</code></pre>
+<p><code>standard_temperature(8)</code> returns <span
+class="math inline">\(-37.0\)</span> and
+<code>standard_temperature(14)</code> returns <span
+class="math inline">\(-56.5\)</span>.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-noaa1976" class="csl-entry" role="listitem">
+NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S.
+Government Printing Office, Washington, DC.
+</div>
+</div>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/atmosphere/p1-ch03_oxygen/">&larr; 4. Reading the graph, and oxygen at altitude</a><a href="../../../teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="../../../teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="bar">
+    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
+    <div class="social">
+      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,596 @@
+title: 22. The dew point
+description: 22. The dew point: The Atmosphere, a book worked step by step.
+nav: teaching
+out: teaching/atmosphere/p3-ch03_dewpoint/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/atmosphere/">The Atmosphere</a> / 22. The dew point</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>22. The dew point</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch03_dewpoint/" aria-current="page">22. The dew point</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p><em>This chapter answers Moisture Q5 and Q6.</em></p>
+<h2 id="cooling-the-glass">22.1 Cooling the glass</h2>
+<p>Take a sample of air and cool it, taking nothing away and adding
+nothing. Two things happen. The vapour in the air stays the same,
+because no water has gone in or out. The glass (the saturation mixing
+ratio) shrinks, because colder air can hold less. So the glass gets
+fuller and the relative humidity rises. At one particular temperature
+the glass is exactly full. That temperature is the <strong>dew
+point</strong>, <span class="math inline">\(T_d\)</span>.</p>
+<div class="box box-key">
+<p class="box-title">
+Definition
+</p>
+<p>The <strong>dew point</strong> is the temperature to which an air
+sample must be cooled, at constant pressure and without adding or
+removing water, to reach saturation. At that temperature the saturation
+mixing ratio equals the sample’s actual mixing ratio, <span
+class="math inline">\(w_s(T_d)=w\)</span>.</p>
+</div>
+<p>If you cool the air below its dew point the surplus vapour cannot
+stay as vapour. It condenses: into dew on cold grass, into fog near the
+ground, into cloud higher up. A cold can of drink on a summer day is
+covered with water for exactly this reason: the air against the can is
+cooled below its dew point.</p>
+<h2 id="three-ways-to-find-a-dew-point">22.2 Three ways to find a dew
+point</h2>
+<p>All three give the same answer. Question 5 asks for the first; the
+others are checks.</p>
+<ol type="1">
+<li><p><strong>Graph.</strong> Plot the air as a point (temperature
+across, mixing ratio up). Cooling moves the point horizontally to the
+left, because only the temperature changes. Stop where the point meets
+the saturation curve. Read the temperature underneath.</p></li>
+<li><p><strong>The table, backwards.</strong> Find the two rows whose
+mixing ratios bracket the sample’s, and interpolate for the
+temperature.</p></li>
+<li><p><strong>Formula.</strong> Compute the vapour pressure <span
+class="math inline">\(e=wp/(622+w)\)</span> and invert the saturation
+formula (Appendix <a
+href="/teaching/atmosphere/app-p3/#p3-app:formulas">C.1</a>).</p></li>
+</ol>
+<h2 id="p3-sec:q5">22.3 Question 5: 20 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> and 10 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span></h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>Consider a sample of air with a temperature of 20 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> and a mixing ratio of
+10 <span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>. Plot the
+point on a graph of saturation mixing ratio against temperature
+(Figure <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-fig:ws">21.2</a>), and
+show on the graph to which temperature the sample must cool before it
+reaches saturation.</p>
+</div>
+<p><strong>Method A: the graph.</strong></p>
+<ol type="1">
+<li><p>Mark the point: 20 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> on the horizontal
+axis, 10 <span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> on the
+vertical axis.</p></li>
+<li><p>Cooling moves the point to the left along the horizontal line at
+10 <span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>. Draw an
+arrow in that direction.</p></li>
+<li><p>The arrow meets the curve where the air is saturated. (At that
+point the curve’s height, <span class="math inline">\(w_s\)</span>,
+equals 10 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>.)</p></li>
+<li><p>Draw a vertical line down from the meeting point to the
+temperature axis and read the value.</p></li>
+</ol>
+<p><a id="p3-fig:dewgraph"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-33.png"
+alt="The graph solved for both questions. Each air sample is a red dot; cooling moves it horizontally to the curve; the dew point is read on the temperature axis. For Question 5 it is 13.8 , degC (about 1" /><br />
+</p>
+<p><strong>Figure 22.1.</strong> The graph solved for both questions.
+Each air sample is a red dot; cooling moves it horizontally to the
+curve; the dew point is read on the temperature axis. For Question 5 it
+is 13.8 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> (about
+14 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>); for
+Question 6 it is 26.0 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p>
+<p><strong>Method B: the table backwards.</strong> The sample holds
+10 <span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>. Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a>
+gives 8.882 <span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> at
+12 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> and
+10.14 <span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> at
+14 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>, so the dew
+point is between 12 and 14 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. The fraction of the
+way from 12 to 14 is <span
+class="math display">\[\frac{10-8.882}{10.14-8.882}=\frac{1.118}{1.258}=0.89,
+\qquad\text{so}\qquad T_d\approx12+0.89\times2=13.8\
+\ensuremath{^{\circ}\mathrm{C}}.\]</span></p>
+<p><strong>Method C: formula.</strong> The vapour pressure is <span
+class="math inline">\(e=\dfrac{10\times995.5}{622+10}=15.75\)</span> hPa,
+and inverting <span
+class="math inline">\(e_s(T)=6.112\exp[17.67T/(T+243.5)]\)</span>
+(Bolton 1980) gives <span class="math inline">\(T_d=13.78\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Moisture Q5
+</p>
+<p>The sample cools along the horizontal line at 10 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> and meets the curve
+at about <strong>14 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span></strong> (13.8 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>). That is its dew
+point.</p>
+</div>
+<p><strong>Check.</strong> The dew point must be lower than the air
+temperature (20 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>), and 14 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> is. At 14 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a>
+says the air could hold 10.14 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>, only a little more
+than the 10 <span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> it
+has: so the air is just short of saturated at 14 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>, as it should be.</p>
+<h2 id="p3-sec:q6">22.4 Question 6: 34 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> and 62 % humidity</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>A sample of air has a temperature of 34 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> and a relative
+humidity of 62 %. What is its saturation mixing ratio, its mixing ratio
+and its dew point?</p>
+</div>
+<p><strong>Method.</strong></p>
+<ol type="1">
+<li><p>Saturation mixing ratio at 34 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>, from Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a>:
+<span class="math inline">\(35.134\
+\ensuremath{\mathrm{g\,kg^{-1}}}\)</span>.</p></li>
+<li><p>Mixing ratio: <span
+class="math inline">\(w=w_s\times\mathrm{RH}/100=35.134\times0.62=21.78\
+\ensuremath{\mathrm{g\,kg^{-1}}}\)</span>.</p></li>
+<li><p>Dew point: find the temperature at which <span
+class="math inline">\(w_s=21.78\
+\ensuremath{\mathrm{g\,kg^{-1}}}\)</span>. Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a> has
+21.734 at 26 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> and
+24.557 at 28 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>.
+The value 21.78 is just above the 26 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> entry: <span
+class="math display">\[\frac{21.78-21.734}{24.557-21.734}=\frac{0.046}{2.823}=0.016,\qquad
+T_d\approx26+0.016\times2=26.03\
+\ensuremath{^{\circ}\mathrm{C}}.\]</span></p></li>
+</ol>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Moisture Q6
+</p>
+<p>Saturation mixing ratio: <strong>35.134 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span></strong>. Mixing
+ratio: <strong>35.134 <span class="math inline">\(\times\)</span> 0.62
+<span class="math inline">\(=\)</span> 21.78 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span></strong>. Dew point:
+about <strong>26 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span></strong>.</p>
+</div>
+<div class="box box-care">
+<p class="box-title">
+Why 26 °C, not 25 °C
+</p>
+<p>A dew point of 25 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> is an easy slip here,
+but it cannot be right, and there are three independent ways to see
+it.</p>
+<ol type="1">
+<li><p><strong>The table.</strong> At 25 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> air can hold at most
+about 20.4 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> (half way between
+19.21 and 21.734, which is 20.47). The sample holds 21.78 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>, <em>more</em> than
+that. At 25 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> it
+would be oversaturated: a relative humidity of <span
+class="math inline">\(21.78/20.44=107\,\%\)</span>.</p></li>
+<li><p><strong>The graph.</strong> In Figure <a
+href="/teaching/atmosphere/p3-ch03_dewpoint/#p3-fig:dewgraph">22.1</a>
+the horizontal line at 21.78 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> meets the curve at
+26 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>. At 25 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> the line lies above
+the curve, in the supersaturated region.</p></li>
+<li><p><strong>The rule of thumb</strong> (next section): <span
+class="math inline">\(\mathrm{RH}\approx100-5\times(T-T_d)\)</span>. A
+dew point of 26 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> gives <span
+class="math inline">\(100-5\times8=60\,\%\)</span>, close to the 62 % we
+started with. A dew point of 25 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> would give
+55 %.</p></li>
+</ol>
+</div>
+<h2 id="a-quick-check-by-rule-of-thumb">22.5 A quick check by rule of
+thumb</h2>
+<p>Each degree by which the dew point lies below the temperature lowers
+the relative humidity by about 5 %. Written as a formula, <span
+class="math display">\[\mathrm{RH}\approx100-5\,(T-T_d),\tag{22.1}\]</span>
+<em>where</em></p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\mathrm{RH}\)</span></td>
+<td style="text-align: left;">relative humidity (%)</td>
+<td style="text-align: left;">estimated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(T,\
+T_d\)</span></td>
+<td style="text-align: left;">air temperature and dew point (<span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>good to within a few percent for RH above about 50 %. Turned round,
+<span class="math inline">\(T-T_d\approx(100-\mathrm{RH})/5\)</span>:
+air at 80 % is about 4 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> above its dew point;
+at 50 % about 10 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p>
+<p><img src="/teaching/atmosphere/fig/f-34.png"
+alt="The rule of thumb against the exact relationship. For ordinary temperatures the exact curves stay close to the straight line." /><br />
+</p>
+<p>The rule of thumb against the exact relationship. For ordinary
+temperatures the exact curves stay close to the straight line.</p>
+<h2 id="what-happens-below-the-dew-point">22.6 What happens below the
+dew point</h2>
+<p>Continue cooling the Question 6 sample below 26 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. The air can no longer
+hold all its vapour, so the surplus condenses. At each temperature the
+vapour left is <span class="math inline">\(w_s(T)\)</span>, and the
+difference is liquid water: <span class="math display">\[\text{condensed
+water}=w-w_s(T).\tag{22.2}\]</span> <em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(w\)</span></td>
+<td style="text-align: left;">mixing ratio of the air before cooling
+(<span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(w_s(T)\)</span></td>
+<td style="text-align: left;">saturation mixing ratio at the new, lower
+temperature (<span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>)</td>
+<td style="text-align: left;">Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a></td>
+</tr>
+</tbody>
+</table>
+<p>Cooled to 20 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>,
+the sample holds only <span
+class="math inline">\(14.956\,\ensuremath{\mathrm{g\,kg^{-1}}}\)</span>
+as vapour, so <span
+class="math inline">\(21.78-14.956=6.8\,\ensuremath{\mathrm{g\,kg^{-1}}}\)</span>
+has turned to liquid. That is dew on the ground, or fog, or cloud
+droplets. Condensation also releases latent heat, which is why cloud
+keeps air warmer than it would otherwise be as it cools.</p>
+<p><img src="/teaching/atmosphere/fig/f-35.png"
+alt="The Question 6 sample cooled from 34 , degC. Above 26 , degC nothing condenses and the relative humidity rises as the glass shrinks. Below 26 , degC the air stays at 100 , % and the surplus vapour c" /><br />
+</p>
+<p>The Question 6 sample cooled from 34 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. Above 26 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> nothing condenses and
+the relative humidity rises as the glass shrinks. Below 26 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> the air stays at 100 %
+and the surplus vapour condenses: 6.8 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> by the time it
+reaches 20 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p>
+<h2 id="why-meteorologists-prefer-the-dew-point">22.7 Why meteorologists
+prefer the dew point</h2>
+<ul>
+<li><p><strong>It measures the vapour itself.</strong> Heating or
+cooling the air leaves the dew point unchanged (until condensation),
+unlike the relative humidity.</p></li>
+<li><p><strong>It is a temperature,</strong> so it is easy to compare
+with the air temperature: the gap <span
+class="math inline">\(T-T_d\)</span> tells you at a glance how close the
+air is to making dew, fog or cloud.</p></li>
+<li><p><strong>It describes comfort.</strong> Most people find a dew
+point below about 10 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> dry and comfortable
+and one above about 20 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> oppressive.</p></li>
+<li><p><strong>It appears on every station model</strong> at the bottom
+left of the circle, as you will see in Chapter <a
+href="/teaching/atmosphere/p3-ch08_station/#p3-ch:station">27</a>.</p></li>
+</ul>
+<h2 id="p3-sec:cloudbase">22.8 The dew point and the height of cloud
+base</h2>
+<p>Air that rises expands and cools at about 9.8 K per kilometre (the
+dry adiabatic lapse rate, derived in Part I, Eq. (<a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>)). Its
+dew point falls more slowly, by about 1.8 K per kilometre, because the
+pressure falls as it rises. The temperature and the dew point therefore
+approach each other by 8 K per kilometre, and when they meet the air is
+saturated and cloud forms. Starting with a gap of <span
+class="math inline">\(T-T_d\)</span> degrees, they meet after rising
+<span class="math display">\[z\approx\frac{T-T_d}{8}\
+\mathrm{km}\approx125\,(T-T_d)\ \mathrm{m}.\tag{22.3}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(z\)</span></td>
+<td style="text-align: left;">height of cloud base above the ground</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(T,\
+T_d\)</span></td>
+<td style="text-align: left;">surface temperature and dew point (<span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(8\)</span></td>
+<td style="text-align: left;">rate at which <span
+class="math inline">\(T\)</span> and <span
+class="math inline">\(T_d\)</span> approach in rising air (<span
+class="math inline">\(9.8-1.8\)</span>, <span
+class="math inline">\(\mathrm{K\,km^{-1}}\)</span>)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<div class="box box-worked">
+<p class="box-title">
+Worked example: where will cloud form?
+</p>
+<p>The air of Question 6 has <span
+class="math inline">\(T-T_d=34-26=8\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. If it is lifted (by a
+hill or by convection), cloud forms after <span
+class="math inline">\(125\times8=1000\)</span> m: the cloud base is
+about one kilometre above the surface. A day with <span
+class="math inline">\(T=30\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> and <span
+class="math inline">\(T_d=18\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> has a gap of 12 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> and a cloud base near
+1500 m.</p>
+</div>
+<p><img src="/teaching/atmosphere/fig/f-36.png"
+alt="Rising air, starting at 34 , degC with a dew point of 26 , degC. The temperature falls 9.8 ,K per kilometre and the dew point 1.8 ,K per kilometre. They meet at a height of 1.0 ,km." /><br />
+</p>
+<p>Rising air, starting at 34 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> with a dew point of
+26 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>. The
+temperature falls 9.8 K per kilometre and the dew point 1.8 K per
+kilometre. They meet at a height of 1.0 km.</p>
+<h2 id="questions-that-come-up">22.9 Questions that come up</h2>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Does the dew point change when the day warms
+up?</strong><br />
+Not because of the warming. If no water is added or removed, the mixing
+ratio is fixed, and so is the dew point. In the afternoon the
+<em>relative humidity</em> falls because the temperature rises. The dew
+point changes only when the air gains moisture (evaporation from soil
+and plants, an incoming sea breeze) or loses it (rain, a dry wind).</p>
+</div>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Can the dew point be higher than the
+temperature?</strong><br />
+Not in the open air for more than a moment: it would mean the air is
+oversaturated, and the surplus vapour would condense at once, lowering
+the dew point. At most the two are equal (RH <span
+class="math inline">\(=100\,\%\)</span>), as in fog.</p>
+</div>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>What if the dew point is below freezing?</strong><br />
+Then the vapour deposits directly as ice (frost) when the air is cooled
+to it. Strictly the temperature of deposition is the <em>frost
+point</em>, which is a degree or two above the dew point. Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a> is
+for saturation over liquid water; the questions here never need the ice
+case.</p>
+</div>
+<h2 id="try-it-yourself-practice-set-22">22.10 Try it yourself: Practice
+Set 22</h2>
+<div class="box box-try">
+<p class="box-title">
+Practice Set 22: the dew point
+</p>
+<ol type="1">
+<li><p>Air at 30 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> has a mixing ratio of
+12 <span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>. Find its
+dew point (a) from Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a> by
+interpolation and (b) with the rule of thumb after finding its
+RH.</p></li>
+<li><p>Air at 20 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> has a relative
+humidity of 50 %. What is its dew point?</p></li>
+<li><p>On an afternoon the air is at 28 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> with a relative
+humidity of 40 %. Overnight the temperature falls to 12 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> with no change in the
+amount of vapour. Will dew form?</p></li>
+<li><p>Find the cloud base for air with <span
+class="math inline">\(T=30\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> and <span
+class="math inline">\(T_d=18\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p></li>
+<li><p>Air at 25 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> has a dew point of
+15 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>. What are its
+mixing ratio and relative humidity?</p></li>
+<li><p>Cool the Question 6 sample (34 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>, 21.78 <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>) to 20 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>: how much liquid water
+forms per kilogram of air?</p></li>
+</ol>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Answers to Practice Set 22
+</p>
+<ol type="1">
+<li><p>(a) Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a>:
+16 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> holds 11.56
+and 18 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> holds
+13.162, so <span
+class="math inline">\(T_d=16+2\times(12-11.56)/(13.162-11.56)=16.55\approx16.6\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. (b) <span
+class="math inline">\(w_s(30)=27.694\)</span>, RH <span
+class="math inline">\(=12/27.694=43\,\%\)</span>; the rule gives <span
+class="math inline">\(T-T_d=(100-43)/5=11.4\)</span>, so <span
+class="math inline">\(T_d\approx18.6\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. The rule is only
+rough at low humidity; the table answer is better.</p></li>
+<li><p><span
+class="math inline">\(w=0.50\times14.956=7.478\)</span> <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>. Table <a
+href="/teaching/atmosphere/p3-ch02_moisture/#p3-tab:table1">21.1</a>:
+8 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> holds 6.771
+and 10 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> holds
+7.762, so <span
+class="math inline">\(T_d=8+2\times(7.478-6.771)/(7.762-6.771)=9.4\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>. (The rule of thumb
+gives 10 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>.)</p></li>
+<li><p><span
+class="math inline">\(w=0.40\times24.557=9.82\)</span> <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>. At 12 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span> the air can hold only
+8.882 <span class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>, which is
+less: so yes, dew (or fog) forms. The dew point is 13.5 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>, so dew begins when
+the air cools through 13.5 <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p></li>
+<li><p><span
+class="math inline">\(125\times(30-18)=1500\)</span> m.</p></li>
+<li><p><span
+class="math inline">\(w=w_s(15\,\ensuremath{^{\circ}\mathrm{C}})\)</span>
+(the air is just saturated at its dew point) <span
+class="math inline">\(=10.83\)</span> <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span>. <span
+class="math inline">\(w_s(25)=20.44\)</span>, so RH <span
+class="math inline">\(=10.83/20.44=53\,\%\)</span>. (Rule: <span
+class="math inline">\(100-5\times10=50\,\%\)</span>.)</p></li>
+<li><p><span class="math inline">\(21.78-14.956=6.8\)</span> <span
+class="math inline">\(\mathrm{g\,kg^{-1}}\)</span> of liquid
+water.</p></li>
+</ol>
+</div>
+<h2 id="the-dew-point-in-python">22.11 The dew point in Python</h2>
+<p>These functions compute the equations of this chapter, and the book’s
+tests check them against its answers.</p>
+<pre><code>def vapour_pressure(w, p_hpa=TABLE_PRESSURE_HPA):
+    &quot;&quot;&quot;Vapour pressure (hPa) from the mixing ratio (g/kg).&quot;&quot;&quot;
+    return w * p_hpa / (622.0 + w)
+
+def dew_point(w, p_hpa=TABLE_PRESSURE_HPA):
+    &quot;&quot;&quot;Dew point (deg C) from the mixing ratio (g/kg).&quot;&quot;&quot;
+    x = math.log(vapour_pressure(w, p_hpa) / 6.112)
+    return 243.5 * x / (17.67 - x)
+
+def rh_rule_of_thumb(t_c, t_d):
+    &quot;&quot;&quot;Approximate relative humidity (%) from the temperature and the dew point.&quot;&quot;&quot;
+    return 100.0 - 5.0 * (t_c - t_d)
+
+def cloud_base(t_c, t_d):
+    &quot;&quot;&quot;Approximate height of the cloud base (m).&quot;&quot;&quot;
+    return 125.0 * (t_c - t_d)</code></pre>
+<p><code>dew_point(10)</code> returns about 13.8, the answer to Moisture
+Q5.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-bolton1980" class="csl-entry" role="listitem">
+Bolton, D. (1980) The computation of equivalent potential temperature.
+Monthly Weather Review 108, 1046–1053. <a
+href="https://doi.org/10.1175/1520-0493(1980)108%3C1046:TCOEPT%3E2.0.CO;2">https://doi.org/10.1175/1520-0493(1980)108&lt;1046:TCOEPT&gt;2.0.CO;2</a>
+</div>
+</div>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/atmosphere/p3-ch02_moisture/">&larr; 21. Moisture in the air: mixing ratio and relative humidity</a><a href="{{root}}teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="{{root}}teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

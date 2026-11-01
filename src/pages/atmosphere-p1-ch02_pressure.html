@@ -1,0 +1,666 @@
+title: 3. How much air is above you: the halving rule
+description: 3. How much air is above you: the halving rule: The Atmosphere, a book worked step by step.
+nav: teaching
+out: teaching/atmosphere/p1-ch02_pressure/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/atmosphere/">The Atmosphere</a> / 3. How much air is above you: the halving rule</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>3. How much air is above you: the halving rule</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch02_pressure/" aria-current="page">3. How much air is above you: the halving rule</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p><em>This chapter answers Questions 1 and 2.</em></p>
+<h2 id="p1-sec:weight">3.1 Air has weight</h2>
+<p>Air is matter: every cubic metre near the ground has a mass of about
+1.2 kg. Gravity pulls all of it towards the Earth, so every layer of the
+atmosphere rests on the layers below. <strong>Atmospheric
+pressure</strong> at any height is the weight of all the air above,
+pressing on each square metre. At sea level it averages 1013.25 hPa
+(NOAA et al. 1976); this part rounds it to 1000 hPa.</p>
+<div class="box box-key">
+<p class="box-title">
+Units of pressure
+</p>
+<p>Pressure is force per unit area. The SI unit is the pascal, <span
+class="math inline">\(1\ \mathrm{Pa}=1\ \mathrm{N\,m^{-2}}\)</span>.
+Meteorologists use the <strong>hectopascal</strong>, <span
+class="math inline">\(1\ \ensuremath{\mathrm{hPa}}=100\
+\mathrm{Pa}\)</span>, which is exactly the same as the older
+<strong>millibar</strong>: <span class="math inline">\(1\
+\ensuremath{\mathrm{hPa}}=1\ \ensuremath{\mathrm{mb}}\)</span>.
+Sea-level pressure is about 1000 hPa <span
+class="math inline">\(=100\,000\)</span> Pa.</p>
+</div>
+<p>How heavy is the air above you? A pressure of <span
+class="math inline">\(100\,000\)</span> Pa means a force of <span
+class="math inline">\(100\,000\)</span> N on every square metre.
+Dividing by the acceleration due to gravity, <span
+class="math inline">\(g=9.81\)</span> m s<span
+class="math inline">\(^{-2}\)</span>, gives the mass that exerts it:
+<span class="math display">\[\frac{100\,000\ \mathrm{N\,m^{-2}}}{9.81\
+\mathrm{m\,s^{-2}}}=10\,200\ \mathrm{kg\,m^{-2}}.\]</span> About ten
+tonnes of air sit above every square metre of the ground. We do not feel
+it because the pressure acts equally in all directions and the air
+inside our bodies pushes back.</p>
+<h2 id="p1-sec:compress">3.2 Air is squeezed by its own weight</h2>
+<p>Water is almost incompressible: the bottom of the ocean is hardly
+denser than the top. Air is very compressible, and the air near the
+ground carries the weight of all the air above it, so it is squeezed the
+most. The lowest layers are therefore the densest, and density (and
+pressure) fall with height. How fast? Two physical laws answer that.</p>
+<p><strong>The ideal gas law</strong> links the pressure, density and
+temperature of a gas: <span class="math display">\[p=\rho R_d T
+.\tag{3.1}\]</span> <em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p\)</span></td>
+<td style="text-align: left;">pressure (Pa)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\rho\)</span></td>
+<td style="text-align: left;">density of the air (kg m<span
+class="math inline">\(^{-3}\)</span>)</td>
+<td style="text-align: left;">about 1.2 near the ground</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(R_d\)</span></td>
+<td style="text-align: left;">gas constant for dry air (J kg<span
+class="math inline">\(^{-1}\)</span> K<span
+class="math inline">\(^{-1}\)</span>)</td>
+<td style="text-align: left;">287, Table <a
+href="/teaching/atmosphere/app-constants/#tab:constants">D.1</a></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;">absolute temperature (K)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>At a fixed temperature, pressure and density are proportional:
+squeeze the air to twice the density and its pressure doubles.</p>
+<p><strong>Hydrostatic balance.</strong> Picture a thin horizontal slab
+of air, one square metre in area and <span class="math inline">\(\Delta
+z\)</span> thick. Its weight is its mass times <span
+class="math inline">\(g\)</span>, that is <span
+class="math inline">\(\rho\,\Delta z\,g\)</span>. The slab stays where
+it is (it does not fall or fly upwards) because the pressure pushing up
+on its underside exceeds the pressure pushing down on its top by exactly
+its weight. So the pressure must fall by <span
+class="math inline">\(\rho g\,\Delta z\)</span> across the slab (Wallace
+and Hobbs 2006, ch. 1): <span class="math display">\[\frac{\Delta
+p}{\Delta z}=-\rho g .\tag{3.2}\]</span> <em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 59%" />
+<col style="width: 24%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(\Delta
+p\)</span></td>
+<td style="text-align: left;">change in pressure across the slab
+(Pa)</td>
+<td style="text-align: left;">negative going up</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="math inline">\(\Delta
+z\)</span></td>
+<td style="text-align: left;">thickness of the slab (m)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\rho\)</span></td>
+<td style="text-align: left;">density of the air in the slab (kg m<span
+class="math inline">\(^{-3}\)</span>)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(g\)</span></td>
+<td style="text-align: left;">acceleration due to gravity (m s<span
+class="math inline">\(^{-2}\)</span>)</td>
+<td style="text-align: left;">9.81</td>
+</tr>
+</tbody>
+</table>
+<p><a id="p1-fig:slab"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-01.png"
+alt="Hydrostatic balance. The slab neither rises nor falls, so the upward push of the pressure on its underside, p , exceeds the downward push on its top, p+ Delta p (with Delta p negative), by exact" /><br />
+</p>
+<p><strong>Figure 3.1.</strong> Hydrostatic balance. The slab neither
+rises nor falls, so the upward push of the pressure on its underside,
+<span class="math inline">\(p\)</span>, exceeds the downward push on its
+top, <span class="math inline">\(p+\Delta p\)</span> (with <span
+class="math inline">\(\Delta p\)</span> negative), by exactly its
+weight: <span class="math inline">\(-\Delta p=\rho g\,\Delta z\)</span>,
+Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>).</p>
+<p>Near the ground <span class="math inline">\(\rho
+g=1.2\times9.81=11.8\)</span> Pa per metre, so the pressure falls by
+about 1 hPa for every 8.5 m you climb. You can feel this in your ears in
+a lift or on a hill.</p>
+<h2 id="p1-sec:exponential">3.3 Why the fall is exponential</h2>
+<p>Put the two laws together. By Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>) the
+pressure falls by an amount proportional to the density, and by Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>) the
+density is proportional to the pressure. So <em>the pressure falls by an
+amount proportional to the pressure itself</em>: where there is a lot of
+air, it falls fast; where there is little, it falls slowly. A quantity
+that shrinks in proportion to itself decays
+<strong>exponentially</strong>, like a radioactive substance or money
+losing value at a fixed rate of inflation. If the temperature is taken
+as constant, the result is (Appendix <a
+href="/teaching/atmosphere/app-p1/#p1-sec:der-expo">A.2.1</a>) <span
+class="math display">\[p(z)=p_0\,e^{-z/H},\qquad
+H=\frac{R_dT}{g}.\tag{3.3}\]</span> <em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p(z)\)</span></td>
+<td style="text-align: left;">pressure at height <span
+class="math inline">\(z\)</span> (hPa)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p_0\)</span></td>
+<td style="text-align: left;">pressure at sea level (hPa)</td>
+<td style="text-align: left;">1000, rounded</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(z\)</span></td>
+<td style="text-align: left;">height above sea level (km)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(H\)</span></td>
+<td style="text-align: left;">scale height: the height over which the
+pressure falls by a factor <span class="math inline">\(e=2.718\)</span>
+(km)</td>
+<td style="text-align: left;">8.1, for the halving rule</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(T\)</span></td>
+<td style="text-align: left;">a representative temperature of the air
+column (K)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>The <strong>scale height</strong> <span
+class="math inline">\(H\)</span> is about 7 to 8.5 km for the
+temperatures of the lower atmosphere.</p>
+<h3 class="unnumbered" id="the-halving-rule-is-the-same-law">The halving
+rule is the same law</h3>
+<p>Any exponential decay has a fixed <em>halving distance</em>: the
+height over which the pressure halves is <span
+class="math inline">\(z_{1/2}=H\ln2=0.693\,H\)</span>. The halving rule,
+“for every 5.6 km you go up, there is half the atmosphere above you”, is
+Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>) with
+<span class="math inline">\(z_{1/2}=5.6\)</span> km, that is <span
+class="math inline">\(H=5.6/0.693=8.08\)</span> km. Written with
+halvings instead of powers of <span class="math inline">\(e\)</span>,
+the fraction of the atmosphere above height <span
+class="math inline">\(z\)</span> is <span
+class="math display">\[f(z)=\left(\tfrac12\right)^{z/5.6}=2^{-z/5.6},\tag{3.4}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(f(z)\)</span></td>
+<td style="text-align: left;">fraction of the whole atmosphere that lies
+above height <span class="math inline">\(z\)</span> (0 to 1; multiply by
+100 for %)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(z\)</span></td>
+<td style="text-align: left;">height above sea level (km)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(5.6\)</span></td>
+<td style="text-align: left;">the halving height (km)</td>
+<td style="text-align: left;">given</td>
+</tr>
+</tbody>
+</table>
+<p>and after <span class="math inline">\(n\)</span> whole steps of
+5.6 km (that is, at <span class="math inline">\(z=5.6\,n\)</span> km) it
+is simply <span
+class="math display">\[f_n=\frac{1}{2^{n}},\qquad\text{percentage
+above}=\frac{100\,\%}{2^{n}}.\tag{3.5}\]</span></p>
+<h2 id="p1-sec:q1">3.4 Question 1: the percentage of the atmosphere
+above you</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>“For every 5.6 km you go up, there is half the atmosphere above you
+as when you started.” Keeping this rule in mind, set out a table with a
+row for sea level and for every 5.6 km up to 50.4 km, calculate the
+percentage of the atmosphere above each height, and draw the result
+(<span class="math inline">\(x\)</span>-axis: percentage of the
+atmosphere above (%); <span class="math inline">\(y\)</span>-axis:
+height above sea level (km)).</p>
+</div>
+<p><strong>Method.</strong></p>
+<ol type="1">
+<li><p>Start at sea level with 100 % of the atmosphere above
+you.</p></li>
+<li><p>Each row of the table is 5.6 km higher than the last, so add
+5.6 km to the height and halve the percentage, Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:halving">3.5</a>):
+<span
+class="math inline">\(100\to50\to25\to12.5\to\dots\)</span></p></li>
+<li><p>Continue until the percentage is well below 1 %: ten rows take
+you to 50.4 km.</p></li>
+<li><p>Plot each row as a point, percentage across and height up, and
+join the points with a <em>smooth</em> curve (Figure <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-fig:q1graph">3.2</a>).</p></li>
+</ol>
+<table>
+<caption>Table 3.1. The halving rule, row by row (Questions 1 and 2).
+The last column is the U.S. Standard Atmosphere (NOAA et al. 1976), for
+comparison only.</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: right;"><strong>Step <span
+class="math inline">\(n\)</span></strong></th>
+<th style="text-align: right;"><strong>Height (km)</strong></th>
+<th style="text-align: right;"><strong>% above</strong></th>
+<th style="text-align: right;"><strong>Pressure (hPa)</strong></th>
+<th style="text-align: right;"><strong>Standard atmosphere
+(hPa)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">sea level</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: right;">1000</td>
+<td style="text-align: right;">1013</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.6</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">500</td>
+<td style="text-align: right;">498</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: right;">219</td>
+</tr>
+<tr>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">16.8</td>
+<td style="text-align: right;">12.5</td>
+<td style="text-align: right;">125</td>
+<td style="text-align: right;">91</td>
+</tr>
+<tr>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">22.4</td>
+<td style="text-align: right;">6.25</td>
+<td style="text-align: right;">62.5</td>
+<td style="text-align: right;">38</td>
+</tr>
+<tr>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">28.0</td>
+<td style="text-align: right;">3.13</td>
+<td style="text-align: right;">31.3</td>
+<td style="text-align: right;">16</td>
+</tr>
+<tr>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">33.6</td>
+<td style="text-align: right;">1.56</td>
+<td style="text-align: right;">15.6</td>
+<td style="text-align: right;">6.8</td>
+</tr>
+<tr>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">39.2</td>
+<td style="text-align: right;">0.78</td>
+<td style="text-align: right;">7.8</td>
+<td style="text-align: right;">3.0</td>
+</tr>
+<tr>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">44.8</td>
+<td style="text-align: right;">0.39</td>
+<td style="text-align: right;">3.9</td>
+<td style="text-align: right;">1.4</td>
+</tr>
+<tr>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">50.4</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">0.6</td>
+</tr>
+</tbody>
+</table>
+<p><a id="p1-fig:q1graph"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-02.png"
+alt="Questions 1 and 2. The percentage of the atmosphere above each height (bottom axis) and the pressure (top axis) by the halving rule. Each step of 5.6 ,km up halves both. The dashed line is the U.S. S" /><br />
+</p>
+<p><strong>Figure 3.2.</strong> Questions 1 and 2. The percentage of the
+atmosphere above each height (bottom axis) and the pressure (top axis)
+by the halving rule. Each step of 5.6 km up halves both. The dashed line
+is the U.S. Standard Atmosphere: the rule is very close near the ground
+and overestimates the pressure higher up (§ <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-sec:rulecheck">3.6</a>).</p>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Question 1
+</p>
+<p>100, 50, 25, 12.5, 6.25, 3.13, 1.56, 0.78, 0.39 and 0.20 % of the
+atmosphere is above sea level, 5.6, 11.2, 16.8, 22.4, 28.0, 33.6, 39.2,
+44.8 and 50.4 km (Table <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-tab:table1">3.1</a>),
+drawn as the curve of Figure <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-fig:q1graph">3.2</a>.</p>
+</div>
+<p><strong>Check.</strong> Half the air is below 5.6 km and
+three-quarters below 11.2 km, which agrees with the common statement
+that about half the mass of the atmosphere lies within the lowest 5 km
+or so. The curve never reaches zero: each step halves what is left, so
+there is always a little air above you. That is why there is no sharp
+“top” to the atmosphere.</p>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Why do I get a curve and not a straight line?</strong><br />
+Because equal steps up remove equal <em>fractions</em>, not equal
+<em>amounts</em>. The first 5.6 km removes 50 percentage points; the
+next removes 25; the next 12.5. Plotted against height, that is a curve
+that is steep near the ground and flattens higher up, the shape of every
+exponential decay. Plotted with a logarithmic pressure axis it would
+become a straight line (Figure <a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-fig:q12">8.1</a>).</p>
+</div>
+<h2 id="p1-sec:q2">3.5 Question 2: adding a pressure axis</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>As the density of the atmosphere drops by 50 % when we go up 5.6 km,
+the pressure also drops by 50 %. At sea level the pressure is
+approximately 1000 hPa. Add the pressure for each of your heights as
+another column of your table and add a second <span
+class="math inline">\(x\)</span>-axis to your graph to show atmospheric
+pressure.</p>
+</div>
+<p><strong>Why pressure follows the percentage.</strong> Pressure is the
+weight of the air above (§ <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-sec:weight">3.1</a>). If
+only half the atmosphere is above you, only half its weight presses
+down, so the pressure is half the sea-level pressure. In general <span
+class="math display">\[p(z)=p_0\times f(z)=1000\
+\ensuremath{\mathrm{hPa}}\times f(z).\tag{3.6}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p(z)\)</span></td>
+<td style="text-align: left;">pressure at height <span
+class="math inline">\(z\)</span> (hPa)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(p_0\)</span></td>
+<td style="text-align: left;">sea-level pressure (hPa)</td>
+<td style="text-align: left;">1000, rounded</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(f(z)\)</span></td>
+<td style="text-align: left;">fraction of the atmosphere above, Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>)</td>
+<td style="text-align: left;">Question 1</td>
+</tr>
+</tbody>
+</table>
+<p>With <span class="math inline">\(p_0=1000\)</span> hPa the pressure
+in hectopascals is simply ten times the percentage.</p>
+<p><strong>The second axis.</strong> Because the pressure is exactly ten
+times the percentage, the pressure axis is the percentage axis
+relabelled: 0 to 1000 hPa along the top where 0 to 100 % runs along the
+bottom (Figure <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-fig:q1graph">3.2</a>).
+The same curve then answers both questions.</p>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Question 2
+</p>
+<p>Pressure <span class="math inline">\(=10\times\)</span> the
+percentage above: <strong>1000, 500, 250, 125, 62.5, 31.3, 15.6, 7.8,
+3.9 and 2.0 hPa</strong> at sea level, 5.6, 11.2, …, 50.4 km (Table <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-tab:table1">3.1</a>).
+The second axis runs from 0 to 1000 hPa above the 0 to 100 % axis.</p>
+</div>
+<h2 id="p1-sec:rulecheck">3.6 How good is the halving rule?</h2>
+<p>The last column of Table <a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-tab:table1">3.1</a>
+compares the rule with the U.S. Standard Atmosphere, an idealised but
+realistic average atmosphere (NOAA et al. 1976). Up to about 6 km the
+two agree within 1 %. Higher up the rule gives too much pressure: 250
+against 219 hPa at 11.2 km, 125 against 91 hPa at 16.8 km.</p>
+<p>The reason is the temperature in the scale height, <span
+class="math inline">\(H=R_dT/g\)</span>, Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>). The
+rule’s <span class="math inline">\(H=8.08\)</span> km corresponds to a
+constant temperature of <span
+class="math display">\[T=\frac{gH}{R_d}=\frac{9.81\times8080}{287}=276\
+\mathrm{K}\ (3\ \ensuremath{^{\circ}\mathrm{C}}),\]</span> a reasonable
+average for the lowest few kilometres. But above about 8 km the air is
+far colder (around 217 K, <span class="math inline">\(-56\)</span> <span
+class="math inline">\(^{\circ}\mathrm{C}\)</span>, Chapter <a
+href="/teaching/atmosphere/p1-ch04_temperature/#p1-ch:temperature">5</a>),
+its scale height is only about 6.3 km, and the pressure falls faster
+than the rule assumes. Cold air is denser at the same pressure, Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>), so
+a given weight of it is packed into a thinner layer. Question 12 lets
+you measure this from the soundings (§ <a
+href="/teaching/atmosphere/p1-ch07_stability/#p1-sec:q12">8.1</a>).</p>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Question 2 says the <em>density</em> halves every 5.6 km. Is
+that the same as the pressure halving?</strong><br />
+Only if the temperature does not change with height, because by Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)
+<span class="math inline">\(\rho=p/(R_dT)\)</span>. In the real
+troposphere the temperature falls as you go up, so the density falls a
+little more slowly than the pressure (the cooler air is relatively
+denser). In the standard atmosphere the density at 5.6 km is 56 % of its
+sea-level value while the pressure is 49 %. The rule is about pressure,
+the weight of the air above; it is the right one to use for Questions 2
+to 4.</p>
+</div>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Where does the atmosphere end?</strong><br />
+It thins out gradually and has no top. By convention the edge of space
+is put at 100 km, the Kármán line, where by the rule only about <span
+class="math inline">\(2^{-100/5.6}\approx0.0004\,\%\)</span> of the
+atmosphere remains (the real figure is smaller still). Very few gas
+molecules remain beyond it.</p>
+</div>
+<h2 id="try-it-yourself-practice-set-3">3.7 Try it yourself: Practice
+Set 3</h2>
+<div class="box box-try">
+<p class="box-title">
+Practice Set 3: pressure and height
+</p>
+<p>Use the halving rule unless told otherwise; <span
+class="math inline">\(g=9.81\)</span> m s<span
+class="math inline">\(^{-2}\)</span>, <span
+class="math inline">\(R_d=287\)</span> J kg<span
+class="math inline">\(^{-1}\)</span> K<span
+class="math inline">\(^{-1}\)</span>.</p>
+<ol type="1">
+<li><p>What percentage of the atmosphere is above you at 16.8 km, and
+what is the pressure there?</p></li>
+<li><p>What fraction of the whole atmosphere lies between 5.6 and
+11.2 km?</p></li>
+<li><p>At what height does the pressure fall to 100 hPa?</p></li>
+<li><p>What mass of air lies above each square metre at sea level, where
+the pressure is 1013 hPa?</p></li>
+<li><p>What would the halving height be in an atmosphere at a constant
+250 K?</p></li>
+</ol>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Answers to Practice Set 3
+</p>
+<ol type="1">
+<li><p>Three halvings: 12.5 % and 125 hPa, Eqs. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:halving">3.5</a>) and
+(<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:pressure">3.6</a>).</p></li>
+<li><p>50 % is above 5.6 km and 25 % above 11.2 km, so <span
+class="math inline">\(50-25=25\,\%\)</span> lies between them.</p></li>
+<li><p>100 hPa is a tenth of 1000 hPa: <span
+class="math inline">\(2^{-z/5.6}=0.1\)</span>, so <span
+class="math inline">\(z/5.6=\log_2 10=3.32\)</span> and <span
+class="math inline">\(z=18.6\)</span> km, Eq. (<a
+href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>).</p></li>
+<li><p><span class="math inline">\(101\,300/9.81=10\,330\)</span> kg:
+about 10.3 tonnes.</p></li>
+<li><p><span class="math inline">\(H=287\times250/9.81=7.31\)</span> km,
+so <span class="math inline">\(z_{1/2}=0.693\times7.31=5.07\)</span> km.
+Colder air halves its pressure over a shorter distance.</p></li>
+</ol>
+</div>
+<h2 id="the-halving-rule-in-python">3.8 The halving rule in Python</h2>
+<p>These functions compute the equations of this chapter, and the book’s
+tests check them against its answers.</p>
+<pre><code>def fraction_above(z_km, halving_km=HALVING_KM):
+    &quot;&quot;&quot;Fraction of the atmosphere above height z_km: half for every halving_km.&quot;&quot;&quot;
+    return 2 ** (-z_km / halving_km)
+
+def pressure_halving(z_km, p0_hpa=1000.0):
+    &quot;&quot;&quot;Pressure (hPa) at z_km by the halving rule.&quot;&quot;&quot;
+    return p0_hpa * fraction_above(z_km)</code></pre>
+<p><code>100 * fraction_above(11.2)</code> returns 25.0 and
+<code>pressure_halving(5.6)</code> returns 500.0.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-noaa1976" class="csl-entry" role="listitem">
+NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S.
+Government Printing Office, Washington, DC.
+</div>
+<div id="ref-wallace2006" class="csl-entry" role="listitem">
+Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An
+introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
+</div>
+</div>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/atmosphere/p1-ch01_glance/">&larr; 2. Part I at a glance</a><a href="{{root}}teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="{{root}}teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

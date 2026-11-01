@@ -1,0 +1,582 @@
+title: 18. Sun angle, solar intensity and the seasons
+description: 18. Sun angle, solar intensity and the seasons: The Atmosphere, a book worked step by step.
+nav: teaching
+out: teaching/atmosphere/p2-ch08_sunangle/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/atmosphere/">The Atmosphere</a> / 18. Sun angle, solar intensity and the seasons</nav>
+<header class="page-head">
+  <p class="eyebrow">The Atmosphere</p>
+  <h1>18. Sun angle, solar intensity and the seasons</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/atmosphere/">The Atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch08_sunangle/" aria-current="page">18. Sun angle, solar intensity and the seasons</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
+      <li><a href="{{root}}teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
+      <li><a href="{{root}}teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/atmosphere/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p><em>This chapter answers Questions 5a, 5b and 5c.</em></p>
+<h2 id="p2-sec:spreadidea">18.1 A spread beam is a weaker beam</h2>
+<p>Shine a torch straight down at a table: it makes a small, bright
+circle. Tilt it, and the same light spreads into a long, dim oval. The
+torch gives out the same energy; it is spread over more table, so each
+square centimetre receives less. Sunlight does the same. When the Sun is
+overhead its rays strike the ground squarely and their energy is
+concentrated; when it is low they strike at a slant and the same energy
+is spread over a larger area. The <strong>solar intensity</strong>, the
+energy received per unit area of ground, therefore depends on the angle
+of the Sun.</p>
+<h2 id="p2-sec:spreadmath">18.2 Measuring the spreading</h2>
+<p>Two angles describe the Sun’s position (Figure <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-fig:spreadgeom">18.1</a>):</p>
+<ul>
+<li><p>the <strong>sun angle</strong> <span
+class="math inline">\(\beta\)</span> (also called the solar elevation or
+altitude), measured up from the horizon: <span
+class="math inline">\(90^\circ\)</span> when the Sun is overhead, <span
+class="math inline">\(0^\circ\)</span> when it is on the
+horizon;</p></li>
+<li><p>the <strong>zenith angle</strong> <span
+class="math inline">\(\theta_z\)</span>, measured from the vertical (the
+zenith, the point straight overhead): <span
+class="math inline">\(0^\circ\)</span> when the Sun is
+overhead.</p></li>
+</ul>
+<p>They add up to a right angle: <span
+class="math display">\[\beta=90^\circ-\theta_z .\tag{18.1}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\beta\)</span></td>
+<td style="text-align: left;">sun angle: height of the Sun above the
+horizon (degrees)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\theta_z\)</span></td>
+<td style="text-align: left;">zenith angle: angle of the Sun from the
+vertical (degrees)</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:zenith">18.4</a>)</td>
+</tr>
+</tbody>
+</table>
+<p><a id="p2-fig:spreadgeom"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-22.png"
+alt="Beam spreading. A beam one unit wide, arriving at sun angle beta , covers a strip of ground of length 1/ sin beta : the hypotenuse of a right-angled triangle whose side opposite the angle beta i" /><br />
+</p>
+<p><strong>Figure 18.1.</strong> Beam spreading. A beam one unit wide,
+arriving at sun angle <span class="math inline">\(\beta\)</span>, covers
+a strip of ground of length <span
+class="math inline">\(1/\sin\beta\)</span>: the hypotenuse of a
+right-angled triangle whose side opposite the angle <span
+class="math inline">\(\beta\)</span> is the beam width (Appendix <a
+href="/teaching/atmosphere/app-p2/#p2-sec:der-spread">B.2.4</a>). Drawn
+here for <span class="math inline">\(\beta=35^\circ\)</span>, where the
+beam covers 1.74 units.</p>
+<p>The length of ground covered by a beam one unit wide is called here
+the “surface area”. From the right-angled triangle in Figure <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-fig:spreadgeom">18.1</a>
+(derived in Appendix <a
+href="/teaching/atmosphere/app-p2/#p2-sec:der-spread">B.2.4</a>): <span
+class="math display">\[A=\frac{1}{\sin\beta}.\tag{18.2}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(A\)</span></td>
+<td style="text-align: left;">area over which a beam of unit width
+spreads (“surface area”, “beam spreading”; units)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\beta\)</span></td>
+<td style="text-align: left;">sun angle (degrees)</td>
+<td style="text-align: left;">Eq. (<a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:beta">18.1</a>)</td>
+</tr>
+</tbody>
+</table>
+<p>When the Sun is overhead, <span
+class="math inline">\(\beta=90^\circ\)</span>, <span
+class="math inline">\(\sin90^\circ=1\)</span> and <span
+class="math inline">\(A=1\)</span> unit: the beam’s full energy, 100 %,
+falls on one unit. In general the energy falling on each unit of ground
+is <span
+class="math display">\[I=\frac{100\,\%}{A}=100\,\%\times\sin\beta
+.\tag{18.3}\]</span> <em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(I\)</span></td>
+<td style="text-align: left;">solar intensity, as a percentage of the
+overhead value, per unit of ground (% per unit)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(A\)</span></td>
+<td style="text-align: left;">beam spreading from Eq. (<a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:spread">18.2</a>)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Make sure your calculator is in <strong>degree</strong> mode: <span
+class="math inline">\(\sin(83.5)\)</span> should give 0.9936.</p>
+<h2 id="p2-sec:declination">18.3 Where the noon Sun is overhead</h2>
+<p>Because the Earth’s axis is tilted by <span
+class="math inline">\(23.5^\circ\)</span> to its orbit, the latitude at
+which the noon Sun is directly overhead moves through the year
+(Figure <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-fig:solstice">18.2</a>).
+That latitude is the Sun’s <strong>declination</strong> <span
+class="math inline">\(\delta\)</span>: <span
+class="math inline">\(+23.5^\circ\)</span> (the Tropic of Cancer) at the
+June solstice, <span class="math inline">\(0^\circ\)</span> (the
+equator) at the equinoxes, and <span
+class="math inline">\(-23.5^\circ\)</span> (the Tropic of Capricorn) at
+the December solstice. At solar noon, the Sun’s zenith angle at latitude
+<span class="math inline">\(\varphi\)</span> is the difference between
+the two latitudes: <span
+class="math display">\[\theta_z=|\varphi-\delta| .\tag{18.4}\]</span>
+<em>where</em></p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\theta_z\)</span></td>
+<td style="text-align: left;">noon zenith angle (degrees)</td>
+<td style="text-align: left;">calculated</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\varphi\)</span></td>
+<td style="text-align: left;">latitude of the site (degrees, positive
+north)</td>
+<td style="text-align: left;">30 or 60, given</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span
+class="math inline">\(\delta\)</span></td>
+<td style="text-align: left;">declination: latitude where the noon Sun
+is overhead (degrees)</td>
+<td style="text-align: left;"><span class="math inline">\(+23.5\)</span>
+in June, <span class="math inline">\(-23.5\)</span> in December</td>
+</tr>
+</tbody>
+</table>
+<p>For a site north of the Tropic of Cancer this gives two simple rules:
+<span class="math display">\[\text{June 21 (summer solstice):}\ \
+\theta_z=\varphi-23.5^\circ;\qquad\text{December 22 (winter solstice):}\
+\ \theta_z=\varphi+23.5^\circ.\]</span> The reason is geometric: walking
+north by one degree of latitude tilts your local vertical one degree
+further from the Sun’s direction (Appendix <a
+href="/teaching/atmosphere/app-p2/#p2-sec:der-zenith">B.2.5</a>).</p>
+<p><a id="p2-fig:solstice"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-23.png"
+alt="The Earth at the two solstices, with sunlight arriving from the left. The short coloured lines are the local verticals at the Tropic of Cancer, 30 deg N and 60 deg N. In June (left) the northern hemis" /><br />
+</p>
+<p><strong>Figure 18.2.</strong> The Earth at the two solstices, with
+sunlight arriving from the left. The short coloured lines are the local
+verticals at the Tropic of Cancer, 30<span
+class="math inline">\(^{\circ}\)</span>N and 60<span
+class="math inline">\(^{\circ}\)</span>N. In June (left) the northern
+hemisphere is tilted towards the Sun, the Sun is overhead at the Tropic,
+and the verticals at 30<span class="math inline">\(^{\circ}\)</span>N
+and 60<span class="math inline">\(^{\circ}\)</span>N are only 6.5<span
+class="math inline">\(^{\circ}\)</span> and 36.5<span
+class="math inline">\(^{\circ}\)</span> from the Sun’s direction. In
+December (right) they are 53.5<span
+class="math inline">\(^{\circ}\)</span> and 83.5<span
+class="math inline">\(^{\circ}\)</span> from it, Eq. (<a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:zenith">18.4</a>).</p>
+<h2 id="p2-sec:q5a">18.4 Question 5a: sketches of the noon Sun</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>Using this information, draw a simple series of sketches for solar
+noon on June 21st at a site at 30<span
+class="math inline">\(^{\circ}\)</span>N, and on December 22nd and June
+21st for a site at 60<span class="math inline">\(^{\circ}\)</span>N.
+Indicate the zenith angle, sun angle and beam spreading in each
+diagram.</p>
+</div>
+<p><strong>Method.</strong> For each site and date, apply Eqs. (<a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:zenith">18.4</a>),
+(<a href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:beta">18.1</a>),
+(<a href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:spread">18.2</a>)
+and (<a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:intensity">18.3</a>)
+in turn. The calculations are collected in Table <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-tab:q5">18.1</a>; the
+30<span class="math inline">\(^{\circ}\)</span>N December case is not
+asked for in 5a but is needed for 5c, so it is included.</p>
+<div class="tabular">
+<p><span class="citation" data-cites="llcccc">@llcccc</span>@
+<strong>Site</strong> &amp; <strong>Date</strong> &amp; <strong>Zenith
+<span class="math inline">\(\theta_z\)</span></strong> &amp; <strong>Sun
+angle <span class="math inline">\(\beta\)</span></strong> &amp;
+<strong>Spread <span class="math inline">\(1/\sin\beta\)</span></strong>
+&amp; <strong>Intensity</strong><br />
+<span class="math inline">\(^{\circ}\)</span>N &amp; 21 June &amp; <span
+class="math inline">\(30-23.5=6.5^\circ\)</span> &amp; <span
+class="math inline">\(83.5^\circ\)</span> &amp; <span
+class="math inline">\(1/0.9936=1.006\)</span> &amp; 99.4 %<br />
+60<span class="math inline">\(^{\circ}\)</span>N &amp; 21 June &amp;
+<span class="math inline">\(60-23.5=36.5^\circ\)</span> &amp; <span
+class="math inline">\(53.5^\circ\)</span> &amp; <span
+class="math inline">\(1/0.8039=1.244\)</span> &amp; 80.4 %<br />
+60<span class="math inline">\(^{\circ}\)</span>N &amp; 22 Dec &amp;
+<span class="math inline">\(60+23.5=83.5^\circ\)</span> &amp; <span
+class="math inline">\(6.5^\circ\)</span> &amp; <span
+class="math inline">\(1/0.1132=8.834\)</span> &amp; 11.3 %<br />
+30<span class="math inline">\(^{\circ}\)</span>N &amp; 22 Dec &amp;
+<span class="math inline">\(30+23.5=53.5^\circ\)</span> &amp; <span
+class="math inline">\(36.5^\circ\)</span> &amp; <span
+class="math inline">\(1/0.5948=1.681\)</span> &amp; 59.5 %<br />
+<br />
+</p>
+</div>
+<p><a id="p2-fig:q5sketches"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-24.png"
+alt="Question 5a: the noon Sun at each site, drawn to the correct angles and to one scale. Each beam (orange) is one unit wide and the red strip is the ground it covers. The sun angle beta (blue arc) is" /><br />
+</p>
+<p><strong>Figure 18.3.</strong> Question 5a: the noon Sun at each site,
+drawn to the correct angles and to one scale. Each beam (orange) is one
+unit wide and the red strip is the ground it covers. The sun angle <span
+class="math inline">\(\beta\)</span> (blue arc) is measured from the
+ground, and the zenith angle <span
+class="math inline">\(\theta_z\)</span> (green arc) from the
+vertical.</p>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Question 5a
+</p>
+<p><strong>30<span class="math inline">\(^{\circ}\)</span>N, 21
+June:</strong> zenith angle <span
+class="math inline">\(6.5^\circ\)</span>, sun angle <span
+class="math inline">\(83.5^\circ\)</span>, beam spreading <span
+class="math inline">\(1/\sin83.5^\circ=\textbf{1.006
+units}\)</span>.<br />
+<strong>60<span class="math inline">\(^{\circ}\)</span>N, 21
+June:</strong> zenith angle <span
+class="math inline">\(36.5^\circ\)</span>, sun angle <span
+class="math inline">\(53.5^\circ\)</span>, beam spreading <span
+class="math inline">\(1/\sin53.5^\circ=\textbf{1.24
+units}\)</span>.<br />
+<strong>60<span class="math inline">\(^{\circ}\)</span>N, 22
+December:</strong> zenith angle <span
+class="math inline">\(83.5^\circ\)</span>, sun angle <span
+class="math inline">\(6.5^\circ\)</span>, beam spreading <span
+class="math inline">\(1/\sin6.5^\circ=\textbf{8.83
+units}\)</span>.<br />
+Sketches as in Figure <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-fig:q5sketches">18.3</a>.</p>
+</div>
+<p><strong>Check.</strong> The higher the Sun, the closer the spreading
+is to 1 unit; with the Sun just <span
+class="math inline">\(6.5^\circ\)</span> above the horizon, a beam one
+unit wide is smeared across almost nine units of ground. In each case
+<span class="math inline">\(\theta_z+\beta=90^\circ\)</span>.</p>
+<h2 id="p2-sec:q5b">18.5 Question 5b: why the sun angle makes the
+seasons</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>Given these sketches, explain why the sun angle causes seasonal
+temperature changes in the mid-latitudes.</p>
+</div>
+<p>As the Earth orbits the Sun with its axis tilted, the latitude where
+the noon Sun is overhead moves between the tropics (Figure <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-fig:solstice">18.2</a>).
+At a mid-latitude site the noon Sun is therefore high in summer and low
+in winter: at 60<span class="math inline">\(^{\circ}\)</span>N, <span
+class="math inline">\(53.5^\circ\)</span> in June and only <span
+class="math inline">\(6.5^\circ\)</span> in December. A high Sun
+concentrates its beam on a small area and a low Sun spreads it over a
+large one, so each square metre of ground receives far more energy in
+summer (80 % per unit) than in winter (11 % per unit). More energy
+absorbed means warmer ground and air.</p>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Question 5b
+</p>
+<p>Because the Earth’s axis is tilted, the noon <strong>sun
+angle</strong> at a mid-latitude site <strong>rises in spring and summer
+and falls in autumn and winter</strong>. A high sun angle concentrates
+the beam on a small area (little beam spreading, high intensity); a low
+sun angle spreads the same energy over a large area (much spreading, low
+intensity). So the ground receives more energy per square metre in
+summer and warms, and less in winter and cools. At 60<span
+class="math inline">\(^{\circ}\)</span>N the noon intensity in June is
+about seven times that in December.</p>
+</div>
+<div class="box box-ask">
+<p class="box-title">
+A question that comes up
+</p>
+<p><strong>Is the sun angle the only reason summers are
+warmer?</strong><br />
+No; it is the main one, and two others work with it. <strong>Day
+length:</strong> at 60<span class="math inline">\(^{\circ}\)</span>N the
+Sun is up for about 18 hours at the June solstice and about 6 in
+December, so summer days add up much more energy. <strong>Path through
+the atmosphere:</strong> a low Sun’s rays cross far more air, so more is
+scattered and absorbed before reaching the ground. All three effects
+point the same way. The distance from the Sun is <em>not</em> a reason:
+the Earth is closest to the Sun in early January, in the northern winter
+(Lutgens et al. 2019, ch. 2).</p>
+</div>
+<p><a id="p2-fig:latprofile"></a></p>
+<p><img src="/teaching/atmosphere/fig/f-25.png"
+alt="Noon solar intensity, Eq. eqref p2-eq:intensity , against latitude at the solstices and equinoxes. The dots are the four cases of Table ref p2-tab:q5 . The peak follows the overhead Sun between the" /><br />
+</p>
+<p><strong>Figure 18.4.</strong> Noon solar intensity, Eq. (<a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:intensity">18.3</a>),
+against latitude at the solstices and equinoxes. The dots are the four
+cases of Table <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-tab:q5">18.1</a>. The
+peak follows the overhead Sun between the tropics; north of the Arctic
+Circle (66.5<span class="math inline">\(^{\circ}\)</span>N) the December
+curve reaches zero: the noon Sun does not rise.</p>
+<h2 id="p2-sec:q5c">18.6 Question 5c: comparing solar intensities</h2>
+<div class="box box-question">
+<p class="box-title">
+The question
+</p>
+<p>Given your answers: (i) what is the percentage difference in solar
+intensity between a site at 30<span
+class="math inline">\(^{\circ}\)</span>N and 60<span
+class="math inline">\(^{\circ}\)</span>N during the winter solstice?
+(Hint: calculate the solar intensity as % per unit for each site first.)
+(ii) What is the percentage difference in solar intensity between a site
+at 60<span class="math inline">\(^{\circ}\)</span>N for the winter
+solstice compared to the summer solstice?</p>
+</div>
+<p><strong>Step 1: the intensities</strong>, from Eq. (<a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:intensity">18.3</a>)
+and Table <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-tab:q5">18.1</a>: <span
+class="math display">\[\begin{align*}
+I_{30\text{N, Dec}}&amp;=100/1.681=59.5\ \%\ \text{per unit},\\
+I_{60\text{N, Dec}}&amp;=100/8.834=11.3\ \%\ \text{per unit},\\
+I_{60\text{N, Jun}}&amp;=100/1.244=80.4\ \%\ \text{per unit}.
+\end{align*}\]</span></p>
+<p><strong>Step 2: compare them.</strong> “Percentage difference”
+between two percentages can mean two things, and it is worth giving
+both:</p>
+<ul>
+<li><p>the difference in <strong>percentage points</strong>: subtract
+one percentage from the other;</p></li>
+<li><p>the <strong>relative</strong> difference: divide one by the
+other.</p></li>
+</ul>
+<p><strong>(i) 30<span class="math inline">\(^{\circ}\)</span>N against
+60<span class="math inline">\(^{\circ}\)</span>N in December:</strong>
+<span class="math display">\[59.5-11.3=48.2\ \text{percentage
+points};\qquad \frac{59.5}{11.3}=5.25\ \text{times};\qquad
+\frac{59.5-11.3}{59.5}=81\,\%\ \text{less at }60^\circ\text{N}.\]</span>
+<strong>(ii) 60<span class="math inline">\(^{\circ}\)</span>N, December
+against June:</strong> <span class="math display">\[80.4-11.3=69.1\
+\text{percentage points};\quad \frac{80.4}{11.3}=7.10\
+\text{times};\quad \frac{80.4-11.3}{11.3}=610\,\%\ \text{more in
+June}.\]</span></p>
+<div class="box box-answer">
+<p class="box-title">
+Answer to Question 5c
+</p>
+<p><strong>(i)</strong> At the winter solstice 30<span
+class="math inline">\(^{\circ}\)</span>N receives
+<strong>59.5 %</strong> per unit and 60<span
+class="math inline">\(^{\circ}\)</span>N <strong>11.3 %</strong> per
+unit: a difference of <strong>48.2 percentage points</strong>. 30<span
+class="math inline">\(^{\circ}\)</span>N receives about <strong>5.3
+times</strong> as much as 60<span
+class="math inline">\(^{\circ}\)</span>N (60<span
+class="math inline">\(^{\circ}\)</span>N receives 81 % less).<br />
+<strong>(ii)</strong> At 60<span
+class="math inline">\(^{\circ}\)</span>N the winter solstice gives
+<strong>11.3 %</strong> per unit and the summer solstice
+<strong>80.4 %</strong> per unit: a difference of <strong>69.1
+percentage points</strong>. The summer noon intensity is about
+<strong>7.1 times</strong> the winter one.</p>
+</div>
+<p><strong>Check.</strong> Both comparisons agree with Figure <a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-fig:latprofile">18.4</a>:
+the December curve falls steeply between 30<span
+class="math inline">\(^{\circ}\)</span>N and 60<span
+class="math inline">\(^{\circ}\)</span>N, and at 60<span
+class="math inline">\(^{\circ}\)</span>N the June and December curves
+are far apart.</p>
+<div class="box box-care">
+<p class="box-title">
+Percentage points
+</p>
+<p>A difference between two percentages is in <em>percentage
+points</em>. The summer and winter intensities at 60<span
+class="math inline">\(^{\circ}\)</span>N differ by 69.1 points; in
+relative terms the summer intensity is 7.1 times the winter one, which
+is 610 % more, not 69 %.</p>
+</div>
+<h2 id="try-it-yourself-practice-set-18">18.7 Try it yourself: Practice
+Set 18</h2>
+<div class="box box-try">
+<p class="box-title">
+Practice Set 18: sun angle
+</p>
+<ol type="1">
+<li><p>Coleraine is at 55.1<span
+class="math inline">\(^{\circ}\)</span>N. Find the noon zenith angle,
+sun angle, beam spreading and intensity at the June and December
+solstices.</p></li>
+<li><p>What is the noon intensity at the equator at either solstice? And
+at the equinoxes?</p></li>
+<li><p>What is the noon intensity at 60<span
+class="math inline">\(^{\circ}\)</span>N at the equinoxes, when the Sun
+is overhead at the equator?</p></li>
+<li><p>What happens at the Arctic Circle (66.5<span
+class="math inline">\(^{\circ}\)</span>N) at noon on 22
+December?</p></li>
+<li><p>At which latitude is the noon intensity 100 % on 21 June, and
+why?</p></li>
+</ol>
+</div>
+<div class="box box-answer">
+<p class="box-title">
+Answers to Practice Set 18
+</p>
+<ol type="1">
+<li><p>June: <span
+class="math inline">\(\theta_z=55.1-23.5=31.6^\circ\)</span>, <span
+class="math inline">\(\beta=58.4^\circ\)</span>, <span
+class="math inline">\(A=1/\sin58.4^\circ=1.174\)</span> units, <span
+class="math inline">\(I=85.2\,\%\)</span> per unit. December: <span
+class="math inline">\(\theta_z=55.1+23.5=78.6^\circ\)</span>, <span
+class="math inline">\(\beta=11.4^\circ\)</span>, <span
+class="math inline">\(A=5.06\)</span> units, <span
+class="math inline">\(I=19.8\,\%\)</span> per unit. The June noon Sun
+gives Coleraine 4.3 times the December intensity.</p></li>
+<li><p>At either solstice <span
+class="math inline">\(\theta_z=23.5^\circ\)</span>, <span
+class="math inline">\(\beta=66.5^\circ\)</span>, <span
+class="math inline">\(A=1.090\)</span>, <span
+class="math inline">\(I=91.7\,\%\)</span> per unit. At the equinoxes the
+Sun is overhead: 100 %. The equator’s noon intensity hardly changes
+through the year, which is why the tropics have little temperature
+seasonality.</p></li>
+<li><p><span class="math inline">\(\theta_z=60^\circ\)</span>, <span
+class="math inline">\(\beta=30^\circ\)</span>, <span
+class="math inline">\(A=1/\sin30^\circ=2\)</span> units, <span
+class="math inline">\(I=50\,\%\)</span> per unit.</p></li>
+<li><p><span class="math inline">\(\theta_z=66.5+23.5=90^\circ\)</span>,
+so <span class="math inline">\(\beta=0^\circ\)</span>: the noon Sun is
+on the horizon, the beam spreading is infinite and the intensity is
+zero. North of this, the Sun does not rise at all on that day: the polar
+night.</p></li>
+<li><p>At the Tropic of Cancer, 23.5<span
+class="math inline">\(^{\circ}\)</span>N, where <span
+class="math inline">\(\theta_z=0^\circ\)</span> and the Sun is directly
+overhead: the declination on 21 June is <span
+class="math inline">\(+23.5^\circ\)</span>, Eq. (<a
+href="/teaching/atmosphere/p2-ch08_sunangle/#p2-eq:zenith">18.4</a>).</p></li>
+</ol>
+</div>
+<h2 id="sun-angle-in-python">18.8 Sun angle in Python</h2>
+<p>These functions compute the equations of this chapter, and the book’s
+tests check them against its answers.</p>
+<pre><code>def zenith_angle(latitude_deg, declination_deg):
+    &quot;&quot;&quot;Noon zenith angle (degrees) at a latitude for a solar declination.&quot;&quot;&quot;
+    return abs(latitude_deg - declination_deg)
+
+def sun_angle(zenith_deg):
+    &quot;&quot;&quot;Sun angle above the horizon (degrees).&quot;&quot;&quot;
+    return 90.0 - zenith_deg
+
+def beam_spreading(sun_deg):
+    &quot;&quot;&quot;Length of ground covered by a beam one unit wide.&quot;&quot;&quot;
+    return 1.0 / math.sin(math.radians(sun_deg))
+
+def intensity_percent(sun_deg):
+    &quot;&quot;&quot;Solar intensity as a percentage per unit of ground.&quot;&quot;&quot;
+    return 100.0 / beam_spreading(sun_deg)</code></pre>
+<p><code>intensity_percent(sun_angle(zenith_angle(60, -23.5)))</code>
+returns about 11.3.</p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-entry-spacing="0" role="list">
+<div id="ref-lutgens2019" class="csl-entry" role="listitem">
+Lutgens, F.K., Tarbuck, E.J. and Herman, R.L. (2019) The atmosphere: An
+introduction to meteorology, 14th ed. Pearson, New York.
+</div>
+</div>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/atmosphere/p2-ch07_balance/">&larr; 17. The Earth's energy balance and the greenhouse effect</a><a href="{{root}}teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together &rarr;</a></nav>
+<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="{{root}}teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>
