@@ -8,6 +8,16 @@ description: Beamer slides, posters, converting LaTeX to Word, PowerPoint, HTML 
 
 !include examples/slides.tex latex
 
+It compiles to three PDF pages, because each reveal is its own page:
+
+::: {.shown .page-row}
+![Title slide](img/slides-title.png){alt="A slide with the title Heat Loss Through a Wall and the author A Student."}
+
+![First reveal](img/slides-step-1.png){alt="A slide headed The equation, with one bullet point: Heat loss depends on the wall, its area and the temperature."}
+
+![Second reveal](img/slides-step-2.png){alt="The same slide with a second bullet added, the equation Q = U A delta T."}
+:::
+
 `<1->` and `<2->` reveal items one click at a time. `\usetheme` changes the look.
 
 ## Posters

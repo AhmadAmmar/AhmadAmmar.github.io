@@ -115,6 +115,18 @@ grep primes logs/primes_*.out</code></pre>
 head -8 data/armaghdata.txt
 sbatch 04_armagh.sh
 cat logs/armagh_*.out</code></pre>
+<p>The first command shows the top of the data file, which is how you learn its layout:</p>
+<div class="output">
+<p><strong>What you should see from head</strong></p>
+<pre class="text"><code>Armagh
+Location: 287800E 345800N (Irish Grid), Lat 54.352 Lon -6.649, 62 metres amsl
+Estimated data is marked with a * after the value.
+Missing data (more than 2 days missing in month) is marked by  ---.
+Sunshine data taken from an automatic Kipp &amp; Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
+   yyyy  mm   tmax    tmin      af    rain     sun
+              degC    degC    days      mm   hours
+   1853   1    ---     ---     ---    57.3     ---</code></pre>
+</div>
 <p><strong>Check, for the file in the kit:</strong></p>
 <pre class="text"><code>2085 monthly records, 159 complete years, 1867 to 2025
 Warmest: 2023, mean 10.95 C
@@ -145,6 +157,26 @@ ls results/decade_*.csv | wc -l
 # Join them, with the coolest decade first and the warmest last
 cat results/decade_*.csv | sort -t, -k3 -n</code></pre>
 <p>Each line reads decade, years used, mean temperature. <strong>Check:</strong> the coolest is <code>1880,10,8.65</code> and the warmest is <code>2000,10,10.08</code>.</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ cat results/decade_*.csv | sort -t, -k3 -n
+1880,10,8.65
+1890,10,8.87
+1900,10,8.91
+1910,10,8.94
+1920,10,9.08
+1960,10,9.11
+1970,10,9.12
+1980,10,9.14
+1930,10,9.27
+1950,10,9.35
+1870,10,9.52
+1940,10,9.58
+1990,10,9.71
+2010,10,9.87
+2000,10,10.08</code></pre>
+</div>
+<p>These results come from running the same Python scripts on a laptop, with the task number set by hand. On the cluster, the same numbers appear, in the files or logs named above.</p>
 <p>The pattern to remember is that the tasks never talk to each other. Each writes its own file, and a simple command joins them at the end.</p>
 <h2 id="exercise-6-a-geospatial-calculation">Exercise 6: A geospatial calculation</h2>
 <p><strong>New idea:</strong> an input can come from the command line, so one script can answer many questions.</p>
@@ -171,6 +203,22 @@ sbatch 07_tiles.sh
 # When it has finished
 cat results/ndvi_*.csv</code></pre>
 <p><strong>Check:</strong> mean NDVI rises steadily from <code>0.045</code> in tile 0 to <code>0.787</code> in tile 7. Run it again and the numbers stay the same, because the script fixes its random seed.</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ python3 07_make_tiles.py
+wrote 8 tiles to tiles/
+
+$ cat results/ndvi_*.csv
+0,10000,0.045
+1,10000,0.181
+2,10000,0.304
+3,10000,0.416
+4,10000,0.522
+5,10000,0.616
+6,10000,0.705
+7,10000,0.787</code></pre>
+</div>
+<p>Each line reads tile, pixels, mean NDVI. These results come from running the same Python scripts on a laptop, with the task number set by hand. On the cluster, the same numbers appear, in the files or logs named above.</p>
 <h2 id="from-exercises-to-your-own-project">From exercises to your own project</h2>
 <p>You have now used every piece of a real workflow. To move your own work across:</p>
 <ol type="1">

@@ -1,0 +1,23 @@
+% The maths from this chapter in one document. Build: pdflatex maths
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+
+\begin{document}
+The energy is $E = mc^2$ here.
+
+\[ E = mc^2 \]
+
+\begin{equation}
+  E = mc^2
+  \label{eq:energy}
+\end{equation}
+
+\begin{align}
+  r &= \frac{s}{c + v} \\
+    &= \frac{e v}{c + v} \\
+    &= \frac{e}{1 + c/v}.
+\end{align}
+
+Building blocks: $x_{i,j}$, $\sqrt{x}$, $\alpha$, $\Delta$, $\sum_{i=1}^{n} x_i$,
+$\int_0^1 x \, dx$, $a \approx b$ and $\left( \frac{a}{b} \right)$.
+\end{document}

@@ -76,6 +76,12 @@
     \bottomrule
   \end{tabular}
 \end{table}</code></pre>
+<div class="shown">
+<figure>
+<img src="../../../teaching/latex/img/table.png" alt="A table captioned Heat loss through a 10 square metre wall at a difference of 15 K. It lists solid brick, unfilled cavity and insulated walls with U-values and heat loss, with horizontal rules only." />
+<figcaption>The table in the <a href="../references/">complete report</a>, with three walls. Note the horizontal rules, and no vertical ones.</figcaption>
+</figure>
+</div>
 <h2 id="figures">Figures</h2>
 <pre class="latex"><code>\usepackage{graphicx}
 
@@ -93,6 +99,12 @@
     \addplot coordinates {(0.45,68) (1.5,225) (2.1,315)};
   \end{axis}
 \end{tikzpicture}</code></pre>
+<div class="shown">
+<figure>
+<img src="../../../teaching/latex/img/figure.png" alt="A line chart with U-value on the horizontal axis and heat loss in watts on the vertical axis. Three points rise in a straight line from about 68 to 315 watts. The caption reads Figure 1: Heat loss rises in proportion to the U-value." />
+<figcaption>The same plot compiled in the complete report. Its labels use the same font as the text.</figcaption>
+</figure>
+</div>
 <p>For anything complex, generate the figure with a script, such as Python with Matplotlib, and include the file. Then the figure can be rebuilt from its data.</p>
 <h2 id="introducing-them-properly">Introducing them properly</h2>
 <p>Every table and figure should be mentioned in the text before it appears, and each needs a caption that says what it shows. Put the <code>\label</code> after the <code>\caption</code>, or the reference will point to the section number instead. Floats move: <code>[ht]</code> asks for here or the top of a page, which is why you should refer to "Table 1" and not "the table below".</p>

@@ -247,3 +247,16 @@ th { font-weight: 600; color: var(--muted); font-size: .82rem; text-transform: u
 .cv-layout.toc-hidden aside { display: none; }
 [data-toc-toggle] { margin-bottom: 1rem; }
 @media (min-width: 901px) { .hpc-body section + section { margin-top: 3rem; border-top: 1px solid var(--line); padding-top: 2rem; } }
+
+/* Expected results in the course guides: real output, and real page images */
+.hpc-body .output { border-left: 4px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0; padding: .6rem .8rem .7rem; margin: 1rem 0 1.4rem; min-width: 0; }
+.hpc-body .output > p:first-child { margin: 0 0 .4rem; font-family: var(--sans); font-size: .82rem; color: var(--ink); }
+.hpc-body .output pre { margin: 0; background: var(--surface); }
+.hpc-body .shown { margin: 1rem 0 1.4rem; min-width: 0; }
+.hpc-body .shown figure { margin: 0 0 1rem; min-width: 0; }
+.hpc-body .shown img { display: block; max-width: 100%; height: auto; background: #fff; border: 1px solid var(--line); border-radius: 4px; }
+.hpc-body .shown figcaption { margin-top: .35rem; font-family: var(--sans); font-size: .82rem; color: var(--muted); }
+.hpc-body .page-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; align-items: start; }
+.hpc-body .code-result { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; }
+.hpc-body .code-result > div { min-width: 0; }
+@media (min-width: 1200px) { .hpc-body .code-result { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }

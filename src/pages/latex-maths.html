@@ -38,48 +38,83 @@ out: teaching/latex/maths/index.html
   E = mc^2
   \label{eq:energy}
 \end{equation}</code></pre>
+<p>In the file below, these forms and some of the building blocks come together. Only the numbered equations get a number at the right.</p>
+<div class="code-result">
+<div>
+<p><strong>maths.tex</strong></p>
+<pre class="latex"><code>% The maths from this chapter in one document. Build: pdflatex maths
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+
+\begin{document}
+The energy is $E = mc^2$ here.
+
+\[ E = mc^2 \]
+
+\begin{equation}
+  E = mc^2
+  \label{eq:energy}
+\end{equation}
+
+\begin{align}
+  r &amp;= \frac{s}{c + v} \\
+    &amp;= \frac{e v}{c + v} \\
+    &amp;= \frac{e}{1 + c/v}.
+\end{align}
+
+Building blocks: $x_{i,j}$, $\sqrt{x}$, $\alpha$, $\Delta$, $\sum_{i=1}^{n} x_i$,
+$\int_0^1 x \, dx$, $a \approx b$ and $\left( \frac{a}{b} \right)$.
+\end{document}</code></pre>
+</div>
+<div class="shown">
+<figure>
+<img src="{{root}}teaching/latex/img/maths.png" alt="The compiled maths: the sentence The energy is E = mc squared here, the same equation displayed without a number, then numbered 1. Three aligned lines numbered 2 to 4 follow, with equals signs lined up. A last line shows subscripts, a square root, Greek letters, a sum, an integral and large brackets." />
+<figcaption>What that file compiles to.</figcaption>
+</figure>
+</div>
+</div>
 <h2 id="the-building-blocks">The building blocks</h2>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>You want</th>
 <th>You write</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Superscript and subscript</td>
 <td><code>x^2</code>, <code>x_i</code>, <code>x_{i,j}</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Fraction</td>
 <td><code>\frac{a}{b}</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Square root</td>
 <td><code>\sqrt{x}</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Greek letters</td>
 <td><code>\alpha</code>, <code>\mu</code>, <code>\Delta</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Sum and integral</td>
 <td><code>\sum_{i=1}^{n}</code>, <code>\int_0^1</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Operators and relations</td>
 <td><code>\times</code>, <code>\approx</code>, <code>\leq</code>, <code>\rightarrow</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Words in maths</td>
 <td><code>\text{hours}</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Spacing</td>
 <td><code>\,</code> small, <code>\quad</code> wide</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Brackets that grow</td>
 <td><code>\left( \frac{a}{b} \right)</code></td>
 </tr>

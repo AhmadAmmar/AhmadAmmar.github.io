@@ -86,7 +86,7 @@
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Task</th>
 <th>Slurm</th>
 <th>PBS / Torque</th>
@@ -95,35 +95,35 @@
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Submit</td>
 <td><code>sbatch</code></td>
 <td><code>qsub</code></td>
 <td><code>qsub</code></td>
 <td><code>bsub</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>See the queue</td>
 <td><code>squeue</code></td>
 <td><code>qstat</code></td>
 <td><code>qstat</code></td>
 <td><code>bjobs</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Cancel</td>
 <td><code>scancel</code></td>
 <td><code>qdel</code></td>
 <td><code>qdel</code></td>
 <td><code>bkill</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Script directive</td>
 <td><code>#SBATCH</code></td>
 <td><code>#PBS</code></td>
 <td><code>#$</code></td>
 <td><code>#BSUB</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Array task number</td>
 <td><code>$SLURM_ARRAY_TASK_ID</code></td>
 <td><code>$PBS_ARRAYID</code> or <code>$PBS_ARRAY_INDEX</code></td>
@@ -140,29 +140,29 @@
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th>Shared cluster</th>
 <th>Cloud</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Cost</td>
 <td>Usually free or allocated to researchers</td>
 <td>Paid by use, so a forgotten machine keeps charging</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Waiting</td>
 <td>A queue</td>
 <td>Usually starts at once</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Control</td>
 <td>Fixed system; no administrator rights</td>
 <td>You control the machine, and so must secure and maintain it</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Best for</td>
 <td>Large batches, shared storage</td>
 <td>Special hardware, short bursts, web services</td>

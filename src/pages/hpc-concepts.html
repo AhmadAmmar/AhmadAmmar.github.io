@@ -39,49 +39,49 @@ out: teaching/hpc/concepts/index.html
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Word</th>
 <th>Meaning</th>
 <th>In the picture</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Node</td>
 <td>One computer in the cluster</td>
 <td>A kitchen</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Core</td>
 <td>One independent processing unit in a node; it runs one stream of instructions at a time</td>
 <td>A cook</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Memory (RAM)</td>
 <td>Fast working space that empties when the job ends</td>
 <td>The worktop</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Login node</td>
 <td>The computer you arrive at. For editing, moving files and submitting work</td>
 <td>Reception</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Compute node</td>
 <td>Where jobs run</td>
 <td>The kitchens</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Scheduler</td>
 <td>Software that queues jobs and allocates resources. Slurm (Yoo et al., 2003) is widely used</td>
 <td>The head waiter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Partition</td>
 <td>A named queue of nodes with its own rules</td>
 <td>A type of kitchen</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Job</td>
 <td>One piece of work submitted to the scheduler</td>
 <td>An order</td>
@@ -98,24 +98,24 @@ out: teaching/hpc/concepts/index.html
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Pattern</th>
 <th>Example</th>
 <th>What it needs</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Many independent runs, called "many-task" (Raicu et al., 2008) or "embarrassingly parallel"</td>
 <td>A parameter sweep, or one analysis per file</td>
 <td>Job arrays. Often no code changes</td>
 </tr>
-<tr class="even">
+<tr>
 <td>One program sharing memory on a node</td>
 <td>A threaded model, or machine learning on many cores</td>
 <td><code>--cpus-per-task</code>, and a program that can use them</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>One program across nodes</td>
 <td>A large fluid simulation, using MPI</td>
 <td><code>--ntasks</code>, <code>--nodes</code>, and an MPI-aware program</td>

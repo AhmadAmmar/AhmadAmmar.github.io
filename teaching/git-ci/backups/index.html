@@ -67,11 +67,35 @@
 <li><strong>Record checksums</strong>, which are fingerprints that change if a file changes: <code>sha256sum *.csv &gt; MANIFEST.sha256</code>, and check later with <code>sha256sum -c MANIFEST.sha256</code>.</li>
 <li><strong>Note the source</strong> of each dataset: its address, date and licence.</li>
 </ul>
+<div class="output">
+<p><strong>What you should see when nothing has changed</strong></p>
+<pre class="text"><code>$ sha256sum -c MANIFEST.sha256
+a.csv: OK
+b.csv: OK</code></pre>
+</div>
+<div class="output">
+<p><strong>What you should see after someone edits b.csv</strong></p>
+<pre class="text"><code>$ sha256sum -c MANIFEST.sha256
+a.csv: OK
+b.csv: FAILED
+sha256sum: WARNING: 1 computed checksum did NOT match</code></pre>
+</div>
 <h2 id="backups">Backups</h2>
 <p>Git is not a backup until a copy exists elsewhere, and a private repository on one laptop can be lost with that laptop. The common rule is <strong>3-2-1</strong>: three copies, on two kinds of storage, with one somewhere else.</p>
 <p>Syncing services such as OneDrive aren't enough on their own, because they also sync deletions and corruption. And <strong>a backup you've never restored is only a hope</strong>, so test one:</p>
 <pre class="bash"><code>git bundle create project.bundle --all     # one file holding a repository&#39;s whole history
 git clone project.bundle restore-test      # prove that it comes back</code></pre>
+<p><code>git bundle create</code> prints nothing when it runs inside a script, as here, and shows progress when you type it yourself. Then read the restored history to check it:</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git clone project.bundle restore-test
+Cloning into &#39;restore-test&#39;...
+
+$ git -C restore-test log --oneline -3
+4912949 Colleague edit
+b889be1 Merge left, keeping 14
+a0a50db Main change</code></pre>
+</div>
 <p>Databases and uploaded files don't live in Git, so they need their own backups, including an encrypted copy off-site.</p>
 <h2 id="releases">Releases</h2>
 <p>Whenever something leaves your hands, freeze a copy.</p>

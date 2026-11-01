@@ -38,6 +38,17 @@ Hello, world. One plus one is $1 + 1 = 2$.
 \end{document}</code></pre>
 <p>Compile it with:</p>
 <pre class="bash"><code>pdflatex minimal</code></pre>
+<div class="output">
+<p><strong>What you should see at the end of the run</strong></p>
+<pre class="text"><code>Output written on minimal.pdf (1 page, 15054 bytes).
+Transcript written on minimal.log.</code></pre>
+</div>
+<div class="shown">
+<figure>
+<img src="{{root}}teaching/latex/img/minimal.png" alt="A line of text reading: Hello, world. One plus one is 1 + 1 = 2, with the sum set in maths." />
+<figcaption>The top of minimal.pdf.</figcaption>
+</figure>
+</div>
 <p>This makes <code>minimal.pdf</code>, plus helper files such as <code>minimal.log</code>, which records what happened, and <code>minimal.aux</code>, which remembers numbers between runs.</p>
 <h2 id="the-parts-of-a-document">The parts of a document</h2>
 <ul>
@@ -59,25 +70,45 @@ Hello, world. One plus one is $1 + 1 = 2$.
 bibtex main
 pdflatex main
 pdflatex main</code></pre>
+<p>On the first run of the <a href="../references/">complete report</a>, LaTeX doesn't yet know the numbers, so it says so. These warnings are normal at this stage, and they went away after the full sequence:</p>
+<div class="output">
+<p><strong>What you should see (only the warning and result lines)</strong></p>
+<pre class="text"><code>$ pdflatex main
+Package natbib Warning: Citation `clarke2001&#39; on page 1 undefined on input line
+LaTeX Warning: Reference `sec:method&#39; on page 1 undefined on input line 30.
+LaTeX Warning: Reference `tab:walls&#39; on page 1 undefined on input line 31.
+LaTeX Warning: Reference `fig:loss&#39; on page 1 undefined on input line 31.
+LaTeX Warning: Reference `eq:loss&#39; on page 1 undefined on input line 39.
+Package natbib Warning: There were undefined citations.
+LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+$ pdflatex main     (the last run of the sequence)
+Output written on main.pdf (2 pages, 107972 bytes).</code></pre>
+</div>
 <p>The tool <code>latexmk -pdf main</code> works out how many runs are needed and does them for you, though it needs Perl on Windows.</p>
 <h2 id="choosing-an-engine">Choosing an engine</h2>
 <table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Engine</th>
 <th>Use it when</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>pdflatex</code></td>
 <td>The default for most documents, with the widest compatibility</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>xelatex</code></td>
 <td>You want system fonts, or scripts such as Urdu and Arabic</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>lualatex</code></td>
 <td>You want system fonts plus scripting with Lua</td>
 </tr>

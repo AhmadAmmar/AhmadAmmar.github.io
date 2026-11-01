@@ -38,29 +38,29 @@ ls -l ~/project</code></pre>
 <h2 id="paths">Paths</h2>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Symbol</th>
 <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>~</code></td>
 <td>Your home folder</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>.</code> and <code>..</code></td>
 <td>This folder, and the one above</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>/</code></td>
 <td>Top of the Linux file tree, and the separator between folders</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>*</code></td>
 <td>Wildcard: <code>case_*.json</code> matches every such file</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>$HOME</code>, <code>$USER</code></td>
 <td>Variables that hold your home folder and username</td>
 </tr>
@@ -74,85 +74,85 @@ ls -l ~/project</code></pre>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Command</th>
 <th>What it does</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>pwd</code></td>
 <td>Print the folder you are in</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ls</code>, <code>ls -l</code>, <code>ls -t</code></td>
 <td>List files; with details; newest first</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>cd folder</code>, <code>cd ..</code>, <code>cd</code></td>
 <td>Go to a folder; up one; home</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>mkdir -p a/b</code></td>
 <td>Make folders, including parents, with no error if they exist</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>cp a b</code>, <code>cp -r a b</code></td>
 <td>Copy a file; <code>-r</code> copies a folder and its contents</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>mv a b</code></td>
 <td>Move or rename</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>rm file</code></td>
 <td>Delete. <strong>There is no recycle bin.</strong> Look first with <code>ls</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ln -s target name</code></td>
 <td>Make a shortcut (a symbolic link)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>cat</code>, <code>head -5</code>, <code>tail -20</code></td>
 <td>Print a whole file; its first 5 lines; its last 20</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>less file</code></td>
 <td>Read a long file page by page; <code>q</code> quits</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>wc -l</code></td>
 <td>Count lines</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>grep "text" file</code></td>
 <td>Show lines containing text. <code>-i</code> ignores case, <code>-l</code> lists only file names</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>sed -i 's/old/new/' file</code></td>
 <td>Replace text in a file</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>chmod u+x file</code></td>
 <td>Let yourself (<code>u</code>) execute (<code>x</code>) a file. <code>chmod -R u+w folder</code> lets you write to everything in a folder</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>tar czf a.tgz folder</code></td>
 <td>Pack a folder into one compressed archive (create, gzip, file)</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>tar xzf a.tgz</code></td>
 <td>Unpack it (extract)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>df -h .</code>, <code>du -sh folder</code></td>
 <td>Free space on this disk; size of a folder</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>hostname</code>, <code>nproc</code></td>
 <td>Which computer am I on? How many cores may I use?</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>man ls</code></td>
 <td>The manual for a command; <code>q</code> quits</td>
 </tr>

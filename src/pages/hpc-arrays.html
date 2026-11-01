@@ -110,6 +110,26 @@ module load &lt;python-module&gt;
 python3 make_cases.py cases
 ls cases | head                # case_000.json, case_001.json ...
 python3 heat_loss.py cases/case_000.json &amp;&amp; cat cases/case_000.out    # 11016.0</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ python3 make_cases.py cases
+wrote 27 cases to cases
+
+$ ls cases | head
+case_000.json
+case_001.json
+case_002.json
+case_003.json
+case_004.json
+case_005.json
+case_006.json
+case_007.json
+case_008.json
+case_009.json
+
+$ python3 heat_loss.py cases/case_000.json &amp;&amp; cat cases/case_000.out
+11016.0</code></pre>
+</div>
 <p>The last line is your test. For the first case, U = 2.1, A = 90, n = 1, V = 200 and DD = 1800, so by hand: (189 + 66) × 1800 × 24 / 1000 = 11016. Then delete that output, with <code>rm cases/case_000.out</code>, so that the job below runs every case.</p>
 <h2 id="step-3-the-job-script">Step 3: the job script</h2>
 <p>Running one input per task works, but very short tasks are wasteful, because starting each one has a cost. So <strong>pack</strong> several runs into each task.</p>
@@ -166,6 +186,11 @@ LAST=$(( (N + PER - 1) / PER - 1 ))
 echo &quot;$N cases, tasks 0 to $LAST&quot;
 
 sbatch --array=0-$LAST run_sweep.sh cases $PER</code></pre>
+<div class="output">
+<p><strong>What you should see from the echo line</strong></p>
+<pre class="text"><code>27 cases, tasks 0 to 5</code></pre>
+</div>
+<p>The <code>sbatch</code> line then prints the number of your job, which differs each time.</p>
 <p>A useful extra: <code>--array=0-99%10</code> runs at most 10 tasks at once, which is polite on a busy system.</p>
 <h2 id="step-5-did-it-all-work">Step 5: did it all work?</h2>
 <pre class="bash"><code># cluster
@@ -180,29 +205,40 @@ tail -2 logs/sweep_*_0.out            # read one log</code></pre>
 # ${f%.out} strips the ending, and $(cat &quot;$f&quot;) inserts the file&#39;s contents
 for f in cases/*.out; do echo &quot;$(basename &quot;${f%.out}&quot;),$(cat &quot;$f&quot;)&quot;; done &gt; results.csv
 head -3 results.csv</code></pre>
+<div class="output">
+<p><strong>What you should see from head</strong></p>
+<pre class="text"><code>case_000,11016.0
+case_001,12240.0
+case_002,13464.0</code></pre>
+</div>
 <pre class="powershell"><code># laptop
 scp kelvin:~/project/results.csv &quot;D:\My Work&quot;</code></pre>
 <h2 id="choosing-a-packing">Choosing a packing</h2>
 <table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th>Few runs per task (many tasks)</th>
 <th>Many runs per task (few tasks)</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Finishes</td>
 <td>Sooner, if cores are free</td>
 <td>Later: each task takes longer</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Overhead</td>
 <td>Higher: more starts, more load on the scheduler</td>
 <td>Lower</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>After a failure</td>
 <td>Less lost</td>
 <td>More to redo, unless it is restart-safe</td>

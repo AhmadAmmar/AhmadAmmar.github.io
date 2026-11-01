@@ -15,6 +15,37 @@ git pull                    # fetch others' commits
 git clone <address>         # copy a project to your computer
 ```
 
+This run pushed to a test copy on the same computer rather than to GitHub, so its address is shortened. A push to GitHub also shows progress lines, and asks you to sign in the first time.
+
+::: {.output}
+**What you should see**
+
+```text
+$ git push -u origin main
+To .../empty.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+$ git remote -v
+origin	.../empty.git (fetch)
+origin	.../empty.git (push)
+
+$ git pull
+From .../empty
+   b889be1..4912949  main       -> origin/main
+Updating b889be1..4912949
+Fast-forward
+ results.txt | 1 +
+ 1 file changed, 1 insertion(+)
+```
+:::
+
+After a real push, your project's page on GitHub shows the files, with the latest commit message beside each one. This is my pamphlet project's page, with the account name and picture hidden:
+
+::: {.shown}
+![A repository page on GitHub, with the account name and picture hidden.](img/github-repository.png){alt="A GitHub repository page. Tabs for Code, Issues, Pull requests and Actions run across the top. Below them are the branch and tag counts, a list of folders with the latest commit message and age of each, and an About panel on the right."}
+:::
+
 Before making anything public, check it for secrets and for unpublished work. Git keeps history, so deleting a file later doesn't remove it from past commits.
 
 ## Issues and pull requests

@@ -38,104 +38,104 @@ out: teaching/hpc/troubleshooting/index.html
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Symptom</th>
 <th>Likely cause</th>
 <th>Fix</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>Permission denied (publickey)</code></td>
 <td>Wrong key, username or port, or the key is not installed yet</td>
 <td>Check <code>.ssh/config</code>, and that the cluster has your key</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Host identification warning</td>
 <td>A login node you have not met, or a real problem</td>
 <td>Read your cluster's guidance before accepting</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>scp</code>: "No such file" with a stray <code>"</code></td>
 <td>Trailing backslash in a Windows path</td>
 <td>Remove the backslash</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>scp</code>: wrong port</td>
 <td><code>-p</code> instead of <code>-P</code></td>
 <td><code>scp</code> uses capital <code>-P</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>Killed</code> on the login node</td>
 <td>Too much memory on a shared node</td>
 <td>Use <code>srun</code> or <code>sbatch</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>CondaError: Run 'conda init'</code></td>
 <td>Shell not set up for conda</td>
 <td><code>conda init</code>, then log in again; or call the environment's Python directly</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>EnvironmentLocationNotFound</code></td>
 <td>The environment was never created, often as an earlier step failed</td>
 <td>Scroll up and fix the first error</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>SRE module mismatch</code> or strange Python errors</td>
 <td><code>PYTHONPATH</code> points at another Python's libraries</td>
 <td><code>unset PYTHONPATH PYTHONHOME</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>No module named ...</code> in a job</td>
 <td>The job is using a different Python</td>
 <td>Call your Python by its full path</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>rustup</code> says no default toolchain</td>
 <td>Only the installer is loaded</td>
 <td><code>rustup default stable</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Downloads fail in a job</td>
 <td>Compute nodes may have restricted internet</td>
 <td>Download on the login node first, and build offline</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>Permission denied</code> on your own files</td>
 <td>Read-only after copying</td>
 <td><code>chmod -R u+w folder</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>$'\r': command not found</code></td>
 <td>Windows line endings</td>
 <td><code>sed -i 's/\r$//' script.sh</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>No log file appears</td>
 <td>The <code>--output</code> folder does not exist</td>
 <td><code>mkdir -p logs</code> before you submit</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>State <code>TIMEOUT</code></td>
 <td>Hit the time limit</td>
 <td>More <code>--time</code>, or a longer partition</td>
 </tr>
-<tr class="even">
+<tr>
 <td>State <code>OUT_OF_MEMORY</code></td>
 <td>Hit the memory limit</td>
 <td>More <code>--mem</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Stuck on <code>PD</code> for ages</td>
 <td>Busy, or you asked for too much</td>
 <td><code>squeue -u $USER</code> shows the reason; ask for less</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Files vanished from scratch</td>
 <td>Purged after no access</td>
 <td>Keep copies elsewhere</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Pasted lines ran in an odd order</td>
 <td>Multi-line paste in a terminal</td>
 <td>Paste one line at a time and check</td>

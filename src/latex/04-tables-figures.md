@@ -24,6 +24,10 @@ A `tabular` builds the grid, and a `table` around it adds a caption and lets it 
 \end{table}
 ```
 
+::: {.shown}
+![The table in the [complete report](../references/), with three walls. Note the horizontal rules, and no vertical ones.](img/table.png){alt="A table captioned Heat loss through a 10 square metre wall at a difference of 15 K. It lists solid brick, unfilled cavity and insulated walls with U-values and heat loss, with horizontal rules only."}
+:::
+
 ## Figures
 
 ```latex
@@ -50,6 +54,10 @@ Use PDF or SVG-derived vector files for plots, as they stay sharp at any size. U
   \end{axis}
 \end{tikzpicture}
 ```
+
+::: {.shown}
+![The same plot compiled in the complete report. Its labels use the same font as the text.](img/figure.png){alt="A line chart with U-value on the horizontal axis and heat loss in watts on the vertical axis. Three points rise in a straight line from about 68 to 315 watts. The caption reads Figure 1: Heat loss rises in proportion to the U-value."}
+:::
 
 For anything complex, generate the figure with a script, such as Python with Matplotlib, and include the file. Then the figure can be rebuilt from its data.
 

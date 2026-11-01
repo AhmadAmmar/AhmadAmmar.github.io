@@ -24,6 +24,20 @@ The class sets the overall type of document.
 \tableofcontents
 ```
 
+In a complete `report`, the title page, the contents and each chapter start on new pages:
+
+!include examples/chapters.tex latex
+
+Compile it twice, because the contents are only known after the first run.
+
+::: {.shown .page-row}
+![Title page](img/chapters-title.png){alt="A title page with the title Heat Loss Through a Wall, the author A Student and the date, centred on an otherwise empty page."}
+
+![Contents](img/chapters-contents.png){alt="A contents page listing chapter 1 Method with section 1.1 Data and subsection 1.1.1 Cleaning, then chapter 2 Results, with page numbers."}
+
+![First chapter](img/chapters-chapter.png){alt="A page headed Chapter 1, Method, with numbered headings 1.1 Data and 1.1.1 Cleaning, then an unnumbered heading Thanks."}
+:::
+
 Numbers come automatically, and adding a star, as in `\section*{Thanks}`, leaves a heading unnumbered and out of the contents. Split long documents into files with `\input{chapter1}`.
 
 ## Text and fonts

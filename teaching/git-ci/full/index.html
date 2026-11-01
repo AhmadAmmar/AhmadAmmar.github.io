@@ -113,17 +113,67 @@
 <section id="ch-git-basics">
 <h2>Git basics</h2>
 <h3 id="git-basics-the-idea">The idea</h3>
+<p>The blocks labelled "What you should see" in this guide come from running these commands in a test folder. Your commit codes, dates and folder names will differ, <code>...</code> marks a shortened folder path, and very long output is trimmed.</p>
 <p>Git is a program that records versions of a folder. Each saved version, called a <em>commit</em>, stores what changed, who changed it, when and why. Nothing committed is lost, so you never need files such as <code>final_v2_really_final.docx</code>.</p>
 <p>Install it from <a href="https://git-scm.com">git-scm.com</a>, then tell it who you are, once:</p>
 <pre class="bash"><code>git config --global user.name &quot;Your Name&quot;
 git config --global user.email &quot;you@example.org&quot;</code></pre>
 <h3 id="git-basics-the-everyday-cycle">The everyday cycle</h3>
-<pre class="bash"><code>git init                 # start tracking this folder, once
+<pre class="bash"><code>git init -b main         # start tracking this folder, once, on a branch called main
 git status               # what has changed?
 git diff                 # show the changes, line by line
 git add results.txt      # choose what goes in the next version
 git commit -m &quot;Correct the mean&quot;   # save that version, with a reason
 git log --oneline        # list the versions</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git init -b main
+Initialized empty Git repository in .../project/.git/
+
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+    notes.txt
+    results.txt
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+
+$ git add results.txt
+$ git commit -m &quot;First results&quot;
+[main (root-commit) 4f2d1b0] First results
+ 1 file changed, 1 insertion(+)
+ create mode 100644 results.txt</code></pre>
+</div>
+<p>Now change the number in <code>results.txt</code> and look again. In <code>git status --short</code>, <code>M</code> means modified and <code>??</code> means not tracked. In <code>git diff</code>, a line starting <code>-</code> was removed and a line starting <code>+</code> was added.</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git status --short
+ M results.txt
+?? notes.txt
+
+$ git diff
+diff --git a/results.txt b/results.txt
+index 62b900e..de5c1f9 100644
+--- a/results.txt
++++ b/results.txt
+@@ -1 +1 @@
+-The mean is 10.
++The mean is 12.
+
+$ git add results.txt
+$ git commit -m &quot;Correct the mean&quot;
+[main 2f4cdbe] Correct the mean
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git log --oneline
+2f4cdbe Correct the mean
+4f2d1b0 First results</code></pre>
+</div>
+<p>Without <code>-b main</code>, this version of Git names the first branch <code>master</code> and prints a long hint about it. The rest of this guide uses <code>main</code>.</p>
 <p>The <code>add</code> step exists so that one commit can hold one logical change, even if you changed other files too.</p>
 <h3 id="git-basics-try-it-safely">Try it safely</h3>
 <p>This script makes a new folder and goes through the whole cycle. Read it, then run it.</p>
@@ -162,6 +212,20 @@ git merge -q idea
 git revert --no-edit HEAD
 git log --oneline
 cat results.txt</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code> results.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[main ab8a9f9] Revert &quot;Add the median&quot;
+ Date: Sun Nov 1 16:26:34 2026 +0000
+ 1 file changed, 1 deletion(-)
+ab8a9f9 Revert &quot;Add the median&quot;
+bd9ec39 Add the median
+6f32cdc Correct the mean
+8c59d4e First results
+The mean is 12.</code></pre>
+</div>
+<p>The last line matters: the median has gone from the file, yet all four versions are still in the history.</p>
 <h3 id="git-basics-what-to-track">What to track</h3>
 <p>Track what you write by hand: text, code and small inputs. Don't track what can be regenerated, large data, or anything secret. A file called <code>.gitignore</code> lists what to skip:</p>
 <pre class="text"><code>__pycache__/
@@ -169,6 +233,13 @@ cat results.txt</code></pre>
 build/
 data/raw/
 .env</code></pre>
+<p>With that file in place, and <code>run.log</code>, <code>.env</code> and <code>build/a.pdf</code> in the folder, Git no longer mentions them:</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git status --short
+?? .gitignore
+?? notes.txt</code></pre>
+</div>
 <h3 id="git-basics-good-commit-messages">Good commit messages</h3>
 <p>Write what changed and why, briefly, such as <code>Correct the living-wage year</code>. Commit often, in small steps, so that each can be understood or undone by itself.</p>
 
@@ -181,11 +252,70 @@ data/raw/
 # ... work and commit ...
 git switch main          # go back
 git merge idea           # bring the work in</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git switch -c idea
+Switched to a new branch &#39;idea&#39;
+
+$ git commit -m &quot;Add the median&quot;
+[idea 9b0de38] Add the median
+ 1 file changed, 1 insertion(+)
+
+$ git switch main
+Switched to branch &#39;main&#39;
+
+$ git merge idea
+Updating 3545826..9b0de38
+Fast-forward
+ results.txt | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
+</div>
 <p>If two branches changed the same lines, Git asks you to choose. Open the file, keep what you want, delete the markers, then <code>git add</code> and <code>git commit</code>.</p>
+<p>Here is a real conflict, where one branch set the mean to 13 and <code>main</code> set it to 14. The file then holds both versions between markers:</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git merge left
+Auto-merging results.txt
+CONFLICT (content): Merge conflict in results.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ cat results.txt
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+The mean is 14.
+=======
+The mean is 13.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; left
+The median is 11.</code></pre>
+</div>
 <h3 id="history-tags">Tags</h3>
 <p>A tag gives a version a permanent name, such as what you sent to a journal.</p>
 <pre class="bash"><code>git tag -a submitted-2026-11-01 -m &quot;Sent to the journal&quot;
 git push origin submitted-2026-11-01</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git tag
+submitted-2026-11-01
+
+$ git show --no-patch submitted-2026-11-01
+tag submitted-2026-11-01
+Tagger: Your Name &lt;you@example.org&gt;
+Date:   Sun Nov 1 16:26:36 2026 +0000
+
+Sent to the journal
+
+commit 9b0de3816b57169335da0ad020b08419b9cec876
+Author: Your Name &lt;you@example.org&gt;
+Date:   Sun Nov 1 16:26:35 2026 +0000
+
+    Add the median</code></pre>
+</div>
+<p>Once pushed, tags are listed on the project's page on GitHub, each with its commit and a download of the files at that point. These are the tags of my pamphlet project:</p>
+<div class="shown">
+<figure>
+<img src="../../../teaching/git-ci/img/github-tags.png" alt="A GitHub tags page listing five dated tags. Each row shows the tag name, how long ago it was made, a short commit code, and zip and tar.gz download links." />
+<figcaption>The tags of a public repository on GitHub.</figcaption>
+</figure>
+</div>
 <h3 id="history-going-back">Going back</h3>
 <table>
 <colgroup>
@@ -193,34 +323,47 @@ git push origin submitted-2026-11-01</code></pre>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>You want to</th>
 <th>Use</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>See an old version</td>
 <td><code>git switch --detach &lt;tag or commit&gt;</code>, then <code>git switch main</code> to return</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Undo a commit, keeping the history</td>
 <td><code>git revert &lt;commit&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Get one old file back</td>
 <td><code>git restore --source &lt;commit&gt; file.txt</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Discard edits you haven't committed</td>
 <td><code>git restore file.txt</code>, which can't be undone</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Find which commit broke something</td>
 <td><code>git bisect</code></td>
 </tr>
 </tbody>
 </table>
+<div class="output">
+<p><strong>What you should see: looking at an old version</strong></p>
+<pre class="text"><code>$ git switch --detach submitted-2026-11-01
+HEAD is now at 9b0de38 Add the median
+
+$ cat results.txt
+The mean is 12.
+The median is 11.
+
+$ git switch main
+Previous HEAD position was 9b0de38 Add the median
+Switched to branch &#39;main&#39;</code></pre>
+</div>
 <p>Prefer <code>revert</code> over rewriting history. Commands such as <code>git reset --hard</code> and <code>git push --force</code> can destroy work, so check what they do before using them.</p>
 <h3 id="history-a-sensible-rule-for-versions">A sensible rule for versions</h3>
 <p>Keep one working copy of each file under Git, and stop putting versions in file names. For data, which is too large for Git, use dated read-only folders with recorded checksums, as described in the <a href="#ch-backups">backups chapter</a>.</p>
@@ -234,6 +377,33 @@ git push origin submitted-2026-11-01</code></pre>
 git push -u origin main     # send your commits
 git pull                    # fetch others&#39; commits
 git clone &lt;address&gt;         # copy a project to your computer</code></pre>
+<p>This run pushed to a test copy on the same computer rather than to GitHub, so its address is shortened. A push to GitHub also shows progress lines, and asks you to sign in the first time.</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git push -u origin main
+To .../empty.git
+ * [new branch]      main -&gt; main
+branch &#39;main&#39; set up to track &#39;origin/main&#39;.
+
+$ git remote -v
+origin  .../empty.git (fetch)
+origin  .../empty.git (push)
+
+$ git pull
+From .../empty
+   b889be1..4912949  main       -&gt; origin/main
+Updating b889be1..4912949
+Fast-forward
+ results.txt | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
+</div>
+<p>After a real push, your project's page on GitHub shows the files, with the latest commit message beside each one. This is my pamphlet project's page, with the account name and picture hidden:</p>
+<div class="shown">
+<figure>
+<img src="../../../teaching/git-ci/img/github-repository.png" alt="A GitHub repository page. Tabs for Code, Issues, Pull requests and Actions run across the top. Below them are the branch and tag counts, a list of folders with the latest commit message and age of each, and an About panel on the right." />
+<figcaption>A repository page on GitHub, with the account name and picture hidden.</figcaption>
+</figure>
+</div>
 <p>Before making anything public, check it for secrets and for unpublished work. Git keeps history, so deleting a file later doesn't remove it from past commits.</p>
 <h3 id="github-issues-and-pull-requests">Issues and pull requests</h3>
 <ul>
@@ -247,29 +417,29 @@ git clone &lt;address&gt;         # copy a project to your computer</code></pre>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>File</th>
 <th>Purpose</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>README.md</code></td>
 <td>What this is, and how to use it</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>LICENSE</code></td>
 <td>What others may do with it. Without one, they have no clear right to reuse it</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>CONTRIBUTING.md</code></td>
 <td>How to help</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>CITATION.cff</code></td>
 <td>How to cite it</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>.github/ISSUE_TEMPLATE/</code></td>
 <td>Forms that ask for the right details</td>
 </tr>
@@ -313,6 +483,49 @@ def test_impossible_input_is_refused():
         heat_loss(-1, 10, 15)</code></pre>
 <pre class="bash"><code>pip install pytest
 python -m pytest</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ python -m pytest
+============================= test session starts =============================
+platform win32 -- Python 3.12.12, pytest-9.2.0, pluggy-1.7.0
+rootdir: ...\py
+plugins: platformdirs-4.14.2
+collected 3 items
+
+test_calc.py ...                                                         [100%]
+
+============================== 3 passed in 0.09s ==============================</code></pre>
+</div>
+<p>Each dot is a passing test. To see a failure, I changed <code>u * area * delta_t</code> to <code>u * area + delta_t</code> in <code>calc.py</code>, as if by a slip of the finger. The code still runs without any error, but the tests catch it:</p>
+<div class="output">
+<p><strong>What you should see when a test fails (first lines trimmed)</strong></p>
+<pre class="text"><code>test_calc.py FF.                                                         [100%]
+
+================================== FAILURES ===================================
+______________________________ test_known_answer ______________________________
+
+    def test_known_answer():
+&gt;       assert heat_loss(2.1, 10, 15) == pytest.approx(315)
+E       assert 36.0 == 315 ± 3.1e-04
+E
+E         comparison failed
+E         Obtained: 36.0
+E         Expected: 315 ± 3.1e-04
+
+test_calc.py:8: AssertionError
+________________ test_no_temperature_difference_means_no_loss _________________
+
+    def test_no_temperature_difference_means_no_loss():
+&gt;       assert heat_loss(2.1, 10, 0) == 0
+E       assert 21.0 == 0
+E        +  where 21.0 = heat_loss(2.1, 10, 0)
+
+test_calc.py:12: AssertionError
+=========================== short test summary info ===========================
+FAILED test_calc.py::test_known_answer - assert 36.0 == 315 ± 3.1e-04
+FAILED test_calc.py::test_no_temperature_difference_means_no_loss - assert 21...
+========================= 2 failed, 1 passed in 0.33s =========================</code></pre>
+</div>
 <h3 id="testing-kinds-of-test-for-research">Kinds of test for research</h3>
 <table>
 <colgroup>
@@ -321,44 +534,44 @@ python -m pytest</code></pre>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Test</th>
 <th>Question</th>
 <th>Example</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><strong>Known answer</strong></td>
 <td>Does it match a hand calculation?</td>
 <td>2.1 x 10 x 15 = 315</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Limit case</strong></td>
 <td>Does it behave at the extremes?</td>
 <td>No temperature gap gives no heat loss</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>Invariant</strong></td>
 <td>Does a rule always hold?</td>
 <td>Total price equals total value</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Simulated data</strong></td>
 <td>Can it recover a truth you planted?</td>
 <td>A model finds a jump you added</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>Data check</strong></td>
 <td>Is the data as expected?</td>
 <td>No duplicates, values in range</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>Independent recalculation</strong></td>
 <td>Do two separate methods agree?</td>
 <td>The same estimate from different code</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>Rendered output</strong></td>
 <td>Does the result look right to readers?</td>
 <td>A browser opens each page</td>
@@ -410,6 +623,17 @@ jobs:
 <li>If any step fails, the run fails, and GitHub shows a red cross.</li>
 </ul>
 <p>See the results under the repository's <em>Actions</em> tab. Read the failing step's log from the bottom up, and find the first real error.</p>
+<p>These are the <em>Actions</em> tab and one run from my pamphlet project, with the account name hidden. A green tick means every step passed.</p>
+<div class="shown">
+<figure>
+<img src="../../../teaching/git-ci/img/github-actions.png" alt="A list of four workflow runs on GitHub, each with a green tick, a commit message, a commit code, the branch main, the date and the time taken, between about four and six minutes." />
+<figcaption>The Actions tab lists each run with its outcome and how long it took.</figcaption>
+</figure>
+<figure>
+<img src="../../../teaching/git-ci/img/github-run.png" alt="One workflow run on GitHub with status Success and a total time of 4 minutes 32 seconds. A diagram shows a build job followed by a deploy job, both with green ticks." />
+<figcaption>One run: the deploy job starts only after the build job passes.</figcaption>
+</figure>
+</div>
 <h3 id="ci-from-testing-to-publishing">From testing to publishing</h3>
 <p>A publishing workflow adds a job that only runs after the checks succeed. This is how my <a href="https://github.com/AhmadAmmar/marxist-economics/blob/main/.github/workflows/deploy-pages.yml">pamphlet's workflow</a> works:</p>
 <ol type="1">
@@ -458,25 +682,25 @@ jobs:
 <h3 id="pipelines-tools-for-larger-projects">Tools for larger projects</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Tool</th>
 <th>Good for</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>make</code>, Snakemake, Nextflow</td>
 <td>Rebuilding only what changed</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Conda, <code>venv</code>, <code>uv</code></td>
 <td>Python environments</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Docker, Apptainer</td>
 <td>Whole environments, including on HPC</td>
 </tr>
-<tr class="even">
+<tr>
 <td>DVC, DataLad, Git LFS</td>
 <td>Versioning large data</td>
 </tr>
@@ -494,11 +718,35 @@ jobs:
 <li><strong>Record checksums</strong>, which are fingerprints that change if a file changes: <code>sha256sum *.csv &gt; MANIFEST.sha256</code>, and check later with <code>sha256sum -c MANIFEST.sha256</code>.</li>
 <li><strong>Note the source</strong> of each dataset: its address, date and licence.</li>
 </ul>
+<div class="output">
+<p><strong>What you should see when nothing has changed</strong></p>
+<pre class="text"><code>$ sha256sum -c MANIFEST.sha256
+a.csv: OK
+b.csv: OK</code></pre>
+</div>
+<div class="output">
+<p><strong>What you should see after someone edits b.csv</strong></p>
+<pre class="text"><code>$ sha256sum -c MANIFEST.sha256
+a.csv: OK
+b.csv: FAILED
+sha256sum: WARNING: 1 computed checksum did NOT match</code></pre>
+</div>
 <h3 id="backups-backups">Backups</h3>
 <p>Git is not a backup until a copy exists elsewhere, and a private repository on one laptop can be lost with that laptop. The common rule is <strong>3-2-1</strong>: three copies, on two kinds of storage, with one somewhere else.</p>
 <p>Syncing services such as OneDrive aren't enough on their own, because they also sync deletions and corruption. And <strong>a backup you've never restored is only a hope</strong>, so test one:</p>
 <pre class="bash"><code>git bundle create project.bundle --all     # one file holding a repository&#39;s whole history
 git clone project.bundle restore-test      # prove that it comes back</code></pre>
+<p><code>git bundle create</code> prints nothing when it runs inside a script, as here, and shows progress when you type it yourself. Then read the restored history to check it:</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git clone project.bundle restore-test
+Cloning into &#39;restore-test&#39;...
+
+$ git -C restore-test log --oneline -3
+4912949 Colleague edit
+b889be1 Merge left, keeping 14
+a0a50db Main change</code></pre>
+</div>
 <p>Databases and uploaded files don't live in Git, so they need their own backups, including an encrypted copy off-site.</p>
 <h3 id="backups-releases">Releases</h3>
 <p>Whenever something leaves your hands, freeze a copy.</p>
@@ -518,37 +766,23 @@ git clone project.bundle restore-test      # prove that it comes back</code></pr
 <h2>Checklists and cheat sheet</h2>
 <h3 id="checklist-starting-a-project">Starting a project</h3>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />
-<code>git init</code>, a README and a <code>.gitignore</code></li>
-<li><input type="checkbox" disabled="" />
-A folder layout that separates raw data, code and outputs</li>
-<li><input type="checkbox" disabled="" />
-A recorded environment</li>
-<li><input type="checkbox" disabled="" />
-A first test</li>
-<li><input type="checkbox" disabled="" />
-A remote copy and a backup</li>
-<li><input type="checkbox" disabled="" />
-A licence, if it's going public</li>
+<li><label><input type="checkbox" /><code>git init</code>, a README and a <code>.gitignore</code></label></li>
+<li><label><input type="checkbox" />A folder layout that separates raw data, code and outputs</label></li>
+<li><label><input type="checkbox" />A recorded environment</label></li>
+<li><label><input type="checkbox" />A first test</label></li>
+<li><label><input type="checkbox" />A remote copy and a backup</label></li>
+<li><label><input type="checkbox" />A licence, if it's going public</label></li>
 </ul>
 <h3 id="checklist-before-sending-anything-out">Before sending anything out</h3>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />
-All changes committed</li>
-<li><input type="checkbox" disabled="" />
-Tests and checks pass</li>
-<li><input type="checkbox" disabled="" />
-Built from clean, on the current source</li>
-<li><input type="checkbox" disabled="" />
-Every stated number traced to a result</li>
-<li><input type="checkbox" disabled="" />
-Links and references tested</li>
-<li><input type="checkbox" disabled="" />
-Read by a person against its sources</li>
-<li><input type="checkbox" disabled="" />
-Frozen as a dated release, with a tag and checksums</li>
-<li><input type="checkbox" disabled="" />
-Backed up</li>
+<li><label><input type="checkbox" />All changes committed</label></li>
+<li><label><input type="checkbox" />Tests and checks pass</label></li>
+<li><label><input type="checkbox" />Built from clean, on the current source</label></li>
+<li><label><input type="checkbox" />Every stated number traced to a result</label></li>
+<li><label><input type="checkbox" />Links and references tested</label></li>
+<li><label><input type="checkbox" />Read by a person against its sources</label></li>
+<li><label><input type="checkbox" />Frozen as a dated release, with a tag and checksums</label></li>
+<li><label><input type="checkbox" />Backed up</label></li>
 </ul>
 <h3 id="checklist-cheat-sheet">Cheat sheet</h3>
 <pre class="bash"><code>git status                 # what changed?

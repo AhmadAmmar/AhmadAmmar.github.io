@@ -134,6 +134,17 @@ Hello, world. One plus one is $1 + 1 = 2$.
 \end{document}</code></pre>
 <p>Compile it with:</p>
 <pre class="bash"><code>pdflatex minimal</code></pre>
+<div class="output">
+<p><strong>What you should see at the end of the run</strong></p>
+<pre class="text"><code>Output written on minimal.pdf (1 page, 15054 bytes).
+Transcript written on minimal.log.</code></pre>
+</div>
+<div class="shown">
+<figure>
+<img src="../../../teaching/latex/img/minimal.png" alt="A line of text reading: Hello, world. One plus one is 1 + 1 = 2, with the sum set in maths." />
+<figcaption>The top of minimal.pdf.</figcaption>
+</figure>
+</div>
 <p>This makes <code>minimal.pdf</code>, plus helper files such as <code>minimal.log</code>, which records what happened, and <code>minimal.aux</code>, which remembers numbers between runs.</p>
 <h3 id="basics-the-parts-of-a-document">The parts of a document</h3>
 <ul>
@@ -155,25 +166,45 @@ Hello, world. One plus one is $1 + 1 = 2$.
 bibtex main
 pdflatex main
 pdflatex main</code></pre>
+<p>On the first run of the <a href="#ch-references">complete report</a>, LaTeX doesn't yet know the numbers, so it says so. These warnings are normal at this stage, and they went away after the full sequence:</p>
+<div class="output">
+<p><strong>What you should see (only the warning and result lines)</strong></p>
+<pre class="text"><code>$ pdflatex main
+Package natbib Warning: Citation `clarke2001&#39; on page 1 undefined on input line
+LaTeX Warning: Reference `sec:method&#39; on page 1 undefined on input line 30.
+LaTeX Warning: Reference `tab:walls&#39; on page 1 undefined on input line 31.
+LaTeX Warning: Reference `fig:loss&#39; on page 1 undefined on input line 31.
+LaTeX Warning: Reference `eq:loss&#39; on page 1 undefined on input line 39.
+Package natbib Warning: There were undefined citations.
+LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+$ pdflatex main     (the last run of the sequence)
+Output written on main.pdf (2 pages, 107972 bytes).</code></pre>
+</div>
 <p>The tool <code>latexmk -pdf main</code> works out how many runs are needed and does them for you, though it needs Perl on Windows.</p>
 <h3 id="basics-choosing-an-engine">Choosing an engine</h3>
 <table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Engine</th>
 <th>Use it when</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>pdflatex</code></td>
 <td>The default for most documents, with the widest compatibility</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>xelatex</code></td>
 <td>You want system fonts, or scripts such as Urdu and Arabic</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>lualatex</code></td>
 <td>You want system fonts plus scripting with Lua</td>
 </tr>
@@ -193,25 +224,25 @@ l.12 \sectoin
 <p>The class sets the overall type of document.</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Class</th>
 <th>For</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>article</code></td>
 <td>Papers and short reports</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>report</code></td>
 <td>Long reports with chapters</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>book</code></td>
 <td>Books</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>beamer</code></td>
 <td>Slides</td>
 </tr>
@@ -222,6 +253,49 @@ l.12 \sectoin
 \subsection{Data}
 \subsubsection{Cleaning}
 \tableofcontents</code></pre>
+<p>In a complete <code>report</code>, the title page, the contents and each chapter start on new pages:</p>
+<p><strong>chapters.tex</strong></p>
+<pre class="latex"><code>% A long document with a title page, contents and chapters. Build: pdflatex chapters, twice
+\documentclass[11pt,a4paper]{report}
+
+\title{Heat Loss Through a Wall}
+\author{A Student}
+\date{1 November 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Method}
+Heat flows through a wall in proportion to its area and the temperature difference.
+
+\section{Data}
+The walls come from a small survey.
+
+\subsection{Cleaning}
+Walls with no recorded U-value were left out.
+
+\section*{Thanks}
+A starred heading has no number, and stays out of the contents.
+
+\chapter{Results}
+Insulated walls lose the least heat.
+\end{document}</code></pre>
+<p>Compile it twice, because the contents are only known after the first run.</p>
+<div class="shown page-row">
+<figure>
+<img src="../../../teaching/latex/img/chapters-title.png" alt="A title page with the title Heat Loss Through a Wall, the author A Student and the date, centred on an otherwise empty page." />
+<figcaption>Title page</figcaption>
+</figure>
+<figure>
+<img src="../../../teaching/latex/img/chapters-contents.png" alt="A contents page listing chapter 1 Method with section 1.1 Data and subsection 1.1.1 Cleaning, then chapter 2 Results, with page numbers." />
+<figcaption>Contents</figcaption>
+</figure>
+<figure>
+<img src="../../../teaching/latex/img/chapters-chapter.png" alt="A page headed Chapter 1, Method, with numbered headings 1.1 Data and 1.1.1 Cleaning, then an unnumbered heading Thanks." />
+<figcaption>First chapter</figcaption>
+</figure>
+</div>
 <p>Numbers come automatically, and adding a star, as in <code>\section*{Thanks}</code>, leaves a heading unnumbered and out of the contents. Split long documents into files with <code>\input{chapter1}</code>.</p>
 <h3 id="text-text-and-fonts">Text and fonts</h3>
 <pre class="latex"><code>\emph{emphasis}  \textbf{bold}  \texttt{code}  \underline{underlined}
@@ -268,48 +342,83 @@ l.12 \sectoin
   E = mc^2
   \label{eq:energy}
 \end{equation}</code></pre>
+<p>In the file below, these forms and some of the building blocks come together. Only the numbered equations get a number at the right.</p>
+<div class="code-result">
+<div>
+<p><strong>maths.tex</strong></p>
+<pre class="latex"><code>% The maths from this chapter in one document. Build: pdflatex maths
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+
+\begin{document}
+The energy is $E = mc^2$ here.
+
+\[ E = mc^2 \]
+
+\begin{equation}
+  E = mc^2
+  \label{eq:energy}
+\end{equation}
+
+\begin{align}
+  r &amp;= \frac{s}{c + v} \\
+    &amp;= \frac{e v}{c + v} \\
+    &amp;= \frac{e}{1 + c/v}.
+\end{align}
+
+Building blocks: $x_{i,j}$, $\sqrt{x}$, $\alpha$, $\Delta$, $\sum_{i=1}^{n} x_i$,
+$\int_0^1 x \, dx$, $a \approx b$ and $\left( \frac{a}{b} \right)$.
+\end{document}</code></pre>
+</div>
+<div class="shown">
+<figure>
+<img src="../../../teaching/latex/img/maths.png" alt="The compiled maths: the sentence The energy is E = mc squared here, the same equation displayed without a number, then numbered 1. Three aligned lines numbered 2 to 4 follow, with equals signs lined up. A last line shows subscripts, a square root, Greek letters, a sum, an integral and large brackets." />
+<figcaption>What that file compiles to.</figcaption>
+</figure>
+</div>
+</div>
 <h3 id="maths-the-building-blocks">The building blocks</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>You want</th>
 <th>You write</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Superscript and subscript</td>
 <td><code>x^2</code>, <code>x_i</code>, <code>x_{i,j}</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Fraction</td>
 <td><code>\frac{a}{b}</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Square root</td>
 <td><code>\sqrt{x}</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Greek letters</td>
 <td><code>\alpha</code>, <code>\mu</code>, <code>\Delta</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Sum and integral</td>
 <td><code>\sum_{i=1}^{n}</code>, <code>\int_0^1</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Operators and relations</td>
 <td><code>\times</code>, <code>\approx</code>, <code>\leq</code>, <code>\rightarrow</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Words in maths</td>
 <td><code>\text{hours}</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Spacing</td>
 <td><code>\,</code> small, <code>\quad</code> wide</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Brackets that grow</td>
 <td><code>\left( \frac{a}{b} \right)</code></td>
 </tr>
@@ -352,6 +461,12 @@ l.12 \sectoin
     \bottomrule
   \end{tabular}
 \end{table}</code></pre>
+<div class="shown">
+<figure>
+<img src="../../../teaching/latex/img/table.png" alt="A table captioned Heat loss through a 10 square metre wall at a difference of 15 K. It lists solid brick, unfilled cavity and insulated walls with U-values and heat loss, with horizontal rules only." />
+<figcaption>The table in the <a href="#ch-references">complete report</a>, with three walls. Note the horizontal rules, and no vertical ones.</figcaption>
+</figure>
+</div>
 <h3 id="tables-figures-figures">Figures</h3>
 <pre class="latex"><code>\usepackage{graphicx}
 
@@ -369,6 +484,12 @@ l.12 \sectoin
     \addplot coordinates {(0.45,68) (1.5,225) (2.1,315)};
   \end{axis}
 \end{tikzpicture}</code></pre>
+<div class="shown">
+<figure>
+<img src="../../../teaching/latex/img/figure.png" alt="A line chart with U-value on the horizontal axis and heat loss in watts on the vertical axis. Three points rise in a straight line from about 68 to 315 watts. The caption reads Figure 1: Heat loss rises in proportion to the U-value." />
+<figcaption>The same plot compiled in the complete report. Its labels use the same font as the text.</figcaption>
+</figure>
+</div>
 <p>For anything complex, generate the figure with a script, such as Python with Matplotlib, and include the file. Then the figure can be rebuilt from its data.</p>
 <h3 id="tables-figures-introducing-them-properly">Introducing them properly</h3>
 <p>Every table and figure should be mentioned in the text before it appears, and each needs a caption that says what it shows. Put the <code>\label</code> after the <code>\caption</code>, or the reference will point to the section number instead. Floats move: <code>[ht]</code> asks for here or the top of a page, which is why you should refer to "Table 1" and not "the table below".</p>
@@ -479,6 +600,17 @@ Find this project&#39;s source at \url{https://ahmadammar.github.io/teaching/lat
 \bibliographystyle{plainnat}
 \bibliography{refs}
 \end{document}</code></pre>
+<p>It compiles to these two pages. The links are coloured teal, and every number comes from a label.</p>
+<div class="shown page-row">
+<figure>
+<img src="../../../teaching/latex/img/report-page-1.png" alt="Page 1 of the report: title, author and date, a contents list, then Introduction, Method with numbered equations, Results with a table, and Conclusion." />
+<figcaption>Page 1</figcaption>
+</figure>
+<figure>
+<img src="../../../teaching/latex/img/report-page-2.png" alt="Page 2 of the report: a line chart captioned Figure 1, then a References heading with one entry, Clarke, Energy Simulation in Building Design." />
+<figcaption>Page 2</figcaption>
+</figure>
+</div>
 
 </section>
 <section id="ch-macros">
@@ -519,65 +651,65 @@ Find this project&#39;s source at \url{https://ahmadammar.github.io/teaching/lat
 <h3 id="macros-useful-packages">Useful packages</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Package</th>
 <th>Purpose</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>amsmath</code></td>
 <td>Mathematics</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>geometry</code></td>
 <td>Page size and margins</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>graphicx</code></td>
 <td>Images</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>booktabs</code></td>
 <td>Clean tables</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>longtable</code>, <code>tabularx</code></td>
 <td>Long and flexible tables</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>xcolor</code></td>
 <td>Colour</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>hyperref</code></td>
 <td>Links</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>cleveref</code></td>
 <td>Automatic reference words</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>natbib</code>, <code>biblatex</code></td>
 <td>Citations</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>siunitx</code></td>
 <td>Numbers and units</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>tikz</code>, <code>pgfplots</code></td>
 <td>Diagrams and plots</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>glossaries</code></td>
 <td>Glossaries and acronyms</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>tcolorbox</code></td>
 <td>Coloured boxes</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>beamer</code></td>
 <td>Slides, as a class</td>
 </tr>
@@ -607,6 +739,21 @@ Find this project&#39;s source at \url{https://ahmadammar.github.io/teaching/lat
   \end{itemize}
 \end{frame}
 \end{document}</code></pre>
+<p>It compiles to three PDF pages, because each reveal is its own page:</p>
+<div class="shown page-row">
+<figure>
+<img src="../../../teaching/latex/img/slides-title.png" alt="A slide with the title Heat Loss Through a Wall and the author A Student." />
+<figcaption>Title slide</figcaption>
+</figure>
+<figure>
+<img src="../../../teaching/latex/img/slides-step-1.png" alt="A slide headed The equation, with one bullet point: Heat loss depends on the wall, its area and the temperature." />
+<figcaption>First reveal</figcaption>
+</figure>
+<figure>
+<img src="../../../teaching/latex/img/slides-step-2.png" alt="The same slide with a second bullet added, the equation Q = U A delta T." />
+<figcaption>Second reveal</figcaption>
+</figure>
+</div>
 <p><code>&lt;1-&gt;</code> and <code>&lt;2-&gt;</code> reveal items one click at a time. <code>\usetheme</code> changes the look.</p>
 <h3 id="outputs-posters">Posters</h3>
 <p>The <code>beamerposter</code>, <code>tikzposter</code> and <code>baposter</code> packages make large single pages. Set the paper size, then build it like any other document.</p>
@@ -685,54 +832,54 @@ images_to_pptx(images, &quot;slides.pptx&quot;, notes=[&quot;Read this aloud.&qu
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Message</th>
 <th>Usual cause</th>
 <th>Fix</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>Undefined control sequence</code></td>
 <td>A misspelt command, or a missing package</td>
 <td>Check the spelling, or load the package</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>Missing $ inserted</code></td>
 <td>Maths outside maths mode, or an unescaped <code>_</code> or <code>^</code></td>
 <td>Add <code>$ $</code>, or write <code>\_</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>Missing } inserted</code></td>
 <td>Unbalanced braces</td>
 <td>Find the unmatched <code>{</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>File 'x.sty' not found</code></td>
 <td>A package isn't installed</td>
 <td>Install it, or let MiKTeX do so</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>File 'x' not found</code></td>
 <td>A wrong image or input path</td>
 <td>Check the relative path</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>Citation 'x' undefined</code></td>
 <td>The key is wrong, or BibTeX hasn't run</td>
 <td>Check the key, then run the full sequence</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>Reference 'x' undefined</code></td>
 <td>A missing label, or too few runs</td>
 <td>Add the label, or compile again</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>Overfull \hbox</code></td>
 <td>A line is too wide</td>
 <td>A warning, so rewrite if it's visible</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>Command \x already defined</code></td>
 <td>A name clash</td>
 <td>Rename your command, as with <code>\day</code></td>

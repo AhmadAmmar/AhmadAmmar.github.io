@@ -90,6 +90,17 @@ jobs:
 <li>If any step fails, the run fails, and GitHub shows a red cross.</li>
 </ul>
 <p>See the results under the repository's <em>Actions</em> tab. Read the failing step's log from the bottom up, and find the first real error.</p>
+<p>These are the <em>Actions</em> tab and one run from my pamphlet project, with the account name hidden. A green tick means every step passed.</p>
+<div class="shown">
+<figure>
+<img src="../../../teaching/git-ci/img/github-actions.png" alt="A list of four workflow runs on GitHub, each with a green tick, a commit message, a commit code, the branch main, the date and the time taken, between about four and six minutes." />
+<figcaption>The Actions tab lists each run with its outcome and how long it took.</figcaption>
+</figure>
+<figure>
+<img src="../../../teaching/git-ci/img/github-run.png" alt="One workflow run on GitHub with status Success and a total time of 4 minutes 32 seconds. A diagram shows a build job followed by a deploy job, both with green ticks." />
+<figcaption>One run: the deploy job starts only after the build job passes.</figcaption>
+</figure>
+</div>
 <h2 id="from-testing-to-publishing">From testing to publishing</h2>
 <p>A publishing workflow adds a job that only runs after the checks succeed. This is how my <a href="https://github.com/AhmadAmmar/marxist-economics/blob/main/.github/workflows/deploy-pages.yml">pamphlet's workflow</a> works:</p>
 <ol type="1">

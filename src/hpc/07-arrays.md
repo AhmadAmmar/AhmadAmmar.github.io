@@ -36,6 +36,30 @@ ls cases | head                # case_000.json, case_001.json ...
 python3 heat_loss.py cases/case_000.json && cat cases/case_000.out    # 11016.0
 ```
 
+::: {.output}
+**What you should see**
+
+```text
+$ python3 make_cases.py cases
+wrote 27 cases to cases
+
+$ ls cases | head
+case_000.json
+case_001.json
+case_002.json
+case_003.json
+case_004.json
+case_005.json
+case_006.json
+case_007.json
+case_008.json
+case_009.json
+
+$ python3 heat_loss.py cases/case_000.json && cat cases/case_000.out
+11016.0
+```
+:::
+
 The last line is your test. For the first case, U = 2.1, A = 90, n = 1, V = 200 and DD = 1800, so by hand: (189 + 66) × 1800 × 24 / 1000 = 11016. Then delete that output, with `rm cases/case_000.out`, so that the job below runs every case.
 
 ## Step 3: the job script
@@ -69,6 +93,16 @@ echo "$N cases, tasks 0 to $LAST"
 sbatch --array=0-$LAST run_sweep.sh cases $PER
 ```
 
+::: {.output}
+**What you should see from the echo line**
+
+```text
+27 cases, tasks 0 to 5
+```
+:::
+
+The `sbatch` line then prints the number of your job, which differs each time.
+
 A useful extra: `--array=0-99%10` runs at most 10 tasks at once, which is polite on a busy system.
 
 ## Step 5: did it all work?
@@ -92,6 +126,16 @@ If some failed, resubmit the same command. Because each task skips cases that al
 for f in cases/*.out; do echo "$(basename "${f%.out}"),$(cat "$f")"; done > results.csv
 head -3 results.csv
 ```
+
+::: {.output}
+**What you should see from head**
+
+```text
+case_000,11016.0
+case_001,12240.0
+case_002,13464.0
+```
+:::
 
 ```powershell
 # laptop

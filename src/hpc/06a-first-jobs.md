@@ -88,6 +88,23 @@ sbatch 04_armagh.sh
 cat logs/armagh_*.out
 ```
 
+The first command shows the top of the data file, which is how you learn its layout:
+
+::: {.output}
+**What you should see from head**
+
+```text
+Armagh
+Location: 287800E 345800N (Irish Grid), Lat 54.352 Lon -6.649, 62 metres amsl
+Estimated data is marked with a * after the value.
+Missing data (more than 2 days missing in month) is marked by  ---.
+Sunshine data taken from an automatic Kipp & Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
+   yyyy  mm   tmax    tmin      af    rain     sun
+              degC    degC    days      mm   hours
+   1853   1    ---     ---     ---    57.3     ---
+```
+:::
+
 **Check, for the file in the kit:**
 
 ```text
@@ -115,6 +132,31 @@ cat results/decade_*.csv | sort -t, -k3 -n
 ```
 
 Each line reads decade, years used, mean temperature. **Check:** the coolest is `1880,10,8.65` and the warmest is `2000,10,10.08`.
+
+::: {.output}
+**What you should see**
+
+```text
+$ cat results/decade_*.csv | sort -t, -k3 -n
+1880,10,8.65
+1890,10,8.87
+1900,10,8.91
+1910,10,8.94
+1920,10,9.08
+1960,10,9.11
+1970,10,9.12
+1980,10,9.14
+1930,10,9.27
+1950,10,9.35
+1870,10,9.52
+1940,10,9.58
+1990,10,9.71
+2010,10,9.87
+2000,10,10.08
+```
+:::
+
+These results come from running the same Python scripts on a laptop, with the task number set by hand. On the cluster, the same numbers appear, in the files or logs named above.
 
 The pattern to remember is that the tasks never talk to each other. Each writes its own file, and a simple command joins them at the end.
 
@@ -164,6 +206,27 @@ cat results/ndvi_*.csv
 ```
 
 **Check:** mean NDVI rises steadily from `0.045` in tile 0 to `0.787` in tile 7. Run it again and the numbers stay the same, because the script fixes its random seed.
+
+::: {.output}
+**What you should see**
+
+```text
+$ python3 07_make_tiles.py
+wrote 8 tiles to tiles/
+
+$ cat results/ndvi_*.csv
+0,10000,0.045
+1,10000,0.181
+2,10000,0.304
+3,10000,0.416
+4,10000,0.522
+5,10000,0.616
+6,10000,0.705
+7,10000,0.787
+```
+:::
+
+Each line reads tile, pixels, mean NDVI. These results come from running the same Python scripts on a laptop, with the task number set by hand. On the cluster, the same numbers appear, in the files or logs named above.
 
 ## From exercises to your own project
 

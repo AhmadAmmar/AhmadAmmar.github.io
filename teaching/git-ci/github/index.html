@@ -66,6 +66,33 @@
 git push -u origin main     # send your commits
 git pull                    # fetch others&#39; commits
 git clone &lt;address&gt;         # copy a project to your computer</code></pre>
+<p>This run pushed to a test copy on the same computer rather than to GitHub, so its address is shortened. A push to GitHub also shows progress lines, and asks you to sign in the first time.</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git push -u origin main
+To .../empty.git
+ * [new branch]      main -&gt; main
+branch &#39;main&#39; set up to track &#39;origin/main&#39;.
+
+$ git remote -v
+origin  .../empty.git (fetch)
+origin  .../empty.git (push)
+
+$ git pull
+From .../empty
+   b889be1..4912949  main       -&gt; origin/main
+Updating b889be1..4912949
+Fast-forward
+ results.txt | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
+</div>
+<p>After a real push, your project's page on GitHub shows the files, with the latest commit message beside each one. This is my pamphlet project's page, with the account name and picture hidden:</p>
+<div class="shown">
+<figure>
+<img src="../../../teaching/git-ci/img/github-repository.png" alt="A GitHub repository page. Tabs for Code, Issues, Pull requests and Actions run across the top. Below them are the branch and tag counts, a list of folders with the latest commit message and age of each, and an About panel on the right." />
+<figcaption>A repository page on GitHub, with the account name and picture hidden.</figcaption>
+</figure>
+</div>
 <p>Before making anything public, check it for secrets and for unpublished work. Git keeps history, so deleting a file later doesn't remove it from past commits.</p>
 <h2 id="issues-and-pull-requests">Issues and pull requests</h2>
 <ul>
@@ -79,29 +106,29 @@ git clone &lt;address&gt;         # copy a project to your computer</code></pre>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>File</th>
 <th>Purpose</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>README.md</code></td>
 <td>What this is, and how to use it</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>LICENSE</code></td>
 <td>What others may do with it. Without one, they have no clear right to reuse it</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>CONTRIBUTING.md</code></td>
 <td>How to help</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>CITATION.cff</code></td>
 <td>How to cite it</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>.github/ISSUE_TEMPLATE/</code></td>
 <td>Forms that ask for the right details</td>
 </tr>

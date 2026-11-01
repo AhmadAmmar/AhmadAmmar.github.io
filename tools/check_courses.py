@@ -40,7 +40,7 @@ def examples():
         work = pathlib.Path(t)
         shutil.copytree(ROOT / "teaching/latex/examples", work / "tex", ignore=shutil.ignore_patterns("*.zip"))
         run = lambda c, cwd: subprocess.run(c, cwd=cwd, capture_output=True, text=True, errors="replace")
-        for folder, name, bib in ((work / "tex", "minimal", False), (work / "tex", "slides", False), (work / "tex/report", "main", True)):
+        for folder, name, bib in ((work / "tex", "minimal", False), (work / "tex", "slides", False), (work / "tex", "chapters", False), (work / "tex", "maths", False), (work / "tex/report", "main", True)):
             for c in [["pdflatex", "-interaction=nonstopmode", name]] + ([["bibtex", name]] if bib else []) + [["pdflatex", "-interaction=nonstopmode", name]] * 2:
                 run(c, folder)
             log = (folder / f"{name}.log").read_text(encoding="latin1", errors="replace")

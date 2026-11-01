@@ -33,11 +33,70 @@ out: teaching/git-ci/history/index.html
 # ... work and commit ...
 git switch main          # go back
 git merge idea           # bring the work in</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git switch -c idea
+Switched to a new branch &#39;idea&#39;
+
+$ git commit -m &quot;Add the median&quot;
+[idea 9b0de38] Add the median
+ 1 file changed, 1 insertion(+)
+
+$ git switch main
+Switched to branch &#39;main&#39;
+
+$ git merge idea
+Updating 3545826..9b0de38
+Fast-forward
+ results.txt | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
+</div>
 <p>If two branches changed the same lines, Git asks you to choose. Open the file, keep what you want, delete the markers, then <code>git add</code> and <code>git commit</code>.</p>
+<p>Here is a real conflict, where one branch set the mean to 13 and <code>main</code> set it to 14. The file then holds both versions between markers:</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git merge left
+Auto-merging results.txt
+CONFLICT (content): Merge conflict in results.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+$ cat results.txt
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+The mean is 14.
+=======
+The mean is 13.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; left
+The median is 11.</code></pre>
+</div>
 <h2 id="tags">Tags</h2>
 <p>A tag gives a version a permanent name, such as what you sent to a journal.</p>
 <pre class="bash"><code>git tag -a submitted-2026-11-01 -m &quot;Sent to the journal&quot;
 git push origin submitted-2026-11-01</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git tag
+submitted-2026-11-01
+
+$ git show --no-patch submitted-2026-11-01
+tag submitted-2026-11-01
+Tagger: Your Name &lt;you@example.org&gt;
+Date:   Sun Nov 1 16:26:36 2026 +0000
+
+Sent to the journal
+
+commit 9b0de3816b57169335da0ad020b08419b9cec876
+Author: Your Name &lt;you@example.org&gt;
+Date:   Sun Nov 1 16:26:35 2026 +0000
+
+    Add the median</code></pre>
+</div>
+<p>Once pushed, tags are listed on the project's page on GitHub, each with its commit and a download of the files at that point. These are the tags of my pamphlet project:</p>
+<div class="shown">
+<figure>
+<img src="{{root}}teaching/git-ci/img/github-tags.png" alt="A GitHub tags page listing five dated tags. Each row shows the tag name, how long ago it was made, a short commit code, and zip and tar.gz download links." />
+<figcaption>The tags of a public repository on GitHub.</figcaption>
+</figure>
+</div>
 <h2 id="going-back">Going back</h2>
 <table>
 <colgroup>
@@ -45,34 +104,47 @@ git push origin submitted-2026-11-01</code></pre>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>You want to</th>
 <th>Use</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>See an old version</td>
 <td><code>git switch --detach &lt;tag or commit&gt;</code>, then <code>git switch main</code> to return</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Undo a commit, keeping the history</td>
 <td><code>git revert &lt;commit&gt;</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Get one old file back</td>
 <td><code>git restore --source &lt;commit&gt; file.txt</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Discard edits you haven't committed</td>
 <td><code>git restore file.txt</code>, which can't be undone</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Find which commit broke something</td>
 <td><code>git bisect</code></td>
 </tr>
 </tbody>
 </table>
+<div class="output">
+<p><strong>What you should see: looking at an old version</strong></p>
+<pre class="text"><code>$ git switch --detach submitted-2026-11-01
+HEAD is now at 9b0de38 Add the median
+
+$ cat results.txt
+The mean is 12.
+The median is 11.
+
+$ git switch main
+Previous HEAD position was 9b0de38 Add the median
+Switched to branch &#39;main&#39;</code></pre>
+</div>
 <p>Prefer <code>revert</code> over rewriting history. Commands such as <code>git reset --hard</code> and <code>git push --force</code> can destroy work, so check what they do before using them.</p>
 <h2 id="a-sensible-rule-for-versions">A sensible rule for versions</h2>
 <p>Keep one working copy of each file under Git, and stop putting versions in file names. For data, which is too large for Git, use dated read-only folders with recorded checksums, as described in the <a href="../backups/">backups chapter</a>.</p>

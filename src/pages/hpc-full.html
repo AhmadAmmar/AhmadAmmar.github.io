@@ -126,49 +126,49 @@ out: teaching/hpc/full/index.html
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Word</th>
 <th>Meaning</th>
 <th>In the picture</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Node</td>
 <td>One computer in the cluster</td>
 <td>A kitchen</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Core</td>
 <td>One independent processing unit in a node; it runs one stream of instructions at a time</td>
 <td>A cook</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Memory (RAM)</td>
 <td>Fast working space that empties when the job ends</td>
 <td>The worktop</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Login node</td>
 <td>The computer you arrive at. For editing, moving files and submitting work</td>
 <td>Reception</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Compute node</td>
 <td>Where jobs run</td>
 <td>The kitchens</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Scheduler</td>
 <td>Software that queues jobs and allocates resources. Slurm (Yoo et al., 2003) is widely used</td>
 <td>The head waiter</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Partition</td>
 <td>A named queue of nodes with its own rules</td>
 <td>A type of kitchen</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Job</td>
 <td>One piece of work submitted to the scheduler</td>
 <td>An order</td>
@@ -185,24 +185,24 @@ out: teaching/hpc/full/index.html
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Pattern</th>
 <th>Example</th>
 <th>What it needs</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Many independent runs, called "many-task" (Raicu et al., 2008) or "embarrassingly parallel"</td>
 <td>A parameter sweep, or one analysis per file</td>
 <td>Job arrays. Often no code changes</td>
 </tr>
-<tr class="even">
+<tr>
 <td>One program sharing memory on a node</td>
 <td>A threaded model, or machine learning on many cores</td>
 <td><code>--cpus-per-task</code>, and a program that can use them</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>One program across nodes</td>
 <td>A large fluid simulation, using MPI</td>
 <td><code>--ntasks</code>, <code>--nodes</code>, and an MPI-aware program</td>
@@ -226,29 +226,29 @@ ls -l ~/project</code></pre>
 <h3 id="shell-paths">Paths</h3>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Symbol</th>
 <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>~</code></td>
 <td>Your home folder</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>.</code> and <code>..</code></td>
 <td>This folder, and the one above</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>/</code></td>
 <td>Top of the Linux file tree, and the separator between folders</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>*</code></td>
 <td>Wildcard: <code>case_*.json</code> matches every such file</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>$HOME</code>, <code>$USER</code></td>
 <td>Variables that hold your home folder and username</td>
 </tr>
@@ -262,85 +262,85 @@ ls -l ~/project</code></pre>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Command</th>
 <th>What it does</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>pwd</code></td>
 <td>Print the folder you are in</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ls</code>, <code>ls -l</code>, <code>ls -t</code></td>
 <td>List files; with details; newest first</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>cd folder</code>, <code>cd ..</code>, <code>cd</code></td>
 <td>Go to a folder; up one; home</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>mkdir -p a/b</code></td>
 <td>Make folders, including parents, with no error if they exist</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>cp a b</code>, <code>cp -r a b</code></td>
 <td>Copy a file; <code>-r</code> copies a folder and its contents</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>mv a b</code></td>
 <td>Move or rename</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>rm file</code></td>
 <td>Delete. <strong>There is no recycle bin.</strong> Look first with <code>ls</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>ln -s target name</code></td>
 <td>Make a shortcut (a symbolic link)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>cat</code>, <code>head -5</code>, <code>tail -20</code></td>
 <td>Print a whole file; its first 5 lines; its last 20</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>less file</code></td>
 <td>Read a long file page by page; <code>q</code> quits</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>wc -l</code></td>
 <td>Count lines</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>grep "text" file</code></td>
 <td>Show lines containing text. <code>-i</code> ignores case, <code>-l</code> lists only file names</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>sed -i 's/old/new/' file</code></td>
 <td>Replace text in a file</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>chmod u+x file</code></td>
 <td>Let yourself (<code>u</code>) execute (<code>x</code>) a file. <code>chmod -R u+w folder</code> lets you write to everything in a folder</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>tar czf a.tgz folder</code></td>
 <td>Pack a folder into one compressed archive (create, gzip, file)</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>tar xzf a.tgz</code></td>
 <td>Unpack it (extract)</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>df -h .</code>, <code>du -sh folder</code></td>
 <td>Free space on this disk; size of a folder</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>hostname</code>, <code>nproc</code></td>
 <td>Which computer am I on? How many cores may I use?</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>man ls</code></td>
 <td>The manual for a command; <code>q</code> quits</td>
 </tr>
@@ -456,7 +456,7 @@ ssh-add $HOME\.ssh\my-kelvin-key</code></pre>
 <col style="width: 25%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Area</th>
 <th>Path</th>
 <th>Limit</th>
@@ -464,25 +464,25 @@ ssh-add $HOME\.ssh\my-kelvin-key</code></pre>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Home</td>
 <td><code>/users/$USER</code></td>
 <td>50 GB and 100k files</td>
 <td>None automatic</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Scratch</td>
 <td><code>/mnt/scratch2/users/$USER</code></td>
 <td>No per-user quota</td>
 <td><strong>After 90 days without access</strong></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Temp</td>
 <td><code>/tmp</code> on each node</td>
 <td>The node's disk</td>
 <td>When the session ends</td>
 </tr>
-<tr class="even">
+<tr>
 <td>McClayRDS</td>
 <td>Project paths</td>
 <td>By project</td>
@@ -657,24 +657,24 @@ apptainer run --bind &quot;$PWD:/data&quot; heatloss.sif /data/case_000.json</co
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th><code>srun ... --pty bash</code></th>
 <th><code>sbatch script.sh</code></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Style</td>
 <td>Interactive: you get a shell on a compute node</td>
 <td>Hand it in and walk away</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Good for</td>
 <td>Short tests, installs</td>
 <td>All real work</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>If you disconnect</td>
 <td>Work stops</td>
 <td>It carries on</td>
@@ -709,64 +709,64 @@ cat first_&lt;jobid&gt;.out          # read what it printed</code></pre>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Setting</th>
 <th>Meaning</th>
 <th>Choosing it</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>--job-name</code></td>
 <td>A label</td>
 <td>Short and useful</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--time</code></td>
 <td>Hard limit, also <code>days-hh:mm:ss</code></td>
 <td>Run a test, and add a margin. An accurate limit helps a job start sooner</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--cpus-per-task</code></td>
 <td>Cores for a threaded program</td>
 <td>Only what it can actually use</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--ntasks</code></td>
 <td>Separate processes, as in MPI</td>
 <td>1, unless you use MPI</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--nodes</code></td>
 <td>Number of nodes</td>
 <td>Usually leave it, unless using MPI</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--mem</code> or <code>--mem-per-cpu</code></td>
 <td>Memory</td>
 <td>Check real use with <code>sacct</code>, then trim it</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--partition</code> or <code>-p</code></td>
 <td>Which queue</td>
 <td>See below</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--output</code>, <code>--error</code></td>
 <td>Files for printed output and errors</td>
 <td>Use <code>%x</code> job name, <code>%j</code> job ID, <code>%A</code> array ID, <code>%a</code> task number. The folder must already exist, or the log is lost</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--array</code></td>
 <td>Many tasks; see the next chapter</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--gres=gpu:&lt;type&gt;:1</code></td>
 <td>A GPU</td>
 <td>Only on GPU partitions, and only if your code uses it</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--mail-type</code>, <code>--mail-user</code></td>
 <td>Email on start and end</td>
 <td>Handy for long jobs; avoid it for arrays</td>
@@ -777,39 +777,39 @@ cat first_&lt;jobid&gt;.out          # read what it printed</code></pre>
 <p>Partitions, <strong>Kelvin2 only</strong>, from <a href="https://ni-hpc.github.io/nihpc-documentation/Running%20Jobs/">Running Jobs</a>; check there for changes:</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Partition</th>
 <th>Time limit</th>
 <th>For</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>k2-hipri</code> (default)</td>
 <td>3 hours</td>
 <td>Short jobs</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>k2-medpri</code></td>
 <td>24 hours</td>
 <td>Longer jobs</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>k2-lowpri</code></td>
 <td>Not listed</td>
 <td>Long jobs</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>k2-himem</code></td>
 <td>3 days</td>
 <td>Very large memory</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>k2-gpu-*</code></td>
 <td>3 days</td>
 <td>GPUs</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>k2-sandbox</code></td>
 <td>See <code>sinfo</code></td>
 <td>Testing, per the Green HPC page</td>
@@ -916,6 +916,18 @@ grep primes logs/primes_*.out</code></pre>
 head -8 data/armaghdata.txt
 sbatch 04_armagh.sh
 cat logs/armagh_*.out</code></pre>
+<p>The first command shows the top of the data file, which is how you learn its layout:</p>
+<div class="output">
+<p><strong>What you should see from head</strong></p>
+<pre class="text"><code>Armagh
+Location: 287800E 345800N (Irish Grid), Lat 54.352 Lon -6.649, 62 metres amsl
+Estimated data is marked with a * after the value.
+Missing data (more than 2 days missing in month) is marked by  ---.
+Sunshine data taken from an automatic Kipp &amp; Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
+   yyyy  mm   tmax    tmin      af    rain     sun
+              degC    degC    days      mm   hours
+   1853   1    ---     ---     ---    57.3     ---</code></pre>
+</div>
 <p><strong>Check, for the file in the kit:</strong></p>
 <pre class="text"><code>2085 monthly records, 159 complete years, 1867 to 2025
 Warmest: 2023, mean 10.95 C
@@ -946,6 +958,26 @@ ls results/decade_*.csv | wc -l
 # Join them, with the coolest decade first and the warmest last
 cat results/decade_*.csv | sort -t, -k3 -n</code></pre>
 <p>Each line reads decade, years used, mean temperature. <strong>Check:</strong> the coolest is <code>1880,10,8.65</code> and the warmest is <code>2000,10,10.08</code>.</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ cat results/decade_*.csv | sort -t, -k3 -n
+1880,10,8.65
+1890,10,8.87
+1900,10,8.91
+1910,10,8.94
+1920,10,9.08
+1960,10,9.11
+1970,10,9.12
+1980,10,9.14
+1930,10,9.27
+1950,10,9.35
+1870,10,9.52
+1940,10,9.58
+1990,10,9.71
+2010,10,9.87
+2000,10,10.08</code></pre>
+</div>
+<p>These results come from running the same Python scripts on a laptop, with the task number set by hand. On the cluster, the same numbers appear, in the files or logs named above.</p>
 <p>The pattern to remember is that the tasks never talk to each other. Each writes its own file, and a simple command joins them at the end.</p>
 <h3 id="first-jobs-exercise-6-a-geospatial-calculation">Exercise 6: A geospatial calculation</h3>
 <p><strong>New idea:</strong> an input can come from the command line, so one script can answer many questions.</p>
@@ -972,6 +1004,22 @@ sbatch 07_tiles.sh
 # When it has finished
 cat results/ndvi_*.csv</code></pre>
 <p><strong>Check:</strong> mean NDVI rises steadily from <code>0.045</code> in tile 0 to <code>0.787</code> in tile 7. Run it again and the numbers stay the same, because the script fixes its random seed.</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ python3 07_make_tiles.py
+wrote 8 tiles to tiles/
+
+$ cat results/ndvi_*.csv
+0,10000,0.045
+1,10000,0.181
+2,10000,0.304
+3,10000,0.416
+4,10000,0.522
+5,10000,0.616
+6,10000,0.705
+7,10000,0.787</code></pre>
+</div>
+<p>Each line reads tile, pixels, mean NDVI. These results come from running the same Python scripts on a laptop, with the task number set by hand. On the cluster, the same numbers appear, in the files or logs named above.</p>
 <h3 id="first-jobs-from-exercises-to-your-own-project">From exercises to your own project</h3>
 <p>You have now used every piece of a real workflow. To move your own work across:</p>
 <ol type="1">
@@ -1066,6 +1114,26 @@ module load &lt;python-module&gt;
 python3 make_cases.py cases
 ls cases | head                # case_000.json, case_001.json ...
 python3 heat_loss.py cases/case_000.json &amp;&amp; cat cases/case_000.out    # 11016.0</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ python3 make_cases.py cases
+wrote 27 cases to cases
+
+$ ls cases | head
+case_000.json
+case_001.json
+case_002.json
+case_003.json
+case_004.json
+case_005.json
+case_006.json
+case_007.json
+case_008.json
+case_009.json
+
+$ python3 heat_loss.py cases/case_000.json &amp;&amp; cat cases/case_000.out
+11016.0</code></pre>
+</div>
 <p>The last line is your test. For the first case, U = 2.1, A = 90, n = 1, V = 200 and DD = 1800, so by hand: (189 + 66) × 1800 × 24 / 1000 = 11016. Then delete that output, with <code>rm cases/case_000.out</code>, so that the job below runs every case.</p>
 <h3 id="arrays-step-3-the-job-script">Step 3: the job script</h3>
 <p>Running one input per task works, but very short tasks are wasteful, because starting each one has a cost. So <strong>pack</strong> several runs into each task.</p>
@@ -1122,6 +1190,11 @@ LAST=$(( (N + PER - 1) / PER - 1 ))
 echo &quot;$N cases, tasks 0 to $LAST&quot;
 
 sbatch --array=0-$LAST run_sweep.sh cases $PER</code></pre>
+<div class="output">
+<p><strong>What you should see from the echo line</strong></p>
+<pre class="text"><code>27 cases, tasks 0 to 5</code></pre>
+</div>
+<p>The <code>sbatch</code> line then prints the number of your job, which differs each time.</p>
 <p>A useful extra: <code>--array=0-99%10</code> runs at most 10 tasks at once, which is polite on a busy system.</p>
 <h3 id="arrays-step-5-did-it-all-work">Step 5: did it all work?</h3>
 <pre class="bash"><code># cluster
@@ -1136,29 +1209,40 @@ tail -2 logs/sweep_*_0.out            # read one log</code></pre>
 # ${f%.out} strips the ending, and $(cat &quot;$f&quot;) inserts the file&#39;s contents
 for f in cases/*.out; do echo &quot;$(basename &quot;${f%.out}&quot;),$(cat &quot;$f&quot;)&quot;; done &gt; results.csv
 head -3 results.csv</code></pre>
+<div class="output">
+<p><strong>What you should see from head</strong></p>
+<pre class="text"><code>case_000,11016.0
+case_001,12240.0
+case_002,13464.0</code></pre>
+</div>
 <pre class="powershell"><code># laptop
 scp kelvin:~/project/results.csv &quot;D:\My Work&quot;</code></pre>
 <h3 id="arrays-choosing-a-packing">Choosing a packing</h3>
 <table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th>Few runs per task (many tasks)</th>
 <th>Many runs per task (few tasks)</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Finishes</td>
 <td>Sooner, if cores are free</td>
 <td>Later: each task takes longer</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Overhead</td>
 <td>Higher: more starts, more load on the scheduler</td>
 <td>Lower</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>After a failure</td>
 <td>Less lost</td>
 <td>More to redo, unless it is restart-safe</td>
@@ -1177,29 +1261,29 @@ scp kelvin:~/project/results.csv &quot;D:\My Work&quot;</code></pre>
 <col style="width: 50%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Term</th>
 <th>Meaning</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Wall time</td>
 <td>Real time by the clock on the wall</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Core time</td>
 <td>Sum of the time on each core. 10 tasks of 1 minute each: 1 minute of wall time, 10 of core time</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Queue wait</td>
 <td>From submitting to starting</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Speed-up</td>
 <td>Old wall time / new wall time</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Efficiency</td>
 <td>Speed-up / number of cores used</td>
 </tr>
@@ -1217,7 +1301,7 @@ sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,Sta
 <p>The same prime-counting program from the exercises, up to 5 million, was run three times at each core count on Kelvin2 and on one laptop (Intel Core i5-10210U, 4 physical cores, doing other work at the time). Each cell is the middle of three runs. All 27 runs found the same answer, 348,513.</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th style="text-align: right;">Cores</th>
 <th style="text-align: right;">Kelvin2</th>
 <th style="text-align: right;">Speed-up</th>
@@ -1227,7 +1311,7 @@ sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,Sta
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">46.0 s</td>
 <td style="text-align: right;">1.0x</td>
@@ -1235,7 +1319,7 @@ sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,Sta
 <td style="text-align: right;">209 s</td>
 <td style="text-align: right;">125 to 255 s</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">23.2 s</td>
 <td style="text-align: right;">2.0x</td>
@@ -1243,7 +1327,7 @@ sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,Sta
 <td style="text-align: right;">125 s</td>
 <td style="text-align: right;">82 to 156 s</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">12.0 s</td>
 <td style="text-align: right;">3.8x</td>
@@ -1251,7 +1335,7 @@ sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,Sta
 <td style="text-align: right;">69 s</td>
 <td style="text-align: right;">66 to 105 s</td>
 </tr>
-<tr class="even">
+<tr>
 <td style="text-align: right;">8</td>
 <td style="text-align: right;">6.3 s</td>
 <td style="text-align: right;">7.3x</td>
@@ -1259,7 +1343,7 @@ sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,Sta
 <td style="text-align: right;">61 s</td>
 <td style="text-align: right;">55 to 66 s</td>
 </tr>
-<tr class="odd">
+<tr>
 <td style="text-align: right;">16</td>
 <td style="text-align: right;">3.7 s</td>
 <td style="text-align: right;">12.4x</td>
@@ -1340,7 +1424,7 @@ done; done</code></pre>
 <col style="width: 20%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Task</th>
 <th>Slurm</th>
 <th>PBS / Torque</th>
@@ -1349,35 +1433,35 @@ done; done</code></pre>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Submit</td>
 <td><code>sbatch</code></td>
 <td><code>qsub</code></td>
 <td><code>qsub</code></td>
 <td><code>bsub</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>See the queue</td>
 <td><code>squeue</code></td>
 <td><code>qstat</code></td>
 <td><code>qstat</code></td>
 <td><code>bjobs</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Cancel</td>
 <td><code>scancel</code></td>
 <td><code>qdel</code></td>
 <td><code>qdel</code></td>
 <td><code>bkill</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Script directive</td>
 <td><code>#SBATCH</code></td>
 <td><code>#PBS</code></td>
 <td><code>#$</code></td>
 <td><code>#BSUB</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Array task number</td>
 <td><code>$SLURM_ARRAY_TASK_ID</code></td>
 <td><code>$PBS_ARRAYID</code> or <code>$PBS_ARRAY_INDEX</code></td>
@@ -1394,29 +1478,29 @@ done; done</code></pre>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th>Shared cluster</th>
 <th>Cloud</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Cost</td>
 <td>Usually free or allocated to researchers</td>
 <td>Paid by use, so a forgotten machine keeps charging</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Waiting</td>
 <td>A queue</td>
 <td>Usually starts at once</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Control</td>
 <td>Fixed system; no administrator rights</td>
 <td>You control the machine, and so must secure and maintain it</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Best for</td>
 <td>Large batches, shared storage</td>
 <td>Special hardware, short bursts, web services</td>
@@ -1491,104 +1575,104 @@ sudo dnf install tmux</code></pre>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Symptom</th>
 <th>Likely cause</th>
 <th>Fix</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>Permission denied (publickey)</code></td>
 <td>Wrong key, username or port, or the key is not installed yet</td>
 <td>Check <code>.ssh/config</code>, and that the cluster has your key</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Host identification warning</td>
 <td>A login node you have not met, or a real problem</td>
 <td>Read your cluster's guidance before accepting</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>scp</code>: "No such file" with a stray <code>"</code></td>
 <td>Trailing backslash in a Windows path</td>
 <td>Remove the backslash</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>scp</code>: wrong port</td>
 <td><code>-p</code> instead of <code>-P</code></td>
 <td><code>scp</code> uses capital <code>-P</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>Killed</code> on the login node</td>
 <td>Too much memory on a shared node</td>
 <td>Use <code>srun</code> or <code>sbatch</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>CondaError: Run 'conda init'</code></td>
 <td>Shell not set up for conda</td>
 <td><code>conda init</code>, then log in again; or call the environment's Python directly</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>EnvironmentLocationNotFound</code></td>
 <td>The environment was never created, often as an earlier step failed</td>
 <td>Scroll up and fix the first error</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>SRE module mismatch</code> or strange Python errors</td>
 <td><code>PYTHONPATH</code> points at another Python's libraries</td>
 <td><code>unset PYTHONPATH PYTHONHOME</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>No module named ...</code> in a job</td>
 <td>The job is using a different Python</td>
 <td>Call your Python by its full path</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>rustup</code> says no default toolchain</td>
 <td>Only the installer is loaded</td>
 <td><code>rustup default stable</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Downloads fail in a job</td>
 <td>Compute nodes may have restricted internet</td>
 <td>Download on the login node first, and build offline</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>Permission denied</code> on your own files</td>
 <td>Read-only after copying</td>
 <td><code>chmod -R u+w folder</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>$'\r': command not found</code></td>
 <td>Windows line endings</td>
 <td><code>sed -i 's/\r$//' script.sh</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>No log file appears</td>
 <td>The <code>--output</code> folder does not exist</td>
 <td><code>mkdir -p logs</code> before you submit</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>State <code>TIMEOUT</code></td>
 <td>Hit the time limit</td>
 <td>More <code>--time</code>, or a longer partition</td>
 </tr>
-<tr class="even">
+<tr>
 <td>State <code>OUT_OF_MEMORY</code></td>
 <td>Hit the memory limit</td>
 <td>More <code>--mem</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Stuck on <code>PD</code> for ages</td>
 <td>Busy, or you asked for too much</td>
 <td><code>squeue -u $USER</code> shows the reason; ask for less</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Files vanished from scratch</td>
 <td>Purged after no access</td>
 <td>Keep copies elsewhere</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Pasted lines ran in an odd order</td>
 <td>Multi-line paste in a terminal</td>
 <td>Paste one line at a time and check</td>

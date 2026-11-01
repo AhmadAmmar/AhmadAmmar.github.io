@@ -28,17 +28,67 @@ out: teaching/git-ci/git-basics/index.html
   </aside>
   <article class="hpc-body">
 <h2 id="the-idea">The idea</h2>
+<p>The blocks labelled "What you should see" in this guide come from running these commands in a test folder. Your commit codes, dates and folder names will differ, <code>...</code> marks a shortened folder path, and very long output is trimmed.</p>
 <p>Git is a program that records versions of a folder. Each saved version, called a <em>commit</em>, stores what changed, who changed it, when and why. Nothing committed is lost, so you never need files such as <code>final_v2_really_final.docx</code>.</p>
 <p>Install it from <a href="https://git-scm.com">git-scm.com</a>, then tell it who you are, once:</p>
 <pre class="bash"><code>git config --global user.name &quot;Your Name&quot;
 git config --global user.email &quot;you@example.org&quot;</code></pre>
 <h2 id="the-everyday-cycle">The everyday cycle</h2>
-<pre class="bash"><code>git init                 # start tracking this folder, once
+<pre class="bash"><code>git init -b main         # start tracking this folder, once, on a branch called main
 git status               # what has changed?
 git diff                 # show the changes, line by line
 git add results.txt      # choose what goes in the next version
 git commit -m &quot;Correct the mean&quot;   # save that version, with a reason
 git log --oneline        # list the versions</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git init -b main
+Initialized empty Git repository in .../project/.git/
+
+$ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+    notes.txt
+    results.txt
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)
+
+$ git add results.txt
+$ git commit -m &quot;First results&quot;
+[main (root-commit) 4f2d1b0] First results
+ 1 file changed, 1 insertion(+)
+ create mode 100644 results.txt</code></pre>
+</div>
+<p>Now change the number in <code>results.txt</code> and look again. In <code>git status --short</code>, <code>M</code> means modified and <code>??</code> means not tracked. In <code>git diff</code>, a line starting <code>-</code> was removed and a line starting <code>+</code> was added.</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git status --short
+ M results.txt
+?? notes.txt
+
+$ git diff
+diff --git a/results.txt b/results.txt
+index 62b900e..de5c1f9 100644
+--- a/results.txt
++++ b/results.txt
+@@ -1 +1 @@
+-The mean is 10.
++The mean is 12.
+
+$ git add results.txt
+$ git commit -m &quot;Correct the mean&quot;
+[main 2f4cdbe] Correct the mean
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+$ git log --oneline
+2f4cdbe Correct the mean
+4f2d1b0 First results</code></pre>
+</div>
+<p>Without <code>-b main</code>, this version of Git names the first branch <code>master</code> and prints a long hint about it. The rest of this guide uses <code>main</code>.</p>
 <p>The <code>add</code> step exists so that one commit can hold one logical change, even if you changed other files too.</p>
 <h2 id="try-it-safely">Try it safely</h2>
 <p>This script makes a new folder and goes through the whole cycle. Read it, then run it.</p>
@@ -77,6 +127,20 @@ git merge -q idea
 git revert --no-edit HEAD
 git log --oneline
 cat results.txt</code></pre>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code> results.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[main ab8a9f9] Revert &quot;Add the median&quot;
+ Date: Sun Nov 1 16:26:34 2026 +0000
+ 1 file changed, 1 deletion(-)
+ab8a9f9 Revert &quot;Add the median&quot;
+bd9ec39 Add the median
+6f32cdc Correct the mean
+8c59d4e First results
+The mean is 12.</code></pre>
+</div>
+<p>The last line matters: the median has gone from the file, yet all four versions are still in the history.</p>
 <h2 id="what-to-track">What to track</h2>
 <p>Track what you write by hand: text, code and small inputs. Don't track what can be regenerated, large data, or anything secret. A file called <code>.gitignore</code> lists what to skip:</p>
 <pre class="text"><code>__pycache__/
@@ -84,6 +148,13 @@ cat results.txt</code></pre>
 build/
 data/raw/
 .env</code></pre>
+<p>With that file in place, and <code>run.log</code>, <code>.env</code> and <code>build/a.pdf</code> in the folder, Git no longer mentions them:</p>
+<div class="output">
+<p><strong>What you should see</strong></p>
+<pre class="text"><code>$ git status --short
+?? .gitignore
+?? notes.txt</code></pre>
+</div>
 <h2 id="good-commit-messages">Good commit messages</h2>
 <p>Write what changed and why, briefly, such as <code>Correct the living-wage year</code>. Commit often, in small steps, so that each can be understood or undone by itself.</p>
 

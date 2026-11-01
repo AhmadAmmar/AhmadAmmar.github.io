@@ -19,6 +19,17 @@ The energy is $E = mc^2$ here.
 \end{equation}
 ```
 
+In the file below, these forms and some of the building blocks come together. Only the numbered equations get a number at the right.
+
+:::: {.code-result}
+::: {}
+!include examples/maths.tex latex
+:::
+::: {.shown}
+![What that file compiles to.](img/maths.png){alt="The compiled maths: the sentence The energy is E = mc squared here, the same equation displayed without a number, then numbered 1. Three aligned lines numbered 2 to 4 follow, with equals signs lined up. A last line shows subscripts, a square root, Greek letters, a sum, an integral and large brackets."}
+:::
+::::
+
 ## The building blocks
 
 | You want | You write |

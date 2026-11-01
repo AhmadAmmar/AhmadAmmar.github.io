@@ -37,3 +37,11 @@ The bibliography tool picks up only the items you cite. Zotero can export a `.bi
 This pulls together everything so far: sections, equations, a table, a chart, cross-references, a bibliography and links.
 
 !include examples/report/main.tex latex
+
+It compiles to these two pages. The links are coloured teal, and every number comes from a label.
+
+::: {.shown .page-row}
+![Page 1](img/report-page-1.png){alt="Page 1 of the report: title, author and date, a contents list, then Introduction, Method with numbered equations, Results with a table, and Conclusion."}
+
+![Page 2](img/report-page-2.png){alt="Page 2 of the report: a line chart captioned Figure 1, then a References heading with one entry, Clarke, Energy Simulation in Building Design."}
+:::

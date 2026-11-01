@@ -38,24 +38,24 @@ out: teaching/hpc/slurm/index.html
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th><code>srun ... --pty bash</code></th>
 <th><code>sbatch script.sh</code></th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Style</td>
 <td>Interactive: you get a shell on a compute node</td>
 <td>Hand it in and walk away</td>
 </tr>
-<tr class="even">
+<tr>
 <td>Good for</td>
 <td>Short tests, installs</td>
 <td>All real work</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>If you disconnect</td>
 <td>Work stops</td>
 <td>It carries on</td>
@@ -90,64 +90,64 @@ cat first_&lt;jobid&gt;.out          # read what it printed</code></pre>
 <col style="width: 33%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Setting</th>
 <th>Meaning</th>
 <th>Choosing it</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>--job-name</code></td>
 <td>A label</td>
 <td>Short and useful</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--time</code></td>
 <td>Hard limit, also <code>days-hh:mm:ss</code></td>
 <td>Run a test, and add a margin. An accurate limit helps a job start sooner</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--cpus-per-task</code></td>
 <td>Cores for a threaded program</td>
 <td>Only what it can actually use</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--ntasks</code></td>
 <td>Separate processes, as in MPI</td>
 <td>1, unless you use MPI</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--nodes</code></td>
 <td>Number of nodes</td>
 <td>Usually leave it, unless using MPI</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--mem</code> or <code>--mem-per-cpu</code></td>
 <td>Memory</td>
 <td>Check real use with <code>sacct</code>, then trim it</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--partition</code> or <code>-p</code></td>
 <td>Which queue</td>
 <td>See below</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--output</code>, <code>--error</code></td>
 <td>Files for printed output and errors</td>
 <td>Use <code>%x</code> job name, <code>%j</code> job ID, <code>%A</code> array ID, <code>%a</code> task number. The folder must already exist, or the log is lost</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--array</code></td>
 <td>Many tasks; see the next chapter</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>--gres=gpu:&lt;type&gt;:1</code></td>
 <td>A GPU</td>
 <td>Only on GPU partitions, and only if your code uses it</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>--mail-type</code>, <code>--mail-user</code></td>
 <td>Email on start and end</td>
 <td>Handy for long jobs; avoid it for arrays</td>
@@ -158,39 +158,39 @@ cat first_&lt;jobid&gt;.out          # read what it printed</code></pre>
 <p>Partitions, <strong>Kelvin2 only</strong>, from <a href="https://ni-hpc.github.io/nihpc-documentation/Running%20Jobs/">Running Jobs</a>; check there for changes:</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Partition</th>
 <th>Time limit</th>
 <th>For</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>k2-hipri</code> (default)</td>
 <td>3 hours</td>
 <td>Short jobs</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>k2-medpri</code></td>
 <td>24 hours</td>
 <td>Longer jobs</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>k2-lowpri</code></td>
 <td>Not listed</td>
 <td>Long jobs</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>k2-himem</code></td>
 <td>3 days</td>
 <td>Very large memory</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>k2-gpu-*</code></td>
 <td>3 days</td>
 <td>GPUs</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>k2-sandbox</code></td>
 <td>See <code>sinfo</code></td>
 <td>Testing, per the Green HPC page</td>

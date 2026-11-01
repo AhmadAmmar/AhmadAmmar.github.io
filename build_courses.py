@@ -45,7 +45,7 @@ def chapters(course):
 
 
 def pandoc(text, *args):
-    return subprocess.run([PANDOC, "-f", "markdown-smart", *args], input=text.encode("utf-8"), capture_output=True, check=True).stdout.decode("utf-8").replace("\r\n", "\n")
+    return subprocess.run([PANDOC, "-f", "markdown-smart", "--wrap=none", *args], input=text.encode("utf-8"), capture_output=True, check=True).stdout.decode("utf-8").replace("\r\n", "\n")
 
 
 def href(course, slug):
@@ -72,7 +72,7 @@ def web(course, cfg, items):
         slug = meta["slug"]
         out = f"teaching/{course}/index.html" if slug == "index" else f"teaching/{course}/{slug}/index.html"
         html = pandoc(body, "-t", "html", "--no-highlight", *cfg.get("pandoc", []))
-        html = html.replace('href="examples/', f'href="{{{{root}}}}teaching/{course}/examples/')
+        html = html.replace('href="examples/', f'href="{{{{root}}}}teaching/{course}/examples/').replace('src="img/', f'src="{{{{root}}}}teaching/{course}/img/')
         side = "\n".join(f'      <li><a href="{href(course, m["slug"])}"' + (' aria-current="page"' if m["slug"] == slug else "")
                          + f'>{m["title"]}</a></li>' for m, _ in items)
         prev_ = f'<a href="{href(course, items[i - 1][0]["slug"])}">&larr; {items[i - 1][0]["title"]}</a>' if i else "<span></span>"
@@ -104,7 +104,7 @@ def full(course, cfg, items):
     for meta, text in items:
         slug = meta["slug"]
         html = pandoc(text, "-t", "html", "--no-highlight", f"--id-prefix={slug}-", "--shift-heading-level-by=1", *cfg.get("pandoc", []))
-        html = html.replace('href="examples/', f'href="{{{{root}}}}teaching/{course}/examples/')
+        html = html.replace('href="examples/', f'href="{{{{root}}}}teaching/{course}/examples/').replace('src="img/', f'src="{{{{root}}}}teaching/{course}/img/')
         html = re.sub(rf'href="(?:\.\./)?({slugs})/?"', lambda m: f'href="#ch-{m[1]}"', html)
         html = re.sub(r'<p>Prefer one long page\?.*?</p>\n?', "", html)
         side.append(f'      <li><a href="#ch-{slug}">{meta["title"]}</a></li>')
@@ -132,7 +132,7 @@ def full(course, cfg, items):
 
 def pdf(course, cfg, items):
     text = "\n\n".join(f"# {m['title']}\n\n{b}" for m, b in items)
-    subprocess.run([PANDOC, "-f", "markdown-smart", "-o", str(HERE / "files" / cfg["pdf"]), "--pdf-engine=xelatex", "--toc", "--number-sections", "--no-highlight",
+    subprocess.run([PANDOC, "-f", "markdown-smart", "-o", str(HERE / "files" / cfg["pdf"]), "--pdf-engine=xelatex", f"--resource-path={HERE / 'teaching' / course}", "--toc", "--number-sections", "--no-highlight",
                     "-V", "documentclass=report", "-V", "papersize=a4", "-V", "geometry:margin=2.3cm", "-V", "colorlinks=true",
                     "-V", f"title={cfg['title']}", "-V", "author=Ahmad Ammar", "-V", "date=" + datetime.date.today().strftime("%B %Y"), "-H", str(HERE / "src/hpc/pdf_header.tex")],
                    input=text.encode("utf-8"), check=True)

@@ -32,25 +32,25 @@ out: teaching/latex/text/index.html
 <p>The class sets the overall type of document.</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Class</th>
 <th>For</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>article</code></td>
 <td>Papers and short reports</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>report</code></td>
 <td>Long reports with chapters</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>book</code></td>
 <td>Books</td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>beamer</code></td>
 <td>Slides</td>
 </tr>
@@ -61,6 +61,49 @@ out: teaching/latex/text/index.html
 \subsection{Data}
 \subsubsection{Cleaning}
 \tableofcontents</code></pre>
+<p>In a complete <code>report</code>, the title page, the contents and each chapter start on new pages:</p>
+<p><strong>chapters.tex</strong></p>
+<pre class="latex"><code>% A long document with a title page, contents and chapters. Build: pdflatex chapters, twice
+\documentclass[11pt,a4paper]{report}
+
+\title{Heat Loss Through a Wall}
+\author{A Student}
+\date{1 November 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Method}
+Heat flows through a wall in proportion to its area and the temperature difference.
+
+\section{Data}
+The walls come from a small survey.
+
+\subsection{Cleaning}
+Walls with no recorded U-value were left out.
+
+\section*{Thanks}
+A starred heading has no number, and stays out of the contents.
+
+\chapter{Results}
+Insulated walls lose the least heat.
+\end{document}</code></pre>
+<p>Compile it twice, because the contents are only known after the first run.</p>
+<div class="shown page-row">
+<figure>
+<img src="{{root}}teaching/latex/img/chapters-title.png" alt="A title page with the title Heat Loss Through a Wall, the author A Student and the date, centred on an otherwise empty page." />
+<figcaption>Title page</figcaption>
+</figure>
+<figure>
+<img src="{{root}}teaching/latex/img/chapters-contents.png" alt="A contents page listing chapter 1 Method with section 1.1 Data and subsection 1.1.1 Cleaning, then chapter 2 Results, with page numbers." />
+<figcaption>Contents</figcaption>
+</figure>
+<figure>
+<img src="{{root}}teaching/latex/img/chapters-chapter.png" alt="A page headed Chapter 1, Method, with numbered headings 1.1 Data and 1.1.1 Cleaning, then an unnumbered heading Thanks." />
+<figcaption>First chapter</figcaption>
+</figure>
+</div>
 <p>Numbers come automatically, and adding a star, as in <code>\section*{Thanks}</code>, leaves a heading unnumbered and out of the contents. Split long documents into files with <code>\input{chapter1}</code>.</p>
 <h2 id="text-and-fonts">Text and fonts</h2>
 <pre class="latex"><code>\emph{emphasis}  \textbf{bold}  \texttt{code}  \underline{underlined}

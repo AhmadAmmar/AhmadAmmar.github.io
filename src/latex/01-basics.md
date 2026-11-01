@@ -16,6 +16,19 @@ Compile it with:
 pdflatex minimal
 ```
 
+::: {.output}
+**What you should see at the end of the run**
+
+```text
+Output written on minimal.pdf (1 page, 15054 bytes).
+Transcript written on minimal.log.
+```
+:::
+
+::: {.shown}
+![The top of minimal.pdf.](img/minimal.png){alt="A line of text reading: Hello, world. One plus one is 1 + 1 = 2, with the sum set in maths."}
+:::
+
 This makes `minimal.pdf`, plus helper files such as `minimal.log`, which records what happened, and `minimal.aux`, which remembers numbers between runs.
 
 ## The parts of a document
@@ -43,6 +56,27 @@ bibtex main
 pdflatex main
 pdflatex main
 ```
+
+On the first run of the [complete report](../references/), LaTeX doesn't yet know the numbers, so it says so. These warnings are normal at this stage, and they went away after the full sequence:
+
+::: {.output}
+**What you should see (only the warning and result lines)**
+
+```text
+$ pdflatex main
+Package natbib Warning: Citation `clarke2001' on page 1 undefined on input line
+LaTeX Warning: Reference `sec:method' on page 1 undefined on input line 30.
+LaTeX Warning: Reference `tab:walls' on page 1 undefined on input line 31.
+LaTeX Warning: Reference `fig:loss' on page 1 undefined on input line 31.
+LaTeX Warning: Reference `eq:loss' on page 1 undefined on input line 39.
+Package natbib Warning: There were undefined citations.
+LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+$ pdflatex main     (the last run of the sequence)
+Output written on main.pdf (2 pages, 107972 bytes).
+```
+:::
 
 The tool `latexmk -pdf main` works out how many runs are needed and does them for you, though it needs Perl on Windows.
 
