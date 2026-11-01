@@ -9,7 +9,7 @@ Personal academic website of Ahmad Ammar, served by GitHub Pages at <https://ahm
 | `src/pages/*.html` | Page bodies, each with a short header (`title`, `description`, `nav`, `out`) |
 | `build.py` | Wraps every page body in the shared header and footer and writes `sitemap.xml` |
 | `assets/` | Stylesheet and script shared by all pages |
-| `teaching/egm305/` | EGM305 study guides, slides and the Atmosphere Atlas (`atlas/index.html`) |
+| `teaching/egm305/` | EGM305 course page. The guides and atlas are being rebuilt as a self-contained book |
 | `files/` | Downloadable CV (PDF) |
 
 The pamphlet at `/marxist-economics/` is published from its own repository, [AhmadAmmar/marxist-economics](https://github.com/AhmadAmmar/marxist-economics).
@@ -32,4 +32,4 @@ Each course in `src/<course>/` becomes chapter pages, one long page and a PDF. R
 
 ## Licence
 
-Text and teaching materials © Ahmad Ammar. Data shown in the Atmosphere Atlas remain under the licences of their providers, credited inside the atlas.
+Text and teaching materials © Ahmad Ammar.
