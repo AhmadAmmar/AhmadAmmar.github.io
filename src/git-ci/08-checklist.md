@@ -41,3 +41,17 @@ git revert <commit>        # undo, keeping history
 python -m pytest           # run tests
 sha256sum -c MANIFEST.sha256   # check files are unchanged
 ```
+
+## References and further reading
+
+Ammar, A. (n.d.) *Marxian political economy: project source*. <https://github.com/AhmadAmmar/marxist-economics>
+
+Ammar, A. (n.d.) *How the pamphlet is built*. <https://ahmadammar.github.io/marxist-economics/how-it-works/>
+
+Ammar, A. (n.d.) *How to contribute*. <https://ahmadammar.github.io/marxist-economics/contribute/>
+
+Git (n.d.) *Git*. <https://git-scm.com>
+
+pre-commit (n.d.) *pre-commit*. <https://pre-commit.com>
+
+Zenodo (n.d.) *Zenodo*. <https://zenodo.org>

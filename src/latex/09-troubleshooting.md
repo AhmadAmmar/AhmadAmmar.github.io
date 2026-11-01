@@ -41,3 +41,21 @@ bibtex main        # build the bibliography
 latexmk -pdf main  # do all the runs
 latexmk -c         # remove helper files
 ```
+
+## References and further reading
+
+LaTeX Project (n.d.) *LaTeX documentation*. <https://www.latex-project.org/help/documentation/>
+
+MacTeX (n.d.) *MacTeX*. TeX Users Group. <https://www.tug.org/mactex/>
+
+MiKTeX (n.d.) *MiKTeX*. <https://miktex.org>
+
+Overleaf (n.d.) *Overleaf*. <https://www.overleaf.com>
+
+TeX Live (n.d.) *TeX Live*. TeX Users Group. <https://www.tug.org/texlive/>
+
+Wikibooks (n.d.) *LaTeX*. <https://en.wikibooks.org/wiki/LaTeX>
+
+Ammar, A. (n.d.) *research-helpers*. <https://github.com/GeospatialGeeks/research-helpers>
+
+Ammar, A. (n.d.) *Marxian political economy: project source*. <https://github.com/AhmadAmmar/marxist-economics>
