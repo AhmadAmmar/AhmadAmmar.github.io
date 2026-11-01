@@ -6,7 +6,7 @@ description: A book on the atmosphere worked step by step, with every question, 
 
 This book teaches the atmosphere through questions you work yourself. Every question, table, figure and worked answer is on the page, and the equations are also tested Python functions.
 
-Read it chapter by chapter, or the [whole book on one page](full/). You can also download the [PDF](/teaching/egm305/The_Atmosphere_Ahmad_Ammar.pdf) and the [Python functions](/teaching/egm305/atmosbook_python.zip), and explore the [interactive atlas](/teaching/egm305/atlas/).
+Read it chapter by chapter, or the [whole book on one page](full/). You can also download the [PDF](/teaching/egm305/The_Atmosphere_Ahmad_Ammar.pdf) and the [Python functions](/teaching/egm305/atmosbook_python.zip), and explore the [interactive atlas](/atlas/).
 
 - [1. How to use this book](how-to-use/)
 
