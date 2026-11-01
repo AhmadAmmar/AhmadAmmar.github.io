@@ -41,6 +41,7 @@
   <p class="eyebrow">HPC tutorial</p>
   <h1>Measuring and good practice</h1>
 </header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
 <div class="cv-layout">
   <aside class="toc" aria-label="Chapters">
     <p class="title">Chapters</p>
@@ -58,6 +59,7 @@
       <li><a href="../../../teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="../../../teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
+    <p><a href="../../../teaching/hpc/full/">Whole tutorial on one page</a></p>
     <p><a href="../../../files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
   </aside>
   <article class="hpc-body">
@@ -147,6 +149,144 @@ sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,Sta
 
 <p>Times are in whole seconds, which is too coarse for tasks of a few seconds. Time those from inside the job with <code>date +%s.%N</code>.</p>
 
+<h2 id="a-measured-example">A measured example</h2>
+
+<p>The same prime-counting program from the exercises, up to 5 million, was run three times at each core count on Kelvin2 and on one laptop (Intel Core i5-10210U, 4 physical cores, doing other work at the time). Each cell is the middle of three runs. All 27 runs found the same answer, 348,513.</p>
+
+<table>
+
+<thead>
+
+<tr class="header">
+
+<th style="text-align: right;">Cores</th>
+
+<th style="text-align: right;">Kelvin2</th>
+
+<th style="text-align: right;">Speed-up</th>
+
+<th style="text-align: right;">Efficiency</th>
+
+<th style="text-align: right;">Laptop</th>
+
+<th style="text-align: right;">Laptop range</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr class="odd">
+
+<td style="text-align: right;">1</td>
+
+<td style="text-align: right;">46.0 s</td>
+
+<td style="text-align: right;">1.0x</td>
+
+<td style="text-align: right;">100%</td>
+
+<td style="text-align: right;">209 s</td>
+
+<td style="text-align: right;">125 to 255 s</td>
+
+</tr>
+
+<tr class="even">
+
+<td style="text-align: right;">2</td>
+
+<td style="text-align: right;">23.2 s</td>
+
+<td style="text-align: right;">2.0x</td>
+
+<td style="text-align: right;">99%</td>
+
+<td style="text-align: right;">125 s</td>
+
+<td style="text-align: right;">82 to 156 s</td>
+
+</tr>
+
+<tr class="odd">
+
+<td style="text-align: right;">4</td>
+
+<td style="text-align: right;">12.0 s</td>
+
+<td style="text-align: right;">3.8x</td>
+
+<td style="text-align: right;">96%</td>
+
+<td style="text-align: right;">69 s</td>
+
+<td style="text-align: right;">66 to 105 s</td>
+
+</tr>
+
+<tr class="even">
+
+<td style="text-align: right;">8</td>
+
+<td style="text-align: right;">6.3 s</td>
+
+<td style="text-align: right;">7.3x</td>
+
+<td style="text-align: right;">91%</td>
+
+<td style="text-align: right;">61 s</td>
+
+<td style="text-align: right;">55 to 66 s</td>
+
+</tr>
+
+<tr class="odd">
+
+<td style="text-align: right;">16</td>
+
+<td style="text-align: right;">3.7 s</td>
+
+<td style="text-align: right;">12.4x</td>
+
+<td style="text-align: right;">78%</td>
+
+<td style="text-align: right;">n/a</td>
+
+<td style="text-align: right;">n/a</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<p>Three things are worth noticing:</p>
+
+<ul>
+
+<li><strong>Efficiency falls as cores rise</strong>, because splitting and collecting work takes time. Sixteen cores gave 12.4 times the speed, not 16.</li>
+
+<li><strong>The laptop barely gains beyond 4 cores.</strong> It has 4 physical cores, and its 8 are logical threads sharing them. Its times also vary widely, because it was busy, while Kelvin2's stayed within a fraction of a second. So don't read a single speed-up figure from this comparison.</li>
+
+<li><strong>Many jobs can run at once.</strong> The 15 Kelvin2 jobs were submitted together in 2026, waited 10 seconds, and finished within 57 seconds. One after another they would take about 4.6 minutes.</li>
+
+</ul>
+
+<p>This program is well suited to splitting up. Yours may not be, so measure it.</p>
+
+<p>To repeat the test:</p>
+
+<pre class="bash"><code># cluster, in the starter kit folder
+
+for r in 1 2 3; do for c in 1 2 4 8 16; do
+
+  sbatch --job-name=t${c}_${r} --cpus-per-task=$c --mem=4G --time=00:30:00 \
+
+    --output=logs/timing_${c}_${r}.out --wrap=&quot;python3 03_primes.py 5000000&quot;
+
+done; done</code></pre>
+
 <h2 id="benchmarking-fairly">Benchmarking fairly</h2>
 
 <p>Comparing a cluster with a laptop is easy to do badly.</p>
@@ -217,7 +357,7 @@ sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,Sta
 </main>
 <footer class="site-footer">
   <div class="bar">
-    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated October 2026</div>
+    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
     <div class="social">
       <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
       <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>

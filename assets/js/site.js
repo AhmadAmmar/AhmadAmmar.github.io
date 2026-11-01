@@ -57,6 +57,24 @@
       });
     }
 
+    // hide or show a contents panel, starting hidden on small screens; the choice is remembered
+    var tocToggle = document.querySelector('[data-toc-toggle]');
+    var layout = document.querySelector('.cv-layout');
+    if (tocToggle && layout) {
+      var setToc = function (hidden) {
+        layout.classList.toggle('toc-hidden', hidden);
+        tocToggle.setAttribute('aria-expanded', hidden ? 'false' : 'true');
+      };
+      var savedToc = null;
+      try { savedToc = localStorage.getItem('toc'); } catch (e) { /* storage unavailable */ }
+      setToc(savedToc ? savedToc === 'hidden' : window.innerWidth <= 900);
+      tocToggle.addEventListener('click', function () {
+        var hidden = !layout.classList.contains('toc-hidden');
+        setToc(hidden);
+        try { localStorage.setItem('toc', hidden ? 'hidden' : 'shown'); } catch (e) { /* storage unavailable */ }
+      });
+    }
+
     var printBtn = document.querySelector('[data-print]');
     if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
   });

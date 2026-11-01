@@ -63,12 +63,14 @@ out: {out}
   <p class="eyebrow">HPC tutorial</p>
   <h1>{meta['title']}</h1>
 </header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
 <div class="cv-layout">
   <aside class="toc" aria-label="Chapters">
     <p class="title">Chapters</p>
     <ol>
 {side}
     </ol>
+    <p><a href="{{{{root}}}}teaching/hpc/full/">Whole tutorial on one page</a></p>
     <p><a href="{{{{root}}}}files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
   </aside>
   <article class="hpc-body">
@@ -80,6 +82,46 @@ out: {out}
 """
         (HERE / "src" / "pages" / f"hpc-{slug}.html").write_text(page, encoding="utf-8")
         print("wrote fragment", slug)
+
+
+def full(items):
+    """Every chapter on one page, with a contents panel of chapters and sections that follows the reader."""
+    side, body = [], []
+    for meta, text in items:
+        slug = meta["slug"]
+        html = pandoc(text, "-t", "html", "--no-highlight", f"--id-prefix={slug}-", "--shift-heading-level-by=1")
+        html = html.replace('href="examples/', 'href="{{root}}teaching/hpc/examples/')
+        html = re.sub(r'href="(concepts|shell|connect|files|software|slurm|first-jobs|arrays|practice|beyond|troubleshooting)/?"', lambda m: f'href="#ch-{m[1]}"', html)
+        side.append(f'      <li><a href="#ch-{slug}">{meta["title"]}</a></li>')
+        side += [f'      <li class="sub"><a href="#{i}">{re.sub("<[^>]+>", "", t)}</a></li>' for i, t in re.findall(r'<h3[^>]*id="([^"]+)"[^>]*>(.*?)</h3>', html)]
+        body.append(f'<section id="ch-{slug}">\n<h2>{meta["title"]}</h2>\n{html}\n</section>')
+    nl = "\n"
+    page = f"""title: The whole HPC tutorial on one page
+description: Every chapter of the HPC tutorial on one scrolling page, with contents that follow the reader.
+nav: teaching
+out: teaching/hpc/full/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{{{root}}}}teaching.html">Teaching</a> / <a href="{{{{root}}}}teaching/hpc/">HPC tutorial</a> / One page</nav>
+<header class="page-head">
+  <p class="eyebrow">HPC tutorial</p>
+  <h1>The whole tutorial on one page</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Contents">
+    <p class="title">Contents</p>
+    <ol>
+{nl.join(side)}
+    </ol>
+    <p><a href="{{{{root}}}}files/HPC_tutorial_Ahmad_Ammar.pdf">PDF version</a></p>
+  </aside>
+  <article class="hpc-body">
+{nl.join(body)}
+  </article>
+</div>
+"""
+    (HERE / "src" / "pages" / "hpc-full.html").write_text(page, encoding="utf-8")
+    print("wrote fragment full")
 
 
 def pdf(items):
@@ -97,5 +139,6 @@ def pdf(items):
 if __name__ == "__main__":
     items = chapters()
     web(items)
+    full(items)
     if "--pdf" in sys.argv:
         pdf(items)

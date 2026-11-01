@@ -10,6 +10,8 @@ The examples use [Kelvin2](https://ni-hpc.github.io/nihpc-documentation), the cl
 
 ## How to use it
 
+Prefer one long page? [Read the whole tutorial on one page](full/).
+
 Read in order if you are new, or jump in if you are not. Blocks of code are labelled with where they run, because typing a command on the wrong computer is the most common beginner's mistake:
 
 - `laptop` means a terminal on your own computer.

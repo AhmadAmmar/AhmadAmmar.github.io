@@ -28,6 +28,36 @@ sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,Sta
 
 Times are in whole seconds, which is too coarse for tasks of a few seconds. Time those from inside the job with `date +%s.%N`.
 
+## A measured example
+
+The same prime-counting program from the exercises, up to 5 million, was run three times at each core count on Kelvin2 and on one laptop (Intel Core i5-10210U, 4 physical cores, doing other work at the time). Each cell is the middle of three runs. All 27 runs found the same answer, 348,513.
+
+| Cores | Kelvin2 | Speed-up | Efficiency | Laptop | Laptop range |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 46.0 s | 1.0x | 100% | 209 s | 125 to 255 s |
+| 2 | 23.2 s | 2.0x | 99% | 125 s | 82 to 156 s |
+| 4 | 12.0 s | 3.8x | 96% | 69 s | 66 to 105 s |
+| 8 | 6.3 s | 7.3x | 91% | 61 s | 55 to 66 s |
+| 16 | 3.7 s | 12.4x | 78% | n/a | n/a |
+
+Three things are worth noticing:
+
+- **Efficiency falls as cores rise**, because splitting and collecting work takes time. Sixteen cores gave 12.4 times the speed, not 16.
+- **The laptop barely gains beyond 4 cores.** It has 4 physical cores, and its 8 are logical threads sharing them. Its times also vary widely, because it was busy, while Kelvin2's stayed within a fraction of a second. So don't read a single speed-up figure from this comparison.
+- **Many jobs can run at once.** The 15 Kelvin2 jobs were submitted together in 2026, waited 10 seconds, and finished within 57 seconds. One after another they would take about 4.6 minutes.
+
+This program is well suited to splitting up. Yours may not be, so measure it.
+
+To repeat the test:
+
+```bash
+# cluster, in the starter kit folder
+for r in 1 2 3; do for c in 1 2 4 8 16; do
+  sbatch --job-name=t${c}_${r} --cpus-per-task=$c --mem=4G --time=00:30:00 \
+    --output=logs/timing_${c}_${r}.out --wrap="python3 03_primes.py 5000000"
+done; done
+```
+
 ## Benchmarking fairly
 
 Comparing a cluster with a laptop is easy to do badly.
