@@ -612,7 +612,7 @@ Find this project&#39;s source at \url{https://ahmadammar.github.io/teaching/lat
 <h3 id="outputs-word">Word</h3>
 <p>Journals and co-authors often want <code>.docx</code>. Pandoc converts LaTeX, including citations:</p>
 <pre class="bash"><code>pandoc main.tex -o main.docx --citeproc --bibliography=refs.bib</code></pre>
-<p>Complex layouts and custom commands may not survive, so always check the result. To keep equations as editable Word equations, use a citation style file with <code>--csl</code> and check each table. My <a href="https://github.com/GeospatialGeeks/research-helpers">research-helpers</a> package has a <code>latex2docx</code> tool built for this.</p>
+<p>Pandoc writes equations as editable Word equations, and <code>--csl</code> with a style file sets the citation style. Complex layouts and custom commands may not survive, so always check the result, especially tables. My <a href="https://github.com/GeospatialGeeks/research-helpers">research-helpers</a> package has a <code>latex2docx</code> tool built for this.</p>
 <h3 id="outputs-web-pages">Web pages</h3>
 <p>Pandoc also makes HTML. <code>pandoc main.tex -o main.html --mathjax</code> gives one page, with equations drawn by MathJax in the browser. For a whole site, split the document by section, and let a site generator such as MkDocs handle the navigation.</p>
 <p>Things need care in conversion, so test the result in a browser. In my own <a href="https://github.com/AhmadAmmar/marxist-economics">pamphlet project</a>, these all caused real faults:</p>

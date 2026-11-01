@@ -22,7 +22,7 @@ Journals and co-authors often want `.docx`. Pandoc converts LaTeX, including cit
 pandoc main.tex -o main.docx --citeproc --bibliography=refs.bib
 ```
 
-Complex layouts and custom commands may not survive, so always check the result. To keep equations as editable Word equations, use a citation style file with `--csl` and check each table. My [research-helpers](https://github.com/GeospatialGeeks/research-helpers) package has a `latex2docx` tool built for this.
+Pandoc writes equations as editable Word equations, and `--csl` with a style file sets the citation style. Complex layouts and custom commands may not survive, so always check the result, especially tables. My [research-helpers](https://github.com/GeospatialGeeks/research-helpers) package has a `latex2docx` tool built for this.
 
 ## Web pages
 
