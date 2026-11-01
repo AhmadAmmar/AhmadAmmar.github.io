@@ -145,7 +145,7 @@ def render(meta, body):
 
 # pages on this host that are not built here: the EGM305 atlas and the sites of other repositories
 # (GitHub Pages serves them under this domain, so this sitemap may list them)
-EXTRA_URLS = ["GBEM/", "marxist-economics/"]
+EXTRA_URLS = ["teaching/egm305/atlas/", "GBEM/", "marxist-economics/"]
 
 
 def sitemap(outs):
