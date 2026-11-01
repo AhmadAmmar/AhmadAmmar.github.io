@@ -17,7 +17,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 PANDOC = shutil.which("pandoc") or os.path.expandvars(r"%LOCALAPPDATA%\Pandoc\pandoc.exe")
-CODE_TEXT = 'Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence.'
+CODE_TEXT = 'Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ahmad Ammar, MIT licence.'
 VCRS = "Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University."
 COURSES = {
     "hpc": dict(name="HPC tutorial", title="Getting started on an HPC cluster", pdf="HPC_tutorial_Ahmad_Ammar.pdf",
