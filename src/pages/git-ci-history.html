@@ -1,0 +1,83 @@
+title: Branches, tags and going back
+description: Trying ideas on branches, naming versions with tags, and undoing things safely.
+nav: teaching
+out: teaching/git-ci/history/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/git-ci/">Git and automation guide</a> / Branches, tags and going back</nav>
+<header class="page-head">
+  <p class="eyebrow">Git and automation guide</p>
+  <h1>Branches, tags and going back</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/git-ci/">Git, testing and automation for research</a></li>
+      <li><a href="{{root}}teaching/git-ci/git-basics/">Git basics</a></li>
+      <li><a href="{{root}}teaching/git-ci/history/" aria-current="page">Branches, tags and going back</a></li>
+      <li><a href="{{root}}teaching/git-ci/github/">GitHub and working with others</a></li>
+      <li><a href="{{root}}teaching/git-ci/testing/">Testing research code</a></li>
+      <li><a href="{{root}}teaching/git-ci/ci/">Continuous integration</a></li>
+      <li><a href="{{root}}teaching/git-ci/pipelines/">Reproducible pipelines</a></li>
+      <li><a href="{{root}}teaching/git-ci/backups/">Data, backups and releases</a></li>
+      <li><a href="{{root}}teaching/git-ci/checklist/">Checklists and cheat sheet</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/git-ci/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/Git_CI_guide_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="branches">Branches</h2>
+<p>A branch is a separate line of work, which lets you try something without touching your working version.</p>
+<pre class="bash"><code>git switch -c idea       # make a branch and move to it
+# ... work and commit ...
+git switch main          # go back
+git merge idea           # bring the work in</code></pre>
+<p>If two branches changed the same lines, Git asks you to choose. Open the file, keep what you want, delete the markers, then <code>git add</code> and <code>git commit</code>.</p>
+<h2 id="tags">Tags</h2>
+<p>A tag gives a version a permanent name, such as what you sent to a journal.</p>
+<pre class="bash"><code>git tag -a submitted-2026-11-01 -m &quot;Sent to the journal&quot;
+git push origin submitted-2026-11-01</code></pre>
+<h2 id="going-back">Going back</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>You want to</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>See an old version</td>
+<td><code>git switch --detach &lt;tag or commit&gt;</code>, then <code>git switch main</code> to return</td>
+</tr>
+<tr class="even">
+<td>Undo a commit, keeping the history</td>
+<td><code>git revert &lt;commit&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Get one old file back</td>
+<td><code>git restore --source &lt;commit&gt; file.txt</code></td>
+</tr>
+<tr class="even">
+<td>Discard edits you haven't committed</td>
+<td><code>git restore file.txt</code>, which can't be undone</td>
+</tr>
+<tr class="odd">
+<td>Find which commit broke something</td>
+<td><code>git bisect</code></td>
+</tr>
+</tbody>
+</table>
+<p>Prefer <code>revert</code> over rewriting history. Commands such as <code>git reset --hard</code> and <code>git push --force</code> can destroy work, so check what they do before using them.</p>
+<h2 id="a-sensible-rule-for-versions">A sensible rule for versions</h2>
+<p>Keep one working copy of each file under Git, and stop putting versions in file names. For data, which is too large for Git, use dated read-only folders with recorded checksums, as described in the <a href="../backups/">backups chapter</a>.</p>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/git-ci/git-basics/">&larr; Git basics</a><a href="{{root}}teaching/git-ci/github/">GitHub and working with others &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
+  </article>
+</div>

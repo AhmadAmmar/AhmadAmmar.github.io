@@ -1,0 +1,70 @@
+title: Tables and figures
+description: Readable tables with booktabs, including images, plots drawn in LaTeX and captions.
+nav: teaching
+out: teaching/latex/tables-figures/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/latex/">LaTeX guide</a> / Tables and figures</nav>
+<header class="page-head">
+  <p class="eyebrow">LaTeX guide</p>
+  <h1>Tables and figures</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/latex/">LaTeX from first principles</a></li>
+      <li><a href="{{root}}teaching/latex/basics/">How LaTeX works</a></li>
+      <li><a href="{{root}}teaching/latex/text/">Structure, text and appearance</a></li>
+      <li><a href="{{root}}teaching/latex/maths/">Mathematics</a></li>
+      <li><a href="{{root}}teaching/latex/tables-figures/" aria-current="page">Tables and figures</a></li>
+      <li><a href="{{root}}teaching/latex/references/">References, links and bibliographies</a></li>
+      <li><a href="{{root}}teaching/latex/macros/">Your own commands, packages and themes</a></li>
+      <li><a href="{{root}}teaching/latex/outputs/">Slides, Word, web pages and images</a></li>
+      <li><a href="{{root}}teaching/latex/practice/">Good practice and version control</a></li>
+      <li><a href="{{root}}teaching/latex/troubleshooting/">Troubleshooting and cheat sheet</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/latex/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/LaTeX_guide_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="tables">Tables</h2>
+<p>A <code>tabular</code> builds the grid, and a <code>table</code> around it adds a caption and lets it float to a good position. The <code>booktabs</code> package gives clean horizontal rules, and it's best to avoid vertical lines altogether.</p>
+<pre class="latex"><code>\begin{table}[ht]
+  \centering
+  \caption{Heat loss through a wall.}
+  \label{tab:walls}
+  \begin{tabular}{lrr}      % left, right, right
+    \toprule
+    Wall &amp; $U$ &amp; $Q$ \\
+    \midrule
+    Solid brick &amp; 2.10 &amp; 315 \\
+    Insulated   &amp; 0.45 &amp; 68 \\
+    \bottomrule
+  \end{tabular}
+\end{table}</code></pre>
+<h2 id="figures">Figures</h2>
+<pre class="latex"><code>\usepackage{graphicx}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/map.pdf}
+  \caption{Heat loss across the study area.}
+  \label{fig:map}
+\end{figure}</code></pre>
+<p>Use PDF or SVG-derived vector files for plots, as they stay sharp at any size. Use PNG for images at 300 dpi or more for print.</p>
+<h2 id="plots-drawn-from-data">Plots drawn from data</h2>
+<p><code>pgfplots</code> draws a chart directly in LaTeX, so its fonts match the document.</p>
+<pre class="latex"><code>\begin{tikzpicture}
+  \begin{axis}[xlabel={U-value}, ylabel={Heat loss (W)}]
+    \addplot coordinates {(0.45,68) (1.5,225) (2.1,315)};
+  \end{axis}
+\end{tikzpicture}</code></pre>
+<p>For anything complex, generate the figure with a script, such as Python with Matplotlib, and include the file. Then the figure can be rebuilt from its data.</p>
+<h2 id="introducing-them-properly">Introducing them properly</h2>
+<p>Every table and figure should be mentioned in the text before it appears, and each needs a caption that says what it shows. Put the <code>\label</code> after the <code>\caption</code>, or the reference will point to the section number instead. Floats move: <code>[ht]</code> asks for here or the top of a page, which is why you should refer to "Table 1" and not "the table below".</p>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/latex/maths/">&larr; Mathematics</a><a href="{{root}}teaching/latex/references/">References, links and bibliographies &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
+  </article>
+</div>

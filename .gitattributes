@@ -1,3 +1,6 @@
 teaching/hpc/examples/** text eol=lf
 *.zip binary
 *.pdf binary
+teaching/latex/examples/** text eol=lf
+teaching/git-ci/examples/** text eol=lf
+*.zip binary

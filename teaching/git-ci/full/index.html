@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git, testing and automation for research: whole guide | Ahmad Ammar</title>
+<meta name="description" content="Every chapter of Git, testing and automation for research on one scrolling page, with contents that follow the reader.">
+<meta name="author" content="Ahmad Ammar">
+<link rel="canonical" href="https://ahmadammar.github.io/teaching/git-ci/full/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Git, testing and automation for research: whole guide | Ahmad Ammar">
+<meta property="og:description" content="Every chapter of Git, testing and automation for research on one scrolling page, with contents that follow the reader.">
+<meta property="og:url" content="https://ahmadammar.github.io/teaching/git-ci/full/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script src="../../../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
+    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="../../../index.html">About</a>
+      <a href="../../../research.html">Research</a>
+      <a href="../../../teaching.html" aria-current="page">Teaching</a>
+      <a href="../../../projects.html">Projects</a>
+      <a href="../../../writing.html">Writing</a>
+      <a href="../../../cv.html">CV</a>
+    </nav>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</header>
+<main id="content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/git-ci/">Git and automation guide</a> / One page</nav>
+<header class="page-head">
+  <p class="eyebrow">Git and automation guide</p>
+  <h1>The whole guide on one page</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Contents">
+    <p class="title">Contents</p>
+    <ol>
+      <li><a href="#ch-index">Git, testing and automation for research</a></li>
+      <li class="sub"><a href="#index-what-you-will-learn">What you will learn</a></li>
+      <li><a href="#ch-git-basics">Git basics</a></li>
+      <li class="sub"><a href="#git-basics-the-idea">The idea</a></li>
+      <li class="sub"><a href="#git-basics-the-everyday-cycle">The everyday cycle</a></li>
+      <li class="sub"><a href="#git-basics-try-it-safely">Try it safely</a></li>
+      <li class="sub"><a href="#git-basics-what-to-track">What to track</a></li>
+      <li class="sub"><a href="#git-basics-good-commit-messages">Good commit messages</a></li>
+      <li><a href="#ch-history">Branches, tags and going back</a></li>
+      <li class="sub"><a href="#history-branches">Branches</a></li>
+      <li class="sub"><a href="#history-tags">Tags</a></li>
+      <li class="sub"><a href="#history-going-back">Going back</a></li>
+      <li class="sub"><a href="#history-a-sensible-rule-for-versions">A sensible rule for versions</a></li>
+      <li><a href="#ch-github">GitHub and working with others</a></li>
+      <li class="sub"><a href="#github-remotes">Remotes</a></li>
+      <li class="sub"><a href="#github-issues-and-pull-requests">Issues and pull requests</a></li>
+      <li class="sub"><a href="#github-making-a-project-welcoming">Making a project welcoming</a></li>
+      <li class="sub"><a href="#github-sites-and-releases">Sites and releases</a></li>
+      <li><a href="#ch-testing">Testing research code</a></li>
+      <li class="sub"><a href="#testing-why-test">Why test</a></li>
+      <li class="sub"><a href="#testing-kinds-of-test-for-research">Kinds of test for research</a></li>
+      <li class="sub"><a href="#testing-lessons-from-real-faults">Lessons from real faults</a></li>
+      <li class="sub"><a href="#testing-what-tests-cannot-do">What tests cannot do</a></li>
+      <li><a href="#ch-ci">Continuous integration</a></li>
+      <li class="sub"><a href="#ci-what-the-terms-mean">What the terms mean</a></li>
+      <li class="sub"><a href="#ci-a-first-workflow">A first workflow</a></li>
+      <li class="sub"><a href="#ci-from-testing-to-publishing">From testing to publishing</a></li>
+      <li class="sub"><a href="#ci-practical-advice">Practical advice</a></li>
+      <li class="sub"><a href="#ci-hooks-checks-before-you-push">Hooks: checks before you push</a></li>
+      <li class="sub"><a href="#ci-scheduled-checks">Scheduled checks</a></li>
+      <li><a href="#ch-pipelines">Reproducible pipelines</a></li>
+      <li class="sub"><a href="#pipelines-the-idea">The idea</a></li>
+      <li class="sub"><a href="#pipelines-rules-that-prevent-most-errors">Rules that prevent most errors</a></li>
+      <li class="sub"><a href="#pipelines-a-worked-example">A worked example</a></li>
+      <li class="sub"><a href="#pipelines-tools-for-larger-projects">Tools for larger projects</a></li>
+      <li><a href="#ch-backups">Data, backups and releases</a></li>
+      <li class="sub"><a href="#backups-data">Data</a></li>
+      <li class="sub"><a href="#backups-backups">Backups</a></li>
+      <li class="sub"><a href="#backups-releases">Releases</a></li>
+      <li class="sub"><a href="#backups-secrets">Secrets</a></li>
+      <li><a href="#ch-checklist">Checklists and cheat sheet</a></li>
+      <li class="sub"><a href="#checklist-starting-a-project">Starting a project</a></li>
+      <li class="sub"><a href="#checklist-before-sending-anything-out">Before sending anything out</a></li>
+      <li class="sub"><a href="#checklist-cheat-sheet">Cheat sheet</a></li>
+    </ol>
+    <p><a href="../../../files/Git_CI_guide_Ahmad_Ammar.pdf">PDF version</a></p>
+  </aside>
+  <article class="hpc-body">
+<section id="ch-index">
+<h2>Git, testing and automation for research</h2>
+<p>Research code and documents go wrong in quiet ways: a number typed by hand, a figure from last month's data, a script that only ran on one laptop. This guide explains the tools that catch those faults, starting from nothing.</p>
+<p>It's based on what I built for my own work, including real mistakes these tools caught. You can see them working in the <a href="https://github.com/AhmadAmmar/marxist-economics">pamphlet project</a> and its <a href="https://ahmadammar.github.io/marxist-economics/how-it-works/">build guide</a>.</p>
+<h3 id="index-what-you-will-learn">What you will learn</h3>
+<ol type="1">
+<li><strong>Git</strong> records every version, so that you can go back to any point.</li>
+<li><strong>GitHub</strong> shares work, and lets people report problems and suggest changes.</li>
+<li><strong>Tests</strong> check that the code still gives the right answers.</li>
+<li><strong>Continuous integration</strong> runs those checks by itself on every change.</li>
+<li><strong>Pipelines</strong> rebuild everything from the sources, so that nothing drifts apart.</li>
+<li><strong>Backups and releases</strong> protect what matters.</li>
+</ol>
+
+</section>
+<section id="ch-git-basics">
+<h2>Git basics</h2>
+<h3 id="git-basics-the-idea">The idea</h3>
+<p>Git is a program that records versions of a folder. Each saved version, called a <em>commit</em>, stores what changed, who changed it, when and why. Nothing committed is lost, so you never need files such as <code>final_v2_really_final.docx</code>.</p>
+<p>Install it from <a href="https://git-scm.com">git-scm.com</a>, then tell it who you are, once:</p>
+<pre class="bash"><code>git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;you@example.org&quot;</code></pre>
+<h3 id="git-basics-the-everyday-cycle">The everyday cycle</h3>
+<pre class="bash"><code>git init                 # start tracking this folder, once
+git status               # what has changed?
+git diff                 # show the changes, line by line
+git add results.txt      # choose what goes in the next version
+git commit -m &quot;Correct the mean&quot;   # save that version, with a reason
+git log --oneline        # list the versions</code></pre>
+<p>The <code>add</code> step exists so that one commit can hold one logical change, even if you changed other files too.</p>
+<h3 id="git-basics-try-it-safely">Try it safely</h3>
+<p>This script makes a new folder and goes through the whole cycle. Read it, then run it.</p>
+<p><strong>practice.sh</strong></p>
+<pre class="bash"><code>#!/bin/bash
+# A safe practice run of everyday Git, in a new folder. Run: bash practice.sh
+set -e
+mkdir git-practice &amp;&amp; cd git-practice
+git init -q -b main
+git config user.name &quot;A Student&quot;
+git config user.email &quot;student@example.org&quot;
+
+# Save a first version
+echo &quot;The mean is 10.&quot; &gt; results.txt
+git add results.txt
+git commit -q -m &quot;First results&quot;
+
+# Change it and see exactly what changed
+echo &quot;The mean is 12.&quot; &gt; results.txt
+git diff --stat
+git add results.txt
+git commit -q -m &quot;Correct the mean&quot;
+
+# Name this version
+git tag -a sent-to-supervisor -m &quot;The version I sent&quot;
+
+# Try an idea safely on a branch, then bring it back
+git switch -q -c idea
+echo &quot;The median is 11.&quot; &gt;&gt; results.txt
+git add results.txt
+git commit -q -m &quot;Add the median&quot;
+git switch -q main
+git merge -q idea
+
+# Undo the last change, keeping the history
+git revert --no-edit HEAD
+git log --oneline
+cat results.txt</code></pre>
+<h3 id="git-basics-what-to-track">What to track</h3>
+<p>Track what you write by hand: text, code and small inputs. Don't track what can be regenerated, large data, or anything secret. A file called <code>.gitignore</code> lists what to skip:</p>
+<pre class="text"><code>__pycache__/
+*.log
+build/
+data/raw/
+.env</code></pre>
+<h3 id="git-basics-good-commit-messages">Good commit messages</h3>
+<p>Write what changed and why, briefly, such as <code>Correct the living-wage year</code>. Commit often, in small steps, so that each can be understood or undone by itself.</p>
+
+</section>
+<section id="ch-history">
+<h2>Branches, tags and going back</h2>
+<h3 id="history-branches">Branches</h3>
+<p>A branch is a separate line of work, which lets you try something without touching your working version.</p>
+<pre class="bash"><code>git switch -c idea       # make a branch and move to it
+# ... work and commit ...
+git switch main          # go back
+git merge idea           # bring the work in</code></pre>
+<p>If two branches changed the same lines, Git asks you to choose. Open the file, keep what you want, delete the markers, then <code>git add</code> and <code>git commit</code>.</p>
+<h3 id="history-tags">Tags</h3>
+<p>A tag gives a version a permanent name, such as what you sent to a journal.</p>
+<pre class="bash"><code>git tag -a submitted-2026-11-01 -m &quot;Sent to the journal&quot;
+git push origin submitted-2026-11-01</code></pre>
+<h3 id="history-going-back">Going back</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>You want to</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>See an old version</td>
+<td><code>git switch --detach &lt;tag or commit&gt;</code>, then <code>git switch main</code> to return</td>
+</tr>
+<tr class="even">
+<td>Undo a commit, keeping the history</td>
+<td><code>git revert &lt;commit&gt;</code></td>
+</tr>
+<tr class="odd">
+<td>Get one old file back</td>
+<td><code>git restore --source &lt;commit&gt; file.txt</code></td>
+</tr>
+<tr class="even">
+<td>Discard edits you haven't committed</td>
+<td><code>git restore file.txt</code>, which can't be undone</td>
+</tr>
+<tr class="odd">
+<td>Find which commit broke something</td>
+<td><code>git bisect</code></td>
+</tr>
+</tbody>
+</table>
+<p>Prefer <code>revert</code> over rewriting history. Commands such as <code>git reset --hard</code> and <code>git push --force</code> can destroy work, so check what they do before using them.</p>
+<h3 id="history-a-sensible-rule-for-versions">A sensible rule for versions</h3>
+<p>Keep one working copy of each file under Git, and stop putting versions in file names. For data, which is too large for Git, use dated read-only folders with recorded checksums, as described in the <a href="#ch-backups">backups chapter</a>.</p>
+
+</section>
+<section id="ch-github">
+<h2>GitHub and working with others</h2>
+<h3 id="github-remotes">Remotes</h3>
+<p>GitHub keeps a copy of your repository online.</p>
+<pre class="bash"><code>git remote add origin https://github.com/you/project.git
+git push -u origin main     # send your commits
+git pull                    # fetch others&#39; commits
+git clone &lt;address&gt;         # copy a project to your computer</code></pre>
+<p>Before making anything public, check it for secrets and for unpublished work. Git keeps history, so deleting a file later doesn't remove it from past commits.</p>
+<h3 id="github-issues-and-pull-requests">Issues and pull requests</h3>
+<ul>
+<li><strong>An issue</strong> is a note about something to fix or discuss.</li>
+<li><strong>A pull request</strong> proposes a change: someone works on a branch, then asks for it to be merged. Others can review it line by line, and automatic checks run on it.</li>
+</ul>
+<h3 id="github-making-a-project-welcoming">Making a project welcoming</h3>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>README.md</code></td>
+<td>What this is, and how to use it</td>
+</tr>
+<tr class="even">
+<td><code>LICENSE</code></td>
+<td>What others may do with it. Without one, they have no clear right to reuse it</td>
+</tr>
+<tr class="odd">
+<td><code>CONTRIBUTING.md</code></td>
+<td>How to help</td>
+</tr>
+<tr class="even">
+<td><code>CITATION.cff</code></td>
+<td>How to cite it</td>
+</tr>
+<tr class="odd">
+<td><code>.github/ISSUE_TEMPLATE/</code></td>
+<td>Forms that ask for the right details</td>
+</tr>
+</tbody>
+</table>
+<p>Remember people who don't use GitHub, and offer them a simple way to reach you. The pamphlet's <a href="https://ahmadammar.github.io/marxist-economics/contribute/">help page</a> is one example.</p>
+<h3 id="github-sites-and-releases">Sites and releases</h3>
+<p>GitHub Pages publishes a website from a repository for free. A GitHub Release attaches files to a tag, while <a href="https://zenodo.org">Zenodo</a> can archive a release and give it a citable DOI.</p>
+
+</section>
+<section id="ch-testing">
+<h2>Testing research code</h2>
+<h3 id="testing-why-test">Why test</h3>
+<p>A script that runs without errors can still be wrong. A test runs your code and checks the answer against something you know.</p>
+<p><strong>calc.py</strong></p>
+<pre class="python"><code>&quot;&quot;&quot;A tiny calculation to test.&quot;&quot;&quot;
+
+
+def heat_loss(u, area, delta_t):
+    &quot;&quot;&quot;Heat loss in watts: Q = U A dT.&quot;&quot;&quot;
+    if u &lt; 0 or area &lt; 0:
+        raise ValueError(&quot;U-value and area cannot be negative&quot;)
+    return u * area * delta_t</code></pre>
+<p><strong>test_calc.py</strong></p>
+<pre class="python"><code>&quot;&quot;&quot;Tests check the code against answers worked out by hand. Run: python -m pytest&quot;&quot;&quot;
+import pytest
+
+from calc import heat_loss
+
+
+def test_known_answer():
+    assert heat_loss(2.1, 10, 15) == pytest.approx(315)
+
+
+def test_no_temperature_difference_means_no_loss():
+    assert heat_loss(2.1, 10, 0) == 0
+
+
+def test_impossible_input_is_refused():
+    with pytest.raises(ValueError):
+        heat_loss(-1, 10, 15)</code></pre>
+<pre class="bash"><code>pip install pytest
+python -m pytest</code></pre>
+<h3 id="testing-kinds-of-test-for-research">Kinds of test for research</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Test</th>
+<th>Question</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Known answer</strong></td>
+<td>Does it match a hand calculation?</td>
+<td>2.1 x 10 x 15 = 315</td>
+</tr>
+<tr class="even">
+<td><strong>Limit case</strong></td>
+<td>Does it behave at the extremes?</td>
+<td>No temperature gap gives no heat loss</td>
+</tr>
+<tr class="odd">
+<td><strong>Invariant</strong></td>
+<td>Does a rule always hold?</td>
+<td>Total price equals total value</td>
+</tr>
+<tr class="even">
+<td><strong>Simulated data</strong></td>
+<td>Can it recover a truth you planted?</td>
+<td>A model finds a jump you added</td>
+</tr>
+<tr class="odd">
+<td><strong>Data check</strong></td>
+<td>Is the data as expected?</td>
+<td>No duplicates, values in range</td>
+</tr>
+<tr class="even">
+<td><strong>Independent recalculation</strong></td>
+<td>Do two separate methods agree?</td>
+<td>The same estimate from different code</td>
+</tr>
+<tr class="odd">
+<td><strong>Rendered output</strong></td>
+<td>Does the result look right to readers?</td>
+<td>A browser opens each page</td>
+</tr>
+</tbody>
+</table>
+<h3 id="testing-lessons-from-real-faults">Lessons from real faults</h3>
+<p>These all happened in my own projects:</p>
+<ul>
+<li><strong>An independent recalculation</strong> confirmed an estimate exactly, and adding a check for correlated data showed its confidence interval was too narrow.</li>
+<li><strong>A check of stated numbers against results</strong> found a sample size typed wrongly into a paper.</li>
+<li><strong>A test for labels</strong> found age groups named for the wrong years, though the numbers ran fine.</li>
+<li><strong>A browser test</strong> found broken links, unreadable buttons and maths that displayed as raw code. Its first version missed some faults, because it looked for error messages and these made none.</li>
+</ul>
+<p>So a passing test only shows that the things you tested held. When a fault gets through, add a test for that kind of fault.</p>
+<h3 id="testing-what-tests-cannot-do">What tests cannot do</h3>
+<p>They can't show that a method is valid, or an argument sound. That takes reasoning and readers.</p>
+
+</section>
+<section id="ch-ci">
+<h2>Continuous integration</h2>
+<h3 id="ci-what-the-terms-mean">What the terms mean</h3>
+<ul>
+<li><strong>Continuous integration (CI)</strong> runs your checks automatically on every change, on a clean machine.</li>
+<li><strong>Continuous delivery or deployment (CD)</strong> then publishes the result, but only if the checks pass.</li>
+</ul>
+<p>A clean machine catches the classic fault of a project that only works on your own computer.</p>
+<h3 id="ci-a-first-workflow">A first workflow</h3>
+<p>Save this in your repository as <code>.github/workflows/tests.yml</code>:</p>
+<p><strong>tests.yml</strong></p>
+<pre class="yaml"><code># Save as .github/workflows/tests.yml in a GitHub repository.
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: &quot;3.12&quot;
+      - run: pip install pytest
+      - run: python -m pytest</code></pre>
+<p>Reading it line by line:</p>
+<ul>
+<li><code>on</code> says when to run: on each push and pull request.</li>
+<li><code>runs-on</code> picks a fresh virtual machine.</li>
+<li><code>steps</code> run in order. <code>uses</code> runs a ready-made action, and <code>run</code> runs a command.</li>
+<li>If any step fails, the run fails, and GitHub shows a red cross.</li>
+</ul>
+<p>See the results under the repository's <em>Actions</em> tab. Read the failing step's log from the bottom up, and find the first real error.</p>
+<h3 id="ci-from-testing-to-publishing">From testing to publishing</h3>
+<p>A publishing workflow adds a job that only runs after the checks succeed. This is how my <a href="https://github.com/AhmadAmmar/marxist-economics/blob/main/.github/workflows/deploy-pages.yml">pamphlet's workflow</a> works:</p>
+<ol type="1">
+<li>Install Pandoc, LaTeX and a browser.</li>
+<li>Run the equation tests.</li>
+<li>Rebuild every page and PDF from source.</li>
+<li>Check links and numbers.</li>
+<li>Open every page in a browser, and test what readers see.</li>
+<li>Publish, only if all of that passed. Otherwise, the old site stays up.</li>
+</ol>
+<h3 id="ci-practical-advice">Practical advice</h3>
+<ul>
+<li><strong>Pin versions</strong> of tools that affect output, such as <code>python-version: "3.12"</code>.</li>
+<li><strong>Keep secrets out of files.</strong> Store them in the repository's settings as encrypted secrets.</li>
+<li><strong>Keep private work private.</strong> A public workflow's logs are public.</li>
+<li><strong>Watch the time.</strong> Slow checks get ignored, so run the quickest first.</li>
+</ul>
+<h3 id="ci-hooks-checks-before-you-push">Hooks: checks before you push</h3>
+<p>A Git hook runs a script at a moment such as a commit. A file at <code>.git/hooks/pre-commit</code> can block a commit containing a secret or broken code, and a <code>pre-push</code> hook does the same before sending work online. Hooks aren't copied with a repository, so each person must install them. For a shared setup, look at the <a href="https://pre-commit.com">pre-commit</a> tool.</p>
+<h3 id="ci-scheduled-checks">Scheduled checks</h3>
+<p>CI can also run on a timetable, and on your own computer, Windows Task Scheduler or <code>cron</code> can run a daily health report that emails you when something changes. Keep alerts rare, because people stop reading frequent ones.</p>
+
+</section>
+<section id="ch-pipelines">
+<h2>Reproducible pipelines</h2>
+<h3 id="pipelines-the-idea">The idea</h3>
+<p>If you copy a number from your analysis into a paper by hand, sooner or later they will differ. So store each thing once, and generate the rest.</p>
+<pre class="text"><code>data/figures.json  ---&gt;  analysis code  ---&gt;  numbers.tex  ---&gt;  paper.pdf
+                                         \--&gt;  tables and figures
+                                          \-&gt;  web pages and slides</code></pre>
+<h3 id="pipelines-rules-that-prevent-most-errors">Rules that prevent most errors</h3>
+<ol type="1">
+<li><strong>Raw data is read-only.</strong> Scripts read it and write elsewhere.</li>
+<li><strong>Numbers in text are generated.</strong> A script writes them as LaTeX commands, for example.</li>
+<li><strong>Equations live in one tested function.</strong> Everything calls it.</li>
+<li><strong>One command rebuilds everything.</strong> It might be <code>python build_all.py</code> or <code>make</code>.</li>
+<li><strong>Each output records its source</strong>, such as a commit or a checksum.</li>
+<li><strong>Generated files say so</strong>, in a comment at the top, so that nobody edits them by hand.</li>
+<li><strong>Paths are relative.</strong> <code>C:\Users\me\data</code> works only for you.</li>
+<li><strong>Random steps have a fixed seed</strong>, so that results repeat exactly.</li>
+<li><strong>The environment is recorded</strong>, in a <code>requirements.txt</code>, <code>environment.yml</code> or container.</li>
+</ol>
+<h3 id="pipelines-a-worked-example">A worked example</h3>
+<p>My <a href="https://ahmadammar.github.io/marxist-economics/how-it-works/">pamphlet project</a> has one LaTeX source and one data file. One command builds the website, the PDF, a report, slides and a calculator from them, then checks that they all agree.</p>
+<p>When I switched the pamphlet to shared numbers, a check confirmed that the PDF's text hadn't changed at all. That kind of proof is what makes a large change safe.</p>
+<h3 id="pipelines-tools-for-larger-projects">Tools for larger projects</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Tool</th>
+<th>Good for</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>make</code>, Snakemake, Nextflow</td>
+<td>Rebuilding only what changed</td>
+</tr>
+<tr class="even">
+<td>Conda, <code>venv</code>, <code>uv</code></td>
+<td>Python environments</td>
+</tr>
+<tr class="odd">
+<td>Docker, Apptainer</td>
+<td>Whole environments, including on HPC</td>
+</tr>
+<tr class="even">
+<td>DVC, DataLad, Git LFS</td>
+<td>Versioning large data</td>
+</tr>
+</tbody>
+</table>
+<p>Start simple. A short script that runs each step in order goes a long way.</p>
+
+</section>
+<section id="ch-backups">
+<h2>Data, backups and releases</h2>
+<h3 id="backups-data">Data</h3>
+<p>Git isn't built for large files, so keep data out of it, and record what you used.</p>
+<ul>
+<li><strong>Never overwrite.</strong> Write each new run to a dated folder, such as <code>results_2026-10-31/</code>.</li>
+<li><strong>Record checksums</strong>, which are fingerprints that change if a file changes: <code>sha256sum *.csv &gt; MANIFEST.sha256</code>, and check later with <code>sha256sum -c MANIFEST.sha256</code>.</li>
+<li><strong>Note the source</strong> of each dataset: its address, date and licence.</li>
+</ul>
+<h3 id="backups-backups">Backups</h3>
+<p>Git is not a backup until a copy exists elsewhere, and a private repository on one laptop can be lost with that laptop. The common rule is <strong>3-2-1</strong>: three copies, on two kinds of storage, with one somewhere else.</p>
+<p>Syncing services such as OneDrive aren't enough on their own, because they also sync deletions and corruption. And <strong>a backup you've never restored is only a hope</strong>, so test one:</p>
+<pre class="bash"><code>git bundle create project.bundle --all     # one file holding a repository&#39;s whole history
+git clone project.bundle restore-test      # prove that it comes back</code></pre>
+<p>Databases and uploaded files don't live in Git, so they need their own backups, including an encrypted copy off-site.</p>
+<h3 id="backups-releases">Releases</h3>
+<p>Whenever something leaves your hands, freeze a copy.</p>
+<ol type="1">
+<li>Commit everything, so that the source is exact.</li>
+<li>Run all the checks.</li>
+<li>Build from clean.</li>
+<li>Put the outputs in a dated, read-only folder, with checksums.</li>
+<li>Tag the commit.</li>
+</ol>
+<p>Then, for anything a reader sends back, you can find precisely what they had. If it needs correcting, make a new release and log the reason, without editing the old one.</p>
+<h3 id="backups-secrets">Secrets</h3>
+<p>Passwords and keys never go in a repository, because history keeps them even after deletion. Use environment variables or a secrets store. If one gets committed, treat it as exposed: change it first, then clean up.</p>
+
+</section>
+<section id="ch-checklist">
+<h2>Checklists and cheat sheet</h2>
+<h3 id="checklist-starting-a-project">Starting a project</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+<code>git init</code>, a README and a <code>.gitignore</code></li>
+<li><input type="checkbox" disabled="" />
+A folder layout that separates raw data, code and outputs</li>
+<li><input type="checkbox" disabled="" />
+A recorded environment</li>
+<li><input type="checkbox" disabled="" />
+A first test</li>
+<li><input type="checkbox" disabled="" />
+A remote copy and a backup</li>
+<li><input type="checkbox" disabled="" />
+A licence, if it's going public</li>
+</ul>
+<h3 id="checklist-before-sending-anything-out">Before sending anything out</h3>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+All changes committed</li>
+<li><input type="checkbox" disabled="" />
+Tests and checks pass</li>
+<li><input type="checkbox" disabled="" />
+Built from clean, on the current source</li>
+<li><input type="checkbox" disabled="" />
+Every stated number traced to a result</li>
+<li><input type="checkbox" disabled="" />
+Links and references tested</li>
+<li><input type="checkbox" disabled="" />
+Read by a person against its sources</li>
+<li><input type="checkbox" disabled="" />
+Frozen as a dated release, with a tag and checksums</li>
+<li><input type="checkbox" disabled="" />
+Backed up</li>
+</ul>
+<h3 id="checklist-cheat-sheet">Cheat sheet</h3>
+<pre class="bash"><code>git status                 # what changed?
+git diff                   # how?
+git add -A                 # choose everything
+git commit -m &quot;Why&quot;        # save a version
+git log --oneline          # list versions
+git switch -c idea         # new branch
+git merge idea             # bring it in
+git tag -a v1 -m &quot;Note&quot;    # name a version
+git push                   # send online
+git pull                   # fetch from online
+git revert &lt;commit&gt;        # undo, keeping history
+python -m pytest           # run tests
+sha256sum -c MANIFEST.sha256   # check files are unchanged</code></pre>
+
+</section>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="bar">
+    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
+    <div class="social">
+      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

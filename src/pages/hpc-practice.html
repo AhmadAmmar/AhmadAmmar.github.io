@@ -26,153 +26,153 @@ out: teaching/hpc/practice/index.html
       <li><a href="{{root}}teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="{{root}}teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
-    <p><a href="{{root}}teaching/hpc/full/">Whole tutorial on one page</a></p>
-    <p><a href="{{root}}files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
+    <p><a href="{{root}}teaching/hpc/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/HPC_tutorial_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
   </aside>
   <article class="hpc-body">
-<h2 id="words-for-time">Words for time</h2>
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Term</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Wall time</td>
-<td>Real time by the clock on the wall</td>
-</tr>
-<tr class="even">
-<td>Core time</td>
-<td>Sum of the time on each core. 10 tasks of 1 minute each: 1 minute of wall time, 10 of core time</td>
-</tr>
-<tr class="odd">
-<td>Queue wait</td>
-<td>From submitting to starting</td>
-</tr>
-<tr class="even">
-<td>Speed-up</td>
-<td>Old wall time / new wall time</td>
-</tr>
-<tr class="odd">
-<td>Efficiency</td>
-<td>Speed-up / number of cores used</td>
-</tr>
-</tbody>
-</table>
-<h2 id="slurms-accounts">Slurm's accounts</h2>
-<p>Slurm records everything, and <code>sacct</code> reads it back.</p>
-<pre class="bash"><code># cluster
-
-# -X: whole jobs only. -P: separate columns with |, ready for a spreadsheet or pandas.
-# -S: from this date. -o: which columns. &gt; saves to a file
-sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,State &gt; jobs.txt</code></pre>
-<p>Times are in whole seconds, which is too coarse for tasks of a few seconds. Time those from inside the job with <code>date +%s.%N</code>.</p>
-<h2 id="a-measured-example">A measured example</h2>
-<p>The same prime-counting program from the exercises, up to 5 million, was run three times at each core count on Kelvin2 and on one laptop (Intel Core i5-10210U, 4 physical cores, doing other work at the time). Each cell is the middle of three runs. All 27 runs found the same answer, 348,513.</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Cores</th>
-<th style="text-align: right;">Kelvin2</th>
-<th style="text-align: right;">Speed-up</th>
-<th style="text-align: right;">Efficiency</th>
-<th style="text-align: right;">Laptop</th>
-<th style="text-align: right;">Laptop range</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">46.0 s</td>
-<td style="text-align: right;">1.0x</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">209 s</td>
-<td style="text-align: right;">125 to 255 s</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">23.2 s</td>
-<td style="text-align: right;">2.0x</td>
-<td style="text-align: right;">99%</td>
-<td style="text-align: right;">125 s</td>
-<td style="text-align: right;">82 to 156 s</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">12.0 s</td>
-<td style="text-align: right;">3.8x</td>
-<td style="text-align: right;">96%</td>
-<td style="text-align: right;">69 s</td>
-<td style="text-align: right;">66 to 105 s</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">6.3 s</td>
-<td style="text-align: right;">7.3x</td>
-<td style="text-align: right;">91%</td>
-<td style="text-align: right;">61 s</td>
-<td style="text-align: right;">55 to 66 s</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">3.7 s</td>
-<td style="text-align: right;">12.4x</td>
-<td style="text-align: right;">78%</td>
-<td style="text-align: right;">n/a</td>
-<td style="text-align: right;">n/a</td>
-</tr>
-</tbody>
-</table>
-<p>Three things are worth noticing:</p>
-<ul>
-<li><strong>Efficiency falls as cores rise</strong>, because splitting and collecting work takes time. Sixteen cores gave 12.4 times the speed, not 16.</li>
-<li><strong>The laptop barely gains beyond 4 cores.</strong> It has 4 physical cores, and its 8 are logical threads sharing them. Its times also vary widely, because it was busy, while Kelvin2's stayed within a fraction of a second. So don't read a single speed-up figure from this comparison.</li>
-<li><strong>Many jobs can run at once.</strong> The 15 Kelvin2 jobs were submitted together in 2026, waited 10 seconds, and finished within 57 seconds. One after another they would take about 4.6 minutes.</li>
-</ul>
-<p>This program is well suited to splitting up. Yours may not be, so measure it.</p>
-<p>To repeat the test:</p>
-<pre class="bash"><code># cluster, in the starter kit folder
-for r in 1 2 3; do for c in 1 2 4 8 16; do
-  sbatch --job-name=t${c}_${r} --cpus-per-task=$c --mem=4G --time=00:30:00 \
-    --output=logs/timing_${c}_${r}.out --wrap=&quot;python3 03_primes.py 5000000&quot;
-done; done</code></pre>
-<h2 id="benchmarking-fairly">Benchmarking fairly</h2>
-<p>Comparing a cluster with a laptop is easy to do badly.</p>
-<ul>
-<li>Compare like with like: same program, version, input and output settings.</li>
-<li>Report what you measured. "First task start to last task end" and "submission to finish" are different numbers.</li>
-<li>Separate setup from running. If your script copies files between submissions, you are timing the copying. I made this mistake in my own first test.</li>
-<li>Repeat. Shared systems vary with load. Report a range, not your best run.</li>
-<li>Say what you projected, and what you measured.</li>
-<li>Check that the answers match, not just the speed.</li>
-</ul>
-<h2 id="good-habits">Good habits</h2>
-<p>These follow the spirit of Wilson et al. (2014).</p>
-<ul>
-<li>Keep code in version control, such as git. Keep raw data unchanged, with scripts that make everything else from it.</li>
-<li>Never overwrite results. Use dated output folders: <code>outputs/$(date +%Y-%m-%d_%H%M)</code>.</li>
-<li>Record versions: <code>module list</code>, <code>conda env export</code>, <code>git rev-parse HEAD</code>.</li>
-<li>Keep job scripts, as they are the record of what you did.</li>
-<li>Make jobs restartable.</li>
-<li>Read your inputs back: check a run's settings, such as the simulated period, before you describe it.</li>
-<li>Copy results off scratch.</li>
-</ul>
-<h2 id="being-a-good-neighbour">Being a good neighbour</h2>
-<ul>
-<li>No heavy work on login nodes.</li>
-<li>Ask for what you need, not the maximum. Over-asking makes your own job queue for longer, and blocks others.</li>
-<li>Avoid millions of tiny files. Pack them, or write summaries.</li>
-<li>Run only what you need. Smarter sampling can replace brute force, as NI-HPC's <a href="https://ni-hpc.github.io/nihpc-documentation/Green%20HPC/">Green HPC page</a> notes.</li>
-<li>Read your cluster's acceptable use policy.</li>
-<li>Acknowledge the service in your papers. <strong>Kelvin2:</strong> "We are grateful for use of the computing resources from the Northern Ireland High Performance Computing (NI-HPC) service funded by EPSRC (EP/T022175)."</li>
-<li>When stuck, write to the support team with your job ID, the exact command and the error message.</li>
-</ul>
+<h2 id="words-for-time">Words for time</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Wall time</td>
+<td>Real time by the clock on the wall</td>
+</tr>
+<tr class="even">
+<td>Core time</td>
+<td>Sum of the time on each core. 10 tasks of 1 minute each: 1 minute of wall time, 10 of core time</td>
+</tr>
+<tr class="odd">
+<td>Queue wait</td>
+<td>From submitting to starting</td>
+</tr>
+<tr class="even">
+<td>Speed-up</td>
+<td>Old wall time / new wall time</td>
+</tr>
+<tr class="odd">
+<td>Efficiency</td>
+<td>Speed-up / number of cores used</td>
+</tr>
+</tbody>
+</table>
+<h2 id="slurms-accounts">Slurm's accounts</h2>
+<p>Slurm records everything, and <code>sacct</code> reads it back.</p>
+<pre class="bash"><code># cluster
+
+# -X: whole jobs only. -P: separate columns with |, ready for a spreadsheet or pandas.
+# -S: from this date. -o: which columns. &gt; saves to a file
+sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,State &gt; jobs.txt</code></pre>
+<p>Times are in whole seconds, which is too coarse for tasks of a few seconds. Time those from inside the job with <code>date +%s.%N</code>.</p>
+<h2 id="a-measured-example">A measured example</h2>
+<p>The same prime-counting program from the exercises, up to 5 million, was run three times at each core count on Kelvin2 and on one laptop (Intel Core i5-10210U, 4 physical cores, doing other work at the time). Each cell is the middle of three runs. All 27 runs found the same answer, 348,513.</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: right;">Cores</th>
+<th style="text-align: right;">Kelvin2</th>
+<th style="text-align: right;">Speed-up</th>
+<th style="text-align: right;">Efficiency</th>
+<th style="text-align: right;">Laptop</th>
+<th style="text-align: right;">Laptop range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">46.0 s</td>
+<td style="text-align: right;">1.0x</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">209 s</td>
+<td style="text-align: right;">125 to 255 s</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">23.2 s</td>
+<td style="text-align: right;">2.0x</td>
+<td style="text-align: right;">99%</td>
+<td style="text-align: right;">125 s</td>
+<td style="text-align: right;">82 to 156 s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">12.0 s</td>
+<td style="text-align: right;">3.8x</td>
+<td style="text-align: right;">96%</td>
+<td style="text-align: right;">69 s</td>
+<td style="text-align: right;">66 to 105 s</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">6.3 s</td>
+<td style="text-align: right;">7.3x</td>
+<td style="text-align: right;">91%</td>
+<td style="text-align: right;">61 s</td>
+<td style="text-align: right;">55 to 66 s</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">3.7 s</td>
+<td style="text-align: right;">12.4x</td>
+<td style="text-align: right;">78%</td>
+<td style="text-align: right;">n/a</td>
+<td style="text-align: right;">n/a</td>
+</tr>
+</tbody>
+</table>
+<p>Three things are worth noticing:</p>
+<ul>
+<li><strong>Efficiency falls as cores rise</strong>, because splitting and collecting work takes time. Sixteen cores gave 12.4 times the speed, not 16.</li>
+<li><strong>The laptop barely gains beyond 4 cores.</strong> It has 4 physical cores, and its 8 are logical threads sharing them. Its times also vary widely, because it was busy, while Kelvin2's stayed within a fraction of a second. So don't read a single speed-up figure from this comparison.</li>
+<li><strong>Many jobs can run at once.</strong> The 15 Kelvin2 jobs were submitted together in 2026, waited 10 seconds, and finished within 57 seconds. One after another they would take about 4.6 minutes.</li>
+</ul>
+<p>This program is well suited to splitting up. Yours may not be, so measure it.</p>
+<p>To repeat the test:</p>
+<pre class="bash"><code># cluster, in the starter kit folder
+for r in 1 2 3; do for c in 1 2 4 8 16; do
+  sbatch --job-name=t${c}_${r} --cpus-per-task=$c --mem=4G --time=00:30:00 \
+    --output=logs/timing_${c}_${r}.out --wrap=&quot;python3 03_primes.py 5000000&quot;
+done; done</code></pre>
+<h2 id="benchmarking-fairly">Benchmarking fairly</h2>
+<p>Comparing a cluster with a laptop is easy to do badly.</p>
+<ul>
+<li>Compare like with like: same program, version, input and output settings.</li>
+<li>Report what you measured. "First task start to last task end" and "submission to finish" are different numbers.</li>
+<li>Separate setup from running. If your script copies files between submissions, you are timing the copying. I made this mistake in my own first test.</li>
+<li>Repeat. Shared systems vary with load. Report a range, not your best run.</li>
+<li>Say what you projected, and what you measured.</li>
+<li>Check that the answers match, not just the speed.</li>
+</ul>
+<h2 id="good-habits">Good habits</h2>
+<p>These follow the spirit of Wilson et al. (2014).</p>
+<ul>
+<li>Keep code in version control, such as git. Keep raw data unchanged, with scripts that make everything else from it.</li>
+<li>Never overwrite results. Use dated output folders: <code>outputs/$(date +%Y-%m-%d_%H%M)</code>.</li>
+<li>Record versions: <code>module list</code>, <code>conda env export</code>, <code>git rev-parse HEAD</code>.</li>
+<li>Keep job scripts, as they are the record of what you did.</li>
+<li>Make jobs restartable.</li>
+<li>Read your inputs back: check a run's settings, such as the simulated period, before you describe it.</li>
+<li>Copy results off scratch.</li>
+</ul>
+<h2 id="being-a-good-neighbour">Being a good neighbour</h2>
+<ul>
+<li>No heavy work on login nodes.</li>
+<li>Ask for what you need, not the maximum. Over-asking makes your own job queue for longer, and blocks others.</li>
+<li>Avoid millions of tiny files. Pack them, or write summaries.</li>
+<li>Run only what you need. Smarter sampling can replace brute force, as NI-HPC's <a href="https://ni-hpc.github.io/nihpc-documentation/Green%20HPC/">Green HPC page</a> notes.</li>
+<li>Read your cluster's acceptable use policy.</li>
+<li>Acknowledge the service in your papers. <strong>Kelvin2:</strong> "We are grateful for use of the computing resources from the Northern Ireland High Performance Computing (NI-HPC) service funded by EPSRC (EP/T022175)."</li>
+<li>When stuck, write to the support team with your job ID, the exact command and the error message.</li>
+</ul>
 
 <nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/hpc/arrays/">&larr; Job arrays: a parameter sweep</a><a href="{{root}}teaching/hpc/beyond/">Other clusters, the cloud and Linux basics &rarr;</a></nav>
 <p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>

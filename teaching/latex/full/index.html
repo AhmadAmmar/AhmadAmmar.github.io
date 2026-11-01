@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LaTeX from first principles: whole guide | Ahmad Ammar</title>
+<meta name="description" content="Every chapter of LaTeX from first principles on one scrolling page, with contents that follow the reader.">
+<meta name="author" content="Ahmad Ammar">
+<link rel="canonical" href="https://ahmadammar.github.io/teaching/latex/full/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LaTeX from first principles: whole guide | Ahmad Ammar">
+<meta property="og:description" content="Every chapter of LaTeX from first principles on one scrolling page, with contents that follow the reader.">
+<meta property="og:url" content="https://ahmadammar.github.io/teaching/latex/full/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script src="../../../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
+    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="../../../index.html">About</a>
+      <a href="../../../research.html">Research</a>
+      <a href="../../../teaching.html" aria-current="page">Teaching</a>
+      <a href="../../../projects.html">Projects</a>
+      <a href="../../../writing.html">Writing</a>
+      <a href="../../../cv.html">CV</a>
+    </nav>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</header>
+<main id="content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/latex/">LaTeX guide</a> / One page</nav>
+<header class="page-head">
+  <p class="eyebrow">LaTeX guide</p>
+  <h1>The whole guide on one page</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Contents">
+    <p class="title">Contents</p>
+    <ol>
+      <li><a href="#ch-index">LaTeX from first principles</a></li>
+      <li class="sub"><a href="#index-how-to-use-it">How to use it</a></li>
+      <li class="sub"><a href="#index-getting-latex">Getting LaTeX</a></li>
+      <li><a href="#ch-basics">How LaTeX works</a></li>
+      <li class="sub"><a href="#basics-the-idea">The idea</a></li>
+      <li class="sub"><a href="#basics-the-parts-of-a-document">The parts of a document</a></li>
+      <li class="sub"><a href="#basics-syntax">Syntax</a></li>
+      <li class="sub"><a href="#basics-why-you-sometimes-compile-more-than-once">Why you sometimes compile more than once</a></li>
+      <li class="sub"><a href="#basics-choosing-an-engine">Choosing an engine</a></li>
+      <li class="sub"><a href="#basics-reading-errors">Reading errors</a></li>
+      <li><a href="#ch-text">Structure, text and appearance</a></li>
+      <li class="sub"><a href="#text-document-classes">Document classes</a></li>
+      <li class="sub"><a href="#text-headings-and-contents">Headings and contents</a></li>
+      <li class="sub"><a href="#text-text-and-fonts">Text and fonts</a></li>
+      <li class="sub"><a href="#text-fonts">Fonts</a></li>
+      <li class="sub"><a href="#text-colour">Colour</a></li>
+      <li class="sub"><a href="#text-lists">Lists</a></li>
+      <li class="sub"><a href="#text-page-layout">Page layout</a></li>
+      <li class="sub"><a href="#text-links">Links</a></li>
+      <li><a href="#ch-maths">Mathematics</a></li>
+      <li class="sub"><a href="#maths-inline-and-displayed">Inline and displayed</a></li>
+      <li class="sub"><a href="#maths-the-building-blocks">The building blocks</a></li>
+      <li class="sub"><a href="#maths-aligned-derivations">Aligned derivations</a></li>
+      <li class="sub"><a href="#maths-maths-as-your-own-commands">Maths as your own commands</a></li>
+      <li class="sub"><a href="#maths-tips">Tips</a></li>
+      <li><a href="#ch-tables-figures">Tables and figures</a></li>
+      <li class="sub"><a href="#tables-figures-tables">Tables</a></li>
+      <li class="sub"><a href="#tables-figures-figures">Figures</a></li>
+      <li class="sub"><a href="#tables-figures-plots-drawn-from-data">Plots drawn from data</a></li>
+      <li class="sub"><a href="#tables-figures-introducing-them-properly">Introducing them properly</a></li>
+      <li><a href="#ch-references">References, links and bibliographies</a></li>
+      <li class="sub"><a href="#references-cross-references">Cross-references</a></li>
+      <li class="sub"><a href="#references-citations">Citations</a></li>
+      <li class="sub"><a href="#references-a-complete-small-report">A complete small report</a></li>
+      <li><a href="#ch-macros">Your own commands, packages and themes</a></li>
+      <li class="sub"><a href="#macros-latex-as-a-language">LaTeX as a language</a></li>
+      <li class="sub"><a href="#macros-environments-and-counters">Environments and counters</a></li>
+      <li class="sub"><a href="#macros-numbers-from-your-analysis">Numbers from your analysis</a></li>
+      <li class="sub"><a href="#macros-your-own-style-file">Your own style file</a></li>
+      <li class="sub"><a href="#macros-useful-packages">Useful packages</a></li>
+      <li><a href="#ch-outputs">Slides, Word, web pages and images</a></li>
+      <li class="sub"><a href="#outputs-slides-with-beamer">Slides with Beamer</a></li>
+      <li class="sub"><a href="#outputs-posters">Posters</a></li>
+      <li class="sub"><a href="#outputs-word">Word</a></li>
+      <li class="sub"><a href="#outputs-web-pages">Web pages</a></li>
+      <li class="sub"><a href="#outputs-powerpoint-and-images">PowerPoint and images</a></li>
+      <li class="sub"><a href="#outputs-one-source-many-outputs">One source, many outputs</a></li>
+      <li><a href="#ch-practice">Good practice and version control</a></li>
+      <li class="sub"><a href="#practice-a-tidy-project">A tidy project</a></li>
+      <li class="sub"><a href="#practice-version-control">Version control</a></li>
+      <li class="sub"><a href="#practice-reproducible-builds">Reproducible builds</a></li>
+      <li class="sub"><a href="#practice-accessible-documents">Accessible documents</a></li>
+      <li class="sub"><a href="#practice-working-with-others">Working with others</a></li>
+      <li><a href="#ch-troubleshooting">Troubleshooting and cheat sheet</a></li>
+      <li class="sub"><a href="#troubleshooting-common-errors">Common errors</a></li>
+      <li class="sub"><a href="#troubleshooting-cheat-sheet">Cheat sheet</a></li>
+    </ol>
+    <p><a href="../../../files/LaTeX_guide_Ahmad_Ammar.pdf">PDF version</a></p>
+  </aside>
+  <article class="hpc-body">
+<section id="ch-index">
+<h2>LaTeX from first principles</h2>
+<p>This guide explains how LaTeX works and how to use it well, starting from nothing. It's also my own reference, so that I can rebuild my projects from scratch if I ever forget how they work.</p>
+<p>LaTeX suits long documents with maths, numbered sections and references, because you describe the document's structure and it handles the layout. You write plain text, which also means every version can be tracked and compared.</p>
+<h3 id="index-how-to-use-it">How to use it</h3>
+<p>Read in order if you're new. Each chapter builds on the last, and the code shown compiles as written. The <a href="../../../teaching/latex/examples/latex-examples.zip">example files</a> include all of it, and the complete report comes together in the chapter on <a href="#ch-references">references</a>.</p>
+<h3 id="index-getting-latex">Getting LaTeX</h3>
+<ul>
+<li><strong>To try it with nothing installed:</strong> <a href="https://www.overleaf.com">Overleaf</a> runs in the browser.</li>
+<li><strong>On your computer:</strong> <a href="https://miktex.org">MiKTeX</a> on Windows, <a href="https://www.tug.org/mactex/">MacTeX</a> on macOS, or <a href="https://www.tug.org/texlive/">TeX Live</a> on Linux.</li>
+<li><strong>An editor:</strong> VS Code with the LaTeX Workshop extension, or TeXstudio.</li>
+</ul>
+<p>The <a href="https://www.latex-project.org/help/documentation/">official LaTeX documentation</a> and the <a href="https://en.wikibooks.org/wiki/LaTeX">LaTeX Wikibook</a> are good references to keep at hand.</p>
+
+</section>
+<section id="ch-basics">
+<h2>How LaTeX works</h2>
+<h3 id="basics-the-idea">The idea</h3>
+<p>You write a text file ending in <code>.tex</code>, and a program called an <em>engine</em> turns it into a PDF. That step is called <em>compiling</em>. It's closer to running code than to saving a Word file: errors stop it, and the source and result are separate.</p>
+<p><strong>minimal.tex</strong></p>
+<pre class="latex"><code>\documentclass{article}
+
+\begin{document}
+Hello, world. One plus one is $1 + 1 = 2$.
+\end{document}</code></pre>
+<p>Compile it with:</p>
+<pre class="bash"><code>pdflatex minimal</code></pre>
+<p>This makes <code>minimal.pdf</code>, plus helper files such as <code>minimal.log</code>, which records what happened, and <code>minimal.aux</code>, which remembers numbers between runs.</p>
+<h3 id="basics-the-parts-of-a-document">The parts of a document</h3>
+<ul>
+<li><strong>The preamble</strong> is everything before <code>\begin{document}</code>. It sets the document type and loads packages. Nothing here is printed.</li>
+<li><strong>The body</strong> is everything between <code>\begin{document}</code> and <code>\end{document}</code>.</li>
+</ul>
+<h3 id="basics-syntax">Syntax</h3>
+<ul>
+<li><strong>A command</strong> starts with a backslash: <code>\section{Method}</code>. Required inputs, or <em>arguments</em>, go in braces, and optional ones in square brackets: <code>\documentclass[11pt]{article}</code>.</li>
+<li><strong>An environment</strong> has a start and an end, and changes what's between them: <code>\begin{center}</code> and <code>\end{center}</code>.</li>
+<li><strong>A comment</strong> starts with <code>%</code> and runs to the end of the line.</li>
+<li><strong>A blank line</strong> starts a new paragraph. Single line breaks and extra spaces are ignored.</li>
+<li><strong>Special characters</strong> need a backslash to print: <code>\%</code>, <code>\$</code>, <code>\&amp;</code>, <code>\#</code>, <code>\_</code>, <code>\{</code>, <code>\}</code>.</li>
+</ul>
+<h3 id="basics-why-you-sometimes-compile-more-than-once">Why you sometimes compile more than once</h3>
+<p>Numbers for sections, equations and citations are only known after a full pass. LaTeX writes them to the <code>.aux</code> file on one run, and reads them on the next. So a contents page or a reference can need two or three runs. A warning saying <code>Rerun to get cross-references right</code> means exactly that.</p>
+<p>The full sequence with a bibliography is:</p>
+<pre class="bash"><code>pdflatex main
+bibtex main
+pdflatex main
+pdflatex main</code></pre>
+<p>The tool <code>latexmk -pdf main</code> works out how many runs are needed and does them for you, though it needs Perl on Windows.</p>
+<h3 id="basics-choosing-an-engine">Choosing an engine</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Engine</th>
+<th>Use it when</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>pdflatex</code></td>
+<td>The default for most documents, with the widest compatibility</td>
+</tr>
+<tr class="even">
+<td><code>xelatex</code></td>
+<td>You want system fonts, or scripts such as Urdu and Arabic</td>
+</tr>
+<tr class="odd">
+<td><code>lualatex</code></td>
+<td>You want system fonts plus scripting with Lua</td>
+</tr>
+</tbody>
+</table>
+<h3 id="basics-reading-errors">Reading errors</h3>
+<p>An error line starts with <code>!</code>. Press Enter past it in a terminal, or use <code>-interaction=nonstopmode</code> so that it doesn't stop. Fix the <strong>first</strong> error, because one fault can cause many later ones.</p>
+<pre class="text"><code>! Undefined control sequence.
+l.12 \sectoin
+             {Method}</code></pre>
+<p>This says line 12 uses a command that doesn't exist, here a misspelling. The <a href="#ch-troubleshooting">troubleshooting chapter</a> lists common errors.</p>
+
+</section>
+<section id="ch-text">
+<h2>Structure, text and appearance</h2>
+<h3 id="text-document-classes">Document classes</h3>
+<p>The class sets the overall type of document.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Class</th>
+<th>For</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>article</code></td>
+<td>Papers and short reports</td>
+</tr>
+<tr class="even">
+<td><code>report</code></td>
+<td>Long reports with chapters</td>
+</tr>
+<tr class="odd">
+<td><code>book</code></td>
+<td>Books</td>
+</tr>
+<tr class="even">
+<td><code>beamer</code></td>
+<td>Slides</td>
+</tr>
+</tbody>
+</table>
+<h3 id="text-headings-and-contents">Headings and contents</h3>
+<pre class="latex"><code>\section{Method}
+\subsection{Data}
+\subsubsection{Cleaning}
+\tableofcontents</code></pre>
+<p>Numbers come automatically, and adding a star, as in <code>\section*{Thanks}</code>, leaves a heading unnumbered and out of the contents. Split long documents into files with <code>\input{chapter1}</code>.</p>
+<h3 id="text-text-and-fonts">Text and fonts</h3>
+<pre class="latex"><code>\emph{emphasis}  \textbf{bold}  \texttt{code}  \underline{underlined}
+{\small smaller text}  {\large larger text}</code></pre>
+<p>Prefer <code>\emph</code> over forcing italics, because it describes meaning, and it adapts when nested. For dashes, <code>-</code> joins words, <code>--</code> makes ranges such as 10--20, and <code>---</code> is a long dash. Quotes are written as two backticks and two apostrophes.</p>
+<h3 id="text-fonts">Fonts</h3>
+<p>With <code>pdflatex</code>, fonts come from packages, for example <code>\usepackage{helvet}</code> with <code>\renewcommand{\familydefault}{\sfdefault}</code> for a sans-serif body. With <code>xelatex</code>, you can name any installed font:</p>
+<pre class="latex"><code>\usepackage{fontspec}
+\setmainfont{Source Serif 4}</code></pre>
+<h3 id="text-colour">Colour</h3>
+<pre class="latex"><code>\usepackage{xcolor}
+\definecolor{brand}{HTML}{0D6A6E}
+\textcolor{brand}{Coloured text}</code></pre>
+<p>Define each colour once, by name, so that you can change the whole document from one line. Don't rely on colour alone to carry meaning, because some readers can't see the difference and pages may be printed in black and white.</p>
+<h3 id="text-lists">Lists</h3>
+<pre class="latex"><code>\begin{itemize}
+  \item A point
+\end{itemize}
+\begin{enumerate}
+  \item A first step
+\end{enumerate}</code></pre>
+<h3 id="text-page-layout">Page layout</h3>
+<pre class="latex"><code>\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{fancyhdr}
+\pagestyle{fancy}</code></pre>
+<h3 id="text-links">Links</h3>
+<pre class="latex"><code>\usepackage{hyperref}            % load this near the end of the preamble
+\href{https://example.org}{a link}
+\url{https://example.org}</code></pre>
+<p><code>hyperref</code> also makes every cross-reference and contents entry clickable.</p>
+
+</section>
+<section id="ch-maths">
+<h2>Mathematics</h2>
+<h3 id="maths-inline-and-displayed">Inline and displayed</h3>
+<p>Inline maths sits within a sentence, and displayed maths gets its own line. Load <code>amsmath</code> for anything beyond the basics.</p>
+<pre class="latex"><code>The energy is $E = mc^2$ here.
+
+\[ E = mc^2 \]          % displayed, no number
+
+\begin{equation}        % displayed and numbered
+  E = mc^2
+  \label{eq:energy}
+\end{equation}</code></pre>
+<h3 id="maths-the-building-blocks">The building blocks</h3>
+<table>
+<thead>
+<tr class="header">
+<th>You want</th>
+<th>You write</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Superscript and subscript</td>
+<td><code>x^2</code>, <code>x_i</code>, <code>x_{i,j}</code></td>
+</tr>
+<tr class="even">
+<td>Fraction</td>
+<td><code>\frac{a}{b}</code></td>
+</tr>
+<tr class="odd">
+<td>Square root</td>
+<td><code>\sqrt{x}</code></td>
+</tr>
+<tr class="even">
+<td>Greek letters</td>
+<td><code>\alpha</code>, <code>\mu</code>, <code>\Delta</code></td>
+</tr>
+<tr class="odd">
+<td>Sum and integral</td>
+<td><code>\sum_{i=1}^{n}</code>, <code>\int_0^1</code></td>
+</tr>
+<tr class="even">
+<td>Operators and relations</td>
+<td><code>\times</code>, <code>\approx</code>, <code>\leq</code>, <code>\rightarrow</code></td>
+</tr>
+<tr class="odd">
+<td>Words in maths</td>
+<td><code>\text{hours}</code></td>
+</tr>
+<tr class="even">
+<td>Spacing</td>
+<td><code>\,</code> small, <code>\quad</code> wide</td>
+</tr>
+<tr class="odd">
+<td>Brackets that grow</td>
+<td><code>\left( \frac{a}{b} \right)</code></td>
+</tr>
+</tbody>
+</table>
+<p>Braces group things, so <code>x^{10}</code> raises the whole 10, while <code>x^10</code> raises only the 1.</p>
+<h3 id="maths-aligned-derivations">Aligned derivations</h3>
+<p>Long derivations read best one step per line. Use <code>&amp;</code> to mark where lines align, and <code>\\</code> to end a line.</p>
+<pre class="latex"><code>\begin{align}
+  r &amp;= \frac{s}{c + v} \\
+    &amp;= \frac{e v}{c + v} \\
+    &amp;= \frac{e}{1 + c/v}.
+\end{align}</code></pre>
+<p>Each line gets a number, and <code>align*</code> removes all of them. <code>\nonumber</code> removes one.</p>
+<h3 id="maths-maths-as-your-own-commands">Maths as your own commands</h3>
+<p>If a symbol means something in your project, name it once, and every use will follow.</p>
+<pre class="latex"><code>\newcommand{\rate}{\ensuremath{r}}</code></pre>
+<h3 id="maths-tips">Tips</h3>
+<ul>
+<li>Spell out what each symbol means in the text around the equation.</li>
+<li>Treat an equation as part of a sentence, with punctuation.</li>
+<li>Don't use <code>$</code> or <code>$$</code> for displayed equations in LaTeX. Use <code>\[ \]</code>, because <code>$$</code> skips LaTeX's spacing rules.</li>
+</ul>
+
+</section>
+<section id="ch-tables-figures">
+<h2>Tables and figures</h2>
+<h3 id="tables-figures-tables">Tables</h3>
+<p>A <code>tabular</code> builds the grid, and a <code>table</code> around it adds a caption and lets it float to a good position. The <code>booktabs</code> package gives clean horizontal rules, and it's best to avoid vertical lines altogether.</p>
+<pre class="latex"><code>\begin{table}[ht]
+  \centering
+  \caption{Heat loss through a wall.}
+  \label{tab:walls}
+  \begin{tabular}{lrr}      % left, right, right
+    \toprule
+    Wall &amp; $U$ &amp; $Q$ \\
+    \midrule
+    Solid brick &amp; 2.10 &amp; 315 \\
+    Insulated   &amp; 0.45 &amp; 68 \\
+    \bottomrule
+  \end{tabular}
+\end{table}</code></pre>
+<h3 id="tables-figures-figures">Figures</h3>
+<pre class="latex"><code>\usepackage{graphicx}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/map.pdf}
+  \caption{Heat loss across the study area.}
+  \label{fig:map}
+\end{figure}</code></pre>
+<p>Use PDF or SVG-derived vector files for plots, as they stay sharp at any size. Use PNG for images at 300 dpi or more for print.</p>
+<h3 id="tables-figures-plots-drawn-from-data">Plots drawn from data</h3>
+<p><code>pgfplots</code> draws a chart directly in LaTeX, so its fonts match the document.</p>
+<pre class="latex"><code>\begin{tikzpicture}
+  \begin{axis}[xlabel={U-value}, ylabel={Heat loss (W)}]
+    \addplot coordinates {(0.45,68) (1.5,225) (2.1,315)};
+  \end{axis}
+\end{tikzpicture}</code></pre>
+<p>For anything complex, generate the figure with a script, such as Python with Matplotlib, and include the file. Then the figure can be rebuilt from its data.</p>
+<h3 id="tables-figures-introducing-them-properly">Introducing them properly</h3>
+<p>Every table and figure should be mentioned in the text before it appears, and each needs a caption that says what it shows. Put the <code>\label</code> after the <code>\caption</code>, or the reference will point to the section number instead. Floats move: <code>[ht]</code> asks for here or the top of a page, which is why you should refer to "Table 1" and not "the table below".</p>
+
+</section>
+<section id="ch-references">
+<h2>References, links and bibliographies</h2>
+<h3 id="references-cross-references">Cross-references</h3>
+<p>Give anything numbered a label, then refer to it. The number updates itself if things move.</p>
+<pre class="latex"><code>\section{Method}\label{sec:method}
+See Section~\ref{sec:method} and Equation~\eqref{eq:energy}.</code></pre>
+<p>The <code>~</code> is a non-breaking space, which keeps "Section" and its number on one line. A prefix such as <code>sec:</code>, <code>eq:</code>, <code>tab:</code> or <code>fig:</code> is a helpful habit. The <code>cleveref</code> package can add the word for you: <code>\cref{sec:method}</code>.</p>
+<h3 id="references-citations">Citations</h3>
+<p>Keep references in a separate <code>.bib</code> file, and cite them by key:</p>
+<p><strong>refs.bib</strong></p>
+<pre class="bibtex"><code>@book{clarke2001,
+  author    = {Clarke, Joseph A.},
+  title     = {Energy Simulation in Building Design},
+  edition   = {2},
+  publisher = {Butterworth-Heinemann},
+  address   = {Oxford},
+  year      = {2001}
+}</code></pre>
+<pre class="latex"><code>\usepackage[round]{natbib}
+...
+As \citet{clarke2001} shows, this holds \citep{clarke2001}.
+...
+\bibliographystyle{plainnat}
+\bibliography{refs}</code></pre>
+<p>The bibliography tool picks up only the items you cite. Zotero can export a <code>.bib</code> file, and its Better BibTeX add-on keeps that file updated. <code>biblatex</code> with the <code>biber</code> tool is a more flexible alternative, while journals often supply their own <code>.bst</code> style for BibTeX.</p>
+<h3 id="references-a-complete-small-report">A complete small report</h3>
+<p>This pulls together everything so far: sections, equations, a table, a chart, cross-references, a bibliography and links.</p>
+<p><strong>main.tex</strong></p>
+<pre class="latex"><code>% A complete small report: sections, maths, a table, a figure, cross-references, a bibliography and links.
+% Build: pdflatex main, bibtex main, pdflatex main, pdflatex main
+\documentclass[11pt,a4paper]{article}
+
+% Packages. hyperref goes last among these, because it changes how others work.
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage[round]{natbib}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=teal,citecolor=teal,urlcolor=teal]{hyperref}
+\pgfplotsset{compat=1.17}
+
+% Your own command: change the look of every &quot;term&quot; from this one line.
+\newcommand{\term}[1]{\textbf{#1}}
+
+\title{Heat Loss Through a Wall}
+\author{A Student}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+A \term{U-value} measures heat flow through one square metre of a surface for each degree of
+temperature difference \citep{clarke2001}. Section~\ref{sec:method} gives the equation, and
+Table~\ref{tab:walls} and Figure~\ref{fig:loss} apply it.
+
+\section{Method}\label{sec:method}
+Heat loss $Q$ follows from the U-value $U$, the area $A$ and the temperature difference $\Delta T$:
+\begin{equation}
+  Q = U A \, \Delta T.
+  \label{eq:loss}
+\end{equation}
+Equation~\eqref{eq:loss} is a steady-state estimate. Longer derivations line up at the equals sign:
+\begin{align}
+  Q &amp;= 2.1 \times 10 \times 15 \\
+    &amp;= 315 \text{ W}.
+\end{align}
+
+\section{Results}\label{sec:results}
+\begin{table}[ht]
+  \centering
+  \caption{Heat loss through a 10 m$^2$ wall at a difference of 15 K.}
+  \label{tab:walls}
+  \begin{tabular}{lrr}
+    \toprule
+    Wall &amp; $U$ (W/m$^2$K) &amp; $Q$ (W) \\
+    \midrule
+    Solid brick &amp; 2.10 &amp; 315 \\
+    Unfilled cavity &amp; 1.50 &amp; 225 \\
+    Insulated &amp; 0.45 &amp; 68 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[width=8cm, height=5cm, xlabel={U-value (W/m$^2$K)}, ylabel={Heat loss (W)}]
+      \addplot[teal, mark=*] coordinates {(0.45,68) (1.5,225) (2.1,315)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Heat loss rises in proportion to the U-value.}
+  \label{fig:loss}
+\end{figure}
+
+\section{Conclusion}
+Find this project&#39;s source at \url{https://ahmadammar.github.io/teaching/latex/}.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+\end{document}</code></pre>
+
+</section>
+<section id="ch-macros">
+<h2>Your own commands, packages and themes</h2>
+<h3 id="macros-latex-as-a-language">LaTeX as a language</h3>
+<p>LaTeX is a programming language, and its commands behave like functions and variables.</p>
+<pre class="latex"><code>% A variable: one place to change a value
+\newcommand{\studyarea}{Greater London}
+
+% A function with one parameter, used as \term{surplus value}
+\newcommand{\term}[1]{\textbf{#1}}
+
+% A function with two parameters, where the first is optional
+\newcommand{\money}[2][PKR]{#1~#2}   % \money{160} gives PKR 160</code></pre>
+<p><code>#1</code> is the first parameter. <code>\renewcommand</code> changes an existing command.</p>
+<h3 id="macros-environments-and-counters">Environments and counters</h3>
+<pre class="latex"><code>\newtheorem{example}{Example}[section]      % numbered within each section
+
+\begin{example}[A coffee-shop worker]
+  ...
+\end{example}
+
+\newcounter{step}
+\stepcounter{step}\thestep</code></pre>
+<h3 id="macros-numbers-from-your-analysis">Numbers from your analysis</h3>
+<p>Don't type results by hand into a document. Have your analysis write a file of commands:</p>
+<pre class="latex"><code>% Written by a script. Do not edit by hand.
+\newcommand{\meanDemand}{369}</code></pre>
+<p>Then <code>\input{numbers}</code> and write <code>\meanDemand</code> in the text. When the data changes, the document follows. This prevents the most common errors in scientific writing, as described in the <a href="../../git-ci/">Git and automation guide</a>.</p>
+<h3 id="macros-your-own-style-file">Your own style file</h3>
+<p>Put a shared look in a <code>.sty</code> file, then load it in any document.</p>
+<pre class="latex"><code>% mystyle.sty
+\ProvidesPackage{mystyle}
+\RequirePackage{xcolor}
+\definecolor{brand}{HTML}{0D6A6E}</code></pre>
+<pre class="latex"><code>\usepackage{mystyle}</code></pre>
+<p>For a whole document type, such as a thesis, write a <code>.cls</code> class file instead. Most journals and universities supply one. Keep your text separate from the style, so that moving to a different template only needs one change.</p>
+<h3 id="macros-useful-packages">Useful packages</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>amsmath</code></td>
+<td>Mathematics</td>
+</tr>
+<tr class="even">
+<td><code>geometry</code></td>
+<td>Page size and margins</td>
+</tr>
+<tr class="odd">
+<td><code>graphicx</code></td>
+<td>Images</td>
+</tr>
+<tr class="even">
+<td><code>booktabs</code></td>
+<td>Clean tables</td>
+</tr>
+<tr class="odd">
+<td><code>longtable</code>, <code>tabularx</code></td>
+<td>Long and flexible tables</td>
+</tr>
+<tr class="even">
+<td><code>xcolor</code></td>
+<td>Colour</td>
+</tr>
+<tr class="odd">
+<td><code>hyperref</code></td>
+<td>Links</td>
+</tr>
+<tr class="even">
+<td><code>cleveref</code></td>
+<td>Automatic reference words</td>
+</tr>
+<tr class="odd">
+<td><code>natbib</code>, <code>biblatex</code></td>
+<td>Citations</td>
+</tr>
+<tr class="even">
+<td><code>siunitx</code></td>
+<td>Numbers and units</td>
+</tr>
+<tr class="odd">
+<td><code>tikz</code>, <code>pgfplots</code></td>
+<td>Diagrams and plots</td>
+</tr>
+<tr class="even">
+<td><code>glossaries</code></td>
+<td>Glossaries and acronyms</td>
+</tr>
+<tr class="odd">
+<td><code>tcolorbox</code></td>
+<td>Coloured boxes</td>
+</tr>
+<tr class="even">
+<td><code>beamer</code></td>
+<td>Slides, as a class</td>
+</tr>
+</tbody>
+</table>
+<p>Load only what you use, and load <code>hyperref</code> late, as it changes many others.</p>
+
+</section>
+<section id="ch-outputs">
+<h2>Slides, Word, web pages and images</h2>
+<h3 id="outputs-slides-with-beamer">Slides with Beamer</h3>
+<p><strong>slides.tex</strong></p>
+<pre class="latex"><code>% Slides with the beamer class. Build: pdflatex slides
+\documentclass[aspectratio=169]{beamer}
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{}
+\title{Heat Loss Through a Wall}
+\author{A Student}
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}{The equation}
+  \begin{itemize}
+    \item&lt;1-&gt; Heat loss depends on the wall, its area and the temperature.
+    \item&lt;2-&gt; $Q = U A \, \Delta T$
+  \end{itemize}
+\end{frame}
+\end{document}</code></pre>
+<p><code>&lt;1-&gt;</code> and <code>&lt;2-&gt;</code> reveal items one click at a time. <code>\usetheme</code> changes the look.</p>
+<h3 id="outputs-posters">Posters</h3>
+<p>The <code>beamerposter</code>, <code>tikzposter</code> and <code>baposter</code> packages make large single pages. Set the paper size, then build it like any other document.</p>
+<h3 id="outputs-word">Word</h3>
+<p>Journals and co-authors often want <code>.docx</code>. Pandoc converts LaTeX, including citations:</p>
+<pre class="bash"><code>pandoc main.tex -o main.docx --citeproc --bibliography=refs.bib</code></pre>
+<p>Complex layouts and custom commands may not survive, so always check the result. To keep equations as editable Word equations, use a citation style file with <code>--csl</code> and check each table. My <a href="https://github.com/GeospatialGeeks/research-helpers">research-helpers</a> package has a <code>latex2docx</code> tool built for this.</p>
+<h3 id="outputs-web-pages">Web pages</h3>
+<p>Pandoc also makes HTML. <code>pandoc main.tex -o main.html --mathjax</code> gives one page, with equations drawn by MathJax in the browser. For a whole site, split the document by section, and let a site generator such as MkDocs handle the navigation.</p>
+<p>Things need care in conversion, so test the result in a browser. In my own <a href="https://github.com/AhmadAmmar/marxist-economics">pamphlet project</a>, these all caused real faults:</p>
+<ul>
+<li>Dollar signs for money turned text into maths.</li>
+<li>Print-only commands such as <code>\toprule</code> showed in red inside equations.</li>
+<li>Commands the browser doesn't know, such as <code>\pounds</code>, needed defining.</li>
+<li>Labels needed converting into links and numbers.</li>
+</ul>
+<h3 id="outputs-powerpoint-and-images">PowerPoint and images</h3>
+<p>PowerPoint has no good route from LaTeX, so the reliable method is to compile to PDF, turn each page into an image, then build a deck with those images and speaker notes:</p>
+<pre class="python"><code>from research_helpers.carousel import pdf_to_images, images_to_pptx
+
+images = pdf_to_images(&quot;slides.pdf&quot;, &quot;images&quot;, pixels=1440)
+images_to_pptx(images, &quot;slides.pptx&quot;, notes=[&quot;Read this aloud.&quot;] * len(images))</code></pre>
+<p>The slides look exact, though you edit them in LaTeX and not in PowerPoint.</p>
+<h3 id="outputs-one-source-many-outputs">One source, many outputs</h3>
+<p>The principle across all of these is to edit one source and generate everything else. The <a href="../../git-ci/">Git and automation guide</a> shows how to make this happen by itself.</p>
+
+</section>
+<section id="ch-practice">
+<h2>Good practice and version control</h2>
+<h3 id="practice-a-tidy-project">A tidy project</h3>
+<pre class="text"><code>paper/
+  main.tex        the document&#39;s skeleton
+  sections/       one file for each section
+  figures/        generated by scripts
+  tables/         generated by scripts
+  refs.bib
+  code/           scripts that make the figures, tables and numbers
+  build/          outputs, not tracked</code></pre>
+<h3 id="practice-version-control">Version control</h3>
+<p>LaTeX is text, so Git handles it well. Put each sentence on its own line, so that a change shows as one changed sentence. Keep helper files out of Git with a <code>.gitignore</code>:</p>
+<pre class="text"><code>*.aux
+*.log
+*.out
+*.toc
+*.bbl
+*.blg
+*.synctex.gz</code></pre>
+<p>Tag each version you send out, as covered in the <a href="../../git-ci/">Git and automation guide</a>.</p>
+<h3 id="practice-reproducible-builds">Reproducible builds</h3>
+<p>A document is reproducible if someone else can rebuild it from your files.</p>
+<ul>
+<li>Record the commands in a README or a script.</li>
+<li>Generate figures, tables and numbers with code.</li>
+<li>Build in a clean folder now and then, because old helper files can hide faults.</li>
+<li>Keep paths relative, never tied to your own machine.</li>
+<li>Fix <code>\date{...}</code> to a real date for a version, because <code>\today</code> changes at every compile.</li>
+</ul>
+<h3 id="practice-accessible-documents">Accessible documents</h3>
+<ul>
+<li>Use real headings, lists and captions.</li>
+<li>Choose colours with good contrast that still work in greyscale.</li>
+<li>Prefer colourblind-safe palettes.</li>
+<li>Set the document's title and language, for screen readers: <code>\hypersetup{pdftitle={...}}</code>.</li>
+</ul>
+<h3 id="practice-working-with-others">Working with others</h3>
+<p>Overleaf offers live co-editing, and it can sync with Git. Otherwise, agree who changes what, keep to one sentence per line, and use <code>latexdiff old.tex new.tex &gt; changes.tex</code> to produce a marked-up comparison for readers who don't use Git.</p>
+
+</section>
+<section id="ch-troubleshooting">
+<h2>Troubleshooting and cheat sheet</h2>
+<h3 id="troubleshooting-common-errors">Common errors</h3>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Message</th>
+<th>Usual cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Undefined control sequence</code></td>
+<td>A misspelt command, or a missing package</td>
+<td>Check the spelling, or load the package</td>
+</tr>
+<tr class="even">
+<td><code>Missing $ inserted</code></td>
+<td>Maths outside maths mode, or an unescaped <code>_</code> or <code>^</code></td>
+<td>Add <code>$ $</code>, or write <code>\_</code></td>
+</tr>
+<tr class="odd">
+<td><code>Missing } inserted</code></td>
+<td>Unbalanced braces</td>
+<td>Find the unmatched <code>{</code></td>
+</tr>
+<tr class="even">
+<td><code>File 'x.sty' not found</code></td>
+<td>A package isn't installed</td>
+<td>Install it, or let MiKTeX do so</td>
+</tr>
+<tr class="odd">
+<td><code>File 'x' not found</code></td>
+<td>A wrong image or input path</td>
+<td>Check the relative path</td>
+</tr>
+<tr class="even">
+<td><code>Citation 'x' undefined</code></td>
+<td>The key is wrong, or BibTeX hasn't run</td>
+<td>Check the key, then run the full sequence</td>
+</tr>
+<tr class="odd">
+<td><code>Reference 'x' undefined</code></td>
+<td>A missing label, or too few runs</td>
+<td>Add the label, or compile again</td>
+</tr>
+<tr class="even">
+<td><code>Overfull \hbox</code></td>
+<td>A line is too wide</td>
+<td>A warning, so rewrite if it's visible</td>
+</tr>
+<tr class="odd">
+<td><code>Command \x already defined</code></td>
+<td>A name clash</td>
+<td>Rename your command, as with <code>\day</code></td>
+</tr>
+</tbody>
+</table>
+<p>If a document breaks after a strange failure, delete the helper files and compile again.</p>
+<h3 id="troubleshooting-cheat-sheet">Cheat sheet</h3>
+<pre class="latex"><code>\documentclass[11pt]{article}          % document type
+\usepackage{amsmath}                   % load a package
+\newcommand{\name}[1]{...#1...}        % your own command
+\section{Title}\label{sec:x}           % heading with a label
+\ref{sec:x}   \eqref{eq:y}             % refer to a number
+\citep{key}                            % citation
+\emph{a} \textbf{b} \texttt{c}         % emphasis, bold, code
+$a^2$   \[ x \]   \frac{a}{b}          % maths
+\includegraphics[width=\linewidth]{f}  % image
+\input{file}                           % another file</code></pre>
+<pre class="bash"><code>pdflatex main      # compile
+bibtex main        # build the bibliography
+latexmk -pdf main  # do all the runs
+latexmk -c         # remove helper files</code></pre>
+
+</section>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="bar">
+    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
+    <div class="social">
+      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

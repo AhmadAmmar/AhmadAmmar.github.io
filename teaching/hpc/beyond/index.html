@@ -59,334 +59,172 @@
       <li><a href="../../../teaching/hpc/beyond/" aria-current="page">Other clusters, the cloud and Linux basics</a></li>
       <li><a href="../../../teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
     </ol>
-    <p><a href="../../../teaching/hpc/full/">Whole tutorial on one page</a></p>
-    <p><a href="../../../files/HPC_tutorial_Ahmad_Ammar.pdf">Whole tutorial as a PDF</a></p>
+    <p><a href="../../../teaching/hpc/full/">Whole guide on one page</a></p>
+    <p><a href="../../../files/HPC_tutorial_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
   </aside>
   <article class="hpc-body">
 <p>Nearly everything in this guide carries over. A new system mostly changes the names, the storage rules and who pays. This chapter is a map to help you adapt, and each system's own documentation has the final word.</p>
-
 <h2 id="a-checklist-for-any-new-system">A checklist for any new system</h2>
-
 <ol type="1">
-
 <li>Who can use it, and how do I apply?</li>
-
 <li>How do I log in: which address, port, keys and multi-factor steps?</li>
-
 <li>Which storage is backed up, which is fast, and how much do I have?</li>
-
 <li>Which scheduler does it use, and which partitions or queues?</li>
-
 <li>How is software provided: modules, containers, or my own installs?</li>
-
 <li>What are the limits on time, memory and number of jobs?</li>
-
 <li>How should I acknowledge it in publications?</li>
-
 </ol>
-
 <p>Then run Exercise 1 of this guide. If that works, the rest will follow.</p>
-
 <h2 id="other-schedulers">Other schedulers</h2>
-
 <p>Slurm is common but not universal. The ideas match, while the words differ.</p>
-
 <table>
-
 <colgroup>
-
 <col style="width: 20%" />
-
 <col style="width: 20%" />
-
 <col style="width: 20%" />
-
 <col style="width: 20%" />
-
 <col style="width: 20%" />
-
 </colgroup>
-
 <thead>
-
 <tr class="header">
-
 <th>Task</th>
-
 <th>Slurm</th>
-
 <th>PBS / Torque</th>
-
 <th>Grid Engine</th>
-
 <th>LSF</th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr class="odd">
-
 <td>Submit</td>
-
 <td><code>sbatch</code></td>
-
 <td><code>qsub</code></td>
-
 <td><code>qsub</code></td>
-
 <td><code>bsub</code></td>
-
 </tr>
-
 <tr class="even">
-
 <td>See the queue</td>
-
 <td><code>squeue</code></td>
-
 <td><code>qstat</code></td>
-
 <td><code>qstat</code></td>
-
 <td><code>bjobs</code></td>
-
 </tr>
-
 <tr class="odd">
-
 <td>Cancel</td>
-
 <td><code>scancel</code></td>
-
 <td><code>qdel</code></td>
-
 <td><code>qdel</code></td>
-
 <td><code>bkill</code></td>
-
 </tr>
-
 <tr class="even">
-
 <td>Script directive</td>
-
 <td><code>#SBATCH</code></td>
-
 <td><code>#PBS</code></td>
-
 <td><code>#$</code></td>
-
 <td><code>#BSUB</code></td>
-
 </tr>
-
 <tr class="odd">
-
 <td>Array task number</td>
-
 <td><code>$SLURM_ARRAY_TASK_ID</code></td>
-
 <td><code>$PBS_ARRAYID</code> or <code>$PBS_ARRAY_INDEX</code></td>
-
 <td><code>$SGE_TASK_ID</code></td>
-
 <td><code>$LSB_JOBINDEX</code></td>
-
 </tr>
-
 </tbody>
-
 </table>
-
 <h2 id="cluster-or-cloud">Cluster or cloud?</h2>
-
 <table>
-
 <colgroup>
-
 <col style="width: 33%" />
-
 <col style="width: 33%" />
-
 <col style="width: 33%" />
-
 </colgroup>
-
 <thead>
-
 <tr class="header">
-
 <th></th>
-
 <th>Shared cluster</th>
-
 <th>Cloud</th>
-
 </tr>
-
 </thead>
-
 <tbody>
-
 <tr class="odd">
-
 <td>Cost</td>
-
 <td>Usually free or allocated to researchers</td>
-
 <td>Paid by use, so a forgotten machine keeps charging</td>
-
 </tr>
-
 <tr class="even">
-
 <td>Waiting</td>
-
 <td>A queue</td>
-
 <td>Usually starts at once</td>
-
 </tr>
-
 <tr class="odd">
-
 <td>Control</td>
-
 <td>Fixed system; no administrator rights</td>
-
 <td>You control the machine, and so must secure and maintain it</td>
-
 </tr>
-
 <tr class="even">
-
 <td>Best for</td>
-
 <td>Large batches, shared storage</td>
-
 <td>Special hardware, short bursts, web services</td>
-
 </tr>
-
 </tbody>
-
 </table>
-
 <p>A cloud virtual machine feels familiar: you create it, log in with SSH using the same kind of key, and run commands on Linux. The usual pattern is:</p>
-
 <ol type="1">
-
 <li>Set a budget alert before you start anything.</li>
-
 <li>Create the smallest machine that does the job, and allow SSH only from your own address where you can.</li>
-
 <li>Keep data in object storage, such as S3-style buckets, as a machine's own disk may be deleted with it.</li>
-
 <li>Run long work inside <code>tmux</code>, described below, so that it survives a dropped connection.</li>
-
 <li>Stop or delete the machine when you finish. Check that its disks and addresses are gone too, as they can keep charging.</li>
-
 </ol>
-
 <p>For many tasks, services such as AWS Batch, Azure Batch and Google Cloud Batch offer something like a job array, and some providers can build a Slurm cluster for you. Containers from the software chapter move well between all of these.</p>
-
 <h2 id="linux-basics-for-looking-after-your-own-work">Linux basics for looking after your own work</h2>
-
 <h3 id="permissions">Permissions</h3>
-
 <p>Every file has an owner and a group, with read (<code>r</code>), write (<code>w</code>) and execute (<code>x</code>) rights for each.</p>
-
 <pre class="bash"><code># any Linux system
-
 # Shows, for example, -rwxr-x--- : owner all, group read and run, others nothing
-
 ls -l run.sh
-
 # Let yourself run a script
-
 chmod u+x run.sh
-
 # Keep a private SSH key readable only by you. SSH refuses keys left more open
-
 chmod 600 ~/.ssh/my-key</code></pre>
-
 <h3 id="space">Space</h3>
-
 <pre class="bash"><code># any Linux system
-
 # How full are the disks?
-
 df -h
-
 # What is using the space here, biggest last?
-
 du -sh * | sort -h</code></pre>
-
 <p>Many clusters have their own command for your quota. Check its documentation.</p>
-
 <h3 id="processes">Processes</h3>
-
 <pre class="bash"><code># any Linux system
-
 # A live view of what is running. Press q to leave
-
 top
-
 # Just your own programs
-
 ps -u $USER
-
 # Stop a process politely, using its number from ps
-
 kill &lt;process id&gt;</code></pre>
-
 <p>On a cluster, stop jobs with <code>scancel</code>, not <code>kill</code>.</p>
-
 <h3 id="sessions-that-survive-a-disconnection">Sessions that survive a disconnection</h3>
-
 <p><code>tmux</code> keeps a terminal running on the remote machine after you leave.</p>
-
 <pre class="bash"><code># any Linux system
-
 tmux new -s work
-
 # Do your work, then press Ctrl-b, then d, to leave it running
-
 # Come back later
-
 tmux attach -t work</code></pre>
-
 <p>On a cluster, use it for light work on login nodes. Heavy work still belongs in jobs.</p>
-
 <h3 id="scheduled-tasks">Scheduled tasks</h3>
-
 <p><code>cron</code> runs commands at set times on a machine you manage. Edit your list with <code>crontab -e</code>. This line runs a backup at 02:00 every day:</p>
-
 <pre class="bash"><code>0 2 * * * /home/me/backup.sh &gt;&gt; /home/me/backup.log 2&gt;&amp;1</code></pre>
-
 <p>Check whether your cluster allows it before relying on it.</p>
-
 <h3 id="installing-system-software">Installing system software</h3>
-
 <p>On your own machine or cloud server, you have administrator rights through <code>sudo</code>:</p>
-
 <pre class="bash"><code># Debian or Ubuntu
-
 sudo apt update &amp;&amp; sudo apt install tmux
-
 # Red Hat, Rocky or Fedora
-
 sudo dnf install tmux</code></pre>
-
 <p>On a shared cluster you will not have <code>sudo</code>. Use modules, conda or containers.</p>
-
 <h3 id="keeping-your-own-server-safe">Keeping your own server safe</h3>
-
 <p>If you run a cloud machine, its security is your job. Log in with keys and not passwords, apply updates regularly, open only the network ports you need, keep secrets out of git, and keep backups somewhere else. Test that you can restore them.</p>
-
 
 <nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/hpc/practice/">&larr; Measuring and good practice</a><a href="../../../teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet &rarr;</a></nav>
 <p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>

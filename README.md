@@ -26,6 +26,10 @@ and commit both the source and the generated page. The generated `.html` files i
 
 To refresh the CV PDF after editing `src/pages/cv.html`, print `cv.html` to PDF from a browser (the page has a print layout) and save it as `files/Ahmad_Ammar_CV.pdf`.
 
+## Courses
+
+Each course in `src/<course>/` becomes chapter pages, one long page and a PDF. Run `python build_courses.py --pdf`, then `python build.py`, then `python tools/check_courses.py` to test them. To add a course, add its folder and a line in `build_courses.py`.
+
 ## Licence
 
 Text and teaching materials © Ahmad Ammar. Data shown in the Atmosphere Atlas remain under the licences of their providers, credited inside the atlas.

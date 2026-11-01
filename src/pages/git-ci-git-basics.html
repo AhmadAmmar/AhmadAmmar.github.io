@@ -1,0 +1,93 @@
+title: Git basics
+description: Repositories, commits, viewing history and the everyday cycle of saving versions.
+nav: teaching
+out: teaching/git-ci/git-basics/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/git-ci/">Git and automation guide</a> / Git basics</nav>
+<header class="page-head">
+  <p class="eyebrow">Git and automation guide</p>
+  <h1>Git basics</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/git-ci/">Git, testing and automation for research</a></li>
+      <li><a href="{{root}}teaching/git-ci/git-basics/" aria-current="page">Git basics</a></li>
+      <li><a href="{{root}}teaching/git-ci/history/">Branches, tags and going back</a></li>
+      <li><a href="{{root}}teaching/git-ci/github/">GitHub and working with others</a></li>
+      <li><a href="{{root}}teaching/git-ci/testing/">Testing research code</a></li>
+      <li><a href="{{root}}teaching/git-ci/ci/">Continuous integration</a></li>
+      <li><a href="{{root}}teaching/git-ci/pipelines/">Reproducible pipelines</a></li>
+      <li><a href="{{root}}teaching/git-ci/backups/">Data, backups and releases</a></li>
+      <li><a href="{{root}}teaching/git-ci/checklist/">Checklists and cheat sheet</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/git-ci/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/Git_CI_guide_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="the-idea">The idea</h2>
+<p>Git is a program that records versions of a folder. Each saved version, called a <em>commit</em>, stores what changed, who changed it, when and why. Nothing committed is lost, so you never need files such as <code>final_v2_really_final.docx</code>.</p>
+<p>Install it from <a href="https://git-scm.com">git-scm.com</a>, then tell it who you are, once:</p>
+<pre class="bash"><code>git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;you@example.org&quot;</code></pre>
+<h2 id="the-everyday-cycle">The everyday cycle</h2>
+<pre class="bash"><code>git init                 # start tracking this folder, once
+git status               # what has changed?
+git diff                 # show the changes, line by line
+git add results.txt      # choose what goes in the next version
+git commit -m &quot;Correct the mean&quot;   # save that version, with a reason
+git log --oneline        # list the versions</code></pre>
+<p>The <code>add</code> step exists so that one commit can hold one logical change, even if you changed other files too.</p>
+<h2 id="try-it-safely">Try it safely</h2>
+<p>This script makes a new folder and goes through the whole cycle. Read it, then run it.</p>
+<p><strong>practice.sh</strong></p>
+<pre class="bash"><code>#!/bin/bash
+# A safe practice run of everyday Git, in a new folder. Run: bash practice.sh
+set -e
+mkdir git-practice &amp;&amp; cd git-practice
+git init -q -b main
+git config user.name &quot;A Student&quot;
+git config user.email &quot;student@example.org&quot;
+
+# Save a first version
+echo &quot;The mean is 10.&quot; &gt; results.txt
+git add results.txt
+git commit -q -m &quot;First results&quot;
+
+# Change it and see exactly what changed
+echo &quot;The mean is 12.&quot; &gt; results.txt
+git diff --stat
+git add results.txt
+git commit -q -m &quot;Correct the mean&quot;
+
+# Name this version
+git tag -a sent-to-supervisor -m &quot;The version I sent&quot;
+
+# Try an idea safely on a branch, then bring it back
+git switch -q -c idea
+echo &quot;The median is 11.&quot; &gt;&gt; results.txt
+git add results.txt
+git commit -q -m &quot;Add the median&quot;
+git switch -q main
+git merge -q idea
+
+# Undo the last change, keeping the history
+git revert --no-edit HEAD
+git log --oneline
+cat results.txt</code></pre>
+<h2 id="what-to-track">What to track</h2>
+<p>Track what you write by hand: text, code and small inputs. Don't track what can be regenerated, large data, or anything secret. A file called <code>.gitignore</code> lists what to skip:</p>
+<pre class="text"><code>__pycache__/
+*.log
+build/
+data/raw/
+.env</code></pre>
+<h2 id="good-commit-messages">Good commit messages</h2>
+<p>Write what changed and why, briefly, such as <code>Correct the living-wage year</code>. Commit often, in small steps, so that each can be understood or undone by itself.</p>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/git-ci/">&larr; Git, testing and automation for research</a><a href="{{root}}teaching/git-ci/history/">Branches, tags and going back &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
+  </article>
+</div>

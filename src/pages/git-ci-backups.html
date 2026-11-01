@@ -1,0 +1,59 @@
+title: Data, backups and releases
+description: Dated data folders, checksums, the 3-2-1 rule, testing restores, and making a release.
+nav: teaching
+out: teaching/git-ci/backups/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/git-ci/">Git and automation guide</a> / Data, backups and releases</nav>
+<header class="page-head">
+  <p class="eyebrow">Git and automation guide</p>
+  <h1>Data, backups and releases</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/git-ci/">Git, testing and automation for research</a></li>
+      <li><a href="{{root}}teaching/git-ci/git-basics/">Git basics</a></li>
+      <li><a href="{{root}}teaching/git-ci/history/">Branches, tags and going back</a></li>
+      <li><a href="{{root}}teaching/git-ci/github/">GitHub and working with others</a></li>
+      <li><a href="{{root}}teaching/git-ci/testing/">Testing research code</a></li>
+      <li><a href="{{root}}teaching/git-ci/ci/">Continuous integration</a></li>
+      <li><a href="{{root}}teaching/git-ci/pipelines/">Reproducible pipelines</a></li>
+      <li><a href="{{root}}teaching/git-ci/backups/" aria-current="page">Data, backups and releases</a></li>
+      <li><a href="{{root}}teaching/git-ci/checklist/">Checklists and cheat sheet</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/git-ci/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/Git_CI_guide_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="data">Data</h2>
+<p>Git isn't built for large files, so keep data out of it, and record what you used.</p>
+<ul>
+<li><strong>Never overwrite.</strong> Write each new run to a dated folder, such as <code>results_2026-10-31/</code>.</li>
+<li><strong>Record checksums</strong>, which are fingerprints that change if a file changes: <code>sha256sum *.csv &gt; MANIFEST.sha256</code>, and check later with <code>sha256sum -c MANIFEST.sha256</code>.</li>
+<li><strong>Note the source</strong> of each dataset: its address, date and licence.</li>
+</ul>
+<h2 id="backups">Backups</h2>
+<p>Git is not a backup until a copy exists elsewhere, and a private repository on one laptop can be lost with that laptop. The common rule is <strong>3-2-1</strong>: three copies, on two kinds of storage, with one somewhere else.</p>
+<p>Syncing services such as OneDrive aren't enough on their own, because they also sync deletions and corruption. And <strong>a backup you've never restored is only a hope</strong>, so test one:</p>
+<pre class="bash"><code>git bundle create project.bundle --all     # one file holding a repository&#39;s whole history
+git clone project.bundle restore-test      # prove that it comes back</code></pre>
+<p>Databases and uploaded files don't live in Git, so they need their own backups, including an encrypted copy off-site.</p>
+<h2 id="releases">Releases</h2>
+<p>Whenever something leaves your hands, freeze a copy.</p>
+<ol type="1">
+<li>Commit everything, so that the source is exact.</li>
+<li>Run all the checks.</li>
+<li>Build from clean.</li>
+<li>Put the outputs in a dated, read-only folder, with checksums.</li>
+<li>Tag the commit.</li>
+</ol>
+<p>Then, for anything a reader sends back, you can find precisely what they had. If it needs correcting, make a new release and log the reason, without editing the old one.</p>
+<h2 id="secrets">Secrets</h2>
+<p>Passwords and keys never go in a repository, because history keeps them even after deletion. Use environment variables or a secrets store. If one gets committed, treat it as exposed: change it first, then clean up.</p>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/git-ci/pipelines/">&larr; Reproducible pipelines</a><a href="{{root}}teaching/git-ci/checklist/">Checklists and cheat sheet &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
+  </article>
+</div>

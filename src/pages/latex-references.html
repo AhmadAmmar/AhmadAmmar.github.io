@@ -1,0 +1,138 @@
+title: References, links and bibliographies
+description: Labels and cross-references, citations with BibTeX, and a complete worked report.
+nav: teaching
+out: teaching/latex/references/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/latex/">LaTeX guide</a> / References, links and bibliographies</nav>
+<header class="page-head">
+  <p class="eyebrow">LaTeX guide</p>
+  <h1>References, links and bibliographies</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/latex/">LaTeX from first principles</a></li>
+      <li><a href="{{root}}teaching/latex/basics/">How LaTeX works</a></li>
+      <li><a href="{{root}}teaching/latex/text/">Structure, text and appearance</a></li>
+      <li><a href="{{root}}teaching/latex/maths/">Mathematics</a></li>
+      <li><a href="{{root}}teaching/latex/tables-figures/">Tables and figures</a></li>
+      <li><a href="{{root}}teaching/latex/references/" aria-current="page">References, links and bibliographies</a></li>
+      <li><a href="{{root}}teaching/latex/macros/">Your own commands, packages and themes</a></li>
+      <li><a href="{{root}}teaching/latex/outputs/">Slides, Word, web pages and images</a></li>
+      <li><a href="{{root}}teaching/latex/practice/">Good practice and version control</a></li>
+      <li><a href="{{root}}teaching/latex/troubleshooting/">Troubleshooting and cheat sheet</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/latex/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/LaTeX_guide_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="cross-references">Cross-references</h2>
+<p>Give anything numbered a label, then refer to it. The number updates itself if things move.</p>
+<pre class="latex"><code>\section{Method}\label{sec:method}
+See Section~\ref{sec:method} and Equation~\eqref{eq:energy}.</code></pre>
+<p>The <code>~</code> is a non-breaking space, which keeps "Section" and its number on one line. A prefix such as <code>sec:</code>, <code>eq:</code>, <code>tab:</code> or <code>fig:</code> is a helpful habit. The <code>cleveref</code> package can add the word for you: <code>\cref{sec:method}</code>.</p>
+<h2 id="citations">Citations</h2>
+<p>Keep references in a separate <code>.bib</code> file, and cite them by key:</p>
+<p><strong>refs.bib</strong></p>
+<pre class="bibtex"><code>@book{clarke2001,
+  author    = {Clarke, Joseph A.},
+  title     = {Energy Simulation in Building Design},
+  edition   = {2},
+  publisher = {Butterworth-Heinemann},
+  address   = {Oxford},
+  year      = {2001}
+}</code></pre>
+<pre class="latex"><code>\usepackage[round]{natbib}
+...
+As \citet{clarke2001} shows, this holds \citep{clarke2001}.
+...
+\bibliographystyle{plainnat}
+\bibliography{refs}</code></pre>
+<p>The bibliography tool picks up only the items you cite. Zotero can export a <code>.bib</code> file, and its Better BibTeX add-on keeps that file updated. <code>biblatex</code> with the <code>biber</code> tool is a more flexible alternative, while journals often supply their own <code>.bst</code> style for BibTeX.</p>
+<h2 id="a-complete-small-report">A complete small report</h2>
+<p>This pulls together everything so far: sections, equations, a table, a chart, cross-references, a bibliography and links.</p>
+<p><strong>main.tex</strong></p>
+<pre class="latex"><code>% A complete small report: sections, maths, a table, a figure, cross-references, a bibliography and links.
+% Build: pdflatex main, bibtex main, pdflatex main, pdflatex main
+\documentclass[11pt,a4paper]{article}
+
+% Packages. hyperref goes last among these, because it changes how others work.
+\usepackage[T1]{fontenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{pgfplots}
+\usepackage[round]{natbib}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=teal,citecolor=teal,urlcolor=teal]{hyperref}
+\pgfplotsset{compat=1.17}
+
+% Your own command: change the look of every &quot;term&quot; from this one line.
+\newcommand{\term}[1]{\textbf{#1}}
+
+\title{Heat Loss Through a Wall}
+\author{A Student}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Introduction}\label{sec:intro}
+A \term{U-value} measures heat flow through one square metre of a surface for each degree of
+temperature difference \citep{clarke2001}. Section~\ref{sec:method} gives the equation, and
+Table~\ref{tab:walls} and Figure~\ref{fig:loss} apply it.
+
+\section{Method}\label{sec:method}
+Heat loss $Q$ follows from the U-value $U$, the area $A$ and the temperature difference $\Delta T$:
+\begin{equation}
+  Q = U A \, \Delta T.
+  \label{eq:loss}
+\end{equation}
+Equation~\eqref{eq:loss} is a steady-state estimate. Longer derivations line up at the equals sign:
+\begin{align}
+  Q &amp;= 2.1 \times 10 \times 15 \\
+    &amp;= 315 \text{ W}.
+\end{align}
+
+\section{Results}\label{sec:results}
+\begin{table}[ht]
+  \centering
+  \caption{Heat loss through a 10 m$^2$ wall at a difference of 15 K.}
+  \label{tab:walls}
+  \begin{tabular}{lrr}
+    \toprule
+    Wall &amp; $U$ (W/m$^2$K) &amp; $Q$ (W) \\
+    \midrule
+    Solid brick &amp; 2.10 &amp; 315 \\
+    Unfilled cavity &amp; 1.50 &amp; 225 \\
+    Insulated &amp; 0.45 &amp; 68 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}[ht]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[width=8cm, height=5cm, xlabel={U-value (W/m$^2$K)}, ylabel={Heat loss (W)}]
+      \addplot[teal, mark=*] coordinates {(0.45,68) (1.5,225) (2.1,315)};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Heat loss rises in proportion to the U-value.}
+  \label{fig:loss}
+\end{figure}
+
+\section{Conclusion}
+Find this project&#39;s source at \url{https://ahmadammar.github.io/teaching/latex/}.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+\end{document}</code></pre>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/latex/tables-figures/">&larr; Tables and figures</a><a href="{{root}}teaching/latex/macros/">Your own commands, packages and themes &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
+  </article>
+</div>

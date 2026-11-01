@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Testing research code | Ahmad Ammar</title>
+<meta name="description" content="Known-answer tests, what makes a good test, data checks, and independent recalculation.">
+<meta name="author" content="Ahmad Ammar">
+<link rel="canonical" href="https://ahmadammar.github.io/teaching/git-ci/testing/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Testing research code | Ahmad Ammar">
+<meta property="og:description" content="Known-answer tests, what makes a good test, data checks, and independent recalculation.">
+<meta property="og:url" content="https://ahmadammar.github.io/teaching/git-ci/testing/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script src="../../../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
+    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="../../../index.html">About</a>
+      <a href="../../../research.html">Research</a>
+      <a href="../../../teaching.html" aria-current="page">Teaching</a>
+      <a href="../../../projects.html">Projects</a>
+      <a href="../../../writing.html">Writing</a>
+      <a href="../../../cv.html">CV</a>
+    </nav>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</header>
+<main id="content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/git-ci/">Git and automation guide</a> / Testing research code</nav>
+<header class="page-head">
+  <p class="eyebrow">Git and automation guide</p>
+  <h1>Testing research code</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="../../../teaching/git-ci/">Git, testing and automation for research</a></li>
+      <li><a href="../../../teaching/git-ci/git-basics/">Git basics</a></li>
+      <li><a href="../../../teaching/git-ci/history/">Branches, tags and going back</a></li>
+      <li><a href="../../../teaching/git-ci/github/">GitHub and working with others</a></li>
+      <li><a href="../../../teaching/git-ci/testing/" aria-current="page">Testing research code</a></li>
+      <li><a href="../../../teaching/git-ci/ci/">Continuous integration</a></li>
+      <li><a href="../../../teaching/git-ci/pipelines/">Reproducible pipelines</a></li>
+      <li><a href="../../../teaching/git-ci/backups/">Data, backups and releases</a></li>
+      <li><a href="../../../teaching/git-ci/checklist/">Checklists and cheat sheet</a></li>
+    </ol>
+    <p><a href="../../../teaching/git-ci/full/">Whole guide on one page</a></p>
+    <p><a href="../../../files/Git_CI_guide_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="why-test">Why test</h2>
+<p>A script that runs without errors can still be wrong. A test runs your code and checks the answer against something you know.</p>
+<p><strong>calc.py</strong></p>
+<pre class="python"><code>&quot;&quot;&quot;A tiny calculation to test.&quot;&quot;&quot;
+
+
+def heat_loss(u, area, delta_t):
+    &quot;&quot;&quot;Heat loss in watts: Q = U A dT.&quot;&quot;&quot;
+    if u &lt; 0 or area &lt; 0:
+        raise ValueError(&quot;U-value and area cannot be negative&quot;)
+    return u * area * delta_t</code></pre>
+<p><strong>test_calc.py</strong></p>
+<pre class="python"><code>&quot;&quot;&quot;Tests check the code against answers worked out by hand. Run: python -m pytest&quot;&quot;&quot;
+import pytest
+
+from calc import heat_loss
+
+
+def test_known_answer():
+    assert heat_loss(2.1, 10, 15) == pytest.approx(315)
+
+
+def test_no_temperature_difference_means_no_loss():
+    assert heat_loss(2.1, 10, 0) == 0
+
+
+def test_impossible_input_is_refused():
+    with pytest.raises(ValueError):
+        heat_loss(-1, 10, 15)</code></pre>
+<pre class="bash"><code>pip install pytest
+python -m pytest</code></pre>
+<h2 id="kinds-of-test-for-research">Kinds of test for research</h2>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Test</th>
+<th>Question</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Known answer</strong></td>
+<td>Does it match a hand calculation?</td>
+<td>2.1 x 10 x 15 = 315</td>
+</tr>
+<tr class="even">
+<td><strong>Limit case</strong></td>
+<td>Does it behave at the extremes?</td>
+<td>No temperature gap gives no heat loss</td>
+</tr>
+<tr class="odd">
+<td><strong>Invariant</strong></td>
+<td>Does a rule always hold?</td>
+<td>Total price equals total value</td>
+</tr>
+<tr class="even">
+<td><strong>Simulated data</strong></td>
+<td>Can it recover a truth you planted?</td>
+<td>A model finds a jump you added</td>
+</tr>
+<tr class="odd">
+<td><strong>Data check</strong></td>
+<td>Is the data as expected?</td>
+<td>No duplicates, values in range</td>
+</tr>
+<tr class="even">
+<td><strong>Independent recalculation</strong></td>
+<td>Do two separate methods agree?</td>
+<td>The same estimate from different code</td>
+</tr>
+<tr class="odd">
+<td><strong>Rendered output</strong></td>
+<td>Does the result look right to readers?</td>
+<td>A browser opens each page</td>
+</tr>
+</tbody>
+</table>
+<h2 id="lessons-from-real-faults">Lessons from real faults</h2>
+<p>These all happened in my own projects:</p>
+<ul>
+<li><strong>An independent recalculation</strong> confirmed an estimate exactly, and adding a check for correlated data showed its confidence interval was too narrow.</li>
+<li><strong>A check of stated numbers against results</strong> found a sample size typed wrongly into a paper.</li>
+<li><strong>A test for labels</strong> found age groups named for the wrong years, though the numbers ran fine.</li>
+<li><strong>A browser test</strong> found broken links, unreadable buttons and maths that displayed as raw code. Its first version missed some faults, because it looked for error messages and these made none.</li>
+</ul>
+<p>So a passing test only shows that the things you tested held. When a fault gets through, add a test for that kind of fault.</p>
+<h2 id="what-tests-cannot-do">What tests cannot do</h2>
+<p>They can't show that a method is valid, or an argument sound. That takes reasoning and readers.</p>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/git-ci/github/">&larr; GitHub and working with others</a><a href="../../../teaching/git-ci/ci/">Continuous integration &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ulster University, MIT licence. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="bar">
+    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
+    <div class="social">
+      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
