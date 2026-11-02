@@ -1,0 +1,106 @@
+title: 2. Mapping a flood: Sindh, 2022
+description: 2. Mapping a flood: Sindh, 2022: Reading radar images, a working manual.
+nav: teaching
+out: teaching/sar/mapping-a-flood-sindh/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/sar/">Reading radar images</a> / 2. Mapping a flood: Sindh, 2022</nav>
+<header class="page-head">
+  <p class="eyebrow">Reading radar images</p>
+  <h1>2. Mapping a flood: Sindh, 2022</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/sar/">Reading radar images</a></li>
+      <li><a href="{{root}}teaching/sar/reading-radar-london/">1. How to read a radar image: London</a></li>
+      <li><a href="{{root}}teaching/sar/mapping-a-flood-sindh/" aria-current="page">2. Mapping a flood: Sindh, 2022</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/sar/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/Reading_radar_images_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="the-question">2.1 The question</h2>
+<p>In 2022 severe floods covered large parts of Pakistan. Cloud often blocks optical satellites during such events, while radar keeps seeing. Open floodwater is smooth, so it turns dark. We therefore look for land that was not dark in a normal year and turned dark during the flood. The area here runs from Manchar Lake along the Indus.</p>
+<h2 id="step-1-a-before-and-an-after">2.2 Step 1: a before and an after</h2>
+<p>We take the mean VV over the same weeks of two years, 25 August to 15 September in 2021 (12 scenes) and 2022 (12 scenes), so the season is alike. VV is the usual choice for open water, because it separates smooth water well from rougher land.</p>
+<p><a id="fig:sindhba"></a></p>
+<p><img src="/teaching/sar/fig/f-4.png" alt="September 2021 (a), September 2022 (b), and a colour combination (c) in which a surface that lost signal in 2022 appears red. UTM 42N." /><br />
+</p>
+<p><strong>Figure 2.1.</strong> September 2021 (a), September 2022 (b), and a colour combination (c) in which a surface that lost signal in 2022 appears red. UTM 42N.</p>
+<h2 id="step-2-choose-a-threshold-from-the-data">2.3 Step 2: choose a threshold from the data</h2>
+<p>Water and land form two groups in the histogram, so we need the value that best separates them. Otsu’s method tries every value <span class="math inline">\(t\)</span>, and keeps the one that maximises the variance between the two groups: <span class="math display">\[\sigma_b^2(t) = w_0(t)\,w_1(t)\,\bigl[\mu_0(t)-\mu_1(t)\bigr]^2\]</span> where <span class="math inline">\(w\)</span> is the share of pixels in each group and <span class="math inline">\(\mu\)</span> its mean. Here it gives -14.1 dB (Figure <a href="/teaching/sar/mapping-a-flood-sindh/#fig:hist">2.2</a>). <strong>From the code:</strong> <code>src/sarlib.py, otsu(), lines 61--69</code></p>
+<pre data-startFrom="61"><code>def otsu(values, bins=256):
+    &quot;&quot;&quot;The threshold that best separates two groups: it maximises the variance between them (Otsu, 1979).&quot;&quot;&quot;
+    v = values[np.isfinite(values)]
+    count, edges = np.histogram(v, bins=bins)
+    mids = (edges[:-1] + edges[1:]) / 2
+    w = np.cumsum(count).astype(float)
+    m = np.cumsum(count * mids)
+    between = (m[-1] * w / w[-1] - m) ** 2 / (w * (w[-1] - w) + 1e-9) * w[-1]
+    return float(mids[np.argmax(between)])</code></pre>
+<p><a id="fig:hist"></a></p>
+<p><img src="/teaching/sar/fig/f-5.png" alt="Backscatter in 2022, with the threshold." /><br />
+</p>
+<p><strong>Figure 2.2.</strong> Backscatter in 2022, with the threshold.</p>
+<h2 id="step-3-separate-flood-from-usual-water">2.4 Step 3: separate flood from usual water</h2>
+<p>Three rules define flood: below the threshold in 2022, above it in 2021, and water less than 50% of the time in the JRC Global Surface Water record. <strong>From the code:</strong> <code>src/02_sindh_flood.py, lines 25--28</code></p>
+<pre data-startFrom="25"><code>thr = otsu(after)
+wet_after, wet_before = after &lt; thr, before &lt; thr
+flood = wet_after &amp; ~wet_before &amp; (occ &lt; 50)
+permanent = wet_after &amp; (occ &gt;= 50)</code></pre>
+<h2 id="reading-the-map">2.5 Reading the map</h2>
+<p><a id="fig:flood"></a></p>
+<p><img src="/teaching/sar/fig/f-6.png" alt="Water in Sindh, September 2022, over VV backscatter. 1 Manchar Lake, 2 Dadu, 3 Sehwan, 4 Nawabshah. UTM 42N." /><br />
+</p>
+<p><strong>Figure 2.3.</strong> Water in Sindh, September 2022, over VV backscatter. 1 Manchar Lake, 2 Dadu, 3 Sehwan, 4 Nawabshah. UTM 42N.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">What to look for</th>
+<th style="text-align: left;">How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Around Manchar Lake (1)</td>
+<td style="text-align: left;">The usual lake is blue. The orange beyond it is new water spread along the foot of the western hills</td>
+</tr>
+<tr>
+<td style="text-align: left;">Along the Indus</td>
+<td style="text-align: left;">A wide orange band follows the river, with the usual channel in blue within it</td>
+</tr>
+<tr>
+<td style="text-align: left;">Round Dadu (2)</td>
+<td style="text-align: left;">Bright, higher ground stands out between flooded land, so settlement is a visible island</td>
+</tr>
+<tr>
+<td style="text-align: left;">Round Sehwan (3)</td>
+<td style="text-align: left;">Hills pinch the valley here, and the flood narrows</td>
+</tr>
+<tr>
+<td style="text-align: left;">West, lower left</td>
+<td style="text-align: left;">Bright ridges facing the satellite are the hills. They are terrain, not buildings</td>
+</tr>
+</tbody>
+</table>
+<h2 id="results">2.6 Results</h2>
+<p>The map shows about 3,458 km<span class="math inline">\(^2\)</span> of flood within the 20,415 km<span class="math inline">\(^2\)</span> scene, and 348 km<span class="math inline">\(^2\)</span> of usual water. Moving the threshold by 2 dB either way gives 3,145 and 3,345 km<span class="math inline">\(^2\)</span>, so the choice matters less than the limits below.</p>
+<h2 id="what-this-cannot-tell-you">2.7 What this cannot tell you</h2>
+<ul>
+<li><p><strong>Not validated.</strong> This is a teaching estimate, and it has not been compared with optical images or field reports.</p></li>
+<li><p><strong>Rice and wet soil.</strong> Flooded fields and irrigated land in September can look like flood. This is likely in scattered patches, especially in the east.</p></li>
+<li><p><strong>Hidden water.</strong> Water beneath trees or crops, or among buildings, may be missed because those surfaces stay bright.</p></li>
+<li><p><strong>Three weeks in one image.</strong> A mean covers several passes, so it shows water present for much of the period, and not one moment.</p></li>
+<li><p><strong>Black areas.</strong> Dark in both years, these may be standing water or smooth sand. They are not counted as flood.</p></li>
+</ul>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/sar/reading-radar-london/">&larr; 1. How to read a radar image: London</a><span></span></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ahmad Ammar, MIT licence. Contains modified Copernicus Sentinel data; JRC Global Surface Water. <style>.hpc-body img{max-width:100%;height:auto;display:block;margin:1em auto}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none"}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

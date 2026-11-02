@@ -1,0 +1,252 @@
+title: Reading radar images: a working manual: whole guide
+description: Every chapter of Reading radar images: a working manual on one scrolling page, with contents that follow the reader.
+nav: teaching
+out: teaching/sar/full/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/sar/">Reading radar images</a> / One page</nav>
+<header class="page-head">
+  <p class="eyebrow">Reading radar images</p>
+  <h1>The whole guide on one page</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Contents">
+    <p class="title">Contents</p>
+    <ol>
+      <li><a href="#ch-index">Reading radar images</a></li>
+      <li><a href="#ch-reading-radar-london">1. How to read a radar image: London</a></li>
+      <li class="sub"><a href="#reading-radar-london-what-the-satellite-measures">1.1 What the satellite measures</a></li>
+      <li class="sub"><a href="#reading-radar-london-the-numbers">1.2 The numbers</a></li>
+      <li class="sub"><a href="#reading-radar-london-step-1-choose-the-scenes">1.3 Step 1: choose the scenes</a></li>
+      <li class="sub"><a href="#reading-radar-london-step-2-average-in-the-right-units">1.4 Step 2: average in the right units</a></li>
+      <li class="sub"><a href="#reading-radar-london-step-3-see-why-averaging-is-needed">1.5 Step 3: see why averaging is needed</a></li>
+      <li class="sub"><a href="#reading-radar-london-step-4-build-a-false-colour-image">1.6 Step 4: build a false-colour image</a></li>
+      <li class="sub"><a href="#reading-radar-london-reading-the-map">1.7 Reading the map</a></li>
+      <li><a href="#ch-mapping-a-flood-sindh">2. Mapping a flood: Sindh, 2022</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-the-question">2.1 The question</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-step-1-a-before-and-an-after">2.2 Step 1: a before and an after</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-step-2-choose-a-threshold-from-the-data">2.3 Step 2: choose a threshold from the data</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-step-3-separate-flood-from-usual-water">2.4 Step 3: separate flood from usual water</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-reading-the-map">2.5 Reading the map</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-results">2.6 Results</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-what-this-cannot-tell-you">2.7 What this cannot tell you</a></li>
+    </ol>
+    <p><a href="{{root}}files/Reading_radar_images_Ahmad_Ammar.pdf">PDF version</a></p>
+  </aside>
+  <article class="hpc-body">
+<section id="ch-index">
+<h2>Reading radar images</h2>
+<p>A working manual for reading Sentinel-1 radar images, with each step shown on a real place. Read it chapter by chapter, or the <a href="full/">whole manual on one page</a>. You can also download the <a href="/files/Reading_radar_images_Ahmad_Ammar.pdf">PDF</a>, and the code is on <a href="https://github.com/AhmadAmmar/sar-reading-manual">GitHub</a>.</p>
+<ul>
+<li><a href="#ch-reading-radar-london">1. How to read a radar image: London</a></li>
+<li><a href="#ch-mapping-a-flood-sindh">2. Mapping a flood: Sindh, 2022</a></li>
+</ul>
+
+</section>
+<section id="ch-reading-radar-london">
+<h2>1. How to read a radar image: London</h2>
+<h3 id="reading-radar-london-what-the-satellite-measures">1.1 What the satellite measures</h3>
+<p>Sentinel-1 sends microwave pulses at a wavelength of about 5.5 cm and records what returns. It supplies its own signal, so it works at night and sees through cloud. The picture therefore shows how surfaces send energy back, which is different from colour. Three things control the return: how rough a surface is at the scale of the wavelength, its geometry, and how wet it is.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Surface</th>
+<th style="text-align: left;">Why it looks as it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Calm water</td>
+<td style="text-align: left;">A smooth mirror reflects the pulse away, so it looks dark</td>
+</tr>
+<tr>
+<td style="text-align: left;">Vegetation</td>
+<td style="text-align: left;">Leaves and branches scatter in many directions, so it looks moderate, with strong VH</td>
+</tr>
+<tr>
+<td style="text-align: left;">Buildings</td>
+<td style="text-align: left;">Walls and ground form corners that send the pulse straight back, so they look very bright</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reading-radar-london-the-numbers">1.2 The numbers</h3>
+<p>The image holds backscatter, <span class="math inline">\(\sigma^0\)</span>, usually in decibels: <span class="math display">\[\sigma^0_{\mathrm{dB}} = 10\log_{10}\sigma^0_{\mathrm{linear}}\]</span> So 10 dB more is ten times the power, and 3 dB is about double. Polarisation is written as sent and received: VV goes out and returns vertically, whereas VH goes out vertically and returns horizontally. Volume scattering in vegetation changes polarisation, so VH responds strongly to it.</p>
+<h3 id="reading-radar-london-step-1-choose-the-scenes">1.3 Step 1: choose the scenes</h3>
+<p>We take all ascending Interferometric Wide scenes over London in 2024: 149 of them. Keeping one pass direction matters, because a building looks different from each side. <strong>From the code:</strong> <code>src/sarlib.py, s1(), lines 17--23</code></p>
+<pre data-startFrom="17"><code>def s1(region, start, end, orbit=None):
+    &quot;&quot;&quot;Sentinel-1 ground range scenes in dual polarisation; values are already calibrated backscatter in dB.&quot;&quot;&quot;
+    c = (ee.ImageCollection(&quot;COPERNICUS/S1_GRD&quot;).filterBounds(region).filterDate(start, end)
+         .filter(ee.Filter.eq(&quot;instrumentMode&quot;, &quot;IW&quot;))
+         .filter(ee.Filter.listContains(&quot;transmitterReceiverPolarisation&quot;, &quot;VV&quot;))
+         .filter(ee.Filter.listContains(&quot;transmitterReceiverPolarisation&quot;, &quot;VH&quot;)))
+    return c.filter(ee.Filter.eq(&quot;orbitProperties_pass&quot;, orbit)) if orbit else c</code></pre>
+<h3 id="reading-radar-london-step-2-average-in-the-right-units">1.4 Step 2: average in the right units</h3>
+<p>Decibels are logarithms, so averaging them understates bright targets. We convert to linear power, average, and convert back: <strong>From the code:</strong> <code>src/sarlib.py, mean_db(), lines 30--32</code></p>
+<pre data-startFrom="30"><code>def mean_db(collection, band):
+    &quot;&quot;&quot;Average in linear power and return to dB, because averaging decibels understates bright targets.&quot;&quot;&quot;
+    return collection.select(band).map(to_linear).mean().log10().multiply(10).rename(band)</code></pre>
+<h3 id="reading-radar-london-step-3-see-why-averaging-is-needed">1.5 Step 3: see why averaging is needed</h3>
+<p>Radar images have a grain called speckle, which arises when returns from many small scatterers within a pixel interfere. It is not noise in the usual sense, since it would repeat exactly from an identical view, but it hides detail. Over the most uniform 300 m patch in this view, chosen by the code, the spread of VV falls from 2.05 dB in one scene (2024-01-07) to 0.78 dB in the mean of the year (Figure <a href="/teaching/sar/reading-radar-london/#fig:speckle">1.1</a>).</p>
+<p><a id="fig:speckle"></a></p>
+<p><img src="/teaching/sar/fig/f-1.png" alt="Central London: one scene (a), the mean of the year (b), and the distribution of values (c)." /><br />
+</p>
+<p><strong>Figure 1.1.</strong> Central London: one scene (a), the mean of the year (b), and the distribution of values (c).</p>
+<h3 id="reading-radar-london-step-4-build-a-false-colour-image">1.6 Step 4: build a false-colour image</h3>
+<p>No single band shows everything (Figure <a href="/teaching/sar/reading-radar-london/#fig:bands">1.2</a>), so we put three in the display channels: VV as red, VH as green, and VV minus VH as blue.</p>
+<p><a id="fig:bands"></a></p>
+<p><img src="/teaching/sar/fig/f-2.png" alt="The three bands, each stretched between its 2nd and 98th percentiles." /><br />
+</p>
+<p><strong>Figure 1.2.</strong> The three bands, each stretched between its 2nd and 98th percentiles.</p>
+<h3 id="reading-radar-london-reading-the-map">1.7 Reading the map</h3>
+<p><a id="fig:london"></a></p>
+<p><img src="/teaching/sar/fig/f-3.png" alt="London in radar, 2024. VV as red, VH as green, VV minus VH as blue. Numbers are explained in Table ref tab:places . British National Grid." /><br />
+</p>
+<p><strong>Figure 1.3.</strong> London in radar, 2024. VV as red, VH as green, VV minus VH as blue. Numbers are explained in Table <a href="/teaching/sar/reading-radar-london/#tab:places">1.1</a>. British National Grid.</p>
+<table>
+<caption>Table 1.1. Measured values, averaged over a small circle at each numbered place in Figure <a href="/teaching/sar/reading-radar-london/#fig:london">1.3</a>.</caption>
+<thead>
+<tr>
+<th style="text-align: left;">Place</th>
+<th style="text-align: right;">VV (dB)</th>
+<th style="text-align: right;">VH (dB)</th>
+<th style="text-align: right;">VV minus VH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Heathrow Airport</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: right;">-0.7</td>
+<td style="text-align: right;">6.4</td>
+</tr>
+<tr>
+<td style="text-align: left;">River Thames, central London</td>
+<td style="text-align: right;">-14.8</td>
+<td style="text-align: right;">-20.5</td>
+<td style="text-align: right;">5.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hyde Park</td>
+<td style="text-align: right;">-8.1</td>
+<td style="text-align: right;">-14.2</td>
+<td style="text-align: right;">6.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Canary Wharf</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">6.9</td>
+</tr>
+<tr>
+<td style="text-align: left;">Richmond Park</td>
+<td style="text-align: right;">-12.8</td>
+<td style="text-align: right;">-19.1</td>
+<td style="text-align: right;">6.3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Reservoir south-west of Heathrow</td>
+<td style="text-align: right;">-17.8</td>
+<td style="text-align: right;">-26.7</td>
+<td style="text-align: right;">8.9</td>
+</tr>
+</tbody>
+</table>
+<p>Look at the map in this order:</p>
+<ol type="1">
+<li><p><strong>Water (2, 6).</strong> The Thames and the reservoirs are the darkest features. The river’s width changes on the map partly because a narrow channel can be mixed in one pixel with its bright banks and bridges.</p></li>
+<li><p><strong>The dense centre (4).</strong> Canary Wharf is extremely bright, because towers form strong corners. Its value is one of the highest in the table.</p></li>
+<li><p><strong>Green space (3, 5).</strong> Hyde Park and Richmond Park stand out as dark green holes in the city. Both polarisations are low, since grass is fairly smooth at this wavelength.</p></li>
+<li><p><strong>Airport (1).</strong> Heathrow’s runways are dark stripes, smooth like water, surrounded by bright buildings.</p></li>
+</ol>
+<p><strong>A caution:</strong> the mean at a marked place depends on exactly where the circle falls, and at the river it can include bridge and bank returns.</p>
+
+</section>
+<section id="ch-mapping-a-flood-sindh">
+<h2>2. Mapping a flood: Sindh, 2022</h2>
+<h3 id="mapping-a-flood-sindh-the-question">2.1 The question</h3>
+<p>In 2022 severe floods covered large parts of Pakistan. Cloud often blocks optical satellites during such events, while radar keeps seeing. Open floodwater is smooth, so it turns dark. We therefore look for land that was not dark in a normal year and turned dark during the flood. The area here runs from Manchar Lake along the Indus.</p>
+<h3 id="mapping-a-flood-sindh-step-1-a-before-and-an-after">2.2 Step 1: a before and an after</h3>
+<p>We take the mean VV over the same weeks of two years, 25 August to 15 September in 2021 (12 scenes) and 2022 (12 scenes), so the season is alike. VV is the usual choice for open water, because it separates smooth water well from rougher land.</p>
+<p><a id="fig:sindhba"></a></p>
+<p><img src="/teaching/sar/fig/f-4.png" alt="September 2021 (a), September 2022 (b), and a colour combination (c) in which a surface that lost signal in 2022 appears red. UTM 42N." /><br />
+</p>
+<p><strong>Figure 2.1.</strong> September 2021 (a), September 2022 (b), and a colour combination (c) in which a surface that lost signal in 2022 appears red. UTM 42N.</p>
+<h3 id="mapping-a-flood-sindh-step-2-choose-a-threshold-from-the-data">2.3 Step 2: choose a threshold from the data</h3>
+<p>Water and land form two groups in the histogram, so we need the value that best separates them. Otsu’s method tries every value <span class="math inline">\(t\)</span>, and keeps the one that maximises the variance between the two groups: <span class="math display">\[\sigma_b^2(t) = w_0(t)\,w_1(t)\,\bigl[\mu_0(t)-\mu_1(t)\bigr]^2\]</span> where <span class="math inline">\(w\)</span> is the share of pixels in each group and <span class="math inline">\(\mu\)</span> its mean. Here it gives -14.1 dB (Figure <a href="/teaching/sar/mapping-a-flood-sindh/#fig:hist">2.2</a>). <strong>From the code:</strong> <code>src/sarlib.py, otsu(), lines 61--69</code></p>
+<pre data-startFrom="61"><code>def otsu(values, bins=256):
+    &quot;&quot;&quot;The threshold that best separates two groups: it maximises the variance between them (Otsu, 1979).&quot;&quot;&quot;
+    v = values[np.isfinite(values)]
+    count, edges = np.histogram(v, bins=bins)
+    mids = (edges[:-1] + edges[1:]) / 2
+    w = np.cumsum(count).astype(float)
+    m = np.cumsum(count * mids)
+    between = (m[-1] * w / w[-1] - m) ** 2 / (w * (w[-1] - w) + 1e-9) * w[-1]
+    return float(mids[np.argmax(between)])</code></pre>
+<p><a id="fig:hist"></a></p>
+<p><img src="/teaching/sar/fig/f-5.png" alt="Backscatter in 2022, with the threshold." /><br />
+</p>
+<p><strong>Figure 2.2.</strong> Backscatter in 2022, with the threshold.</p>
+<h3 id="mapping-a-flood-sindh-step-3-separate-flood-from-usual-water">2.4 Step 3: separate flood from usual water</h3>
+<p>Three rules define flood: below the threshold in 2022, above it in 2021, and water less than 50% of the time in the JRC Global Surface Water record. <strong>From the code:</strong> <code>src/02_sindh_flood.py, lines 25--28</code></p>
+<pre data-startFrom="25"><code>thr = otsu(after)
+wet_after, wet_before = after &lt; thr, before &lt; thr
+flood = wet_after &amp; ~wet_before &amp; (occ &lt; 50)
+permanent = wet_after &amp; (occ &gt;= 50)</code></pre>
+<h3 id="mapping-a-flood-sindh-reading-the-map">2.5 Reading the map</h3>
+<p><a id="fig:flood"></a></p>
+<p><img src="/teaching/sar/fig/f-6.png" alt="Water in Sindh, September 2022, over VV backscatter. 1 Manchar Lake, 2 Dadu, 3 Sehwan, 4 Nawabshah. UTM 42N." /><br />
+</p>
+<p><strong>Figure 2.3.</strong> Water in Sindh, September 2022, over VV backscatter. 1 Manchar Lake, 2 Dadu, 3 Sehwan, 4 Nawabshah. UTM 42N.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">What to look for</th>
+<th style="text-align: left;">How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Around Manchar Lake (1)</td>
+<td style="text-align: left;">The usual lake is blue. The orange beyond it is new water spread along the foot of the western hills</td>
+</tr>
+<tr>
+<td style="text-align: left;">Along the Indus</td>
+<td style="text-align: left;">A wide orange band follows the river, with the usual channel in blue within it</td>
+</tr>
+<tr>
+<td style="text-align: left;">Round Dadu (2)</td>
+<td style="text-align: left;">Bright, higher ground stands out between flooded land, so settlement is a visible island</td>
+</tr>
+<tr>
+<td style="text-align: left;">Round Sehwan (3)</td>
+<td style="text-align: left;">Hills pinch the valley here, and the flood narrows</td>
+</tr>
+<tr>
+<td style="text-align: left;">West, lower left</td>
+<td style="text-align: left;">Bright ridges facing the satellite are the hills. They are terrain, not buildings</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mapping-a-flood-sindh-results">2.6 Results</h3>
+<p>The map shows about 3,458 km<span class="math inline">\(^2\)</span> of flood within the 20,415 km<span class="math inline">\(^2\)</span> scene, and 348 km<span class="math inline">\(^2\)</span> of usual water. Moving the threshold by 2 dB either way gives 3,145 and 3,345 km<span class="math inline">\(^2\)</span>, so the choice matters less than the limits below.</p>
+<h3 id="mapping-a-flood-sindh-what-this-cannot-tell-you">2.7 What this cannot tell you</h3>
+<ul>
+<li><p><strong>Not validated.</strong> This is a teaching estimate, and it has not been compared with optical images or field reports.</p></li>
+<li><p><strong>Rice and wet soil.</strong> Flooded fields and irrigated land in September can look like flood. This is likely in scattered patches, especially in the east.</p></li>
+<li><p><strong>Hidden water.</strong> Water beneath trees or crops, or among buildings, may be missed because those surfaces stay bright.</p></li>
+<li><p><strong>Three weeks in one image.</strong> A mean covers several passes, so it shows water present for much of the period, and not one moment.</p></li>
+<li><p><strong>Black areas.</strong> Dark in both years, these may be standing water or smooth sand. They are not counted as flood.</p></li>
+</ul>
+
+</section>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ahmad Ammar, MIT licence. Contains modified Copernicus Sentinel data; JRC Global Surface Water. <style>.hpc-body img{max-width:100%;height:auto;display:block;margin:1em auto}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none"}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

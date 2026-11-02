@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1. How to read a radar image: London | Ahmad Ammar</title>
+<meta name="description" content="1. How to read a radar image: London: Reading radar images, a working manual.">
+<meta name="author" content="Ahmad Ammar">
+<link rel="canonical" href="https://ahmadammar.github.io/teaching/sar/reading-radar-london/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="1. How to read a radar image: London | Ahmad Ammar">
+<meta property="og:description" content="1. How to read a radar image: London: Reading radar images, a working manual.">
+<meta property="og:url" content="https://ahmadammar.github.io/teaching/sar/reading-radar-london/">
+<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script src="../../../assets/js/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#content">Skip to content</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
+    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="../../../index.html">About</a>
+      <a href="../../../research.html">Research</a>
+      <a href="../../../teaching.html" aria-current="page">Teaching</a>
+      <a href="../../../projects.html">Projects</a>
+      <a href="../../../writing.html">Writing</a>
+      <a href="../../../cv.html">CV</a>
+    </nav>
+    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</header>
+<main id="content">
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/sar/">Reading radar images</a> / 1. How to read a radar image: London</nav>
+<header class="page-head">
+  <p class="eyebrow">Reading radar images</p>
+  <h1>1. How to read a radar image: London</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="../../../teaching/sar/">Reading radar images</a></li>
+      <li><a href="../../../teaching/sar/reading-radar-london/" aria-current="page">1. How to read a radar image: London</a></li>
+      <li><a href="../../../teaching/sar/mapping-a-flood-sindh/">2. Mapping a flood: Sindh, 2022</a></li>
+    </ol>
+    <p><a href="../../../teaching/sar/full/">Whole guide on one page</a></p>
+    <p><a href="../../../files/Reading_radar_images_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<h2 id="what-the-satellite-measures">1.1 What the satellite measures</h2>
+<p>Sentinel-1 sends microwave pulses at a wavelength of about 5.5 cm and records what returns. It supplies its own signal, so it works at night and sees through cloud. The picture therefore shows how surfaces send energy back, which is different from colour. Three things control the return: how rough a surface is at the scale of the wavelength, its geometry, and how wet it is.</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Surface</th>
+<th style="text-align: left;">Why it looks as it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Calm water</td>
+<td style="text-align: left;">A smooth mirror reflects the pulse away, so it looks dark</td>
+</tr>
+<tr>
+<td style="text-align: left;">Vegetation</td>
+<td style="text-align: left;">Leaves and branches scatter in many directions, so it looks moderate, with strong VH</td>
+</tr>
+<tr>
+<td style="text-align: left;">Buildings</td>
+<td style="text-align: left;">Walls and ground form corners that send the pulse straight back, so they look very bright</td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-numbers">1.2 The numbers</h2>
+<p>The image holds backscatter, <span class="math inline">\(\sigma^0\)</span>, usually in decibels: <span class="math display">\[\sigma^0_{\mathrm{dB}} = 10\log_{10}\sigma^0_{\mathrm{linear}}\]</span> So 10 dB more is ten times the power, and 3 dB is about double. Polarisation is written as sent and received: VV goes out and returns vertically, whereas VH goes out vertically and returns horizontally. Volume scattering in vegetation changes polarisation, so VH responds strongly to it.</p>
+<h2 id="step-1-choose-the-scenes">1.3 Step 1: choose the scenes</h2>
+<p>We take all ascending Interferometric Wide scenes over London in 2024: 149 of them. Keeping one pass direction matters, because a building looks different from each side. <strong>From the code:</strong> <code>src/sarlib.py, s1(), lines 17--23</code></p>
+<pre data-startFrom="17"><code>def s1(region, start, end, orbit=None):
+    &quot;&quot;&quot;Sentinel-1 ground range scenes in dual polarisation; values are already calibrated backscatter in dB.&quot;&quot;&quot;
+    c = (ee.ImageCollection(&quot;COPERNICUS/S1_GRD&quot;).filterBounds(region).filterDate(start, end)
+         .filter(ee.Filter.eq(&quot;instrumentMode&quot;, &quot;IW&quot;))
+         .filter(ee.Filter.listContains(&quot;transmitterReceiverPolarisation&quot;, &quot;VV&quot;))
+         .filter(ee.Filter.listContains(&quot;transmitterReceiverPolarisation&quot;, &quot;VH&quot;)))
+    return c.filter(ee.Filter.eq(&quot;orbitProperties_pass&quot;, orbit)) if orbit else c</code></pre>
+<h2 id="step-2-average-in-the-right-units">1.4 Step 2: average in the right units</h2>
+<p>Decibels are logarithms, so averaging them understates bright targets. We convert to linear power, average, and convert back: <strong>From the code:</strong> <code>src/sarlib.py, mean_db(), lines 30--32</code></p>
+<pre data-startFrom="30"><code>def mean_db(collection, band):
+    &quot;&quot;&quot;Average in linear power and return to dB, because averaging decibels understates bright targets.&quot;&quot;&quot;
+    return collection.select(band).map(to_linear).mean().log10().multiply(10).rename(band)</code></pre>
+<h2 id="step-3-see-why-averaging-is-needed">1.5 Step 3: see why averaging is needed</h2>
+<p>Radar images have a grain called speckle, which arises when returns from many small scatterers within a pixel interfere. It is not noise in the usual sense, since it would repeat exactly from an identical view, but it hides detail. Over the most uniform 300 m patch in this view, chosen by the code, the spread of VV falls from 2.05 dB in one scene (2024-01-07) to 0.78 dB in the mean of the year (Figure <a href="/teaching/sar/reading-radar-london/#fig:speckle">1.1</a>).</p>
+<p><a id="fig:speckle"></a></p>
+<p><img src="/teaching/sar/fig/f-1.png" alt="Central London: one scene (a), the mean of the year (b), and the distribution of values (c)." /><br />
+</p>
+<p><strong>Figure 1.1.</strong> Central London: one scene (a), the mean of the year (b), and the distribution of values (c).</p>
+<h2 id="step-4-build-a-false-colour-image">1.6 Step 4: build a false-colour image</h2>
+<p>No single band shows everything (Figure <a href="/teaching/sar/reading-radar-london/#fig:bands">1.2</a>), so we put three in the display channels: VV as red, VH as green, and VV minus VH as blue.</p>
+<p><a id="fig:bands"></a></p>
+<p><img src="/teaching/sar/fig/f-2.png" alt="The three bands, each stretched between its 2nd and 98th percentiles." /><br />
+</p>
+<p><strong>Figure 1.2.</strong> The three bands, each stretched between its 2nd and 98th percentiles.</p>
+<h2 id="reading-the-map">1.7 Reading the map</h2>
+<p><a id="fig:london"></a></p>
+<p><img src="/teaching/sar/fig/f-3.png" alt="London in radar, 2024. VV as red, VH as green, VV minus VH as blue. Numbers are explained in Table ref tab:places . British National Grid." /><br />
+</p>
+<p><strong>Figure 1.3.</strong> London in radar, 2024. VV as red, VH as green, VV minus VH as blue. Numbers are explained in Table <a href="/teaching/sar/reading-radar-london/#tab:places">1.1</a>. British National Grid.</p>
+<table>
+<caption>Table 1.1. Measured values, averaged over a small circle at each numbered place in Figure <a href="/teaching/sar/reading-radar-london/#fig:london">1.3</a>.</caption>
+<thead>
+<tr>
+<th style="text-align: left;">Place</th>
+<th style="text-align: right;">VV (dB)</th>
+<th style="text-align: right;">VH (dB)</th>
+<th style="text-align: right;">VV minus VH</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Heathrow Airport</td>
+<td style="text-align: right;">5.7</td>
+<td style="text-align: right;">-0.7</td>
+<td style="text-align: right;">6.4</td>
+</tr>
+<tr>
+<td style="text-align: left;">River Thames, central London</td>
+<td style="text-align: right;">-14.8</td>
+<td style="text-align: right;">-20.5</td>
+<td style="text-align: right;">5.8</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hyde Park</td>
+<td style="text-align: right;">-8.1</td>
+<td style="text-align: right;">-14.2</td>
+<td style="text-align: right;">6.2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Canary Wharf</td>
+<td style="text-align: right;">8.8</td>
+<td style="text-align: right;">1.9</td>
+<td style="text-align: right;">6.9</td>
+</tr>
+<tr>
+<td style="text-align: left;">Richmond Park</td>
+<td style="text-align: right;">-12.8</td>
+<td style="text-align: right;">-19.1</td>
+<td style="text-align: right;">6.3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Reservoir south-west of Heathrow</td>
+<td style="text-align: right;">-17.8</td>
+<td style="text-align: right;">-26.7</td>
+<td style="text-align: right;">8.9</td>
+</tr>
+</tbody>
+</table>
+<p>Look at the map in this order:</p>
+<ol type="1">
+<li><p><strong>Water (2, 6).</strong> The Thames and the reservoirs are the darkest features. The river’s width changes on the map partly because a narrow channel can be mixed in one pixel with its bright banks and bridges.</p></li>
+<li><p><strong>The dense centre (4).</strong> Canary Wharf is extremely bright, because towers form strong corners. Its value is one of the highest in the table.</p></li>
+<li><p><strong>Green space (3, 5).</strong> Hyde Park and Richmond Park stand out as dark green holes in the city. Both polarisations are low, since grass is fairly smooth at this wavelength.</p></li>
+<li><p><strong>Airport (1).</strong> Heathrow’s runways are dark stripes, smooth like water, surrounded by bright buildings.</p></li>
+</ol>
+<p><strong>A caution:</strong> the mean at a marked place depends on exactly where the circle falls, and at the river it can include bridge and bank returns.</p>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/sar/">&larr; Reading radar images</a><a href="../../../teaching/sar/mapping-a-flood-sindh/">2. Mapping a flood: Sindh, 2022 &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ahmad Ammar, MIT licence. Contains modified Copernicus Sentinel data; JRC Global Surface Water. <style>.hpc-body img{max-width:100%;height:auto;display:block;margin:1em auto}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none"}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>
+</main>
+<footer class="site-footer">
+  <div class="bar">
+    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
+    <div class="social">
+      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
+      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
+      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
