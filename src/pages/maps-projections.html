@@ -1,0 +1,133 @@
+title: 3. Choosing a projection
+description: 3. Choosing a projection: Making maps that can be repeated and published.
+nav: teaching
+out: teaching/maps/projections/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/maps/">Reproducible maps</a> / 3. Choosing a projection</nav>
+<header class="page-head">
+  <p class="eyebrow">Reproducible maps</p>
+  <h1>3. Choosing a projection</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/maps/">Making maps that can be repeated and published</a></li>
+      <li><a href="{{root}}teaching/maps/anatomy/">1. What a map is made of</a></li>
+      <li><a href="{{root}}teaching/maps/tools/">2. The tools, and how they fit together</a></li>
+      <li><a href="{{root}}teaching/maps/projections/" aria-current="page">3. Choosing a projection</a></li>
+      <li><a href="{{root}}teaching/maps/colour/">4. Colour</a></li>
+      <li><a href="{{root}}teaching/maps/components/">5. Each component, with its parameters</a></li>
+      <li><a href="{{root}}teaching/maps/workflow/">6. From script to publication</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/maps/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/Reproducible_maps_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<p>A flat map cannot keep every property of the globe. It can keep areas (equal-area), local shapes (conformal), or distances along some lines, but not all at once. Choose by what your map is used for.</p>
+<p><img src="/teaching/maps/fig/f-3.png" alt="The same region in three projections." /><br />
+</p>
+<p>The same region in three projections.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Your map</th>
+<th style="text-align: left;">Good choice</th>
+<th style="text-align: left;">Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Region at mid latitudes</td>
+<td style="text-align: left;">Albers equal-area conic, with parallels at about a sixth and five-sixths of the height</td>
+<td style="text-align: left;"><code>carto.albers(lon, lat1, lat2)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">A city or small area</td>
+<td style="text-align: left;">The national grid or a UTM zone</td>
+<td style="text-align: left;"><code>ccrs.OSGB()</code>, <code>ccrs.UTM(42)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">The world</td>
+<td style="text-align: left;">Equal Earth, which keeps area</td>
+<td style="text-align: left;"><code>ccrs.EqualEarth()</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">Web tiles</td>
+<td style="text-align: left;">Web Mercator, for navigation only</td>
+<td style="text-align: left;"><code>ccrs.Mercator.GOOGLE</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="never-measure-area-in-degrees">3.1 Never measure area in degrees</h2>
+<p>A degree of longitude shrinks towards the poles, so any area taken from degrees is wrong. Table <a href="/teaching/maps/projections/#tab:area">3.1</a> shows how far out each approach is, compared with Equal Earth, using the <code>shared-geodata</code> regions.</p>
+<table>
+<caption>Table 3.1. Area of two ranges by four routes.</caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">How area is computed</th>
+<th style="text-align: right;">Karakoram (km<span class="math inline">\(^2\)</span>)</th>
+<th style="text-align: right;">Error</th>
+<th style="text-align: right;">Tian Shan (km<span class="math inline">\(^2\)</span>)</th>
+<th style="text-align: right;">Error</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Geographic degrees treated as flat, at the equator’s scale</td>
+<td style="text-align: right;">91,702</td>
+<td style="text-align: right;">+23%</td>
+<td style="text-align: right;">756,672</td>
+<td style="text-align: right;">+35%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Web Mercator</td>
+<td style="text-align: right;">112,467</td>
+<td style="text-align: right;">+51%</td>
+<td style="text-align: right;">1,022,497</td>
+<td style="text-align: right;">+83%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Albers equal-area (ours)</td>
+<td style="text-align: right;">74,614</td>
+<td style="text-align: right;">+0%</td>
+<td style="text-align: right;">560,184</td>
+<td style="text-align: right;">+0%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Equal Earth</td>
+<td style="text-align: right;">74,614</td>
+<td style="text-align: right;">+0%</td>
+<td style="text-align: right;">560,184</td>
+<td style="text-align: right;">+0%</td>
+</tr>
+</tbody>
+</table>
+<p>Web Mercator inflates area most at high latitudes, which is why it should never be used for measuring. The routine is to reproject, and then measure:</p>
+<pre class="python" data-language="Python"><code>km2 = g.to_crs(&quot;ESRI:54034&quot;).area / 1e6      # cylindrical equal-area, in square metres</code></pre>
+<h2 id="our-helper">3.2 Our helper</h2>
+<p><strong>From the code:</strong> <code>research_helpers/carto.py, albers(), lines 50--53</code></p>
+<pre data-startFrom="50"><code>def albers(central_lon, parallel_1, parallel_2, central_lat=None):
+    &quot;&quot;&quot;Equal-area conic, the usual choice for mid-latitude regions wider than they are tall.&quot;&quot;&quot;
+    lat = (parallel_1 + parallel_2) / 2 if central_lat is None else central_lat
+    return ccrs.AlbersEqualArea(central_longitude=central_lon, central_latitude=lat, standard_parallels=(parallel_1, parallel_2))</code></pre>
+<h2 id="scale-bars-and-distortion">3.3 Scale bars and distortion</h2>
+<p>A scale bar is only exactly true where a projection has no distortion: along the standard parallels of a conic map. On a small map of a large region, say this in the caption. On a world map, leave the bar out, since no single scale holds. <code>finish_map()</code> accepts a sentence explaining why a map has no bar.</p>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/maps/tools/">&larr; 2. The tools, and how they fit together</a><a href="{{root}}teaching/maps/colour/">4. Colour &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ahmad Ammar, MIT licence. <style>.hpc-body img{max-width:100%;height:auto;display:block;margin:1em auto}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none"}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

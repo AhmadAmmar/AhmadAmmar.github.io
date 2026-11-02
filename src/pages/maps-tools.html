@@ -1,0 +1,124 @@
+title: 2. The tools, and how they fit together
+description: 2. The tools, and how they fit together: Making maps that can be repeated and published.
+nav: teaching
+out: teaching/maps/tools/index.html
+---
+<nav class="breadcrumb" aria-label="Breadcrumb"><a href="{{root}}teaching.html">Teaching</a> / <a href="{{root}}teaching/maps/">Reproducible maps</a> / 2. The tools, and how they fit together</nav>
+<header class="page-head">
+  <p class="eyebrow">Reproducible maps</p>
+  <h1>2. The tools, and how they fit together</h1>
+</header>
+<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
+<div class="cv-layout">
+  <aside class="toc" aria-label="Chapters">
+    <p class="title">Chapters</p>
+    <ol>
+      <li><a href="{{root}}teaching/maps/">Making maps that can be repeated and published</a></li>
+      <li><a href="{{root}}teaching/maps/anatomy/">1. What a map is made of</a></li>
+      <li><a href="{{root}}teaching/maps/tools/" aria-current="page">2. The tools, and how they fit together</a></li>
+      <li><a href="{{root}}teaching/maps/projections/">3. Choosing a projection</a></li>
+      <li><a href="{{root}}teaching/maps/colour/">4. Colour</a></li>
+      <li><a href="{{root}}teaching/maps/components/">5. Each component, with its parameters</a></li>
+      <li><a href="{{root}}teaching/maps/workflow/">6. From script to publication</a></li>
+    </ol>
+    <p><a href="{{root}}teaching/maps/full/">Whole guide on one page</a></p>
+    <p><a href="{{root}}files/Reproducible_maps_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
+  </aside>
+  <article class="hpc-body">
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Tool</th>
+<th style="text-align: left;">Its job</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Matplotlib</td>
+<td style="text-align: left;">Draws everything. A <em>figure</em> is the page, and an <em>axes</em> is one plot on it</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cartopy</td>
+<td style="text-align: left;">Adds map projections to Matplotlib; an axes with a projection is a <em>GeoAxes</em></td>
+</tr>
+<tr>
+<td style="text-align: left;">GeoPandas</td>
+<td style="text-align: left;">Reads and reprojects vector data such as GeoJSON</td>
+</tr>
+<tr>
+<td style="text-align: left;">rasterio</td>
+<td style="text-align: left;">Reads and reprojects rasters such as GeoTIFF</td>
+</tr>
+<tr>
+<td style="text-align: left;">NumPy</td>
+<td style="text-align: left;">Holds raster values as arrays</td>
+</tr>
+<tr>
+<td style="text-align: left;">matplotlib-scalebar</td>
+<td style="text-align: left;">Draws the scale bar</td>
+</tr>
+<tr>
+<td style="text-align: left;">cmcrameri</td>
+<td style="text-align: left;">Scientific colour maps, from Crameri et al. (2020)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Earth Engine</td>
+<td style="text-align: left;">Computes on satellite archives, in the cloud</td>
+</tr>
+<tr>
+<td style="text-align: left;">research-helpers</td>
+<td style="text-align: left;">Our layer: <code>carto</code> sets the house style and checks each map</td>
+</tr>
+<tr>
+<td style="text-align: left;">LaTeX</td>
+<td style="text-align: left;">Places the finished map in a paper or book</td>
+</tr>
+</tbody>
+</table>
+<h2 id="two-ideas-that-prevent-most-mistakes">2.1 Two ideas that prevent most mistakes</h2>
+<h5 id="figure-size-is-set-in-inches-in-journal-widths.">Figure size is set in inches, in journal widths.</h5>
+<p>Fonts are in points, so a figure drawn at its printed width keeps its text at the true size. If you draw a figure large and shrink it, its text shrinks as well. <strong>From the code:</strong> <code>research_helpers/carto.py, size(), lines 45--47</code></p>
+<pre data-startFrom="45"><code>def size(width=&quot;double&quot;, ratio=0.62):
+    w = WIDTH.get(width, width)
+    return w, w * ratio</code></pre>
+<h5 id="transform-says-what-your-data-is-in-and-projection-what-the-map-is-in."><code>transform</code> says what your data is in, and <code>projection</code> what the map is in.</h5>
+<p>This is the most common source of confusion. The map’s projection is set once. Each thing you draw says which coordinates <em>it</em> uses:</p>
+<pre class="python" data-language="Python"><code>ax = plt.axes(projection=carto.albers(85, 25, 45))         # the map
+ax.plot(lon, lat, transform=ccrs.PlateCarree())            # data in degrees
+ax.imshow(a, extent=box, transform=ccrs.UTM(42))           # data in UTM metres</code></pre>
+<p><code>PlateCarree</code> here means “plain longitude and latitude”. If you leave out <code>transform</code>, Cartopy assumes that the numbers are already in the map’s projection, and your data lands in the wrong place or disappears.</p>
+<h2 id="the-house-style">2.2 The house style</h2>
+<p><code>use_style()</code> runs once at the top of a script. It sets fonts, line widths and export settings, so all figures in a project match. <strong>From the code:</strong> <code>research_helpers/carto.py, use_style(), lines 33--42</code></p>
+<pre data-startFrom="33"><code>def use_style():
+    &quot;&quot;&quot;Set fonts, weights and export options once, so every figure in a project matches.&quot;&quot;&quot;
+    mpl.rcParams.update({
+        &quot;font.family&quot;: &quot;sans-serif&quot;, &quot;font.sans-serif&quot;: [&quot;Source Sans 3&quot;, &quot;Source Sans Pro&quot;, &quot;Arial&quot;, &quot;DejaVu Sans&quot;], &quot;font.size&quot;: 8,
+        &quot;axes.titlesize&quot;: 9, &quot;axes.titleweight&quot;: &quot;bold&quot;, &quot;axes.titlelocation&quot;: &quot;left&quot;, &quot;axes.labelsize&quot;: 8,
+        &quot;axes.spines.top&quot;: False, &quot;axes.spines.right&quot;: False, &quot;axes.linewidth&quot;: 0.6, &quot;axes.edgecolor&quot;: INK, &quot;axes.labelcolor&quot;: INK,
+        &quot;xtick.color&quot;: INK, &quot;ytick.color&quot;: INK, &quot;xtick.labelsize&quot;: 7, &quot;ytick.labelsize&quot;: 7, &quot;xtick.major.width&quot;: 0.6, &quot;ytick.major.width&quot;: 0.6,
+        &quot;legend.frameon&quot;: False, &quot;legend.fontsize&quot;: 7, &quot;lines.linewidth&quot;: 1.1, &quot;figure.dpi&quot;: 150, &quot;savefig.dpi&quot;: 400, &quot;savefig.bbox&quot;: &quot;tight&quot;,
+        &quot;pdf.fonttype&quot;: 42, &quot;ps.fonttype&quot;: 42, &quot;svg.fonttype&quot;: &quot;none&quot;, &quot;axes.prop_cycle&quot;: mpl.cycler(color=QUALITATIVE),
+    })</code></pre>
+<p>Three of its settings deserve a note. <code>pdf.fonttype=42</code> embeds real text, which journals ask for and which stays editable. <code>savefig.dpi=400</code> is above the common 300 dpi print requirement. <code>savefig.bbox="tight"</code> trims empty margins, so check the final size.</p>
+<h2 id="a-minimal-script">2.3 A minimal script</h2>
+<pre class="python" data-language="Python"><code>from research_helpers import carto
+import cartopy.crs as ccrs, geopandas as gpd
+
+carto.use_style()                                    # 1 style
+g = gpd.read_file(&quot;regions.geojson&quot;)                 # 2 data
+proj = carto.albers(85, 25, 45)                      # 3 projection
+fig, ax = carto.map_axes(proj, [60, 108, 22, 47])    # 4 frame, land, grid
+ax.add_geometries(g.geometry, ccrs.PlateCarree(),    # 5 subject
+                  facecolor=carto.QUALITATIVE[0], edgecolor=&quot;white&quot;, linewidth=0.2)
+carto.scale_bar(ax)                                  # 6 scale
+carto.finish_map(fig, &quot;figures/map_regions&quot;,         # 7 checks and saves
+                 title=&quot;Regions&quot;, sources=[&quot;GMBA&quot;], crs=&quot;Albers equal-area&quot;)</code></pre>
+
+<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="{{root}}teaching/maps/anatomy/">&larr; 1. What a map is made of</a><a href="{{root}}teaching/maps/projections/">3. Choosing a projection &rarr;</a></nav>
+<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ahmad Ammar, MIT licence. <style>.hpc-body img{max-width:100%;height:auto;display:block;margin:1em auto}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none"}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
+  </article>
+</div>

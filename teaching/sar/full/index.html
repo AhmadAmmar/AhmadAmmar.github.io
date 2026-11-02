@@ -47,22 +47,31 @@
     <p class="title">Contents</p>
     <ol>
       <li><a href="#ch-index">Reading radar images</a></li>
-      <li><a href="#ch-reading-radar-london">1. How to read a radar image: London</a></li>
-      <li class="sub"><a href="#reading-radar-london-what-the-satellite-measures">1.1 What the satellite measures</a></li>
-      <li class="sub"><a href="#reading-radar-london-the-numbers">1.2 The numbers</a></li>
-      <li class="sub"><a href="#reading-radar-london-step-1-choose-the-scenes">1.3 Step 1: choose the scenes</a></li>
-      <li class="sub"><a href="#reading-radar-london-step-2-average-in-the-right-units">1.4 Step 2: average in the right units</a></li>
-      <li class="sub"><a href="#reading-radar-london-step-3-see-why-averaging-is-needed">1.5 Step 3: see why averaging is needed</a></li>
-      <li class="sub"><a href="#reading-radar-london-step-4-build-a-false-colour-image">1.6 Step 4: build a false-colour image</a></li>
-      <li class="sub"><a href="#reading-radar-london-reading-the-map">1.7 Reading the map</a></li>
-      <li><a href="#ch-mapping-a-flood-sindh">2. Mapping a flood: Sindh, 2022</a></li>
-      <li class="sub"><a href="#mapping-a-flood-sindh-the-question">2.1 The question</a></li>
-      <li class="sub"><a href="#mapping-a-flood-sindh-step-1-a-before-and-an-after">2.2 Step 1: a before and an after</a></li>
-      <li class="sub"><a href="#mapping-a-flood-sindh-step-2-choose-a-threshold-from-the-data">2.3 Step 2: choose a threshold from the data</a></li>
-      <li class="sub"><a href="#mapping-a-flood-sindh-step-3-separate-flood-from-usual-water">2.4 Step 3: separate flood from usual water</a></li>
-      <li class="sub"><a href="#mapping-a-flood-sindh-reading-the-map">2.5 Reading the map</a></li>
-      <li class="sub"><a href="#mapping-a-flood-sindh-results">2.6 Results</a></li>
-      <li class="sub"><a href="#mapping-a-flood-sindh-what-this-cannot-tell-you">2.7 What this cannot tell you</a></li>
+      <li><a href="#ch-the-science">1. The science behind the images</a></li>
+      <li class="sub"><a href="#the-science-why-radar-sees-what-it-sees">1.1 Why radar sees what it sees</a></li>
+      <li class="sub"><a href="#the-science-what-backscatter-is">1.2 What backscatter is</a></li>
+      <li class="sub"><a href="#the-science-what-a-decibel-is">1.3 What a decibel is</a></li>
+      <li class="sub"><a href="#the-science-polarisation-what-vv-and-vh-tell-us">1.4 Polarisation: what VV and VH tell us</a></li>
+      <li class="sub"><a href="#the-science-speckle">1.5 Speckle</a></li>
+      <li class="sub"><a href="#the-science-what-has-been-done-to-the-data">1.6 What has been done to the data</a></li>
+      <li class="sub"><a href="#the-science-three-distortions-of-mountains">1.7 Three distortions of mountains</a></li>
+      <li class="sub"><a href="#the-science-reading-rules">1.8 Reading rules</a></li>
+      <li><a href="#ch-reading-radar-london">2. How to read a radar image: London</a></li>
+      <li class="sub"><a href="#reading-radar-london-what-the-satellite-measures">2.1 What the satellite measures</a></li>
+      <li class="sub"><a href="#reading-radar-london-the-numbers">2.2 The numbers</a></li>
+      <li class="sub"><a href="#reading-radar-london-step-1-choose-the-scenes">2.3 Step 1: choose the scenes</a></li>
+      <li class="sub"><a href="#reading-radar-london-step-2-average-in-the-right-units">2.4 Step 2: average in the right units</a></li>
+      <li class="sub"><a href="#reading-radar-london-step-3-see-why-averaging-is-needed">2.5 Step 3: see why averaging is needed</a></li>
+      <li class="sub"><a href="#reading-radar-london-step-4-build-a-false-colour-image">2.6 Step 4: build a false-colour image</a></li>
+      <li class="sub"><a href="#reading-radar-london-reading-the-map">2.7 Reading the map</a></li>
+      <li><a href="#ch-mapping-a-flood-sindh">3. Mapping a flood: Sindh, 2022</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-the-question">3.1 The question</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-step-1-a-before-and-an-after">3.2 Step 1: a before and an after</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-step-2-choose-a-threshold-from-the-data">3.3 Step 2: choose a threshold from the data</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-step-3-separate-flood-from-usual-water">3.4 Step 3: separate flood from usual water</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-reading-the-map">3.5 Reading the map</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-results">3.6 Results</a></li>
+      <li class="sub"><a href="#mapping-a-flood-sindh-what-this-cannot-tell-you">3.7 What this cannot tell you</a></li>
     </ol>
     <p><a href="../../../files/Reading_radar_images_Ahmad_Ammar.pdf">PDF version</a></p>
   </aside>
@@ -71,14 +80,139 @@
 <h2>Reading radar images</h2>
 <p>A working manual for reading Sentinel-1 radar images, with each step shown on a real place. Read it chapter by chapter, or the <a href="full/">whole manual on one page</a>. You can also download the <a href="/files/Reading_radar_images_Ahmad_Ammar.pdf">PDF</a>, and the code is on <a href="https://github.com/AhmadAmmar/sar-reading-manual">GitHub</a>.</p>
 <ul>
-<li><a href="#ch-reading-radar-london">1. How to read a radar image: London</a></li>
-<li><a href="#ch-mapping-a-flood-sindh">2. Mapping a flood: Sindh, 2022</a></li>
+<li><a href="#ch-the-science">1. The science behind the images</a></li>
+<li><a href="#ch-reading-radar-london">2. How to read a radar image: London</a></li>
+<li><a href="#ch-mapping-a-flood-sindh">3. Mapping a flood: Sindh, 2022</a></li>
 </ul>
 
 </section>
+<section id="ch-the-science">
+<h2>1. The science behind the images</h2>
+<h3 id="the-science-why-radar-sees-what-it-sees">1.1 Why radar sees what it sees</h3>
+<p>A radar sends a pulse and times its return. Distance comes from time, as <span class="math inline">\(R = ct/2\)</span>, where <span class="math inline">\(c\)</span> is the speed of light and the 2 accounts for the trip out and back. Sentinel-1 uses C band: a frequency of 5.405 GHz, which is a wavelength of <span class="math inline">\(\lambda = c/f \approx 5.5\)</span> cm. Features much smaller than this look smooth to the radar, which is why calm water and tarmac act like mirrors.</p>
+<p>The sensor looks sideways, not straight down. If it looked straight down, two points at equal distance either side would return together and could not be told apart. Looking sideways at about 29 to 46 degrees in this mode solves that, and also causes the distortions described below.</p>
+<h3 id="the-science-what-backscatter-is">1.2 What backscatter is</h3>
+<p>The radar equation says how much power returns: <span class="math display">\[P_r = \frac{P_t\, G^2\, \lambda^2\, \sigma}{(4\pi)^3 R^4}\]</span> Here <span class="math inline">\(P_t\)</span> is power sent, <span class="math inline">\(G\)</span> antenna gain, <span class="math inline">\(R\)</span> range and <span class="math inline">\(\sigma\)</span> the radar cross-section of the target. Everything but <span class="math inline">\(\sigma\)</span> is known about the instrument and geometry, so it can be removed by calibration. For a surface, <span class="math inline">\(\sigma\)</span> is divided by the ground area to give <span class="math inline">\(\sigma^0\)</span> (sigma nought), a dimensionless ratio that can be compared between places and dates.</p>
+<h3 id="the-science-what-a-decibel-is">1.3 What a decibel is</h3>
+<p>Backscatter spans many orders of magnitude, from about 0.001 for calm water to above 10 for a building’s corner. A logarithmic scale fits this on a readable range: <span class="math display">\[\sigma^0_{\mathrm{dB}} = 10\log_{10}\bigl(\sigma^0_{\mathrm{linear}}\bigr), \qquad \sigma^0_{\mathrm{linear}} = 10^{\sigma^0_{\mathrm{dB}}/10}\]</span></p>
+<div class="center">
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Linear</th>
+<th style="text-align: right;">dB</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;"><span class="math inline">\(-30\)</span></td>
+<td style="text-align: left;">A thousandth of the reference</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;"><span class="math inline">\(-20\)</span></td>
+<td style="text-align: left;">A hundredth</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;"><span class="math inline">\(-10\)</span></td>
+<td style="text-align: left;">A tenth</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">Equal to the reference</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;"><span class="math inline">\(+3\)</span></td>
+<td style="text-align: left;">About double</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;"><span class="math inline">\(+10\)</span></td>
+<td style="text-align: left;">Ten times</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Decibels are ratios, so a difference in dB is a ratio in power. A change from <span class="math inline">\(-10\)</span> to <span class="math inline">\(-13\)</span> dB means half the power returned, wherever it happens on the scale. Negative values are normal and do not mean negative energy: they mean less than the reference.</p>
+<h6 id="the-science-why-averaging-in-db-is-wrong.">Why averaging in dB is wrong.</h6>
+<p>Take two pixels at <span class="math inline">\(-30\)</span> and <span class="math inline">\(0\)</span> dB. Their mean in dB is <span class="math inline">\(-15\)</span> dB. In linear units, the mean of 0.001 and 1 is 0.5005, which is <span class="math inline">\(-3\)</span> dB. The dB mean is lower by 12 dB, a factor of about 16 in power, because a logarithm gives the dim pixel too much weight. So we average in linear power, as <code>mean_db()</code> does in Chapter <a href="/teaching/sar/reading-radar-london/#sec:basics">2</a>. Over a year of London scenes this matters most at strong targets, whose returns vary.</p>
+<h3 id="the-science-polarisation-what-vv-and-vh-tell-us">1.4 Polarisation: what VV and VH tell us</h3>
+<p>The radar’s wave oscillates in one plane. Sentinel-1 sends vertically (V) and receives both V and horizontal (H). Each surface changes this differently:</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left;">Mechanism</th>
+<th style="text-align: left;">What happens and where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Surface scattering</td>
+<td style="text-align: left;">Rough ground reflects some energy back, mostly keeping polarisation, so VV is above VH</td>
+</tr>
+<tr>
+<td style="text-align: left;">Volume scattering</td>
+<td style="text-align: left;">Repeated scattering among leaves and branches scrambles polarisation, so VH rises</td>
+</tr>
+<tr>
+<td style="text-align: left;">Double bounce</td>
+<td style="text-align: left;">Ground and wall form a corner that returns energy strongly, so VV is very high, as in cities and flooded forest</td>
+</tr>
+<tr>
+<td style="text-align: left;">Specular reflection</td>
+<td style="text-align: left;">A smooth surface reflects energy away, so both are low, as on calm water</td>
+</tr>
+</tbody>
+</table>
+<p>The ratio VV minus VH (in dB, which is a ratio in linear terms) separates these partly, which is why it serves as the third band in our colour image.</p>
+<h3 id="the-science-speckle">1.5 Speckle</h3>
+<h6 id="the-science-what-it-is.">What it is.</h6>
+<p>A pixel holds many scatterers. Their returns add as waves with random phases, sometimes reinforcing and sometimes cancelling. So uniform ground looks grainy, even with a perfect instrument. Viewed the same way, the same ground gives the same grain, which makes it a form of interference and not random instrument noise.</p>
+<h6 id="the-science-the-model.">The model.</h6>
+<p>Speckle is multiplicative: observed intensity <span class="math inline">\(I\)</span> is the true backscatter <span class="math inline">\(\sigma^0\)</span> times a random factor <span class="math inline">\(n\)</span> with mean 1: <span class="math display">\[I = \sigma^0 \cdot n, \qquad \mathrm{E}[n]=1, \qquad \mathrm{Var}[n] = 1/L\]</span> Multiplicative means brighter areas have larger swings in linear units, and a logarithm turns these into a roughly constant spread. <span class="math inline">\(L\)</span> is the number of looks, or independent samples averaged. It can be estimated from a uniform area as the <em>equivalent number of looks</em>: <span class="math display">\[\mathrm{ENL} = \frac{\bar{I}^{\,2}}{\mathrm{Var}(I)}\]</span></p>
+<h6 id="the-science-measured-here.">Measured here.</h6>
+<p>Over the most uniform 300 m patch near central London, ENL is 4.4 in one scene and 20.9 in the mean of 149 scenes. The increase is less than 149-fold, because the patch is not perfectly uniform and because real changes through the year remain. This also suggests a limit: averaging removes speckle at the cost of time detail, and filters such as Lee or Refined Lee remove it at the cost of spatial detail.</p>
+<h3 id="the-science-what-has-been-done-to-the-data">1.6 What has been done to the data</h3>
+<p>The Earth Engine collection <code>COPERNICUS/S1_GRD</code> holds Ground Range Detected scenes, already processed as follows:</p>
+<ol type="1">
+<li><p><strong>Orbit file:</strong> precise position of the satellite.</p></li>
+<li><p><strong>GRD border noise removal:</strong> low-value strips at scene edges.</p></li>
+<li><p><strong>Thermal noise removal:</strong> the instrument’s own noise.</p></li>
+<li><p><strong>Radiometric calibration:</strong> digital numbers to <span class="math inline">\(\sigma^0\)</span>.</p></li>
+<li><p><strong>Terrain correction:</strong> moved to map position with a digital elevation model.</p></li>
+<li><p><strong>Conversion to dB.</strong></p></li>
+</ol>
+<p>It has not had speckle filtering or radiometric terrain flattening, so slopes facing the satellite stay bright. “Detected” also means phase has been discarded, so these scenes cannot be used for interferometry, and subsidence needs a different product.</p>
+<h3 id="the-science-three-distortions-of-mountains">1.7 Three distortions of mountains</h3>
+<p>Because radar measures distance, tall things shift towards the sensor:</p>
+<ul>
+<li><p><strong>Foreshortening:</strong> slopes facing the radar look compressed and bright.</p></li>
+<li><p><strong>Layover:</strong> the top of a steep slope or tower returns before its base, and appears displaced towards the sensor.</p></li>
+<li><p><strong>Shadow:</strong> slopes facing away receive no signal and look black.</p></li>
+</ul>
+<p>You can see the first of these in the hills in the lower left of the Sindh map, and the second in London’s towers. In both cases brightness reflects geometry, not material.</p>
+<h3 id="the-science-reading-rules">1.8 Reading rules</h3>
+<ol type="1">
+<li><p>Dark usually means smooth, or facing away. It does not always mean water.</p></li>
+<li><p>Bright usually means rough, wet, or a corner. It does not always mean buildings.</p></li>
+<li><p>Compare like with like: the same pass direction and season.</p></li>
+<li><p>Average in linear power, and report in dB.</p></li>
+<li><p>Trust change between dates more than a single absolute value.</p></li>
+</ol>
+
+</section>
 <section id="ch-reading-radar-london">
-<h2>1. How to read a radar image: London</h2>
-<h3 id="reading-radar-london-what-the-satellite-measures">1.1 What the satellite measures</h3>
+<h2>2. How to read a radar image: London</h2>
+<h3 id="reading-radar-london-what-the-satellite-measures">2.1 What the satellite measures</h3>
 <p>Sentinel-1 sends microwave pulses at a wavelength of about 5.5 cm and records what returns. It supplies its own signal, so it works at night and sees through cloud. The picture therefore shows how surfaces send energy back, which is different from colour. Three things control the return: how rough a surface is at the scale of the wavelength, its geometry, and how wet it is.</p>
 <table>
 <colgroup>
@@ -106,9 +240,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="reading-radar-london-the-numbers">1.2 The numbers</h3>
+<h3 id="reading-radar-london-the-numbers">2.2 The numbers</h3>
 <p>The image holds backscatter, <span class="math inline">\(\sigma^0\)</span>, usually in decibels: <span class="math display">\[\sigma^0_{\mathrm{dB}} = 10\log_{10}\sigma^0_{\mathrm{linear}}\]</span> So 10 dB more is ten times the power, and 3 dB is about double. Polarisation is written as sent and received: VV goes out and returns vertically, whereas VH goes out vertically and returns horizontally. Volume scattering in vegetation changes polarisation, so VH responds strongly to it.</p>
-<h3 id="reading-radar-london-step-1-choose-the-scenes">1.3 Step 1: choose the scenes</h3>
+<h3 id="reading-radar-london-step-1-choose-the-scenes">2.3 Step 1: choose the scenes</h3>
 <p>We take all ascending Interferometric Wide scenes over London in 2024: 149 of them. Keeping one pass direction matters, because a building looks different from each side. <strong>From the code:</strong> <code>src/sarlib.py, s1(), lines 17--23</code></p>
 <pre data-startFrom="17"><code>def s1(region, start, end, orbit=None):
     &quot;&quot;&quot;Sentinel-1 ground range scenes in dual polarisation; values are already calibrated backscatter in dB.&quot;&quot;&quot;
@@ -117,30 +251,30 @@
          .filter(ee.Filter.listContains(&quot;transmitterReceiverPolarisation&quot;, &quot;VV&quot;))
          .filter(ee.Filter.listContains(&quot;transmitterReceiverPolarisation&quot;, &quot;VH&quot;)))
     return c.filter(ee.Filter.eq(&quot;orbitProperties_pass&quot;, orbit)) if orbit else c</code></pre>
-<h3 id="reading-radar-london-step-2-average-in-the-right-units">1.4 Step 2: average in the right units</h3>
+<h3 id="reading-radar-london-step-2-average-in-the-right-units">2.4 Step 2: average in the right units</h3>
 <p>Decibels are logarithms, so averaging them understates bright targets. We convert to linear power, average, and convert back: <strong>From the code:</strong> <code>src/sarlib.py, mean_db(), lines 30--32</code></p>
 <pre data-startFrom="30"><code>def mean_db(collection, band):
     &quot;&quot;&quot;Average in linear power and return to dB, because averaging decibels understates bright targets.&quot;&quot;&quot;
     return collection.select(band).map(to_linear).mean().log10().multiply(10).rename(band)</code></pre>
-<h3 id="reading-radar-london-step-3-see-why-averaging-is-needed">1.5 Step 3: see why averaging is needed</h3>
-<p>Radar images have a grain called speckle, which arises when returns from many small scatterers within a pixel interfere. It is not noise in the usual sense, since it would repeat exactly from an identical view, but it hides detail. Over the most uniform 300 m patch in this view, chosen by the code, the spread of VV falls from 2.05 dB in one scene (2024-01-07) to 0.78 dB in the mean of the year (Figure <a href="/teaching/sar/reading-radar-london/#fig:speckle">1.1</a>).</p>
+<h3 id="reading-radar-london-step-3-see-why-averaging-is-needed">2.5 Step 3: see why averaging is needed</h3>
+<p>Radar images have a grain called speckle, which arises when returns from many small scatterers within a pixel interfere. It is not noise in the usual sense, since it would repeat exactly from an identical view, but it hides detail. Over the most uniform 300 m patch in this view, chosen by the code, the spread of VV falls from 2.05 dB in one scene (2024-01-07) to 0.78 dB in the mean of the year (Figure <a href="/teaching/sar/reading-radar-london/#fig:speckle">2.1</a>).</p>
 <p><a id="fig:speckle"></a></p>
 <p><img src="/teaching/sar/fig/f-1.png" alt="Central London: one scene (a), the mean of the year (b), and the distribution of values (c)." /><br />
 </p>
-<p><strong>Figure 1.1.</strong> Central London: one scene (a), the mean of the year (b), and the distribution of values (c).</p>
-<h3 id="reading-radar-london-step-4-build-a-false-colour-image">1.6 Step 4: build a false-colour image</h3>
-<p>No single band shows everything (Figure <a href="/teaching/sar/reading-radar-london/#fig:bands">1.2</a>), so we put three in the display channels: VV as red, VH as green, and VV minus VH as blue.</p>
+<p><strong>Figure 2.1.</strong> Central London: one scene (a), the mean of the year (b), and the distribution of values (c).</p>
+<h3 id="reading-radar-london-step-4-build-a-false-colour-image">2.6 Step 4: build a false-colour image</h3>
+<p>No single band shows everything (Figure <a href="/teaching/sar/reading-radar-london/#fig:bands">2.2</a>), so we put three in the display channels: VV as red, VH as green, and VV minus VH as blue.</p>
 <p><a id="fig:bands"></a></p>
 <p><img src="/teaching/sar/fig/f-2.png" alt="The three bands, each stretched between its 2nd and 98th percentiles." /><br />
 </p>
-<p><strong>Figure 1.2.</strong> The three bands, each stretched between its 2nd and 98th percentiles.</p>
-<h3 id="reading-radar-london-reading-the-map">1.7 Reading the map</h3>
+<p><strong>Figure 2.2.</strong> The three bands, each stretched between its 2nd and 98th percentiles.</p>
+<h3 id="reading-radar-london-reading-the-map">2.7 Reading the map</h3>
 <p><a id="fig:london"></a></p>
 <p><img src="/teaching/sar/fig/f-3.png" alt="London in radar, 2024. VV as red, VH as green, VV minus VH as blue. Numbers are explained in Table ref tab:places . British National Grid." /><br />
 </p>
-<p><strong>Figure 1.3.</strong> London in radar, 2024. VV as red, VH as green, VV minus VH as blue. Numbers are explained in Table <a href="/teaching/sar/reading-radar-london/#tab:places">1.1</a>. British National Grid.</p>
+<p><strong>Figure 2.3.</strong> London in radar, 2024. VV as red, VH as green, VV minus VH as blue. Numbers are explained in Table <a href="/teaching/sar/reading-radar-london/#tab:places">2.1</a>. British National Grid.</p>
 <table>
-<caption>Table 1.1. Measured values, averaged over a small circle at each numbered place in Figure <a href="/teaching/sar/reading-radar-london/#fig:london">1.3</a>.</caption>
+<caption>Table 2.1. Measured values, averaged over a small circle at each numbered place in Figure <a href="/teaching/sar/reading-radar-london/#fig:london">2.3</a>.</caption>
 <thead>
 <tr>
 <th style="text-align: left;">Place</th>
@@ -199,17 +333,17 @@
 
 </section>
 <section id="ch-mapping-a-flood-sindh">
-<h2>2. Mapping a flood: Sindh, 2022</h2>
-<h3 id="mapping-a-flood-sindh-the-question">2.1 The question</h3>
+<h2>3. Mapping a flood: Sindh, 2022</h2>
+<h3 id="mapping-a-flood-sindh-the-question">3.1 The question</h3>
 <p>In 2022 severe floods covered large parts of Pakistan. Cloud often blocks optical satellites during such events, while radar keeps seeing. Open floodwater is smooth, so it turns dark. We therefore look for land that was not dark in a normal year and turned dark during the flood. The area here runs from Manchar Lake along the Indus.</p>
-<h3 id="mapping-a-flood-sindh-step-1-a-before-and-an-after">2.2 Step 1: a before and an after</h3>
+<h3 id="mapping-a-flood-sindh-step-1-a-before-and-an-after">3.2 Step 1: a before and an after</h3>
 <p>We take the mean VV over the same weeks of two years, 25 August to 15 September in 2021 (12 scenes) and 2022 (12 scenes), so the season is alike. VV is the usual choice for open water, because it separates smooth water well from rougher land.</p>
 <p><a id="fig:sindhba"></a></p>
 <p><img src="/teaching/sar/fig/f-4.png" alt="September 2021 (a), September 2022 (b), and a colour combination (c) in which a surface that lost signal in 2022 appears red. UTM 42N." /><br />
 </p>
-<p><strong>Figure 2.1.</strong> September 2021 (a), September 2022 (b), and a colour combination (c) in which a surface that lost signal in 2022 appears red. UTM 42N.</p>
-<h3 id="mapping-a-flood-sindh-step-2-choose-a-threshold-from-the-data">2.3 Step 2: choose a threshold from the data</h3>
-<p>Water and land form two groups in the histogram, so we need the value that best separates them. Otsu’s method tries every value <span class="math inline">\(t\)</span>, and keeps the one that maximises the variance between the two groups: <span class="math display">\[\sigma_b^2(t) = w_0(t)\,w_1(t)\,\bigl[\mu_0(t)-\mu_1(t)\bigr]^2\]</span> where <span class="math inline">\(w\)</span> is the share of pixels in each group and <span class="math inline">\(\mu\)</span> its mean. Here it gives -14.1 dB (Figure <a href="/teaching/sar/mapping-a-flood-sindh/#fig:hist">2.2</a>). <strong>From the code:</strong> <code>src/sarlib.py, otsu(), lines 61--69</code></p>
+<p><strong>Figure 3.1.</strong> September 2021 (a), September 2022 (b), and a colour combination (c) in which a surface that lost signal in 2022 appears red. UTM 42N.</p>
+<h3 id="mapping-a-flood-sindh-step-2-choose-a-threshold-from-the-data">3.3 Step 2: choose a threshold from the data</h3>
+<p>Water and land form two groups in the histogram, so we need the value that best separates them. Otsu’s method tries every value <span class="math inline">\(t\)</span>, and keeps the one that maximises the variance between the two groups: <span class="math display">\[\sigma_b^2(t) = w_0(t)\,w_1(t)\,\bigl[\mu_0(t)-\mu_1(t)\bigr]^2\]</span> where <span class="math inline">\(w\)</span> is the share of pixels in each group and <span class="math inline">\(\mu\)</span> its mean. Here it gives -14.1 dB (Figure <a href="/teaching/sar/mapping-a-flood-sindh/#fig:hist">3.2</a>). <strong>From the code:</strong> <code>src/sarlib.py, otsu(), lines 61--69</code></p>
 <pre data-startFrom="61"><code>def otsu(values, bins=256):
     &quot;&quot;&quot;The threshold that best separates two groups: it maximises the variance between them (Otsu, 1979).&quot;&quot;&quot;
     v = values[np.isfinite(values)]
@@ -222,18 +356,18 @@
 <p><a id="fig:hist"></a></p>
 <p><img src="/teaching/sar/fig/f-5.png" alt="Backscatter in 2022, with the threshold." /><br />
 </p>
-<p><strong>Figure 2.2.</strong> Backscatter in 2022, with the threshold.</p>
-<h3 id="mapping-a-flood-sindh-step-3-separate-flood-from-usual-water">2.4 Step 3: separate flood from usual water</h3>
+<p><strong>Figure 3.2.</strong> Backscatter in 2022, with the threshold.</p>
+<h3 id="mapping-a-flood-sindh-step-3-separate-flood-from-usual-water">3.4 Step 3: separate flood from usual water</h3>
 <p>Three rules define flood: below the threshold in 2022, above it in 2021, and water less than 50% of the time in the JRC Global Surface Water record. <strong>From the code:</strong> <code>src/02_sindh_flood.py, lines 25--28</code></p>
 <pre data-startFrom="25"><code>thr = otsu(after)
 wet_after, wet_before = after &lt; thr, before &lt; thr
 flood = wet_after &amp; ~wet_before &amp; (occ &lt; 50)
 permanent = wet_after &amp; (occ &gt;= 50)</code></pre>
-<h3 id="mapping-a-flood-sindh-reading-the-map">2.5 Reading the map</h3>
+<h3 id="mapping-a-flood-sindh-reading-the-map">3.5 Reading the map</h3>
 <p><a id="fig:flood"></a></p>
 <p><img src="/teaching/sar/fig/f-6.png" alt="Water in Sindh, September 2022, over VV backscatter. 1 Manchar Lake, 2 Dadu, 3 Sehwan, 4 Nawabshah. UTM 42N." /><br />
 </p>
-<p><strong>Figure 2.3.</strong> Water in Sindh, September 2022, over VV backscatter. 1 Manchar Lake, 2 Dadu, 3 Sehwan, 4 Nawabshah. UTM 42N.</p>
+<p><strong>Figure 3.3.</strong> Water in Sindh, September 2022, over VV backscatter. 1 Manchar Lake, 2 Dadu, 3 Sehwan, 4 Nawabshah. UTM 42N.</p>
 <table>
 <colgroup>
 <col style="width: 50%" />
@@ -268,9 +402,9 @@ permanent = wet_after &amp; (occ &gt;= 50)</code></pre>
 </tr>
 </tbody>
 </table>
-<h3 id="mapping-a-flood-sindh-results">2.6 Results</h3>
+<h3 id="mapping-a-flood-sindh-results">3.6 Results</h3>
 <p>The map shows about 3,458 km<span class="math inline">\(^2\)</span> of flood within the 20,415 km<span class="math inline">\(^2\)</span> scene, and 348 km<span class="math inline">\(^2\)</span> of usual water. Moving the threshold by 2 dB either way gives 3,145 and 3,345 km<span class="math inline">\(^2\)</span>, so the choice matters less than the limits below.</p>
-<h3 id="mapping-a-flood-sindh-what-this-cannot-tell-you">2.7 What this cannot tell you</h3>
+<h3 id="mapping-a-flood-sindh-what-this-cannot-tell-you">3.7 What this cannot tell you</h3>
 <ul>
 <li><p><strong>Not validated.</strong> This is a teaching estimate, and it has not been compared with optical images or field reports.</p></li>
 <li><p><strong>Rice and wet soil.</strong> Flooded fields and irrigated land in September can look like flood. This is likely in scattered patches, especially in the east.</p></li>
