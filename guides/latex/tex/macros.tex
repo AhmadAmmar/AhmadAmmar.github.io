@@ -1,0 +1,90 @@
+\chapter{Your own commands, packages and themes}
+\label{ch:macros}
+
+\section{LaTeX as a language}\label{latex-as-a-language}
+
+LaTeX is a programming language, and its commands behave like functions and variables.
+
+\begin{lstlisting}[language=latex]
+% A variable: one place to change a value
+\newcommand{\studyarea}{Greater London}
+
+% A function with one parameter, used as \term{surplus value}
+\newcommand{\term}[1]{\textbf{#1}}
+
+% A function with two parameters, where the first is optional
+\newcommand{\money}[2][PKR]{#1~#2}   % \money{160} gives PKR 160
+\end{lstlisting}
+
+\texttt{\#1} is the first parameter. \texttt{\textbackslash{}renewcommand} changes an existing command.
+
+\section{Environments and counters}\label{environments-and-counters}
+
+\begin{lstlisting}[language=latex]
+\newtheorem{example}{Example}[section]      % numbered within each section
+
+\begin{example}[A coffee-shop worker]
+  ...
+\end{example}
+
+\newcounter{step}
+\stepcounter{step}\thestep
+\end{lstlisting}
+
+\section{Numbers from your analysis}\label{numbers-from-your-analysis}
+
+Don\textquotesingle t type results by hand into a document. Have your analysis write a file of commands:
+
+\begin{lstlisting}[language=latex]
+% Written by a script. Do not edit by hand.
+\newcommand{\meanDemand}{369}
+\end{lstlisting}
+
+Then \texttt{\textbackslash{}input\{numbers\}} and write \texttt{\textbackslash{}meanDemand} in the text. When the data changes, the document follows. This prevents the most common errors in scientific writing, as described in the \href{../../git-ci/}{Git and automation guide}.
+
+\section{Your own style file}\label{your-own-style-file}
+
+Put a shared look in a \texttt{.sty} file, then load it in any document.
+
+\begin{lstlisting}[language=latex]
+% mystyle.sty
+\ProvidesPackage{mystyle}
+\RequirePackage{xcolor}
+\definecolor{brand}{HTML}{0D6A6E}
+\end{lstlisting}
+
+\begin{lstlisting}[language=latex]
+\usepackage{mystyle}
+\end{lstlisting}
+
+For a whole document type, such as a thesis, write a \texttt{.cls} class file instead. Most journals and universities supply one. Keep your text separate from the style, so that moving to a different template only needs one change.
+
+\section{Useful packages}\label{useful-packages}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Package & Purpose \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{amsmath} & Mathematics \\
+\texttt{geometry} & Page size and margins \\
+\texttt{graphicx} & Images \\
+\texttt{booktabs} & Clean tables \\
+\texttt{longtable}, \texttt{tabularx} & Long and flexible tables \\
+\texttt{xcolor} & Colour \\
+\texttt{hyperref} & Links \\
+\texttt{cleveref} & Automatic reference words \\
+\texttt{natbib}, \texttt{biblatex} & Citations \\
+\texttt{siunitx} & Numbers and units \\
+\texttt{tikz}, \texttt{pgfplots} & Diagrams and plots \\
+\texttt{glossaries} & Glossaries and acronyms \\
+\texttt{tcolorbox} & Coloured boxes \\
+\texttt{beamer} & Slides, as a class \\
+\end{longtable}
+}
+
+Load only what you use, and load \texttt{hyperref} late, as it changes many others.
+

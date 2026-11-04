@@ -1,0 +1,8 @@
+$ git diff
+diff --git a/index.html b/index.html
+index 1a2b3c4..5d6e7f8 100644
+--- a/index.html
++++ b/index.html
+@@ -1 +1,2 @@
+ <h1>Your Name</h1>
++<p>I study rivers.</p>

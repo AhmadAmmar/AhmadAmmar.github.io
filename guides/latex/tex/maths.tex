@@ -1,0 +1,88 @@
+\chapter{Mathematics}
+\label{ch:maths}
+
+\section{Inline and displayed}\label{inline-and-displayed}
+
+Inline maths sits within a sentence, and displayed maths gets its own line. Load \texttt{amsmath} for anything beyond the basics.
+
+\begin{lstlisting}[language=latex]
+The energy is $E = mc^2$ here.
+
+\[ E = mc^2 \]          % displayed, no number
+
+\begin{equation}        % displayed and numbered
+  E = mc^2
+  \label{eq:energy}
+\end{equation}
+\end{lstlisting}
+
+In the file below, these forms and some of the building blocks come together. Only the numbered equations get a number at the right.
+
+\textbf{maths.tex}
+
+\lstinputlisting{../../../teaching/latex/examples/maths.tex}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/maths.png}
+\caption{What that file compiles to.}
+\end{figure}
+
+\section{The building blocks}\label{the-building-blocks}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+You want & You write \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Superscript and subscript & \texttt{x\^{}2}, \texttt{x\_i}, \texttt{x\_\{i,j\}} \\
+Fraction & \texttt{\textbackslash{}frac\{a\}\{b\}} \\
+Square root & \texttt{\textbackslash{}sqrt\{x\}} \\
+Greek letters & \texttt{\textbackslash{}alpha}, \texttt{\textbackslash{}mu}, \texttt{\textbackslash{}Delta} \\
+Sum and integral & \texttt{\textbackslash{}sum\_\{i=1\}\^{}\{n\}}, \texttt{\textbackslash{}int\_0\^{}1} \\
+Operators and relations & \texttt{\textbackslash{}times}, \texttt{\textbackslash{}approx}, \texttt{\textbackslash{}leq}, \texttt{\textbackslash{}rightarrow} \\
+Words in maths & \texttt{\textbackslash{}text\{hours\}} \\
+Spacing & \texttt{\textbackslash{},} small, \texttt{\textbackslash{}quad} wide \\
+Brackets that grow & \texttt{\textbackslash{}left(\ \textbackslash{}frac\{a\}\{b\}\ \textbackslash{}right)} \\
+\end{longtable}
+}
+
+Braces group things, so \texttt{x\^{}\{10\}} raises the whole 10, while \texttt{x\^{}10} raises only the 1.
+
+\section{Aligned derivations}\label{aligned-derivations}
+
+Long derivations read best one step per line. Use \texttt{\&} to mark where lines align, and \texttt{\textbackslash{}\textbackslash{}} to end a line.
+
+\begin{lstlisting}[language=latex]
+\begin{align}
+  r &= \frac{s}{c + v} \\
+    &= \frac{e v}{c + v} \\
+    &= \frac{e}{1 + c/v}.
+\end{align}
+\end{lstlisting}
+
+Each line gets a number, and \texttt{align*} removes all of them. \texttt{\textbackslash{}nonumber} removes one.
+
+\section{Maths as your own commands}\label{maths-as-your-own-commands}
+
+If a symbol means something in your project, name it once, and every use will follow.
+
+\begin{lstlisting}[language=latex]
+\newcommand{\rate}{\ensuremath{r}}
+\end{lstlisting}
+
+\section{Tips}\label{tips}
+
+\begin{itemize}
+\tightlist
+\item
+  Spell out what each symbol means in the text around the equation.
+\item
+  Treat an equation as part of a sentence, with punctuation.
+\item
+  Don\textquotesingle t use \texttt{\$} or \texttt{\$\$} for displayed equations in LaTeX. Use \texttt{\textbackslash{}{[}\ \textbackslash{}{]}}, because \texttt{\$\$} skips LaTeX\textquotesingle s spacing rules.
+\end{itemize}
+

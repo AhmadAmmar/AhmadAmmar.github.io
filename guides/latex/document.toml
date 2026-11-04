@@ -1,0 +1,25 @@
+name = "latex"
+title = "LaTeX from first principles"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["basics", "text", "maths", "tables_figures", "references", "macros", "outputs", "practice", "troubleshooting"]
+figures = "../../teaching/latex"
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "LaTeX from first principles"
+intro_tex = "intro.tex"
+pdf_url = "/files/LaTeX_guide_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+[web.slugs]
+basics = "basics"
+text = "text"
+maths = "maths"
+tables_figures = "tables-figures"
+references = "references"
+macros = "macros"
+outputs = "outputs"
+practice = "practice"
+troubleshooting = "troubleshooting"

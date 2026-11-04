@@ -1,0 +1,63 @@
+\chapter{Reproducible pipelines}
+\label{ch:pipelines}
+
+\section{The idea}\label{the-idea}
+
+If you copy a number from your analysis into a paper by hand, sooner or later they will differ. So store each thing once, and generate the rest.
+
+\begin{lstlisting}[language=text]
+data/figures.json  --->  analysis code  --->  numbers.tex  --->  paper.pdf
+                                         \-->  tables and figures
+                                          \->  web pages and slides
+\end{lstlisting}
+
+\section{Rules that prevent most errors}\label{rules-that-prevent-most-errors}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Raw data is read-only.} Scripts read it and write elsewhere.
+\item
+  \textbf{Numbers in text are generated.} A script writes them as LaTeX commands, for example.
+\item
+  \textbf{Equations live in one tested function.} Everything calls it.
+\item
+  \textbf{One command rebuilds everything.} It might be \texttt{python\ build\_all.py} or \texttt{make}.
+\item
+  \textbf{Each output records its source}, such as a commit or a checksum.
+\item
+  \textbf{Generated files say so}, in a comment at the top, so that nobody edits them by hand.
+\item
+  \textbf{Paths are relative.} \texttt{C:\textbackslash{}Users\textbackslash{}me\textbackslash{}data} works only for you.
+\item
+  \textbf{Random steps have a fixed seed}, so that results repeat exactly.
+\item
+  \textbf{The environment is recorded}, in a \texttt{requirements.txt}, \texttt{environment.yml} or container.
+\end{enumerate}
+
+\section{A worked example}\label{a-worked-example}
+
+My \href{https://ahmadammar.github.io/marxist-economics/how-it-works/}{pamphlet project}\footnote{\texttt{https://ahmadammar.github.io/marxist-economics/how-it-works/}} has one LaTeX source and one data file. One command builds the website, the PDF, a report, slides and a calculator from them, then checks that they all agree.
+
+When I switched the pamphlet to shared numbers, a check confirmed that the PDF\textquotesingle s text hadn\textquotesingle t changed at all. That kind of proof is what makes a large change safe.
+
+\section{Tools for larger projects}\label{tools-for-larger-projects}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Tool & Good for \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{make}, Snakemake, Nextflow & Rebuilding only what changed \\
+Conda, \texttt{venv}, \texttt{uv} & Python environments \\
+Docker, Apptainer & Whole environments, including on HPC \\
+DVC, DataLad, Git LFS & Versioning large data \\
+\end{longtable}
+}
+
+Start simple. A short script that runs each step in order goes a long way.
+

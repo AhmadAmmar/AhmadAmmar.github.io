@@ -1,131 +1,1467 @@
+
 <!doctype html>
-<html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>7. Lapse rates and the height of the troposphere | Ahmad Ammar</title>
-<meta name="description" content="7. Lapse rates and the height of the troposphere: The Atmosphere, a book worked step by step.">
-<meta name="author" content="Ahmad Ammar">
-<link rel="canonical" href="https://ahmadammar.github.io/teaching/atmosphere/p1-ch06_lapse/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="7. Lapse rates and the height of the troposphere | Ahmad Ammar">
-<meta property="og:description" content="7. Lapse rates and the height of the troposphere: The Atmosphere, a book worked step by step.">
-<meta property="og:url" content="https://ahmadammar.github.io/teaching/atmosphere/p1-ch06_lapse/">
-<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
-<link rel="stylesheet" href="../../../assets/css/site.css">
-<script src="../../../assets/js/site.js"></script>
-</head>
-<body>
-<a class="skip" href="#content">Skip to content</a>
-<header class="site-header">
-  <div class="bar">
-    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
-    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <nav class="nav" id="site-nav" aria-label="Main">
-      <a href="../../../index.html">About</a>
-      <a href="../../../research.html">Research</a>
-      <a href="../../../teaching.html" aria-current="page">Teaching</a>
-      <a href="../../../projects.html">Projects</a>
-      <a href="../../../writing.html">Writing</a>
-      <a href="../../../cv.html">CV</a>
-    </nav>
-    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-  </div>
-</header>
-<main id="content">
-<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/atmosphere/">The Atmosphere</a> / 7. Lapse rates and the height of the troposphere</nav>
-<header class="page-head">
-  <p class="eyebrow">The Atmosphere</p>
-  <h1>7. Lapse rates and the height of the troposphere</h1>
-</header>
-<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
-<div class="cv-layout">
-  <aside class="toc" aria-label="Chapters">
-    <p class="title">Chapters</p>
-    <ol>
-      <li><a href="../../../teaching/atmosphere/">The Atmosphere</a></li>
-      <li><a href="../../../teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch06_lapse/" aria-current="page">7. Lapse rates and the height of the troposphere</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
-      <li><a href="../../../teaching/atmosphere/app-p1/">A. Part I: formulas, derivations and symbols</a></li>
-      <li><a href="../../../teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
-      <li><a href="../../../teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
-      <li><a href="../../../teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
-    </ol>
-    <p><a href="../../../teaching/atmosphere/full/">Whole guide on one page</a></p>
-    <p><a href="../../../files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
-  </aside>
-  <article class="hpc-body">
-<p><em>This chapter answers Questions 9, 10 and 11.</em></p>
-<h2 id="p1-sec:avglapse">7.1 Average and local lapse rates</h2>
-<p>The lapse rate of Eq. (<a href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:lapse">5.1</a>) can be taken over any layer. Taken between the ground and the tropopause it gives the <strong>average lapse rate</strong> of the troposphere, one number for the whole layer. Taken between neighbouring levels of a sounding it gives the <strong>local lapse rate</strong>, which varies a great deal: in the Hillsborough sounding it ranges from <span class="math inline">\(-1.4\)</span> <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> (the inversion at 1.4 km) to <span class="math inline">\(+9.5\)</span> <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> (the lowest 1.3 km), as Table <a href="/teaching/atmosphere/p1-ch05_soundings/#p1-tab:layers">6.2</a> shows. The standard 6.5 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> is an average of averages: over many places and many days.</p>
-<h2 id="p1-sec:q9">7.2 Question 9: the lapse rate over Hillsborough</h2>
-<div class="box box-question">
-<p class="box-title">
-The question
-</p>
-<p>Based on your graph and the Hillsborough sounding in Table <a href="/teaching/atmosphere/p1-ch05_soundings/#p1-tab:soundings">6.1</a>, calculate the lapse rate for the part of the atmosphere below the tropopause for Hillsborough (have another look at Question 5 to work out how to calculate the lapse rate).</p>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="prev" href="../p1-ch05_soundings/">
+      
+      
+        <link rel="next" href="../p1-ch07_stability/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.74">
+    
+    
+      
+        <title>7. Lapse rates and the height of the troposphere - The Atmosphere</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ab2de0c.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../rh.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="The Atmosphere" class="md-header__button md-logo" aria-label="The Atmosphere" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Atmosphere
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Lapse rates and the height of the troposphere
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
-<p><strong>Method.</strong> Take the lowest level of the sounding and the tropopause found in Question 8 (§ <a href="/teaching/atmosphere/p1-ch05_soundings/#p1-sec:q8">6.6</a>), and apply Eq. (<a href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:lapse">5.1</a>).</p>
-<ol type="1">
-<li><p>Lowest level: 38 m, 11.05 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>. Tropopause: 9383 m, <span class="math inline">\(-51.05\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p></li>
-<li><p>Fall in temperature: <span class="math inline">\(11.05-(-51.05)=62.10\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p></li>
-<li><p>Rise in height: <span class="math inline">\(9383-38=9345\)</span> m <span class="math inline">\(=9.345\)</span> km.</p></li>
-<li><p>Lapse rate: <span class="math inline">\(\Gamma=62.10/9.345=6.65\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>.</p></li>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="The Atmosphere" class="md-nav__button md-logo" aria-label="The Atmosphere" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    The Atmosphere
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. How to use this book
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch01_glance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. Part I at a glance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch02_pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. How much air is above you: the halving rule
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch03_oxygen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Reading the graph, and oxygen at altitude
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch04_temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Temperature with height: the standard atmosphere
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch05_soundings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Two soundings: inversions and the tropopause
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Lapse rates and the height of the troposphere
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Lapse rates and the height of the troposphere
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:avglapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Average and local lapse rates
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:q9" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Question 9: the lapse rate over Hillsborough
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:q10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Question 10: a tropical profile
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:q11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 Question 11: is the troposphere the same thickness everywhere?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-try-it-yourself-practice-set-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.5 Try it yourself: Practice Set 7
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        References
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch07_stability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Pressure aloft, buoyancy and stability
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch08_climates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Two soundings, two climates
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch09_revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Putting Part I together
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch01_orientation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  11. Part II at a glance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch02_radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  12. What radiation is
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch03_wien/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  13. Wien's law and the temperature of the Sun
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch04_stefan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  14. The Stefan–Boltzmann law: how much the Sun and the Earth emit
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch05_spectra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  15. Plotting three planetary spectra
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch06_planets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  16. The temperatures of the planets
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch07_balance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  17. The Earth's energy balance and the greenhouse effect
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch08_sunangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  18. Sun angle, solar intensity and the seasons
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch09_revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  19. Putting Part II together
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch01_orientation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  20. Part III at a glance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch02_moisture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  21. Moisture in the air: mixing ratio and relative humidity
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch03_dewpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  22. The dew point
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch04_forces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  23. Why air moves: the three forces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch05_surfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  24. Pressure surfaces and the pressure gradient
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch06_geostrophic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  25. The geostrophic wind
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch07_friction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  26. Wind near the ground: friction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch08_station/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  27. Reading a station model
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch09_streamlines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  28. Streamlines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch10_fronts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  29. Fronts and the weather map
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch11_revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  30. Putting Part III together
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-p1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  A. Part I: formulas, derivations and symbols
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-p2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  B. Part II: formulas, derivations, data and symbols
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-p3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  C. Part III: formulas, stations, derivations and symbols
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-constants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  D. Constants, units and conversions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Whole guide
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://ahmadammar.github.io/teaching.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  All guides
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:avglapse" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Average and local lapse rates
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:q9" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Question 9: the lapse rate over Hillsborough
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:q10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Question 10: a tropical profile
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:q11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 Question 11: is the troposphere the same thickness everywhere?
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-try-it-yourself-practice-set-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.5 Try it yourself: Practice Set 7
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        References
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="7-lapse-rates-and-the-height-of-the-troposphere">7. Lapse rates and the height of the troposphere<a class="headerlink" href="#7-lapse-rates-and-the-height-of-the-troposphere" title="Permanent link">&para;</a></h1>
+<p><em>This chapter answers Questions 9, 10 and 11.</em></p>
+<h2 id="p1-sec:avglapse">7.1 Average and local lapse rates<a class="headerlink" href="#p1-sec:avglapse" title="Permanent link">&para;</a></h2>
+<p>The lapse rate of Eq. (<a href="../p1-ch04_temperature/#p1-eq:lapse">5.1</a>) can be taken over any layer. Taken between the ground and the tropopause it gives the <strong>average lapse rate</strong> of the troposphere, one number for the whole layer. Taken between neighbouring levels of a sounding it gives the <strong>local lapse rate</strong>, which varies a great deal: in the Hillsborough sounding it ranges from <span class="arithmatex">\(-1.4\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> (the inversion at 1.4 km) to <span class="arithmatex">\(+9.5\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> (the lowest 1.3 km), as Table <a href="../p1-ch05_soundings/#p1-tab:layers">6.2</a> shows. The standard 6.5 <span class="arithmatex">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> is an average of averages: over many places and many days.</p>
+<h2 id="p1-sec:q9">7.2 Question 9: the lapse rate over Hillsborough<a class="headerlink" href="#p1-sec:q9" title="Permanent link">&para;</a></h2>
+<div class="box box-question">
+<p class="box-title">The question</p>
+<p>Based on your graph and the Hillsborough sounding in Table <a href="../p1-ch05_soundings/#p1-tab:soundings">6.1</a>, calculate the lapse rate for the part of the atmosphere below the tropopause for Hillsborough (have another look at Question 5 to work out how to calculate the lapse rate).</p>
+</div>
+<p><strong>Method.</strong> Take the lowest level of the sounding and the tropopause found in Question 8 (§ <a href="../p1-ch05_soundings/#p1-sec:q8">6.6</a>), and apply Eq. (<a href="../p1-ch04_temperature/#p1-eq:lapse">5.1</a>).</p>
+<ol>
+<li>
+<p>Lowest level: 38 m, 11.05 <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>. Tropopause: 9383 m, <span class="arithmatex">\(-51.05\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>.</p>
+</li>
+<li>
+<p>Fall in temperature: <span class="arithmatex">\(11.05-(-51.05)=62.10\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>.</p>
+</li>
+<li>
+<p>Rise in height: <span class="arithmatex">\(9383-38=9345\)</span> m <span class="arithmatex">\(=9.345\)</span> km.</p>
+</li>
+<li>
+<p>Lapse rate: <span class="arithmatex">\(\Gamma=62.10/9.345=6.65\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>.</p>
+</li>
 </ol>
 <div class="box box-answer">
-<p class="box-title">
-Answer to Question 9
-</p>
-<p><span class="math inline">\(\Gamma=\dfrac{11.05-(-51.05)}{9.383-0.038}=\dfrac{62.10\ \ensuremath{^{\circ}\mathrm{C}}}{9.345\ \mathrm{km}}=\textbf{6.65 }^{\circ}\mathrm{C}\textbf{per km}\)</span>, very close to the standard lapse rate of 6.5 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> per km.</p>
+<p class="box-title">Answer to Question 9</p>
+<p><span class="arithmatex">\(\Gamma=\dfrac{11.05-(-51.05)}{9.383-0.038}=\dfrac{62.10\ \ensuremath{^{\circ}\mathrm{C}}}{9.345\ \mathrm{km}}=\textbf{6.65 }^{\circ}\mathrm{C}\textbf{per km}\)</span>, very close to the standard lapse rate of 6.5 <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span> per km.</p>
 </div>
-<p><strong>Check.</strong> The value lies between the extremes of the local lapse rates in Table <a href="/teaching/atmosphere/p1-ch05_soundings/#p1-tab:layers">6.2</a>, and the straight line from the surface point to the tropopause point in Figure <a href="/teaching/atmosphere/p1-ch05_soundings/#p1-fig:soundings">6.1</a> runs close to the dashed standard-atmosphere line. For comparison, the same calculation for St John’s gives <span class="math inline">\((-1.65-(-62.05))/(11.482-0.140)=5.33\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>: smaller, because its surface layer is so cold.</p>
-<h2 id="p1-sec:q10">7.3 Question 10: a tropical profile</h2>
+<p><strong>Check.</strong> The value lies between the extremes of the local lapse rates in Table <a href="../p1-ch05_soundings/#p1-tab:layers">6.2</a>, and the straight line from the surface point to the tropopause point in Figure <a href="../p1-ch05_soundings/#p1-fig:soundings">6.1</a> runs close to the dashed standard-atmosphere line. For comparison, the same calculation for St John’s gives <span class="arithmatex">\((-1.65-(-62.05))/(11.482-0.140)=5.33\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>: smaller, because its surface layer is so cold.</p>
+<h2 id="p1-sec:q10">7.3 Question 10: a tropical profile<a class="headerlink" href="#p1-sec:q10" title="Permanent link">&para;</a></h2>
 <table>
-<caption>Table 7.1. Temperature profile for Florida.</caption>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-<col style="width: 9%" />
-</colgroup>
 <thead>
 <tr>
 <th style="text-align: left;">Height (m)</th>
@@ -143,123 +1479,224 @@ Answer to Question 9
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(T\)</span> (<span class="math inline">\(^{\circ}\mathrm{C}\)</span>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(T\)</span> (<span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>)</td>
 <td style="text-align: right;">27.2</td>
 <td style="text-align: right;">15.2</td>
 <td style="text-align: right;">6.1</td>
-<td style="text-align: right;"><span class="math inline">\(-6.7\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(-17.9\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(-32.6\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(-50.5\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(-64.5\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(-75.6\)</span></td>
-<td style="text-align: right;"><span class="math inline">\(-73.3\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(-6.7\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(-17.9\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(-32.6\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(-50.5\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(-64.5\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(-75.6\)</span></td>
+<td style="text-align: right;"><span class="arithmatex">\(-73.3\)</span></td>
 </tr>
 </tbody>
 </table>
+<p>: Table 7.1. Temperature profile for Florida.</p>
 <div class="box box-question">
-<p class="box-title">
-The question
-</p>
-<p>Add the temperature curve for Florida (Table <a href="/teaching/atmosphere/p1-ch06_lapse/#p1-tab:florida">7.1</a>) to your graph. Where does the tropopause occur?</p>
+<p class="box-title">The question</p>
+<p>Add the temperature curve for Florida (Table <a href="../p1-ch06_lapse/#p1-tab:florida">7.1</a>) to your graph. Where does the tropopause occur?</p>
 </div>
 <p><a id="p1-fig:florida"></a></p>
-<p><img src="/teaching/atmosphere/fig/f-07.png" alt="Question 10: the Florida profile (Table ref p1-tab:florida ) added to the graph, shown here to 20 ,km. Florida is warmest at the ground and coldest at its tropopause, which is 5 to 7 ,km higher than" /><br />
-</p>
-<p><strong>Figure 7.1.</strong> Question 10: the Florida profile (Table <a href="/teaching/atmosphere/p1-ch06_lapse/#p1-tab:florida">7.1</a>) added to the graph, shown here to 20 km. Florida is warmest at the ground and coldest at its tropopause, which is 5 to 7 km higher than the others.</p>
-<p><strong>Method.</strong> Plot Table <a href="/teaching/atmosphere/p1-ch06_lapse/#p1-tab:florida">7.1</a> on the same axes (Figure <a href="/teaching/atmosphere/p1-ch06_lapse/#p1-fig:florida">7.1</a>) and look for the level above which the temperature stops falling: it falls all the way to <span class="math inline">\(-75.6\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> at 16 000 m and then rises to <span class="math inline">\(-73.3\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> at 18 000 m.</p>
+<p><img alt="Question 10: the Florida profile (Table  ref p1-tab:florida ) added to the graph, shown here to 20 ,km. Florida is warmest at the ground and coldest at its tropopause, which is 5 to 7 ,km higher than" src="../fig/f-07.png" />\</p>
+<p><strong>Figure 7.1.</strong> Question 10: the Florida profile (Table <a href="../p1-ch06_lapse/#p1-tab:florida">7.1</a>) added to the graph, shown here to 20 km. Florida is warmest at the ground and coldest at its tropopause, which is 5 to 7 km higher than the others.</p>
+<p><strong>Method.</strong> Plot Table <a href="../p1-ch06_lapse/#p1-tab:florida">7.1</a> on the same axes (Figure <a href="../p1-ch06_lapse/#p1-fig:florida">7.1</a>) and look for the level above which the temperature stops falling: it falls all the way to <span class="arithmatex">\(-75.6\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span> at 16 000 m and then rises to <span class="arithmatex">\(-73.3\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span> at 18 000 m.</p>
 <div class="box box-answer">
-<p class="box-title">
-Answer to Question 10
-</p>
-<p>Florida: the tropopause is at about <strong>16 000 m</strong>, at <strong><span class="math inline">\(-\)</span><!-- -->75.6 <span class="math inline">\(^{\circ}\mathrm{C}\)</span></strong>. Its average lapse rate below the tropopause is <span class="math inline">\((27.2-(-75.6))/16=6.4\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>.</p>
+<p class="box-title">Answer to Question 10</p>
+<p>Florida: the tropopause is at about <strong>16 000 m</strong>, at <strong><span class="arithmatex">\(-\)</span><!-- -->75.6 <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span></strong>. Its average lapse rate below the tropopause is <span class="arithmatex">\((27.2-(-75.6))/16=6.4\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>.</p>
 </div>
 <p><strong>Check.</strong> The data are only every 2 km, so the true tropopause could be anywhere between about 15 and 17 km. That range is typical of the tropics and subtropics (Hoinka 1998).</p>
-<h2 id="p1-sec:q11">7.4 Question 11: is the troposphere the same thickness everywhere?</h2>
+<h2 id="p1-sec:q11">7.4 Question 11: is the troposphere the same thickness everywhere?<a class="headerlink" href="#p1-sec:q11" title="Permanent link">&para;</a></h2>
 <div class="box box-question">
-<p class="box-title">
-The question
-</p>
+<p class="box-title">The question</p>
 <p>Examining all your graphs, do you think the troposphere is the same thickness across the globe? Where do you think it is thickest and why is that?</p>
 </div>
-<p><strong>The evidence.</strong> The four tropopauses are at 9.4 km (Hillsborough, 54<span class="math inline">\(^{\circ}\)</span>N), 11.0 km (the standard atmosphere, which represents the middle latitudes), 11.5 km (St John’s, 48<span class="math inline">\(^{\circ}\)</span>N) and 16 km (Florida, about 25 to 31<span class="math inline">\(^{\circ}\)</span>N). The further from the pole, the higher the tropopause (Figure <a href="/teaching/atmosphere/p1-ch06_lapse/#p1-fig:troplat">7.2</a>).</p>
+<p><strong>The evidence.</strong> The four tropopauses are at 9.4 km (Hillsborough, 54<span class="arithmatex">\(^{\circ}\)</span>N), 11.0 km (the standard atmosphere, which represents the middle latitudes), 11.5 km (St John’s, 48<span class="arithmatex">\(^{\circ}\)</span>N) and 16 km (Florida, about 25 to 31<span class="arithmatex">\(^{\circ}\)</span>N). The further from the pole, the higher the tropopause (Figure <a href="../p1-ch06_lapse/#p1-fig:troplat">7.2</a>).</p>
 <p><a id="p1-fig:troplat"></a></p>
-<p><img src="/teaching/atmosphere/fig/f-08.png" alt="Question 11: the tropopause heights of the four profiles against latitude. The grey band shows the typical pattern citep hoinka1998,wallace2006 : about 16 to 17 ,km over the tropics, falling steeply" /><br />
-</p>
-<p><strong>Figure 7.2.</strong> Question 11: the tropopause heights of the four profiles against latitude. The grey band shows the typical pattern (Hoinka 1998; Wallace and Hobbs 2006): about 16 to 17 km over the tropics, falling steeply across the subtropics and middle latitudes, to about 8 to 9 km near the poles. Florida is plotted at its middle latitude, 28<span class="math inline">\(^{\circ}\)</span>N; the standard atmosphere at 45<span class="math inline">\(^{\circ}\)</span>N. ## References</p>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-hoinka1998" class="csl-entry" role="listitem">
-Hoinka, K.P. (1998) Statistics of the global tropopause pressure. Monthly Weather Review 126, 3303–3325. <a href="https://doi.org/10.1175/1520-0493(1998)126%3C3303:SOTGTP%3E2.0.CO;2">https://doi.org/10.1175/1520-0493(1998)126&lt;3303:SOTGTP&gt;2.0.CO;2</a>
-</div>
-<div id="ref-wallace2006" class="csl-entry" role="listitem">
-Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
-</div>
-</div>
+<p><img alt="Question 11: the tropopause heights of the four profiles against latitude. The grey band shows the typical pattern  citep hoinka1998,wallace2006 : about 16 to 17 ,km over the tropics, falling steeply" src="../fig/f-08.png" />\</p>
+<p><strong>Figure 7.2.</strong> Question 11: the tropopause heights of the four profiles against latitude. The grey band shows the typical pattern (Hoinka 1998; Wallace and Hobbs 2006): about 16 to 17 km over the tropics, falling steeply across the subtropics and middle latitudes, to about 8 to 9 km near the poles. Florida is plotted at its middle latitude, 28<span class="arithmatex">\(^{\circ}\)</span>N; the standard atmosphere at 45<span class="arithmatex">\(^{\circ}\)</span>N.  ## References</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">  <div id="ref-hoinka1998" class="csl-entry">  Hoinka, K.P. (1998) Statistics of the global tropopause pressure. Monthly Weather Review 126, 3303–3325. [https://doi.org/10.1175/1520-0493(1998)126\<3303:SOTGTP\>2.0.CO;2](https://doi.org/10.1175/1520-0493(1998)126<3303:SOTGTP>2.0.CO;2)  </div>  <div id="ref-wallace2006" class="csl-entry">  Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.  </div>  </div>
+
 <p><strong>The reasons.</strong> Three effects work together.</p>
-<ol type="1">
-<li><p><strong>More heating at the surface.</strong> The tropics receive the most solar energy per square metre, because the Sun is high in the sky all year (Part II, Chapter <a href="/teaching/atmosphere/p2-ch08_sunangle/#p2-ch:sun">18</a>). The ground and the air above it are warm.</p></li>
-<li><p><strong>Warm air columns are taller.</strong> Warm air is less dense than cold air at the same pressure, Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>), so the same weight of air (the same drop in pressure) occupies a greater depth: the scale height <span class="math inline">\(H=R_dT/g\)</span> is larger, Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>). Every pressure level, and with them the whole troposphere, sits higher above a warm surface. The same effect makes pressure surfaces slope from the warm tropics down to the cold poles, which drives the winds of Part III ( Chapter <a href="/teaching/atmosphere/p3-ch05_surfaces/#p3-ch:surfaces">24</a>).</p></li>
-<li><p><strong>Deep convection.</strong> Strong heating makes air rise in towering thunderstorm clouds that carry heat and mix the troposphere up to 15 to 18 km. The tropopause sits where this stirring from below gives way to the stable, radiatively heated stratosphere, so where convection reaches higher, the tropopause is higher.</p></li>
+<ol>
+<li>
+<p><strong>More heating at the surface.</strong> The tropics receive the most solar energy per square metre, because the Sun is high in the sky all year (Part II, Chapter <a href="../p2-ch08_sunangle/#p2-ch:sun">18</a>). The ground and the air above it are warm.</p>
+</li>
+<li>
+<p><strong>Warm air columns are taller.</strong> Warm air is less dense than cold air at the same pressure, Eq. (<a href="../p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>), so the same weight of air (the same drop in pressure) occupies a greater depth: the scale height <span class="arithmatex">\(H=R_dT/g\)</span> is larger, Eq. (<a href="../p1-ch02_pressure/#p1-eq:expo">3.3</a>). Every pressure level, and with them the whole troposphere, sits higher above a warm surface. The same effect makes pressure surfaces slope from the warm tropics down to the cold poles, which drives the winds of Part III ( Chapter <a href="../p3-ch05_surfaces/#p3-ch:surfaces">24</a>).</p>
+</li>
+<li>
+<p><strong>Deep convection.</strong> Strong heating makes air rise in towering thunderstorm clouds that carry heat and mix the troposphere up to 15 to 18 km. The tropopause sits where this stirring from below gives way to the stable, radiatively heated stratosphere, so where convection reaches higher, the tropopause is higher.</p>
+</li>
 </ol>
-<p>A taller troposphere also has a <em>colder</em> top: with a similar lapse rate, the temperature keeps falling over more kilometres. That is why Florida, the warmest at the ground (27 <span class="math inline">\(^{\circ}\mathrm{C}\)</span>), has the coldest tropopause (<span class="math inline">\(-75.6\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>).</p>
+<p>A taller troposphere also has a <em>colder</em> top: with a similar lapse rate, the temperature keeps falling over more kilometres. That is why Florida, the warmest at the ground (27 <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>), has the coldest tropopause (<span class="arithmatex">\(-75.6\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>).</p>
 <div class="box box-answer">
-<p class="box-title">
-Answer to Question 11
-</p>
+<p class="box-title">Answer to Question 11</p>
 <p><strong>No.</strong> The troposphere is <strong>thickest over the tropics</strong> (about 16 to 17 km; 16 km in the Florida profile) and <strong>thinnest near the poles</strong> (about 8 to 9 km), with middle latitudes in between (9.4 to 11.5 km in the soundings). The tropics receive the most solar heating; warm air is less dense, so a warm air column is taller; and strong convection mixes warm air to great heights before the stable stratosphere begins. The tropopause is also higher in summer than in winter, for the same reasons.</p>
 </div>
 <div class="box box-ask">
-<p class="box-title">
-A question that comes up
-</p>
-<p><strong>The coldest air in the troposphere is over the equator? That sounds backwards.</strong><br />
-At the ground the tropics are the warmest places on Earth. But high up, at 16 to 17 km, the tropical tropopause is colder than the tropopause anywhere else, often below <span class="math inline">\(-75\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>, because it is so far above the surface. Near the poles the tropopause is low and so less cold: around <span class="math inline">\(-50\)</span> to <span class="math inline">\(-60\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p>
+<p class="box-title">A question that comes up</p>
+<p><strong>The coldest air in the troposphere is over the equator? That sounds backwards.</strong>\
+At the ground the tropics are the warmest places on Earth. But high up, at 16 to 17 km, the tropical tropopause is colder than the tropopause anywhere else, often below <span class="arithmatex">\(-75\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>, because it is so far above the surface. Near the poles the tropopause is low and so less cold: around <span class="arithmatex">\(-50\)</span> to <span class="arithmatex">\(-60\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>.</p>
 </div>
-<h2 id="try-it-yourself-practice-set-7">7.5 Try it yourself: Practice Set 7</h2>
+<h2 id="75-try-it-yourself-practice-set-7">7.5 Try it yourself: Practice Set 7<a class="headerlink" href="#75-try-it-yourself-practice-set-7" title="Permanent link">&para;</a></h2>
 <div class="box box-try">
-<p class="box-title">
-Practice Set 7: lapse rates
-</p>
-<ol type="1">
-<li><p>What is the lapse rate in the lowest 2 km of the Florida profile? Between 10 and 12 km?</p></li>
-<li><p>A tropical sounding has 28 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> at the ground and an average lapse rate of 6.5 <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> up to its tropopause at 16 km. What is the tropopause temperature?</p></li>
-<li><p>A polar sounding has <span class="math inline">\(-20\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span> at the ground and the tropopause at 8.5 km with <span class="math inline">\(-55\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>. What is its average lapse rate?</p></li>
-<li><p>By how much is the scale height over Florida (mean tropospheric temperature about <span class="math inline">\(-24\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>) larger than over a polar station (about <span class="math inline">\(-40\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>)?</p></li>
+<p class="box-title">Practice Set 7: lapse rates</p>
+<ol>
+<li>
+<p>What is the lapse rate in the lowest 2 km of the Florida profile? Between 10 and 12 km?</p>
+</li>
+<li>
+<p>A tropical sounding has 28 <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span> at the ground and an average lapse rate of 6.5 <span class="arithmatex">\(^{\circ}\mathrm{C\,km^{-1}}\)</span> up to its tropopause at 16 km. What is the tropopause temperature?</p>
+</li>
+<li>
+<p>A polar sounding has <span class="arithmatex">\(-20\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span> at the ground and the tropopause at 8.5 km with <span class="arithmatex">\(-55\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>. What is its average lapse rate?</p>
+</li>
+<li>
+<p>By how much is the scale height over Florida (mean tropospheric temperature about <span class="arithmatex">\(-24\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>) larger than over a polar station (about <span class="arithmatex">\(-40\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>)?</p>
+</li>
 </ol>
 </div>
 <div class="box box-answer">
-<p class="box-title">
-Answers to Practice Set 7
-</p>
-<ol type="1">
-<li><p><span class="math inline">\((27.2-15.2)/2=6.0\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>; <span class="math inline">\((-32.6-(-50.5))/2=8.95\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>.</p></li>
-<li><p><span class="math inline">\(28-6.5\times16=28-104=-76\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span>.</p></li>
-<li><p><span class="math inline">\((-20-(-55))/8.5=35/8.5=4.1\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>.</p></li>
-<li><p><span class="math inline">\(H=R_dT/g\)</span>: <span class="math inline">\(287\times249/9.81=7.29\)</span> km against <span class="math inline">\(287\times233/9.81=6.82\)</span> km, about 0.47 km (7 %) larger. Every pressure level therefore sits about 7 % higher above the ground in the warm column: 500 hPa, for example, at about 5.1 km instead of 4.7 km.</p></li>
+<p class="box-title">Answers to Practice Set 7</p>
+<ol>
+<li>
+<p><span class="arithmatex">\((27.2-15.2)/2=6.0\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>; <span class="arithmatex">\((-32.6-(-50.5))/2=8.95\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(28-6.5\times16=28-104=-76\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span>.</p>
+</li>
+<li>
+<p><span class="arithmatex">\((-20-(-55))/8.5=35/8.5=4.1\,\ensuremath{^{\circ}\mathrm{C\,km^{-1}}}\)</span>.</p>
+</li>
+<li>
+<p><span class="arithmatex">\(H=R_dT/g\)</span>: <span class="arithmatex">\(287\times249/9.81=7.29\)</span> km against <span class="arithmatex">\(287\times233/9.81=6.82\)</span> km, about 0.47 km (7 %) larger. Every pressure level therefore sits about 7 % higher above the ground in the warm column: 500 hPa, for example, at about 5.1 km instead of 4.7 km.</p>
+</li>
 </ol>
 </div>
-<h2 id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-hoinka1998" class="csl-entry" role="listitem">
-Hoinka, K.P. (1998) Statistics of the global tropopause pressure. Monthly Weather Review 126, 3303–3325. <a href="https://doi.org/10.1175/1520-0493(1998)126%3C3303:SOTGTP%3E2.0.CO;2">https://doi.org/10.1175/1520-0493(1998)126&lt;3303:SOTGTP&gt;2.0.CO;2</a>
-</div>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+
+<div id="ref-hoinka1998" class="csl-entry">
+
+Hoinka, K.P. (1998) Statistics of the global tropopause pressure. Monthly Weather Review 126, 3303–3325. [https://doi.org/10.1175/1520-0493(1998)126\<3303:SOTGTP\>2.0.CO;2](https://doi.org/10.1175/1520-0493(1998)126<3303:SOTGTP>2.0.CO;2)
+
 </div>
 
-<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/atmosphere/p1-ch05_soundings/">&larr; 6. Two soundings: inversions and the tropopause</a><a href="../../../teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability &rarr;</a></nav>
-<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="../../../teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
-  </article>
 </div>
-</main>
-<footer class="site-footer">
-  <div class="bar">
-    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
-    <div class="social">
-      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
-      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
-      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
-      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../p1-ch05_soundings/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 6. Two soundings: inversions and the tropopause">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                6. Two soundings: inversions and the tropopause
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../p1-ch07_stability/" class="md-footer__link md-footer__link--next" aria-label="Next: 8. Pressure aloft, buoyancy and stability">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                8. Pressure aloft, buoyancy and stability
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.instant","navigation.top","navigation.footer","toc.follow","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d31f0ffa.min.js"></script>
+      
+        <script src="../mathjax.js"></script>
+      
+        <script src="../pdfview.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+      
+    
+  </body>
 </html>

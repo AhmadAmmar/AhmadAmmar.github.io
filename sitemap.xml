@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ahmadammar.github.io/cv.html</loc></url>
   <url><loc>https://ahmadammar.github.io/</loc></url>
+  <url><loc>https://ahmadammar.github.io/cv.html</loc></url>
   <url><loc>https://ahmadammar.github.io/projects.html</loc></url>
   <url><loc>https://ahmadammar.github.io/projects/building-segmentation/</loc></url>
   <url><loc>https://ahmadammar.github.io/projects/gedi-mangroves/</loc></url>
+  <url><loc>https://ahmadammar.github.io/projects/monsoon-third-pole/</loc></url>
   <url><loc>https://ahmadammar.github.io/projects/snow-cover/</loc></url>
   <url><loc>https://ahmadammar.github.io/research.html</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching.html</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/atmosphere/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/app-constants/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/app-p1/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/app-p2/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/app-p3/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/full/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/how-to-use/</loc></url>
-  <url><loc>https://ahmadammar.github.io/teaching/atmosphere/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/p1-ch01_glance/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/p1-ch02_pressure/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/p1-ch03_oxygen/</loc></url>
@@ -44,7 +45,17 @@
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/p3-ch09_streamlines/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/p3-ch10_fronts/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/atmosphere/p3-ch11_revision/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/atmosphere/pdf/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/contribute/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/contribute/choose-a-project/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/contribute/full/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/contribute/install-the-tools/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/contribute/make-the-change/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/contribute/pdf/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/contribute/propose-it/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/contribute/what-contributing-means/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/egm305/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/git-ci/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/git-ci/backups/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/git-ci/checklist/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/git-ci/ci/</loc></url>
@@ -52,9 +63,10 @@
   <url><loc>https://ahmadammar.github.io/teaching/git-ci/git-basics/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/git-ci/github/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/git-ci/history/</loc></url>
-  <url><loc>https://ahmadammar.github.io/teaching/git-ci/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/git-ci/pdf/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/git-ci/pipelines/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/git-ci/testing/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/hpc/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/arrays/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/beyond/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/concepts/</loc></url>
@@ -62,36 +74,48 @@
   <url><loc>https://ahmadammar.github.io/teaching/hpc/files/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/first-jobs/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/full/</loc></url>
-  <url><loc>https://ahmadammar.github.io/teaching/hpc/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/hpc/pdf/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/practice/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/shell/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/slurm/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/software/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/hpc/troubleshooting/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/latex/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/basics/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/full/</loc></url>
-  <url><loc>https://ahmadammar.github.io/teaching/latex/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/macros/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/maths/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/outputs/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/latex/pdf/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/practice/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/references/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/tables-figures/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/text/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/latex/troubleshooting/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/maps/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/maps/anatomy/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/maps/colour/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/maps/components/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/maps/full/</loc></url>
-  <url><loc>https://ahmadammar.github.io/teaching/maps/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/maps/pdf/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/maps/projections/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/maps/tools/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/maps/workflow/</loc></url>
-  <url><loc>https://ahmadammar.github.io/teaching/sar/full/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/sar/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/sar/full/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/sar/mapping-a-flood-sindh/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/sar/pdf/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/sar/reading-radar-london/</loc></url>
   <url><loc>https://ahmadammar.github.io/teaching/sar/the-science/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/site-setup/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/site-setup/before-you-start/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/site-setup/full/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/site-setup/install-the-tools/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/site-setup/make-it-yours/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/site-setup/make-your-copy/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/site-setup/pdf/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/site-setup/publish-it/</loc></url>
+  <url><loc>https://ahmadammar.github.io/teaching/site-setup/when-something-goes-wrong/</loc></url>
   <url><loc>https://ahmadammar.github.io/writing.html</loc></url>
   <url><loc>https://ahmadammar.github.io/atlas/</loc></url>
   <url><loc>https://ahmadammar.github.io/GBEM/</loc></url>

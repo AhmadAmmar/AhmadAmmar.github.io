@@ -1,0 +1,5 @@
+$ git add index.html
+$ git commit -m "Add my first page"
+[main (root-commit) cc3dbdc] Add my first page
+ 1 file changed, 1 insertion(+)
+ create mode 100644 index.html

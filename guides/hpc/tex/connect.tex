@@ -1,0 +1,89 @@
+\chapter{Connecting securely}
+\label{ch:connect}
+
+\section{How SSH keys work}\label{how-ssh-keys-work}
+
+\textbf{SSH} (Secure Shell) is an encrypted remote terminal (OpenSSH, n.d.). Instead of a password, it can use a matched pair of files. The \textbf{public key} is like a padlock: you can give out copies, and the cluster fits one to your account. The \textbf{private key} is the only thing that opens it, and it stays on your computer. A \textbf{passphrase} locks the private key in case your laptop is stolen.
+
+\textbf{Never share your private key, its passphrase or your MFA secret with anybody}, including IT staff or a colleague. Only the file ending in \texttt{.pub} is safe to send.
+
+\section{Step 1: Make a key pair}\label{step-1-make-a-key-pair}
+
+\begin{lstlisting}[language=powershell]
+# laptop (PowerShell on Windows 10 or later; on macOS or Linux, use ~/.ssh/ instead)
+
+# Make the folder that SSH looks in. -Force means no error if it exists
+mkdir $HOME\.ssh -Force
+
+# -t chooses the key type, -b its size in bits, -f the file name
+ssh-keygen -t rsa -b 4096 -f $HOME\.ssh\my-kelvin-key
+\end{lstlisting}
+
+Set a passphrase when asked: Kelvin2 requires one. Nothing appears as you type, which is normal. This creates \texttt{my-kelvin-key} (private) and \texttt{my-kelvin-key.pub} (public). A forgotten passphrase cannot be recovered: you have to make a new pair.
+
+\section{Step 2: Give the cluster your public key}\label{step-2-give-the-cluster-your-public-key}
+
+Each cluster has its own process. \textbf{Kelvin2 only:} apply through the \href{https://www.qub.ac.uk/sites/ni-hpc/Kelvin2/Access/}{access page}\footnote{\texttt{https://www.qub.ac.uk/sites/ni-hpc/Kelvin2/Access/}}; the documentation says to allow 48 hours. If you are outside the QUB network, as Ulster University users are, you send NI-HPC the public key, as set out in \href{https://ni-hpc.github.io/nihpc-documentation/Connecting\%20to\%20Kelvin2/}{their connection guide}\footnote{\texttt{https://ni-hpc.github.io/nihpc-documentation/Connecting\%20to\%20Kelvin2/}}.
+
+\begin{lstlisting}[language=powershell]
+# laptop
+# Copy the public key to the clipboard, ready to paste
+Get-Content $HOME\.ssh\my-kelvin-key.pub | Set-Clipboard
+\end{lstlisting}
+
+\section{Step 3: Log in, and set up MFA}\label{step-3-log-in-and-set-up-mfa}
+
+\begin{lstlisting}[language=powershell]
+# laptop
+# -p: network port. -i: which private key. Then username@address
+ssh -p 55890 -i $HOME\.ssh\my-kelvin-key <username>@login.kelvin.alces.network
+\end{lstlisting}
+
+\textbf{Kelvin2 only.} Port 55890 and this address are for connecting from outside the QUB network. From inside it, the address is \texttt{kelvin2.qub.ac.uk} on the normal port. MFA is mandatory. On first login, generate it:
+
+\begin{lstlisting}[language=bash]
+# cluster
+/opt/flight/bin/flight mfa generate
+\end{lstlisting}
+
+Scan the QR code into an authenticator app. From then on, each login asks for \texttt{Verification\ code:}. If you lose the app, NI-HPC can reset it.
+
+You land on one of four login nodes, shown in your prompt: \texttt{{[}\textless{}username\textgreater{}@login1\ {[}kelvin2{]}\ \textasciitilde{}{]}\$}. The first time you reach a new login node you may see a warning about the host\textquotesingle s identity. The connection guide explains what to do; read it rather than clicking through.
+
+\section{Step 4: Make a shortcut}\label{step-4-make-a-shortcut}
+
+The file \texttt{.ssh/config} on your laptop stores settings under a nickname. Open it with \texttt{notepad\ \$HOME\textbackslash{}.ssh\textbackslash{}config}, and add the lines below. Comments must be on their own line in this file.
+
+\begin{lstlisting}[language=text]
+# laptop: .ssh/config
+# The nickname you will type
+Host kelvin
+  # The real address
+  HostName login.kelvin.alces.network
+  Port 55890
+  User <username>
+  # Your private key
+  IdentityFile ~/.ssh/my-kelvin-key
+  # Send a small signal every 60 seconds, so that idle sessions stay up
+  ServerAliveInterval 60
+\end{lstlisting}
+
+Now \texttt{ssh\ kelvin} is enough, and \texttt{scp} understands \texttt{kelvin:} as well.
+
+\section{Step 5: Optional: stop retyping the passphrase}\label{step-5-optional-stop-retyping-the-passphrase}
+
+\begin{lstlisting}[language=powershell]
+# laptop (the first line may need an administrator PowerShell)
+
+# Have the Windows SSH agent start automatically
+Get-Service ssh-agent | Set-Service -StartupType Automatic
+Start-Service ssh-agent
+
+# Hand it your key: it holds the unlocked key in memory
+ssh-add $HOME\.ssh\my-kelvin-key
+\end{lstlisting}
+
+You will still need the MFA code. \texttt{exit} ends a session.
+
+If you prefer a graphical program on Windows, NI-HPC\textquotesingle s guide also covers MobaXterm and PuTTY.
+

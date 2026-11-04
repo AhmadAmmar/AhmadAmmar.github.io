@@ -1,0 +1,87 @@
+\chapter{GitHub and working with others}
+\label{ch:github}
+
+\section{Remotes}\label{remotes}
+
+GitHub keeps a copy of your repository online.
+
+\begin{lstlisting}[language=bash]
+git remote add origin https://github.com/you/project.git
+git push -u origin main     # send your commits
+git pull                    # fetch others' commits
+git clone <address>         # copy a project to your computer
+\end{lstlisting}
+
+This run pushed to a test copy on the same computer rather than to GitHub, so its address is shortened. A push to GitHub also shows progress lines, and asks you to sign in the first time.
+
+\textbf{What you should see}
+
+\begin{lstlisting}[language=text]
+$ git push -u origin main
+To .../empty.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+$ git remote -v
+origin	.../empty.git (fetch)
+origin	.../empty.git (push)
+
+$ git pull
+From .../empty
+   b889be1..4912949  main       -> origin/main
+Updating b889be1..4912949
+Fast-forward
+ results.txt | 1 +
+ 1 file changed, 1 insertion(+)
+\end{lstlisting}
+
+After a real push, your project\textquotesingle s page on GitHub shows the files, with the latest commit message beside each one. This is my pamphlet project\textquotesingle s page, with the account name and picture hidden:
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/github-repository.png}
+\caption{A repository page on GitHub, with the account name and picture hidden.}
+\end{figure}
+
+Before making anything public, check it for secrets and for unpublished work. Git keeps history, so deleting a file later doesn\textquotesingle t remove it from past commits.
+
+\section{Issues and pull requests}\label{issues-and-pull-requests}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{An issue} is a note about something to fix or discuss.
+\item
+  \textbf{A pull request} proposes a change: someone works on a branch, then asks for it to be merged. Others can review it line by line, and automatic checks run on it.
+\end{itemize}
+
+\section{Making a project welcoming}\label{making-a-project-welcoming}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+File
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{README.md} & What this is, and how to use it \\
+\texttt{LICENSE} & What others may do with it. Without one, they have no clear right to reuse it \\
+\texttt{CONTRIBUTING.md} & How to help \\
+\texttt{CITATION.cff} & How to cite it \\
+\texttt{.github/ISSUE\_TEMPLATE/} & Forms that ask for the right details \\
+\end{longtable}
+}
+
+Remember people who don\textquotesingle t use GitHub, and offer them a simple way to reach you. The pamphlet\textquotesingle s \href{https://ahmadammar.github.io/marxist-economics/contribute/}{help page}\footnote{\texttt{https://ahmadammar.github.io/marxist-economics/contribute/}} is one example.
+
+\section{Sites and releases}\label{sites-and-releases}
+
+GitHub Pages publishes a website from a repository for free. A GitHub Release attaches files to a tag, while \href{https://zenodo.org}{Zenodo}\footnote{\texttt{https://zenodo.org}} can archive a release and give it a citable DOI.
+

@@ -1,0 +1,119 @@
+\chapter{Testing research code}
+\label{ch:testing}
+
+\section{Why test}\label{why-test}
+
+A script that runs without errors can still be wrong. A test runs your code and checks the answer against something you know.
+
+\textbf{calc.py}
+
+\lstinputlisting{../../../teaching/git-ci/examples/calc.py}
+
+\textbf{test\_calc.py}
+
+\lstinputlisting{../../../teaching/git-ci/examples/test_calc.py}
+
+\begin{lstlisting}[language=bash]
+pip install pytest
+python -m pytest
+\end{lstlisting}
+
+\textbf{What you should see}
+
+\begin{lstlisting}[language=text]
+$ python -m pytest
+============================= test session starts =============================
+platform win32 -- Python 3.12.12, pytest-9.2.0, pluggy-1.7.0
+rootdir: ...\py
+plugins: platformdirs-4.14.2
+collected 3 items
+
+test_calc.py ...                                                         [100%]
+
+============================== 3 passed in 0.09s ==============================
+\end{lstlisting}
+
+Each dot is a passing test. To see a failure, I changed \texttt{u\ *\ area\ *\ delta\_t} to \texttt{u\ *\ area\ +\ delta\_t} in \texttt{calc.py}, as if by a slip of the finger. The code still runs without any error, but the tests catch it:
+
+\textbf{What you should see when a test fails (first lines trimmed)}
+
+\begin{lstlisting}[language=text]
+test_calc.py FF.                                                         [100%]
+
+================================== FAILURES ===================================
+______________________________ test_known_answer ______________________________
+
+    def test_known_answer():
+>       assert heat_loss(2.1, 10, 15) == pytest.approx(315)
+E       assert 36.0 == 315 ± 3.1e-04
+E
+E         comparison failed
+E         Obtained: 36.0
+E         Expected: 315 ± 3.1e-04
+
+test_calc.py:8: AssertionError
+________________ test_no_temperature_difference_means_no_loss _________________
+
+    def test_no_temperature_difference_means_no_loss():
+>       assert heat_loss(2.1, 10, 0) == 0
+E       assert 21.0 == 0
+E        +  where 21.0 = heat_loss(2.1, 10, 0)
+
+test_calc.py:12: AssertionError
+=========================== short test summary info ===========================
+FAILED test_calc.py::test_known_answer - assert 36.0 == 315 ± 3.1e-04
+FAILED test_calc.py::test_no_temperature_difference_means_no_loss - assert 21...
+========================= 2 failed, 1 passed in 0.33s =========================
+\end{lstlisting}
+
+\section{Kinds of test for research}\label{kinds-of-test-for-research}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Test
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Question
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Known answer} & Does it match a hand calculation? & 2.1 x 10 x 15 = 315 \\
+\textbf{Limit case} & Does it behave at the extremes? & No temperature gap gives no heat loss \\
+\textbf{Invariant} & Does a rule always hold? & Total price equals total value \\
+\textbf{Simulated data} & Can it recover a truth you planted? & A model finds a jump you added \\
+\textbf{Data check} & Is the data as expected? & No duplicates, values in range \\
+\textbf{Independent recalculation} & Do two separate methods agree? & The same estimate from different code \\
+\textbf{Rendered output} & Does the result look right to readers? & A browser opens each page \\
+\end{longtable}
+}
+
+\section{Lessons from real faults}\label{lessons-from-real-faults}
+
+These all happened in my own projects:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{An independent recalculation} confirmed an estimate exactly, and adding a check for correlated data showed its confidence interval was too narrow.
+\item
+  \textbf{A check of stated numbers against results} found a sample size typed wrongly into a paper.
+\item
+  \textbf{A test for labels} found age groups named for the wrong years, though the numbers ran fine.
+\item
+  \textbf{A browser test} found broken links, unreadable buttons and maths that displayed as raw code. Its first version missed some faults, because it looked for error messages and these made none.
+\end{itemize}
+
+So a passing test only shows that the things you tested held. When a fault gets through, add a test for that kind of fault.
+
+\section{What tests cannot do}\label{what-tests-cannot-do}
+
+They can\textquotesingle t show that a method is valid, or an argument sound. That takes reasoning and readers.
+

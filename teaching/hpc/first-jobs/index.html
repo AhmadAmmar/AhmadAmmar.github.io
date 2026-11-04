@@ -1,85 +1,923 @@
+
 <!doctype html>
-<html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Seven exercises to build confidence | Ahmad Ammar</title>
-<meta name="description" content="Small, safe practice jobs on a cluster, from one plus one to a job array over satellite tiles and a real 150-year weather record.">
-<meta name="author" content="Ahmad Ammar">
-<link rel="canonical" href="https://ahmadammar.github.io/teaching/hpc/first-jobs/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Seven exercises to build confidence | Ahmad Ammar">
-<meta property="og:description" content="Small, safe practice jobs on a cluster, from one plus one to a job array over satellite tiles and a real 150-year weather record.">
-<meta property="og:url" content="https://ahmadammar.github.io/teaching/hpc/first-jobs/">
-<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
-<link rel="stylesheet" href="../../../assets/css/site.css">
-<script src="../../../assets/js/site.js"></script>
-</head>
-<body>
-<a class="skip" href="#content">Skip to content</a>
-<header class="site-header">
-  <div class="bar">
-    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
-    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <nav class="nav" id="site-nav" aria-label="Main">
-      <a href="../../../index.html">About</a>
-      <a href="../../../research.html">Research</a>
-      <a href="../../../teaching.html" aria-current="page">Teaching</a>
-      <a href="../../../projects.html">Projects</a>
-      <a href="../../../writing.html">Writing</a>
-      <a href="../../../cv.html">CV</a>
-    </nav>
-    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-  </div>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="prev" href="../slurm/">
+      
+      
+        <link rel="next" href="../arrays/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.74">
+    
+    
+      
+        <title>7. Seven exercises to build confidence - Getting started on an HPC cluster</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ab2de0c.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../rh.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Getting started on an HPC cluster" class="md-header__button md-logo" aria-label="Getting started on an HPC cluster" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Getting started on an HPC cluster
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Seven exercises to build confidence
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
 </header>
-<main id="content">
-<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/hpc/">HPC tutorial</a> / Seven exercises to build confidence</nav>
-<header class="page-head">
-  <p class="eyebrow">HPC tutorial</p>
-  <h1>Seven exercises to build confidence</h1>
-</header>
-<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
-<div class="cv-layout">
-  <aside class="toc" aria-label="Chapters">
-    <p class="title">Chapters</p>
-    <ol>
-      <li><a href="../../../teaching/hpc/">Getting started on an HPC cluster</a></li>
-      <li><a href="../../../teaching/hpc/concepts/">What a cluster is</a></li>
-      <li><a href="../../../teaching/hpc/shell/">The command line</a></li>
-      <li><a href="../../../teaching/hpc/connect/">Connecting securely</a></li>
-      <li><a href="../../../teaching/hpc/files/">Files and storage</a></li>
-      <li><a href="../../../teaching/hpc/software/">Software, environments and containers</a></li>
-      <li><a href="../../../teaching/hpc/slurm/">Running jobs with Slurm</a></li>
-      <li><a href="../../../teaching/hpc/first-jobs/" aria-current="page">Seven exercises to build confidence</a></li>
-      <li><a href="../../../teaching/hpc/arrays/">Job arrays: a parameter sweep</a></li>
-      <li><a href="../../../teaching/hpc/practice/">Measuring and good practice</a></li>
-      <li><a href="../../../teaching/hpc/beyond/">Other clusters, the cloud and Linux basics</a></li>
-      <li><a href="../../../teaching/hpc/troubleshooting/">Troubleshooting and cheat sheet</a></li>
-    </ol>
-    <p><a href="../../../teaching/hpc/full/">Whole guide on one page</a></p>
-    <p><a href="../../../files/HPC_tutorial_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
-  </aside>
-  <article class="hpc-body">
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Getting started on an HPC cluster" class="md-nav__button md-logo" aria-label="Getting started on an HPC cluster" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Getting started on an HPC cluster
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. What a cluster is
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. The command line
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Connecting securely
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Files and storage
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../software/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Software, environments and containers
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../slurm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Running jobs with Slurm
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Seven exercises to build confidence
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Seven exercises to build confidence
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-get-the-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Get the files
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-exercise-1-hello-from-a-compute-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Exercise 1: Hello from a compute node
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-exercise-2-run-a-small-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Exercise 2: Run a small program
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-exercise-3-ask-for-more-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 Exercise 3: Ask for more cores
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-exercise-4-analyse-real-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.5 Exercise 4: Analyse real data
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#76-exercise-5-your-first-job-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.6 Exercise 5: Your first job array
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-exercise-6-a-geospatial-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.7 Exercise 6: A geospatial calculation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#78-exercise-7-satellite-tiles-in-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.8 Exercise 7: Satellite tiles in parallel
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#79-from-exercises-to-your-own-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.9 From exercises to your own project
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arrays/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Job arrays: a parameter sweep
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Measuring and good practice
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../beyond/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Other clusters, the cloud and Linux basics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  11. Troubleshooting and cheat sheet
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Whole guide
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://ahmadammar.github.io/teaching.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  All guides
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#71-get-the-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Get the files
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#72-exercise-1-hello-from-a-compute-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Exercise 1: Hello from a compute node
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#73-exercise-2-run-a-small-program" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Exercise 2: Run a small program
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#74-exercise-3-ask-for-more-cores" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 Exercise 3: Ask for more cores
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#75-exercise-4-analyse-real-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.5 Exercise 4: Analyse real data
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#76-exercise-5-your-first-job-array" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.6 Exercise 5: Your first job array
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#77-exercise-6-a-geospatial-calculation" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.7 Exercise 6: A geospatial calculation
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#78-exercise-7-satellite-tiles-in-parallel" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.8 Exercise 7: Satellite tiles in parallel
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#79-from-exercises-to-your-own-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.9 From exercises to your own project
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="7-seven-exercises-to-build-confidence">7. Seven exercises to build confidence<a class="headerlink" href="#7-seven-exercises-to-build-confidence" title="Permanent link">&para;</a></h1>
 <p>The fastest way to feel at home on a cluster is to run small jobs that cannot go wrong for long. Each exercise here takes a minute or two and adds one new idea. You compare your output with the answer given, so you know whether it worked.</p>
 <p>They need only Python's standard library, so there is nothing to install. Every job has a short time limit and asks for little memory, so it should start quickly and costs almost nothing.</p>
-<h2 id="get-the-files">Get the files</h2>
+<h2 id="71-get-the-files">7.1 Get the files<a class="headerlink" href="#71-get-the-files" title="Permanent link">&para;</a></h2>
 <p><a href="https://ahmadammar.github.io/teaching/hpc/examples/hpc-starter-kit.zip">Download the starter kit</a> to your computer, or fetch it directly on the cluster:</p>
-<pre class="bash"><code># cluster
-cd ~
-# -O keeps the file name from the address
-curl -LO https://ahmadammar.github.io/teaching/hpc/examples/hpc-starter-kit.zip
-unzip hpc-starter-kit.zip
-cd hpc-starter-kit
-# Slurm will not create a log folder for you
-mkdir logs</code></pre>
-<p>Your cluster may need extra settings, such as a partition or account name. If a job is refused, the error message and your cluster's documentation will say which. If <code>python3</code> is not found, run <code>module avail python</code> and add the right <code>module load</code> line to the script.</p>
-<h2 id="exercise-1-hello-from-a-compute-node">Exercise 1: Hello from a compute node</h2>
+<div class="highlight"><pre><span></span><code><span class="c1">## cluster</span>
+<span class="nb">cd</span><span class="w"> </span>~
+<span class="c1">## -O keeps the file name from the address</span>
+curl<span class="w"> </span>-LO<span class="w"> </span>https://ahmadammar.github.io/teaching/hpc/examples/hpc-starter-kit.zip
+unzip<span class="w"> </span>hpc-starter-kit.zip
+<span class="nb">cd</span><span class="w"> </span>hpc-starter-kit
+<span class="c1">## Slurm will not create a log folder for you</span>
+mkdir<span class="w"> </span>logs
+</code></pre></div>
+<p>Your cluster may need extra settings, such as a partition or account name. If a job is refused, the error message and your cluster's documentation will say which. If <code>python3</code> is not found, run <code>module avail python</code> and add the right <code>module load</code> line to the script.</p>
+<h2 id="72-exercise-1-hello-from-a-compute-node">7.2 Exercise 1: Hello from a compute node<a class="headerlink" href="#72-exercise-1-hello-from-a-compute-node" title="Permanent link">&para;</a></h2>
 <p><strong>New idea:</strong> a job runs on a different computer from the one you typed on.</p>
 <p><strong>01_hello.sh</strong></p>
-<pre class="bash"><code>#!/bin/bash
+<pre><code>#!/bin/bash
 #SBATCH --job-name=hello
 #SBATCH --time=00:02:00
 #SBATCH --cpus-per-task=1
@@ -87,35 +925,39 @@ mkdir logs</code></pre>
 #SBATCH --output=logs/%x_%j.out
 
 # The simplest useful job: where am I, when is it, and can I do a sum?
-echo &quot;Hello from $(hostname)&quot;
-echo &quot;The time is $(date)&quot;
-echo &quot;Job $SLURM_JOB_ID, submitted from $SLURM_SUBMIT_DIR&quot;
-echo &quot;1 + 1 = $(( 1 + 1 ))&quot;</code></pre>
-<pre class="bash"><code># cluster
+echo "Hello from $(hostname)"
+echo "The time is $(date)"
+echo "Job $SLURM_JOB_ID, submitted from $SLURM_SUBMIT_DIR"
+echo "1 + 1 = $(( 1 + 1 ))"
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">## cluster</span>
 hostname
-sbatch 01_hello.sh
-# Watch it until it disappears from the queue
-squeue -u $USER
-# The log is named after the job and its number
-cat logs/hello_*.out</code></pre>
-<p><strong>Check:</strong> the log ends with <code>1 + 1 = 2</code>, and the name in <code>Hello from</code> differs from what <code>hostname</code> printed on the login node. That difference is the whole idea of a batch system.</p>
-<h2 id="exercise-2-run-a-small-program">Exercise 2: Run a small program</h2>
+sbatch<span class="w"> </span>01_hello.sh
+<span class="c1">## Watch it until it disappears from the queue</span>
+squeue<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+<span class="c1">## The log is named after the job and its number</span>
+cat<span class="w"> </span>logs/hello_*.out
+</code></pre></div>
+<p><strong>Check:</strong> the log ends with <code>1 + 1 = 2</code>, and the name in <code>Hello from</code> differs from what <code>hostname</code> printed on the login node. That difference is the whole idea of a batch system.</p>
+<h2 id="73-exercise-2-run-a-small-program">7.3 Exercise 2: Run a small program<a class="headerlink" href="#73-exercise-2-run-a-small-program" title="Permanent link">&para;</a></h2>
 <p><strong>New idea:</strong> a job can run your own code, with arguments.</p>
 <p><strong>02_add.py</strong></p>
-<pre class="python"><code>&quot;&quot;&quot;Add two numbers given on the command line.&quot;&quot;&quot;
+<pre><code>"""Add two numbers given on the command line."""
 import sys
 
 a, b = float(sys.argv[1]), float(sys.argv[2])
-print(f&quot;{a} + {b} = {a + b}&quot;)</code></pre>
-<pre class="bash"><code># cluster
-sbatch 02_add.sh
-cat logs/add_*.out</code></pre>
-<p><strong>Check:</strong> you see your Python version, then <code>1.0 + 1.0 = 2.0</code> and <code>21.0 + 21.0 = 42.0</code>.</p>
-<p><strong>Try:</strong> break it on purpose. Change the script to run <code>02_add.py 1</code> with one number, submit it and read the error in the log. Then run <code>sacct -X -j &lt;job id&gt;</code>. You have now seen a failed job, and how to find out why.</p>
-<h2 id="exercise-3-ask-for-more-cores">Exercise 3: Ask for more cores</h2>
+print(f"{a} + {b} = {a + b}")
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">## cluster</span>
+sbatch<span class="w"> </span>02_add.sh
+cat<span class="w"> </span>logs/add_*.out
+</code></pre></div>
+<p><strong>Check:</strong> you see your Python version, then <code>1.0 + 1.0 = 2.0</code> and <code>21.0 + 21.0 = 42.0</code>.</p>
+<p><strong>Try:</strong> break it on purpose. Change the script to run <code>02_add.py 1</code> with one number, submit it and read the error in the log. Then run <code>sacct -X -j &lt;job id&gt;</code>. You have now seen a failed job, and how to find out why.</p>
+<h2 id="74-exercise-3-ask-for-more-cores">7.4 Exercise 3: Ask for more cores<a class="headerlink" href="#74-exercise-3-ask-for-more-cores" title="Permanent link">&para;</a></h2>
 <p><strong>New idea:</strong> more cores help only if the program uses them, and the gain is rarely perfect.</p>
 <p><strong>03_primes.py</strong></p>
-<pre class="python"><code>&quot;&quot;&quot;Count primes below a limit, on as many cores as Slurm gave this job. Standard library only.&quot;&quot;&quot;
+<pre><code>"""Count primes below a limit, on as many cores as Slurm gave this job. Standard library only."""
 import multiprocessing as mp
 import os
 import sys
@@ -128,71 +970,75 @@ def is_prime(n):
     return all(n % d for d in range(2, int(n ** 0.5) + 1))
 
 
-if __name__ == &quot;__main__&quot;:
+if __name__ == "__main__":
     limit = int(sys.argv[1]) if len(sys.argv) &gt; 1 else 1_000_000
-    cores = int(os.environ.get(&quot;SLURM_CPUS_PER_TASK&quot;, 1))
+    cores = int(os.environ.get("SLURM_CPUS_PER_TASK", 1))
     start = time.time()
     with mp.Pool(cores) as pool:
         count = sum(pool.map(is_prime, range(limit), chunksize=10_000))
-    print(f&quot;{count} primes below {limit}, on {cores} core(s), in {time.time() - start:.1f} s&quot;)</code></pre>
-<pre class="bash"><code># cluster
-sbatch 03_primes.sh
-# Change --cpus-per-task to 1 in the script, then submit it again
-sbatch 03_primes.sh
-grep primes logs/primes_*.out</code></pre>
-<p><strong>Check:</strong> every run reports <code>78498 primes below 1000000</code>, the known value. Only the time changes. On a test laptop, 1 core took 16.9 s and 4 cores took 7.7 s: 2.2 times faster, not 4. Your times will differ, because splitting and collecting work takes time too.</p>
-<h2 id="exercise-4-analyse-real-data">Exercise 4: Analyse real data</h2>
+    print(f"{count} primes below {limit}, on {cores} core(s), in {time.time() - start:.1f} s")
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">## cluster</span>
+sbatch<span class="w"> </span>03_primes.sh
+<span class="c1">## Change --cpus-per-task to 1 in the script, then submit it again</span>
+sbatch<span class="w"> </span>03_primes.sh
+grep<span class="w"> </span>primes<span class="w"> </span>logs/primes_*.out
+</code></pre></div>
+<p><strong>Check:</strong> every run reports <code>78498 primes below 1000000</code>, the known value. Only the time changes. On a test laptop, 1 core took 16.9 s and 4 cores took 7.7 s: 2.2 times faster, not 4. Your times will differ, because splitting and collecting work takes time too.</p>
+<h2 id="75-exercise-4-analyse-real-data">7.5 Exercise 4: Analyse real data<a class="headerlink" href="#75-exercise-4-analyse-real-data" title="Permanent link">&para;</a></h2>
 <p><strong>New idea:</strong> data travels with the job, and a relative path works because the job starts in the folder you submitted from.</p>
 <p>The data is the monthly record from Armagh Observatory in Northern Ireland, published by the Met Office. It is real, so it has gaps: early years lack temperatures, and only complete years count.</p>
-<pre class="bash"><code># cluster
-head -8 data/armaghdata.txt
-sbatch 04_armagh.sh
-cat logs/armagh_*.out</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">## cluster</span>
+head<span class="w"> </span>-8<span class="w"> </span>data/armaghdata.txt
+sbatch<span class="w"> </span>04_armagh.sh
+cat<span class="w"> </span>logs/armagh_*.out
+</code></pre></div>
 <p>The first command shows the top of the data file, which is how you learn its layout:</p>
-<div class="output">
 <p><strong>What you should see from head</strong></p>
-<pre class="text"><code>Armagh
+<div class="highlight"><pre><span></span><code>Armagh
 Location: 287800E 345800N (Irish Grid), Lat 54.352 Lon -6.649, 62 metres amsl
 Estimated data is marked with a * after the value.
 Missing data (more than 2 days missing in month) is marked by  ---.
 Sunshine data taken from an automatic Kipp &amp; Zonen sensor marked with a #, otherwise sunshine data taken from a Campbell Stokes recorder.
    yyyy  mm   tmax    tmin      af    rain     sun
               degC    degC    days      mm   hours
-   1853   1    ---     ---     ---    57.3     ---</code></pre>
-</div>
+   1853   1    ---     ---     ---    57.3     ---
+</code></pre></div>
 <p><strong>Check, for the file in the kit:</strong></p>
-<pre class="text"><code>2085 monthly records, 159 complete years, 1867 to 2025
+<div class="highlight"><pre><span></span><code>2085 monthly records, 159 complete years, 1867 to 2025
 Warmest: 2023, mean 10.95 C
 Coldest: 1892, mean 7.89 C
-Wettest: 1872, 1249 mm</code></pre>
-<h2 id="exercise-5-your-first-job-array">Exercise 5: Your first job array</h2>
+Wettest: 1872, 1249 mm
+</code></pre></div>
+<h2 id="76-exercise-5-your-first-job-array">7.6 Exercise 5: Your first job array<a class="headerlink" href="#76-exercise-5-your-first-job-array" title="Permanent link">&para;</a></h2>
 <p><strong>New idea:</strong> one submission can start many tasks, and each uses its number to choose its own work. This is how most research sweeps run.</p>
 <p><strong>05_decade.py</strong></p>
-<pre class="python"><code>&quot;&quot;&quot;One array task handles one decade of the Armagh record, and writes one small result file.&quot;&quot;&quot;
+<pre><code>"""One array task handles one decade of the Armagh record, and writes one small result file."""
 import os
 from armagh import read_months, yearly
 
 FIRST = 1870
-task = int(os.environ.get(&quot;SLURM_ARRAY_TASK_ID&quot;, 0))
+task = int(os.environ.get("SLURM_ARRAY_TASK_ID", 0))
 decade = FIRST + 10 * task
-years = yearly(read_months(&quot;data/armaghdata.txt&quot;))
-values = [v[&quot;tmean&quot;] for y, v in years.items() if decade &lt;= y &lt; decade + 10]
-os.makedirs(&quot;results&quot;, exist_ok=True)
-with open(f&quot;results/decade_{decade}.csv&quot;, &quot;w&quot;) as f:
-    f.write(f&quot;{decade},{len(values)},{sum(values) / len(values):.2f}\n&quot;)
-print(f&quot;task {task}: {decade}s, {len(values)} years&quot;)</code></pre>
-<pre class="bash"><code># cluster
-sbatch 05_decades.sh
-# Each task appears with its number, such as 12345_3
-squeue -u $USER
-# After all finish, count the results: expect 15
-ls results/decade_*.csv | wc -l
-# Join them, with the coolest decade first and the warmest last
-cat results/decade_*.csv | sort -t, -k3 -n</code></pre>
+years = yearly(read_months("data/armaghdata.txt"))
+values = [v["tmean"] for y, v in years.items() if decade &lt;= y &lt; decade + 10]
+os.makedirs("results", exist_ok=True)
+with open(f"results/decade_{decade}.csv", "w") as f:
+    f.write(f"{decade},{len(values)},{sum(values) / len(values):.2f}\n")
+print(f"task {task}: {decade}s, {len(values)} years")
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">## cluster</span>
+sbatch<span class="w"> </span>05_decades.sh
+<span class="c1">## Each task appears with its number, such as 12345_3</span>
+squeue<span class="w"> </span>-u<span class="w"> </span><span class="nv">$USER</span>
+<span class="c1">## After all finish, count the results: expect 15</span>
+ls<span class="w"> </span>results/decade_*.csv<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+<span class="c1">## Join them, with the coolest decade first and the warmest last</span>
+cat<span class="w"> </span>results/decade_*.csv<span class="w"> </span><span class="p">|</span><span class="w"> </span>sort<span class="w"> </span>-t,<span class="w"> </span>-k3<span class="w"> </span>-n
+</code></pre></div>
 <p>Each line reads decade, years used, mean temperature. <strong>Check:</strong> the coolest is <code>1880,10,8.65</code> and the warmest is <code>2000,10,10.08</code>.</p>
-<div class="output">
 <p><strong>What you should see</strong></p>
-<pre class="text"><code>$ cat results/decade_*.csv | sort -t, -k3 -n
+<div class="highlight"><pre><span></span><code>$ cat results/decade_*.csv | sort -t, -k3 -n
 1880,10,8.65
 1890,10,8.87
 1900,10,8.91
@@ -207,38 +1053,41 @@ cat results/decade_*.csv | sort -t, -k3 -n</code></pre>
 1940,10,9.58
 1990,10,9.71
 2010,10,9.87
-2000,10,10.08</code></pre>
-</div>
+2000,10,10.08
+</code></pre></div>
 <p>These results come from running the same Python scripts on a laptop, with the task number set by hand. On the cluster, the same numbers appear, in the files or logs named above.</p>
 <p>The pattern to remember is that the tasks never talk to each other. Each writes its own file, and a simple command joins them at the end.</p>
-<h2 id="exercise-6-a-geospatial-calculation">Exercise 6: A geospatial calculation</h2>
+<h2 id="77-exercise-6-a-geospatial-calculation">7.7 Exercise 6: A geospatial calculation<a class="headerlink" href="#77-exercise-6-a-geospatial-calculation" title="Permanent link">&para;</a></h2>
 <p><strong>New idea:</strong> an input can come from the command line, so one script can answer many questions.</p>
 <p>The data is about 240 cities from Natural Earth, a public domain map dataset. The script uses the haversine formula for distance over a sphere.</p>
-<pre class="bash"><code># cluster
-sbatch 06_cities.sh
-cat logs/cities_*.out</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">## cluster</span>
+sbatch<span class="w"> </span>06_cities.sh
+cat<span class="w"> </span>logs/cities_*.out
+</code></pre></div>
 <p><strong>Check:</strong></p>
-<pre class="text"><code>243 cities. Nearest to London:
+<div class="highlight"><pre><span></span><code>243 cities. Nearest to London:
   The Hague: 309 km
   Brussels: 319 km
   Paris: 343 km
-Farthest: Wellington, 18815 km</code></pre>
+Farthest: Wellington, 18815 km
+</code></pre></div>
 <p><strong>Try:</strong> pick another city from <code>data/cities_natural_earth.csv</code>. Do the distances look right on a map?</p>
-<h2 id="exercise-7-satellite-tiles-in-parallel">Exercise 7: Satellite tiles in parallel</h2>
+<h2 id="78-exercise-7-satellite-tiles-in-parallel">7.8 Exercise 7: Satellite tiles in parallel<a class="headerlink" href="#78-exercise-7-satellite-tiles-in-parallel" title="Permanent link">&para;</a></h2>
 <p><strong>New idea:</strong> large images are usually cut into tiles and processed one tile per task.</p>
 <p>The Normalised Difference Vegetation Index measures greenness from red and near-infrared light:</p>
-<pre class="text"><code>NDVI = (NIR - red) / (NIR + red)</code></pre>
+<div class="highlight"><pre><span></span><code>NDVI = (NIR - red) / (NIR + red)
+</code></pre></div>
 <p>These tiles are <strong>synthetic</strong>: a script invents them so that the exercise runs anywhere. They are built to run from built-up land (tile 0) to parkland (tile 7).</p>
-<pre class="bash"><code># cluster
-# Light setup work like this is fine on a login node
-python3 07_make_tiles.py
-sbatch 07_tiles.sh
-# When it has finished
-cat results/ndvi_*.csv</code></pre>
+<div class="highlight"><pre><span></span><code><span class="c1">## cluster</span>
+<span class="c1">## Light setup work like this is fine on a login node</span>
+python3<span class="w"> </span>07_make_tiles.py
+sbatch<span class="w"> </span>07_tiles.sh
+<span class="c1">## When it has finished</span>
+cat<span class="w"> </span>results/ndvi_*.csv
+</code></pre></div>
 <p><strong>Check:</strong> mean NDVI rises steadily from <code>0.045</code> in tile 0 to <code>0.787</code> in tile 7. Run it again and the numbers stay the same, because the script fixes its random seed.</p>
-<div class="output">
 <p><strong>What you should see</strong></p>
-<pre class="text"><code>$ python3 07_make_tiles.py
+<div class="highlight"><pre><span></span><code>$ python3 07_make_tiles.py
 wrote 8 tiles to tiles/
 
 $ cat results/ndvi_*.csv
@@ -249,35 +1098,141 @@ $ cat results/ndvi_*.csv
 4,10000,0.522
 5,10000,0.616
 6,10000,0.705
-7,10000,0.787</code></pre>
-</div>
+7,10000,0.787
+</code></pre></div>
 <p>Each line reads tile, pixels, mean NDVI. These results come from running the same Python scripts on a laptop, with the task number set by hand. On the cluster, the same numbers appear, in the files or logs named above.</p>
-<h2 id="from-exercises-to-your-own-project">From exercises to your own project</h2>
+<h2 id="79-from-exercises-to-your-own-project">7.9 From exercises to your own project<a class="headerlink" href="#79-from-exercises-to-your-own-project" title="Permanent link">&para;</a></h2>
 <p>You have now used every piece of a real workflow. To move your own work across:</p>
-<ol type="1">
-<li>Run your program once on your own computer, or in an interactive session on the cluster, on the smallest input you can.</li>
-<li>Submit that as one job. Compare the answer with the known one.</li>
-<li>Use <code>sacct</code> to see the time and memory it really used, then set your limits a little above that.</li>
-<li>Run a few tasks of the array, not all of them: <code>sbatch --array=0-3</code>.</li>
-<li>Check that the outputs make sense and can be restarted. Then run the rest.</li>
+<ol>
+<li>
+<p>Run your program once on your own computer, or in an interactive session on the cluster, on the smallest input you can.</p>
+</li>
+<li>
+<p>Submit that as one job. Compare the answer with the known one.</p>
+</li>
+<li>
+<p>Use <code>sacct</code> to see the time and memory it really used, then set your limits a little above that.</p>
+</li>
+<li>
+<p>Run a few tasks of the array, not all of them: <code>sbatch --array=0-3</code>.</p>
+</li>
+<li>
+<p>Check that the outputs make sense and can be restarted. Then run the rest.</p>
+</li>
 </ol>
 <p>The next chapter does this at full size, with a parameter sweep.</p>
 
-<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/hpc/slurm/">&larr; Running jobs with Slurm</a><a href="../../../teaching/hpc/arrays/">Job arrays: a parameter sweep &rarr;</a></nav>
-<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ahmad Ammar, MIT licence. Data as credited in the starter kit. An independent guide, not an official NI-HPC document. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
-  </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../slurm/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 6. Running jobs with Slurm">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                6. Running jobs with Slurm
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../arrays/" class="md-footer__link md-footer__link--next" aria-label="Next: 8. Job arrays: a parameter sweep">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                8. Job arrays: a parameter sweep
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
 </div>
-</main>
-<footer class="site-footer">
-  <div class="bar">
-    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
-    <div class="social">
-      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
-      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
-      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
-      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+      
     </div>
   </div>
 </footer>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.instant","navigation.top","navigation.footer","toc.follow","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d31f0ffa.min.js"></script>
+      
+        <script src="../mathjax.js"></script>
+      
+        <script src="../pdfview.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+      
+    
+  </body>
 </html>

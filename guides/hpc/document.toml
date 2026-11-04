@@ -1,0 +1,27 @@
+name = "hpc"
+title = "Getting started on an HPC cluster"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["concepts", "shell", "connect", "files", "software", "slurm", "first_jobs", "arrays", "practice", "beyond", "troubleshooting"]
+figures = "../../teaching/hpc"
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Getting started on an HPC cluster"
+intro_tex = "intro.tex"
+pdf_url = "/files/HPC_tutorial_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+[web.slugs]
+concepts = "concepts"
+shell = "shell"
+connect = "connect"
+files = "files"
+software = "software"
+slurm = "slurm"
+first_jobs = "first-jobs"
+arrays = "arrays"
+practice = "practice"
+beyond = "beyond"
+troubleshooting = "troubleshooting"

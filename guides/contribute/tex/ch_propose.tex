@@ -1,0 +1,61 @@
+\chapter{Propose it and follow it through}
+\label{ch:propose}
+
+\section{Open the pull request}
+
+Go to your fork on GitHub. A yellow band usually shows your recent branch with a green button, \textbf{Compare \& pull request}. Press it. If there is no band, press the \textbf{Pull requests} tab, then \textbf{New pull request}, and choose your branch.
+
+%SHOT{in_compare.png}{The band offering to open a pull request.}
+
+Check the top line of the form. It shows that your branch will go into the original project's \texttt{main}. Then write a title and a description. Say what you changed, why, and how you checked it. Here is a good example:
+
+\begin{lstlisting}[language=text]
+Title: Fix spelling of CSV in the README
+
+The README said the tool reads a "CVS" file, but the code reads CSV.
+I changed that one word. No code changed, so there are no tests to run.
+\end{lstlisting}
+
+If this settles an issue, add a line saying \texttt{Fixes \#12}, using the issue's number. GitHub will then close that issue when your change is accepted. Press \textbf{Create pull request}.
+
+\section{What happens next}
+
+Automatic checks may start and show a yellow dot, then a green tick or a red cross. Press \textbf{Details} beside a red cross to read why it failed. A maintainer will read your change when they have time, and that can take days or weeks because many of them are volunteers. If you hear nothing for two weeks, one polite comment asking if they need anything else is reasonable.
+
+\section{Answering comments}
+
+Requests for changes are normal and are not a judgement of you. Experienced contributors receive them all the time. To update your proposal, change the files on the same branch and push again. The pull request updates itself, so you never need to open a new one.
+
+\begin{lstlisting}[language=bash]
+git add README.md
+git commit -m "Reword after review"
+git push
+\end{lstlisting}
+
+If a maintainer declines, thank them and move on. The reason is often about the project's direction, and your fork still has your work.
+
+\section{After it is accepted}
+
+Your name now appears in the project's history. Tidy up by bringing the new work into your copy, so your next change starts from the latest version:
+
+\lstinputlisting{../../shared/outputs/oss_sync.txt}
+
+You can then delete the old branch. GitHub offers a button for this on the pull request's page, and locally you type \texttt{git branch -d fix-readme-spelling}.
+
+\section{Being a good contributor}
+
+Keep each pull request to one change, which makes it quick to review. Follow the style of the code around you, even where you would choose differently. Read \texttt{CONTRIBUTING.md} and any code of conduct first. And if you used an automatic tool to write any of it, check the project's rules on that, make sure you understand every line you submit, and be open about it when asked.
+
+\section{When something goes wrong}
+
+\begin{longtable}{p{0.38\linewidth}p{0.54\linewidth}}
+\toprule
+What you see & What to do \\
+\midrule
+\emph{Permission denied} when pushing & You are probably pushing to the original rather than your fork. Run \texttt{git remote -v}, and check that \texttt{origin} shows your username. \\
+You committed on \texttt{main} by accident & Run \texttt{git switch -c new-branch-name}, which carries your commit onto a new branch. \\
+\emph{This branch has conflicts} & Someone changed the same lines. Run \texttt{git fetch upstream}, then \texttt{git merge upstream/main}. Open the files Git names, keep the right text, delete the marker lines, then add, commit and push. \\
+A check fails for something you did not touch & Say so in a comment, as it may already be broken for everyone. \\
+\emph{Please tell me who you are} & Run the \texttt{git config} lines from the install chapter, then repeat the commit. \\
+\bottomrule
+\end{longtable}

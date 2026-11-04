@@ -1,0 +1,2 @@
+$ git switch -c fix-readme-spelling
+Switched to a new branch 'fix-readme-spelling'

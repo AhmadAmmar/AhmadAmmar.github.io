@@ -1,0 +1,59 @@
+\chapter{Make it yours}
+\label{ch:edit}
+
+\section{Put your details in site.toml}
+
+Click \texttt{site.toml} in the list on the left. Change the words inside the quotation marks, and keep the quotation marks themselves. The \texttt{url} line must be your own address.
+
+\begin{lstlisting}[language=text]
+name = "Sara Khan"
+url = "https://sara-khan.github.io"
+affiliation = "Department of Geography, Example University"
+\end{lstlisting}
+
+Lower down, the \texttt{social} lines set the small icons at the bottom of each page. Change the email address and the GitHub address, and delete a whole line if you do not want that icon. Save with Ctrl and S, or Cmd and S on a Mac. A white dot on the file's tab means it has unsaved changes.
+
+\section{Write your home page}
+
+Open \texttt{src/pages/index.html}. The lines above the \texttt{---} describe the page, and everything below it is what visitors read. Text sits between tags, which are the words in angle brackets. \texttt{<h1>} marks the main heading, \texttt{<h2>} a smaller heading, and \texttt{<p>} a paragraph. A link looks like this:
+
+\begin{lstlisting}[language=html]
+<p>I study rivers at <a href="https://example.org">Example University</a>.</p>
+\end{lstlisting}
+
+Change the words and keep the tags. Then do the same in \texttt{work.html} and \texttt{cv.html}.
+
+\section{Build the site and look at it}
+
+The pages you edit are the raw material, so you now run the program that makes the finished site. In the terminal, type:
+
+\begin{lstlisting}[language=bash]
+python build.py
+python -m http.server 8000
+\end{lstlisting}
+
+The first command writes the finished pages. The second serves them on your own computer only. Open a browser and go to \texttt{http://localhost:8000}, and you will see your site. Nobody else can see this version.
+
+When you have finished looking, click in the terminal and press Ctrl and C to stop the second command. Each time you change something, run \texttt{python build.py} again and refresh the browser.
+
+\section{Add a page, if you want one}
+
+To add a page about your teaching, make a new file, \texttt{src/pages/teaching.html}, that begins like this:
+
+\begin{lstlisting}[language=text]
+title: Teaching
+description: Courses I teach.
+nav: teaching
+out: teaching.html
+---
+<section class="prose" style="padding:3rem 0">
+  <h1>Teaching</h1>
+  <p>Write about your courses here.</p>
+</section>
+\end{lstlisting}
+
+Then add a line to the menu in \texttt{site.toml}, in the same form as the others:
+
+\begin{lstlisting}[language=text]
+{key = "teaching", label = "Teaching", href = "teaching.html"},
+\end{lstlisting}

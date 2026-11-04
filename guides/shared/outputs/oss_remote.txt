@@ -1,0 +1,6 @@
+$ git remote add upstream https://github.com/their-name/their-project.git
+$ git remote -v
+origin	https://github.com/your-name/their-project.git (fetch)
+origin	https://github.com/your-name/their-project.git (push)
+upstream	https://github.com/their-name/their-project.git (fetch)
+upstream	https://github.com/their-name/their-project.git (push)

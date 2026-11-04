@@ -1,0 +1,45 @@
+\chapter{Make your own copy of the site}
+\label{ch:copy}
+
+\section{Create the repository from the template}
+
+Sign in to GitHub, then go to \texttt{github.com/AhmadAmmar/academic-site-template}. Press the green button \textbf{Use this template}, then choose \textbf{Create a new repository}.
+
+\begin{figure}[H]\centering\includegraphics[width=\linewidth]{web_template_repo.png}\caption{The template's page on GitHub. Once you are signed in, a green \textbf{Use this template} button appears near the top right, beside the list of files.}\end{figure}
+
+%SHOT{in_template_button.png}{The Use this template button when signed in.}
+
+A form opens. Under \textbf{Repository name}, type your username followed by \texttt{.github.io}. If your username is \texttt{sara-khan}, the name is \texttt{sara-khan.github.io}. This exact form matters, because it is how GitHub knows the site belongs at your main address. Leave the repository set to \textbf{Public}, since free Pages sites need a public repository, then press \textbf{Create repository}.
+
+%SHOT{in_template_form.png}{The form for naming your new repository.}
+
+\section{Bring it to your computer}
+
+Your new repository is on GitHub, and now you need a copy on your computer. On its GitHub page, press the green \textbf{Code} button and copy the web address shown under \textbf{HTTPS}.
+
+In VS Code, open the \textbf{Terminal} menu and choose \textbf{New Terminal}. Type these two commands, using your own address in the first one:
+
+\begin{lstlisting}[language=bash]
+git clone https://github.com/your-name/your-name.github.io.git
+code your-name.github.io
+\end{lstlisting}
+
+The first command downloads the project into a new folder. The second opens that folder in VS Code. If the second one fails, use the \textbf{File} menu, choose \textbf{Open Folder}, and pick the new folder.
+
+\begin{figure}[H]\centering\includegraphics[width=\linewidth]{vscode_file_open.png}\caption{VS Code with a project open. The files are listed on the left, and the file you click opens on the right.}\end{figure}
+
+If VS Code asks whether you trust the authors of the files, say yes, since these are files you just chose to download.
+
+\section{What the files are}
+
+\begin{longtable}{p{0.25\linewidth}p{0.67\linewidth}}
+\toprule
+File or folder & What it holds \\
+\midrule
+\texttt{site.toml} & Your name, address, menu and links. Start here. \\
+\texttt{src/pages/} & The words of each page. You will edit these. \\
+\texttt{assets/} & The look of the site. Leave it alone at first. \\
+\texttt{build.py} & A small program that wraps your words in the layout. \\
+\texttt{index.html}, \texttt{cv.html} and others & The finished pages, which \texttt{build.py} writes. Do not edit these by hand, because the next build replaces them. \\
+\bottomrule
+\end{longtable}

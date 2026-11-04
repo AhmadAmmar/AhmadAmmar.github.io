@@ -1,0 +1,96 @@
+\chapter{Continuous integration}
+\label{ch:ci}
+
+\section{What the terms mean}\label{what-the-terms-mean}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Continuous integration (CI)} runs your checks automatically on every change, on a clean machine.
+\item
+  \textbf{Continuous delivery or deployment (CD)} then publishes the result, but only if the checks pass.
+\end{itemize}
+
+A clean machine catches the classic fault of a project that only works on your own computer.
+
+\section{A first workflow}\label{a-first-workflow}
+
+Save this in your repository as \texttt{.github/workflows/tests.yml}:
+
+\textbf{tests.yml}
+
+\lstinputlisting{../../../teaching/git-ci/examples/tests.yml}
+
+Reading it line by line:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{on} says when to run: on each push and pull request.
+\item
+  \texttt{runs-on} picks a fresh virtual machine.
+\item
+  \texttt{steps} run in order. \texttt{uses} runs a ready-made action, and \texttt{run} runs a command.
+\item
+  If any step fails, the run fails, and GitHub shows a red cross.
+\end{itemize}
+
+See the results under the repository\textquotesingle s \emph{Actions} tab. Read the failing step\textquotesingle s log from the bottom up, and find the first real error.
+
+These are the \emph{Actions} tab and one run from my pamphlet project, with the account name hidden. A green tick means every step passed.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/github-actions.png}
+\caption{The Actions tab lists each run with its outcome and how long it took.}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/github-run.png}
+\caption{One run: the deploy job starts only after the build job passes.}
+\end{figure}
+
+\section{From testing to publishing}\label{from-testing-to-publishing}
+
+A publishing workflow adds a job that only runs after the checks succeed. This is how my \href{https://github.com/AhmadAmmar/marxist-economics/blob/main/.github/workflows/deploy-pages.yml}{pamphlet\textquotesingle s workflow}\footnote{\texttt{https://github.com/AhmadAmmar/marxist-economics/blob/main/.github/workflows/deploy-pages.yml}} works:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Install Pandoc, LaTeX and a browser.
+\item
+  Run the equation tests.
+\item
+  Rebuild every page and PDF from source.
+\item
+  Check links and numbers.
+\item
+  Open every page in a browser, and test what readers see.
+\item
+  Publish, only if all of that passed. Otherwise, the old site stays up.
+\end{enumerate}
+
+\section{Practical advice}\label{practical-advice}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Pin versions} of tools that affect output, such as \texttt{python-version:\ "3.12"}.
+\item
+  \textbf{Keep secrets out of files.} Store them in the repository\textquotesingle s settings as encrypted secrets.
+\item
+  \textbf{Keep private work private.} A public workflow\textquotesingle s logs are public.
+\item
+  \textbf{Watch the time.} Slow checks get ignored, so run the quickest first.
+\end{itemize}
+
+\section{Hooks: checks before you push}\label{hooks-checks-before-you-push}
+
+A Git hook runs a script at a moment such as a commit. A file at \texttt{.git/hooks/pre-commit} can block a commit containing a secret or broken code, and a \texttt{pre-push} hook does the same before sending work online. Hooks aren\textquotesingle t copied with a repository, so each person must install them. For a shared setup, look at the \href{https://pre-commit.com}{pre-commit}\footnote{\texttt{https://pre-commit.com}} tool.
+
+\section{Scheduled checks}\label{scheduled-checks}
+
+CI can also run on a timetable, and on your own computer, Windows Task Scheduler or \texttt{cron} can run a daily health report that emails you when something changes. Keep alerts rare, because people stop reading frequent ones.
+

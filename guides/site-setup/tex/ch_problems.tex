@@ -1,0 +1,22 @@
+\chapter{When something goes wrong}
+\label{ch:problems}
+
+\begin{longtable}{p{0.38\linewidth}p{0.54\linewidth}}
+\toprule
+What you see & What to do \\
+\midrule
+\texttt{python} is not recognised & Python is missing from the PATH. Run the installer again, tick \textbf{Add python.exe to PATH}, then close and reopen VS Code. On a Mac or on Linux, try \texttt{python3}. \\
+\texttt{git} is not recognised & Close and reopen VS Code. If that does not help, install Git again. \\
+\emph{Please tell me who you are} & Run the \texttt{git config} lines with your name and email, then repeat the commit. \\
+\emph{nothing to commit} & Git sees no changes. Check that the file is saved and that you ran \texttt{python build.py}. \\
+\emph{failed to push} and \emph{fetch first} & GitHub has a version you do not, perhaps from an edit on the website. Run \texttt{git pull}, then \texttt{git push}. \\
+The site shows a 404 page & Check the repository is named exactly \texttt{your-name.github.io}, that it is public, and that Pages is set to the \texttt{main} branch. Then wait two minutes. \\
+The site looks unchanged & Your browser may be showing a saved copy. Hold Ctrl (Cmd on a Mac) and press R. \\
+The page has no colours or layout & Check that the \texttt{url} line in \texttt{site.toml} is right and that the \texttt{assets} folder is still there. \\
+A word in my page looks strange & An angle bracket or tag may be unclosed. Compare it with the sample tags in the chapter on making the site yours. \\
+\bottomrule
+\end{longtable}
+
+\section{Taking a newer version of the theme}
+
+The template's look is kept apart from your words, and its versions are listed in \texttt{CHANGELOG.md} in the template repository. To take a newer theme, download the new \texttt{assets} folder and \texttt{build.py}, replace yours, and run \texttt{python build.py}. Your \texttt{site.toml} and \texttt{src/pages} stay as they are.

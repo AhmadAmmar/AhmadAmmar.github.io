@@ -1,0 +1,126 @@
+\chapter{How LaTeX works}
+\label{ch:basics}
+
+\section{The idea}\label{the-idea}
+
+You write a text file ending in \texttt{.tex}, and a program called an \emph{engine} turns it into a PDF. That step is called \emph{compiling}. It\textquotesingle s closer to running code than to saving a Word file: errors stop it, and the source and result are separate.
+
+\textbf{minimal.tex}
+
+\lstinputlisting{../../../teaching/latex/examples/minimal.tex}
+
+Compile it with:
+
+\begin{lstlisting}[language=bash]
+pdflatex minimal
+\end{lstlisting}
+
+\textbf{What you should see at the end of the run}
+
+\begin{lstlisting}[language=text]
+Output written on minimal.pdf (1 page, 15054 bytes).
+Transcript written on minimal.log.
+\end{lstlisting}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/minimal.png}
+\caption{The top of minimal.pdf.}
+\end{figure}
+
+This makes \texttt{minimal.pdf}, plus helper files such as \texttt{minimal.log}, which records what happened, and \texttt{minimal.aux}, which remembers numbers between runs.
+
+\section{The parts of a document}\label{the-parts-of-a-document}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{The preamble} is everything before \texttt{\textbackslash{}begin\{document\}}. It sets the document type and loads packages. Nothing here is printed.
+\item
+  \textbf{The body} is everything between \texttt{\textbackslash{}begin\{document\}} and \texttt{\textbackslash{}end\{document\}}.
+\end{itemize}
+
+\section{Syntax}\label{syntax}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{A command} starts with a backslash: \texttt{\textbackslash{}section\{Method\}}. Required inputs, or \emph{arguments}, go in braces, and optional ones in square brackets: \texttt{\textbackslash{}documentclass{[}11pt{]}\{article\}}.
+\item
+  \textbf{An environment} has a start and an end, and changes what\textquotesingle s between them: \texttt{\textbackslash{}begin\{center\}} and \texttt{\textbackslash{}end\{center\}}.
+\item
+  \textbf{A comment} starts with \texttt{\%} and runs to the end of the line.
+\item
+  \textbf{A blank line} starts a new paragraph. Single line breaks and extra spaces are ignored.
+\item
+  \textbf{Special characters} need a backslash to print: \texttt{\textbackslash{}\%}, \texttt{\textbackslash{}\$}, \texttt{\textbackslash{}\&}, \texttt{\textbackslash{}\#}, \texttt{\textbackslash{}\_}, \texttt{\textbackslash{}\{}, \texttt{\textbackslash{}\}}.
+\end{itemize}
+
+\section{Why you sometimes compile more than once}\label{why-you-sometimes-compile-more-than-once}
+
+Numbers for sections, equations and citations are only known after a full pass. LaTeX writes them to the \texttt{.aux} file on one run, and reads them on the next. So a contents page or a reference can need two or three runs. A warning saying \texttt{Rerun\ to\ get\ cross-references\ right} means exactly that.
+
+The full sequence with a bibliography is:
+
+\begin{lstlisting}[language=bash]
+pdflatex main
+bibtex main
+pdflatex main
+pdflatex main
+\end{lstlisting}
+
+On the first run of the \href{../references/}{complete report}, LaTeX doesn\textquotesingle t yet know the numbers, so it says so. These warnings are normal at this stage, and they went away after the full sequence:
+
+\textbf{What you should see (only the warning and result lines)}
+
+\begin{lstlisting}[language=text]
+$ pdflatex main
+Package natbib Warning: Citation `clarke2001' on page 1 undefined on input line
+LaTeX Warning: Reference `sec:method' on page 1 undefined on input line 30.
+LaTeX Warning: Reference `tab:walls' on page 1 undefined on input line 31.
+LaTeX Warning: Reference `fig:loss' on page 1 undefined on input line 31.
+LaTeX Warning: Reference `eq:loss' on page 1 undefined on input line 39.
+Package natbib Warning: There were undefined citations.
+LaTeX Warning: There were undefined references.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+$ pdflatex main     (the last run of the sequence)
+Output written on main.pdf (2 pages, 107972 bytes).
+\end{lstlisting}
+
+The tool \texttt{latexmk\ -pdf\ main} works out how many runs are needed and does them for you, though it needs Perl on Windows.
+
+\section{Choosing an engine}\label{choosing-an-engine}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Engine
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Use it when
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{pdflatex} & The default for most documents, with the widest compatibility \\
+\texttt{xelatex} & You want system fonts, or scripts such as Urdu and Arabic \\
+\texttt{lualatex} & You want system fonts plus scripting with Lua \\
+\end{longtable}
+}
+
+\section{Reading errors}\label{reading-errors}
+
+An error line starts with \texttt{!}. Press Enter past it in a terminal, or use \texttt{-interaction=nonstopmode} so that it doesn\textquotesingle t stop. Fix the \textbf{first} error, because one fault can cause many later ones.
+
+\begin{lstlisting}[language=text]
+! Undefined control sequence.
+l.12 \sectoin
+             {Method}
+\end{lstlisting}
+
+This says line 12 uses a command that doesn\textquotesingle t exist, here a misspelling. The \href{../troubleshooting/}{troubleshooting chapter} lists common errors.
+

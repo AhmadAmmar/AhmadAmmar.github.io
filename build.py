@@ -19,20 +19,16 @@ and `{{icon:name}}` to an inline SVG icon from ICONS below.
 from datetime import date
 from pathlib import Path
 import re
+import tomllib
 
 HERE = Path(__file__).resolve().parent
 PAGES = HERE / "src" / "pages"
-SITE_URL = "https://ahmadammar.github.io"
+CONFIG = tomllib.loads((HERE / "site.toml").read_text(encoding="utf-8"))
+SITE_URL = CONFIG["url"].rstrip("/")
+NAME = CONFIG["name"]
 UPDATED = date.today().strftime("%B %Y")
 
-NAV = [
-    ("about", "About", "index.html"),
-    ("research", "Research", "research.html"),
-    ("teaching", "Teaching", "teaching.html"),
-    ("projects", "Projects", "projects.html"),
-    ("writing", "Writing", "writing.html"),
-    ("cv", "CV", "cv.html"),
-]
+NAV = [(x["key"], x["label"], x["href"]) for x in CONFIG["nav"]]
 
 _SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{}</svg>'
 _SVG_FILL = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">{}</svg>'
@@ -79,7 +75,7 @@ HEAD = """<!doctype html>
 <a class="skip" href="#content">Skip to content</a>
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="{root}index.html">Ahmad <span>Ammar</span></a>
+    <a class="brand" href="{root}index.html">{brand}</a>
     <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu">{icon_menu}</button>
     <nav class="nav" id="site-nav" aria-label="Main">
 {nav}
@@ -93,12 +89,9 @@ HEAD = """<!doctype html>
 FOOT = """</main>
 <footer class="site-footer">
   <div class="bar">
-    <div>&copy; <span data-year>{year}</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated {updated}</div>
+    <div>&copy; <span data-year>{year}</span> {name}{affiliation} &middot; Updated {updated}</div>
     <div class="social">
-      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email">{icon_mail}</a>
-      <a href="https://github.com/AhmadAmmar" aria-label="GitHub">{icon_github}</a>
-      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn">{icon_linkedin}</a>
-      <a href="https://ammarastan.substack.com/" aria-label="Substack">{icon_substack}</a>
+{social}
     </div>
   </div>
 </footer>
@@ -117,6 +110,15 @@ def parse(path):
     return meta, body
 
 
+def brand():
+    first, _, rest = NAME.partition(" ")
+    return f"{first} <span>{rest}</span>" if rest else first
+
+
+def social():
+    return "\n".join(f'      <a href="{x["href"]}" aria-label="{x["label"]}">{ICONS[x["icon"]]}</a>' for x in CONFIG.get("social", []))
+
+
 def render(meta, body):
     out = meta["out"]
     depth = out.count("/")
@@ -128,34 +130,35 @@ def render(meta, body):
         for key, label, href in NAV
     )
     canonical = SITE_URL + "/" + ("" if out == "index.html" else out.replace("index.html", ""))
-    title = meta["title"] if meta.get("nav") == "about" else meta["title"] + " | Ahmad Ammar"
+    title = meta["title"] if meta.get("nav") == "about" else meta["title"] + " | " + NAME
     head = HEAD.format(
         title=title, description=meta["description"], canonical=canonical, root=root,
-        nav=nav, extra_head=meta.get("head", ""), author=meta.get("author", "Ahmad Ammar"),
+        nav=nav, extra_head=meta.get("head", ""), author=meta.get("author", NAME), brand=brand(),
         icon_menu=ICONS["menu"], icon_sun=ICONS["sun"],
     )
     foot = FOOT.format(
-        year=date.today().year, updated=UPDATED,
-        **{"icon_" + k: ICONS[k] for k in ("mail", "github", "linkedin", "substack")},
+        year=date.today().year, updated=UPDATED, name=NAME, social=social(),
+        affiliation=" &middot; " + CONFIG["affiliation"] if CONFIG.get("affiliation") else "",
     )
     body = body.replace("{{root}}", root)
     body = re.sub(r"\{\{icon:(\w+)\}\}", lambda m: ICONS[m.group(1)], body)
     return out, head + body.strip("\n") + "\n" + foot
 
 
-# pages on this host that are not built here: the EGM305 atlas and the sites of other repositories
-# (GitHub Pages serves them under this domain, so this sitemap may list them)
-EXTRA_URLS = ["atlas/", "GBEM/", "marxist-economics/"]
+EXTRA_URLS = CONFIG.get("extra_urls", [])      # pages on this address that are not built here
+HIDDEN = CONFIG.get("not_in_sitemap", [])       # built, but not yet listed for search engines
+SCAN = CONFIG.get("scan_folders", [])           # folders built by another tool, such as guides
 
 
 def sitemap(outs):
-    paths = [o.replace("index.html", "") for o in sorted(outs) if o != "404.html"] + EXTRA_URLS
+    scanned = [p.relative_to(HERE).as_posix() for folder in SCAN for p in (HERE / folder).rglob("index.html")]
+    paths = sorted({o.replace("index.html", "") for o in [*outs, *scanned] if o != "404.html"} - set(HIDDEN)) + EXTRA_URLS
     urls = "\n".join("  <url><loc>{}/{}</loc></url>".format(SITE_URL, p) for p in paths)
     return '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "\n</urlset>\n"
 
 
 def robots():
-    """robots.txt for the whole host (also read for /GBEM/ and /marxist-economics/): allow all, point to the sitemap"""
+    """robots.txt: allow all and point to the sitemap."""
     return f"User-agent: *\nAllow: /\n\nSitemap: {SITE_URL}/sitemap.xml\n"
 
 

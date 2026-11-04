@@ -1,0 +1,4 @@
+$ git push -u origin fix-readme-spelling
+branch 'fix-readme-spelling' set up to track 'origin/fix-readme-spelling'.
+To https://github.com/your-name/their-project.git
+ * [new branch]      fix-readme-spelling -> fix-readme-spelling

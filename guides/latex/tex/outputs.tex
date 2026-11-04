@@ -1,0 +1,80 @@
+\chapter{Slides, Word, web pages and images}
+\label{ch:outputs}
+
+\section{Slides with Beamer}\label{slides-with-beamer}
+
+\textbf{slides.tex}
+
+\lstinputlisting{../../../teaching/latex/examples/slides.tex}
+
+It compiles to three PDF pages, because each reveal is its own page:
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/slides-title.png}
+\caption{Title slide}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/slides-step-1.png}
+\caption{First reveal}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/slides-step-2.png}
+\caption{Second reveal}
+\end{figure}
+
+\texttt{\textless{}1-\textgreater{}} and \texttt{\textless{}2-\textgreater{}} reveal items one click at a time. \texttt{\textbackslash{}usetheme} changes the look.
+
+\section{Posters}\label{posters}
+
+The \texttt{beamerposter}, \texttt{tikzposter} and \texttt{baposter} packages make large single pages. Set the paper size, then build it like any other document.
+
+\section{Word}\label{word}
+
+Journals and co-authors often want \texttt{.docx}. Pandoc converts LaTeX, including citations:
+
+\begin{lstlisting}[language=bash]
+pandoc main.tex -o main.docx --citeproc --bibliography=refs.bib
+\end{lstlisting}
+
+Pandoc writes equations as editable Word equations, and \texttt{-\/-csl} with a style file sets the citation style. Complex layouts and custom commands may not survive, so always check the result, especially tables. My \href{https://github.com/GeospatialGeeks/research-helpers}{research-helpers}\footnote{\texttt{https://github.com/GeospatialGeeks/research-helpers}} package has a \texttt{latex2docx} tool built for this.
+
+\section{Web pages}\label{web-pages}
+
+Pandoc also makes HTML. \texttt{pandoc\ main.tex\ -o\ main.html\ -\/-mathjax} gives one page, with equations drawn by MathJax in the browser. For a whole site, split the document by section, and let a site generator such as MkDocs handle the navigation.
+
+Things need care in conversion, so test the result in a browser. In my own \href{https://github.com/AhmadAmmar/marxist-economics}{pamphlet project}\footnote{\texttt{https://github.com/AhmadAmmar/marxist-economics}}, these all caused real faults:
+
+\begin{itemize}
+\tightlist
+\item
+  Dollar signs for money turned text into maths.
+\item
+  Print-only commands such as \texttt{\textbackslash{}toprule} showed in red inside equations.
+\item
+  Commands the browser doesn\textquotesingle t know, such as \texttt{\textbackslash{}pounds}, needed defining.
+\item
+  Labels needed converting into links and numbers.
+\end{itemize}
+
+\section{PowerPoint and images}\label{powerpoint-and-images}
+
+PowerPoint has no good route from LaTeX, so the reliable method is to compile to PDF, turn each page into an image, then build a deck with those images and speaker notes:
+
+\begin{lstlisting}[language=python]
+from research_helpers.carousel import pdf_to_images, images_to_pptx
+
+images = pdf_to_images("slides.pdf", "images", pixels=1440)
+images_to_pptx(images, "slides.pptx", notes=["Read this aloud."] * len(images))
+\end{lstlisting}
+
+The slides look exact, though you edit them in LaTeX and not in PowerPoint.
+
+\section{One source, many outputs}\label{one-source-many-outputs}
+
+The principle across all of these is to edit one source and generate everything else. The \href{../../git-ci/}{Git and automation guide} shows how to make this happen by itself.
+

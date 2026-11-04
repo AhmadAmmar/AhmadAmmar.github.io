@@ -1,0 +1,128 @@
+\chapter{Running jobs with Slurm}
+\label{ch:slurm}
+
+\section{Two ways to run}\label{two-ways-to-run}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{srun\ ...\ -\/-pty\ bash}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\texttt{sbatch\ script.sh}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Style & Interactive: you get a shell on a compute node & Hand it in and walk away \\
+Good for & Short tests, installs & All real work \\
+If you disconnect & Work stops & It carries on \\
+\end{longtable}
+}
+
+\section{A first job}\label{a-first-job}
+
+Save this as \texttt{first.sh}:
+
+\begin{lstlisting}[language=bash]
+#!/bin/bash
+# The first line (the "shebang") says which program should run this file.
+
+# Lines starting #SBATCH are instructions to Slurm. They must come before any command.
+#SBATCH --job-name=first             # a label for the queue
+#SBATCH --time=00:05:00              # limit: hours:minutes:seconds. The job is stopped at this point
+#SBATCH --cpus-per-task=2            # cores for this job
+#SBATCH --mem=2G                     # memory for this job
+#SBATCH --output=first_%j.out        # where printed output goes; %j becomes the job ID
+
+hostname                             # which node am I on?
+nproc                                # how many cores did I get?
+date                                 # when did it run?
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash]
+# cluster
+sbatch first.sh                # hand it in. Prints: Submitted batch job <jobid>
+squeue -u $USER                # my jobs. PD means pending, R means running
+cat first_<jobid>.out          # read what it printed
+\end{lstlisting}
+
+When your job vanishes from \texttt{squeue}, it has ended, either successfully or not, so always read the log. By default a job starts in the folder from which you submitted it.
+
+\section{The settings you need}\label{the-settings-you-need}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Setting
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Choosing it
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{-\/-job-name} & A label & Short and useful \\
+\texttt{-\/-time} & Hard limit, also \texttt{days-hh:mm:ss} & Run a test, and add a margin. An accurate limit helps a job start sooner \\
+\texttt{-\/-cpus-per-task} & Cores for a threaded program & Only what it can actually use \\
+\texttt{-\/-ntasks} & Separate processes, as in MPI & 1, unless you use MPI \\
+\texttt{-\/-nodes} & Number of nodes & Usually leave it, unless using MPI \\
+\texttt{-\/-mem} or \texttt{-\/-mem-per-cpu} & Memory & Check real use with \texttt{sacct}, then trim it \\
+\texttt{-\/-partition} or \texttt{-p} & Which queue & See below \\
+\texttt{-\/-output}, \texttt{-\/-error} & Files for printed output and errors & Use \texttt{\%x} job name, \texttt{\%j} job ID, \texttt{\%A} array ID, \texttt{\%a} task number. The folder must already exist, or the log is lost \\
+\texttt{-\/-array} & Many tasks; see the next chapter & \\
+\texttt{-\/-gres=gpu:\textless{}type\textgreater{}:1} & A GPU & Only on GPU partitions, and only if your code uses it \\
+\texttt{-\/-mail-type}, \texttt{-\/-mail-user} & Email on start and end & Handy for long jobs; avoid it for arrays \\
+\end{longtable}
+}
+
+The definitive list is in the \href{https://slurm.schedmd.com/sbatch.html}{\texttt{sbatch} manual}\footnote{\texttt{https://slurm.schedmd.com/sbatch.html}}.
+
+Partitions, \textbf{Kelvin2 only}, from \href{https://ni-hpc.github.io/nihpc-documentation/Running\%20Jobs/}{Running Jobs}\footnote{\texttt{https://ni-hpc.github.io/nihpc-documentation/Running\%20Jobs/}}; check there for changes:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Partition & Time limit & For \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{k2-hipri} (default) & 3 hours & Short jobs \\
+\texttt{k2-medpri} & 24 hours & Longer jobs \\
+\texttt{k2-lowpri} & Not listed & Long jobs \\
+\texttt{k2-himem} & 3 days & Very large memory \\
+\texttt{k2-gpu-*} & 3 days & GPUs \\
+\texttt{k2-sandbox} & See \texttt{sinfo} & Testing, per the Green HPC page \\
+\end{longtable}
+}
+
+\section{Watching and managing}\label{watching-and-managing}
+
+\begin{lstlisting}[language=bash]
+# cluster
+squeue -u $USER                 # my queued and running jobs
+squeue -u $USER -h | wc -l      # -h removes the header, so this counts my jobs
+scancel <jobid>                 # cancel a job
+scancel -u $USER                # cancel all my jobs. Careful
+sinfo -s                        # a summary of partitions
+sacct -j <jobid> --format=JobID,Elapsed,MaxRSS,State    # after it ends: time, peak memory, outcome
+\end{lstlisting}
+
+Job states you will see include \texttt{COMPLETED}, \texttt{FAILED}, \texttt{TIMEOUT} (it hit \texttt{-\/-time}), and \texttt{OUT\_OF\_MEMORY}.
+
+\section{Start small}\label{start-small}
+
+Test on a tiny case before running at scale. A good first job proves that it runs on a compute node (\texttt{hostname}), has the cores you asked for (\texttt{nproc}), finds your software, and can see your files. NI-HPC\textquotesingle s \href{https://ni-hpc.github.io/nihpc-documentation/Green\%20HPC/}{Green HPC page}\footnote{\texttt{https://ni-hpc.github.io/nihpc-documentation/Green\%20HPC/}} makes the same point on carbon grounds: failed jobs waste energy too.
+

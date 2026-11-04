@@ -1,0 +1,75 @@
+\chapter{Checklists and cheat sheet}
+\label{ch:checklist}
+
+\section{Starting a project}\label{starting-a-project}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  \texttt{git\ init}, a README and a \texttt{.gitignore}
+\item[$\square$]
+  A folder layout that separates raw data, code and outputs
+\item[$\square$]
+  A recorded environment
+\item[$\square$]
+  A first test
+\item[$\square$]
+  A remote copy and a backup
+\item[$\square$]
+  A licence, if it\textquotesingle s going public
+\end{itemize}
+
+\section{Before sending anything out}\label{before-sending-anything-out}
+
+\begin{itemize}
+\tightlist
+\item[$\square$]
+  All changes committed
+\item[$\square$]
+  Tests and checks pass
+\item[$\square$]
+  Built from clean, on the current source
+\item[$\square$]
+  Every stated number traced to a result
+\item[$\square$]
+  Links and references tested
+\item[$\square$]
+  Read by a person against its sources
+\item[$\square$]
+  Frozen as a dated release, with a tag and checksums
+\item[$\square$]
+  Backed up
+\end{itemize}
+
+\section{Cheat sheet}\label{cheat-sheet}
+
+\begin{lstlisting}[language=bash]
+git status                 # what changed?
+git diff                   # how?
+git add -A                 # choose everything
+git commit -m "Why"        # save a version
+git log --oneline          # list versions
+git switch -c idea         # new branch
+git merge idea             # bring it in
+git tag -a v1 -m "Note"    # name a version
+git push                   # send online
+git pull                   # fetch from online
+git revert <commit>        # undo, keeping history
+python -m pytest           # run tests
+sha256sum -c MANIFEST.sha256   # check files are unchanged
+\end{lstlisting}
+
+\section{References and further reading}\label{references-and-further-reading}
+
+Ammar, A. (n.d.) \emph{Marxian political economy: project source}. \url{https://github.com/AhmadAmmar/marxist-economics}
+
+Ammar, A. (n.d.) \emph{How the pamphlet is built}. \url{https://ahmadammar.github.io/marxist-economics/how-it-works/}
+
+Ammar, A. (n.d.) \emph{How to contribute}. \url{https://ahmadammar.github.io/marxist-economics/contribute/}
+
+Git (n.d.) \emph{Git}. \url{https://git-scm.com}
+
+pre-commit (n.d.) \emph{pre-commit}. \url{https://pre-commit.com}
+
+Zenodo (n.d.) \emph{Zenodo}. \url{https://zenodo.org}
+

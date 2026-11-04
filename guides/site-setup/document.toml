@@ -1,0 +1,24 @@
+name = "site_setup"
+title = "Build your own website with GitHub Pages"
+subtitle = "A step-by-step guide for beginners"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_before", "ch_install", "ch_copy", "ch_edit", "ch_publish", "ch_problems"]
+figures = "../shots/img"
+shared = ["../../shared"]
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Build your own website with GitHub Pages"
+intro = "How to make a personal website from nothing, starting with installing the tools. No experience with code is needed, and each step shows what you should see."
+pdf_url = "/files/Website_guide_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+[web.slugs]
+ch_before = "before-you-start"
+ch_install = "install-the-tools"
+ch_copy = "make-your-copy"
+ch_edit = "make-it-yours"
+ch_publish = "publish-it"
+ch_problems = "when-something-goes-wrong"

@@ -1,0 +1,147 @@
+\chapter{Measuring and good practice}
+\label{ch:practice}
+
+\section{Words for time}\label{words-for-time}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Term
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Meaning
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Wall time & Real time by the clock on the wall \\
+Core time & Sum of the time on each core. 10 tasks of 1 minute each: 1 minute of wall time, 10 of core time \\
+Queue wait & From submitting to starting \\
+Speed-up & Old wall time / new wall time \\
+Efficiency & Speed-up / number of cores used \\
+\end{longtable}
+}
+
+\section{Slurm\textquotesingle s accounts}\label{slurms-accounts}
+
+Slurm records everything, and \texttt{sacct} reads it back.
+
+\begin{lstlisting}[language=bash]
+# cluster
+
+# -X: whole jobs only. -P: separate columns with |, ready for a spreadsheet or pandas.
+# -S: from this date. -o: which columns. > saves to a file
+sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Submit,Start,End,Elapsed,State > jobs.txt
+\end{lstlisting}
+
+Times are in whole seconds, which is too coarse for tasks of a few seconds. Time those from inside the job with \texttt{date\ +\%s.\%N}.
+
+\section{A measured example}\label{a-measured-example}
+
+The same prime-counting program from the exercises, up to 5 million, was run three times at each core count on Kelvin2 and on one laptop (Intel Core i5-10210U, 4 physical cores, doing other work at the time). Each cell is the middle of three runs. All 27 runs found the same answer, 348,513.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}rrrrrr@{}}
+\toprule\noalign{}
+Cores & Kelvin2 & Speed-up & Efficiency & Laptop & Laptop range \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & 46.0 s & 1.0x & 100\% & 209 s & 125 to 255 s \\
+2 & 23.2 s & 2.0x & 99\% & 125 s & 82 to 156 s \\
+4 & 12.0 s & 3.8x & 96\% & 69 s & 66 to 105 s \\
+8 & 6.3 s & 7.3x & 91\% & 61 s & 55 to 66 s \\
+16 & 3.7 s & 12.4x & 78\% & n/a & n/a \\
+\end{longtable}
+}
+
+Three things are worth noticing:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Efficiency falls as cores rise}, because splitting and collecting work takes time. Sixteen cores gave 12.4 times the speed, not 16.
+\item
+  \textbf{The laptop barely gains beyond 4 cores.} It has 4 physical cores, and its 8 are logical threads sharing them. Its times also vary widely, because it was busy, while Kelvin2\textquotesingle s stayed within a fraction of a second. So don\textquotesingle t read a single speed-up figure from this comparison.
+\item
+  \textbf{Many jobs can run at once.} The 15 Kelvin2 jobs were submitted together in 2026, waited 10 seconds, and finished within 57 seconds. One after another they would take about 4.6 minutes.
+\end{itemize}
+
+This program is well suited to splitting up. Yours may not be, so measure it.
+
+To repeat the test:
+
+\begin{lstlisting}[language=bash]
+# cluster, in the starter kit folder
+for r in 1 2 3; do for c in 1 2 4 8 16; do
+  sbatch --job-name=t${c}_${r} --cpus-per-task=$c --mem=4G --time=00:30:00 \
+    --output=logs/timing_${c}_${r}.out --wrap="python3 03_primes.py 5000000"
+done; done
+\end{lstlisting}
+
+\section{Benchmarking fairly}\label{benchmarking-fairly}
+
+Comparing a cluster with a laptop is easy to do badly.
+
+\begin{itemize}
+\tightlist
+\item
+  Compare like with like: same program, version, input and output settings.
+\item
+  Report what you measured. "First task start to last task end" and "submission to finish" are different numbers.
+\item
+  Separate setup from running. If your script copies files between submissions, you are timing the copying. I made this mistake in my own first test.
+\item
+  Repeat. Shared systems vary with load. Report a range, not your best run.
+\item
+  Say what you projected, and what you measured.
+\item
+  Check that the answers match, not just the speed.
+\end{itemize}
+
+\section{Good habits}\label{good-habits}
+
+These follow the spirit of Wilson et al. (2014).
+
+\begin{itemize}
+\tightlist
+\item
+  Keep code in version control, such as git. Keep raw data unchanged, with scripts that make everything else from it.
+\item
+  Never overwrite results. Use dated output folders: \texttt{outputs/\$(date\ +\%Y-\%m-\%d\_\%H\%M)}.
+\item
+  Record versions: \texttt{module\ list}, \texttt{conda\ env\ export}, \texttt{git\ rev-parse\ HEAD}.
+\item
+  Keep job scripts, as they are the record of what you did.
+\item
+  Make jobs restartable.
+\item
+  Read your inputs back: check a run\textquotesingle s settings, such as the simulated period, before you describe it.
+\item
+  Copy results off scratch.
+\end{itemize}
+
+\section{Being a good neighbour}\label{being-a-good-neighbour}
+
+\begin{itemize}
+\tightlist
+\item
+  No heavy work on login nodes.
+\item
+  Ask for what you need, not the maximum. Over-asking makes your own job queue for longer, and blocks others.
+\item
+  Avoid millions of tiny files. Pack them, or write summaries.
+\item
+  Run only what you need. Smarter sampling can replace brute force, as NI-HPC\textquotesingle s \href{https://ni-hpc.github.io/nihpc-documentation/Green\%20HPC/}{Green HPC page}\footnote{\texttt{https://ni-hpc.github.io/nihpc-documentation/Green\%20HPC/}} notes.
+\item
+  Read your cluster\textquotesingle s acceptable use policy.
+\item
+  Acknowledge the service in your papers. \textbf{Kelvin2:} "We are grateful for use of the computing resources from the Northern Ireland High Performance Computing (NI-HPC) service funded by EPSRC (EP/T022175)."
+\item
+  When stuck, write to the support team with your job ID, the exact command and the error message.
+\end{itemize}
+

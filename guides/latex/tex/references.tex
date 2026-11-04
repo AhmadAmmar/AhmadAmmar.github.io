@@ -1,0 +1,55 @@
+\chapter{References, links and bibliographies}
+\label{ch:references}
+
+\section{Cross-references}\label{cross-references}
+
+Give anything numbered a label, then refer to it. The number updates itself if things move.
+
+\begin{lstlisting}[language=latex]
+\section{Method}\label{sec:method}
+See Section~\ref{sec:method} and Equation~\eqref{eq:energy}.
+\end{lstlisting}
+
+The \texttt{\textasciitilde{}} is a non-breaking space, which keeps "Section" and its number on one line. A prefix such as \texttt{sec:}, \texttt{eq:}, \texttt{tab:} or \texttt{fig:} is a helpful habit. The \texttt{cleveref} package can add the word for you: \texttt{\textbackslash{}cref\{sec:method\}}.
+
+\section{Citations}\label{citations}
+
+Keep references in a separate \texttt{.bib} file, and cite them by key:
+
+\textbf{refs.bib}
+
+\lstinputlisting{../../../teaching/latex/examples/report/refs.bib}
+
+\begin{lstlisting}[language=latex]
+\usepackage[round]{natbib}
+...
+As \citet{clarke2001} shows, this holds \citep{clarke2001}.
+...
+\bibliographystyle{plainnat}
+\bibliography{refs}
+\end{lstlisting}
+
+The bibliography tool picks up only the items you cite. Zotero can export a \texttt{.bib} file, and its Better BibTeX add-on keeps that file updated. \texttt{biblatex} with the \texttt{biber} tool is a more flexible alternative, while journals often supply their own \texttt{.bst} style for BibTeX.
+
+\section{A complete small report}\label{a-complete-small-report}
+
+This pulls together everything so far: sections, equations, a table, a chart, cross-references, a bibliography and links.
+
+\textbf{main.tex}
+
+\lstinputlisting{../../../teaching/latex/examples/report/main.tex}
+
+It compiles to these two pages. The links are coloured teal, and every number comes from a label.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/report-page-1.png}
+\caption{Page 1}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/report-page-2.png}
+\caption{Page 2}
+\end{figure}
+

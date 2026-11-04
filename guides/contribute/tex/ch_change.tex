@@ -1,0 +1,74 @@
+\chapter{Make the change}
+\label{ch:change}
+
+The examples below use a made-up project called \texttt{their-project}. Its README says \emph{CVS} where it means \emph{CSV}. The text printed under each command came from really running that command, with the addresses replaced by sample ones.
+
+\section{Fork the project}
+
+On the project's GitHub page, press \textbf{Fork} near the top right, then press \textbf{Create fork} on the page that follows. You now have your own copy at \texttt{github.com/your-name/their-project}. It is yours, so you can do anything to it without affecting the original.
+
+%SHOT{in_fork.png}{The page for creating a fork.}
+
+\section{Download your copy}
+
+On your fork's page, press the green \textbf{Code} button and copy the HTTPS address. Then, in a VS Code terminal, clone it, using your own address:
+
+\lstinputlisting{../../shared/outputs/oss_clone.txt}
+
+Move into the folder and open it:
+
+\begin{lstlisting}[language=bash]
+cd their-project
+code .
+\end{lstlisting}
+
+\section{Tell Git about the original project}
+
+Your computer knows about your fork, which Git calls \texttt{origin}. It also needs to know about the original, which by custom is called \texttt{upstream}, so that you can collect new work from it later. Use the original project's address here:
+
+\lstinputlisting{../../shared/outputs/oss_remote.txt}
+
+\section{Make a branch}
+
+Never work directly on \texttt{main}. A branch keeps this one change apart, so you can run several proposals at once and keep \texttt{main} matching the original. Give it a name that says what it does:
+
+\lstinputlisting{../../shared/outputs/oss_branch.txt}
+
+\section{Change the file and check it}
+
+Open the file in VS Code, change it and save it. Then ask Git to show you exactly what is different. Lines starting with \texttt{-} were removed and lines starting with \texttt{+} were added. Check that nothing else has changed by accident, such as stray spaces.
+
+\lstinputlisting{../../shared/outputs/oss_diff.txt}
+
+If you changed code, run the project's tests. \texttt{CONTRIBUTING.md} or the README normally says how. Many Python projects use the commands below, where the first makes an isolated workspace, the second installs the project into it, and the third runs its tests:
+
+\begin{lstlisting}[language=bash]
+python -m venv .venv
+.venv\Scripts\activate
+pip install -e .
+pip install pytest
+pytest
+\end{lstlisting}
+
+The second line is for Windows. On a Mac or on Linux, it is \texttt{source .venv/bin/activate}.
+
+If you fixed a mistake in code, add a test too, as maintainers look for one. A test is a small piece of code that checks a known answer, and it fails if someone breaks that behaviour later. Here is one for a function that works out the area of a circle:
+
+\begin{lstlisting}[language=python]
+from areas import circle_area
+
+def test_circle_area_of_radius_two():
+    assert abs(circle_area(2) - 12.566) < 0.01
+\end{lstlisting}
+
+\section{Save a version}
+
+Choose only the files you meant to change, then write a note that says what the change does:
+
+\lstinputlisting{../../shared/outputs/oss_commit.txt}
+
+\section{Send it to your fork}
+
+\lstinputlisting{../../shared/outputs/oss_push.txt}
+
+Git prints an address for opening a pull request, which you can use in the next chapter.

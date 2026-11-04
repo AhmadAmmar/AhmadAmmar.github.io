@@ -1,0 +1,126 @@
+\chapter{The command line}
+\label{ch:shell}
+
+A \textbf{shell} reads what you type and runs it. On Windows you will probably use PowerShell to connect; on the cluster, you will be using \texttt{bash}. macOS and Linux terminals work almost the same as \texttt{bash}. For a longer course, see Shotts (2019) or \href{https://swcarpentry.github.io/shell-novice/}{Software Carpentry}\footnote{\texttt{https://swcarpentry.github.io/shell-novice/}}.
+
+\section{Anatomy of a command}\label{anatomy-of-a-command}
+
+\begin{lstlisting}[language=bash]
+# cluster
+ls -l ~/project
+\end{lstlisting}
+
+\texttt{ls} is the command: what to do (list files). \texttt{-l} is an option: how to do it (long format). \texttt{\textasciitilde{}/project} is the argument: what to act on. Spaces separate the parts, so a path containing a space needs double quotes, or the shell reads it as two things.
+
+\section{Paths}\label{paths}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Symbol & Meaning \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{\textasciitilde{}} & Your home folder \\
+\texttt{.} and \texttt{..} & This folder, and the one above \\
+\texttt{/} & Top of the Linux file tree, and the separator between folders \\
+\texttt{*} & Wildcard: \texttt{case\_*.json} matches every such file \\
+\texttt{\$HOME}, \texttt{\$USER} & Variables that hold your home folder and username \\
+\end{longtable}
+}
+
+Linux names are case-sensitive, so \texttt{Data} and \texttt{data} differ. Windows writes \texttt{C:\textbackslash{}Users\textbackslash{}me}, and Linux writes \texttt{/users/me}.
+
+\section{Commands worth knowing}\label{commands-worth-knowing}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Command
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+What it does
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{pwd} & Print the folder you are in \\
+\texttt{ls}, \texttt{ls\ -l}, \texttt{ls\ -t} & List files; with details; newest first \\
+\texttt{cd\ folder}, \texttt{cd\ ..}, \texttt{cd} & Go to a folder; up one; home \\
+\texttt{mkdir\ -p\ a/b} & Make folders, including parents, with no error if they exist \\
+\texttt{cp\ a\ b}, \texttt{cp\ -r\ a\ b} & Copy a file; \texttt{-r} copies a folder and its contents \\
+\texttt{mv\ a\ b} & Move or rename \\
+\texttt{rm\ file} & Delete. \textbf{There is no recycle bin.} Look first with \texttt{ls} \\
+\texttt{ln\ -s\ target\ name} & Make a shortcut (a symbolic link) \\
+\texttt{cat}, \texttt{head\ -5}, \texttt{tail\ -20} & Print a whole file; its first 5 lines; its last 20 \\
+\texttt{less\ file} & Read a long file page by page; \texttt{q} quits \\
+\texttt{wc\ -l} & Count lines \\
+\texttt{grep\ "text"\ file} & Show lines containing text. \texttt{-i} ignores case, \texttt{-l} lists only file names \\
+\texttt{sed\ -i\ \textquotesingle{}s/old/new/\textquotesingle{}\ file} & Replace text in a file \\
+\texttt{chmod\ u+x\ file} & Let yourself (\texttt{u}) execute (\texttt{x}) a file. \texttt{chmod\ -R\ u+w\ folder} lets you write to everything in a folder \\
+\texttt{tar\ czf\ a.tgz\ folder} & Pack a folder into one compressed archive (create, gzip, file) \\
+\texttt{tar\ xzf\ a.tgz} & Unpack it (extract) \\
+\texttt{df\ -h\ .}, \texttt{du\ -sh\ folder} & Free space on this disk; size of a folder \\
+\texttt{hostname}, \texttt{nproc} & Which computer am I on? How many cores may I use? \\
+\texttt{man\ ls} & The manual for a command; \texttt{q} quits \\
+\end{longtable}
+}
+
+To edit on the cluster, \texttt{nano\ file} is the easiest editor if it is installed: the keys are listed at the bottom. NI-HPC\textquotesingle s guide uses \texttt{vi}, which is powerful but odd at first.
+
+\section{Joining commands}\label{joining-commands}
+
+\begin{lstlisting}[language=bash]
+# cluster
+
+# | (a pipe) feeds one command's output into the next: count the log files
+ls logs/*.out | wc -l
+
+# > saves output to a file, replacing what was there; >> adds to the end
+ls -l > listing.txt
+
+# && runs the second command only if the first succeeded
+mkdir -p results && cd results
+
+# ; runs the second command whatever happened to the first
+cd results; ls
+
+# 2>/dev/null throws away error messages (stream 2) instead of printing them
+ls /no/such/folder 2>/dev/null
+
+# $( ) puts one command's output inside another: show the newest log
+cat "$(ls -t logs/*.out | head -1)"
+\end{lstlisting}
+
+\section{Variables and loops}\label{variables-and-loops}
+
+\begin{lstlisting}[language=bash]
+# cluster
+
+# Set a variable. No spaces around the =
+DATA=/mnt/scratch2/users/$USER/data
+
+# Use it with $. Double quotes keep it in one piece even if it contains a space
+ls "$DATA"
+
+# A for loop: repeat for each folder; $d holds the current one
+for d in results/*/; do
+  # basename strips the path; wc -l counts the files listed
+  echo "$(basename "$d"): $(ls "$d" | wc -l) files"
+done
+\end{lstlisting}
+
+\section{Windows line endings}\label{windows-line-endings}
+
+Windows ends each line of text with two invisible characters (carriage return, line feed), and Linux with one. A script written on Windows can fail on Linux with baffling errors such as \texttt{\$\textquotesingle{}\textbackslash{}r\textquotesingle{}:\ command\ not\ found}. Fix it on the cluster:
+
+\begin{lstlisting}[language=bash]
+# cluster
+# In each line, replace a carriage return (\r) at the end of the line ($) with nothing
+sed -i 's/\r$//' myscript.sh
+\end{lstlisting}
+

@@ -1,0 +1,86 @@
+\chapter{Data, backups and releases}
+\label{ch:backups}
+
+\section{Data}\label{data}
+
+Git isn\textquotesingle t built for large files, so keep data out of it, and record what you used.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Never overwrite.} Write each new run to a dated folder, such as \texttt{results\_2026-10-31/}.
+\item
+  \textbf{Record checksums}, which are fingerprints that change if a file changes: \texttt{sha256sum\ *.csv\ \textgreater{}\ MANIFEST.sha256}, and check later with \texttt{sha256sum\ -c\ MANIFEST.sha256}.
+\item
+  \textbf{Note the source} of each dataset: its address, date and licence.
+\end{itemize}
+
+\textbf{What you should see when nothing has changed}
+
+\begin{lstlisting}[language=text]
+$ sha256sum -c MANIFEST.sha256
+a.csv: OK
+b.csv: OK
+\end{lstlisting}
+
+\textbf{What you should see after someone edits b.csv}
+
+\begin{lstlisting}[language=text]
+$ sha256sum -c MANIFEST.sha256
+a.csv: OK
+b.csv: FAILED
+sha256sum: WARNING: 1 computed checksum did NOT match
+\end{lstlisting}
+
+\section{Backups}\label{backups}
+
+Git is not a backup until a copy exists elsewhere, and a private repository on one laptop can be lost with that laptop. The common rule is \textbf{3-2-1}: three copies, on two kinds of storage, with one somewhere else.
+
+Syncing services such as OneDrive aren\textquotesingle t enough on their own, because they also sync deletions and corruption. And \textbf{a backup you\textquotesingle ve never restored is only a hope}, so test one:
+
+\begin{lstlisting}[language=bash]
+git bundle create project.bundle --all     # one file holding a repository's whole history
+git clone project.bundle restore-test      # prove that it comes back
+\end{lstlisting}
+
+\texttt{git\ bundle\ create} prints nothing when it runs inside a script, as here, and shows progress when you type it yourself. Then read the restored history to check it:
+
+\textbf{What you should see}
+
+\begin{lstlisting}[language=text]
+$ git clone project.bundle restore-test
+Cloning into 'restore-test'...
+
+$ git -C restore-test log --oneline -3
+4912949 Colleague edit
+b889be1 Merge left, keeping 14
+a0a50db Main change
+\end{lstlisting}
+
+Databases and uploaded files don\textquotesingle t live in Git, so they need their own backups, including an encrypted copy off-site.
+
+\section{Releases}\label{releases}
+
+Whenever something leaves your hands, freeze a copy.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Commit everything, so that the source is exact.
+\item
+  Run all the checks.
+\item
+  Build from clean.
+\item
+  Put the outputs in a dated, read-only folder, with checksums.
+\item
+  Tag the commit.
+\end{enumerate}
+
+Then, for anything a reader sends back, you can find precisely what they had. If it needs correcting, make a new release and log the reason, without editing the old one.
+
+\section{Secrets}\label{secrets}
+
+Passwords and keys never go in a repository, because history keeps them even after deletion. Use environment variables or a secrets store. If one gets committed, treat it as exposed: change it first, then clean up.
+

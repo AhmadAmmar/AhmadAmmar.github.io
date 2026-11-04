@@ -1,0 +1,23 @@
+name = "contribute"
+title = "Contribute to an open-source project"
+subtitle = "A step-by-step guide for beginners"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_idea", "ch_install", "ch_choose", "ch_change", "ch_propose"]
+figures = "../shots/img"
+shared = ["../../shared"]
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Contribute to an open-source project"
+intro = "How to propose your first change to an open-source project, from installing the tools to having it accepted. No experience with code is needed."
+pdf_url = "/files/Contributing_guide_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+[web.slugs]
+ch_idea = "what-contributing-means"
+ch_install = "install-the-tools"
+ch_choose = "choose-a-project"
+ch_change = "make-the-change"
+ch_propose = "propose-it"

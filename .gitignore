@@ -2,3 +2,9 @@ __pycache__/
 *.pyc
 .DS_Store
 Thumbs.db
+build/
+web_figs.*
+*.aux
+*.log
+*.toc
+*.out

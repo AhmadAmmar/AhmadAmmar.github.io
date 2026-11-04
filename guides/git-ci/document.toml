@@ -1,0 +1,24 @@
+name = "git_ci"
+title = "Git, testing and automation for research"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["git_basics", "history", "github", "testing", "ci", "pipelines", "backups", "checklist"]
+figures = "../../teaching/git-ci"
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Git, testing and automation for research"
+intro_tex = "intro.tex"
+pdf_url = "/files/Git_CI_guide_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+[web.slugs]
+git_basics = "git-basics"
+history = "history"
+github = "github"
+testing = "testing"
+ci = "ci"
+pipelines = "pipelines"
+backups = "backups"
+checklist = "checklist"

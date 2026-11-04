@@ -1,0 +1,51 @@
+\chapter{Publish it}
+\label{ch:publish}
+
+\section{Save a version and send it to GitHub}
+
+Publishing takes three commands. \texttt{git add} chooses what to save, \texttt{git commit} saves a version with a note, and \texttt{git push} sends it to GitHub. First, ask Git what has changed:
+
+\lstinputlisting{../../shared/outputs/git_status_new.txt}
+
+Your list will be longer, but it will have the same form. Files in red are changes that are not yet chosen. Now choose everything and save a version. The words in quotation marks are your note, so say what you did.
+
+\begin{lstlisting}[language=bash]
+git add .
+git commit -m "Add my details and first pages"
+git push
+\end{lstlisting}
+
+The full stop after \texttt{add} means everything in this folder. Here is what the same steps printed for a small example with one file:
+
+\lstinputlisting{../../shared/outputs/git_add_commit.txt}
+
+\lstinputlisting{../../shared/outputs/git_push.txt}
+
+The first time, a window will ask you to sign in to GitHub. Choose to sign in with your browser. If Git says \emph{Please tell me who you are}, go back to the install chapter and run the two \texttt{git config} lines.
+
+\section{Switch on GitHub Pages}
+
+On your repository's GitHub page, press \textbf{Settings} in the row of tabs near the top. In the list on the left, press \textbf{Pages}. Under \textbf{Build and deployment}, set \textbf{Source} to \textbf{Deploy from a branch}. Under \textbf{Branch}, choose \texttt{main} and the folder \texttt{/ (root)}, then press \textbf{Save}.
+
+%SHOT{in_pages_settings.png}{The Pages settings, set to deploy from the main branch.}
+
+\section{See it online}
+
+GitHub now needs a minute or two to publish. To watch, press the \textbf{Actions} tab of your repository, where a yellow dot means it is working and a green tick means it has finished. Then open \texttt{https://your-name.github.io}. If you see an error page, wait two minutes and refresh, because a new site takes a moment to appear.
+
+Your site is now public, and anyone with the address can read it.
+
+\section{The routine from now on}
+
+Every later change follows the same few steps, and this is all you need day to day:
+
+\begin{lstlisting}[language=bash]
+python build.py
+git add .
+git commit -m "Say what changed"
+git push
+\end{lstlisting}
+
+Each commit is kept, so you can see every earlier version in the repository's \textbf{Commits} page. Should you break something, the old version is still there.
+
+\begin{figure}[H]\centering\includegraphics[width=\linewidth]{web_commits.png}\caption{The list of saved versions on GitHub. Each entry shows its note and date, and can be opened to see exactly what changed.}\end{figure}

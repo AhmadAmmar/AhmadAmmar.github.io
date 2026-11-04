@@ -1,194 +1,1524 @@
+
 <!doctype html>
-<html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A. Part I: formulas, derivations and symbols | Ahmad Ammar</title>
-<meta name="description" content="A. Part I: formulas, derivations and symbols: The Atmosphere, a book worked step by step.">
-<meta name="author" content="Ahmad Ammar">
-<link rel="canonical" href="https://ahmadammar.github.io/teaching/atmosphere/app-p1/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="A. Part I: formulas, derivations and symbols | Ahmad Ammar">
-<meta property="og:description" content="A. Part I: formulas, derivations and symbols: The Atmosphere, a book worked step by step.">
-<meta property="og:url" content="https://ahmadammar.github.io/teaching/atmosphere/app-p1/">
-<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
-<link rel="stylesheet" href="../../../assets/css/site.css">
-<script src="../../../assets/js/site.js"></script>
-</head>
-<body>
-<a class="skip" href="#content">Skip to content</a>
-<header class="site-header">
-  <div class="bar">
-    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
-    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <nav class="nav" id="site-nav" aria-label="Main">
-      <a href="../../../index.html">About</a>
-      <a href="../../../research.html">Research</a>
-      <a href="../../../teaching.html" aria-current="page">Teaching</a>
-      <a href="../../../projects.html">Projects</a>
-      <a href="../../../writing.html">Writing</a>
-      <a href="../../../cv.html">CV</a>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="prev" href="../p3-ch11_revision/">
+      
+      
+        <link rel="next" href="../app-p2/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.74">
+    
+    
+      
+        <title>A. Part I: formulas, derivations and symbols - The Atmosphere</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ab2de0c.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../rh.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="The Atmosphere" class="md-header__button md-logo" aria-label="The Atmosphere" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Atmosphere
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A. Part I: formulas, derivations and symbols
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="The Atmosphere" class="md-nav__button md-logo" aria-label="The Atmosphere" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    The Atmosphere
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../how-to-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. How to use this book
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch01_glance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. Part I at a glance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch02_pressure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. How much air is above you: the halving rule
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch03_oxygen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Reading the graph, and oxygen at altitude
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch04_temperature/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Temperature with height: the standard atmosphere
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch05_soundings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Two soundings: inversions and the tropopause
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch06_lapse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Lapse rates and the height of the troposphere
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch07_stability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Pressure aloft, buoyancy and stability
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch08_climates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Two soundings, two climates
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1-ch09_revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  10. Putting Part I together
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch01_orientation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  11. Part II at a glance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch02_radiation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  12. What radiation is
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch03_wien/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  13. Wien's law and the temperature of the Sun
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch04_stefan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  14. The Stefan–Boltzmann law: how much the Sun and the Earth emit
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch05_spectra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  15. Plotting three planetary spectra
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch06_planets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  16. The temperatures of the planets
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch07_balance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  17. The Earth's energy balance and the greenhouse effect
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch08_sunangle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  18. Sun angle, solar intensity and the seasons
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2-ch09_revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  19. Putting Part II together
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch01_orientation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  20. Part III at a glance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch02_moisture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  21. Moisture in the air: mixing ratio and relative humidity
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch03_dewpoint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  22. The dew point
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch04_forces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  23. Why air moves: the three forces
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch05_surfaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  24. Pressure surfaces and the pressure gradient
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch06_geostrophic/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  25. The geostrophic wind
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch07_friction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  26. Wind near the ground: friction
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch08_station/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  27. Reading a station model
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch09_streamlines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  28. Streamlines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch10_fronts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  29. Fronts and the weather map
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3-ch11_revision/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  30. Putting Part III together
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  A. Part I: formulas, derivations and symbols
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  A. Part I: formulas, derivations and symbols
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.1 Formulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:derivations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.2 Derivations for the curious
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A.2 Derivations for the curious">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p1-sec:der-expo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.2.1 Pressure falls exponentially with height
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p1-sec:der-dalr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.2.2 The dry adiabatic lapse rate and potential temperature
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
     </nav>
-    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-  </div>
-</header>
-<main id="content">
-<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/atmosphere/">The Atmosphere</a> / A. Part I: formulas, derivations and symbols</nav>
-<header class="page-head">
-  <p class="eyebrow">The Atmosphere</p>
-  <h1>A. Part I: formulas, derivations and symbols</h1>
-</header>
-<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
-<div class="cv-layout">
-  <aside class="toc" aria-label="Chapters">
-    <p class="title">Chapters</p>
-    <ol>
-      <li><a href="../../../teaching/atmosphere/">The Atmosphere</a></li>
-      <li><a href="../../../teaching/atmosphere/how-to-use/">1. How to use this book</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch01_glance/">2. Part I at a glance</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch02_pressure/">3. How much air is above you: the halving rule</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch03_oxygen/">4. Reading the graph, and oxygen at altitude</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch04_temperature/">5. Temperature with height: the standard atmosphere</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch05_soundings/">6. Two soundings: inversions and the tropopause</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch06_lapse/">7. Lapse rates and the height of the troposphere</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch07_stability/">8. Pressure aloft, buoyancy and stability</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch08_climates/">9. Two soundings, two climates</a></li>
-      <li><a href="../../../teaching/atmosphere/p1-ch09_revision/">10. Putting Part I together</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch01_orientation/">11. Part II at a glance</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch02_radiation/">12. What radiation is</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch03_wien/">13. Wien's law and the temperature of the Sun</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch04_stefan/">14. The Stefan–Boltzmann law: how much the Sun and the Earth emit</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch05_spectra/">15. Plotting three planetary spectra</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch06_planets/">16. The temperatures of the planets</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch07_balance/">17. The Earth's energy balance and the greenhouse effect</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch08_sunangle/">18. Sun angle, solar intensity and the seasons</a></li>
-      <li><a href="../../../teaching/atmosphere/p2-ch09_revision/">19. Putting Part II together</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch01_orientation/">20. Part III at a glance</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch02_moisture/">21. Moisture in the air: mixing ratio and relative humidity</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch03_dewpoint/">22. The dew point</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch04_forces/">23. Why air moves: the three forces</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch05_surfaces/">24. Pressure surfaces and the pressure gradient</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch06_geostrophic/">25. The geostrophic wind</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch07_friction/">26. Wind near the ground: friction</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch08_station/">27. Reading a station model</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch09_streamlines/">28. Streamlines</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch10_fronts/">29. Fronts and the weather map</a></li>
-      <li><a href="../../../teaching/atmosphere/p3-ch11_revision/">30. Putting Part III together</a></li>
-      <li><a href="../../../teaching/atmosphere/app-p1/" aria-current="page">A. Part I: formulas, derivations and symbols</a></li>
-      <li><a href="../../../teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols</a></li>
-      <li><a href="../../../teaching/atmosphere/app-p3/">C. Part III: formulas, stations, derivations and symbols</a></li>
-      <li><a href="../../../teaching/atmosphere/app-constants/">D. Constants, units and conversions</a></li>
-    </ol>
-    <p><a href="../../../teaching/atmosphere/full/">Whole guide on one page</a></p>
-    <p><a href="../../../files/The_Atmosphere_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
-  </aside>
-  <article class="hpc-body">
-<h2 id="p1-sec:formulas">A.1 Formulas</h2>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.3 Symbols
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:about" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.4 About the figures and the data
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        References
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-p2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  B. Part II: formulas, derivations, data and symbols
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-p3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  C. Part III: formulas, stations, derivations and symbols
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-constants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  D. Constants, units and conversions
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Whole guide
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://ahmadammar.github.io/teaching.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  All guides
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:formulas" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.1 Formulas
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:derivations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.2 Derivations for the curious
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="A.2 Derivations for the curious">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#p1-sec:der-expo" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.2.1 Pressure falls exponentially with height
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#p1-sec:der-dalr" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.2.2 The dry adiabatic lapse rate and potential temperature
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:symbols" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.3 Symbols
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p1-sec:about" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        A.4 About the figures and the data
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        References
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="a-part-i-formulas-derivations-and-symbols">A. Part I: formulas, derivations and symbols<a class="headerlink" href="#a-part-i-formulas-derivations-and-symbols" title="Permanent link">&para;</a></h1>
+<h2 id="p1-sec:formulas">A.1 Formulas<a class="headerlink" href="#p1-sec:formulas" title="Permanent link">&para;</a></h2>
 <p>Every formula used in Part I, with the equation number where it is introduced and explained.</p>
 <div class="center">
-<table>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 33%" />
-<col style="width: 33%" />
-</colgroup>
-<thead>
-<tr>
-<th style="text-align: left;"><strong>Quantity</strong></th>
-<th style="text-align: left;"><strong>Formula</strong></th>
-<th style="text-align: left;"><strong>Where, and what for</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Ideal gas law</td>
-<td style="text-align: left;"><span class="math inline">\(p=\rho R_dT\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>); density from pressure and temperature (Q13)</td>
-</tr>
-<tr>
-<td style="text-align: left;">Hydrostatic balance</td>
-<td style="text-align: left;"><span class="math inline">\(\Delta p/\Delta z=-\rho g\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>); why pressure falls with height</td>
-</tr>
-<tr>
-<td style="text-align: left;">Exponential pressure</td>
-<td style="text-align: left;"><span class="math inline">\(p=p_0e^{-z/H}\)</span>, <span class="math inline">\(H=R_dT/g\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>); scale height (Q1, Q12)</td>
-</tr>
-<tr>
-<td style="text-align: left;">Fraction of the atmosphere above</td>
-<td style="text-align: left;"><span class="math inline">\(f=2^{-z/5.6}\)</span> (<span class="math inline">\(z\)</span> in km)</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>); Q1, Q3</td>
-</tr>
-<tr>
-<td style="text-align: left;">After <span class="math inline">\(n\)</span> halvings</td>
-<td style="text-align: left;"><span class="math inline">\(f_n=1/2^{n}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:halving">3.5</a>); Table <a href="/teaching/atmosphere/p1-ch02_pressure/#p1-tab:table1">3.1</a></td>
-</tr>
-<tr>
-<td style="text-align: left;">Pressure from the fraction</td>
-<td style="text-align: left;"><span class="math inline">\(p=1000\,f\)</span> hPa</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:pressure">3.6</a>); Q2, Q3</td>
-</tr>
-<tr>
-<td style="text-align: left;">Partial pressure of oxygen</td>
-<td style="text-align: left;"><span class="math inline">\(p_{\mathrm{O_2}}=0.21\,p\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>); Q4</td>
-</tr>
-<tr>
-<td style="text-align: left;">Lapse rate</td>
-<td style="text-align: left;"><span class="math inline">\(\Gamma=-\Delta T/\Delta z\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:lapse">5.1</a>); Q5, Q7–Q10</td>
-</tr>
-<tr>
-<td style="text-align: left;">Standard atmosphere</td>
-<td style="text-align: left;"><span class="math inline">\(T=15-6.5\,z\)</span> to 11 km, then <span class="math inline">\(-56.5\)</span> <span class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:stdT">5.2</a>); Q5</td>
-</tr>
-<tr>
-<td style="text-align: left;">Scale height from data</td>
-<td style="text-align: left;"><span class="math inline">\(H=(z_2-z_1)/\ln(p_1/p_2)\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:Hdata">8.1</a>); Q12</td>
-</tr>
-<tr>
-<td style="text-align: left;">Dry adiabatic lapse rate</td>
-<td style="text-align: left;"><span class="math inline">\(\Gamma_d=g/c_p=9.8\)</span> <span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>); Q13</td>
-</tr>
-<tr>
-<td style="text-align: left;">Potential temperature</td>
-<td style="text-align: left;"><span class="math inline">\(\theta=T(1000/p)^{0.286}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>); Q13</td>
-</tr>
-<tr>
-<td style="text-align: left;">Kelvin and Celsius</td>
-<td style="text-align: left;"><span class="math inline">\(T_{\mathrm{K}}=T_{\ensuremath{^{\circ}\mathrm{C}}}+273.15\)</span></td>
-<td style="text-align: left;">§ <a href="/teaching/atmosphere/how-to-use/#sec:conventions">1.3</a></td>
-</tr>
-</tbody>
-</table>
+
+| **Quantity** | **Formula** | **Where, and what for** |
+|:---|:---|:---|
+| Ideal gas law | $p=\rho R_dT$ | Eq. ([3.1](p1-ch02_pressure.md#p1-eq:gaslaw)); density from pressure and temperature (Q13) |
+| Hydrostatic balance | $\Delta p/\Delta z=-\rho g$ | Eq. ([3.2](p1-ch02_pressure.md#p1-eq:hydro)); why pressure falls with height |
+| Exponential pressure | $p=p_0e^{-z/H}$, $H=R_dT/g$ | Eq. ([3.3](p1-ch02_pressure.md#p1-eq:expo)); scale height (Q1, Q12) |
+| Fraction of the atmosphere above | $f=2^{-z/5.6}$ ($z$ in km) | Eq. ([3.4](p1-ch02_pressure.md#p1-eq:fraction)); Q1, Q3 |
+| After $n$ halvings | $f_n=1/2^{n}$ | Eq. ([3.5](p1-ch02_pressure.md#p1-eq:halving)); Table [3.1](p1-ch02_pressure.md#p1-tab:table1) |
+| Pressure from the fraction | $p=1000\,f$ hPa | Eq. ([3.6](p1-ch02_pressure.md#p1-eq:pressure)); Q2, Q3 |
+| Partial pressure of oxygen | $p_{\mathrm{O_2}}=0.21\,p$ | Eq. ([4.1](p1-ch03_oxygen.md#p1-eq:dalton)); Q4 |
+| Lapse rate | $\Gamma=-\Delta T/\Delta z$ | Eq. ([5.1](p1-ch04_temperature.md#p1-eq:lapse)); Q5, Q7–Q10 |
+| Standard atmosphere | $T=15-6.5\,z$ to 11 km, then $-56.5$ $^{\circ}\mathrm{C}$ | Eq. ([5.2](p1-ch04_temperature.md#p1-eq:stdT)); Q5 |
+| Scale height from data | $H=(z_2-z_1)/\ln(p_1/p_2)$ | Eq. ([8.1](p1-ch07_stability.md#p1-eq:Hdata)); Q12 |
+| Dry adiabatic lapse rate | $\Gamma_d=g/c_p=9.8$ $^{\circ}\mathrm{C\,km^{-1}}$ | Eq. ([8.2](p1-ch07_stability.md#p1-eq:dalr)); Q13 |
+| Potential temperature | $\theta=T(1000/p)^{0.286}$ | Eq. ([8.3](p1-ch07_stability.md#p1-eq:theta)); Q13 |
+| Kelvin and Celsius | $T_{\mathrm{K}}=T_{\ensuremath{^{\circ}\mathrm{C}}}+273.15$ | § [1.3](how-to-use.md#sec:conventions) |
+
 </div>
-<h2 id="p1-sec:derivations">A.2 Derivations for the curious</h2>
-<h3 id="p1-sec:der-expo">A.2.1 Pressure falls exponentially with height</h3>
-<p>Start from hydrostatic balance, Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>), written for a very thin layer, <span class="math inline">\(dp/dz=-\rho g\)</span>, and replace the density using the gas law, Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>), <span class="math inline">\(\rho=p/(R_dT)\)</span>: <span class="math display">\[\frac{dp}{dz}=-\frac{g}{R_dT}\,p\qquad\Longrightarrow\qquad\frac{dp}{p}=-\frac{dz}{H},\qquad H=\frac{R_dT}{g}.\]</span> The rate of fall of <span class="math inline">\(p\)</span> is proportional to <span class="math inline">\(p\)</span> itself. If <span class="math inline">\(T\)</span> (and so <span class="math inline">\(H\)</span>) is taken as constant, integrating from sea level (<span class="math inline">\(z=0\)</span>, <span class="math inline">\(p=p_0\)</span>) to height <span class="math inline">\(z\)</span> gives <span class="math inline">\(\ln(p/p_0)=-z/H\)</span>, that is <span class="math display">\[p=p_0\,e^{-z/H},\]</span> which is Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>). The pressure halves when <span class="math inline">\(e^{-z/H}=\tfrac12\)</span>, at <span class="math inline">\(z_{1/2}=H\ln2=0.693\,H\)</span>; the 5.6 km corresponds to <span class="math inline">\(H=8.08\)</span> km. Writing the same law for two levels and dividing, <span class="math inline">\(p_1/p_2=e^{(z_2-z_1)/H}\)</span>, so <span class="math inline">\(\ln(p_1/p_2)=(z_2-z_1)/H\)</span>: rearranged, this is Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:Hdata">8.1</a>), which gives the scale height of a layer from two lines of a sounding.</p>
-<p><strong>Without calculus.</strong> Divide the atmosphere into thin slabs, each <span class="math inline">\(\Delta z\)</span> thick. By Eqs. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>) and (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>), crossing one slab lowers the pressure by <span class="math inline">\(\Delta p=\rho g\,\Delta z=p\,\Delta z/H\)</span>: the same <em>fraction</em> <span class="math inline">\(\Delta z/H\)</span> of whatever pressure there is. Removing the same fraction again and again is exactly what an exponential does.</p>
-<h3 id="p1-sec:der-dalr">A.2.2 The dry adiabatic lapse rate and potential temperature</h3>
-<p>The first law of thermodynamics for one kilogram of air says that heat added goes into warming the air and into the work it does as it expands: <span class="math inline">\(dq=c_p\,dT-dp/\rho\)</span>. In an adiabatic process no heat is added, <span class="math inline">\(dq=0\)</span>, so <span class="math display">\[c_p\,dT=\frac{dp}{\rho}.\]</span> For air moving vertically through an atmosphere in hydrostatic balance, <span class="math inline">\(dp=-\rho g\,dz\)</span>, Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>). Substituting, <span class="math display">\[c_p\,dT=-g\,dz\qquad\Longrightarrow\qquad\frac{dT}{dz}=-\frac{g}{c_p}=-\frac{9.81}{1004}=-0.0098\ \mathrm{K\,m^{-1}},\]</span> which is Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>): dry air cools by 9.8 <span class="math inline">\(^{\circ}\mathrm{C}\)</span> per km as it rises and warms by the same amount as it sinks. Alternatively, dividing <span class="math inline">\(c_p\,dT=dp/\rho\)</span> by <span class="math inline">\(T\)</span> and using <span class="math inline">\(1/\rho=R_dT/p\)</span> gives <span class="math inline">\(c_p\,dT/T=R_d\,dp/p\)</span>; integrating from <span class="math inline">\((T,p)\)</span> to <span class="math inline">\((\theta,1000\ \ensuremath{\mathrm{hPa}})\)</span>, <span class="math display">\[c_p\ln\frac{\theta}{T}=R_d\ln\frac{1000}{p}\qquad\Longrightarrow\qquad\theta=T\left(\frac{1000}{p}\right)^{R_d/c_p},\]</span> which is Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>), with <span class="math inline">\(R_d/c_p=287/1004=0.286\)</span> (Wallace and Hobbs 2006, ch. 3).</p>
-<h2 id="p1-sec:symbols">A.3 Symbols</h2>
+
+<h2 id="p1-sec:derivations">A.2 Derivations for the curious<a class="headerlink" href="#p1-sec:derivations" title="Permanent link">&para;</a></h2>
+<h3 id="p1-sec:der-expo">A.2.1 Pressure falls exponentially with height<a class="headerlink" href="#p1-sec:der-expo" title="Permanent link">&para;</a></h3>
+<p>Start from hydrostatic balance, Eq. (<a href="../p1-ch02_pressure/#p1-eq:hydro">3.2</a>), written for a very thin layer, <span class="arithmatex">\(dp/dz=-\rho g\)</span>, and replace the density using the gas law, Eq. (<a href="../p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>), <span class="arithmatex">\(\rho=p/(R_dT)\)</span>:</p>
+<div class="arithmatex">\[
+\frac{dp}{dz}=-\frac{g}{R_dT}\,p\qquad\Longrightarrow\qquad\frac{dp}{p}=-\frac{dz}{H},\qquad H=\frac{R_dT}{g}.
+\]</div>
+<p>The rate of fall of <span class="arithmatex">\(p\)</span> is proportional to <span class="arithmatex">\(p\)</span> itself. If <span class="arithmatex">\(T\)</span> (and so <span class="arithmatex">\(H\)</span>) is taken as constant, integrating from sea level (<span class="arithmatex">\(z=0\)</span>, <span class="arithmatex">\(p=p_0\)</span>) to height <span class="arithmatex">\(z\)</span> gives <span class="arithmatex">\(\ln(p/p_0)=-z/H\)</span>, that is</p>
+<div class="arithmatex">\[
+p=p_0\,e^{-z/H},
+\]</div>
+<p>which is Eq. (<a href="../p1-ch02_pressure/#p1-eq:expo">3.3</a>). The pressure halves when <span class="arithmatex">\(e^{-z/H}=\tfrac12\)</span>, at <span class="arithmatex">\(z_{1/2}=H\ln2=0.693\,H\)</span>; the 5.6 km corresponds to <span class="arithmatex">\(H=8.08\)</span> km. Writing the same law for two levels and dividing, <span class="arithmatex">\(p_1/p_2=e^{(z_2-z_1)/H}\)</span>, so <span class="arithmatex">\(\ln(p_1/p_2)=(z_2-z_1)/H\)</span>: rearranged, this is Eq. (<a href="../p1-ch07_stability/#p1-eq:Hdata">8.1</a>), which gives the scale height of a layer from two lines of a sounding.</p>
+<p><strong>Without calculus.</strong> Divide the atmosphere into thin slabs, each <span class="arithmatex">\(\Delta z\)</span> thick. By Eqs. (<a href="../p1-ch02_pressure/#p1-eq:hydro">3.2</a>) and (<a href="../p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>), crossing one slab lowers the pressure by <span class="arithmatex">\(\Delta p=\rho g\,\Delta z=p\,\Delta z/H\)</span>: the same <em>fraction</em> <span class="arithmatex">\(\Delta z/H\)</span> of whatever pressure there is. Removing the same fraction again and again is exactly what an exponential does.</p>
+<h3 id="p1-sec:der-dalr">A.2.2 The dry adiabatic lapse rate and potential temperature<a class="headerlink" href="#p1-sec:der-dalr" title="Permanent link">&para;</a></h3>
+<p>The first law of thermodynamics for one kilogram of air says that heat added goes into warming the air and into the work it does as it expands: <span class="arithmatex">\(dq=c_p\,dT-dp/\rho\)</span>. In an adiabatic process no heat is added, <span class="arithmatex">\(dq=0\)</span>, so</p>
+<div class="arithmatex">\[
+c_p\,dT=\frac{dp}{\rho}.
+\]</div>
+<p>For air moving vertically through an atmosphere in hydrostatic balance, <span class="arithmatex">\(dp=-\rho g\,dz\)</span>, Eq. (<a href="../p1-ch02_pressure/#p1-eq:hydro">3.2</a>). Substituting,</p>
+<div class="arithmatex">\[
+c_p\,dT=-g\,dz\qquad\Longrightarrow\qquad\frac{dT}{dz}=-\frac{g}{c_p}=-\frac{9.81}{1004}=-0.0098\ \mathrm{K\,m^{-1}},
+\]</div>
+<p>which is Eq. (<a href="../p1-ch07_stability/#p1-eq:dalr">8.2</a>): dry air cools by 9.8 <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span> per km as it rises and warms by the same amount as it sinks. Alternatively, dividing <span class="arithmatex">\(c_p\,dT=dp/\rho\)</span> by <span class="arithmatex">\(T\)</span> and using <span class="arithmatex">\(1/\rho=R_dT/p\)</span> gives <span class="arithmatex">\(c_p\,dT/T=R_d\,dp/p\)</span>; integrating from <span class="arithmatex">\((T,p)\)</span> to <span class="arithmatex">\((\theta,1000\ \ensuremath{\mathrm{hPa}})\)</span>,</p>
+<div class="arithmatex">\[
+c_p\ln\frac{\theta}{T}=R_d\ln\frac{1000}{p}\qquad\Longrightarrow\qquad\theta=T\left(\frac{1000}{p}\right)^{R_d/c_p},
+\]</div>
+<p>which is Eq. (<a href="../p1-ch07_stability/#p1-eq:theta">8.3</a>), with <span class="arithmatex">\(R_d/c_p=287/1004=0.286\)</span> (Wallace and Hobbs 2006, ch. 3).</p>
+<h2 id="p1-sec:symbols">A.3 Symbols<a class="headerlink" href="#p1-sec:symbols" title="Permanent link">&para;</a></h2>
 <table>
-<caption>Table A.1. The symbols used in Part I. Each equation’s own <em>where</em> list repeats the symbols it uses.</caption>
-<colgroup>
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-<col style="width: 25%" />
-</colgroup>
 <thead>
 <tr>
-<th style="text-align: left;"><span class="math inline">\(\textbf{Symbol}\)</span></th>
+<th style="text-align: left;"><span class="arithmatex">\(\textbf{Symbol}\)</span></th>
 <th style="text-align: left;"><strong>Meaning</strong></th>
 <th style="text-align: left;"><strong>Unit</strong></th>
 <th style="text-align: left;"><strong>First used</strong></th>
@@ -196,138 +1526,252 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(\textbf{Symbol}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\textbf{Symbol}\)</span></td>
 <td style="text-align: left;"><strong>Meaning</strong></td>
 <td style="text-align: left;"><strong>Unit</strong></td>
 <td style="text-align: left;"><strong>First used</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(c_p\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(c_p\)</span></td>
 <td style="text-align: left;">specific heat of dry air at constant pressure</td>
-<td style="text-align: left;">J kg<span class="math inline">\(^{-1}\)</span> K<span class="math inline">\(^{-1}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>)</td>
+<td style="text-align: left;">J kg<span class="arithmatex">\(^{-1}\)</span> K<span class="arithmatex">\(^{-1}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch07_stability/#p1-eq:dalr">8.2</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(f\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(f\)</span></td>
 <td style="text-align: left;">fraction of the atmosphere above a height</td>
 <td style="text-align: left;">–</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>)</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:fraction">3.4</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(g\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(g\)</span></td>
 <td style="text-align: left;">acceleration due to gravity</td>
-<td style="text-align: left;">m s<span class="math inline">\(^{-2}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>)</td>
+<td style="text-align: left;">m s<span class="arithmatex">\(^{-2}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:hydro">3.2</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(\Gamma\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\Gamma\)</span></td>
 <td style="text-align: left;">lapse rate</td>
-<td style="text-align: left;"><span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch04_temperature/#p1-eq:lapse">5.1</a>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(^{\circ}\mathrm{C\,km^{-1}}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch04_temperature/#p1-eq:lapse">5.1</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(\Gamma_d\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\Gamma_d\)</span></td>
 <td style="text-align: left;">dry adiabatic lapse rate</td>
-<td style="text-align: left;"><span class="math inline">\(^{\circ}\mathrm{C\,km^{-1}}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:dalr">8.2</a>)</td>
+<td style="text-align: left;"><span class="arithmatex">\(^{\circ}\mathrm{C\,km^{-1}}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch07_stability/#p1-eq:dalr">8.2</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(H\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(H\)</span></td>
 <td style="text-align: left;">scale height</td>
 <td style="text-align: left;">km</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>)</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:expo">3.3</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(p\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(p\)</span></td>
 <td style="text-align: left;">pressure</td>
 <td style="text-align: left;">hPa or Pa</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(p_0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(p_0\)</span></td>
 <td style="text-align: left;">pressure at sea level</td>
 <td style="text-align: left;">hPa</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:expo">3.3</a>)</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:expo">3.3</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(p_{\mathrm{O_2}}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(p_{\mathrm{O_2}}\)</span></td>
 <td style="text-align: left;">partial pressure of oxygen</td>
 <td style="text-align: left;">hPa</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>)</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch03_oxygen/#p1-eq:dalton">4.1</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(R_d\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(R_d\)</span></td>
 <td style="text-align: left;">gas constant for dry air</td>
-<td style="text-align: left;">J kg<span class="math inline">\(^{-1}\)</span> K<span class="math inline">\(^{-1}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
+<td style="text-align: left;">J kg<span class="arithmatex">\(^{-1}\)</span> K<span class="arithmatex">\(^{-1}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(\rho\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\rho\)</span></td>
 <td style="text-align: left;">density of the air</td>
-<td style="text-align: left;">kg m<span class="math inline">\(^{-3}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
+<td style="text-align: left;">kg m<span class="arithmatex">\(^{-3}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(T\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(T\)</span></td>
 <td style="text-align: left;">temperature</td>
-<td style="text-align: left;">K or <span class="math inline">\(^{\circ}\mathrm{C}\)</span></td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
+<td style="text-align: left;">K or <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(\theta\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\theta\)</span></td>
 <td style="text-align: left;">potential temperature</td>
 <td style="text-align: left;">K</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>)</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch07_stability/#p1-eq:theta">8.3</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(x_{\mathrm{O_2}}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(x_{\mathrm{O_2}}\)</span></td>
 <td style="text-align: left;">fraction of the molecules that are oxygen</td>
 <td style="text-align: left;">–</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>)</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch03_oxygen/#p1-eq:dalton">4.1</a>)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><span class="math inline">\(z\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(z\)</span></td>
 <td style="text-align: left;">height above sea level</td>
 <td style="text-align: left;">m or km</td>
-<td style="text-align: left;">Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>)</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:hydro">3.2</a>)</td>
 </tr>
 </tbody>
 </table>
-<h2 id="p1-sec:about">A.4 About the figures and the data</h2>
+<p>: Table A.1. The symbols used in Part I. Each equation’s own <em>where</em> list repeats the symbols it uses.</p>
+<h2 id="p1-sec:about">A.4 About the figures and the data<a class="headerlink" href="#p1-sec:about" title="Permanent link">&para;</a></h2>
 <p>Every figure in Part I was drawn for it in the document itself with TikZ and pgfplots, from the data and the equations in the text.</p>
 <ul>
-<li><p>The <strong>halving-rule curves</strong> (Figures <a href="/teaching/atmosphere/p1-ch02_pressure/#p1-fig:q1graph">3.2</a> and <a href="/teaching/atmosphere/p1-ch03_oxygen/#p1-fig:q3">4.1</a>) are Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:fraction">3.4</a>); the dashed comparison curve and the layered profile of Figure <a href="/teaching/atmosphere/p1-ch04_temperature/#p1-fig:layers">5.1</a> are the U.S. Standard Atmosphere (NOAA et al. 1976).</p></li>
-<li><p>The <strong>soundings</strong> (Figures <a href="/teaching/atmosphere/p1-ch05_soundings/#p1-fig:soundings">6.1</a>, <a href="/teaching/atmosphere/p1-ch06_lapse/#p1-fig:florida">7.1</a> and <a href="/teaching/atmosphere/p1-ch07_stability/#p1-fig:q12">8.1</a>) plot the values of Tables <a href="/teaching/atmosphere/p1-ch05_soundings/#p1-tab:soundings">6.1</a> and <a href="/teaching/atmosphere/p1-ch06_lapse/#p1-tab:florida">7.1</a>, joined by straight lines.</p></li>
-<li><p>The <strong>potential temperatures</strong> (Figure <a href="/teaching/atmosphere/p1-ch07_stability/#p1-fig:theta">8.2</a>) are computed from the soundings with Eq. (<a href="/teaching/atmosphere/p1-ch07_stability/#p1-eq:theta">8.3</a>), and the <strong>oxygen partial pressures</strong> (Figure <a href="/teaching/atmosphere/p1-ch03_oxygen/#p1-fig:q4">4.2</a>) with Eq. (<a href="/teaching/atmosphere/p1-ch03_oxygen/#p1-eq:dalton">4.1</a>).</p></li>
-<li><p>The <strong>hydrostatic slab</strong> (Figure <a href="/teaching/atmosphere/p1-ch02_pressure/#p1-fig:slab">3.1</a>) is a diagram of the forces in Eq. (<a href="/teaching/atmosphere/p1-ch02_pressure/#p1-eq:hydro">3.2</a>).</p></li>
-<li><p>The <strong>tropopause band</strong> of Figure <a href="/teaching/atmosphere/p1-ch06_lapse/#p1-fig:troplat">7.2</a> and the <strong>ocean-current sketch</strong> of Figure <a href="/teaching/atmosphere/p1-ch08_climates/#p1-fig:atlantic">9.1</a> are schematic: they show the pattern, not measurements.</p></li>
+<li>
+<p>The <strong>halving-rule curves</strong> (Figures <a href="../p1-ch02_pressure/#p1-fig:q1graph">3.2</a> and <a href="../p1-ch03_oxygen/#p1-fig:q3">4.1</a>) are Eq. (<a href="../p1-ch02_pressure/#p1-eq:fraction">3.4</a>); the dashed comparison curve and the layered profile of Figure <a href="../p1-ch04_temperature/#p1-fig:layers">5.1</a> are the U.S. Standard Atmosphere (NOAA et al. 1976).</p>
+</li>
+<li>
+<p>The <strong>soundings</strong> (Figures <a href="../p1-ch05_soundings/#p1-fig:soundings">6.1</a>, <a href="../p1-ch06_lapse/#p1-fig:florida">7.1</a> and <a href="../p1-ch07_stability/#p1-fig:q12">8.1</a>) plot the values of Tables <a href="../p1-ch05_soundings/#p1-tab:soundings">6.1</a> and <a href="../p1-ch06_lapse/#p1-tab:florida">7.1</a>, joined by straight lines.</p>
+</li>
+<li>
+<p>The <strong>potential temperatures</strong> (Figure <a href="../p1-ch07_stability/#p1-fig:theta">8.2</a>) are computed from the soundings with Eq. (<a href="../p1-ch07_stability/#p1-eq:theta">8.3</a>), and the <strong>oxygen partial pressures</strong> (Figure <a href="../p1-ch03_oxygen/#p1-fig:q4">4.2</a>) with Eq. (<a href="../p1-ch03_oxygen/#p1-eq:dalton">4.1</a>).</p>
+</li>
+<li>
+<p>The <strong>hydrostatic slab</strong> (Figure <a href="../p1-ch02_pressure/#p1-fig:slab">3.1</a>) is a diagram of the forces in Eq. (<a href="../p1-ch02_pressure/#p1-eq:hydro">3.2</a>).</p>
+</li>
+<li>
+<p>The <strong>tropopause band</strong> of Figure <a href="../p1-ch06_lapse/#p1-fig:troplat">7.2</a> and the <strong>ocean-current sketch</strong> of Figure <a href="../p1-ch08_climates/#p1-fig:atlantic">9.1</a> are schematic: they show the pattern, not measurements.</p>
+</li>
 </ul>
-<p>The soundings are single ascents on a single day; they illustrate the structure of the atmosphere and should not be read as climatological averages (§ <a href="/teaching/atmosphere/p1-ch08_climates/#p1-sec:q14">9.4</a>).</p>
-<h2 id="references">References</h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-noaa1976" class="csl-entry" role="listitem">
+<p>The soundings are single ascents on a single day; they illustrate the structure of the atmosphere and should not be read as climatological averages (§ <a href="../p1-ch08_climates/#p1-sec:q14">9.4</a>).</p>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
+
+<div id="ref-noaa1976" class="csl-entry">
+
 NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S. Government Printing Office, Washington, DC.
-</div>
-<div id="ref-wallace2006" class="csl-entry" role="listitem">
-Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
-</div>
+
 </div>
 
-<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/atmosphere/p3-ch11_revision/">&larr; 30. Putting Part III together</a><a href="../../../teaching/atmosphere/app-p2/">B. Part II: formulas, derivations, data and symbols &rarr;</a></nav>
-<p class="hpc-licence">Questions and data grew out of the practicals of EGM305 at Ulster University and are reused with the permission of the module staff. <a href="../../../teaching/egm305/">About the course</a>. <style>.box{border:1px solid var(--line,#c8ced6);border-left-width:5px;border-radius:6px;padding:.7em 1em;margin:1.1em 0}.box-title{font-weight:700;margin:0 0 .4em}.box-answer{border-left-color:#1b7f5c}.box-question{border-left-color:#27476e}.box-key{border-left-color:#2f6fb5}.box-care{border-left-color:#b3402f}.box-ask{border-left-color:#c77700}.box-worked{border-left-color:#27476e}.box-try,.box-deriv{border-left-color:#7a828c}.hpc-body img{max-width:100%;height:auto;background:#fff;display:block;margin:1em auto;border-radius:4px}.hpc-body table{display:block;overflow-x:auto}mjx-container[display="true"]{overflow-x:auto;overflow-y:hidden;max-width:100%}.hpc-body{min-width:0;overflow-wrap:anywhere}</style><script>window.MathJax={tex:{inlineMath:[["\\(","\\)"]],displayMath:[["\\[","\\]"]],tags:"none",macros:{ensuremath:["{#1}",1]}}};</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script></p>
-  </article>
+<div id="ref-wallace2006" class="csl-entry">
+
+Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
+
 </div>
-</main>
-<footer class="site-footer">
-  <div class="bar">
-    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
-    <div class="social">
-      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
-      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
-      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
-      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../p3-ch11_revision/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 30. Putting Part III together">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                30. Putting Part III together
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../app-p2/" class="md-footer__link md-footer__link--next" aria-label="Next: B. Part II: formulas, derivations, data and symbols">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                B. Part II: formulas, derivations, data and symbols
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.instant","navigation.top","navigation.footer","toc.follow","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d31f0ffa.min.js"></script>
+      
+        <script src="../mathjax.js"></script>
+      
+        <script src="../pdfview.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+      
+    
+  </body>
 </html>

@@ -1,0 +1,157 @@
+\chapter{Software, environments and containers}
+\label{ch:software}
+
+You do not have administrator rights on a shared cluster, so \texttt{sudo} and system-wide installs are out. There are four main ways to get software, and it is best to try them in this order.
+
+\section{Step 1: Modules}\label{step-1-modules}
+
+Many programs and versions are installed but hidden. \textbf{Modules} make one available by changing your session\textquotesingle s environment variables, such as \texttt{PATH}, the list of folders searched for programs.
+
+\begin{lstlisting}[language=bash]
+# cluster
+module avail                         # list everything; press space to page, q to quit
+module avail 2>&1 | grep -i python   # search it; 2>&1 sends its list through the pipe
+module load <name>                   # make one available
+module list                          # what is loaded now
+module unload <name>                 # remove one
+module purge                         # remove all
+\end{lstlisting}
+
+Names and versions differ between clusters and over time, so look them up rather than copying them from a guide. Put \texttt{module\ load} lines in your job scripts, so that each run gets the same software.
+
+\section{Step 2: Conda environments}\label{step-2-conda-environments}
+
+An \textbf{environment} is a private folder with its own Python and packages, so that projects do not interfere with each other. \textbf{Conda} installs them, along with non-Python libraries, which matters for scientific packages such as GDAL. Work out compatible versions on a compute node, because the solve can use a lot of memory, and a login node may kill it (you will see \texttt{Killed}).
+
+\begin{lstlisting}[language=bash]
+# cluster
+
+# Ask for an interactive shell on a compute node: 4 cores, 16 GB, 1 hour
+srun --cpus-per-task=4 --mem=16G --time=01:00:00 --pty bash
+
+# Find the name with: module avail 2>&1 | grep -i -E "conda|forge"
+module load <conda-module>
+
+# -y answer yes; -p where to put it; -c which channel to download from
+conda create -y -p ~/project/envs/sci -c conda-forge python=3.12 pandas scipy
+
+# Back to the login node
+exit
+\end{lstlisting}
+
+A conda environment can hold tens of thousands of small files, which eats into a file quota on home, so NI-HPC suggests that such installs can go on scratch. Scratch purges unused files, however, so keep a recipe: \texttt{conda\ env\ export\ \textgreater{}\ environment.yml} lets you rebuild it.
+
+In a job, the most robust way to use an environment is often to call its Python by its full path:
+
+\begin{lstlisting}[language=bash]
+# cluster, in a job script
+
+# Clear variables that can point Python at the wrong libraries
+unset PYTHONPATH PYTHONHOME
+
+# Use the environment's own Python directly: no activate needed
+~/project/envs/sci/bin/python my_script.py
+\end{lstlisting}
+
+Why the \texttt{unset}? \textbf{A Kelvin2 example.} One conda module I used set \texttt{PYTHONPATH} to its own library folder, so that Python 3.12 from my environment loaded the wrong files and crashed with \texttt{SRE\ module\ mismatch}. Clearing the variable fixed it. Environment variables quietly change how programs behave, so when something inexplicable happens, look at them with \texttt{echo\ "\$PYTHONPATH"} or \texttt{env}.
+
+\section{Step 3: Compiling from source}\label{step-3-compiling-from-source}
+
+\textbf{Compiling} turns human-readable source code into a program for a particular kind of machine. Compute nodes may have restricted internet access, so the usual pattern is to download on the login node and build in a job. An example in Rust, using its build tool \texttt{cargo} (Klabnik and Nichols, n.d.):
+
+\begin{lstlisting}[language=bash]
+# cluster, login node: light work, downloads only
+
+# Load the Rust installer
+module load <rust-module>
+
+# Keep the bulky toolchain on scratch rather than filling home
+export RUSTUP_HOME=/mnt/scratch2/users/$USER/project/tmp/rustup
+export CARGO_HOME=/mnt/scratch2/users/$USER/project/tmp/cargo
+
+# Choose a version; "stable" is the current released one
+rustup default stable
+
+# Download all the libraries the project needs, without building
+cd ~/project/code/myprogram && cargo fetch
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash]
+#!/bin/bash
+# build.sh: the build itself, as a job
+#SBATCH --job-name=build
+#SBATCH --time=01:00:00
+#SBATCH --cpus-per-task=8            # compiling does benefit from several cores
+#SBATCH --mem=16G
+#SBATCH --output=logs/%x_%j.out      # %x job name, %j job ID
+
+set -e                               # stop at the first error, rather than carrying on
+
+module load <rust-module>
+# export makes a variable visible to the programs this script starts
+export RUSTUP_HOME=/mnt/scratch2/users/$USER/project/tmp/rustup
+export CARGO_HOME=/mnt/scratch2/users/$USER/project/tmp/cargo
+# Where the intermediate build files go: lots of small files, so scratch
+export CARGO_TARGET_DIR=/mnt/scratch2/users/$USER/project/tmp/target
+
+cd ~/project/code/myprogram
+# --offline: use what was fetched; --release: optimised; -j 8: use 8 cores
+cargo build --offline --release -j 8
+
+mkdir -p ~/project/bin
+cp "$CARGO_TARGET_DIR/release/myprogram" ~/project/bin/
+echo BUILD OK
+\end{lstlisting}
+
+\textbf{Check the result before you trust it.} Run a case with a known answer, ideally one you have also run elsewhere, and compare the numbers.
+
+\section{Step 4: Containers}\label{step-4-containers}
+
+\subsection{What containerisation is}\label{what-containerisation-is}
+
+A \textbf{container} packages a program with the exact libraries it depends on and runs it isolated from the rest of the system. Everything lives in an \textbf{image}, a read-only template built from a recipe. Run an image and you get a container.
+
+Think of a shipping container: what is inside does not depend on the ship. "It works on my machine" becomes "it works wherever this image runs". This helps with reproducibility, and with software that is hard to install.
+
+A container is not a virtual machine. A virtual machine emulates a whole computer, with its own operating system kernel. A container shares the host\textquotesingle s kernel, so it starts quickly and with little overhead (Merkel, 2014).
+
+\textbf{Dockerisation} means packaging your application as a Docker image, through a recipe called a \texttt{Dockerfile}:
+
+\begin{lstlisting}[language=dockerfile]
+# FROM: start from a ready-made image
+FROM python:3.12-slim
+# COPY: put our code inside the image
+COPY heat_loss.py /app/heat_loss.py
+# ENTRYPOINT: what to run when the container starts
+ENTRYPOINT ["python3", "/app/heat_loss.py"]
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash]
+# laptop, with Docker Desktop running
+
+# Build an image from the Dockerfile in this folder (.), and name it (-t)
+docker build -t heatloss .
+
+# Run it. --rm tidies up afterwards. -v shows a laptop folder inside the container as /data
+docker run --rm -v "$(pwd):/data" heatloss /data/case_000.json
+\end{lstlisting}
+
+\subsection{Why not Docker on a cluster?}\label{why-not-docker-on-a-cluster}
+
+Docker normally relies on a background service with root (administrator) privileges. On a shared system, that is a security problem, so clusters rarely provide it (Kurtzer et al., 2017).
+
+\textbf{Apptainer} (formerly Singularity) was designed for this setting. It runs as an ordinary user, and a container is a single file that you can copy around. It can also convert Docker images:
+
+\begin{lstlisting}[language=bash]
+# cluster; check the module name with: module avail 2>&1 | grep -i apptainer
+module load <apptainer-module>
+
+# Convert an image from Docker Hub into a single file, heatloss.sif
+apptainer pull heatloss.sif docker://<dockerhub-user>/heatloss
+
+# Run it. --bind makes a cluster folder visible inside the container
+apptainer run --bind "$PWD:/data" heatloss.sif /data/case_000.json
+\end{lstlisting}
+
+Which to use? If a module exists, use it, as central builds are often tuned for the machine. If a Python stack is all you need, conda is simple. If you compiled something once and it works, that is fine too. Use a container when a program is hard to install, or when others must reproduce your exact software. See the \href{https://apptainer.org/docs/user/latest/}{Apptainer documentation}\footnote{\texttt{https://apptainer.org/docs/user/latest/}} for more.
+

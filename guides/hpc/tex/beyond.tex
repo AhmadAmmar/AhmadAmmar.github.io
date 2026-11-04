@@ -1,0 +1,190 @@
+\chapter{Other clusters, the cloud and Linux basics}
+\label{ch:beyond}
+
+Nearly everything in this guide carries over. A new system mostly changes the names, the storage rules and who pays. This chapter is a map to help you adapt, and each system\textquotesingle s own documentation has the final word.
+
+\section{A checklist for any new system}\label{a-checklist-for-any-new-system}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Who can use it, and how do I apply?
+\item
+  How do I log in: which address, port, keys and multi-factor steps?
+\item
+  Which storage is backed up, which is fast, and how much do I have?
+\item
+  Which scheduler does it use, and which partitions or queues?
+\item
+  How is software provided: modules, containers, or my own installs?
+\item
+  What are the limits on time, memory and number of jobs?
+\item
+  How should I acknowledge it in publications?
+\end{enumerate}
+
+Then run Exercise 1 of this guide. If that works, the rest will follow.
+
+\section{Other schedulers}\label{other-schedulers}
+
+Slurm is common but not universal. The ideas match, while the words differ.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Task
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Slurm
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+PBS / Torque
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Grid Engine
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+LSF
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Submit & \texttt{sbatch} & \texttt{qsub} & \texttt{qsub} & \texttt{bsub} \\
+See the queue & \texttt{squeue} & \texttt{qstat} & \texttt{qstat} & \texttt{bjobs} \\
+Cancel & \texttt{scancel} & \texttt{qdel} & \texttt{qdel} & \texttt{bkill} \\
+Script directive & \texttt{\#SBATCH} & \texttt{\#PBS} & \texttt{\#\$} & \texttt{\#BSUB} \\
+Array task number & \texttt{\$SLURM\_ARRAY\_TASK\_ID} & \texttt{\$PBS\_ARRAYID} or \texttt{\$PBS\_ARRAY\_INDEX} & \texttt{\$SGE\_TASK\_ID} & \texttt{\$LSB\_JOBINDEX} \\
+\end{longtable}
+}
+
+\section{Cluster or cloud?}\label{cluster-or-cloud}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Shared cluster
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Cloud
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Cost & Usually free or allocated to researchers & Paid by use, so a forgotten machine keeps charging \\
+Waiting & A queue & Usually starts at once \\
+Control & Fixed system; no administrator rights & You control the machine, and so must secure and maintain it \\
+Best for & Large batches, shared storage & Special hardware, short bursts, web services \\
+\end{longtable}
+}
+
+A cloud virtual machine feels familiar: you create it, log in with SSH using the same kind of key, and run commands on Linux. The usual pattern is:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Set a budget alert before you start anything.
+\item
+  Create the smallest machine that does the job, and allow SSH only from your own address where you can.
+\item
+  Keep data in object storage, such as S3-style buckets, as a machine\textquotesingle s own disk may be deleted with it.
+\item
+  Run long work inside \texttt{tmux}, described below, so that it survives a dropped connection.
+\item
+  Stop or delete the machine when you finish. Check that its disks and addresses are gone too, as they can keep charging.
+\end{enumerate}
+
+For many tasks, services such as AWS Batch, Azure Batch and Google Cloud Batch offer something like a job array, and some providers can build a Slurm cluster for you. Containers from the software chapter move well between all of these.
+
+\section{Linux basics for looking after your own work}\label{linux-basics-for-looking-after-your-own-work}
+
+\subsection{Permissions}\label{permissions}
+
+Every file has an owner and a group, with read (\texttt{r}), write (\texttt{w}) and execute (\texttt{x}) rights for each.
+
+\begin{lstlisting}[language=bash]
+# any Linux system
+# Shows, for example, -rwxr-x--- : owner all, group read and run, others nothing
+ls -l run.sh
+# Let yourself run a script
+chmod u+x run.sh
+# Keep a private SSH key readable only by you. SSH refuses keys left more open
+chmod 600 ~/.ssh/my-key
+\end{lstlisting}
+
+\subsection{Space}\label{space}
+
+\begin{lstlisting}[language=bash]
+# any Linux system
+# How full are the disks?
+df -h
+# What is using the space here, biggest last?
+du -sh * | sort -h
+\end{lstlisting}
+
+Many clusters have their own command for your quota. Check its documentation.
+
+\subsection{Processes}\label{processes}
+
+\begin{lstlisting}[language=bash]
+# any Linux system
+# A live view of what is running. Press q to leave
+top
+# Just your own programs
+ps -u $USER
+# Stop a process politely, using its number from ps
+kill <process id>
+\end{lstlisting}
+
+On a cluster, stop jobs with \texttt{scancel}, not \texttt{kill}.
+
+\subsection{Sessions that survive a disconnection}\label{sessions-that-survive-a-disconnection}
+
+\texttt{tmux} keeps a terminal running on the remote machine after you leave.
+
+\begin{lstlisting}[language=bash]
+# any Linux system
+tmux new -s work
+# Do your work, then press Ctrl-b, then d, to leave it running
+# Come back later
+tmux attach -t work
+\end{lstlisting}
+
+On a cluster, use it for light work on login nodes. Heavy work still belongs in jobs.
+
+\subsection{Scheduled tasks}\label{scheduled-tasks}
+
+\texttt{cron} runs commands at set times on a machine you manage. Edit your list with \texttt{crontab\ -e}. This line runs a backup at 02:00 every day:
+
+\begin{lstlisting}[language=bash]
+0 2 * * * /home/me/backup.sh >> /home/me/backup.log 2>&1
+\end{lstlisting}
+
+Check whether your cluster allows it before relying on it.
+
+\subsection{Installing system software}\label{installing-system-software}
+
+On your own machine or cloud server, you have administrator rights through \texttt{sudo}:
+
+\begin{lstlisting}[language=bash]
+# Debian or Ubuntu
+sudo apt update && sudo apt install tmux
+# Red Hat, Rocky or Fedora
+sudo dnf install tmux
+\end{lstlisting}
+
+On a shared cluster you will not have \texttt{sudo}. Use modules, conda or containers.
+
+\subsection{Keeping your own server safe}\label{keeping-your-own-server-safe}
+
+If you run a cloud machine, its security is your job. Log in with keys and not passwords, apply updates regularly, open only the network ports you need, keep secrets out of git, and keep backups somewhere else. Test that you can restore them.
+

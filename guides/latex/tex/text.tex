@@ -1,0 +1,118 @@
+\chapter{Structure, text and appearance}
+\label{ch:text}
+
+\section{Document classes}\label{document-classes}
+
+The class sets the overall type of document.
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Class & For \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{article} & Papers and short reports \\
+\texttt{report} & Long reports with chapters \\
+\texttt{book} & Books \\
+\texttt{beamer} & Slides \\
+\end{longtable}
+}
+
+\section{Headings and contents}\label{headings-and-contents}
+
+\begin{lstlisting}[language=latex]
+\section{Method}
+\subsection{Data}
+\subsubsection{Cleaning}
+\tableofcontents
+\end{lstlisting}
+
+In a complete \texttt{report}, the title page, the contents and each chapter start on new pages:
+
+\textbf{chapters.tex}
+
+\lstinputlisting{../../../teaching/latex/examples/chapters.tex}
+
+Compile it twice, because the contents are only known after the first run.
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/chapters-title.png}
+\caption{Title page}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/chapters-contents.png}
+\caption{Contents}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=\linewidth]{img/chapters-chapter.png}
+\caption{First chapter}
+\end{figure}
+
+Numbers come automatically, and adding a star, as in \texttt{\textbackslash{}section*\{Thanks\}}, leaves a heading unnumbered and out of the contents. Split long documents into files with \texttt{\textbackslash{}input\{chapter1\}}.
+
+\section{Text and fonts}\label{text-and-fonts}
+
+\begin{lstlisting}[language=latex]
+\emph{emphasis}  \textbf{bold}  \texttt{code}  \underline{underlined}
+{\small smaller text}  {\large larger text}
+\end{lstlisting}
+
+Prefer \texttt{\textbackslash{}emph} over forcing italics, because it describes meaning, and it adapts when nested. For dashes, \texttt{-} joins words, \texttt{-\/-} makes ranges such as 10-\/-20, and \texttt{-\/-\/-} is a long dash. Quotes are written as two backticks and two apostrophes.
+
+\section{Fonts}\label{fonts}
+
+With \texttt{pdflatex}, fonts come from packages, for example \texttt{\textbackslash{}usepackage\{helvet\}} with \texttt{\textbackslash{}renewcommand\{\textbackslash{}familydefault\}\{\textbackslash{}sfdefault\}} for a sans-serif body. With \texttt{xelatex}, you can name any installed font:
+
+\begin{lstlisting}[language=latex]
+\usepackage{fontspec}
+\setmainfont{Source Serif 4}
+\end{lstlisting}
+
+\section{Colour}\label{colour}
+
+\begin{lstlisting}[language=latex]
+\usepackage{xcolor}
+\definecolor{brand}{HTML}{0D6A6E}
+\textcolor{brand}{Coloured text}
+\end{lstlisting}
+
+Define each colour once, by name, so that you can change the whole document from one line. Don\textquotesingle t rely on colour alone to carry meaning, because some readers can\textquotesingle t see the difference and pages may be printed in black and white.
+
+\section{Lists}\label{lists}
+
+\begin{lstlisting}[language=latex]
+\begin{itemize}
+  \item A point
+\end{itemize}
+\begin{enumerate}
+  \item A first step
+\end{enumerate}
+\end{lstlisting}
+
+\section{Page layout}\label{page-layout}
+
+\begin{lstlisting}[language=latex]
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\end{lstlisting}
+
+\section{Links}\label{links}
+
+\begin{lstlisting}[language=latex]
+\usepackage{hyperref}            % load this near the end of the preamble
+\href{https://example.org}{a link}
+\url{https://example.org}
+\end{lstlisting}
+
+\texttt{hyperref} also makes every cross-reference and contents entry clickable.
+

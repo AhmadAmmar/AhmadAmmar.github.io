@@ -1,0 +1,95 @@
+\chapter{Troubleshooting and cheat sheet}
+\label{ch:troubleshooting}
+
+\section{Errors and what they mean}\label{errors-and-what-they-mean}
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Symptom
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Likely cause
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Fix
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{Permission\ denied\ (publickey)} & Wrong key, username or port, or the key is not installed yet & Check \texttt{.ssh/config}, and that the cluster has your key \\
+Host identification warning & A login node you have not met, or a real problem & Read your cluster\textquotesingle s guidance before accepting \\
+\texttt{scp}: "No such file" with a stray \texttt{"} & Trailing backslash in a Windows path & Remove the backslash \\
+\texttt{scp}: wrong port & \texttt{-p} instead of \texttt{-P} & \texttt{scp} uses capital \texttt{-P} \\
+\texttt{Killed} on the login node & Too much memory on a shared node & Use \texttt{srun} or \texttt{sbatch} \\
+\texttt{CondaError:\ Run\ \textquotesingle{}conda\ init\textquotesingle{}} & Shell not set up for conda & \texttt{conda\ init}, then log in again; or call the environment\textquotesingle s Python directly \\
+\texttt{EnvironmentLocationNotFound} & The environment was never created, often as an earlier step failed & Scroll up and fix the first error \\
+\texttt{SRE\ module\ mismatch} or strange Python errors & \texttt{PYTHONPATH} points at another Python\textquotesingle s libraries & \texttt{unset\ PYTHONPATH\ PYTHONHOME} \\
+\texttt{No\ module\ named\ ...} in a job & The job is using a different Python & Call your Python by its full path \\
+\texttt{rustup} says no default toolchain & Only the installer is loaded & \texttt{rustup\ default\ stable} \\
+Downloads fail in a job & Compute nodes may have restricted internet & Download on the login node first, and build offline \\
+\texttt{Permission\ denied} on your own files & Read-only after copying & \texttt{chmod\ -R\ u+w\ folder} \\
+\texttt{\$\textquotesingle{}\textbackslash{}r\textquotesingle{}:\ command\ not\ found} & Windows line endings & \texttt{sed\ -i\ \textquotesingle{}s/\textbackslash{}r\$//\textquotesingle{}\ script.sh} \\
+No log file appears & The \texttt{-\/-output} folder does not exist & \texttt{mkdir\ -p\ logs} before you submit \\
+State \texttt{TIMEOUT} & Hit the time limit & More \texttt{-\/-time}, or a longer partition \\
+State \texttt{OUT\_OF\_MEMORY} & Hit the memory limit & More \texttt{-\/-mem} \\
+Stuck on \texttt{PD} for ages & Busy, or you asked for too much & \texttt{squeue\ -u\ \$USER} shows the reason; ask for less \\
+Files vanished from scratch & Purged after no access & Keep copies elsewhere \\
+Pasted lines ran in an odd order & Multi-line paste in a terminal & Paste one line at a time and check \\
+\end{longtable}
+}
+
+The general method: read the \textbf{first} error rather than the last, as later errors are often consequences. Then search for its exact text.
+
+\section{Cheat sheet}\label{cheat-sheet}
+
+\begin{lstlisting}[language=bash]
+# cluster: daily use
+squeue -u $USER                                # what is running
+sbatch job.sh                                  # submit
+sbatch --array=0-9 job.sh args                 # submit an array
+scancel <jobid>                                # cancel
+tail -20 "$(ls -t logs/*.out | head -1)"       # newest log
+sacct -X -P -S 2026-01-01 -u $USER -o JobID,JobName,Elapsed,State   # history
+srun --cpus-per-task=1 --mem=4G --time=00:15:00 --pty bash          # interactive
+module avail; module load <name>; module list  # software
+quota -s; du -sh ~/project                     # storage
+tar czf out.tgz folder; tar xzf out.tgz        # pack and unpack
+\end{lstlisting}
+
+\begin{lstlisting}[language=powershell]
+# laptop
+ssh kelvin                                     # log in
+scp file kelvin:~/project/                     # upload
+scp kelvin:~/project/file "D:\My Work"         # download
+\end{lstlisting}
+
+\section{References}\label{references}
+
+Amdahl, G.M. (1967) \textquotesingle Validity of the single processor approach to achieving large scale computing capabilities\textquotesingle, \emph{AFIPS Spring Joint Computer Conference}, pp. 483-485. \url{https://doi.org/10.1145/1465482.1465560}
+
+Klabnik, S. and Nichols, C. (n.d.) \emph{The Rust Programming Language}. \url{https://doc.rust-lang.org/book/}
+
+Kurtzer, G.M., Sochat, V. and Bauer, M.W. (2017) \textquotesingle Singularity: scientific containers for mobility of compute\textquotesingle, \emph{PLoS ONE}, 12(5), e0177459. \url{https://doi.org/10.1371/journal.pone.0177459}
+
+McNabb, R. (n.d.) \emph{Introduction to high performance computing}. \url{https://iamdonovan.github.io/teaching/hpc-intro/index.html}
+
+Merkel, D. (2014) \textquotesingle Docker: lightweight Linux containers for consistent development and deployment\textquotesingle, \emph{Linux Journal}, 2014(239).
+
+NI-HPC (n.d.) \emph{NI-HPC documentation}. \url{https://ni-hpc.github.io/nihpc-documentation}
+
+OpenSSH (n.d.) \emph{OpenSSH manual pages}. \url{https://www.openssh.com/manual.html}
+
+Raicu, I., Foster, I.T. and Zhao, Y. (2008) \textquotesingle Many-task computing for grids and supercomputers\textquotesingle, \emph{Workshop on Many-Task Computing on Grids and Supercomputers}, pp. 1-11. \url{https://doi.org/10.1109/MTAGS.2008.4777912}
+
+SchedMD (n.d.) \emph{Slurm job array support}. \url{https://slurm.schedmd.com/job_array.html}
+
+Shotts, W. (2019) \emph{The Linux Command Line}. 5th internet edn. \url{https://linuxcommand.org/tlcl.php}
+
+Wilson, G., Aruliah, D.A., Brown, C.T., et al. (2014) \textquotesingle Best practices for scientific computing\textquotesingle, \emph{PLoS Biology}, 12(1), e1001745. \url{https://doi.org/10.1371/journal.pbio.1001745}
+
+Yoo, A.B., Jette, M.A. and Grondona, M. (2003) \textquotesingle SLURM: Simple Linux Utility for Resource Management\textquotesingle, in \emph{Job Scheduling Strategies for Parallel Processing}. Springer, pp. 44-60. \url{https://doi.org/10.1007/10968987_3}
+

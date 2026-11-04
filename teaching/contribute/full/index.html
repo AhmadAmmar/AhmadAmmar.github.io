@@ -1,0 +1,998 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="prev" href="../propose-it/">
+      
+      
+        <link rel="next" href="../pdf/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.74">
+    
+    
+      
+        <title>Whole guide - Contribute to an open-source project</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ab2de0c.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../rh.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Contribute to an open-source project" class="md-header__button md-logo" aria-label="Contribute to an open-source project" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Contribute to an open-source project
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Whole guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Contribute to an open-source project" class="md-nav__button md-logo" aria-label="Contribute to an open-source project" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Contribute to an open-source project
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../what-contributing-means/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. What contributing means
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install-the-tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. Install the tools
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../choose-a-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Choose a project and something to change
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../make-the-change/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Make the change
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../propose-it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Propose it and follow it through
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Whole guide
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Whole guide
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-the-whole-journey" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 The whole journey
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-words-you-will-meet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 The words you will meet
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-the-terminal-and-how-to-read-the-commands-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 The terminal, and how to read the commands here
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://ahmadammar.github.io/teaching.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  All guides
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-the-whole-journey" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.1 The whole journey
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-the-words-you-will-meet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.2 The words you will meet
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-the-terminal-and-how-to-read-the-commands-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1.3 The terminal, and how to read the commands here
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="1-what-contributing-means">1. What contributing means<a class="headerlink" href="#1-what-contributing-means" title="Permanent link">&para;</a></h1>
+<p>Open-source software is software whose code anyone may read and improve. Contributing means proposing a change to such a project. The change need not be code. Fixing a spelling mistake in the instructions counts, as does clearing up a confusing sentence, reporting a problem clearly, or adding a test. Beginners are often the best people to improve instructions, because they notice what the instructions assume.</p>
+<p>You cannot damage a project by trying. Nothing you do reaches it until one of its maintainers, the people who look after it, reads your proposal and accepts it.</p>
+<h3 id="11-the-whole-journey">1.1 The whole journey<a class="headerlink" href="#11-the-whole-journey" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Find a project and a small thing to improve.</p>
+</li>
+<li>
+<p>Make your own copy of the project on GitHub. This is a <em>fork</em>.</p>
+</li>
+<li>
+<p>Download your copy to your computer.</p>
+</li>
+<li>
+<p>Make a <em>branch</em>, which is a separate line of work.</p>
+</li>
+<li>
+<p>Change the files, check them, and save a version.</p>
+</li>
+<li>
+<p>Send the branch to your copy on GitHub.</p>
+</li>
+<li>
+<p>Open a <em>pull request</em>, asking the maintainers to take your change.</p>
+</li>
+<li>
+<p>Answer their comments until the change is accepted or closed.</p>
+</li>
+</ol>
+<h3 id="12-the-words-you-will-meet">1.2 The words you will meet<a class="headerlink" href="#12-the-words-you-will-meet" title="Permanent link">&para;</a></h3>
+<p>Git and GitHub have their own vocabulary. You do not need to memorise this table, so come back to it when a word looks unfamiliar.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Word</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Repository</td>
+<td style="text-align: left;">A project folder whose history Git keeps. Often shortened to <em>repo</em>.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Commit</td>
+<td style="text-align: left;">One saved version of your files, with a short note saying what changed.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Stage (or add)</td>
+<td style="text-align: left;">Choosing which changes go into the next commit.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Push</td>
+<td style="text-align: left;">Sending your new commits from your computer to GitHub.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pull</td>
+<td style="text-align: left;">Bringing new commits from GitHub to your computer.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Clone</td>
+<td style="text-align: left;">Downloading a repository, with its history, to your computer.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Branch</td>
+<td style="text-align: left;">A separate line of work, which lets you try a change without disturbing the main version.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>main</code></td>
+<td style="text-align: left;">The usual name of the main branch.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fork</td>
+<td style="text-align: left;">Your own copy, on GitHub, of someone else’s repository.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Pull request</td>
+<td style="text-align: left;">A request asking a project’s maintainers to take in your changes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="13-the-terminal-and-how-to-read-the-commands-here">1.3 The terminal, and how to read the commands here<a class="headerlink" href="#13-the-terminal-and-how-to-read-the-commands-here" title="Permanent link">&para;</a></h3>
+<p>A terminal is a window where you type instructions to your computer instead of clicking. It looks severe, but it only does what you type, and most commands in this guide are safe to repeat.</p>
+<p>In VS Code, open the <strong>Terminal</strong> menu at the top of the window and choose <strong>New Terminal</strong>. A panel opens at the bottom of the window with a line that waits for you to type. That line is called the prompt. It usually ends in <code>&gt;</code> or <code>$</code> and shows the folder you are in.</p>
+<p>When this guide shows a command, type everything on that line, then press Enter. Where a block shows a line beginning <code>$</code>, the <code>$</code> stands for the prompt, so do not type it. The lines beneath it are what the computer prints back. Yours will match closely, although codes such as <code>1a2b3c4</code> will differ.</p>
+<p>If a command prints something you did not expect, nothing is broken. Read the message, because it usually says what to do next. To stop a command that seems stuck, press Ctrl and C together.</p>
+<h1 id="2-install-the-tools">2. Install the tools<a class="headerlink" href="#2-install-the-tools" title="Permanent link">&para;</a></h1>
+<p>You will install three free programs and create one account. Do these once and you will not need to repeat them.</p>
+<h3 id="21-install-vs-code-the-program-you-will-write-in">2.1 Install VS Code, the program you will write in<a class="headerlink" href="#21-install-vs-code-the-program-you-will-write-in" title="Permanent link">&para;</a></h3>
+<p>VS Code is a free text editor from Microsoft. Go to <code>code.visualstudio.com</code>, press the large download button, open the file you receive, and accept the choices the installer offers. On Windows, leave the box marked <strong>Add to PATH</strong> ticked, because that lets the terminal find it.</p>
+<p><img alt="The VS Code download page. The site changes its wording from time to time, but the download button stays near the top. If a cookie notice appears, either choice is fine." src="../fig/f-1.png" />\</p>
+<p>The VS Code download page. The site changes its wording from time to time, but the download button stays near the top. If a cookie notice appears, either choice is fine.</p>
+<p>When VS Code first opens it may offer to sign you in to an assistant or to choose a theme. You can close these offers, since nothing in this guide needs them.</p>
+<h3 id="22-install-git-the-program-that-keeps-your-history">2.2 Install Git, the program that keeps your history<a class="headerlink" href="#22-install-git-the-program-that-keeps-your-history" title="Permanent link">&para;</a></h3>
+<p>Git records each saved version of your files, so you can always go back. Go to <code>git-scm.com/downloads</code> and choose your operating system.</p>
+<p><img alt="The Git download page. Choose Windows, macOS or Linux, then follow the instructions on the page that opens." src="../fig/f-2.png" />\</p>
+<p>The Git download page. Choose Windows, macOS or Linux, then follow the instructions on the page that opens.</p>
+<p>On Windows, run the installer and press <strong>Next</strong> on every screen, as the suggested settings are fine. On a Mac, open the Terminal application and type <code>git --version</code>, and the system will offer to install it. On Linux, use your system’s package manager, for example <code>sudo apt install git</code>.</p>
+<p>Close VS Code and open it again so that it notices Git. Then open a terminal and tell Git who you are. Git writes this name and email on every version you save, and they become public if you publish your work.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">"Your Name"</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">"you@example.org"</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>init.defaultBranch<span class="w"> </span>main
+</code></pre></div>
+<p>These commands print nothing when they succeed. To check, type <code>git --version</code>, which should print a version number.</p>
+<h3 id="23-install-python">2.3 Install Python<a class="headerlink" href="#23-install-python" title="Permanent link">&para;</a></h3>
+<p>Python is a programming language, and here it runs small scripts. Go to <code>python.org/downloads</code> and press the yellow download button.</p>
+<p><img alt="The Python download page. The page recognises your operating system and offers the right version." src="../fig/f-3.png" />\</p>
+<p>The Python download page. The page recognises your operating system and offers the right version.</p>
+<p>On Windows, tick <strong>Add python.exe to PATH</strong> on the first screen of the installer before you press <strong>Install Now</strong>. It is easy to miss, and without it the terminal cannot find Python. Close and reopen VS Code, then check that it worked:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>--version
+</code></pre></div>
+<p>This should print a version number such as <code>Python 3.13.0</code>. On a Mac or on Linux, the command may be <code>python3</code> instead of <code>python</code>. Use whichever works, wherever this guide says <code>python</code>.</p>
+<h3 id="24-create-a-github-account">2.4 Create a GitHub account<a class="headerlink" href="#24-create-a-github-account" title="Permanent link">&para;</a></h3>
+<p>GitHub is a website that stores copies of Git projects and lets other people see them. Git is the program on your computer, and GitHub is the place online.</p>
+<p>Go to <code>github.com/signup</code>. Enter your email, choose a password and pick a username. Choose the username with care, because it appears in your web addresses and is awkward to change later. Your real name, or a close form of it, works well for professional use. GitHub will send a code to your email to confirm the account. The free plan is all you need, so if you are offered a paid plan or asked to fill in a survey, you can skip it.</p>
+<p>The first time you send work to GitHub, a window will ask you to sign in through your browser. Accept it, and your computer will remember the permission.</p>
+<h1 id="3-choose-a-project-and-something-to-change">3. Choose a project and something to change<a class="headerlink" href="#3-choose-a-project-and-something-to-change" title="Permanent link">&para;</a></h1>
+<h3 id="31-start-with-something-you-already-use">3.1 Start with something you already use<a class="headerlink" href="#31-start-with-something-you-already-use" title="Permanent link">&para;</a></h3>
+<p>The best first project is one you use, because you know where it confused you. If it is a tool for your field, you also understand its users. Look at its page on GitHub.</p>
+<p><img alt="A project's page on GitHub. The tabs at the top lead to its code, its issues and its pull requests. On the right are its description and licence. The  textbf Fork  button sits above the file list." src="../fig/f-4.png" />\</p>
+<p>A project’s page on GitHub. The tabs at the top lead to its code, its issues and its pull requests. On the right are its description and licence. The <strong>Fork</strong> button sits above the file list.</p>
+<h3 id="32-check-that-the-project-welcomes-changes">3.2 Check that the project welcomes changes<a class="headerlink" href="#32-check-that-the-project-welcomes-changes" title="Permanent link">&para;</a></h3>
+<p>Before you spend time, check four things on that page. The date beside the most recent files shows whether anyone has been active this year. A <strong>Licence</strong> on the right shows others are allowed to reuse the code, and open-source projects must have one. A file named <code>CONTRIBUTING.md</code> sets out the project’s rules, so read it first if there is one. And the <strong>Pull requests</strong> tab shows whether outsiders’ changes get answered.</p>
+<h3 id="33-find-something-small">3.3 Find something small<a class="headerlink" href="#33-find-something-small" title="Permanent link">&para;</a></h3>
+<p>Press the <strong>Issues</strong> tab, which lists known problems and requests. Many projects label easy ones <code>good first issue</code>.</p>
+<p><img alt="The Issues tab. This project has none open, which is common for small ones. In that case, improve something you noticed yourself." src="../fig/f-5.png" />\</p>
+<p>The Issues tab. This project has none open, which is common for small ones. In that case, improve something you noticed yourself.</p>
+<p>If you plan a large change, first write an issue describing it and wait for a reply, so that you do not spend days on something the maintainers would not accept. For a spelling fix, you can go straight ahead. If you take an existing issue, leave a comment saying you are working on it, so that nobody duplicates the work.</p>
+<p>A useful first change is one a reader could check in a minute. Fix a broken link, correct a mistaken command in the instructions, or add a missing step you had to work out yourself.</p>
+<h1 id="4-make-the-change">4. Make the change<a class="headerlink" href="#4-make-the-change" title="Permanent link">&para;</a></h1>
+<p>The examples below use a made-up project called <code>their-project</code>. Its README says <em>CVS</em> where it means <em>CSV</em>. The text printed under each command came from really running that command, with the addresses replaced by sample ones.</p>
+<h3 id="41-fork-the-project">4.1 Fork the project<a class="headerlink" href="#41-fork-the-project" title="Permanent link">&para;</a></h3>
+<p>On the project’s GitHub page, press <strong>Fork</strong> near the top right, then press <strong>Create fork</strong> on the page that follows. You now have your own copy at <code>github.com/your-name/their-project</code>. It is yours, so you can do anything to it without affecting the original.</p>
+<h3 id="42-download-your-copy">4.2 Download your copy<a class="headerlink" href="#42-download-your-copy" title="Permanent link">&para;</a></h3>
+<p>On your fork’s page, press the green <strong>Code</strong> button and copy the HTTPS address. Then, in a VS Code terminal, clone it, using your own address:</p>
+<pre><code>$ git clone https://github.com/your-name/their-project.git
+Cloning into 'their-project'...
+done.
+</code></pre>
+<p>Move into the folder and open it:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>their-project
+code<span class="w"> </span>.
+</code></pre></div>
+<h3 id="43-tell-git-about-the-original-project">4.3 Tell Git about the original project<a class="headerlink" href="#43-tell-git-about-the-original-project" title="Permanent link">&para;</a></h3>
+<p>Your computer knows about your fork, which Git calls <code>origin</code>. It also needs to know about the original, which by custom is called <code>upstream</code>, so that you can collect new work from it later. Use the original project’s address here:</p>
+<pre><code>$ git remote add upstream https://github.com/their-name/their-project.git
+$ git remote -v
+origin  https://github.com/your-name/their-project.git (fetch)
+origin  https://github.com/your-name/their-project.git (push)
+upstream    https://github.com/their-name/their-project.git (fetch)
+upstream    https://github.com/their-name/their-project.git (push)
+</code></pre>
+<h3 id="44-make-a-branch">4.4 Make a branch<a class="headerlink" href="#44-make-a-branch" title="Permanent link">&para;</a></h3>
+<p>Never work directly on <code>main</code>. A branch keeps this one change apart, so you can run several proposals at once and keep <code>main</code> matching the original. Give it a name that says what it does:</p>
+<pre><code>$ git switch -c fix-readme-spelling
+Switched to a new branch 'fix-readme-spelling'
+</code></pre>
+<h3 id="45-change-the-file-and-check-it">4.5 Change the file and check it<a class="headerlink" href="#45-change-the-file-and-check-it" title="Permanent link">&para;</a></h3>
+<p>Open the file in VS Code, change it and save it. Then ask Git to show you exactly what is different. Lines starting with <code>-</code> were removed and lines starting with <code>+</code> were added. Check that nothing else has changed by accident, such as stray spaces.</p>
+<pre><code>$ git diff
+diff --git a/README.md b/README.md
+index 1a2b3c4..5d6e7f8 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,3 @@
+ # Their project
+
+-This tool reads a CVS file.
++This tool reads a CSV file.
+</code></pre>
+<p>If you changed code, run the project’s tests. <code>CONTRIBUTING.md</code> or the README normally says how. Many Python projects use the commands below, where the first makes an isolated workspace, the second installs the project into it, and the third runs its tests:</p>
+<div class="highlight"><pre><span></span><code>python<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+.venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+pip<span class="w"> </span>install<span class="w"> </span>pytest
+pytest
+</code></pre></div>
+<p>The second line is for Windows. On a Mac or on Linux, it is <code>source .venv/bin/activate</code>.</p>
+<p>If you fixed a mistake in code, add a test too, as maintainers look for one. A test is a small piece of code that checks a known answer, and it fails if someone breaks that behaviour later. Here is one for a function that works out the area of a circle:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">areas</span><span class="w"> </span><span class="kn">import</span> <span class="n">circle_area</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">test_circle_area_of_radius_two</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">circle_area</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">12.566</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.01</span>
+</code></pre></div>
+<h3 id="46-save-a-version">4.6 Save a version<a class="headerlink" href="#46-save-a-version" title="Permanent link">&para;</a></h3>
+<p>Choose only the files you meant to change, then write a note that says what the change does:</p>
+<pre><code>$ git add README.md
+$ git commit -m "Fix spelling of CSV in the README"
+[fix-readme-spelling 1b1be51] Fix spelling of CSV in the README
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+</code></pre>
+<h3 id="47-send-it-to-your-fork">4.7 Send it to your fork<a class="headerlink" href="#47-send-it-to-your-fork" title="Permanent link">&para;</a></h3>
+<pre><code>$ git push -u origin fix-readme-spelling
+branch 'fix-readme-spelling' set up to track 'origin/fix-readme-spelling'.
+To https://github.com/your-name/their-project.git
+ * [new branch]      fix-readme-spelling -&gt; fix-readme-spelling
+</code></pre>
+<p>Git prints an address for opening a pull request, which you can use in the next chapter.</p>
+<h1 id="5-propose-it-and-follow-it-through">5. Propose it and follow it through<a class="headerlink" href="#5-propose-it-and-follow-it-through" title="Permanent link">&para;</a></h1>
+<h3 id="51-open-the-pull-request">5.1 Open the pull request<a class="headerlink" href="#51-open-the-pull-request" title="Permanent link">&para;</a></h3>
+<p>Go to your fork on GitHub. A yellow band usually shows your recent branch with a green button, <strong>Compare &amp; pull request</strong>. Press it. If there is no band, press the <strong>Pull requests</strong> tab, then <strong>New pull request</strong>, and choose your branch.</p>
+<p>Check the top line of the form. It shows that your branch will go into the original project’s <code>main</code>. Then write a title and a description. Say what you changed, why, and how you checked it. Here is a good example:</p>
+<div class="highlight"><pre><span></span><code>Title: Fix spelling of CSV in the README
+
+The README said the tool reads a "CVS" file, but the code reads CSV.
+I changed that one word. No code changed, so there are no tests to run.
+</code></pre></div>
+<p>If this settles an issue, add a line saying <code>Fixes #12</code>, using the issue’s number. GitHub will then close that issue when your change is accepted. Press <strong>Create pull request</strong>.</p>
+<h3 id="52-what-happens-next">5.2 What happens next<a class="headerlink" href="#52-what-happens-next" title="Permanent link">&para;</a></h3>
+<p>Automatic checks may start and show a yellow dot, then a green tick or a red cross. Press <strong>Details</strong> beside a red cross to read why it failed. A maintainer will read your change when they have time, and that can take days or weeks because many of them are volunteers. If you hear nothing for two weeks, one polite comment asking if they need anything else is reasonable.</p>
+<h3 id="53-answering-comments">5.3 Answering comments<a class="headerlink" href="#53-answering-comments" title="Permanent link">&para;</a></h3>
+<p>Requests for changes are normal and are not a judgement of you. Experienced contributors receive them all the time. To update your proposal, change the files on the same branch and push again. The pull request updates itself, so you never need to open a new one.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>README.md
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">"Reword after review"</span>
+git<span class="w"> </span>push
+</code></pre></div>
+<p>If a maintainer declines, thank them and move on. The reason is often about the project’s direction, and your fork still has your work.</p>
+<h3 id="54-after-it-is-accepted">5.4 After it is accepted<a class="headerlink" href="#54-after-it-is-accepted" title="Permanent link">&para;</a></h3>
+<p>Your name now appears in the project’s history. Tidy up by bringing the new work into your copy, so your next change starts from the latest version:</p>
+<pre><code>$ git switch main
+Your branch is up to date with 'origin/main'.
+Switched to branch 'main'
+$ git fetch upstream
+From https://github.com/their-name/their-project
+ * [new branch]      main       -&gt; upstream/main
+$ git merge upstream/main
+Updating 1a2b3c4..5d6e7f8
+Fast-forward
+ CHANGES.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 CHANGES.md
+$ git push origin main
+To https://github.com/your-name/their-project.git
+   1a2b3c4..5d6e7f8  main -&gt; main
+</code></pre>
+<p>You can then delete the old branch. GitHub offers a button for this on the pull request’s page, and locally you type <code>git branch -d fix-readme-spelling</code>.</p>
+<h3 id="55-being-a-good-contributor">5.5 Being a good contributor<a class="headerlink" href="#55-being-a-good-contributor" title="Permanent link">&para;</a></h3>
+<p>Keep each pull request to one change, which makes it quick to review. Follow the style of the code around you, even where you would choose differently. Read <code>CONTRIBUTING.md</code> and any code of conduct first. And if you used an automatic tool to write any of it, check the project’s rules on that, make sure you understand every line you submit, and be open about it when asked.</p>
+<h3 id="56-when-something-goes-wrong">5.6 When something goes wrong<a class="headerlink" href="#56-when-something-goes-wrong" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">What you see</th>
+<th style="text-align: left;">What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><em>Permission denied</em> when pushing</td>
+<td style="text-align: left;">You are probably pushing to the original rather than your fork. Run <code>git remote -v</code>, and check that <code>origin</code> shows your username.</td>
+</tr>
+<tr>
+<td style="text-align: left;">You committed on <code>main</code> by accident</td>
+<td style="text-align: left;">Run <code>git switch -c new-branch-name</code>, which carries your commit onto a new branch.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>This branch has conflicts</em></td>
+<td style="text-align: left;">Someone changed the same lines. Run <code>git fetch upstream</code>, then <code>git merge upstream/main</code>. Open the files Git names, keep the right text, delete the marker lines, then add, commit and push.</td>
+</tr>
+<tr>
+<td style="text-align: left;">A check fails for something you did not touch</td>
+<td style="text-align: left;">Say so in a comment, as it may already be broken for everyone.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><em>Please tell me who you are</em></td>
+<td style="text-align: left;">Run the <code>git config</code> lines from the install chapter, then repeat the commit.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../propose-it/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Propose it and follow it through">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                5. Propose it and follow it through
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../pdf/" class="md-footer__link md-footer__link--next" aria-label="Next: PDF">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                PDF
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.instant","navigation.top","navigation.footer","toc.follow","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d31f0ffa.min.js"></script>
+      
+        <script src="../mathjax.js"></script>
+      
+        <script src="../pdfview.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,93 +1,751 @@
+
 <!doctype html>
-<html lang="en-GB">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>References, links and bibliographies | Ahmad Ammar</title>
-<meta name="description" content="Labels and cross-references, citations with BibTeX, and a complete worked report.">
-<meta name="author" content="Ahmad Ammar">
-<link rel="canonical" href="https://ahmadammar.github.io/teaching/latex/references/">
-<meta property="og:type" content="website">
-<meta property="og:title" content="References, links and bibliographies | Ahmad Ammar">
-<meta property="og:description" content="Labels and cross-references, citations with BibTeX, and a complete worked report.">
-<meta property="og:url" content="https://ahmadammar.github.io/teaching/latex/references/">
-<link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
-<link rel="stylesheet" href="../../../assets/css/site.css">
-<script src="../../../assets/js/site.js"></script>
-</head>
-<body>
-<a class="skip" href="#content">Skip to content</a>
-<header class="site-header">
-  <div class="bar">
-    <a class="brand" href="../../../index.html">Ahmad <span>Ammar</span></a>
-    <button class="icon-btn menu-btn" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <nav class="nav" id="site-nav" aria-label="Main">
-      <a href="../../../index.html">About</a>
-      <a href="../../../research.html">Research</a>
-      <a href="../../../teaching.html" aria-current="page">Teaching</a>
-      <a href="../../../projects.html">Projects</a>
-      <a href="../../../writing.html">Writing</a>
-      <a href="../../../cv.html">CV</a>
-    </nav>
-    <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
-  </div>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="prev" href="../tables-figures/">
+      
+      
+        <link rel="next" href="../macros/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.74">
+    
+    
+      
+        <title>5. References, links and bibliographies - LaTeX from first principles</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ab2de0c.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../rh.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="LaTeX from first principles" class="md-header__button md-logo" aria-label="LaTeX from first principles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+      <span class="md-visually-hidden">Navigation</span>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LaTeX from first principles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              5. References, links and bibliographies
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+          <span class="md-visually-hidden">Search</span>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+    </div>
+  </nav>
+  
 </header>
-<main id="content">
-<nav class="breadcrumb" aria-label="Breadcrumb"><a href="../../../teaching.html">Teaching</a> / <a href="../../../teaching/latex/">LaTeX guide</a> / References, links and bibliographies</nav>
-<header class="page-head">
-  <p class="eyebrow">LaTeX guide</p>
-  <h1>References, links and bibliographies</h1>
-</header>
-<button class="btn no-print" type="button" data-toc-toggle aria-expanded="true">Hide or show contents</button>
-<div class="cv-layout">
-  <aside class="toc" aria-label="Chapters">
-    <p class="title">Chapters</p>
-    <ol>
-      <li><a href="../../../teaching/latex/">LaTeX from first principles</a></li>
-      <li><a href="../../../teaching/latex/basics/">How LaTeX works</a></li>
-      <li><a href="../../../teaching/latex/text/">Structure, text and appearance</a></li>
-      <li><a href="../../../teaching/latex/maths/">Mathematics</a></li>
-      <li><a href="../../../teaching/latex/tables-figures/">Tables and figures</a></li>
-      <li><a href="../../../teaching/latex/references/" aria-current="page">References, links and bibliographies</a></li>
-      <li><a href="../../../teaching/latex/macros/">Your own commands, packages and themes</a></li>
-      <li><a href="../../../teaching/latex/outputs/">Slides, Word, web pages and images</a></li>
-      <li><a href="../../../teaching/latex/practice/">Good practice and version control</a></li>
-      <li><a href="../../../teaching/latex/troubleshooting/">Troubleshooting and cheat sheet</a></li>
-    </ol>
-    <p><a href="../../../teaching/latex/full/">Whole guide on one page</a></p>
-    <p><a href="../../../files/LaTeX_guide_Ahmad_Ammar.pdf">Whole guide as a PDF</a></p>
-  </aside>
-  <article class="hpc-body">
-<h2 id="cross-references">Cross-references</h2>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="LaTeX from first principles" class="md-nav__button md-logo" aria-label="LaTeX from first principles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    LaTeX from first principles
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. How LaTeX works
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../text/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. Structure, text and appearance
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Mathematics
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tables-figures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Tables and figures
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. References, links and bibliographies
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. References, links and bibliographies
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-cross-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Cross-references
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-citations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Citations
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-a-complete-small-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 A complete small report
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macros/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. Your own commands, packages and themes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../outputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Slides, Word, web pages and images
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../practice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. Good practice and version control
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  9. Troubleshooting and cheat sheet
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Whole guide
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://ahmadammar.github.io/teaching.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  All guides
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#51-cross-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Cross-references
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52-citations" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 Citations
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53-a-complete-small-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 A complete small report
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="5-references-links-and-bibliographies">5. References, links and bibliographies<a class="headerlink" href="#5-references-links-and-bibliographies" title="Permanent link">&para;</a></h1>
+<h2 id="51-cross-references">5.1 Cross-references<a class="headerlink" href="#51-cross-references" title="Permanent link">&para;</a></h2>
 <p>Give anything numbered a label, then refer to it. The number updates itself if things move.</p>
-<pre class="latex"><code>\section{Method}\label{sec:method}
-See Section~\ref{sec:method} and Equation~\eqref{eq:energy}.</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">\section</span><span class="nb">{</span>Method<span class="nb">}</span><span class="k">\label</span><span class="nb">{</span>sec:method<span class="nb">}</span>
+See Section~<span class="k">\ref</span><span class="nb">{</span>sec:method<span class="nb">}</span> and Equation~<span class="k">\eqref</span><span class="nb">{</span>eq:energy<span class="nb">}</span>.
+</code></pre></div>
 <p>The <code>~</code> is a non-breaking space, which keeps "Section" and its number on one line. A prefix such as <code>sec:</code>, <code>eq:</code>, <code>tab:</code> or <code>fig:</code> is a helpful habit. The <code>cleveref</code> package can add the word for you: <code>\cref{sec:method}</code>.</p>
-<h2 id="citations">Citations</h2>
+<h2 id="52-citations">5.2 Citations<a class="headerlink" href="#52-citations" title="Permanent link">&para;</a></h2>
 <p>Keep references in a separate <code>.bib</code> file, and cite them by key:</p>
 <p><strong>refs.bib</strong></p>
-<pre class="bibtex"><code>@book{clarke2001,
+<pre><code>@book{clarke2001,
   author    = {Clarke, Joseph A.},
   title     = {Energy Simulation in Building Design},
   edition   = {2},
   publisher = {Butterworth-Heinemann},
   address   = {Oxford},
   year      = {2001}
-}</code></pre>
-<pre class="latex"><code>\usepackage[round]{natbib}
+}
+</code></pre>
+<div class="highlight"><pre><span></span><code><span class="k">\usepackage</span><span class="na">[round]</span><span class="nb">{</span>natbib<span class="nb">}</span>
 ...
-As \citet{clarke2001} shows, this holds \citep{clarke2001}.
+As <span class="k">\citet</span><span class="nb">{</span>clarke2001<span class="nb">}</span> shows, this holds <span class="k">\citep</span><span class="nb">{</span>clarke2001<span class="nb">}</span>.
 ...
-\bibliographystyle{plainnat}
-\bibliography{refs}</code></pre>
+<span class="k">\bibliographystyle</span><span class="nb">{</span>plainnat<span class="nb">}</span>
+<span class="k">\bibliography</span><span class="nb">{</span>refs<span class="nb">}</span>
+</code></pre></div>
 <p>The bibliography tool picks up only the items you cite. Zotero can export a <code>.bib</code> file, and its Better BibTeX add-on keeps that file updated. <code>biblatex</code> with the <code>biber</code> tool is a more flexible alternative, while journals often supply their own <code>.bst</code> style for BibTeX.</p>
-<h2 id="a-complete-small-report">A complete small report</h2>
+<h2 id="53-a-complete-small-report">5.3 A complete small report<a class="headerlink" href="#53-a-complete-small-report" title="Permanent link">&para;</a></h2>
 <p>This pulls together everything so far: sections, equations, a table, a chart, cross-references, a bibliography and links.</p>
 <p><strong>main.tex</strong></p>
-<pre class="latex"><code>% A complete small report: sections, maths, a table, a figure, cross-references, a bibliography and links.
+<pre><code>% A complete small report: sections, maths, a table, a figure, cross-references, a bibliography and links.
 % Build: pdflatex main, bibtex main, pdflatex main, pdflatex main
 \documentclass[11pt,a4paper]{article}
 
@@ -103,7 +761,7 @@ As \citet{clarke2001} shows, this holds \citep{clarke2001}.
 \usepackage[colorlinks=true,linkcolor=teal,citecolor=teal,urlcolor=teal]{hyperref}
 \pgfplotsset{compat=1.17}
 
-% Your own command: change the look of every &quot;term&quot; from this one line.
+% Your own command: change the look of every "term" from this one line.
 \newcommand{\term}[1]{\textbf{#1}}
 
 \title{Heat Loss Through a Wall}
@@ -114,28 +772,27 @@ As \citet{clarke2001} shows, this holds \citep{clarke2001}.
 \maketitle
 \tableofcontents
 
-\section{Introduction}\label{sec:intro}
+\section{5.4 Introduction}\label{sec:intro}
 A \term{U-value} measures heat flow through one square metre of a surface for each degree of
-temperature difference \citep{clarke2001}. Section~\ref{sec:method} gives the equation, and
-Table~\ref{tab:walls} and Figure~\ref{fig:loss} apply it.
+temperature difference \citep{clarke2001}. Section~? gives the equation, and
+Table~? and Figure~? apply it.
 
-\section{Method}\label{sec:method}
+\section{5.5 Method}\label{sec:method}
 Heat loss $Q$ follows from the U-value $U$, the area $A$ and the temperature difference $\Delta T$:
-\begin{equation}
+
   Q = U A \, \Delta T.
-  \label{eq:loss}
-\end{equation}
-Equation~\eqref{eq:loss} is a steady-state estimate. Longer derivations line up at the equals sign:
-\begin{align}
+  \tag{?}
+
+Equation~(?) is a steady-state estimate. Longer derivations line up at the equals sign:
+\begin{align*}
   Q &amp;= 2.1 \times 10 \times 15 \\
     &amp;= 315 \text{ W}.
-\end{align}
+\end{align*}
 
-\section{Results}\label{sec:results}
+\section{5.6 Results}\label{sec:results}
 \begin{table}[ht]
   \centering
-  \caption{Heat loss through a 10 m$^2$ wall at a difference of 15 K.}
-  \label{tab:walls}
+  \caption{Table . Heat loss through a 10 m$^2$ wall at a difference of 15 K.}
   \begin{tabular}{lrr}
     \toprule
     Wall &amp; $U$ (W/m$^2$K) &amp; $Q$ (W) \\
@@ -158,39 +815,130 @@ Equation~\eqref{eq:loss} is a steady-state estimate. Longer derivations line up 
   \label{fig:loss}
 \end{figure}
 
-\section{Conclusion}
-Find this project&#39;s source at \url{https://ahmadammar.github.io/teaching/latex/}.
+\section{5.7 Conclusion}
+Find this project's source at \url{https://ahmadammar.github.io/teaching/latex/}.
 
 \bibliographystyle{plainnat}
 \bibliography{refs}
-\end{document}</code></pre>
+\end{document}
+</code></pre>
 <p>It compiles to these two pages. The links are coloured teal, and every number comes from a label.</p>
-<div class="shown page-row">
-<figure>
-<img src="../../../teaching/latex/img/report-page-1.png" alt="Page 1 of the report: title, author and date, a contents list, then Introduction, Method with numbered equations, Results with a table, and Conclusion." />
-<figcaption>Page 1</figcaption>
-</figure>
-<figure>
-<img src="../../../teaching/latex/img/report-page-2.png" alt="Page 2 of the report: a line chart captioned Figure 1, then a References heading with one entry, Clarke, Energy Simulation in Building Design." />
-<figcaption>Page 2</figcaption>
-</figure>
-</div>
+<p><img alt="Page 1" src="../fig/f-08.png" />\</p>
+<p>Page 1</p>
+<p><img alt="Page 2" src="../fig/f-09.png" />\</p>
+<p>Page 2</p>
 
-<nav class="hpc-pager" aria-label="Previous and next chapter"><a href="../../../teaching/latex/tables-figures/">&larr; Tables and figures</a><a href="../../../teaching/latex/macros/">Your own commands, packages and themes &rarr;</a></nav>
-<p class="hpc-licence">Text &copy; Ahmad Ammar, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Example code &copy; Ahmad Ammar, MIT licence. Written during a PhD supported by a Vice-Chancellor's Research Scholarship (VCRS) from Ulster University.</p>
-  </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../tables-figures/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 4. Tables and figures">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                4. Tables and figures
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../macros/" class="md-footer__link md-footer__link--next" aria-label="Next: 6. Your own commands, packages and themes">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                6. Your own commands, packages and themes
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
+    </a>
+  
 </div>
-</main>
-<footer class="site-footer">
-  <div class="bar">
-    <div>&copy; <span data-year>2026</span> Ahmad Ammar &middot; School of Geography and Environmental Sciences, Ulster University &middot; Updated November 2026</div>
-    <div class="social">
-      <a href="mailto:ahmadammargeo@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
-      <a href="https://github.com/AhmadAmmar" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg></a>
-      <a href="https://www.linkedin.com/in/ahmadammar/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.2c0-1.3 0-2.9-1.8-2.9s-2 1.4-2 2.8V21h-4z"/></svg></a>
-      <a href="https://ammarastan.substack.com/" aria-label="Substack"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 3h16v2.6H4zM4 7.4h16V10H4zM4 11.8h16V21l-8-4.5L4 21z"/></svg></a>
+      
     </div>
   </div>
 </footer>
-</body>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.instant","navigation.top","navigation.footer","toc.follow","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d31f0ffa.min.js"></script>
+      
+        <script src="../mathjax.js"></script>
+      
+        <script src="../pdfview.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+      
+    
+  </body>
 </html>

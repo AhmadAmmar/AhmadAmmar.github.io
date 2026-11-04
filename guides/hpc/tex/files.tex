@@ -1,0 +1,108 @@
+\chapter{Files and storage}
+\label{ch:files}
+
+\section{Where things go}\label{where-things-go}
+
+Clusters have several storage areas with different rules. Learn yours before you create anything big.
+
+\textbf{Kelvin2 only}, according to the \href{https://ni-hpc.github.io/nihpc-documentation/Quickstart\%20Guide/}{quick-start guide}\footnote{\texttt{https://ni-hpc.github.io/nihpc-documentation/Quickstart\%20Guide/}}:
+
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Area
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Path
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Limit
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Deletion
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Home & \texttt{/users/\$USER} & 50 GB and 100k files & None automatic \\
+Scratch & \texttt{/mnt/scratch2/users/\$USER} & No per-user quota & \textbf{After 90 days without access} \\
+Temp & \texttt{/tmp} on each node & The node\textquotesingle s disk & When the session ends \\
+McClayRDS & Project paths & By project & QUB projects only \\
+\end{longtable}
+}
+
+\texttt{quota\ -s} shows your actual allocation.
+
+The key rule: \textbf{scratch is not a backup and not an archive.} Keep a copy of results that matter on your institution\textquotesingle s storage, and ask your support team what, if anything, is backed up.
+
+\section{A tidy project}\label{a-tidy-project}
+
+\begin{lstlisting}[language=bash]
+# cluster
+
+# Braces expand: this makes all four folders
+mkdir -p ~/project/{code,jobs,logs,envs}
+
+# Big data lives on scratch
+mkdir -p /mnt/scratch2/users/$USER/project/{data,outputs,tmp}
+
+# A shortcut, so ~/project/scratch stands for the long path
+ln -s /mnt/scratch2/users/$USER/project ~/project/scratch
+\end{lstlisting}
+
+\section{Moving files with scp}\label{moving-files-with-scp}
+
+\texttt{scp\ source\ destination} copies securely. A remote location is written \texttt{kelvin:path}, using your shortcut. \textbf{Run it from your laptop}, in a separate terminal from your cluster session.
+
+\begin{lstlisting}[language=powershell]
+# laptop
+
+# Upload a file. Quotes are needed because of the space in the path
+scp "D:\My Work\data.csv" kelvin:~/project/scratch/data/
+
+# Upload a folder: -r means recursive
+scp -r "D:\My Work\code" kelvin:~/project/
+
+# Download: the source is now the remote one
+scp kelvin:~/project/scratch/outputs/results.tgz "D:\My Work"
+\end{lstlisting}
+
+Without the shortcut, the port needs a \textbf{capital} \texttt{-P}, unlike \texttt{ssh}, which uses a lower-case \texttt{-p}:
+
+\begin{lstlisting}[language=powershell]
+# laptop
+scp -P 55890 -i $HOME\.ssh\my-kelvin-key data.csv <username>@login.kelvin.alces.network:~/project/
+\end{lstlisting}
+
+\textbf{A Windows trap.} Do not end a quoted folder with a backslash. In \texttt{"D:\textbackslash{}My\ Work\textbackslash{}"}, the \texttt{\textbackslash{}"} is read as a literal quote mark, and you get a confusing "No such file or directory". Write \texttt{"D:\textbackslash{}My\ Work"}.
+
+\section{Many small files: pack first}\label{many-small-files-pack-first}
+
+Sending thousands of small files one by one is slow, and hard on shared storage. Pack, send, unpack:
+
+\begin{lstlisting}[language=powershell]
+# laptop
+# c create, z compress, f file name. --exclude leaves out unwanted folders
+tar --exclude=.git -czf code.tgz code
+scp code.tgz kelvin:~/project/
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash]
+# cluster
+# x extract. && means each step runs only if the last succeeded
+cd ~/project && tar xzf code.tgz && rm code.tgz
+\end{lstlisting}
+
+Coming back, pack only what you need, such as summaries rather than every raw output.
+
+\section{Large transfers}\label{large-transfers}
+
+\textbf{Kelvin2 only.} For large amounts of data, use a data movement node rather than a login node: \texttt{dm1.kelvin.alces.network} or \texttt{dm2.kelvin.alces.network}. Tools such as \texttt{rsync} can resume an interrupted transfer. MobaXterm and WinSCP offer drag and drop.
+
+\section{Files that arrive read-only}\label{files-that-arrive-read-only}
+
+Copied files can keep restrictive permissions, leading to \texttt{Permission\ denied} when you edit them. \texttt{chmod\ -R\ u+w\ \textasciitilde{}/project/code} gives you write permission on everything in that folder.
+

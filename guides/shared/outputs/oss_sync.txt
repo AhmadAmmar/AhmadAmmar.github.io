@@ -1,0 +1,15 @@
+$ git switch main
+Your branch is up to date with 'origin/main'.
+Switched to branch 'main'
+$ git fetch upstream
+From https://github.com/their-name/their-project
+ * [new branch]      main       -> upstream/main
+$ git merge upstream/main
+Updating 1a2b3c4..5d6e7f8
+Fast-forward
+ CHANGES.md | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 CHANGES.md
+$ git push origin main
+To https://github.com/your-name/their-project.git
+   1a2b3c4..5d6e7f8  main -> main
