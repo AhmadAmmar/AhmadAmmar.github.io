@@ -47,13 +47,9 @@
     
     
       
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
-      
     
+    
+      <link rel="stylesheet" href="../theme.css">
     
       <link rel="stylesheet" href="../rh.css">
     
@@ -63,6 +59,12 @@
 
     
     
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+
   </head>
   
   
@@ -91,88 +93,34 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="./.." title="Contribute to an open-source project" class="md-header__button md-logo" aria-label="Contribute to an open-source project" data-md-component="logo">
+<div class="aa-header">
+  <div class="aa-bar">
+    <a class="aa-brand" href="/index.html">Ahmad <span>Ammar</span></a>
+    <button class="aa-icon aa-menu" type="button" data-aa-menu aria-controls="aa-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="aa-nav" id="aa-nav" aria-label="Main">
+      <a href="/index.html">About</a>
+      <a href="/research.html">Research</a>
+      <a href="/teaching.html" aria-current="page">Teaching</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/writing.html">Writing</a>
+      <a href="/cv.html">CV</a>
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
-      <span class="md-visually-hidden">Navigation</span>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            Contribute to an open-source project
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Whole guide
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Dark" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Light" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
-      </label>
-    
-  
-</form>
-      
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
-          <span class="md-visually-hidden">Search</span>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+    </nav>
+    <button class="aa-icon" type="button" data-aa-theme aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</div>
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Contribute to an open-source project">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Chapters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></label>
+    <button class="aa-icon aa-side" type="button" data-aa-sidebar aria-pressed="false" aria-label="Hide or show the side panels" title="Hide or show the side panels"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg></button>
+    <div class="aa-crumb"><a href="/teaching.html">Teaching</a> / <a href="./..">Contribute to an open-source project</a></div>
+    <label class="md-header__button md-icon" for="__search" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></label>
+    <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
   <button type="button" class="md-search__button">
     Search
   </button>
 </div>
-      
-    
-    <div class="md-header__source">
-      
-    </div>
   </nav>
-  
 </header>
     
     <div class="md-container" data-md-component="container">
@@ -414,21 +362,30 @@
       
         
 
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
+  <label class="md-nav__title" for="__toc">
+    <span class="md-nav__icon md-icon"></span>
+    Table of contents
+  </label>
+  <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#1-what-contributing-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. What contributing means
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What contributing means">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#11-the-whole-journey" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -438,8 +395,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#12-the-words-you-will-meet" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -449,8 +406,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#13-the-terminal-and-how-to-read-the-commands-here" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -460,9 +417,302 @@
   </a>
   
 </li>
-      
-    </ul>
+        
+      </ul>
+    </nav>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-install-the-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Install the tools
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Install the tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-install-vs-code-the-program-you-will-write-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Install VS Code, the program you will write in
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-install-git-the-program-that-keeps-your-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Install Git, the program that keeps your history
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-install-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Install Python
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-create-a-github-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Create a GitHub account
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-choose-a-project-and-something-to-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Choose a project and something to change
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Choose a project and something to change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-start-with-something-you-already-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Start with something you already use
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-check-that-the-project-welcomes-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Check that the project welcomes changes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-find-something-small" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Find something small
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-make-the-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Make the change
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Make the change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-fork-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Fork the project
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-download-your-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Download your copy
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tell-git-about-the-original-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Tell Git about the original project
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-make-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Make a branch
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-change-the-file-and-check-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Change the file and check it
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-save-a-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.6 Save a version
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-send-it-to-your-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.7 Send it to your fork
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-propose-it-and-follow-it-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Propose it and follow it through
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Propose it and follow it through">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-open-the-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Open the pull request
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-what-happens-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 What happens next
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-answering-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Answering comments
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-after-it-is-accepted" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.4 After it is accepted
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-being-a-good-contributor" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.5 Being a good contributor
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.6 When something goes wrong
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    
+  </ul>
 </nav>
       
     </li>
@@ -547,21 +797,30 @@
                   <div class="md-sidebar__inner">
                     
 
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
+  <label class="md-nav__title" for="__toc">
+    <span class="md-nav__icon md-icon"></span>
+    Table of contents
+  </label>
+  <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#1-what-contributing-means" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. What contributing means
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. What contributing means">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#11-the-whole-journey" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -571,8 +830,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#12-the-words-you-will-meet" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -582,8 +841,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#13-the-terminal-and-how-to-read-the-commands-here" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -593,9 +852,302 @@
   </a>
   
 </li>
-      
-    </ul>
+        
+      </ul>
+    </nav>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-install-the-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Install the tools
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Install the tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-install-vs-code-the-program-you-will-write-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Install VS Code, the program you will write in
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-install-git-the-program-that-keeps-your-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Install Git, the program that keeps your history
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-install-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Install Python
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-create-a-github-account" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 Create a GitHub account
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-choose-a-project-and-something-to-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. Choose a project and something to change
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Choose a project and something to change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-start-with-something-you-already-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Start with something you already use
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-check-that-the-project-welcomes-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Check that the project welcomes changes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-find-something-small" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Find something small
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-make-the-change" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Make the change
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Make the change">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-fork-the-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Fork the project
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-download-your-copy" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Download your copy
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-tell-git-about-the-original-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Tell Git about the original project
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-make-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 Make a branch
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-change-the-file-and-check-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.5 Change the file and check it
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#46-save-a-version" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.6 Save a version
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#47-send-it-to-your-fork" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.7 Send it to your fork
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-propose-it-and-follow-it-through" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Propose it and follow it through
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Propose it and follow it through">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-open-the-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 Open the pull request
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-what-happens-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 What happens next
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-answering-comments" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Answering comments
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-after-it-is-accepted" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.4 After it is accepted
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-being-a-good-contributor" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.5 Being a good contributor
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-when-something-goes-wrong" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.6 When something goes wrong
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    
+  </ul>
 </nav>
                   </div>
                 </div>
@@ -702,12 +1254,12 @@
 <p>You will install three free programs and create one account. Do these once and you will not need to repeat them.</p>
 <h3 id="21-install-vs-code-the-program-you-will-write-in">2.1 Install VS Code, the program you will write in<a class="headerlink" href="#21-install-vs-code-the-program-you-will-write-in" title="Permanent link">&para;</a></h3>
 <p>VS Code is a free text editor from Microsoft. Go to <code>code.visualstudio.com</code>, press the large download button, open the file you receive, and accept the choices the installer offers. On Windows, leave the box marked <strong>Add to PATH</strong> ticked, because that lets the terminal find it.</p>
-<p><img alt="The VS Code download page. The site changes its wording from time to time, but the download button stays near the top. If a cookie notice appears, either choice is fine." src="../fig/f-1.png" />\</p>
+<p><img alt="The VS Code download page. The site changes its wording from time to time, but the download button stays near the top. If a cookie notice appears, either choice is fine." src="../fig/f-1.png" /></p>
 <p>The VS Code download page. The site changes its wording from time to time, but the download button stays near the top. If a cookie notice appears, either choice is fine.</p>
 <p>When VS Code first opens it may offer to sign you in to an assistant or to choose a theme. You can close these offers, since nothing in this guide needs them.</p>
 <h3 id="22-install-git-the-program-that-keeps-your-history">2.2 Install Git, the program that keeps your history<a class="headerlink" href="#22-install-git-the-program-that-keeps-your-history" title="Permanent link">&para;</a></h3>
 <p>Git records each saved version of your files, so you can always go back. Go to <code>git-scm.com/downloads</code> and choose your operating system.</p>
-<p><img alt="The Git download page. Choose Windows, macOS or Linux, then follow the instructions on the page that opens." src="../fig/f-2.png" />\</p>
+<p><img alt="The Git download page. Choose Windows, macOS or Linux, then follow the instructions on the page that opens." src="../fig/f-2.png" /></p>
 <p>The Git download page. Choose Windows, macOS or Linux, then follow the instructions on the page that opens.</p>
 <p>On Windows, run the installer and press <strong>Next</strong> on every screen, as the suggested settings are fine. On a Mac, open the Terminal application and type <code>git --version</code>, and the system will offer to install it. On Linux, use your system’s package manager, for example <code>sudo apt install git</code>.</p>
 <p>Close VS Code and open it again so that it notices Git. Then open a terminal and tell Git who you are. Git writes this name and email on every version you save, and they become public if you publish your work.</p>
@@ -718,7 +1270,7 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 <p>These commands print nothing when they succeed. To check, type <code>git --version</code>, which should print a version number.</p>
 <h3 id="23-install-python">2.3 Install Python<a class="headerlink" href="#23-install-python" title="Permanent link">&para;</a></h3>
 <p>Python is a programming language, and here it runs small scripts. Go to <code>python.org/downloads</code> and press the yellow download button.</p>
-<p><img alt="The Python download page. The page recognises your operating system and offers the right version." src="../fig/f-3.png" />\</p>
+<p><img alt="The Python download page. The page recognises your operating system and offers the right version." src="../fig/f-3.png" /></p>
 <p>The Python download page. The page recognises your operating system and offers the right version.</p>
 <p>On Windows, tick <strong>Add python.exe to PATH</strong> on the first screen of the installer before you press <strong>Install Now</strong>. It is easy to miss, and without it the terminal cannot find Python. Close and reopen VS Code, then check that it worked:</p>
 <div class="highlight"><pre><span></span><code>python<span class="w"> </span>--version
@@ -731,13 +1283,13 @@ git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"
 <h1 id="3-choose-a-project-and-something-to-change">3. Choose a project and something to change<a class="headerlink" href="#3-choose-a-project-and-something-to-change" title="Permanent link">&para;</a></h1>
 <h3 id="31-start-with-something-you-already-use">3.1 Start with something you already use<a class="headerlink" href="#31-start-with-something-you-already-use" title="Permanent link">&para;</a></h3>
 <p>The best first project is one you use, because you know where it confused you. If it is a tool for your field, you also understand its users. Look at its page on GitHub.</p>
-<p><img alt="A project's page on GitHub. The tabs at the top lead to its code, its issues and its pull requests. On the right are its description and licence. The  textbf Fork  button sits above the file list." src="../fig/f-4.png" />\</p>
+<p><img alt="A project’s page on GitHub. The tabs at the top lead to its code, its issues and its pull requests. On the right are its description and licence. The Fork button sits above the file list." src="../fig/f-4.png" /></p>
 <p>A project’s page on GitHub. The tabs at the top lead to its code, its issues and its pull requests. On the right are its description and licence. The <strong>Fork</strong> button sits above the file list.</p>
 <h3 id="32-check-that-the-project-welcomes-changes">3.2 Check that the project welcomes changes<a class="headerlink" href="#32-check-that-the-project-welcomes-changes" title="Permanent link">&para;</a></h3>
 <p>Before you spend time, check four things on that page. The date beside the most recent files shows whether anyone has been active this year. A <strong>Licence</strong> on the right shows others are allowed to reuse the code, and open-source projects must have one. A file named <code>CONTRIBUTING.md</code> sets out the project’s rules, so read it first if there is one. And the <strong>Pull requests</strong> tab shows whether outsiders’ changes get answered.</p>
 <h3 id="33-find-something-small">3.3 Find something small<a class="headerlink" href="#33-find-something-small" title="Permanent link">&para;</a></h3>
 <p>Press the <strong>Issues</strong> tab, which lists known problems and requests. Many projects label easy ones <code>good first issue</code>.</p>
-<p><img alt="The Issues tab. This project has none open, which is common for small ones. In that case, improve something you noticed yourself." src="../fig/f-5.png" />\</p>
+<p><img alt="The Issues tab. This project has none open, which is common for small ones. In that case, improve something you noticed yourself." src="../fig/f-5.png" /></p>
 <p>The Issues tab. This project has none open, which is common for small ones. In that case, improve something you noticed yourself.</p>
 <p>If you plan a large change, first write an issue describing it and wait for a reply, so that you do not spend days on something the maintainers would not accept. For a spelling fix, you can go straight ahead. If you take an existing issue, leave a comment saying you are working on it, so that nobody duplicates the work.</p>
 <p>A useful first change is one a reader could check in a minute. Fix a broken link, correct a mistaken command in the instructions, or add a missing step you had to work out yourself.</p>
@@ -911,61 +1463,17 @@ To https://github.com/your-name/their-project.git
         
       </main>
       
-        <footer class="md-footer">
-  
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
-          
-          <a href="../propose-it/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 5. Propose it and follow it through">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                5. Propose it and follow it through
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../pdf/" class="md-footer__link md-footer__link--next" aria-label="Next: PDF">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                PDF
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://zensical.org/" target="_blank" rel="noopener">
-      Zensical
-    </a>
-  
-</div>
-      
-    </div>
+
+<nav class="aa-pager" aria-label="Previous and next page">
+  <a href="../propose-it/"><span>Previous</span>5. Propose it and follow it through</a>
+  <a class="next" href="../pdf/"><span>Next</span>PDF</a>
+</nav>
+
+<footer class="aa-footer">
+  <div class="aa-bar">
+    <div>&copy; 2026 Ahmad Ammar. <a href="/teaching.html">More teaching</a>.</div>
+    <div><a href="mailto:ahmadammargeo@gmail.com">Email</a> &middot; <a href="https://github.com/AhmadAmmar">GitHub</a> &middot; <a href="https://www.linkedin.com/in/ahmadammar/">LinkedIn</a></div>
   </div>
 </footer>
       
@@ -988,6 +1496,8 @@ To https://github.com/your-name/their-project.git
       <script src="../assets/javascripts/bundle.d31f0ffa.min.js"></script>
       
         <script src="../mathjax.js"></script>
+      
+        <script src="../site.js"></script>
       
         <script src="../pdfview.js"></script>
       

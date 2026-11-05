@@ -47,13 +47,9 @@
     
     
       
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
-        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
-      
     
+    
+      <link rel="stylesheet" href="../theme.css">
     
       <link rel="stylesheet" href="../rh.css">
     
@@ -63,6 +59,12 @@
 
     
     
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+
   </head>
   
   
@@ -91,88 +93,34 @@
     
       
 
-  
-
-<header class="md-header md-header--shadow" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="./.." title="Git, testing and automation for research" class="md-header__button md-logo" aria-label="Git, testing and automation for research" data-md-component="logo">
+<div class="aa-header">
+  <div class="aa-bar">
+    <a class="aa-brand" href="/index.html">Ahmad <span>Ammar</span></a>
+    <button class="aa-icon aa-menu" type="button" data-aa-menu aria-controls="aa-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="aa-nav" id="aa-nav" aria-label="Main">
+      <a href="/index.html">About</a>
+      <a href="/research.html">Research</a>
+      <a href="/teaching.html" aria-current="page">Teaching</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/writing.html">Writing</a>
+      <a href="/cv.html">CV</a>
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
-      <span class="md-visually-hidden">Navigation</span>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            Git, testing and automation for research
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Whole guide
-            
-          </span>
-        </div>
-      </div>
-    </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Dark"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Dark" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Light"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Light" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
-      </label>
-    
-  
-</form>
-      
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
-          <span class="md-visually-hidden">Search</span>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+    </nav>
+    <button class="aa-icon" type="button" data-aa-theme aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</div>
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Git, testing and automation for research">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Chapters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></label>
+    <button class="aa-icon aa-side" type="button" data-aa-sidebar aria-pressed="false" aria-label="Hide or show the side panels" title="Hide or show the side panels"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg></button>
+    <div class="aa-crumb"><a href="/teaching.html">Teaching</a> / <a href="./..">Git, testing and automation for research</a></div>
+    <label class="md-header__button md-icon" for="__search" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></label>
+    <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
   <button type="button" class="md-search__button">
     Search
   </button>
 </div>
-      
-    
-    <div class="md-header__source">
-      
-    </div>
   </nav>
-  
 </header>
     
     <div class="md-container" data-md-component="container">
@@ -492,21 +440,30 @@
       
         
 
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
+  <label class="md-nav__title" for="__toc">
+    <span class="md-nav__icon md-icon"></span>
+    Table of contents
+  </label>
+  <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#1-git-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Git basics
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Git basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#11-the-idea" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -516,8 +473,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#12-the-everyday-cycle" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -527,8 +484,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#13-try-it-safely" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -538,8 +495,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#14-what-to-track" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -549,8 +506,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#15-good-commit-messages" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -560,9 +517,463 @@
   </a>
   
 </li>
-      
-    </ul>
+        
+      </ul>
+    </nav>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-branches-tags-and-going-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Branches, tags and going back
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Branches, tags and going back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Branches
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Tags
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-going-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Going back
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-a-sensible-rule-for-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 A sensible rule for versions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-github-and-working-with-others" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. GitHub and working with others
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. GitHub and working with others">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Remotes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-issues-and-pull-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Issues and pull requests
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-making-a-project-welcoming" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Making a project welcoming
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-sites-and-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Sites and releases
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-testing-research-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Testing research code
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Testing research code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-why-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Why test
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-kinds-of-test-for-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Kinds of test for research
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-lessons-from-real-faults" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Lessons from real faults
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-what-tests-cannot-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 What tests cannot do
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-continuous-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Continuous integration
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Continuous integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-what-the-terms-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 What the terms mean
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-a-first-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 A first workflow
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-from-testing-to-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 From testing to publishing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-practical-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.4 Practical advice
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-hooks-checks-before-you-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.5 Hooks: checks before you push
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-scheduled-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.6 Scheduled checks
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-reproducible-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Reproducible pipelines
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Reproducible pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-the-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 The idea
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-rules-that-prevent-most-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Rules that prevent most errors
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-a-worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 A worked example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-tools-for-larger-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Tools for larger projects
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-data-backups-and-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Data, backups and releases
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Data, backups and releases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Backups
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Releases
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 Secrets
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-checklists-and-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Checklists and cheat sheet
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Checklists and cheat sheet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-starting-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Starting a project
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-before-sending-anything-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Before sending anything out
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3 Cheat sheet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-references-and-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.4 References and further reading
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    
+  </ul>
 </nav>
       
     </li>
@@ -647,21 +1058,30 @@
                   <div class="md-sidebar__inner">
                     
 
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
   
   
   
+  <label class="md-nav__title" for="__toc">
+    <span class="md-nav__icon md-icon"></span>
+    Table of contents
+  </label>
+  <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#1-git-basics" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        1. Git basics
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Git basics">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#11-the-idea" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -671,8 +1091,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#12-the-everyday-cycle" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -682,8 +1102,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#13-try-it-safely" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -693,8 +1113,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#14-what-to-track" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -704,8 +1124,8 @@
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#15-good-commit-messages" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
@@ -715,9 +1135,463 @@
   </a>
   
 </li>
-      
-    </ul>
+        
+      </ul>
+    </nav>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-branches-tags-and-going-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2. Branches, tags and going back
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Branches, tags and going back">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.1 Branches
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.2 Tags
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-going-back" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.3 Going back
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-a-sensible-rule-for-versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        2.4 A sensible rule for versions
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-github-and-working-with-others" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3. GitHub and working with others
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. GitHub and working with others">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-remotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.1 Remotes
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-issues-and-pull-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.2 Issues and pull requests
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-making-a-project-welcoming" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.3 Making a project welcoming
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-sites-and-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        3.4 Sites and releases
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-testing-research-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4. Testing research code
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Testing research code">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-why-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Why test
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-kinds-of-test-for-research" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 Kinds of test for research
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-lessons-from-real-faults" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Lessons from real faults
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-what-tests-cannot-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 What tests cannot do
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-continuous-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5. Continuous integration
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Continuous integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-what-the-terms-mean" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.1 What the terms mean
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-a-first-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.2 A first workflow
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-from-testing-to-publishing" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 From testing to publishing
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-practical-advice" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.4 Practical advice
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55-hooks-checks-before-you-push" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.5 Hooks: checks before you push
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56-scheduled-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.6 Scheduled checks
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-reproducible-pipelines" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6. Reproducible pipelines
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Reproducible pipelines">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-the-idea" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.1 The idea
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-rules-that-prevent-most-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.2 Rules that prevent most errors
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-a-worked-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.3 A worked example
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-tools-for-larger-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        6.4 Tools for larger projects
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-data-backups-and-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7. Data, backups and releases
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Data, backups and releases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.1 Data
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-backups" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.2 Backups
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-releases" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.3 Releases
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74-secrets" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        7.4 Secrets
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-checklists-and-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8. Checklists and cheat sheet
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Checklists and cheat sheet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-starting-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.1 Starting a project
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-before-sending-anything-out" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.2 Before sending anything out
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-cheat-sheet" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.3 Cheat sheet
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84-references-and-further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        8.4 References and further reading
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    
+  </ul>
 </nav>
                   </div>
                 </div>
@@ -928,7 +1802,7 @@ Date:   Sun Nov 1 16:26:35 2026 +0000
     Add the median
 </code></pre></div>
 <p>Once pushed, tags are listed on the project's page on GitHub, each with its commit and a download of the files at that point. These are the tags of my pamphlet project:</p>
-<p><img alt="The tags of a public repository on GitHub." src="../fig/f-1.png" />\</p>
+<p><img alt="The tags of a public repository on GitHub." src="../fig/f-1.png" /></p>
 <p>The tags of a public repository on GitHub.</p>
 <h3 id="23-going-back">2.3 Going back<a class="headerlink" href="#23-going-back" title="Permanent link">&para;</a></h3>
 <table>
@@ -1009,7 +1883,7 @@ Fast-forward
  1 file changed, 1 insertion(+)
 </code></pre></div>
 <p>After a real push, your project's page on GitHub shows the files, with the latest commit message beside each one. This is my pamphlet project's page, with the account name and picture hidden:</p>
-<p><img alt="A repository page on GitHub, with the account name and picture hidden." src="../fig/f-2.png" />\</p>
+<p><img alt="A repository page on GitHub, with the account name and picture hidden." src="../fig/f-2.png" /></p>
 <p>A repository page on GitHub, with the account name and picture hidden.</p>
 <p>Before making anything public, check it for secrets and for unpublished work. Git keeps history, so deleting a file later doesn't remove it from past commits.</p>
 <h3 id="32-issues-and-pull-requests">3.2 Issues and pull requests<a class="headerlink" href="#32-issues-and-pull-requests" title="Permanent link">&para;</a></h3>
@@ -1254,9 +2128,9 @@ jobs:
 </ul>
 <p>See the results under the repository's <em>Actions</em> tab. Read the failing step's log from the bottom up, and find the first real error.</p>
 <p>These are the <em>Actions</em> tab and one run from my pamphlet project, with the account name hidden. A green tick means every step passed.</p>
-<p><img alt="The Actions tab lists each run with its outcome and how long it took." src="../fig/f-3.png" />\</p>
+<p><img alt="The Actions tab lists each run with its outcome and how long it took." src="../fig/f-3.png" /></p>
 <p>The Actions tab lists each run with its outcome and how long it took.</p>
-<p><img alt="One run: the deploy job starts only after the build job passes." src="../fig/f-4.png" />\</p>
+<p><img alt="One run: the deploy job starts only after the build job passes." src="../fig/f-4.png" /></p>
 <p>One run: the deploy job starts only after the build job passes.</p>
 <h3 id="53-from-testing-to-publishing">5.3 From testing to publishing<a class="headerlink" href="#53-from-testing-to-publishing" title="Permanent link">&para;</a></h3>
 <p>A publishing workflow adds a job that only runs after the checks succeed. This is how my <a href="https://github.com/AhmadAmmar/marxist-economics/blob/main/.github/workflows/deploy-pages.yml">pamphlet's workflow</a> works:</p>
@@ -1532,61 +2406,17 @@ sha256sum<span class="w"> </span>-c<span class="w"> </span>MANIFEST.sha256<span 
         
       </main>
       
-        <footer class="md-footer">
-  
-    
-      
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
-          
-          <a href="../checklist/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 8. Checklists and cheat sheet">
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
-            </div>
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              <div class="md-ellipsis">
-                8. Checklists and cheat sheet
-              </div>
-            </div>
-          </a>
-        
-        
-          
-          <a href="../pdf/" class="md-footer__link md-footer__link--next" aria-label="Next: PDF">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              <div class="md-ellipsis">
-                PDF
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://zensical.org/" target="_blank" rel="noopener">
-      Zensical
-    </a>
-  
-</div>
-      
-    </div>
+
+<nav class="aa-pager" aria-label="Previous and next page">
+  <a href="../checklist/"><span>Previous</span>8. Checklists and cheat sheet</a>
+  <a class="next" href="../pdf/"><span>Next</span>PDF</a>
+</nav>
+
+<footer class="aa-footer">
+  <div class="aa-bar">
+    <div>&copy; 2026 Ahmad Ammar. <a href="/teaching.html">More teaching</a>.</div>
+    <div><a href="mailto:ahmadammargeo@gmail.com">Email</a> &middot; <a href="https://github.com/AhmadAmmar">GitHub</a> &middot; <a href="https://www.linkedin.com/in/ahmadammar/">LinkedIn</a></div>
   </div>
 </footer>
       
@@ -1609,6 +2439,8 @@ sha256sum<span class="w"> </span>-c<span class="w"> </span>MANIFEST.sha256<span 
       <script src="../assets/javascripts/bundle.d31f0ffa.min.js"></script>
       
         <script src="../mathjax.js"></script>
+      
+        <script src="../site.js"></script>
       
         <script src="../pdfview.js"></script>
       
