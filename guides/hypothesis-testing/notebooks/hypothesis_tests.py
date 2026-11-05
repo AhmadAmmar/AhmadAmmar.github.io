@@ -116,9 +116,26 @@ print(f"2024: x = {x:.3f} °C  ->  z = ({x:.3f} - {mu:.3f}) / {sigma:.3f} = {z:.
 print(f"two-sided p = {2 * stats.norm.sf(abs(z)):.1e}")
 print(f"by hand, the class example: z = 1.8, p = {2 * stats.norm.sf(1.8):.3f}")
 
+fig, ax = plt.subplots(figsize=(7, 2.8))
+xs = np.linspace(mu - 4 * sigma, x + 0.1, 400)
+ax.plot(xs, stats.norm.pdf(xs, mu, sigma), color="#1f5c7a", label="normal curve from 1961–1990 (μ, σ)")
+ax.hist(base, bins=8, density=True, color="#cbd5e1", label="the 30 years 1961–1990")
+for k in (1, 2, 3):
+    ax.axvline(mu + k * sigma, color="0.75", lw=0.8, ls=":")
+ax.axvline(x, color="#b91c1c", lw=2, label=f"2024: {x:.2f} °C (z = {z:.1f})")
+ax.set(xlabel="Global temperature anomaly (°C, vs 1961–1990)", ylabel="probability density", title="How far 2024 lies from the 1961–1990 climate")
+ax.legend(frameon=False, fontsize=8, loc="upper center"); plt.tight_layout(); plt.show()
+
 # %% [markdown]
-# 2024 lies about 7 standard deviations above the 1961–1990 mean, and the p-value is about 5 × 10⁻¹². Under the
-# climate of 1961–1990, a year this warm would essentially never happen. Units: z has none (it is a count of σ); μ, σ and x are
+# **How to read the figure.** The x axis is the temperature anomaly in °C. The grey bars are the 30 years of the
+# reference period, piled up by value; the blue curve is the normal distribution with the same mean μ and standard
+# deviation σ. The dotted lines mark μ + 1σ, 2σ and 3σ: about 68%, 95% and 99.7% of a normal distribution lies within
+# them. The red line is 2024. The p-value is the area under the blue curve beyond the red line (on both sides for a
+# two-sided test): it is so small that it cannot be seen.
+#
+# **What the result says.** 2024 lies about 7 standard deviations above the 1961–1990 mean, and the p-value is about
+# 5 × 10⁻¹². Under the climate of 1961–1990, a year this warm would essentially never happen: the climate itself has
+# changed. **What it does not say.** The z-test does not say why; for that we need the trend test and the physics. Units: z has none (it is a count of σ); μ, σ and x are
 # in °C. Caveat: the z-test assumes the reference years are independent draws from a normal distribution with a
 # stable mean; here the 1961–1990 years already contain a little trend, which makes σ slightly larger and the test
 # slightly conservative.
@@ -149,9 +166,23 @@ print(f"lag-1 autocorrelation r1 = {r1:.2f} -> effective n = {n_eff:.1f}; correc
 ci = fit.slope * 10 + np.array([-1, 1]) * stats.t.ppf(0.975, n_eff - 2) * se_eff * 10
 print(f"95% confidence interval for the trend: {ci[0]:.3f} to {ci[1]:.3f} °C per decade")
 
+fig, ax = plt.subplots(figsize=(7, 2.8))
+ax.plot(w.year, w.anom, "o", ms=3, color="0.4", label="each year")
+yr = w.year.to_numpy(float); mid = yr.mean(); line = fit.intercept + fit.slope * yr
+ax.plot(yr, line, color="#b91c1c", label=f"trend {fit.slope * 10:.2f} °C per decade")
+for lo in (ci[0], ci[1]):
+    ax.plot(yr, fit.intercept + fit.slope * mid + lo / 10 * (yr - mid), color="#b91c1c", lw=0.8, ls="--")
+ax.set(xlabel="Year", ylabel="Anomaly (°C)", title="Global temperature 1983–2024 with its trend and 95% range of slopes")
+ax.legend(frameon=False, fontsize=8); plt.tight_layout(); plt.show()
+
 # %% [markdown]
-# Reading it: the slope is about 0.22 °C per decade; t is about 17 (13 after allowing for autocorrelation) and p is
-# tiny, so a zero trend is ruled out.
+# **How to read the figure.** Each grey dot is one year (x: the year; y: its anomaly in °C). The red line is the
+# fitted trend; its steepness is the slope b. The dashed lines are the steepest and shallowest slopes inside the 95%
+# confidence interval, pivoting on the middle year: the true trend is very likely somewhere between them. The scatter of
+# dots around the line is the year-to-year noise (El Niño, volcanoes, weather) that makes the slope uncertain.
+#
+# **What the result says.** The slope is about 0.22 °C per decade; t is about 17 (13 after allowing for
+# autocorrelation) and p is tiny, so a zero trend is ruled out.
 # The **confidence interval** is the more useful output: we are 95% confident the true trend lies between about 0.18
 # and 0.25 °C per decade. Allowing for autocorrelation (neighbouring years are alike, r₁ ≈ 0.2) reduces the 42 years to
 # about 27 independent ones and widens the interval, but here it changes nothing important. With weaker trends or
@@ -175,6 +206,13 @@ print(m.groupby("phase").rain_pct.agg(["count", "mean", "std"]).round(1).to_stri
 el, la = m.loc[m.phase == "El Niño", "rain_pct"], m.loc[m.phase == "La Niña", "rain_pct"]
 
 # %% [markdown]
+# **Background.** In normal years the trade winds blow westward across the tropical Pacific, warm water piles up in
+# the west, and air rises over Indonesia and sinks over the eastern Pacific: the Walker circulation. During **El Niño**
+# the central and eastern Pacific warm, the rising branch shifts east, and air tends to sink over South Asia, suppressing
+# the clouds and rain of the summer monsoon. **La Niña** is the opposite phase: a cooler central Pacific, a stronger
+# Walker circulation and, often, a wetter monsoon. So we expect El Niño years to be drier and La Niña years wetter than
+# neutral years. The table above already hints at this: the mean of each group, in % of the 1950–1999 average.
+#
 # **Welch's t-test** compares two means without assuming the two groups have equal spread:
 # t = (x̄₁ − x̄₂) / √(s₁²/n₁ + s₂²/n₂), with degrees of freedom from the Welch–Satterthwaite formula. The
 # **Mann–Whitney U test** asks the same question using only the ranks of the values, so it does not assume normal
@@ -203,10 +241,41 @@ ax.set(ylabel="JJAS rainfall (% of mean)", title="Central India monsoon rainfall
 plt.tight_layout(); plt.show()
 
 # %% [markdown]
-# Reading it: each dot is one year; the black bars are group means. El Niño years average well below La Niña years.
-# The t-test and the rank test agree, the effect size is large, and the confidence interval for the difference excludes
-# zero. Limits: only 1950–1999 and one regional index; the relationship between ENSO and the monsoon is known to vary
-# between decades, and other influences (the Indian Ocean Dipole) are not included.
+# **How to read the figure.** The x axis has three groups of years, set by the ONI averaged over June–September. The y
+# axis is that year's June–September rainfall as a percentage of the 1950–1999 average, so 100 is a normal monsoon,
+# 90 is 10% below normal. Each dot is one year (spread sideways only so they do not overlap); the black bar is the
+# group's mean. Compare the bars to read the average effect, and the spread of dots to see how reliable it is: if dots
+# of two groups overlap a lot, the effect is weak for any single year even when the means differ.
+#
+# The comparison above, El Niño against La Niña, mixes two effects. To ask **which phase moves the monsoon, and by how
+# much**, compare each phase with the neutral years, the "no ENSO" baseline.
+
+# %%
+neutral = m.loc[m.phase == "neutral", "rain_pct"]
+for name, grp in [("El Niño", el), ("La Niña", la)]:
+    t_ = stats.ttest_ind(grp, neutral, equal_var=False)
+    c_ = t_.confidence_interval(0.95)
+    diff = grp.mean() - neutral.mean()
+    word = "less" if diff < 0 else "more"
+    print(f"{name:8s} vs neutral: {abs(diff):4.1f} percentage points {word} rain (95% CI {c_.low:+.1f} to {c_.high:+.1f}), "
+          f"Welch t = {t_.statistic:+.2f}, df = {t_.df:.1f}, p = {t_.pvalue:.3f}")
+dry = (el < 90).mean(); dry_n = (neutral < 90).mean()
+print(f"share of years with a monsoon more than 10% below normal: El Niño {dry:.0%}, neutral {dry_n:.0%}, La Niña {(la < 90).mean():.0%}")
+
+# %% [markdown]
+# **What the results say.** Both phases matter, in opposite directions. Read the two lines above as: "in El Niño
+# years, central India received on average about this many percentage points less rain than in neutral years, and we
+# are 95% confident the true difference lies in the bracket". **El Niño** cut central-India monsoon rain by about 15
+# percentage points against neutral years (bracket roughly −25 to −4, p ≈ 0.01): a clear effect, though its exact size is
+# uncertain. **La Niña** added about 10 points (bracket roughly +1 to +20, p ≈ 0.03): an effect in the opposite direction
+# that is smaller and only just distinguishable from zero with 11 years. So El Niño is the stronger and better-supported
+# influence, which is why it dominates forecasts of a weak monsoon. The last line turns the means into risk: a monsoon
+# more than 10% below normal came in about 6 of every 10 El Niño years, about 3 in 10 neutral years, and none of the La
+# Niña years in this period.
+#
+# **What they do not say.** Not every El Niño year is dry (some dots sit near 100), so ENSO raises the risk of a weak
+# monsoon rather than deciding it. The sample is 1950–1999 and one regional index; the ENSO–monsoon link is known to
+# weaken and strengthen between decades, and the Indian Ocean Dipole, which also affects the monsoon, is not included.
 #
 # # Correlation: how strongly do ONI and rainfall move together?
 #
@@ -224,14 +293,38 @@ print(f"r squared = {r ** 2:.2f}: ONI accounts for {r ** 2:.0%} of the year-to-y
 print(f"Spearman rho = {rho:.2f}, p = {p_rho:.1e}")
 b = np.polyfit(m.oni, m.rain_pct, 1)
 print(f"slope: {b[0]:.1f} percentage points of rainfall per +1 °C of ONI")
+resid_sd = np.std(m.rain_pct - np.polyval(b, m.oni), ddof=2)
+print(f"a moderate El Niño (ONI +1.0 °C) gives on average {np.polyval(b, 1.0):.0f}% of normal rain; a strong one (+1.5 °C) {np.polyval(b, 1.5):.0f}%;")
+print(f"a La Niña (ONI -1.0 °C) {np.polyval(b, -1.0):.0f}%. Single years scatter around the line by about ±{resid_sd:.0f} points (one standard deviation).")
+
+fig, ax = plt.subplots(figsize=(6.5, 3.4))
+ax.axvspan(0.5, m.oni.max() + 0.2, color="#b91c1c", alpha=0.08); ax.axvspan(m.oni.min() - 0.2, -0.5, color="#1f5c7a", alpha=0.08)
+ax.scatter(m.oni, m.rain_pct, s=18, c=np.where(m.oni >= 0.5, "#b91c1c", np.where(m.oni <= -0.5, "#1f5c7a", "0.55")))
+xx = np.linspace(m.oni.min(), m.oni.max(), 10)
+ax.plot(xx, np.polyval(b, xx), color="k", lw=1.2, label=f"fitted line: {b[0]:.1f} points per °C")
+ax.axhline(100, color="0.6", lw=0.8, ls=":"); ax.axvline(0, color="0.6", lw=0.8, ls=":")
+ax.set(xlabel="ONI, June–September mean (°C)", ylabel="JJAS rainfall (% of mean)", title=f"Pacific temperature and central India rain (r = {r:.2f})")
+ax.text(0.55, ax.get_ylim()[1] - 3, "El Niño", color="#b91c1c", fontsize=8, va="top"); ax.text(m.oni.min() - 0.15, ax.get_ylim()[1] - 3, "La Niña", color="#1f5c7a", fontsize=8, va="top")
+ax.legend(frameon=False, fontsize=8, loc="lower left"); plt.tight_layout(); plt.show()
 
 # %% [markdown]
-# The correlation is negative (warmer central Pacific, drier central India), moderate in size (r ≈ −0.43) and
-# significant (p ≈ 0.002), but ONI explains only about a fifth of the variation (r² ≈ 0.18). The two-group comparison
+# **How to read the figure.** Each dot is one year. Across: the ONI, how much warmer (right) or cooler (left) than
+# normal the central Pacific was during the monsoon; the red band is El Niño, the blue band La Niña. Up: that year's
+# rainfall, % of normal (the dotted line at 100). The black line is the best straight-line fit; its slope says how many
+# percentage points of rain change per 1 °C of ONI. A cloud of dots that slopes down from left to right means a negative
+# correlation; how tightly the dots hug the line is what r measures.
+#
+# **What the result says.** The correlation is negative (warmer central Pacific, drier central India), moderate in size (r ≈ −0.43) and
+# significant (p ≈ 0.002), but ONI explains only about a fifth of the variation (r² ≈ 0.18). The printed lines show why: a moderate El Niño lowers the expected rain by about 10 points, but single years scatter around the line by about ±15 points, so the Pacific shifts the odds without deciding any one monsoon. The two-group comparison
 # above looked stronger because it compared only the extremes, El Niño against La Niña, leaving out the 29 neutral years. Correlation does not by itself show cause; here the physical mechanism (El Niño
 # shifts rising air over the Pacific and suppresses convection over India) is what makes the result meaningful.
 #
 # # A trend test for snow: parametric and rank-based
+#
+# **Background.** Snow reflects most of the sunlight that reaches it; bare ground absorbs most of it. When spring snow
+# melts earlier, the ground absorbs more energy and warms, which melts more snow: the snow–albedo feedback. June is the
+# end of the melt season in much of the Northern Hemisphere, so June snow cover is a sensitive measure of how early the
+# snow goes. Less June snow also means earlier spring runoff for rivers fed by snowmelt, such as the Indus.
 #
 # Question: has June snow cover over Northern Hemisphere land declined since 1967? Data: Rutgers University Global Snow
 # Lab, monthly snow-covered area in km². We test the trend two ways. The OLS **t-test** for the slope (as above)
@@ -261,7 +354,10 @@ ax.set(xlabel="Year", ylabel="Snow-covered area (million km²)", title="June sno
 plt.tight_layout(); plt.show()
 
 # %% [markdown]
-# Both tests reject "no trend" decisively: τ is strongly negative (most later years are lower than most earlier ones)
+# **How to read the figure.** Each dot is one June (x: year; y: snow-covered land in million km²). The red line is
+# the fitted trend. A downward line means June snow has shrunk; the scatter around it is year-to-year weather.
+#
+# **What the result says.** Both tests reject "no trend" decisively: τ is strongly negative (most later years are lower than most earlier ones)
 # and the slope is about −1.2 million km² per decade, a 44% fall between the first and last ten years. The residuals
 # are barely autocorrelated (r₁ ≈ 0.06), so the ordinary t-test needs no correction here; always check before assuming. τ is unitless;
 # the slope is in million km² per decade.
@@ -288,9 +384,27 @@ print(obs.to_string())
 print("\nexpected counts if independent")
 print(pd.DataFrame(exp.round(0), index=obs.index, columns=obs.columns).to_string())
 print(f"\nchi-square = {chi2:.0f}, df = {dof}, p = {p:.1e}, Cramér's V = {V:.2f}")
+share = sar.groupby("water_before").dark_2022.mean()
+print(f"share of cells dark in 2022: where water had been seen before {share[True]:.0%}, elsewhere {share[False]:.0%} "
+      f"({share[True] / share[False]:.1f} times as likely)")
+fig, ax = plt.subplots(figsize=(5.5, 2.6))
+ax.barh(["no water seen before", "water seen before"], [share[False] * 100, share[True] * 100], color=["#cbd5e1", "#1f5c7a"])
+ax.set(xlabel="cells dark (likely flooded) in September 2022 (%)", title="Where the 2022 flood water lay")
+for i, v in enumerate([share[False], share[True]]):
+    ax.text(v * 100 + 1, i, f"{v:.0%}", va="center", fontsize=9)
+plt.tight_layout(); plt.show()
 
 # %% [markdown]
-# Cells where water had been seen before were dark far more often than independence predicts, and p is vanishingly
+# **Background.** Smooth open water reflects the radar beam away from the satellite, so flooded land looks dark in
+# Sentinel-1 images. Land that has flooded before is usually low-lying, near rivers and lakes, so we expect it to flood
+# again. The chi-square test asks whether "dark in 2022" and "water seen before" are related at all.
+#
+# **How to read the output and the figure.** In the observed table, rows are "water seen before: no / yes" and columns
+# "dark in 2022: no / yes"; each number counts 1 km cells. The expected table is what the counts would be if the two had
+# nothing to do with each other. χ² adds up how far each observed count is from its expected count. The bar chart shows
+# the same thing as shares: of the cells in each row, how many were dark.
+#
+# **What the result says.** Cells where water had been seen before were dark far more often than independence predicts, and p is vanishingly
 # small. But this test assumes every cell is an independent observation. Neighbouring cells of a flood are not
 # independent: one flooded field implies the next. With n = 20,280 the test is far too confident. One simple check is
 # to thin the grid, keeping only cells about 10 km apart, and test again.
@@ -325,12 +439,22 @@ for i in range(n_null + n_real):
 pvals, truth = np.array(pvals), np.array(truth)
 raw = pvals < 0.05
 bh = stats.false_discovery_control(pvals, method="bh") < 0.05
+fig, ax = plt.subplots(figsize=(6.5, 2.6))
+ax.hist([pvals[~truth], pvals[truth]], bins=20, range=(0, 1), stacked=True, color=["#cbd5e1", "#b91c1c"], label=["no real trend", "real trend"])
+ax.axvline(0.05, color="k", lw=1)
+ax.set(xlabel="p-value of each simulated pixel", ylabel="pixels", title="p-values from 900 pixels with no trend and 100 with one")
+ax.legend(frameon=False, fontsize=8); plt.tight_layout(); plt.show()
 for name, call in [("p < 0.05 for each pixel", raw), ("Benjamini-Hochberg, q = 0.05", bh)]:
     tp, fp = (call & truth).sum(), (call & ~truth).sum()
     print(f"{name:30s} called significant {call.sum():4d}: real {tp:3d}, false {fp:3d}, share false {fp / max(call.sum(), 1):.0%}")
 
 # %% [markdown]
-# Testing each pixel at 0.05 calls 28 no-change pixels significant, so more than a fifth of the "changes" are false.
+# **How to read the figure.** Each bar counts pixels whose p-value fell in that range. Pixels with no real trend
+# (grey) spread evenly from 0 to 1: under H₀ every p-value is equally likely, so about 5% of them land below 0.05 by
+# chance. Pixels with a real trend (red) pile up near 0. The black line is the usual 0.05 cut-off: everything to its
+# left is called significant, including the grey sliver.
+#
+# **What the result says.** Testing each pixel at 0.05 calls 28 no-change pixels significant, so more than a fifth of the "changes" are false.
 # Benjamini–Hochberg keeps the share of false discoveries near 5%. Here it still finds all 100 real trends because they
 # are strong; with weaker real effects it would miss some, which is the price of controlling false discoveries. On a real map with millions of pixels, this is the
 # difference between a map of change and a map of noise.

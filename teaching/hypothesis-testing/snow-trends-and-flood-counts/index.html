@@ -188,6 +188,132 @@
   
   
     <li class="md-nav__item">
+      <a href="../full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The whole guide on one page
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notebooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Chapters
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Chapters
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../the-ideas/" class="md-nav__link">
         
   
@@ -206,9 +332,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -232,9 +359,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -258,9 +386,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
     
@@ -352,9 +481,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -378,81 +508,12 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../full/" class="md-nav__link">
+                
+              
+            </ul>
+          </nav>
         
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Whole guide
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
       
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../notebooks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Notebooks
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pdf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  PDF
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -564,8 +625,9 @@
 <h1 id="4-snow-trends-and-flood-counts">4. Snow trends and flood counts<a class="headerlink" href="#4-snow-trends-and-flood-counts" title="Permanent link">&para;</a></h1>
 <p>Snow and floods bring two more kinds of data: a series that need not be normally distributed, which suits a rank-based trend test, and a map of categories, which suits a test on counts.</p>
 <h2 id="41-a-trend-test-for-snow">4.1 A trend test for snow<a class="headerlink" href="#41-a-trend-test-for-snow" title="Permanent link">&para;</a></h2>
+<p><strong>Background.</strong> Snow reflects most of the sunlight that reaches it; bare ground absorbs most of it. When spring snow melts earlier, the ground absorbs more energy and warms, which melts more snow: the snow–albedo feedback. June is the end of the melt season in much of the Northern Hemisphere, so June snow cover is a sensitive measure of how early the snow goes. Less June snow also means earlier spring runoff for rivers fed by snowmelt, such as the Indus.</p>
 <p>Question: has June snow cover over Northern Hemisphere land declined since 1967? Data: Rutgers University Global Snow Lab, monthly snow-covered area in km². We test the trend two ways. The OLS <strong>t-test</strong> for the slope (as above) assumes normal, independent residuals. The <strong>Mann–Kendall test</strong> only asks whether later years tend to be lower than earlier ones: it counts concordant and discordant pairs, which is Kendall's τ between year and value. It needs no normality and is common for hydrological and snow series.</p>
-<div class="nb-prompt nb-In">In [8]</div>
+<div class="nb-prompt nb-In">In [9]</div>
 
 <div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"nh_snow.txt"</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="sa">r</span><span class="s2">"\s+"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">"year"</span><span class="p">,</span> <span class="s2">"month"</span><span class="p">,</span> <span class="s2">"km2"</span><span class="p">])</span>
 <span class="n">june</span> <span class="o">=</span> <span class="n">s</span><span class="p">[(</span><span class="n">s</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">s</span><span class="o">.</span><span class="n">year</span><span class="o">.</span><span class="n">between</span><span class="p">(</span><span class="mi">1967</span><span class="p">,</span> <span class="mi">2025</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -587,7 +649,7 @@
 <span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"Year"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Snow-covered area (million km²)"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"June snow cover, Northern Hemisphere land"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<div class="nb-prompt nb-Out">Out [8]</div>
+<div class="nb-prompt nb-Out">Out [9]</div>
 
 <div class="highlight"><pre><span></span><code>June snow cover, 1967-2025, n = 58
 OLS slope = -1.19 million km² per decade, t = -9.9, p = 7.1e-14
@@ -595,14 +657,15 @@ Mann-Kendall (Kendall tau with year) tau = -0.61, p = 1.9e-11
 residual lag-1 autocorrelation r1 = 0.06
 first ten years mean 11.6, last ten years 6.5 million km² (-44%)
 </code></pre></div>
-<div class="nb-prompt nb-Out">Out [8]</div>
+<div class="nb-prompt nb-Out">Out [9]</div>
 
-<p><img alt="Figure" src="../fig/f-3.png" /></p>
-<p>Both tests reject "no trend" decisively: τ is strongly negative (most later years are lower than most earlier ones) and the slope is about −1.2 million km² per decade, a 44% fall between the first and last ten years. The residuals are barely autocorrelated (r₁ ≈ 0.06), so the ordinary t-test needs no correction here; always check before assuming. τ is unitless; the slope is in million km² per decade.</p>
+<p><img alt="Figure" src="../fig/f-6.png" /></p>
+<p><strong>How to read the figure.</strong> Each dot is one June (x: year; y: snow-covered land in million km²). The red line is the fitted trend. A downward line means June snow has shrunk; the scatter around it is year-to-year weather.</p>
+<p><strong>What the result says.</strong> Both tests reject "no trend" decisively: τ is strongly negative (most later years are lower than most earlier ones) and the slope is about −1.2 million km² per decade, a 44% fall between the first and last ten years. The residuals are barely autocorrelated (r₁ ≈ 0.06), so the ordinary t-test needs no correction here; always check before assuming. τ is unitless; the slope is in million km² per decade.</p>
 <h2 id="42-chi-square-on-a-radar-flood-map">4.2 Chi-square on a radar flood map<a class="headerlink" href="#42-chi-square-on-a-radar-flood-map" title="Permanent link">&para;</a></h2>
 <p>The <strong>chi-square (χ²) test of independence</strong> asks whether two categorical variables are related. Observed counts O in a table are compared with the counts E expected if the variables were independent (row total × column total / grand total): χ² = Σ (O − E)² / E, with df = (rows − 1)(columns − 1). <strong>Cramér's V</strong> (0 to 1) is the effect size.</p>
 <p>Question: in Sindh in September 2022, were radar-dark (likely flooded) 1 km cells more common where water had been seen before? Data: mean Sentinel-1 VV backscatter in 2022 (dark means below −14.1 dB, the threshold used in the radar manual) and the JRC Global Surface Water occurrence (any water seen since 1984, occurrence &gt; 0).</p>
-<div class="nb-prompt nb-In">In [9]</div>
+<div class="nb-prompt nb-In">In [10]</div>
 
 <div class="highlight"><pre><span></span><code><span class="n">sar</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA</span> <span class="o">/</span> <span class="s2">"sindh_sar_1km.csv"</span><span class="p">)</span>
 <span class="n">sar</span><span class="p">[</span><span class="s2">"dark_2022"</span><span class="p">]</span> <span class="o">=</span> <span class="n">sar</span><span class="o">.</span><span class="n">vv_2022_db</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">14.1</span>
@@ -615,8 +678,17 @@ first ten years mean 11.6, last ten years 6.5 million km² (-44%)
 <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">expected counts if independent"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">exp</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">obs</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">obs</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">chi-square = </span><span class="si">{</span><span class="n">chi2</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">, df = </span><span class="si">{</span><span class="n">dof</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">, Cramér's V = </span><span class="si">{</span><span class="n">V</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">share</span> <span class="o">=</span> <span class="n">sar</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"water_before"</span><span class="p">)</span><span class="o">.</span><span class="n">dark_2022</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"share of cells dark in 2022: where water had been seen before </span><span class="si">{</span><span class="n">share</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">, elsewhere </span><span class="si">{</span><span class="n">share</span><span class="p">[</span><span class="kc">False</span><span class="p">]</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2"> "</span>
+      <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="n">share</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">share</span><span class="p">[</span><span class="kc">False</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> times as likely)"</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">([</span><span class="s2">"no water seen before"</span><span class="p">,</span> <span class="s2">"water seen before"</span><span class="p">],</span> <span class="p">[</span><span class="n">share</span><span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="n">share</span><span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"#cbd5e1"</span><span class="p">,</span> <span class="s2">"#1f5c7a"</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"cells dark (likely flooded) in September 2022 (%)"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Where the 2022 flood water lay"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="n">share</span><span class="p">[</span><span class="kc">False</span><span class="p">],</span> <span class="n">share</span><span class="p">[</span><span class="kc">True</span><span class="p">]]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">v</span> <span class="o">*</span> <span class="mi">100</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">"center"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<div class="nb-prompt nb-Out">Out [9]</div>
+<div class="nb-prompt nb-Out">Out [10]</div>
 
 <div class="highlight"><pre><span></span><code>observed counts (rows: water seen before; columns: dark in 2022)
 dark_2022     False  True 
@@ -631,9 +703,15 @@ False         8465.0  2131.0
 True          7737.0  1947.0
 
 chi-square = 2905, df = 1, p = 0.0e+00, Cramér's V = 0.38
+share of cells dark in 2022: where water had been seen before 36%, elsewhere 6% (6.4 times as likely)
 </code></pre></div>
-<p>Cells where water had been seen before were dark far more often than independence predicts, and p is vanishingly small. But this test assumes every cell is an independent observation. Neighbouring cells of a flood are not independent: one flooded field implies the next. With n = 20,280 the test is far too confident. One simple check is to thin the grid, keeping only cells about 10 km apart, and test again.</p>
-<div class="nb-prompt nb-In">In [10]</div>
+<div class="nb-prompt nb-Out">Out [10]</div>
+
+<p><img alt="Figure" src="../fig/f-7.png" /></p>
+<p><strong>Background.</strong> Smooth open water reflects the radar beam away from the satellite, so flooded land looks dark in Sentinel-1 images. Land that has flooded before is usually low-lying, near rivers and lakes, so we expect it to flood again. The chi-square test asks whether "dark in 2022" and "water seen before" are related at all.</p>
+<p><strong>How to read the output and the figure.</strong> In the observed table, rows are "water seen before: no / yes" and columns "dark in 2022: no / yes"; each number counts 1 km cells. The expected table is what the counts would be if the two had nothing to do with each other. χ² adds up how far each observed count is from its expected count. The bar chart shows the same thing as shares: of the cells in each row, how many were dark.</p>
+<p><strong>What the result says.</strong> Cells where water had been seen before were dark far more often than independence predicts, and p is vanishingly small. But this test assumes every cell is an independent observation. Neighbouring cells of a flood are not independent: one flooded field implies the next. With n = 20,280 the test is far too confident. One simple check is to thin the grid, keeping only cells about 10 km apart, and test again.</p>
+<div class="nb-prompt nb-In">In [11]</div>
 
 <div class="highlight"><pre><span></span><code><span class="n">thin</span> <span class="o">=</span> <span class="n">sar</span><span class="p">[(((</span><span class="n">sar</span><span class="o">.</span><span class="n">x_utm42n</span> <span class="o">-</span> <span class="n">sar</span><span class="o">.</span><span class="n">x_utm42n</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(((</span><span class="n">sar</span><span class="o">.</span><span class="n">y_utm42n</span> <span class="o">-</span> <span class="n">sar</span><span class="o">.</span><span class="n">y_utm42n</span><span class="o">.</span><span class="n">min</span><span class="p">())</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">()</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span>
 <span class="n">obs_t</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">thin</span><span class="o">.</span><span class="n">water_before</span><span class="p">,</span> <span class="n">thin</span><span class="o">.</span><span class="n">dark_2022</span><span class="p">)</span>
@@ -641,7 +719,7 @@ chi-square = 2905, df = 1, p = 0.0e+00, Cramér's V = 0.38
 <span class="n">V_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">chi2_t</span> <span class="o">/</span> <span class="p">(</span><span class="n">obs_t</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">obs_t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"thinned to </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">thin</span><span class="p">)</span><span class="si">}</span><span class="s2"> cells about 10 km apart: chi-square = </span><span class="si">{</span><span class="n">chi2_t</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">, df = </span><span class="si">{</span><span class="n">dof_t</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p_t</span><span class="si">:</span><span class="s2">.1e</span><span class="si">}</span><span class="s2">, Cramér's V = </span><span class="si">{</span><span class="n">V_t</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
-<div class="nb-prompt nb-Out">Out [10]</div>
+<div class="nb-prompt nb-Out">Out [11]</div>
 
 <div class="highlight"><pre><span></span><code>thinned to 208 cells about 10 km apart: chi-square = 28.0, df = 1, p = 1.2e-07, Cramér's V = 0.37
 </code></pre></div>

@@ -173,9 +173,19 @@ for a, e in WINDOWS:
                      "CO2 emitted (Gt)": round(w.co2.sum() / 1000), "change in human forcing (W/m2)": round(w.anthro.iloc[-1] - w.anthro.iloc[0], 2)})
 trends = pd.DataFrame(rows)
 print(trends.to_string(index=False))
+gl = trends[trends.series == "global"].set_index("window")["trend per decade"]
+print(f"\nRead across the global rows: the recent window warmed {gl['1983-2024'] / gl['1899-1940']:.1f} times as fast as 1899-1940,")
+print(f"while {trends['CO2 emitted (Gt)'].iloc[4]:,} Gt of CO2 were emitted in it against {trends['CO2 emitted (Gt)'].iloc[0]:,} Gt in the first window.")
 
 # %% [markdown]
-# Both the globe and the United States warmed fastest in the most recent window, 1983–2024, not in 1899–1940.
+# **How to read the table.** One row per window and series. "trend per decade" is the slope in °C per decade: 0.1
+# means the line rose a tenth of a degree every ten years. "CO2 emitted" is the total released in that window, and
+# "change in human forcing" is how much the human push on the climate grew across the window, in W/m².
+#
+# **What it says.** Both the globe and the United States warmed fastest in the most recent window, 1983–2024, not in
+# 1899–1940. In the middle window the human forcing grew, yet warming nearly stopped: something cancelled it, which the
+# physics section identifies as sulfate aerosols. Comparing trends with emissions in the same window, as the paper did,
+# hides that.
 #
 # # Neighbouring years are not independent
 #
@@ -208,6 +218,10 @@ unc = pd.DataFrame(rows)
 print(unc.to_string(index=False))
 
 # %% [markdown]
+# **How to read the table.** "trend" is the slope (°C per decade); "se_naive" its standard error if every year were
+# independent; "r1" how alike neighbouring years are after removing the trend (0 = not at all, 1 = identical); "n_eff"
+# the number of independent years that leaves; "se_corrected" the standard error allowing for it.
+#
 # Read the table: in 1983–2024 the global trend is about 0.22 °C per decade with a corrected SE of about 0.02. A
 # 95% range is roughly the trend ± 2 SE, so 0.18 to 0.25. In 1899–1940 it is about 0.10 ± 0.05. The ranges do not
 # overlap: the recent warming really is faster.
@@ -271,9 +285,17 @@ for a, e in [(1910, 1945), (1946, 1975), (1976, 2024)]:
     rows.append({"period": f"{a}-{e}", **{c: round(np.polyfit(w.year, w[c], 1)[0] * 10, 3) for c in ["global", *causes, "unexplained"]}})
 split = pd.DataFrame(rows)
 print(split.to_string(index=False))
+for _, row in split.iterrows():
+    forced = row[causes].sum()
+    print(f"{row.period}: observed {row['global']:+.3f}, forcing explains {forced:+.3f} (greenhouse {row['greenhouse and other']:+.3f}, "
+          f"aerosol {row.aerosol:+.3f}); unexplained {row.unexplained:+.3f} °C/decade")
 
 # %% [markdown]
-# Since the mid-1970s greenhouse gases account for almost all of the warming. In 1946–1975 their warming was
+# **How to read the table.** One row per period; each column after "global" is the trend of one cause's part of the
+# model, in °C per decade, and they add up to "global". A positive number warmed the period, a negative one cooled it.
+# The printed lines under the table group them: what forcing explains in total, and what is left over.
+#
+# **What it says.** Since the mid-1970s greenhouse gases account for almost all of the warming. In 1946–1975 their warming was
 # cancelled by aerosol cooling. In 1910–1945 forcing explains only part of the warming; the rest is natural
 # variability, which climate scientists already knew.
 #

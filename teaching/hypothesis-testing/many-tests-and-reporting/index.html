@@ -13,7 +13,7 @@
         <link rel="prev" href="../snow-trends-and-flood-counts/">
       
       
-        <link rel="next" href="../full/">
+        <link rel="next" href="https://ahmadammar.github.io/teaching.html">
       
       
         
@@ -188,6 +188,132 @@
   
   
     <li class="md-nav__item">
+      <a href="../full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The whole guide on one page
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notebooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Chapters
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Chapters
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../the-ideas/" class="md-nav__link">
         
   
@@ -206,9 +332,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -232,9 +359,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -258,9 +386,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -284,9 +413,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
     
@@ -389,81 +519,12 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../full/" class="md-nav__link">
+                
+              
+            </ul>
+          </nav>
         
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Whole guide
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
       
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../notebooks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Notebooks
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pdf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  PDF
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -586,7 +647,7 @@
 <h1 id="5-many-tests-and-how-to-report-them">5. Many tests, and how to report them<a class="headerlink" href="#5-many-tests-and-how-to-report-them" title="Permanent link">&para;</a></h1>
 <h2 id="51-many-tests-at-once-false-discoveries">5.1 Many tests at once: false discoveries<a class="headerlink" href="#51-many-tests-at-once-false-discoveries" title="Permanent link">&para;</a></h2>
 <p>When a map is made by testing every pixel, some pixels will be "significant" by chance. With α = 0.05, about 5% of pixels with no real change pass the test. The <strong>Benjamini–Hochberg</strong> procedure controls the <strong>false discovery rate</strong> (FDR): among the results called significant, the expected share that are false is kept below a chosen q (say 5%). Simulation: 1,000 pixels, of which 900 have no trend and 100 a real one.</p>
-<div class="nb-prompt nb-In">In [11]</div>
+<div class="nb-prompt nb-In">In [12]</div>
 
 <div class="highlight"><pre><span></span><code><span class="n">n_null</span><span class="p">,</span> <span class="n">n_real</span><span class="p">,</span> <span class="n">years</span> <span class="o">=</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">pvals</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
@@ -597,19 +658,28 @@
 <span class="n">pvals</span><span class="p">,</span> <span class="n">truth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pvals</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">truth</span><span class="p">)</span>
 <span class="n">raw</span> <span class="o">=</span> <span class="n">pvals</span> <span class="o">&lt;</span> <span class="mf">0.05</span>
 <span class="n">bh</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">false_discovery_control</span><span class="p">(</span><span class="n">pvals</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">"bh"</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.05</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mf">6.5</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">pvals</span><span class="p">[</span><span class="o">~</span><span class="n">truth</span><span class="p">],</span> <span class="n">pvals</span><span class="p">[</span><span class="n">truth</span><span class="p">]],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s2">"#cbd5e1"</span><span class="p">,</span> <span class="s2">"#b91c1c"</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="p">[</span><span class="s2">"no real trend"</span><span class="p">,</span> <span class="s2">"real trend"</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s2">"p-value of each simulated pixel"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"pixels"</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"p-values from 900 pixels with no trend and 100 with one"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">call</span> <span class="ow">in</span> <span class="p">[(</span><span class="s2">"p &lt; 0.05 for each pixel"</span><span class="p">,</span> <span class="n">raw</span><span class="p">),</span> <span class="p">(</span><span class="s2">"Benjamini-Hochberg, q = 0.05"</span><span class="p">,</span> <span class="n">bh</span><span class="p">)]:</span>
     <span class="n">tp</span><span class="p">,</span> <span class="n">fp</span> <span class="o">=</span> <span class="p">(</span><span class="n">call</span> <span class="o">&amp;</span> <span class="n">truth</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="p">(</span><span class="n">call</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">truth</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">:</span><span class="s2">30s</span><span class="si">}</span><span class="s2"> called significant </span><span class="si">{</span><span class="n">call</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">:</span><span class="s2">4d</span><span class="si">}</span><span class="s2">: real </span><span class="si">{</span><span class="n">tp</span><span class="si">:</span><span class="s2">3d</span><span class="si">}</span><span class="s2">, false </span><span class="si">{</span><span class="n">fp</span><span class="si">:</span><span class="s2">3d</span><span class="si">}</span><span class="s2">, share false </span><span class="si">{</span><span class="n">fp</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">call</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.0%</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
-<div class="nb-prompt nb-Out">Out [11]</div>
+<div class="nb-prompt nb-Out">Out [12]</div>
+
+<p><img alt="Figure" src="../fig/f-8.png" /></p>
+<div class="nb-prompt nb-Out">Out [12]</div>
 
 <div class="highlight"><pre><span></span><code>p &lt; 0.05 for each pixel        called significant  128: real 100, false  28, share false 22%
 Benjamini-Hochberg, q = 0.05   called significant  105: real 100, false   5, share false 5%
 </code></pre></div>
-<p>Testing each pixel at 0.05 calls 28 no-change pixels significant, so more than a fifth of the "changes" are false. Benjamini–Hochberg keeps the share of false discoveries near 5%. Here it still finds all 100 real trends because they are strong; with weaker real effects it would miss some, which is the price of controlling false discoveries. On a real map with millions of pixels, this is the difference between a map of change and a map of noise.</p>
+<p><strong>How to read the figure.</strong> Each bar counts pixels whose p-value fell in that range. Pixels with no real trend (grey) spread evenly from 0 to 1: under H₀ every p-value is equally likely, so about 5% of them land below 0.05 by chance. Pixels with a real trend (red) pile up near 0. The black line is the usual 0.05 cut-off: everything to its left is called significant, including the grey sliver.</p>
+<p><strong>What the result says.</strong> Testing each pixel at 0.05 calls 28 no-change pixels significant, so more than a fifth of the "changes" are false. Benjamini–Hochberg keeps the share of false discoveries near 5%. Here it still finds all 100 real trends because they are strong; with weaker real effects it would miss some, which is the price of controlling false discoveries. On a real map with millions of pixels, this is the difference between a map of change and a map of noise.</p>
 <h2 id="52-reading-any-test-result">5.2 Reading any test result<a class="headerlink" href="#52-reading-any-test-result" title="Permanent link">&para;</a></h2>
 <p>Every test reported in a paper should come with the same set of facts. This table collects the ones used above.</p>
-<div class="nb-prompt nb-In">In [12]</div>
+<div class="nb-prompt nb-In">In [13]</div>
 
 <div class="highlight"><pre><span></span><code><span class="n">summary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
     <span class="p">[</span><span class="s2">"z-test"</span><span class="p">,</span> <span class="s2">"Is one value unusual?"</span><span class="p">,</span> <span class="s2">"a value, a mean, a known SD"</span><span class="p">,</span> <span class="s2">"z = (x − μ)/σ"</span><span class="p">,</span> <span class="s2">"none"</span><span class="p">,</span> <span class="s2">"unitless (number of SDs)"</span><span class="p">],</span>
@@ -623,7 +693,7 @@ Benjamini-Hochberg, q = 0.05   called significant  105: real 100, false   5, sha
 <span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"test"</span><span class="p">,</span> <span class="s2">"question"</span><span class="p">,</span> <span class="s2">"inputs"</span><span class="p">,</span> <span class="s2">"statistic"</span><span class="p">,</span> <span class="s2">"degrees of freedom"</span><span class="p">,</span> <span class="s2">"units"</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">summary</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
-<div class="nb-prompt nb-Out">Out [12]</div>
+<div class="nb-prompt nb-Out">Out [13]</div>
 
 <div class="highlight"><pre><span></span><code>test                            question                      inputs                          statistic              degrees of freedom                          units
             z-test               Is one value unusual? a value, a mean, a known SD                      z = (x − μ)/σ                            none       unitless (number of SDs)
@@ -696,7 +766,7 @@ Benjamini–Hochberg     Which of many tests to believe?               many p-va
 
 <nav class="aa-pager" aria-label="Previous and next page">
   <a href="../snow-trends-and-flood-counts/"><span>Previous</span>4. Snow trends and flood counts</a>
-  <a class="next" href="../full/"><span>Next</span>Whole guide</a>
+  <a class="next" href="https://ahmadammar.github.io/teaching.html"><span>Next</span>All guides</a>
 </nav>
 
 <footer class="aa-footer">

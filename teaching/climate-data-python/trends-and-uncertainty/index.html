@@ -188,6 +188,132 @@
   
   
     <li class="md-nav__item">
+      <a href="../full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The whole guide on one page
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notebooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Chapters
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Chapters
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../start/" class="md-nav__link">
         
   
@@ -206,9 +332,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -232,9 +359,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
     
@@ -326,9 +454,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -352,9 +481,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -378,81 +508,12 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../full/" class="md-nav__link">
+                
+              
+            </ul>
+          </nav>
         
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Whole guide
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
       
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../notebooks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Notebooks
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pdf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  PDF
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -606,6 +667,9 @@ numpy gives 0.0071
                      <span class="s2">"CO2 emitted (Gt)"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">co2</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">),</span> <span class="s2">"change in human forcing (W/m2)"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">anthro</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">w</span><span class="o">.</span><span class="n">anthro</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">2</span><span class="p">)})</span>
 <span class="n">trends</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">trends</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">trends</span><span class="p">[</span><span class="n">trends</span><span class="o">.</span><span class="n">series</span> <span class="o">==</span> <span class="s2">"global"</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"window"</span><span class="p">)[</span><span class="s2">"trend per decade"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Read across the global rows: the recent window warmed </span><span class="si">{</span><span class="n">gl</span><span class="p">[</span><span class="s1">'1983-2024'</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">gl</span><span class="p">[</span><span class="s1">'1899-1940'</span><span class="p">]</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> times as fast as 1899-1940,"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"while </span><span class="si">{</span><span class="n">trends</span><span class="p">[</span><span class="s1">'CO2 emitted (Gt)'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> Gt of CO2 were emitted in it against </span><span class="si">{</span><span class="n">trends</span><span class="p">[</span><span class="s1">'CO2 emitted (Gt)'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> Gt in the first window."</span><span class="p">)</span>
 </code></pre></div>
 <div class="nb-prompt nb-Out">Out [9]</div>
 
@@ -616,8 +680,12 @@ numpy gives 0.0071
 1941-1982  conus            -0.059               459                            0.51
 1983-2024 global             0.216              1209                            2.05
 1983-2024  conus             0.280              1209                            2.05
+
+Read across the global rows: the recent window warmed 2.1 times as fast as 1899-1940,
+while 1,209 Gt of CO2 were emitted in it against 140 Gt in the first window.
 </code></pre></div>
-<p>Both the globe and the United States warmed fastest in the most recent window, 1983–2024, not in 1899–1940.</p>
+<p><strong>How to read the table.</strong> One row per window and series. "trend per decade" is the slope in °C per decade: 0.1 means the line rose a tenth of a degree every ten years. "CO2 emitted" is the total released in that window, and "change in human forcing" is how much the human push on the climate grew across the window, in W/m².</p>
+<p><strong>What it says.</strong> Both the globe and the United States warmed fastest in the most recent window, 1983–2024, not in 1899–1940. In the middle window the human forcing grew, yet warming nearly stopped: something cancelled it, which the physics section identifies as sulfate aerosols. Comparing trends with emissions in the same window, as the paper did, hides that.</p>
 <h2 id="32-neighbouring-years-are-not-independent">3.2 Neighbouring years are not independent<a class="headerlink" href="#32-neighbouring-years-are-not-independent" title="Permanent link">&para;</a></h2>
 <p>How sure are we of each slope? The standard error (SE) of a slope measures how much it would vary if the "noise" around the line were drawn again. The usual formula assumes every point is an independent piece of information. Climate years are not: a warm year tends to follow a warm year, because the oceans store heat and El Niño lasts more than one year. This is <strong>autocorrelation</strong>. We measure it with the lag-1 correlation r₁ of the leftovers (residuals) after removing the trend, and then count how many independent years we really have:</p>
 <div class="arithmatex">\[
@@ -650,6 +718,7 @@ n_{\text{eff}} = n \, \frac{1 - r_1}{1 + r_1}
 1941-1982  0.012     0.016 0.475 14.935         0.028
 1983-2024  0.216     0.013 0.217 27.023         0.016
 </code></pre></div>
+<p><strong>How to read the table.</strong> "trend" is the slope (°C per decade); "se_naive" its standard error if every year were independent; "r1" how alike neighbouring years are after removing the trend (0 = not at all, 1 = identical); "n_eff" the number of independent years that leaves; "se_corrected" the standard error allowing for it.</p>
 <p>Read the table: in 1983–2024 the global trend is about 0.22 °C per decade with a corrected SE of about 0.02. A 95% range is roughly the trend ± 2 SE, so 0.18 to 0.25. In 1899–1940 it is about 0.10 ± 0.05. The ranges do not overlap: the recent warming really is faster.</p>
 
 

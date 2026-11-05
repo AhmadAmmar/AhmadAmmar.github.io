@@ -188,6 +188,132 @@
   
   
     <li class="md-nav__item">
+      <a href="../full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The whole guide on one page
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notebooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Chapters
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Chapters
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../start/" class="md-nav__link">
         
   
@@ -206,9 +332,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -232,9 +359,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -258,9 +386,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
     
@@ -352,9 +481,10 @@
     </li>
   
 
-    
-      
-      
+                
+              
+                
+                  
   
   
   
@@ -378,81 +508,12 @@
     </li>
   
 
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../full/" class="md-nav__link">
+                
+              
+            </ul>
+          </nav>
         
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Whole guide
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
       
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../notebooks/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  Notebooks
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pdf/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-  PDF
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -619,6 +680,10 @@ T_j(t) = T_j(t-1)\, e^{-1/\tau_j} + q_j\, F(t)\,(1 - e^{-1/\tau_j})
     <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"period"</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="n">c</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">w</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"global"</span><span class="p">,</span> <span class="o">*</span><span class="n">causes</span><span class="p">,</span> <span class="s2">"unexplained"</span><span class="p">]}})</span>
 <span class="n">split</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">split</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">split</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="n">forced</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="n">causes</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">period</span><span class="si">}</span><span class="s2">: observed </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'global'</span><span class="p">]</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">, forcing explains </span><span class="si">{</span><span class="n">forced</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2"> (greenhouse </span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">'greenhouse and other'</span><span class="p">]</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">, "</span>
+          <span class="sa">f</span><span class="s2">"aerosol </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">aerosol</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2">); unexplained </span><span class="si">{</span><span class="n">row</span><span class="o">.</span><span class="n">unexplained</span><span class="si">:</span><span class="s2">+.3f</span><span class="si">}</span><span class="s2"> °C/decade"</span><span class="p">)</span>
 </code></pre></div>
 <div class="nb-prompt nb-Out">Out [13]</div>
 
@@ -626,8 +691,12 @@ T_j(t) = T_j(t-1)\, e^{-1/\tau_j} + q_j\, F(t)\,(1 - e^{-1/\tau_j})
 1910-1945   0.156                 0.048   -0.021  0.004     0.009        0.116
 1946-1975  -0.004                 0.094   -0.088  0.001    -0.010       -0.001
 1976-2024   0.204                 0.183   -0.001 -0.003     0.018        0.007
+1910-1945: observed +0.156, forcing explains +0.040 (greenhouse +0.048, aerosol -0.021); unexplained +0.116 °C/decade
+1946-1975: observed -0.004, forcing explains -0.003 (greenhouse +0.094, aerosol -0.088); unexplained -0.001 °C/decade
+1976-2024: observed +0.204, forcing explains +0.197 (greenhouse +0.183, aerosol -0.001); unexplained +0.007 °C/decade
 </code></pre></div>
-<p>Since the mid-1970s greenhouse gases account for almost all of the warming. In 1946–1975 their warming was cancelled by aerosol cooling. In 1910–1945 forcing explains only part of the warming; the rest is natural variability, which climate scientists already knew.</p>
+<p><strong>How to read the table.</strong> One row per period; each column after "global" is the trend of one cause's part of the model, in °C per decade, and they add up to "global". A positive number warmed the period, a negative one cooled it. The printed lines under the table group them: what forcing explains in total, and what is left over.</p>
+<p><strong>What it says.</strong> Since the mid-1970s greenhouse gases account for almost all of the warming. In 1946–1975 their warming was cancelled by aerosol cooling. In 1910–1945 forcing explains only part of the warming; the rest is natural variability, which climate scientists already knew.</p>
 
 
 
