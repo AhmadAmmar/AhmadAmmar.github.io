@@ -8,6 +8,7 @@ chapters = ["ch_idea", "ch_install", "ch_choose", "ch_change", "ch_propose"]
 figures = "../shots/img"
 shared = ["../../shared"]
 [web]
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/contribute/tex"
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"
 site_name = "Contribute to an open-source project"

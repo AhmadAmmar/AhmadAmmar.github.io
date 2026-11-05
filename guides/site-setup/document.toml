@@ -8,6 +8,7 @@ chapters = ["ch_before", "ch_install", "ch_copy", "ch_edit", "ch_publish", "ch_p
 figures = "../shots/img"
 shared = ["../../shared"]
 [web]
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/site-setup/tex"
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"
 site_name = "Build your own website with GitHub Pages"

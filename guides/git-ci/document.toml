@@ -6,6 +6,7 @@ source = "tex"
 chapters = ["git_basics", "history", "github", "testing", "ci", "pipelines", "backups", "checklist"]
 figures = "../../teaching/git-ci"
 [web]
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/git-ci/tex"
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"
 site_name = "Git, testing and automation for research"

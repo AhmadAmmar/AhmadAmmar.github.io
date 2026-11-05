@@ -6,6 +6,7 @@ source = "tex"
 chapters = ["concepts", "shell", "connect", "files", "software", "slurm", "first_jobs", "arrays", "practice", "beyond", "troubleshooting"]
 figures = "../../teaching/hpc"
 [web]
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/hpc/tex"
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"
 site_name = "Getting started on an HPC cluster"

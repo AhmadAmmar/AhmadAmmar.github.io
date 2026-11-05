@@ -6,6 +6,7 @@ source = "tex"
 chapters = ["basics", "text", "maths", "tables_figures", "references", "macros", "outputs", "practice", "troubleshooting"]
 figures = "../../teaching/latex"
 [web]
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/latex/tex"
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"
 site_name = "LaTeX from first principles"

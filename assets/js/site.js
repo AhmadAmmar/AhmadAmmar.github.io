@@ -79,3 +79,16 @@
     if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
   });
 })();
+
+// Admin edit bar: ?admin=on shows it on this browser, ?admin=off hides it again. Saving still needs a GitHub login.
+(function () {
+  try {
+    var q = new URLSearchParams(location.search).get('admin');
+    if (q === 'on') localStorage.setItem('admin', '1');
+    if (q === 'off') localStorage.removeItem('admin');
+    if (localStorage.getItem('admin') !== '1') return;
+  } catch (e) { return; }
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-admin-edit]').forEach(function (el) { el.hidden = false; });
+  });
+})();

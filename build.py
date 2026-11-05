@@ -103,7 +103,7 @@ FOOT = """</main>
 def parse(path):
     text = path.read_text(encoding="utf-8")
     header, body = text.split("\n---\n", 1)
-    meta = {}
+    meta = {"source": path.relative_to(HERE).as_posix()}
     for line in header.strip().splitlines():
         key, value = line.split(":", 1)
         meta[key.strip()] = value.strip()
@@ -142,7 +142,22 @@ def render(meta, body):
     )
     body = body.replace("{{root}}", root)
     body = re.sub(r"\{\{icon:(\w+)\}\}", lambda m: ICONS[m.group(1)], body)
-    return out, head + body.strip("\n") + "\n" + foot
+    return out, head + body.strip("\n") + "\n" + admin_bar(meta["source"]) + foot
+
+
+EDIT_REPO, EDIT_BRANCH = CONFIG.get("edit_repo", ""), CONFIG.get("edit_branch", "main")
+
+
+def admin_bar(source):
+    """Hidden on every page; site.js shows it when the owner has switched admin mode on (?admin=on). The links open
+    the page's source in GitHub's editors, which need the owner's own GitHub login to save; the build workflow then
+    rebuilds the site. Visitors see nothing, and a visitor who switches it on still cannot save."""
+    if not EDIT_REPO:
+        return ""
+    dev = f"https://github.dev/{EDIT_REPO}/blob/{EDIT_BRANCH}/{source}"
+    web = f"https://github.com/{EDIT_REPO}/edit/{EDIT_BRANCH}/{source}"
+    return (f'<div class="admin-edit" data-admin-edit hidden><span>Admin</span> <a href="{dev}">Edit in the browser editor</a> '
+            f'<a href="{web}">Quick edit on GitHub</a> <span class="admin-src">{source}</span></div>\n')
 
 
 EXTRA_URLS = CONFIG.get("extra_urls", [])      # pages on this address that are not built here

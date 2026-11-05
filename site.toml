@@ -5,6 +5,8 @@ url = "https://ahmadammar.github.io"
 affiliation = "School of Geography and Environmental Sciences, Ulster University"
 extra_urls = ["atlas/", "GBEM/", "marxist-economics/"]
 scan_folders = ["teaching/hpc", "teaching/latex", "teaching/git-ci", "teaching/sar", "teaching/maps", "teaching/atmosphere", "teaching/site-setup", "teaching/contribute"]
+edit_repo = "AhmadAmmar/AhmadAmmar.github.io"   # the admin edit bar opens sources here
+edit_branch = "main"
 not_in_sitemap = ["projects/third-pole/"]
 
 nav = [

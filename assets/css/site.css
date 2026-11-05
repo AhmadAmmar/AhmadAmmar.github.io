@@ -260,3 +260,25 @@ th { font-weight: 600; color: var(--muted); font-size: .82rem; text-transform: u
 .hpc-body .code-result { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; align-items: start; }
 .hpc-body .code-result > div { min-width: 0; }
 @media (min-width: 1200px) { .hpc-body .code-result { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+
+/* Essays: figures, captions and tables inside the reading column. Scoped to .essay so other pages are untouched. */
+.essay figure { margin: 1.6rem 0; }
+.essay figure img { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; border: 1px solid var(--line); }
+.essay figcaption { margin-top: .5rem; font-family: var(--sans); font-size: .86rem; line-height: 1.5; color: var(--muted); }
+.essay .table-wrap { margin: 1.2rem 0 .4rem; }
+.essay table { border-collapse: collapse; width: 100%; font-family: var(--sans); font-size: .88rem; }
+.essay th, .essay td { border-bottom: 1px solid var(--line); padding: .45rem .6rem; text-align: left; vertical-align: top; }
+.essay th { background: var(--surface-2); }
+.essay hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+.essay { min-width: 0; }
+.essay .table-wrap { max-width: 100%; overflow-x: auto; }
+@media (max-width: 600px) { .essay table { font-size: .78rem; } .essay th, .essay td { padding: .35rem .4rem; } }
+
+/* Admin edit bar: shown only in admin mode (site.js) */
+.admin-edit { position: fixed; right: 16px; bottom: 16px; z-index: 50; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; max-width: calc(100vw - 32px);
+  padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); box-shadow: 0 4px 16px rgba(0,0,0,.12); font-family: var(--sans); font-size: 13px; }
+.admin-edit[hidden] { display: none; }
+.admin-edit span:first-child { font-weight: 600; color: var(--rust); }
+.admin-edit a { color: var(--accent); }
+.admin-src { color: var(--muted); font-family: ui-monospace, Consolas, monospace; font-size: 12px; }
+@media print { .admin-edit { display: none !important; } }
