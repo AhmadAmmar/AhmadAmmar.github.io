@@ -1,0 +1,41 @@
+\chapter{What the paper did}
+
+The paper's method is straightforward to describe. It downloads the Global Historical Climatology Network Daily dataset (GHCN-Daily), which NOAA maintains~\citep{menne2012} and which holds daily maximum and minimum temperatures from tens of thousands of weather stations. It keeps only stations whose records start in 1900 or earlier and continue to at least 2020, so that the same stations are followed through time. It computes each day's average temperature as the mean of the maximum and minimum. It then fits a straight-line trend to the daily temperatures inside blocks of years, called windows, using a regression with a separate baseline for each station and each calendar month, so that differences between places and seasons do not get mixed up with change over time. Finally, it compares each window's trend with the amount of CO₂ emitted worldwide in that window.
+
+Its main results, for all 992 stations in its sample, are in its Table 10. Converted from degrees per year to degrees per decade, which is the more usual unit:
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{The paper's window trends and CO₂ emissions (Bhatta 2026, Table 10 and Section 3).}\label{tab:paper}\tabularnewline
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Window
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Paper's trend (°C per decade)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+CO₂ emitted in the window (billion tonnes)
+\end{minipage} \\
+\midrule\noalign{}
+\endfirsthead
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Window
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Paper's trend (°C per decade)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+CO₂ emitted in the window (billion tonnes)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1899--1940 & +0.213 & 140 \\
+1941--1982 & −0.133 & 459 \\
+1983--2024 & +0.167 (with urban control); +0.205 (without) & 1,209 \\
+\end{longtable}
+
+Read across the rows, the paper's argument is easy to follow. The first window warmed fastest while relatively little CO₂ was emitted. The second window cooled even though emissions more than tripled. The third window warmed, but more slowly than the first, despite emissions eight times larger. If CO₂ drove warming, the paper reasons, more emissions should mean faster warming, and they did not.
+
+It is a clear argument, and if the numbers in the table were a fair picture of the world, it would deserve attention. So the first thing to check is the numbers.

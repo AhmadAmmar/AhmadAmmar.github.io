@@ -1759,7 +1759,7 @@ T=\left[\frac{S\,(1-a)}{4\sigma}\right]^{1/4}.\tag{16.2}
 </tr>
 </tbody>
 </table>
-<p>: Table 16.1. Question 3c completed. The first four columns and the last but one are given; <span class="arithmatex">\(S(1-a)\)</span> and <span class="arithmatex">\(T\)</span> are calculated with Eq. (<a href="../p2-ch06_planets/#p2-eq:Tp">16.2</a>); the last column is the actual minus the calculated temperature.</p>
+<p class="table-caption">Table 16.1. Question 3c completed. The first four columns and the last but one are given; <span class="arithmatex">\(S(1-a)\)</span> and <span class="arithmatex">\(T\)</span> are calculated with Eq. (<a href="../p2-ch06_planets/#p2-eq:Tp">16.2</a>); the last column is the actual minus the calculated temperature.</p>
 <div class="box box-answer">
 <p class="box-title">Answer to Question 3c</p>
 <p>Mercury <strong>439 K</strong>, Venus <strong>185 K</strong>, Earth <strong>255 K</strong>, Mars <strong>210 K</strong>, Jupiter <strong>110 K</strong> (to the nearest kelvin; Table <a href="../p2-ch06_planets/#p2-tab:planets">16.1</a>).</p>
@@ -1772,15 +1772,37 @@ T=\left[\frac{S\,(1-a)}{4\sigma}\right]^{1/4}.\tag{16.2}
 </div>
 <p><strong>Method.</strong> Compare the temperatures from the spectra (Question 3b, § <a href="../p2-ch05_spectra/#p2-sec:q3b">15.4</a>) with the calculated temperatures in Table <a href="../p2-ch06_planets/#p2-tab:planets">16.1</a>, and pair each data set with the closest planet.</p>
 <div class="center">
-
-|  | **From the peak (Q3b)** | **From the full curve (§ [15.4](p2-ch05_spectra.md#p2-sec:q3b))** | **Closest planet (Q3c)** |
-|:---|:--:|:--:|:--:|
-| Data A | 241.5 K | 254.1 K | Earth, 254.9 K |
-| Data B | 207.0 K | 210.0 K | Mars, 210.3 K |
-| Data C | 181.1 K | 184.1 K | Venus, 184.7 K |
-
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;"><strong>From the peak (Q3b)</strong></th>
+<th style="text-align: center;"><strong>From the full curve (§ <a href="../p2-ch05_spectra/#p2-sec:q3b">15.4</a>)</strong></th>
+<th style="text-align: center;"><strong>Closest planet (Q3c)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Data A</td>
+<td style="text-align: center;">241.5 K</td>
+<td style="text-align: center;">254.1 K</td>
+<td style="text-align: center;">Earth, 254.9 K</td>
+</tr>
+<tr>
+<td style="text-align: left;">Data B</td>
+<td style="text-align: center;">207.0 K</td>
+<td style="text-align: center;">210.0 K</td>
+<td style="text-align: center;">Mars, 210.3 K</td>
+</tr>
+<tr>
+<td style="text-align: left;">Data C</td>
+<td style="text-align: center;">181.1 K</td>
+<td style="text-align: center;">184.1 K</td>
+<td style="text-align: center;">Venus, 184.7 K</td>
+</tr>
+</tbody>
+</table>
 </div>
-
 <div class="box box-answer">
 <p class="box-title">Answer to Question 3d</p>
 <p>Data A: <strong>Earth</strong>. Data B: <strong>Mars</strong>. Data C: <strong>Venus</strong>.</p>
@@ -1897,50 +1919,28 @@ def planet_temperature(s_wm2, albedo):
 </code></pre>
 <p><code>solar_constant(1.52)</code> returns about 592, the sunlight reaching Mars.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-
-<div id="ref-ahrens2022" class="csl-entry">
-
-Ahrens, C.D. and Henson, R. (2022) Meteorology today: An introduction to weather, climate, and the environment, 13th ed. Cengage Learning, Boston, MA.
-
+<div class="references csl-bib-body hanging-indent" data-entry-spacing="0" id="refs">
+<div class="csl-entry" id="ref-ahrens2022">
+<p>Ahrens, C.D. and Henson, R. (2022) Meteorology today: An introduction to weather, climate, and the environment, 13th ed. Cengage Learning, Boston, MA.</p>
 </div>
-
-<div id="ref-davies2010" class="csl-entry">
-
-Davies, J.H. and Davies, D.R. (2010) Earth’s surface heat flux. Solid Earth 1, 5–24. <https://doi.org/10.5194/se-1-5-2010>
-
+<div class="csl-entry" id="ref-davies2010">
+<p>Davies, J.H. and Davies, D.R. (2010) Earth’s surface heat flux. Solid Earth 1, 5–24. <a href="https://doi.org/10.5194/se-1-5-2010">https://doi.org/10.5194/se-1-5-2010</a></p>
 </div>
-
-<div id="ref-forster2021" class="csl-entry">
-
-<span class="nocase">Forster, P., Storelvmo, T., Armour, K. and others</span> (2021) The <span class="nocase">Earth’s</span> energy budget, climate feedbacks, and climate sensitivity, in: <span class="nocase">Masson-Delmotte, V. and others (Eds)</span>, Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge University Press, Cambridge, pp. 923–1054. <https://doi.org/10.1017/9781009157896.009>
-
+<div class="csl-entry" id="ref-forster2021">
+<p><span class="nocase">Forster, P., Storelvmo, T., Armour, K. and others</span> (2021) The <span class="nocase">Earth’s</span> energy budget, climate feedbacks, and climate sensitivity, in: <span class="nocase">Masson-Delmotte, V. and others (Eds)</span>, Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge University Press, Cambridge, pp. 923–1054. <a href="https://doi.org/10.1017/9781009157896.009">https://doi.org/10.1017/9781009157896.009</a></p>
 </div>
-
-<div id="ref-hanel1981" class="csl-entry">
-
-Hanel, R.A., Conrath, B.J., Herath, L.W., Kunde, V.G. and Pirraglia, J.A. (1981) Albedo, internal heat, and energy balance of Jupiter: Preliminary results of the Voyager infrared investigation. Journal of Geophysical Research: Space Physics 86, 8705–8712. <https://doi.org/10.1029/JA086iA10p08705>
-
+<div class="csl-entry" id="ref-hanel1981">
+<p>Hanel, R.A., Conrath, B.J., Herath, L.W., Kunde, V.G. and Pirraglia, J.A. (1981) Albedo, internal heat, and energy balance of Jupiter: Preliminary results of the Voyager infrared investigation. Journal of Geophysical Research: Space Physics 86, 8705–8712. <a href="https://doi.org/10.1029/JA086iA10p08705">https://doi.org/10.1029/JA086iA10p08705</a></p>
 </div>
-
-<div id="ref-kasting1988" class="csl-entry">
-
-Kasting, J.F. (1988) Runaway and moist greenhouse atmospheres and the evolution of Earth and Venus. Icarus 74, 472–494. <https://doi.org/10.1016/0019-1035(88)90116-9>
-
+<div class="csl-entry" id="ref-kasting1988">
+<p>Kasting, J.F. (1988) Runaway and moist greenhouse atmospheres and the evolution of Earth and Venus. Icarus 74, 472–494. <a href="https://doi.org/10.1016/0019-1035(88)90116-9">https://doi.org/10.1016/0019-1035(88)90116-9</a></p>
 </div>
-
-<div id="ref-pierrehumbert2011" class="csl-entry">
-
-Pierrehumbert, R.T. (2011) Infrared radiation and planetary temperature. Physics Today 64, 33–38. <https://doi.org/10.1063/1.3541943>
-
+<div class="csl-entry" id="ref-pierrehumbert2011">
+<p>Pierrehumbert, R.T. (2011) Infrared radiation and planetary temperature. Physics Today 64, 33–38. <a href="https://doi.org/10.1063/1.3541943">https://doi.org/10.1063/1.3541943</a></p>
 </div>
-
-<div id="ref-williams2024" class="csl-entry">
-
-Williams, D.R. (2024) [Planetary fact sheets: Mercury, Venus, Earth, Mars, Jupiter](https://nssdc.gsfc.nasa.gov/planetary/factsheet/).
-
+<div class="csl-entry" id="ref-williams2024">
+<p>Williams, D.R. (2024) <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">Planetary fact sheets: Mercury, Venus, Earth, Mars, Jupiter</a>.</p>
 </div>
-
 </div>
 
 
@@ -1985,6 +1985,7 @@ Williams, D.R. (2024) [Planetary fact sheets: Mercury, Venus, Earth, Mars, Jupit
     <div><a href="mailto:ahmadammargeo@gmail.com">Email</a> &middot; <a href="https://github.com/AhmadAmmar">GitHub</a> &middot; <a href="https://www.linkedin.com/in/ahmadammar/">LinkedIn</a></div>
   </div>
 </footer>
+
       
     </div>
     <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">

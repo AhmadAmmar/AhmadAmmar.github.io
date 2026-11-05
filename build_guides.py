@@ -25,6 +25,7 @@ GUIDES = {
     "site-setup": (HERE / "guides/site-setup", "Website_guide_Ahmad_Ammar.pdf"),
     "contribute": (HERE / "guides/contribute", "Contributing_guide_Ahmad_Ammar.pdf"),
     "atmosphere": (Path(r"D:\OneDrive - Ulster University\Demonstrating\EGM305\companion"), "The_Atmosphere_Ahmad_Ammar.pdf"),
+    "climate-data": (HERE / "guides/climate-data", "Climate_data_Ahmad_Ammar.pdf", "writing"),
 }
 
 
@@ -39,7 +40,8 @@ def activate_shots(root):
 
 
 def build(course):
-    root, pdf_name = GUIDES[course]
+    root, pdf_name, *section = GUIDES[course]
+    dest = HERE / (section[0] if section else "teaching") / course       # guides under teaching/, essays under writing/
     activate_shots(root)
     d = stack.load(root)
     results = stack.pdf(root)
@@ -49,8 +51,8 @@ def build(course):
     made = root / "build" / f"{d['name']}_{d['layouts'][0]}.pdf"
     shutil.copy2(made, HERE / "files" / pdf_name)
     stack.web(root)
-    stack.deploy(root, HERE / "teaching" / course)
-    (HERE / "teaching" / course / "404.html").unlink(missing_ok=True)    # the site has one error page, at its root
+    stack.deploy(root, dest)
+    (dest / "404.html").unlink(missing_ok=True)    # the site has one error page, at its root
 
 
 def check():

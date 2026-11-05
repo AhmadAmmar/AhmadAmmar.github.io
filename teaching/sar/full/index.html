@@ -1149,18 +1149,48 @@ P_r = \frac{P_t\, G^2\, \lambda^2\, \sigma}{(4\pi)^3 R^4}
 \sigma^0_{\mathrm{dB}} = 10\log_{10}\bigl(\sigma^0_{\mathrm{linear}}\bigr), \qquad \sigma^0_{\mathrm{linear}} = 10^{\sigma^0_{\mathrm{dB}}/10}
 \]</div>
 <div class="center">
-
-| Linear |    dB | Meaning                       |
-|-------:|------:|:------------------------------|
-|  0.001 | $-30$ | A thousandth of the reference |
-|   0.01 | $-20$ | A hundredth                   |
-|    0.1 | $-10$ | A tenth                       |
-|      1 |     0 | Equal to the reference        |
-|      2 |  $+3$ | About double                  |
-|     10 | $+10$ | Ten times                     |
-
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Linear</th>
+<th style="text-align: right;">dB</th>
+<th style="text-align: left;">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">0.001</td>
+<td style="text-align: right;"><span class="arithmatex">\(-30\)</span></td>
+<td style="text-align: left;">A thousandth of the reference</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.01</td>
+<td style="text-align: right;"><span class="arithmatex">\(-20\)</span></td>
+<td style="text-align: left;">A hundredth</td>
+</tr>
+<tr>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;"><span class="arithmatex">\(-10\)</span></td>
+<td style="text-align: left;">A tenth</td>
+</tr>
+<tr>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">Equal to the reference</td>
+</tr>
+<tr>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;"><span class="arithmatex">\(+3\)</span></td>
+<td style="text-align: left;">About double</td>
+</tr>
+<tr>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;"><span class="arithmatex">\(+10\)</span></td>
+<td style="text-align: left;">Ten times</td>
+</tr>
+</tbody>
+</table>
 </div>
-
 <p>Decibels are ratios, so a difference in dB is a ratio in power. A change from <span class="arithmatex">\(-10\)</span> to <span class="arithmatex">\(-13\)</span> dB means half the power returned, wherever it happens on the scale. Negative values are normal and do not mean negative energy: they mean less than the reference.</p>
 <h6 id="why-averaging-in-db-is-wrong">Why averaging in dB is wrong.<a class="headerlink" href="#why-averaging-in-db-is-wrong" title="Permanent link">&para;</a></h6>
 <p>Take two pixels at <span class="arithmatex">\(-30\)</span> and <span class="arithmatex">\(0\)</span> dB. Their mean in dB is <span class="arithmatex">\(-15\)</span> dB. In linear units, the mean of 0.001 and 1 is 0.5005, which is <span class="arithmatex">\(-3\)</span> dB. The dB mean is lower by 12 dB, a factor of about 16 in power, because a logarithm gives the dim pixel too much weight. So we average in linear power, as <code>mean_db()</code> does in Chapter <a href="../reading-radar-london/#sec:basics">2</a>. Over a year of London scenes this matters most at strong targets, whose returns vary.</p>
@@ -1371,7 +1401,7 @@ I = \sigma^0 \cdot n, \qquad \mathrm{E}[n]=1, \qquad \mathrm{Var}[n] = 1/L
 </tr>
 </tbody>
 </table>
-<p>: Table 2.1. Measured values, averaged over a small circle at each numbered place in Figure <a href="../reading-radar-london/#fig:london">2.3</a>.</p>
+<p class="table-caption">Table 2.1. Measured values, averaged over a small circle at each numbered place in Figure <a href="../reading-radar-london/#fig:london">2.3</a>.</p>
 <p>Look at the map in this order:</p>
 <ol>
 <li>
@@ -1519,6 +1549,7 @@ permanent = wet_after &amp; (occ &gt;= 50)
     <div><a href="mailto:ahmadammargeo@gmail.com">Email</a> &middot; <a href="https://github.com/AhmadAmmar">GitHub</a> &middot; <a href="https://www.linkedin.com/in/ahmadammar/">LinkedIn</a></div>
   </div>
 </footer>
+
       
     </div>
     <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">

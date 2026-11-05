@@ -7,6 +7,7 @@ chapters = ["concepts", "shell", "connect", "files", "software", "slurm", "first
 figures = "../../teaching/hpc"
 [web]
 edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/hpc/tex"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"
 site_name = "Getting started on an HPC cluster"

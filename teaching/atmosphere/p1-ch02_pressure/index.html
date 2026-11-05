@@ -1751,7 +1751,7 @@ f_n=\frac{1}{2^{n}},\qquad\text{percentage above}=\frac{100\,\%}{2^{n}}.\tag{3.5
 </tr>
 </tbody>
 </table>
-<p>: Table 3.1. The halving rule, row by row (Questions 1 and 2). The last column is the U.S. Standard Atmosphere (NOAA et al. 1976), for comparison only.</p>
+<p class="table-caption">Table 3.1. The halving rule, row by row (Questions 1 and 2). The last column is the U.S. Standard Atmosphere (NOAA et al. 1976), for comparison only.</p>
 <p><a id="p1-fig:q1graph"></a></p>
 <p><img alt="Questions 1 and 2. The percentage of the atmosphere above each height (bottom axis) and the pressure (top axis) by the halving rule. Each step of 5.6 km up halves both. The dashed line is the U.S. Sta" src="../fig/f-02.png" /></p>
 <p><strong>Figure 3.2.</strong> Questions 1 and 2. The percentage of the atmosphere above each height (bottom axis) and the pressure (top axis) by the halving rule. Each step of 5.6 km up halves both. The dashed line is the U.S. Standard Atmosphere: the rule is very close near the ground and overestimates the pressure higher up (§ <a href="../p1-ch02_pressure/#p1-sec:rulecheck">3.6</a>).</p>
@@ -1878,20 +1878,13 @@ def pressure_halving(z_km, p0_hpa=1000.0):
 </code></pre>
 <p><code>100 * fraction_above(11.2)</code> returns 25.0 and <code>pressure_halving(5.6)</code> returns 500.0.</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-
-<div id="ref-noaa1976" class="csl-entry">
-
-NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S. Government Printing Office, Washington, DC.
-
+<div class="references csl-bib-body hanging-indent" data-entry-spacing="0" id="refs">
+<div class="csl-entry" id="ref-noaa1976">
+<p>NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S. Government Printing Office, Washington, DC.</p>
 </div>
-
-<div id="ref-wallace2006" class="csl-entry">
-
-Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
-
+<div class="csl-entry" id="ref-wallace2006">
+<p>Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.</p>
 </div>
-
 </div>
 
 
@@ -1936,6 +1929,7 @@ Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey
     <div><a href="mailto:ahmadammargeo@gmail.com">Email</a> &middot; <a href="https://github.com/AhmadAmmar">GitHub</a> &middot; <a href="https://www.linkedin.com/in/ahmadammar/">LinkedIn</a></div>
   </div>
 </footer>
+
       
     </div>
     <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">

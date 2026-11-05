@@ -1559,29 +1559,103 @@
 <h2 id="p2-app:formulas">B.1 Formulas<a class="headerlink" href="#p2-app:formulas" title="Permanent link">&para;</a></h2>
 <p>Every formula used in this part, with the equation number where it is introduced and explained. Temperatures are in kelvin; angles in degrees.</p>
 <div class="center">
-
-| **Quantity** | **Formula** | **Where, and what for** |
-|:---|:---|:---|
-| Speed of a wave | $c=f\lambda$ | Eq. ([12.1](p2-ch02_radiation.md#p2-eq:cfl)); frequency from wavelength |
-| Energy of a photon | $\varepsilon=hc/\lambda$ | Eq. ([12.2](p2-ch02_radiation.md#p2-eq:photon)); why short waves carry more energy |
-| Planck curve | $B_\lambda=\dfrac{2hc^{2}}{\lambda^{5}}\,\dfrac{1}{e^{hc/\lambda k_BT}-1}$ | Eq. ([12.3](p2-ch02_radiation.md#p2-eq:planck)); the shape of every spectrum |
-| Wien’s law | $\lambda_{\max}=C/T$ | Eq. ([13.1](p2-ch03_wien.md#p2-eq:wien)); peak from temperature (Q1, Q3) |
-| Wien’s law, rearranged | $T=C/\lambda_{\max}$ | Eq. ([13.2](p2-ch03_wien.md#p2-eq:wienT)); temperature from peak (Q1, Q3b) |
-| Stefan–Boltzmann law | $E=\sigma T^{4}$ | Eq. ([14.1](p2-ch04_stefan.md#p2-eq:sb)); total emission (Q2) |
-| Ratio of emissions | $E_1/E_2=(T_1/T_2)^{4}$ | Eq. ([14.2](p2-ch04_stefan.md#p2-eq:ratio4)); Q2e |
-| Stefan–Boltzmann, rearranged | $T=(E/\sigma)^{1/4}$ | Eq. ([17.3](p2-ch07_balance.md#p2-eq:Tinv)); temperature from emission (Q4d) |
-| Inverse-square law | $S=S_E/d^{2}$ | Eq. ([16.1](p2-ch06_planets.md#p2-eq:invsq)); sunlight at each planet (Q3c) |
-| Planetary temperature | $T=\left[\dfrac{S(1-a)}{4\sigma}\right]^{1/4}$ | Eq. ([16.2](p2-ch06_planets.md#p2-eq:Tp)); black-body temperature (Q3c) |
-| Absorbed fraction | $1-a$ | Eq. ([17.1](p2-ch07_balance.md#p2-eq:absorbed)); Q4a–c |
-| Global average sunlight | $\bar S=S/4$ | Eq. ([17.2](p2-ch07_balance.md#p2-eq:Sbar)); Q4b$'$ |
-| Sun angle | $\beta=90^\circ-\theta_z$ | Eq. ([18.1](p2-ch08_sunangle.md#p2-eq:beta)); Q5a |
-| Noon zenith angle | $\theta_z=|\varphi-\delta|$, $\delta=\pm23.5^\circ$ at the solstices | Eq. ([18.4](p2-ch08_sunangle.md#p2-eq:zenith)); Q5a |
-| Beam spreading | $A=1/\sin\beta$ | Eq. ([18.2](p2-ch08_sunangle.md#p2-eq:spread)); Q5a |
-| Solar intensity | $I=100\,\%/A=100\,\%\times\sin\beta$ | Eq. ([18.3](p2-ch08_sunangle.md#p2-eq:intensity)); Q5c |
-| Kelvin to Celsius | $T_{\ensuremath{^{\circ}\mathrm{C}}}=T_{\mathrm{K}}-273.16$ | § [11.2](p2-ch01_orientation.md#p2-sec:conventions) |
-
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Quantity</strong></th>
+<th style="text-align: left;"><strong>Formula</strong></th>
+<th style="text-align: left;"><strong>Where, and what for</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Speed of a wave</td>
+<td style="text-align: left;"><span class="arithmatex">\(c=f\lambda\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch02_radiation/#p2-eq:cfl">12.1</a>); frequency from wavelength</td>
+</tr>
+<tr>
+<td style="text-align: left;">Energy of a photon</td>
+<td style="text-align: left;"><span class="arithmatex">\(\varepsilon=hc/\lambda\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch02_radiation/#p2-eq:photon">12.2</a>); why short waves carry more energy</td>
+</tr>
+<tr>
+<td style="text-align: left;">Planck curve</td>
+<td style="text-align: left;"><span class="arithmatex">\(B_\lambda=\dfrac{2hc^{2}}{\lambda^{5}}\,\dfrac{1}{e^{hc/\lambda k_BT}-1}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch02_radiation/#p2-eq:planck">12.3</a>); the shape of every spectrum</td>
+</tr>
+<tr>
+<td style="text-align: left;">Wien’s law</td>
+<td style="text-align: left;"><span class="arithmatex">\(\lambda_{\max}=C/T\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch03_wien/#p2-eq:wien">13.1</a>); peak from temperature (Q1, Q3)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Wien’s law, rearranged</td>
+<td style="text-align: left;"><span class="arithmatex">\(T=C/\lambda_{\max}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch03_wien/#p2-eq:wienT">13.2</a>); temperature from peak (Q1, Q3b)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Stefan–Boltzmann law</td>
+<td style="text-align: left;"><span class="arithmatex">\(E=\sigma T^{4}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch04_stefan/#p2-eq:sb">14.1</a>); total emission (Q2)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Ratio of emissions</td>
+<td style="text-align: left;"><span class="arithmatex">\(E_1/E_2=(T_1/T_2)^{4}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch04_stefan/#p2-eq:ratio4">14.2</a>); Q2e</td>
+</tr>
+<tr>
+<td style="text-align: left;">Stefan–Boltzmann, rearranged</td>
+<td style="text-align: left;"><span class="arithmatex">\(T=(E/\sigma)^{1/4}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch07_balance/#p2-eq:Tinv">17.3</a>); temperature from emission (Q4d)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Inverse-square law</td>
+<td style="text-align: left;"><span class="arithmatex">\(S=S_E/d^{2}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch06_planets/#p2-eq:invsq">16.1</a>); sunlight at each planet (Q3c)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Planetary temperature</td>
+<td style="text-align: left;"><span class="arithmatex">\(T=\left[\dfrac{S(1-a)}{4\sigma}\right]^{1/4}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch06_planets/#p2-eq:Tp">16.2</a>); black-body temperature (Q3c)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Absorbed fraction</td>
+<td style="text-align: left;"><span class="arithmatex">\(1-a\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch07_balance/#p2-eq:absorbed">17.1</a>); Q4a–c</td>
+</tr>
+<tr>
+<td style="text-align: left;">Global average sunlight</td>
+<td style="text-align: left;"><span class="arithmatex">\(\bar S=S/4\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch07_balance/#p2-eq:Sbar">17.2</a>); Q4b<span class="arithmatex">\('\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">Sun angle</td>
+<td style="text-align: left;"><span class="arithmatex">\(\beta=90^\circ-\theta_z\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch08_sunangle/#p2-eq:beta">18.1</a>); Q5a</td>
+</tr>
+<tr>
+<td style="text-align: left;">Noon zenith angle</td>
+<td style="text-align: left;">$\theta_z=</td>
+<td style="text-align: left;">\varphi-\delta</td>
+</tr>
+<tr>
+<td style="text-align: left;">Beam spreading</td>
+<td style="text-align: left;"><span class="arithmatex">\(A=1/\sin\beta\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch08_sunangle/#p2-eq:spread">18.2</a>); Q5a</td>
+</tr>
+<tr>
+<td style="text-align: left;">Solar intensity</td>
+<td style="text-align: left;"><span class="arithmatex">\(I=100\,\%/A=100\,\%\times\sin\beta\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p2-ch08_sunangle/#p2-eq:intensity">18.3</a>); Q5c</td>
+</tr>
+<tr>
+<td style="text-align: left;">Kelvin to Celsius</td>
+<td style="text-align: left;"><span class="arithmatex">\(T_{\ensuremath{^{\circ}\mathrm{C}}}=T_{\mathrm{K}}-273.16\)</span></td>
+<td style="text-align: left;">§ <a href="../p2-ch01_orientation/#p2-sec:conventions">11.2</a></td>
+</tr>
+</tbody>
+</table>
 </div>
-
 <h2 id="p2-app:derivations">B.2 Derivations for the curious<a class="headerlink" href="#p2-app:derivations" title="Permanent link">&para;</a></h2>
 <p>These derivations show where the formulas of this part come from. None is needed to answer the questions; each is referred to from the chapter where its result is used.</p>
 <h3 id="p2-sec:der-wien">B.2.1 Wien’s law from the Planck curve<a class="headerlink" href="#p2-sec:der-wien" title="Permanent link">&para;</a></h3>
@@ -1642,27 +1716,24 @@ E=\frac{2\pi k_B^{4}T^{4}}{h^{3}c^{2}}\int_{0}^{\infty}\frac{x^{3}}{e^{x}-1}\,dx
 \]</div>
 <p>T_A=254.1\ \mathrm{K},\qquad T_B=210.0\ \mathrm{K},\qquad T_C=184.1\ \mathrm{K},$$ the black-body temperatures of the Earth, Mars and Venus calculated in Question 3c (Table <a href="../p2-ch06_planets/#p2-tab:planets">16.1</a>). Table <a href="../app-p2/#p2-tab:fit">B.1</a> sets the given values beside the fitted curves: they agree to within about 0.3 % everywhere, which confirms that the data are Planck curves sampled every 2 <span class="arithmatex">\(\mu\mathrm{m}\)</span>.</p>
 <div class="tabular">
-
-@rrrrrrr@ & & &\
-(lr)2-3(lr)4-5(lr)6-7 $\lambda$ & given & Planck, 254.1 K & given & Planck, 210.0 K & given & Planck, 184.1 K\
-& 26.199 & 26.16 & 1.3338 & 1.338 & 0.11992 & 0.1202\
-6 & 386.28 & 385.9 & 53.056 & 53.18 & 10.648 & 10.67\
-8 & 970.65 & 969.8 & 218.86 & 219.2 & 65.619 & 65.7\
-10 & 1313.3 & 1312 & 398.14 & 398.6 & 151.8 & 151.9\
-12 & 1363.5 & 1363 & 502.49 & 503 & 224.7 & 224.9\
-14 & 1248.6 & 1248 & 527.86 & 528.3 & 264.23 & 264.4\
-16 & 1074.3 & 1074 & 502.41 & 502.8 & 273.39 & 273.5\
-18 & 896.25 & 895.8 & 452.58 & 452.9 & 262.51 & 262.6\
-20 & 737.1 & 736.7 & 395.22 & 395.4 & 241.03 & 241.1\
-22 & 603.1 & 602.8 & 339.25 & 339.4 & 215.38 & 215.5\
-24 & 493.45 & 493.2 & 288.62 & 288.8 & 189.36 & 189.4\
-26 & 404.91 & 404.7 & 244.61 & 244.7 & 164.92 & 165\
-28 & 333.76 & 333.6 & 207.16 & 207.2 & 142.9 & 142.9\
-30 & 276.58 & 276.5 & 175.67 & 175.7 & 123.56 & 123.6\
-\
-
+<p>@rrrrrrr@ &amp; &amp; &amp;\
+(lr)2-3(lr)4-5(lr)6-7 <span class="arithmatex">\(\lambda\)</span> &amp; given &amp; Planck, 254.1 K &amp; given &amp; Planck, 210.0 K &amp; given &amp; Planck, 184.1 K\
+&amp; 26.199 &amp; 26.16 &amp; 1.3338 &amp; 1.338 &amp; 0.11992 &amp; 0.1202\
+6 &amp; 386.28 &amp; 385.9 &amp; 53.056 &amp; 53.18 &amp; 10.648 &amp; 10.67\
+8 &amp; 970.65 &amp; 969.8 &amp; 218.86 &amp; 219.2 &amp; 65.619 &amp; 65.7\
+10 &amp; 1313.3 &amp; 1312 &amp; 398.14 &amp; 398.6 &amp; 151.8 &amp; 151.9\
+12 &amp; 1363.5 &amp; 1363 &amp; 502.49 &amp; 503 &amp; 224.7 &amp; 224.9\
+14 &amp; 1248.6 &amp; 1248 &amp; 527.86 &amp; 528.3 &amp; 264.23 &amp; 264.4\
+16 &amp; 1074.3 &amp; 1074 &amp; 502.41 &amp; 502.8 &amp; 273.39 &amp; 273.5\
+18 &amp; 896.25 &amp; 895.8 &amp; 452.58 &amp; 452.9 &amp; 262.51 &amp; 262.6\
+20 &amp; 737.1 &amp; 736.7 &amp; 395.22 &amp; 395.4 &amp; 241.03 &amp; 241.1\
+22 &amp; 603.1 &amp; 602.8 &amp; 339.25 &amp; 339.4 &amp; 215.38 &amp; 215.5\
+24 &amp; 493.45 &amp; 493.2 &amp; 288.62 &amp; 288.8 &amp; 189.36 &amp; 189.4\
+26 &amp; 404.91 &amp; 404.7 &amp; 244.61 &amp; 244.7 &amp; 164.92 &amp; 165\
+28 &amp; 333.76 &amp; 333.6 &amp; 207.16 &amp; 207.2 &amp; 142.9 &amp; 142.9\
+30 &amp; 276.58 &amp; 276.5 &amp; 175.67 &amp; 175.7 &amp; 123.56 &amp; 123.6\
+\</p>
 </div>
-
 <p>Because the true peaks fall between the 2 <span class="arithmatex">\(\mu\mathrm{m}\)</span> sampling points, the highest data point in each column lies 0.3–0.6 <span class="arithmatex">\(\mu\mathrm{m}\)</span> to the right of the true peak. That is why Question 3b, which reads the peak from the data, gives temperatures a few kelvin below the true ones (§ <a href="../p2-ch05_spectra/#p2-sec:q3b">15.4</a>).</p>
 <h2 id="p2-app:symbols">B.4 Symbols and constants<a class="headerlink" href="#p2-app:symbols" title="Permanent link">&para;</a></h2>
 <table>
@@ -1827,7 +1898,7 @@ E=\frac{2\pi k_B^{4}T^{4}}{h^{3}c^{2}}\int_{0}^{\infty}\frac{x^{3}}{e^{x}-1}\,dx
 </tr>
 </tbody>
 </table>
-<p>: Table B.2. Every symbol used in this part. Each equation’s own <em>where</em> list repeats the symbols it uses.</p>
+<p class="table-caption">Table B.2. Every symbol used in this part. Each equation’s own <em>where</em> list repeats the symbols it uses.</p>
 <table>
 <thead>
 <tr>
@@ -1900,7 +1971,7 @@ E=\frac{2\pi k_B^{4}T^{4}}{h^{3}c^{2}}\int_{0}^{\infty}\frac{x^{3}}{e^{x}-1}\,dx
 </tr>
 </tbody>
 </table>
-<p>: Table B.3. Constants. Answers in this part use the rounded values; the precise values are given for reference.</p>
+<p class="table-caption">Table B.3. Constants. Answers in this part use the rounded values; the precise values are given for reference.</p>
 <h2 id="p2-app:about">B.5 About the figures and the data<a class="headerlink" href="#p2-app:about" title="Permanent link">&para;</a></h2>
 <h3 id="b51-how-the-figures-were-made">B.5.1 How the figures were made<a class="headerlink" href="#b51-how-the-figures-were-made" title="Permanent link">&para;</a></h3>
 <p>Every figure in this part was drawn for it as vector graphics, in the document itself with TikZ and pgfplots, so it stays sharp at any size and prints clearly in black and white (each curve has its own line style or marker as well as its own colour).</p>
@@ -1934,44 +2005,25 @@ E=\frac{2\pi k_B^{4}T^{4}}{h^{3}c^{2}}\int_{0}^{\infty}\frac{x^{3}}{e^{x}-1}\,dx
 </li>
 </ul>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-
-<div id="ref-forster2021" class="csl-entry">
-
-<span class="nocase">Forster, P., Storelvmo, T., Armour, K. and others</span> (2021) The <span class="nocase">Earth’s</span> energy budget, climate feedbacks, and climate sensitivity, in: <span class="nocase">Masson-Delmotte, V. and others (Eds)</span>, Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge University Press, Cambridge, pp. 923–1054. <https://doi.org/10.1017/9781009157896.009>
-
+<div class="references csl-bib-body hanging-indent" data-entry-spacing="0" id="refs">
+<div class="csl-entry" id="ref-forster2021">
+<p><span class="nocase">Forster, P., Storelvmo, T., Armour, K. and others</span> (2021) The <span class="nocase">Earth’s</span> energy budget, climate feedbacks, and climate sensitivity, in: <span class="nocase">Masson-Delmotte, V. and others (Eds)</span>, Climate Change 2021: The Physical Science Basis. Contribution of Working Group i to the Sixth Assessment Report of the Intergovernmental Panel on Climate Change. Cambridge University Press, Cambridge, pp. 923–1054. <a href="https://doi.org/10.1017/9781009157896.009">https://doi.org/10.1017/9781009157896.009</a></p>
 </div>
-
-<div id="ref-kopp2011" class="csl-entry">
-
-Kopp, G. and Lean, J.L. (2011) A new, lower value of total solar irradiance: Evidence and climate significance. Geophysical Research Letters 38, L01706. <https://doi.org/10.1029/2010GL045777>
-
+<div class="csl-entry" id="ref-kopp2011">
+<p>Kopp, G. and Lean, J.L. (2011) A new, lower value of total solar irradiance: Evidence and climate significance. Geophysical Research Letters 38, L01706. <a href="https://doi.org/10.1029/2010GL045777">https://doi.org/10.1029/2010GL045777</a></p>
 </div>
-
-<div id="ref-prsa2016" class="csl-entry">
-
-<span class="nocase">Prša, A., Harmanec, P., Torres, G., Mamajek, E. and others</span> (2016) Nominal values for selected solar and planetary quantities: IAU 2015 Resolution B3. The Astronomical Journal 152, 41. <https://doi.org/10.3847/0004-6256/152/2/41>
-
+<div class="csl-entry" id="ref-prsa2016">
+<p><span class="nocase">Prša, A., Harmanec, P., Torres, G., Mamajek, E. and others</span> (2016) Nominal values for selected solar and planetary quantities: IAU 2015 Resolution B3. The Astronomical Journal 152, 41. <a href="https://doi.org/10.3847/0004-6256/152/2/41">https://doi.org/10.3847/0004-6256/152/2/41</a></p>
 </div>
-
-<div id="ref-stull2017" class="csl-entry">
-
-Stull, R. (2017) [Practical meteorology: An algebra-based survey of atmospheric science](https://www.eoas.ubc.ca/books/Practical_Meteorology/). University of British Columbia, Vancouver.
-
+<div class="csl-entry" id="ref-stull2017">
+<p>Stull, R. (2017) <a href="https://www.eoas.ubc.ca/books/Practical_Meteorology/">Practical meteorology: An algebra-based survey of atmospheric science</a>. University of British Columbia, Vancouver.</p>
 </div>
-
-<div id="ref-tiesinga2021" class="csl-entry">
-
-Tiesinga, E., Mohr, P.J., Newell, D.B. and Taylor, B.N. (2021) CODATA recommended values of the fundamental physical constants: 2018. Reviews of Modern Physics 93, 025010. <https://doi.org/10.1103/RevModPhys.93.025010>
-
+<div class="csl-entry" id="ref-tiesinga2021">
+<p>Tiesinga, E., Mohr, P.J., Newell, D.B. and Taylor, B.N. (2021) CODATA recommended values of the fundamental physical constants: 2018. Reviews of Modern Physics 93, 025010. <a href="https://doi.org/10.1103/RevModPhys.93.025010">https://doi.org/10.1103/RevModPhys.93.025010</a></p>
 </div>
-
-<div id="ref-williams2024" class="csl-entry">
-
-Williams, D.R. (2024) [Planetary fact sheets: Mercury, Venus, Earth, Mars, Jupiter](https://nssdc.gsfc.nasa.gov/planetary/factsheet/).
-
+<div class="csl-entry" id="ref-williams2024">
+<p>Williams, D.R. (2024) <a href="https://nssdc.gsfc.nasa.gov/planetary/factsheet/">Planetary fact sheets: Mercury, Venus, Earth, Mars, Jupiter</a>.</p>
 </div>
-
 </div>
 
 
@@ -2016,6 +2068,7 @@ Williams, D.R. (2024) [Planetary fact sheets: Mercury, Venus, Earth, Mars, Jupit
     <div><a href="mailto:ahmadammargeo@gmail.com">Email</a> &middot; <a href="https://github.com/AhmadAmmar">GitHub</a> &middot; <a href="https://www.linkedin.com/in/ahmadammar/">LinkedIn</a></div>
   </div>
 </footer>
+
       
     </div>
     <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">

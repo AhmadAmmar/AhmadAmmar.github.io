@@ -1505,7 +1505,7 @@
 </tr>
 </tbody>
 </table>
-<p>: Table 3.1. Area of two ranges by four routes.</p>
+<p class="table-caption">Table 3.1. Area of two ranges by four routes.</p>
 <p>Web Mercator inflates area most at high latitudes, which is why it should never be used for measuring. The routine is to reproject, and then measure:</p>
 <div class="highlight"><pre><span></span><code><span class="n">km2</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s2">"ESRI:54034"</span><span class="p">)</span><span class="o">.</span><span class="n">area</span> <span class="o">/</span> <span class="mf">1e6</span>      <span class="c1"># cylindrical equal-area, in square metres</span>
 </code></pre></div>
@@ -1887,6 +1887,7 @@
     <div><a href="mailto:ahmadammargeo@gmail.com">Email</a> &middot; <a href="https://github.com/AhmadAmmar">GitHub</a> &middot; <a href="https://www.linkedin.com/in/ahmadammar/">LinkedIn</a></div>
   </div>
 </footer>
+
       
     </div>
     <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">

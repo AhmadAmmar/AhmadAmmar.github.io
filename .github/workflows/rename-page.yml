@@ -1,0 +1,54 @@
+# Give a page a new address from GitHub's web interface: Actions > Rename a page > Run workflow.
+# Every link in the site is updated and the old address forwards to the new one (tools/rename_page.py).
+name: Rename a page
+
+on:
+  workflow_dispatch:
+    inputs:
+      old:
+        description: "Current address, without the site name (for example writing/climate-data)"
+        required: true
+      new:
+        description: "New address (lower-case letters, digits, - and /)"
+        required: true
+      dry_run:
+        description: "Only show what would change"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-pages
+  cancel-in-progress: false
+
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rename and update links
+        env:
+          OLD: ${{ inputs.old }}
+          NEW: ${{ inputs.new }}
+          DRY: ${{ inputs.dry_run }}
+        run: |
+          if [ "$DRY" = "true" ]; then python tools/rename_page.py --dry-run "$OLD" "$NEW"; exit 0; fi
+          python tools/rename_page.py "$OLD" "$NEW"
+          python build.py
+      - name: Commit
+        if: ${{ !inputs.dry_run }}
+        env:
+          OLD: ${{ inputs.old }}
+          NEW: ${{ inputs.new }}
+        run: |
+          git config user.name "Ahmad Ammar"
+          git config user.email "ahmadammargeo@gmail.com"
+          git add -A
+          if git diff --cached --quiet; then echo "nothing changed"; exit 0; fi
+          git commit -m "Move $OLD to $NEW; links updated, old address forwards"
+          git push

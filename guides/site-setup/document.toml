@@ -9,6 +9,7 @@ figures = "../shots/img"
 shared = ["../../shared"]
 [web]
 edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/site-setup/tex"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"
 site_name = "Build your own website with GitHub Pages"

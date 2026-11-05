@@ -4,10 +4,10 @@ name = "Ahmad Ammar"
 url = "https://ahmadammar.github.io"
 affiliation = "School of Geography and Environmental Sciences, Ulster University"
 extra_urls = ["atlas/", "GBEM/", "marxist-economics/"]
-scan_folders = ["teaching/hpc", "teaching/latex", "teaching/git-ci", "teaching/sar", "teaching/maps", "teaching/atmosphere", "teaching/site-setup", "teaching/contribute"]
+scan_folders = ["teaching/hpc", "teaching/latex", "teaching/git-ci", "teaching/sar", "teaching/maps", "teaching/atmosphere", "teaching/site-setup", "teaching/contribute", "writing/climate-data"]
 edit_repo = "AhmadAmmar/AhmadAmmar.github.io"   # the admin edit bar opens sources here
 edit_branch = "main"
-not_in_sitemap = ["projects/third-pole/"]
+not_in_sitemap = ["writing/thermometer-and-ledger/", "projects/third-pole/"]
 
 nav = [
   {key = "about", label = "About", href = "index.html"},

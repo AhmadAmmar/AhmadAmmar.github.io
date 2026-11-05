@@ -1415,25 +1415,83 @@
 <h2 id="p1-sec:formulas">A.1 Formulas<a class="headerlink" href="#p1-sec:formulas" title="Permanent link">&para;</a></h2>
 <p>Every formula used in Part I, with the equation number where it is introduced and explained.</p>
 <div class="center">
-
-| **Quantity** | **Formula** | **Where, and what for** |
-|:---|:---|:---|
-| Ideal gas law | $p=\rho R_dT$ | Eq. ([3.1](p1-ch02_pressure.md#p1-eq:gaslaw)); density from pressure and temperature (Q13) |
-| Hydrostatic balance | $\Delta p/\Delta z=-\rho g$ | Eq. ([3.2](p1-ch02_pressure.md#p1-eq:hydro)); why pressure falls with height |
-| Exponential pressure | $p=p_0e^{-z/H}$, $H=R_dT/g$ | Eq. ([3.3](p1-ch02_pressure.md#p1-eq:expo)); scale height (Q1, Q12) |
-| Fraction of the atmosphere above | $f=2^{-z/5.6}$ ($z$ in km) | Eq. ([3.4](p1-ch02_pressure.md#p1-eq:fraction)); Q1, Q3 |
-| After $n$ halvings | $f_n=1/2^{n}$ | Eq. ([3.5](p1-ch02_pressure.md#p1-eq:halving)); Table [3.1](p1-ch02_pressure.md#p1-tab:table1) |
-| Pressure from the fraction | $p=1000\,f$ hPa | Eq. ([3.6](p1-ch02_pressure.md#p1-eq:pressure)); Q2, Q3 |
-| Partial pressure of oxygen | $p_{\mathrm{O_2}}=0.21\,p$ | Eq. ([4.1](p1-ch03_oxygen.md#p1-eq:dalton)); Q4 |
-| Lapse rate | $\Gamma=-\Delta T/\Delta z$ | Eq. ([5.1](p1-ch04_temperature.md#p1-eq:lapse)); Q5, Q7–Q10 |
-| Standard atmosphere | $T=15-6.5\,z$ to 11 km, then $-56.5$ $^{\circ}\mathrm{C}$ | Eq. ([5.2](p1-ch04_temperature.md#p1-eq:stdT)); Q5 |
-| Scale height from data | $H=(z_2-z_1)/\ln(p_1/p_2)$ | Eq. ([8.1](p1-ch07_stability.md#p1-eq:Hdata)); Q12 |
-| Dry adiabatic lapse rate | $\Gamma_d=g/c_p=9.8$ $^{\circ}\mathrm{C\,km^{-1}}$ | Eq. ([8.2](p1-ch07_stability.md#p1-eq:dalr)); Q13 |
-| Potential temperature | $\theta=T(1000/p)^{0.286}$ | Eq. ([8.3](p1-ch07_stability.md#p1-eq:theta)); Q13 |
-| Kelvin and Celsius | $T_{\mathrm{K}}=T_{\ensuremath{^{\circ}\mathrm{C}}}+273.15$ | § [1.3](how-to-use.md#sec:conventions) |
-
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Quantity</strong></th>
+<th style="text-align: left;"><strong>Formula</strong></th>
+<th style="text-align: left;"><strong>Where, and what for</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Ideal gas law</td>
+<td style="text-align: left;"><span class="arithmatex">\(p=\rho R_dT\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>); density from pressure and temperature (Q13)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hydrostatic balance</td>
+<td style="text-align: left;"><span class="arithmatex">\(\Delta p/\Delta z=-\rho g\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:hydro">3.2</a>); why pressure falls with height</td>
+</tr>
+<tr>
+<td style="text-align: left;">Exponential pressure</td>
+<td style="text-align: left;"><span class="arithmatex">\(p=p_0e^{-z/H}\)</span>, <span class="arithmatex">\(H=R_dT/g\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:expo">3.3</a>); scale height (Q1, Q12)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fraction of the atmosphere above</td>
+<td style="text-align: left;"><span class="arithmatex">\(f=2^{-z/5.6}\)</span> (<span class="arithmatex">\(z\)</span> in km)</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:fraction">3.4</a>); Q1, Q3</td>
+</tr>
+<tr>
+<td style="text-align: left;">After <span class="arithmatex">\(n\)</span> halvings</td>
+<td style="text-align: left;"><span class="arithmatex">\(f_n=1/2^{n}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:halving">3.5</a>); Table <a href="../p1-ch02_pressure/#p1-tab:table1">3.1</a></td>
+</tr>
+<tr>
+<td style="text-align: left;">Pressure from the fraction</td>
+<td style="text-align: left;"><span class="arithmatex">\(p=1000\,f\)</span> hPa</td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch02_pressure/#p1-eq:pressure">3.6</a>); Q2, Q3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Partial pressure of oxygen</td>
+<td style="text-align: left;"><span class="arithmatex">\(p_{\mathrm{O_2}}=0.21\,p\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch03_oxygen/#p1-eq:dalton">4.1</a>); Q4</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lapse rate</td>
+<td style="text-align: left;"><span class="arithmatex">\(\Gamma=-\Delta T/\Delta z\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch04_temperature/#p1-eq:lapse">5.1</a>); Q5, Q7–Q10</td>
+</tr>
+<tr>
+<td style="text-align: left;">Standard atmosphere</td>
+<td style="text-align: left;"><span class="arithmatex">\(T=15-6.5\,z\)</span> to 11 km, then <span class="arithmatex">\(-56.5\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch04_temperature/#p1-eq:stdT">5.2</a>); Q5</td>
+</tr>
+<tr>
+<td style="text-align: left;">Scale height from data</td>
+<td style="text-align: left;"><span class="arithmatex">\(H=(z_2-z_1)/\ln(p_1/p_2)\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch07_stability/#p1-eq:Hdata">8.1</a>); Q12</td>
+</tr>
+<tr>
+<td style="text-align: left;">Dry adiabatic lapse rate</td>
+<td style="text-align: left;"><span class="arithmatex">\(\Gamma_d=g/c_p=9.8\)</span> <span class="arithmatex">\(^{\circ}\mathrm{C\,km^{-1}}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch07_stability/#p1-eq:dalr">8.2</a>); Q13</td>
+</tr>
+<tr>
+<td style="text-align: left;">Potential temperature</td>
+<td style="text-align: left;"><span class="arithmatex">\(\theta=T(1000/p)^{0.286}\)</span></td>
+<td style="text-align: left;">Eq. (<a href="../p1-ch07_stability/#p1-eq:theta">8.3</a>); Q13</td>
+</tr>
+<tr>
+<td style="text-align: left;">Kelvin and Celsius</td>
+<td style="text-align: left;"><span class="arithmatex">\(T_{\mathrm{K}}=T_{\ensuremath{^{\circ}\mathrm{C}}}+273.15\)</span></td>
+<td style="text-align: left;">§ <a href="../how-to-use/#sec:conventions">1.3</a></td>
+</tr>
+</tbody>
+</table>
 </div>
-
 <h2 id="p1-sec:derivations">A.2 Derivations for the curious<a class="headerlink" href="#p1-sec:derivations" title="Permanent link">&para;</a></h2>
 <h3 id="p1-sec:der-expo">A.2.1 Pressure falls exponentially with height<a class="headerlink" href="#p1-sec:der-expo" title="Permanent link">&para;</a></h3>
 <p>Start from hydrostatic balance, Eq. (<a href="../p1-ch02_pressure/#p1-eq:hydro">3.2</a>), written for a very thin layer, <span class="arithmatex">\(dp/dz=-\rho g\)</span>, and replace the density using the gas law, Eq. (<a href="../p1-ch02_pressure/#p1-eq:gaslaw">3.1</a>), <span class="arithmatex">\(\rho=p/(R_dT)\)</span>:</p>
@@ -1569,7 +1627,7 @@ c_p\ln\frac{\theta}{T}=R_d\ln\frac{1000}{p}\qquad\Longrightarrow\qquad\theta=T\l
 </tr>
 </tbody>
 </table>
-<p>: Table A.1. The symbols used in Part I. Each equation’s own <em>where</em> list repeats the symbols it uses.</p>
+<p class="table-caption">Table A.1. The symbols used in Part I. Each equation’s own <em>where</em> list repeats the symbols it uses.</p>
 <h2 id="p1-sec:about">A.4 About the figures and the data<a class="headerlink" href="#p1-sec:about" title="Permanent link">&para;</a></h2>
 <p>Every figure in Part I was drawn for it in the document itself with TikZ and pgfplots, from the data and the equations in the text.</p>
 <ul>
@@ -1591,20 +1649,13 @@ c_p\ln\frac{\theta}{T}=R_d\ln\frac{1000}{p}\qquad\Longrightarrow\qquad\theta=T\l
 </ul>
 <p>The soundings are single ascents on a single day; they illustrate the structure of the atmosphere and should not be read as climatological averages (§ <a href="../p1-ch08_climates/#p1-sec:q14">9.4</a>).</p>
 <h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0">
-
-<div id="ref-noaa1976" class="csl-entry">
-
-NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S. Government Printing Office, Washington, DC.
-
+<div class="references csl-bib-body hanging-indent" data-entry-spacing="0" id="refs">
+<div class="csl-entry" id="ref-noaa1976">
+<p>NOAA, NASA and US Air Force (1976) U.S. Standard atmosphere, 1976. U.S. Government Printing Office, Washington, DC.</p>
 </div>
-
-<div id="ref-wallace2006" class="csl-entry">
-
-Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.
-
+<div class="csl-entry" id="ref-wallace2006">
+<p>Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey, 2nd ed. Elsevier Academic Press, Amsterdam.</p>
 </div>
-
 </div>
 
 
@@ -1649,6 +1700,7 @@ Wallace, J.M. and Hobbs, P.V. (2006) Atmospheric science: An introductory survey
     <div><a href="mailto:ahmadammargeo@gmail.com">Email</a> &middot; <a href="https://github.com/AhmadAmmar">GitHub</a> &middot; <a href="https://www.linkedin.com/in/ahmadammar/">LinkedIn</a></div>
   </div>
 </footer>
+
       
     </div>
     <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
