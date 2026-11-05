@@ -1,0 +1,28 @@
+name = "hypothesis_testing"
+title = "Hypothesis testing with climate data"
+subtitle = "p, z, t, chi-square and more: what goes in, what comes out, and how to read it, on real questions"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_ideas", "ch_one", "ch_two", "ch_trends_counts", "ch_many"]
+figures = "fig"
+[notebooks]
+folder = "notebooks"
+sources = ["hypothesis_tests"]
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/hypothesis-testing/notebooks"
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Hypothesis testing with climate data"
+intro = "A hands-on guide to statistical tests, from a coin toss to radar flood maps. Each test is built up with a small example you can check by hand, then run on real data: global temperature, El Niño and the Indian monsoon, Northern Hemisphere snow cover, and Sentinel-1 flood mapping in Sindh. Every quantity is explained: its inputs, its output, its units and how to read it."
+pdf_url = "/files/Hypothesis_testing_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/hypothesis-testing"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
+[web.slugs]
+ch_ideas = "the-ideas"
+ch_one = "one-value-and-trends"
+ch_two = "two-groups-and-correlation"
+ch_trends_counts = "snow-trends-and-flood-counts"
+ch_many = "many-tests-and-reporting"

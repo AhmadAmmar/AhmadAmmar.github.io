@@ -26,6 +26,8 @@ GUIDES = {
     "contribute": (HERE / "guides/contribute", "Contributing_guide_Ahmad_Ammar.pdf"),
     "atmosphere": (Path(r"D:\OneDrive - Ulster University\Demonstrating\EGM305\companion"), "The_Atmosphere_Ahmad_Ammar.pdf"),
     "climate-data": (HERE / "guides/climate-data", "Climate_data_Ahmad_Ammar.pdf", "writing"),
+    "climate-data-python": (HERE / "guides/climate-data-python", "Climate_data_in_Python_Ahmad_Ammar.pdf"),
+    "hypothesis-testing": (HERE / "guides/hypothesis-testing", "Hypothesis_testing_Ahmad_Ammar.pdf"),
 }
 
 

@@ -8,3 +8,5 @@ web_figs.*
 *.log
 *.toc
 *.out
+guides/*/notebooks/data/
+guides/*/tex/generated/

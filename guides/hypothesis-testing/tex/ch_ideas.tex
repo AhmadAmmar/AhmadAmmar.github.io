@@ -1,0 +1,42 @@
+\chapter{The ideas behind every test}\label{ch:ideas}
+
+A hypothesis test answers one narrow question: \emph{if nothing special were going on, how surprising would these data be?} Every test in this guide, from a coin toss to a flood map, follows the same six steps. Learn them once and every test becomes a variation.
+
+\section{The six steps}
+\begin{enumerate}
+\item \textbf{State the question} in words: is this coin biased? Has June snow cover declined?
+\item \textbf{Write the null hypothesis} $H_0$, the ``nothing special'' case (the coin is fair; the trend is zero), and the \textbf{alternative} $H_1$ (the coin is biased; the trend is not zero).
+\item \textbf{Choose a test statistic}: one number that summarises how far the data are from what $H_0$ predicts, such as a $z$-score, a $t$-value or a $\chi^2$ value.
+\item \textbf{Find its sampling distribution under $H_0$}: the spread of values the statistic would take if $H_0$ were true and the data were drawn again and again. Statistical theory gives it for standard tests; a simulation gives it for anything.
+\item \textbf{Compute the p-value}: the probability, under $H_0$, of a statistic at least as extreme as the one observed.
+\item \textbf{Report and interpret}: the statistic, its degrees of freedom, the p-value, an effect size and a confidence interval, and what they mean for the question.
+\end{enumerate}
+
+\section{The quantities, and how to read them}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Quantity & What it is and how to read it \\
+\midrule
+$H_0$, $H_1$ & The null and alternative hypotheses. A test can reject $H_0$ or fail to reject it; it never proves $H_0$. \\
+$\alpha$ & The significance level, chosen before looking: the chance of rejecting a true $H_0$ that you accept. Usually 0.05. \\
+p-value & Probability, if $H_0$ were true, of data at least as extreme as observed. Small means surprising under $H_0$. It is \emph{not} the probability that $H_0$ is true, and not the size of an effect. \\
+$z$ & Distance from a mean in standard deviations, $z = (x-\mu)/\sigma$. Unitless. $|z| > 1.96$ is the two-sided 5\% cut-off for a normal distribution. \\
+$t$ & An estimate divided by its standard error, for example $t = b/\mathrm{SE}(b)$. Unitless. Read with its degrees of freedom; with few of them, a larger $|t|$ is needed. \\
+$\chi^2$ & Sum over cells of $(O-E)^2/E$, observed against expected counts. Unitless. Grows with sample size. \\
+df & Degrees of freedom: independent pieces of information left after fitting. For a straight line through $n$ points, $n-2$. \\
+SE & Standard error: how much an estimate would vary between repeated samples. Same units as the estimate. \\
+CI & Confidence interval: a range that, in 95\% of repeated samples, contains the true value. Same units as the estimate. More informative than a p-value. \\
+Effect size & How big the difference or relation is, separately from how certain: Cohen's $d$ for means, $r$ for correlation, Cram\'er's $V$ for tables. \\
+Type I error & Rejecting a true $H_0$ (a false alarm). Its rate is $\alpha$. \\
+Type II error & Failing to reject a false $H_0$ (a miss). Power is one minus its rate: the chance of detecting a real effect. \\
+One- or two-sided & Two-sided asks ``different in either direction''; one-sided asks only one direction and must be chosen before seeing the data. \\
+\bottomrule
+\end{tabularx}
+
+\section{Assumptions: where tests go wrong}
+Every test assumes something about the data, and climate data break one assumption more often than any other: \textbf{independence}. Today's temperature resembles yesterday's; one flooded field implies the next. Treated as independent, such data look far more informative than they are, and p-values come out too small. The guide shows the effect and two simple remedies: counting the effective number of independent years for a trend, and thinning a map before testing it. The other common assumptions are approximate normality (for $z$ and $t$), equal spread in two groups (dropped by Welch's test) and large enough expected counts (for $\chi^2$, at least about five per cell). Rank-based tests (Mann--Whitney, Spearman, Mann--Kendall) drop normality.
+
+\section{Setup}
+\input{generated/nb_hypothesis_tests_1}
+\section{A coin and a p-value}
+\input{generated/nb_hypothesis_tests_2}

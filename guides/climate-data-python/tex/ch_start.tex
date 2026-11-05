@@ -1,0 +1,31 @@
+\chapter{Before you start}\label{ch:start}
+
+This guide is a notebook you run yourself. It tests a claim made at a conference in November 2026, that the Earth warmed fastest in 1899--1940 when CO\textsubscript{2} emissions were small, using four public datasets and a few dozen lines of Python. The essay \href{https://ahmadammar.github.io/writing/climate-data/}{Reading climate data} tells the story and the conclusions; this guide shows every step that produced them, so you can repeat, change and extend it.
+
+\section{What you will learn}
+\begin{itemize}
+\item \textbf{Data:} where climate records come from, what a temperature anomaly is, and how to download, inspect and join tables with \texttt{pandas}.
+\item \textbf{Statistics:} how a trend line is fitted, by hand and with a library; what a standard error is; why neighbouring years are not independent, and how to allow for it.
+\item \textbf{Physics:} what radiative forcing is, and how a two-reservoir energy-balance model turns forcing into temperature.
+\item \textbf{Figures:} how to read any chart by naming its parts, and how each line and bar maps to a column of a table.
+\item \textbf{Practice:} keeping a record of what each run used, so others can repeat it.
+\end{itemize}
+
+\section{Getting Python and the notebook}
+You need Python 3.10 or newer with \texttt{numpy}, \texttt{pandas}, \texttt{matplotlib} and \texttt{scipy}. Three ways, from simplest to most flexible:
+\begin{enumerate}
+\item \textbf{Google Colab}, in a web browser, with nothing to install: open the \emph{Notebooks} page of this guide and choose \emph{Open in Colab}. Colab already has every library used here.
+\item \textbf{Anaconda or Miniforge} on your own computer: install it, then in a terminal run the commands below, and open the downloaded \texttt{climate\_data.ipynb} in the Jupyter window that appears.
+\item \textbf{VS Code} with its Python and Jupyter extensions: open the \texttt{.ipynb} file and choose a Python environment that has the four libraries.
+\end{enumerate}
+\begin{lstlisting}[language=bash]
+conda create -n climate python=3.12 numpy pandas matplotlib scipy jupyterlab
+conda activate climate
+jupyter lab
+\end{lstlisting}
+
+\section{How to read the cells}
+Each step below is a cell of the notebook. A box labelled \emph{In [n]} is the code; the box labelled \emph{Out [n]} under it is what that code printed when the notebook was run, and a figure under \emph{Out [n]} is what it drew. Run the cells in order from the top: later cells use tables made by earlier ones. If you change something and want to start again, use \emph{Restart and run all}.
+
+\section{The question and the libraries}
+\input{generated/nb_climate_data_1}

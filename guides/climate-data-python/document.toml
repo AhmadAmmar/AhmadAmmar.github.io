@@ -1,0 +1,28 @@
+name = "climate_data_python"
+title = "Climate data in Python"
+subtitle = "A hands-on notebook: test a claim about CO₂ and warming from public data, step by step"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_start", "ch_data", "ch_trends", "ch_physics", "ch_figures"]
+figures = "fig"
+[notebooks]
+folder = "notebooks"
+sources = ["climate_data"]
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/climate-data-python/notebooks"
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Climate data in Python"
+intro = "A hands-on notebook in the style of a data-science workshop. You download four public climate datasets, join them, fit trends by hand and with libraries, measure their uncertainty, build a small climate model and make the figures, with every step explained. Download the notebook and run it yourself."
+pdf_url = "/files/Climate_data_in_Python_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/climate-data-python"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
+[web.slugs]
+ch_start = "start"
+ch_data = "the-data"
+ch_trends = "trends-and-uncertainty"
+ch_physics = "forcing-and-a-model"
+ch_figures = "figures-and-records"

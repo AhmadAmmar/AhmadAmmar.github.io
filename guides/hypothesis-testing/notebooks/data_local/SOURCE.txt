@@ -1,0 +1,3 @@
+sindh_sar_1km.csv: mean Sentinel-1 VV backscatter (dB) for 25 Aug-15 Sep 2021 and 2022, and JRC Global Surface Water
+occurrence (%), Sindh, averaged from 100 m to 1 km cells in linear power, then converted back to dB (UTM 42N). Made from the export in the radar manual
+(AhmadAmmar/sar-reading-manual, src/02_sindh_flood.py). Contains modified Copernicus Sentinel data 2021-2022; JRC GSW 1.4.
