@@ -28,6 +28,8 @@ GUIDES = {
     "climate-data": (HERE / "guides/climate-data", "Climate_data_Ahmad_Ammar.pdf", "writing"),
     "climate-data-python": (HERE / "guides/climate-data-python", "Climate_data_in_Python_Ahmad_Ammar.pdf"),
     "hypothesis-testing": (HERE / "guides/hypothesis-testing", "Hypothesis_testing_Ahmad_Ammar.pdf"),
+    "radar-python": (HERE / "guides/radar-python", "Radar_images_in_Python_Ahmad_Ammar.pdf"),
+    "satellite-python": (HERE / "guides/satellite-python", "Satellite_images_in_Python_Ahmad_Ammar.pdf"),
 }
 
 

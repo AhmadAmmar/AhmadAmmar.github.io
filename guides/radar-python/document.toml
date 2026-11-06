@@ -1,0 +1,27 @@
+name = "radar_python"
+title = "Radar images in Python"
+subtitle = "A hands-on notebook: read Sentinel-1 images, measure speckle and polarisation, and map a flood"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_start", "ch_basics", "ch_london", "ch_flood"]
+figures = "fig"
+[notebooks]
+folder = "notebooks"
+sources = ["radar"]
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/radar-python/notebooks"
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Radar images in Python"
+intro = "The radar manual's two experiments as a notebook you run yourself: open Sentinel-1 images of London, see why decibels must be averaged in linear units, measure speckle, read VV and VH, then map the 2022 Sindh flood with a threshold chosen from the data. No Earth Engine account needed."
+pdf_url = "/files/Radar_images_in_Python_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/radar-python"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
+[web.slugs]
+ch_start = "start"
+ch_basics = "radar-basics"
+ch_london = "reading-london"
+ch_flood = "mapping-a-flood"

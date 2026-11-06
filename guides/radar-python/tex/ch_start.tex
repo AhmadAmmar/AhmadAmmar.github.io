@@ -1,0 +1,23 @@
+\chapter{Before you start}\label{ch:start}
+
+This guide is the notebook version of \href{https://ahmadammar.github.io/teaching/sar/}{Reading radar images}. That manual explains what radar images show and how they were made in Google Earth Engine; here you work with the images yourself in Python, from opening a file to an area of flooded land with its uncertainty. The images were exported from Earth Engine by the manual's scripts and are downloaded by the notebook's first cell, so you need no Earth Engine account.
+
+\section{What you will learn}
+\begin{itemize}
+\item \textbf{Data:} what a georeferenced raster is (bands, coordinate reference system, pixel size) and how to open one with \texttt{rasterio}.
+\item \textbf{Physics:} what a radar measures, why water is dark and buildings bright, what decibels are, what speckle is, and what VV and VH polarisations tell you.
+\item \textbf{Methods:} why averages must be taken in linear units, how to measure speckle (the equivalent number of looks), how Otsu's method chooses a threshold, and how a flood rule is built from two dates and a water record.
+\item \textbf{Reading results:} how to read each image, histogram, table and map, and how to report an area with its uncertainty.
+\end{itemize}
+
+\section{Getting Python and the notebook}
+Open the \emph{Notebooks} page of this guide and choose \emph{Open in Colab} to run it in a web browser with nothing to install; the first cell installs \texttt{rasterio}, which Colab lacks. On your own computer:
+\begin{lstlisting}[language=bash]
+conda create -n radar python=3.12 numpy matplotlib rasterio jupyterlab
+conda activate radar
+jupyter lab
+\end{lstlisting}
+Then open the downloaded \texttt{radar.ipynb}. Boxes labelled \emph{In [n]} are code and \emph{Out [n]} what it printed or drew. Run the cells in order from the top.
+
+\section{Setup}
+\input{generated/nb_radar_1}

@@ -1,0 +1,29 @@
+name = "satellite_python"
+title = "Satellite images in Python"
+subtitle = "A hands-on notebook: rasters and vectors, spectral indices, clustering and regridding on a real Sentinel-2 image"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_start", "ch_raster", "ch_indices", "ch_vector", "ch_methods"]
+figures = "fig"
+[notebooks]
+folder = "notebooks"
+sources = ["satellite_images"]
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/satellite-python/notebooks"
+timeout = 1200
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Satellite images in Python"
+intro = "The Py4Geo tutorials rewritten for today: search a catalogue, read a Sentinel-2 image of Belfast straight from the cloud with no account, convert it to reflectance, make colour composites and spectral indices, summarise them around places, cluster the pixels and compare regridding and interpolation, with every step explained."
+pdf_url = "/files/Satellite_images_in_Python_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/satellite-python"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
+[web.slugs]
+ch_start = "start"
+ch_raster = "rasters"
+ch_indices = "spectral-indices"
+ch_vector = "vector-data"
+ch_methods = "clustering-and-regridding"

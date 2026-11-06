@@ -1,0 +1,6 @@
+Radar rasters for the notebook, made from the exports of AhmadAmmar/sar-reading-manual (src/01_london_basics.py,
+src/02_sindh_flood.py), compressed; coarser grids were averaged in linear power and converted back to dB.
+- london_mean_vv_10m.tif, london_single_vv_10m.tif: VV dB, 10 m, EPSG:27700 (mean of 2024; one scene 7 Jan 2024)
+- london_2024_mean_80m.tif: VV, VH, VV-VH (dB), 2024 mean, 80 m, EPSG:27700
+- sindh_flood_200m.tif: VV dB 25 Aug-15 Sep 2021, same weeks 2022, JRC water occurrence (%), 200 m, UTM 42N
+Contains modified Copernicus Sentinel data 2021-2024; JRC Global Surface Water 1.4.

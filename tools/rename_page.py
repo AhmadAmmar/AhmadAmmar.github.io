@@ -78,14 +78,17 @@ def main():
             if not dry:
                 page.write_text(t, encoding="utf8", newline="\n")
     old_key, new_key = old.rsplit("/", 1)[-1], new.rsplit("/", 1)[-1]
-    if (HERE / "guides" / old_key).exists() and old.rsplit("/", 1)[0] == new.rsplit("/", 1)[0] and old_key != new_key:
-        git_mv(HERE / "guides" / old_key, HERE / "guides" / new_key, dry)
+    if old.rsplit("/", 1)[0] == new.rsplit("/", 1)[0] and old_key != new_key:
         bg = HERE / "build_guides.py"
         s = bg.read_text(encoding="utf8")
-        s = s.replace(f'"{old_key}": (HERE / "guides/{old_key}"', f'"{new_key}": (HERE / "guides/{new_key}"')
-        if not dry:
-            bg.write_text(s, encoding="utf8", newline="\n")
-        print("guide", old_key, "->", new_key, "in build_guides.py")
+        if f'"{old_key}": (' in s:                 # a guide: its build key is its address, wherever its source lives
+            if (HERE / "guides" / old_key).exists():
+                git_mv(HERE / "guides" / old_key, HERE / "guides" / new_key, dry)
+                s = s.replace(f'HERE / "guides/{old_key}"', f'HERE / "guides/{new_key}"')
+            s = s.replace(f'"{old_key}": (', f'"{new_key}": (')
+            if not dry:
+                bg.write_text(s, encoding="utf8", newline="\n")
+            print("guide", old_key, "->", new_key, "in build_guides.py")
 
     # 3. links everywhere
     pat = re.compile(rf"(?<![\w-]){re.escape(old)}(?=/|\.html|[\"'#)\s]|$)")

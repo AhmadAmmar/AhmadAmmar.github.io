@@ -1,0 +1,24 @@
+\chapter{Before you start}\label{ch:start}
+
+This guide rewrites the \href{https://github.com/GeospatialGeeks/Py4Geo}{Py4Geo} tutorials of 2020 for current tools. Those notebooks read local files with the GDAL bindings; here everything runs on one real Sentinel-2 image of Belfast, read directly from Microsoft's Planetary Computer, which needs no account, so the notebook runs the same on any computer or in Google Colab.
+
+\section{What you will learn}
+\begin{itemize}
+\item \textbf{Finding data:} what a STAC catalogue is and how to search it by place, date and cloud cover.
+\item \textbf{Rasters:} bands, coordinate reference systems, pixel size and transforms; reading only the part of a cloud-optimised image you need; turning stored numbers into reflectance, including the offset newer Sentinel-2 images carry.
+\item \textbf{Indices:} true and false colour, and what NDVI, NDWI and NDBI measure and how to read them.
+\item \textbf{Vectors:} points and buffers with \texttt{geopandas}, and zonal statistics.
+\item \textbf{Methods:} k-means clustering and how to interpret its clusters; regridding by aggregation and decimation; interpolation, and how to measure its error honestly.
+\end{itemize}
+
+\section{Getting Python and the notebook}
+Open the \emph{Notebooks} page and choose \emph{Open in Colab}; the first cell installs what Colab lacks. On your own computer:
+\begin{lstlisting}[language=bash]
+conda create -n sat python=3.12 numpy pandas matplotlib scipy scikit-learn rasterio geopandas pystac-client planetary-computer jupyterlab
+conda activate sat
+jupyter lab
+\end{lstlisting}
+Boxes labelled \emph{In [n]} are code and \emph{Out [n]} what it printed or drew. Run the cells in order from the top. The image is read over the internet, so the first run takes a minute or two.
+
+\section{Setup}
+\input{generated/nb_satellite_images_1}
