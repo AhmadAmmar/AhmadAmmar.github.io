@@ -1,0 +1,59 @@
+\chapter{A real place from evidence: Tollinton Market}\label{ch:place}
+
+Lahore's pixel artists have shown how much feeling an 8-bit picture of a familiar street can carry. This chapter takes the same kind of subject, a real building on a real road, and asks how far it can be built from evidence instead of by eye. The subject is Tollinton Market on Mall Road, built in 1864 as an exhibition hall and now a heritage museum: a long yellow hall with a red tiled roof, stepped Dutch gables and two green cupolas.
+
+Every number in the picture comes from somewhere you can check, and Figure~\ref{fig:evidence} shows where. The outline and the streets come from OpenStreetMap; the heights and the colours are measured from an openly licensed photograph; the light comes from the sun's position on a chosen morning; the sky colour from the physics of scattering; and the traffic from a model used in transport research. Where the evidence runs out, as with the heights of neighbouring buildings, the notebook says what it assumed.
+
+\begin{figure}[H]\centering
+\begin{tikzpicture}[every node/.style={font=\footnotesize}, src/.style={draw, rectangle, very thick, align=center, minimum width=2.6cm, minimum height=0.9cm}, proc/.style={draw, rounded corners, align=center, fill=blue!6, minimum width=2.6cm, minimum height=0.9cm}, >=Stealth]
+  \node[src] (osm) at (0,3) {OpenStreetMap\\outline, roads, trees};
+  \node[src] (photo) at (0,1.5) {Photograph\\(CC BY-SA 4.0)};
+  \node[src] (time) at (0,0) {Date, time,\\latitude};
+  \node[src] (phys) at (0,-1.5) {Physics:\\Planck, Rayleigh};
+  \node[proc] (geo) at (4,3) {metres, footprint,\\bearing};
+  \node[proc] (meas) at (4,1.5) {heights; colours\\(k-means, patches)};
+  \node[proc] (sun) at (4,0) {sun elevation\\and azimuth};
+  \node[proc] (sky) at (4,-1.5) {sky colour};
+  \node[proc] (model) at (8,2.2) {3D faces\\with normals};
+  \node[proc] (render) at (8,0) {camera, shading,\\shadows, painter};
+  \node[proc] (traffic) at (8,-1.8) {traffic model\\(IDM)};
+  \node[src] (out) at (11.2,0) {still and\\GIF};
+  \draw[->] (osm) -- (geo); \draw[->] (photo) -- (meas); \draw[->] (time) -- (sun); \draw[->] (phys) -- (sky);
+  \draw[->] (geo) -- (model); \draw[->] (meas) -- (model);
+  \draw[->] (model) -- (render); \draw[->] (sun) -- (render); \draw[->] (sky) -- (render.south west);
+  \draw[->] (geo.south east) -- (traffic.north west); \draw[->] (traffic) -- (render);
+  \draw[->] (render) -- (out);
+\end{tikzpicture}
+\caption{Where each part of the picture comes from. Bold boxes are sources of evidence; rounded boxes are the steps of the notebook.}\label{fig:evidence}
+\end{figure}
+
+The notebook for this chapter is \texttt{tollinton.ipynb} on the \emph{Notebooks} page; it needs nothing beyond numpy, matplotlib and Pillow, and downloads its two data files on first run.
+
+\section{Setup}
+\input{generated/nb_tollinton_1}
+\section{Map data from OpenStreetMap}
+\input{generated/nb_tollinton_2}
+\section{From degrees to metres}
+\input{generated/nb_tollinton_3}
+\section{Reading the map}
+\input{generated/nb_tollinton_4}
+\section{Heights from a photograph}
+\input{generated/nb_tollinton_5}
+\section{Colours from a photograph}
+\input{generated/nb_tollinton_6}
+\section{The sun over Lahore}
+\input{generated/nb_tollinton_7}
+\section{A 3D model from a footprint}
+\input{generated/nb_tollinton_8}
+\section{The neighbourhood: roads and other buildings}
+\input{generated/nb_tollinton_9}
+\section{A camera}
+\input{generated/nb_tollinton_10}
+\section{The sky from scattering}
+\input{generated/nb_tollinton_11}
+\section{Rendering: drawing it all}
+\input{generated/nb_tollinton_12}
+\section{Traffic on Mall Road}
+\input{generated/nb_tollinton_13}
+\section{What you have learned}
+\input{generated/nb_tollinton_14}

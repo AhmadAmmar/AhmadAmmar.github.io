@@ -4,12 +4,12 @@ subtitle = "Build an 8-bit animation of Badshahi Masjid, Lahore, from single pix
 author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
-chapters = ["ch_first", "ch_start", "ch_stills", "ch_motion", "ch_physics", "ch_design", "ch_lowlevel", "ch_next"]
+chapters = ["ch_first", "ch_start", "ch_stills", "ch_motion", "ch_physics", "ch_design", "ch_lowlevel", "ch_place", "ch_next"]
 figures = "fig"
 defines = ["defs"]
 [notebooks]
 folder = "notebooks"
-sources = ["pixel_animation"]
+sources = ["pixel_animation", "tollinton"]
 colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/pixel-animation/notebooks"
 [web]
 site_url = "https://ahmadammar.github.io"
@@ -29,4 +29,5 @@ ch_motion = "motion"
 ch_physics = "physics"
 ch_design = "design"
 ch_lowlevel = "low-level-c"
+ch_place = "tollinton-market"
 ch_next = "next"

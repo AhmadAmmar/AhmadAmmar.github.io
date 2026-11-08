@@ -10,7 +10,7 @@
       
       
       
-        <link rel="prev" href="../low-level-c/">
+        <link rel="prev" href="../tollinton-market/">
       
       
         <link rel="next" href="https://ahmadammar.github.io/teaching.html">
@@ -24,7 +24,7 @@
     
     
       
-        <title>8. Towards a game - Pixel animation from first principles</title>
+        <title>9. Towards a game - Pixel animation from first principles</title>
       
     
     
@@ -500,6 +500,33 @@
                   
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../tollinton-market/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  8. A real place from evidence: Tollinton Market
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
     
   
   
@@ -519,7 +546,7 @@
   <span class="md-ellipsis">
     
   
-  8. Towards a game
+  9. Towards a game
 
     
   </span>
@@ -536,7 +563,7 @@
   <span class="md-ellipsis">
     
   
-  8. Towards a game
+  9. Towards a game
 
     
   </span>
@@ -561,10 +588,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#81-the-game-loop" class="md-nav__link">
+  <a href="#91-the-game-loop" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        8.1 The game loop
+        9.1 The game loop
       </span>
     </span>
   </a>
@@ -572,10 +599,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#82-plan-for-the-next-parts" class="md-nav__link">
+  <a href="#92-plan-for-the-next-parts" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        8.2 Plan for the next parts
+        9.2 Plan for the next parts
       </span>
     </span>
   </a>
@@ -665,10 +692,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#81-the-game-loop" class="md-nav__link">
+  <a href="#91-the-game-loop" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        8.1 The game loop
+        9.1 The game loop
       </span>
     </span>
   </a>
@@ -676,10 +703,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#82-plan-for-the-next-parts" class="md-nav__link">
+  <a href="#92-plan-for-the-next-parts" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        8.2 Plan for the next parts
+        9.2 Plan for the next parts
       </span>
     </span>
   </a>
@@ -703,9 +730,9 @@
                   
 
 
-<h1 id="8-towards-a-game">8. Towards a game<a class="headerlink" href="#8-towards-a-game" title="Permanent link">&para;</a></h1>
+<h1 id="9-towards-a-game">9. Towards a game<a class="headerlink" href="#9-towards-a-game" title="Permanent link">&para;</a></h1>
 <p>An animation plays by itself; a game listens. The step from one to the other is small, and the next parts of this project take it one piece at a time, each from first principles.</p>
-<h2 id="81-the-game-loop">8.1 The game loop<a class="headerlink" href="#81-the-game-loop" title="Permanent link">&para;</a></h2>
+<h2 id="91-the-game-loop">9.1 The game loop<a class="headerlink" href="#91-the-game-loop" title="Permanent link">&para;</a></h2>
 <p>The film loop of Chapter <a href="../physics/#ch:physics">5</a> becomes a <em>game loop</em> with three steps repeated for ever: read the player’s input, update the world, draw. Physics must not depend on how fast the computer draws, so games use a <em>fixed time step</em>: they add the real time that has passed to an accumulator, run as many physics steps of, say, <span class="arithmatex">\(1/120\)</span> s as fit, then draw once.</p>
 <div class="highlight"><pre><span></span><code><span class="n">acc</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">120</span>
 <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
@@ -716,7 +743,7 @@
         <span class="n">acc</span> <span class="o">-=</span> <span class="n">dt</span>
     <span class="n">draw</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="82-plan-for-the-next-parts">8.2 Plan for the next parts<a class="headerlink" href="#82-plan-for-the-next-parts" title="Permanent link">&para;</a></h2>
+<h2 id="92-plan-for-the-next-parts">9.2 Plan for the next parts<a class="headerlink" href="#92-plan-for-the-next-parts" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Input:</strong> steer the kite from the keyboard by letting out or pulling in string (changing <span class="arithmatex">\(L_0\)</span>), with <code>pygame</code> for the window and keys.</p>
@@ -771,7 +798,7 @@
         
 
 <nav class="aa-pager" aria-label="Previous and next page">
-  <a href="../low-level-c/"><span>Previous</span>7. The low level: the same picture in C</a>
+  <a href="../tollinton-market/"><span>Previous</span>8. A real place from evidence: Tollinton Market</a>
   <a class="next" href="https://ahmadammar.github.io/teaching.html"><span>Next</span>All guides</a>
 </nav>
 
