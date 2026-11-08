@@ -4,11 +4,11 @@ subtitle = "p, z, t, chi-square and more: what goes in, what comes out, and how 
 author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
-chapters = ["ch_ideas", "ch_one", "ch_two", "ch_trends_counts", "ch_many"]
+chapters = ["ch_ideas", "ch_one", "ch_two", "ch_trends_counts", "ch_byhand", "ch_many"]
 figures = "fig"
 [notebooks]
 folder = "notebooks"
-sources = ["hypothesis_tests"]
+sources = ["hypothesis_tests", "by_hand"]
 colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/hypothesis-testing/notebooks"
 [web]
 site_url = "https://ahmadammar.github.io"
@@ -25,4 +25,5 @@ ch_ideas = "the-ideas"
 ch_one = "one-value-and-trends"
 ch_two = "two-groups-and-correlation"
 ch_trends_counts = "snow-trends-and-flood-counts"
+ch_byhand = "calculating-by-hand"
 ch_many = "many-tests-and-reporting"

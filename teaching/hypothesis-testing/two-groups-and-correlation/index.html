@@ -490,6 +490,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../calculating-by-hand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Calculating by hand
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../many-tests-and-reporting/" class="md-nav__link">
         
   
@@ -497,7 +524,7 @@
   <span class="md-ellipsis">
     
   
-  5. Many tests, and how to report them
+  6. Many tests, and how to report them
 
     
   </span>
@@ -625,6 +652,7 @@
 <h1 id="3-two-groups-and-a-relation">3. Two groups, and a relation<a class="headerlink" href="#3-two-groups-and-a-relation" title="Permanent link">&para;</a></h1>
 <p>El Niño warms the central Pacific every few years and shifts rainfall around the tropics. Here we test whether it weakens the Indian summer monsoon: first by comparing El Niño years with La Niña years, then by measuring how closely the two series move together.</p>
 <h2 id="31-two-groups-does-el-nino-weaken-the-monsoon">3.1 Two groups: does El Niño weaken the monsoon?<a class="headerlink" href="#31-two-groups-does-el-nino-weaken-the-monsoon" title="Permanent link">&para;</a></h2>
+<p><strong>Thinking it through.</strong> <em>What do we want to measure?</em> Whether monsoon rain differs between El Niño and La Niña years, and by how much. <em>What kind of data?</em> Two independent groups of measurements (a year is either one or the other). <em>How do such data behave?</em> Each group mean is uncertain by s/√n; the difference of two means is uncertain by both errors combined, √(s₁²/n₁ + s₂²/n₂). <em>Which test, and why?</em> Welch's t, which does not assume equal spreads; and, as a check that no single extreme year drives the answer, the rank-based Mann–Whitney test. The effect size (Cohen's d) and a confidence interval say how big the difference is, which the p-value alone does not.</p>
 <p>Question: is monsoon rainfall in central India lower in El Niño years than in La Niña years? Inputs: for each year 1950–1999, the June–September (JJAS) total of NOAA PSL's Central Indian precipitation index, and the JJAS mean of the Oceanic Niño Index (ONI, °C anomaly of Pacific sea surface temperature). An El Niño year has ONI ≥ +0.5 °C, a La Niña year ≤ −0.5 °C. We express rainfall as a percentage of its mean so the units are easy to read.</p>
 <div class="nb-prompt nb-In">In [5]</div>
 
@@ -704,6 +732,7 @@ share of years with a monsoon more than 10% below normal: El Niño 60%, neutral 
 <p><strong>What the results say.</strong> Both phases matter, in opposite directions. Read the two lines above as: "in El Niño years, central India received on average about this many percentage points less rain than in neutral years, and we are 95% confident the true difference lies in the bracket". <strong>El Niño</strong> cut central-India monsoon rain by about 15 percentage points against neutral years (bracket roughly −25 to −4, p ≈ 0.01): a clear effect, though its exact size is uncertain. <strong>La Niña</strong> added about 10 points (bracket roughly +1 to +20, p ≈ 0.03): an effect in the opposite direction that is smaller and only just distinguishable from zero with 11 years. So El Niño is the stronger and better-supported influence, which is why it dominates forecasts of a weak monsoon. The last line turns the means into risk: a monsoon more than 10% below normal came in about 6 of every 10 El Niño years, about 3 in 10 neutral years, and none of the La Niña years in this period.</p>
 <p><strong>What they do not say.</strong> Not every El Niño year is dry (some dots sit near 100), so ENSO raises the risk of a weak monsoon rather than deciding it. The sample is 1950–1999 and one regional index; the ENSO–monsoon link is known to weaken and strengthen between decades, and the Indian Ocean Dipole, which also affects the monsoon, is not included.</p>
 <h2 id="32-correlation-how-strongly-do-they-move-together">3.2 Correlation: how strongly do they move together?<a class="headerlink" href="#32-correlation-how-strongly-do-they-move-together" title="Permanent link">&para;</a></h2>
+<p><strong>Thinking it through.</strong> <em>What do we want to measure?</em> How closely Pacific temperature and Indian rain move together, year by year, using all years rather than only the extremes. <em>What kind of data?</em> Pairs of measurements on the same years. <em>How do such data behave?</em> If one drives the other, the points lean along a line; the tighter they hug it, the stronger the link. <em>Which test, and why?</em> Pearson's r for a straight-line link, tested with t = r√(n−2)/√(1−r²); Spearman's ρ (the same on ranks) to check that the answer does not hinge on a straight line or an outlier.</p>
 <p><strong>Pearson's r</strong> measures linear association, from −1 to +1. To test H₀: r = 0, use t = r√(n − 2)/√(1 − r²) with df = n − 2. <strong>Spearman's ρ</strong> is Pearson's r computed on ranks, so it captures any steady (monotonic) relation and resists outliers. r² is the share of variance in one variable that a straight line on the other explains.</p>
 <div class="nb-prompt nb-In">In [8]</div>
 

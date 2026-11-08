@@ -523,6 +523,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../calculating-by-hand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Calculating by hand
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../many-tests-and-reporting/" class="md-nav__link">
         
   
@@ -530,7 +557,7 @@
   <span class="md-ellipsis">
     
   
-  5. Many tests, and how to report them
+  6. Many tests, and how to report them
 
     
   </span>
@@ -830,6 +857,7 @@ nh_snow.txt        13.3 kB
 sindh_sar_1km.csv    755.1 kB
 </code></pre></div>
 <h2 id="15-a-coin-and-a-p-value">1.5 A coin and a p-value<a class="headerlink" href="#15-a-coin-and-a-p-value" title="Permanent link">&para;</a></h2>
+<p><strong>Thinking it through.</strong> <em>What do we want to measure?</em> Whether a coin favours heads. <em>What kind of data?</em> A count of successes out of a fixed number of independent tries. <em>How do such data behave?</em> With a fair coin the count follows the binomial distribution, centred on n/2 with a spread of √(n × 0.5 × 0.5) = 5 heads for 100 tosses. <em>Which test, and why?</em> The exact binomial test, because we know that distribution exactly; the z-test is its normal approximation, fine for large n. The chapter <em>Calculating by hand</em> works a 10-toss version line by line.</p>
 <p>Every hypothesis test has the same shape. A <strong>null hypothesis</strong> (H₀) says "nothing special is going on". A <strong>test statistic</strong> summarises the data in one number. Under H₀ that number has a known spread of values, its <strong>sampling distribution</strong>. The <strong>p-value</strong> is the probability, if H₀ were true, of a statistic at least as extreme as the one observed. A small p means the data would be surprising if H₀ were true.</p>
 <p>Short example: a coin gives 60 heads in 100 flips. H₀: the coin is fair, P(heads) = 0.5. Statistic: the number of heads. We find the p-value three ways: by simulating 100,000 fair coins, exactly from the binomial distribution, and with the normal approximation (a z-score).</p>
 <div class="nb-prompt nb-In">In [2]</div>

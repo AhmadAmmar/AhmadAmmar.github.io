@@ -1,0 +1,13 @@
+\begin{align*}
+\text{sorted} &= 78_{A},\ 82_{A},\ 90_{A},\ 94_{A},\ 98_{B},\ 105_{B},\ 110_{B},\ 112_{B},\ 120_{B} \\
+\text{ranks of A} &= 2,\ 3,\ 1,\ 4 \\
+R_A &= 2 + 3 + 1 + 4 = 10 \\
+U_A &= R_A - \frac{n_A(n_A + 1)}{2} \\
+ &= 10 - \frac{4 \times 5}{2} \\
+ &= 10 - 10 = 0 \\
+U_B &= n_A n_B - U_A = 4 \times 5 - 0 = 20 \\
+U &= \min(U_A, U_B) = 0 \\
+\text{ways to choose A's ranks} &= \binom{9}{4} = 126 \\
+P(U \le 0) &= \frac{1}{126} \qquad \text{\small (only one arrangement puts all of A at the bottom)} \\
+p &= 2 \times \frac{1}{126} = 0.0159 \qquad \text{\small (two-sided)}
+\end{align*}

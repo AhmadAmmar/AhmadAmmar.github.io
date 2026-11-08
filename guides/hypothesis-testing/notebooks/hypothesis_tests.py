@@ -53,6 +53,12 @@ def read_psl(path):
 # %% [markdown]
 # # A coin and a p-value
 #
+# **Thinking it through.** *What do we want to measure?* Whether a coin favours heads. *What kind of data?* A count
+# of successes out of a fixed number of independent tries. *How do such data behave?* With a fair coin the count
+# follows the binomial distribution, centred on n/2 with a spread of √(n × 0.5 × 0.5) = 5 heads for 100 tosses.
+# *Which test, and why?* The exact binomial test, because we know that distribution exactly; the z-test is its normal
+# approximation, fine for large n. The chapter *Calculating by hand* works a 10-toss version line by line.
+#
 # Every hypothesis test has the same shape. A **null hypothesis** (H₀) says "nothing special is going on". A **test
 # statistic** summarises the data in one number. Under H₀ that number has a known spread of values, its **sampling
 # distribution**. The **p-value** is the probability, if H₀ were true, of a statistic at least as extreme as the one
@@ -95,6 +101,12 @@ ax.legend(frameon=False, fontsize=8); plt.tight_layout(); plt.show()
 # about how big or important an effect is: for that we need an **effect size** and a **confidence interval**.
 #
 # # The z-test: is one value unusual?
+#
+# **Thinking it through.** *What do we want to measure?* How unusual one value is against a reference. *What kind of
+# data?* One new measurement, and a reference set whose mean and spread we treat as known. *How do such data behave?*
+# Measurements of a stable quantity scatter around their mean, often close to a normal (bell-shaped) curve, so the
+# distance from the mean in units of standard deviation says how rare a value is. *Which test, and why?* The z-score,
+# because the spread is taken as known; if it had to be estimated from a few values, t would replace z.
 #
 # The **z-score** measures how many standard deviations (σ) a value lies from a mean (μ): z = (x − μ) / σ. If values
 # are normally distributed, about 95% fall within z = ±1.96, and the two-sided p-value is 2 × P(Z > |z|).
@@ -141,6 +153,13 @@ ax.legend(frameon=False, fontsize=8, loc="upper center"); plt.tight_layout(); pl
 # slightly conservative.
 #
 # # The t-test for a trend
+#
+# **Thinking it through.** *What do we want to measure?* Whether a quantity changes steadily over time, and how fast.
+# *What kind of data?* Pairs (year, value). *How do such data behave?* Each value is trend plus noise; the fitted slope
+# would come out a little different with different noise, and that wobble is its standard error, estimated from the
+# scatter around the line. *Which test, and why?* t = slope / SE with n − 2 degrees of freedom: t rather than z because
+# the scatter is estimated from the same data, and n − 2 because the line used up two numbers. Neighbouring years are
+# alike (autocorrelation), so we also shrink n to the effective number of independent years.
 #
 # A trend's slope b is estimated from data, so it has a **standard error** SE(b). The **t-statistic** is
 # t = b / SE(b): how many standard errors the slope is from zero. Under H₀ (no trend) it follows a t distribution with
@@ -189,6 +208,13 @@ ax.legend(frameon=False, fontsize=8); plt.tight_layout(); plt.show()
 # stronger autocorrelation it can turn a "significant" result into an insignificant one.
 #
 # # Two groups: does El Niño weaken the Indian monsoon?
+#
+# **Thinking it through.** *What do we want to measure?* Whether monsoon rain differs between El Niño and La Niña
+# years, and by how much. *What kind of data?* Two independent groups of measurements (a year is either one or the other).
+# *How do such data behave?* Each group mean is uncertain by s/√n; the difference of two means is uncertain by both
+# errors combined, √(s₁²/n₁ + s₂²/n₂). *Which test, and why?* Welch's t, which does not assume equal spreads; and, as a
+# check that no single extreme year drives the answer, the rank-based Mann–Whitney test. The effect size (Cohen's d)
+# and a confidence interval say how big the difference is, which the p-value alone does not.
 #
 # Question: is monsoon rainfall in central India lower in El Niño years than in La Niña years? Inputs: for each year
 # 1950–1999, the June–September (JJAS) total of NOAA PSL's Central Indian precipitation index, and the JJAS mean of the
@@ -279,6 +305,12 @@ print(f"share of years with a monsoon more than 10% below normal: El Niño {dry:
 #
 # # Correlation: how strongly do ONI and rainfall move together?
 #
+# **Thinking it through.** *What do we want to measure?* How closely Pacific temperature and Indian rain move together,
+# year by year, using all years rather than only the extremes. *What kind of data?* Pairs of measurements on the same
+# years. *How do such data behave?* If one drives the other, the points lean along a line; the tighter they hug it, the
+# stronger the link. *Which test, and why?* Pearson's r for a straight-line link, tested with t = r√(n−2)/√(1−r²);
+# Spearman's ρ (the same on ranks) to check that the answer does not hinge on a straight line or an outlier.
+#
 # **Pearson's r** measures linear association, from −1 to +1. To test H₀: r = 0, use t = r√(n − 2)/√(1 − r²) with
 # df = n − 2. **Spearman's ρ** is Pearson's r computed on ranks, so it captures any steady (monotonic) relation and
 # resists outliers. r² is the share of variance in one variable that a straight line on the other explains.
@@ -320,6 +352,12 @@ ax.legend(frameon=False, fontsize=8, loc="lower left"); plt.tight_layout(); plt.
 # shifts rising air over the Pacific and suppresses convection over India) is what makes the result meaningful.
 #
 # # A trend test for snow: parametric and rank-based
+#
+# **Thinking it through.** *What do we want to measure?* Whether June snow cover is shrinking. *What kind of data?* A
+# time series, one value per year. *How do such data behave?* Snow cover has skewed, weather-driven year-to-year swings,
+# and a trend need not be a straight line. *Which test, and why?* Two tests that answer the question differently: the
+# OLS slope t-test (assumes a straight line and normal noise, and gives a rate in km² per decade) and Mann–Kendall
+# (only asks whether later years tend to be lower, so it needs neither assumption). If both agree, the result is robust.
 #
 # **Background.** Snow reflects most of the sunlight that reaches it; bare ground absorbs most of it. When spring snow
 # melts earlier, the ground absorbs more energy and warms, which melts more snow: the snow–albedo feedback. June is the
@@ -363,6 +401,13 @@ plt.tight_layout(); plt.show()
 # the slope is in million km² per decade.
 #
 # # Counts in categories: chi-square on a radar flood map
+#
+# **Thinking it through.** *What do we want to measure?* Whether flooding in 2022 favoured places that had flooded
+# before. *What kind of data?* Counts in categories: each map cell is yes/no on two questions. *How do such data behave?*
+# If the two were unrelated, each row of the table would split between the columns in the same proportion as the whole
+# map, which fixes an expected count for every cell. *Which test, and why?* Chi-square, which adds up the gaps between
+# observed and expected counts; Cramér's V for the strength. Then a check on independence, because neighbouring cells
+# of one flood are not separate pieces of evidence.
 #
 # The **chi-square (χ²) test of independence** asks whether two categorical variables are related. Observed counts O in
 # a table are compared with the counts E expected if the variables were independent (row total × column total / grand
@@ -423,6 +468,12 @@ print(f"thinned to {len(thin)} cells about 10 km apart: chi-square = {chi2_t:.1f
 # observations you really have.
 #
 # # Many tests at once: false discoveries
+#
+# **Thinking it through.** *What do we want to measure?* Which pixels of a map really changed. *What kind of data?* One
+# p-value per pixel, thousands of them. *How do such data behave?* Where nothing changed, p-values are spread evenly from
+# 0 to 1, so 5 % of them fall below 0.05 by chance. *Which method, and why?* Benjamini–Hochberg, which controls the
+# share of false findings among those reported: the right target for a map, where a few false pixels are tolerable but
+# a map made mostly of them is not.
 #
 # When a map is made by testing every pixel, some pixels will be "significant" by chance. With α = 0.05, about 5% of
 # pixels with no real change pass the test. The **Benjamini–Hochberg** procedure controls the **false discovery rate**

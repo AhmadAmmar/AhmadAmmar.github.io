@@ -1,0 +1,16 @@
+\begin{align*}
+\text{row totals} &= 60,\ 40; \quad \text{column totals}\ 52,\ 48; \quad N = 100 \\
+E_{11} &= \frac{60 \times 52}{100} = 31.2 \qquad \text{\small (before no, dark no)} \\
+E_{12} &= \frac{60 \times 48}{100} = 28.8 \qquad \text{\small (before no, dark yes)} \\
+E_{21} &= \frac{40 \times 52}{100} = 20.8 \qquad \text{\small (before yes, dark no)} \\
+E_{22} &= \frac{40 \times 48}{100} = 19.2 \qquad \text{\small (before yes, dark yes)} \\
+\frac{(O - E)^2}{E}_{11} &= \frac{(42 - 31.2)^2}{31.2} = \frac{116.64}{31.2} = 3.7385 \\
+\frac{(O - E)^2}{E}_{12} &= \frac{(18 - 28.8)^2}{28.8} = \frac{116.64}{28.8} = 4.05 \\
+\frac{(O - E)^2}{E}_{21} &= \frac{(10 - 20.8)^2}{20.8} = \frac{116.64}{20.8} = 5.6077 \\
+\frac{(O - E)^2}{E}_{22} &= \frac{(30 - 19.2)^2}{19.2} = \frac{116.64}{19.2} = 6.075 \\
+\chi^2 &= 3.7385 + 4.05 + 5.6077 + 6.075 \\
+ &= 19.471 \\
+\mathrm{df} &= (2 - 1)(2 - 1) = 1 \\
+p &= P(\chi^2_1 > 19.471) = 1.02\times 10^{-5} \\
+V &= \sqrt{\frac{\chi^2}{N}} = \sqrt{\frac{19.471}{100}} = 0.441
+\end{align*}

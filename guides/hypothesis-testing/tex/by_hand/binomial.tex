@@ -1,0 +1,12 @@
+\begin{align*}
+P(X = k) &= \binom{n}{k}\,\frac{1}{2^{n}} \qquad \text{\small (chance of exactly k heads)} \\
+2^{10} &= 1024 \qquad \text{\small (number of possible sequences)} \\
+\binom{10}{8} &= \frac{10!}{8!\,2!} = 45 \\
+\binom{10}{9} &= \frac{10!}{9!\,1!} = 10 \\
+\binom{10}{10} &= \frac{10!}{10!\,0!} = 1 \\
+P(X \ge 8) &= \frac{45 + 10 + 1}{1024} \\
+ &= \frac{56}{1024} \\
+ &= 0.0547 \qquad \text{\small (one tail)} \\
+p &= 2 \times 0.0547 \qquad \text{\small (the other tail, 0 to 2 heads, is the same size)} \\
+ &= 0.1094
+\end{align*}

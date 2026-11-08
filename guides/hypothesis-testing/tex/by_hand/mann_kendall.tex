@@ -1,0 +1,15 @@
+\begin{align*}
+\text{pairs} &= \frac{n(n-1)}{2} = \frac{6 \times 5}{2} = 15 \\
+\text{year 1 vs later} &= -1,\ -1,\ -1,\ -1,\ -1 \quad (sum -5) \\
+\text{year 2 vs later} &= +1,\ -1,\ -1,\ -1 \quad (sum -2) \\
+\text{year 3 vs later} &= -1,\ -1,\ -1 \quad (sum -3) \\
+\text{year 4 vs later} &= -1,\ -1 \quad (sum -2) \\
+\text{year 5 vs later} &= +1 \quad (sum 1) \\
+S &= -11 \qquad \text{\small (more falls than rises)} \\
+\tau &= \frac{S}{n(n-1)/2} = \frac{-11}{15} = -0.7333 \\
+\mathrm{Var}(S) &= \frac{n(n-1)(2n+5)}{18} = \frac{6 \times 5 \times 17}{18} \\
+ &= 28.3333 \\
+Z &= \frac{S + 1}{\sqrt{\mathrm{Var}(S)}} = \frac{-10}{\sqrt{28.3333}} = \frac{-10}{5.3229} \qquad \text{\small (+1: continuity correction)} \\
+ &= -1.879 \\
+p &= 2 \times P(Z > 1.879) = 0.0603
+\end{align*}

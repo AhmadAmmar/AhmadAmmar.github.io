@@ -10,7 +10,7 @@
       
       
       
-        <link rel="prev" href="../snow-trends-and-flood-counts/">
+        <link rel="prev" href="../calculating-by-hand/">
       
       
         <link rel="next" href="https://ahmadammar.github.io/teaching.html">
@@ -24,7 +24,7 @@
     
     
       
-        <title>5. Many tests, and how to report them - Hypothesis testing with climate data</title>
+        <title>6. Many tests, and how to report them - Hypothesis testing with climate data</title>
       
     
     
@@ -419,6 +419,33 @@
                   
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../calculating-by-hand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Calculating by hand
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
     
   
   
@@ -438,7 +465,7 @@
   <span class="md-ellipsis">
     
   
-  5. Many tests, and how to report them
+  6. Many tests, and how to report them
 
     
   </span>
@@ -455,7 +482,7 @@
   <span class="md-ellipsis">
     
   
-  5. Many tests, and how to report them
+  6. Many tests, and how to report them
 
     
   </span>
@@ -480,10 +507,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#51-many-tests-at-once-false-discoveries" class="md-nav__link">
+  <a href="#61-many-tests-at-once-false-discoveries" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        5.1 Many tests at once: false discoveries
+        6.1 Many tests at once: false discoveries
       </span>
     </span>
   </a>
@@ -491,10 +518,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#52-reading-any-test-result" class="md-nav__link">
+  <a href="#62-reading-any-test-result" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        5.2 Reading any test result
+        6.2 Reading any test result
       </span>
     </span>
   </a>
@@ -502,10 +529,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#53-a-checklist-for-reporting-a-test" class="md-nav__link">
+  <a href="#63-a-checklist-for-reporting-a-test" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        5.3 A checklist for reporting a test
+        6.3 A checklist for reporting a test
       </span>
     </span>
   </a>
@@ -595,10 +622,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#51-many-tests-at-once-false-discoveries" class="md-nav__link">
+  <a href="#61-many-tests-at-once-false-discoveries" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        5.1 Many tests at once: false discoveries
+        6.1 Many tests at once: false discoveries
       </span>
     </span>
   </a>
@@ -606,10 +633,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#52-reading-any-test-result" class="md-nav__link">
+  <a href="#62-reading-any-test-result" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        5.2 Reading any test result
+        6.2 Reading any test result
       </span>
     </span>
   </a>
@@ -617,10 +644,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#53-a-checklist-for-reporting-a-test" class="md-nav__link">
+  <a href="#63-a-checklist-for-reporting-a-test" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        5.3 A checklist for reporting a test
+        6.3 A checklist for reporting a test
       </span>
     </span>
   </a>
@@ -644,8 +671,9 @@
                   
 
 
-<h1 id="5-many-tests-and-how-to-report-them">5. Many tests, and how to report them<a class="headerlink" href="#5-many-tests-and-how-to-report-them" title="Permanent link">&para;</a></h1>
-<h2 id="51-many-tests-at-once-false-discoveries">5.1 Many tests at once: false discoveries<a class="headerlink" href="#51-many-tests-at-once-false-discoveries" title="Permanent link">&para;</a></h2>
+<h1 id="6-many-tests-and-how-to-report-them">6. Many tests, and how to report them<a class="headerlink" href="#6-many-tests-and-how-to-report-them" title="Permanent link">&para;</a></h1>
+<h2 id="61-many-tests-at-once-false-discoveries">6.1 Many tests at once: false discoveries<a class="headerlink" href="#61-many-tests-at-once-false-discoveries" title="Permanent link">&para;</a></h2>
+<p><strong>Thinking it through.</strong> <em>What do we want to measure?</em> Which pixels of a map really changed. <em>What kind of data?</em> One p-value per pixel, thousands of them. <em>How do such data behave?</em> Where nothing changed, p-values are spread evenly from 0 to 1, so 5 % of them fall below 0.05 by chance. <em>Which method, and why?</em> Benjamini–Hochberg, which controls the share of false findings among those reported: the right target for a map, where a few false pixels are tolerable but a map made mostly of them is not.</p>
 <p>When a map is made by testing every pixel, some pixels will be "significant" by chance. With α = 0.05, about 5% of pixels with no real change pass the test. The <strong>Benjamini–Hochberg</strong> procedure controls the <strong>false discovery rate</strong> (FDR): among the results called significant, the expected share that are false is kept below a chosen q (say 5%). Simulation: 1,000 pixels, of which 900 have no trend and 100 a real one.</p>
 <div class="nb-prompt nb-In">In [12]</div>
 
@@ -677,7 +705,7 @@ Benjamini-Hochberg, q = 0.05   called significant  105: real 100, false   5, sha
 </code></pre></div>
 <p><strong>How to read the figure.</strong> Each bar counts pixels whose p-value fell in that range. Pixels with no real trend (grey) spread evenly from 0 to 1: under H₀ every p-value is equally likely, so about 5% of them land below 0.05 by chance. Pixels with a real trend (red) pile up near 0. The black line is the usual 0.05 cut-off: everything to its left is called significant, including the grey sliver.</p>
 <p><strong>What the result says.</strong> Testing each pixel at 0.05 calls 28 no-change pixels significant, so more than a fifth of the "changes" are false. Benjamini–Hochberg keeps the share of false discoveries near 5%. Here it still finds all 100 real trends because they are strong; with weaker real effects it would miss some, which is the price of controlling false discoveries. On a real map with millions of pixels, this is the difference between a map of change and a map of noise.</p>
-<h2 id="52-reading-any-test-result">5.2 Reading any test result<a class="headerlink" href="#52-reading-any-test-result" title="Permanent link">&para;</a></h2>
+<h2 id="62-reading-any-test-result">6.2 Reading any test result<a class="headerlink" href="#62-reading-any-test-result" title="Permanent link">&para;</a></h2>
 <p>Every test reported in a paper should come with the same set of facts. This table collects the ones used above.</p>
 <div class="nb-prompt nb-In">In [13]</div>
 
@@ -705,7 +733,7 @@ t-test for a slope                   Is there a trend?         pairs (time, valu
         Chi-square         Are two categories related?           a table of counts                   χ² = Σ(O − E)²/E            (rows − 1)(cols − 1) χ² unitless; Cramér's V 0 to 1
 Benjamini–Hochberg     Which of many tests to believe?               many p-values                 ranked p ≤ (k/m)·q                            none              adjusted p-values
 </code></pre></div>
-<h2 id="53-a-checklist-for-reporting-a-test">5.3 A checklist for reporting a test<a class="headerlink" href="#53-a-checklist-for-reporting-a-test" title="Permanent link">&para;</a></h2>
+<h2 id="63-a-checklist-for-reporting-a-test">6.3 A checklist for reporting a test<a class="headerlink" href="#63-a-checklist-for-reporting-a-test" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p>The question and the null hypothesis, in words.</p>
@@ -765,7 +793,7 @@ Benjamini–Hochberg     Which of many tests to believe?               many p-va
         
 
 <nav class="aa-pager" aria-label="Previous and next page">
-  <a href="../snow-trends-and-flood-counts/"><span>Previous</span>4. Snow trends and flood counts</a>
+  <a href="../calculating-by-hand/"><span>Previous</span>5. Calculating by hand</a>
   <a class="next" href="https://ahmadammar.github.io/teaching.html"><span>Next</span>All guides</a>
 </nav>
 

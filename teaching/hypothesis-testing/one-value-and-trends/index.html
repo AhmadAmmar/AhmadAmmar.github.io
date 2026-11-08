@@ -490,6 +490,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../calculating-by-hand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Calculating by hand
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../many-tests-and-reporting/" class="md-nav__link">
         
   
@@ -497,7 +524,7 @@
   <span class="md-ellipsis">
     
   
-  5. Many tests, and how to report them
+  6. Many tests, and how to report them
 
     
   </span>
@@ -625,6 +652,7 @@
 <h1 id="2-one-value-and-a-trend">2. One value, and a trend<a class="headerlink" href="#2-one-value-and-a-trend" title="Permanent link">&para;</a></h1>
 <p>Two of the most common questions asked of climate data are whether a single value is unusual, and whether a series has a trend. The <span class="arithmatex">\(z\)</span>-test answers the first when the spread is known. The <span class="arithmatex">\(t\)</span>-test answers the second, and its degrees of freedom show why a trend from few, or dependent, years deserves caution.</p>
 <h2 id="21-the-z-test-is-one-value-unusual">2.1 The z-test: is one value unusual?<a class="headerlink" href="#21-the-z-test-is-one-value-unusual" title="Permanent link">&para;</a></h2>
+<p><strong>Thinking it through.</strong> <em>What do we want to measure?</em> How unusual one value is against a reference. <em>What kind of data?</em> One new measurement, and a reference set whose mean and spread we treat as known. <em>How do such data behave?</em> Measurements of a stable quantity scatter around their mean, often close to a normal (bell-shaped) curve, so the distance from the mean in units of standard deviation says how rare a value is. <em>Which test, and why?</em> The z-score, because the spread is taken as known; if it had to be estimated from a few values, t would replace z.</p>
 <p>The <strong>z-score</strong> measures how many standard deviations (σ) a value lies from a mean (μ): z = (x − μ) / σ. If values are normally distributed, about 95% fall within z = ±1.96, and the two-sided p-value is 2 × P(Z &gt; z).</p>
 <p>Short example, by hand: a class has a mean exam mark of 60 with σ = 10. A mark of 78 gives z = (78 − 60)/10 = 1.8, and p = 2 × 0.036 = 0.072.</p>
 <p>Real example: how unusual was 2024's global temperature compared with the climate of 1961–1990?</p>
@@ -664,6 +692,7 @@ by hand, the class example: z = 1.8, p = 0.072
 <p><strong>How to read the figure.</strong> The x axis is the temperature anomaly in °C. The grey bars are the 30 years of the reference period, piled up by value; the blue curve is the normal distribution with the same mean μ and standard deviation σ. The dotted lines mark μ + 1σ, 2σ and 3σ: about 68%, 95% and 99.7% of a normal distribution lies within them. The red line is 2024. The p-value is the area under the blue curve beyond the red line (on both sides for a two-sided test): it is so small that it cannot be seen.</p>
 <p><strong>What the result says.</strong> 2024 lies about 7 standard deviations above the 1961–1990 mean, and the p-value is about 5 × 10⁻¹². Under the climate of 1961–1990, a year this warm would essentially never happen: the climate itself has changed. <strong>What it does not say.</strong> The z-test does not say why; for that we need the trend test and the physics. Units: z has none (it is a count of σ); μ, σ and x are in °C. Caveat: the z-test assumes the reference years are independent draws from a normal distribution with a stable mean; here the 1961–1990 years already contain a little trend, which makes σ slightly larger and the test slightly conservative.</p>
 <h2 id="22-the-t-test-for-a-trend">2.2 The t-test for a trend<a class="headerlink" href="#22-the-t-test-for-a-trend" title="Permanent link">&para;</a></h2>
+<p><strong>Thinking it through.</strong> <em>What do we want to measure?</em> Whether a quantity changes steadily over time, and how fast. <em>What kind of data?</em> Pairs (year, value). <em>How do such data behave?</em> Each value is trend plus noise; the fitted slope would come out a little different with different noise, and that wobble is its standard error, estimated from the scatter around the line. <em>Which test, and why?</em> t = slope / SE with n − 2 degrees of freedom: t rather than z because the scatter is estimated from the same data, and n − 2 because the line used up two numbers. Neighbouring years are alike (autocorrelation), so we also shrink n to the effective number of independent years.</p>
 <p>A trend's slope b is estimated from data, so it has a <strong>standard error</strong> SE(b). The <strong>t-statistic</strong> is t = b / SE(b): how many standard errors the slope is from zero. Under H₀ (no trend) it follows a t distribution with <strong>degrees of freedom</strong> df = n − 2 (n points, minus the two numbers fitted: slope and intercept). Degrees of freedom count the independent pieces of information left after fitting; fewer means wider tails and larger p-values.</p>
 <p>Short example, by hand: five years with slope b = 0.02 °C/yr and SE = 0.008 give t = 2.5, df = 3, and p = 0.088: with so few points, even t = 2.5 is not strong evidence.</p>
 <div class="nb-prompt nb-In">In [4]</div>

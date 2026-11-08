@@ -13,7 +13,7 @@
         <link rel="prev" href="../two-groups-and-correlation/">
       
       
-        <link rel="next" href="../many-tests-and-reporting/">
+        <link rel="next" href="../calculating-by-hand/">
       
       
         
@@ -490,6 +490,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../calculating-by-hand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. Calculating by hand
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../many-tests-and-reporting/" class="md-nav__link">
         
   
@@ -497,7 +524,7 @@
   <span class="md-ellipsis">
     
   
-  5. Many tests, and how to report them
+  6. Many tests, and how to report them
 
     
   </span>
@@ -625,6 +652,7 @@
 <h1 id="4-snow-trends-and-flood-counts">4. Snow trends and flood counts<a class="headerlink" href="#4-snow-trends-and-flood-counts" title="Permanent link">&para;</a></h1>
 <p>Snow and floods bring two more kinds of data: a series that need not be normally distributed, which suits a rank-based trend test, and a map of categories, which suits a test on counts.</p>
 <h2 id="41-a-trend-test-for-snow">4.1 A trend test for snow<a class="headerlink" href="#41-a-trend-test-for-snow" title="Permanent link">&para;</a></h2>
+<p><strong>Thinking it through.</strong> <em>What do we want to measure?</em> Whether June snow cover is shrinking. <em>What kind of data?</em> A time series, one value per year. <em>How do such data behave?</em> Snow cover has skewed, weather-driven year-to-year swings, and a trend need not be a straight line. <em>Which test, and why?</em> Two tests that answer the question differently: the OLS slope t-test (assumes a straight line and normal noise, and gives a rate in km² per decade) and Mann–Kendall (only asks whether later years tend to be lower, so it needs neither assumption). If both agree, the result is robust.</p>
 <p><strong>Background.</strong> Snow reflects most of the sunlight that reaches it; bare ground absorbs most of it. When spring snow melts earlier, the ground absorbs more energy and warms, which melts more snow: the snow–albedo feedback. June is the end of the melt season in much of the Northern Hemisphere, so June snow cover is a sensitive measure of how early the snow goes. Less June snow also means earlier spring runoff for rivers fed by snowmelt, such as the Indus.</p>
 <p>Question: has June snow cover over Northern Hemisphere land declined since 1967? Data: Rutgers University Global Snow Lab, monthly snow-covered area in km². We test the trend two ways. The OLS <strong>t-test</strong> for the slope (as above) assumes normal, independent residuals. The <strong>Mann–Kendall test</strong> only asks whether later years tend to be lower than earlier ones: it counts concordant and discordant pairs, which is Kendall's τ between year and value. It needs no normality and is common for hydrological and snow series.</p>
 <div class="nb-prompt nb-In">In [9]</div>
@@ -663,6 +691,7 @@ first ten years mean 11.6, last ten years 6.5 million km² (-44%)
 <p><strong>How to read the figure.</strong> Each dot is one June (x: year; y: snow-covered land in million km²). The red line is the fitted trend. A downward line means June snow has shrunk; the scatter around it is year-to-year weather.</p>
 <p><strong>What the result says.</strong> Both tests reject "no trend" decisively: τ is strongly negative (most later years are lower than most earlier ones) and the slope is about −1.2 million km² per decade, a 44% fall between the first and last ten years. The residuals are barely autocorrelated (r₁ ≈ 0.06), so the ordinary t-test needs no correction here; always check before assuming. τ is unitless; the slope is in million km² per decade.</p>
 <h2 id="42-chi-square-on-a-radar-flood-map">4.2 Chi-square on a radar flood map<a class="headerlink" href="#42-chi-square-on-a-radar-flood-map" title="Permanent link">&para;</a></h2>
+<p><strong>Thinking it through.</strong> <em>What do we want to measure?</em> Whether flooding in 2022 favoured places that had flooded before. <em>What kind of data?</em> Counts in categories: each map cell is yes/no on two questions. <em>How do such data behave?</em> If the two were unrelated, each row of the table would split between the columns in the same proportion as the whole map, which fixes an expected count for every cell. <em>Which test, and why?</em> Chi-square, which adds up the gaps between observed and expected counts; Cramér's V for the strength. Then a check on independence, because neighbouring cells of one flood are not separate pieces of evidence.</p>
 <p>The <strong>chi-square (χ²) test of independence</strong> asks whether two categorical variables are related. Observed counts O in a table are compared with the counts E expected if the variables were independent (row total × column total / grand total): χ² = Σ (O − E)² / E, with df = (rows − 1)(columns − 1). <strong>Cramér's V</strong> (0 to 1) is the effect size.</p>
 <p>Question: in Sindh in September 2022, were radar-dark (likely flooded) 1 km cells more common where water had been seen before? Data: mean Sentinel-1 VV backscatter in 2022 (dark means below −14.1 dB, the threshold used in the radar manual) and the JRC Global Surface Water occurrence (any water seen since 1984, occurrence &gt; 0).</p>
 <div class="nb-prompt nb-In">In [10]</div>
@@ -758,7 +787,7 @@ share of cells dark in 2022: where water had been seen before 36%, elsewhere 6% 
 
 <nav class="aa-pager" aria-label="Previous and next page">
   <a href="../two-groups-and-correlation/"><span>Previous</span>3. Two groups, and a relation</a>
-  <a class="next" href="../many-tests-and-reporting/"><span>Next</span>5. Many tests, and how to report them</a>
+  <a class="next" href="../calculating-by-hand/"><span>Next</span>5. Calculating by hand</a>
 </nav>
 
 <footer class="aa-footer">
