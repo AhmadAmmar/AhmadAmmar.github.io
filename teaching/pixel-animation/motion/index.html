@@ -24,7 +24,7 @@
     
     
       
-        <title>3. Time and motion - Pixel animation from first principles</title>
+        <title>4. Time and motion - Pixel animation from first principles</title>
       
     
     
@@ -314,6 +314,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../first-picture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Your first picture in twenty lines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../start/" class="md-nav__link">
         
   
@@ -321,7 +348,7 @@
   <span class="md-ellipsis">
     
   
-  1. Before you start
+  2. Before you start
 
     
   </span>
@@ -348,7 +375,7 @@
   <span class="md-ellipsis">
     
   
-  2. Still pictures
+  3. Still pictures
 
     
   </span>
@@ -384,7 +411,7 @@
   <span class="md-ellipsis">
     
   
-  3. Time and motion
+  4. Time and motion
 
     
   </span>
@@ -401,7 +428,7 @@
   <span class="md-ellipsis">
     
   
-  3. Time and motion
+  4. Time and motion
 
     
   </span>
@@ -426,10 +453,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#31-time-and-frames" class="md-nav__link">
+  <a href="#41-time-and-frames" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        3.1 Time and frames
+        4.1 Time and frames
       </span>
     </span>
   </a>
@@ -459,7 +486,7 @@
   <span class="md-ellipsis">
     
   
-  4. Physics and simulation
+  5. Physics and simulation
 
     
   </span>
@@ -486,7 +513,7 @@
   <span class="md-ellipsis">
     
   
-  5. The design as diagrams
+  6. The design as diagrams
 
     
   </span>
@@ -513,7 +540,7 @@
   <span class="md-ellipsis">
     
   
-  6. The low level: the same picture in C
+  7. The low level: the same picture in C
 
     
   </span>
@@ -540,7 +567,7 @@
   <span class="md-ellipsis">
     
   
-  7. Towards a game
+  8. Towards a game
 
     
   </span>
@@ -627,10 +654,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#31-time-and-frames" class="md-nav__link">
+  <a href="#41-time-and-frames" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        3.1 Time and frames
+        4.1 Time and frames
       </span>
     </span>
   </a>
@@ -654,9 +681,9 @@
                   
 
 
-<h1 id="3-time-and-motion">3. Time and motion<a class="headerlink" href="#3-time-and-motion" title="Permanent link">&para;</a></h1>
+<h1 id="4-time-and-motion">4. Time and motion<a class="headerlink" href="#4-time-and-motion" title="Permanent link">&para;</a></h1>
 <p>Motion is a picture that depends on time. Here the time is the hour of the day: the sun crosses the sky, the sky changes colour, and the building takes its night colours after sunset.</p>
-<h2 id="31-time-and-frames">3.1 Time and frames<a class="headerlink" href="#31-time-and-frames" title="Permanent link">&para;</a></h2>
+<h2 id="41-time-and-frames">4.1 Time and frames<a class="headerlink" href="#41-time-and-frames" title="Permanent link">&para;</a></h2>
 <p>An animation is a sequence of still pictures, <strong>frames</strong>, shown quickly; at 20 frames a second the eye sees motion. A program makes them with a loop: for each frame, work out the time <em>t</em>, update everything that moves, draw the scene, and store the picture. Everything that changes is a <strong>function of time</strong>.</p>
 <p><strong>The sun</strong> moves on a circle of radius 84 centred below the ground. A day is one turn, <em>phase</em> 0 to 1: the angle is <em>a</em> = 2π × phase, the position is (80 − 84 cos <em>a</em>, 104 − 84 sin <em>a</em>), and sin <em>a</em> is the sun's <strong>elevation</strong>: positive by day, negative by night. The sky's two colours are chosen from the elevation.</p>
 <p><strong>Night</strong> uses the palette trick: every colour of the building is swapped for its darker partner (sandstone 9 becomes shade 10, marble 7 becomes grey 8). This is a <strong>palette swap</strong>, as old games did to make night levels without drawing anything again.</p>
@@ -722,7 +749,7 @@
 </code></pre></div>
 <div class="nb-prompt nb-Out">Out [7]</div>
 
-<p><img alt="Figure" src="../fig/f-06.png" /></p>
+<p><img alt="Figure" src="../fig/f-07.png" /></p>
 <div class="nb-prompt nb-Out">Out [7]</div>
 
 <div class="highlight"><pre><span></span><code>saved data\day_and_night.gif
@@ -761,8 +788,8 @@
         
 
 <nav class="aa-pager" aria-label="Previous and next page">
-  <a href="../stills/"><span>Previous</span>2. Still pictures</a>
-  <a class="next" href="../physics/"><span>Next</span>4. Physics and simulation</a>
+  <a href="../stills/"><span>Previous</span>3. Still pictures</a>
+  <a class="next" href="../physics/"><span>Next</span>5. Physics and simulation</a>
 </nav>
 
 <footer class="aa-footer">

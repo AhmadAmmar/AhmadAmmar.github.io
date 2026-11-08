@@ -24,7 +24,7 @@
     
     
       
-        <title>7. Towards a game - Pixel animation from first principles</title>
+        <title>8. Towards a game - Pixel animation from first principles</title>
       
     
     
@@ -314,6 +314,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../first-picture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Your first picture in twenty lines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../start/" class="md-nav__link">
         
   
@@ -321,7 +348,7 @@
   <span class="md-ellipsis">
     
   
-  1. Before you start
+  2. Before you start
 
     
   </span>
@@ -348,7 +375,7 @@
   <span class="md-ellipsis">
     
   
-  2. Still pictures
+  3. Still pictures
 
     
   </span>
@@ -375,7 +402,7 @@
   <span class="md-ellipsis">
     
   
-  3. Time and motion
+  4. Time and motion
 
     
   </span>
@@ -402,7 +429,7 @@
   <span class="md-ellipsis">
     
   
-  4. Physics and simulation
+  5. Physics and simulation
 
     
   </span>
@@ -429,7 +456,7 @@
   <span class="md-ellipsis">
     
   
-  5. The design as diagrams
+  6. The design as diagrams
 
     
   </span>
@@ -456,7 +483,7 @@
   <span class="md-ellipsis">
     
   
-  6. The low level: the same picture in C
+  7. The low level: the same picture in C
 
     
   </span>
@@ -492,7 +519,7 @@
   <span class="md-ellipsis">
     
   
-  7. Towards a game
+  8. Towards a game
 
     
   </span>
@@ -509,7 +536,7 @@
   <span class="md-ellipsis">
     
   
-  7. Towards a game
+  8. Towards a game
 
     
   </span>
@@ -534,10 +561,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#71-the-game-loop" class="md-nav__link">
+  <a href="#81-the-game-loop" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        7.1 The game loop
+        8.1 The game loop
       </span>
     </span>
   </a>
@@ -545,10 +572,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#72-plan-for-the-next-parts" class="md-nav__link">
+  <a href="#82-plan-for-the-next-parts" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        7.2 Plan for the next parts
+        8.2 Plan for the next parts
       </span>
     </span>
   </a>
@@ -638,10 +665,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#71-the-game-loop" class="md-nav__link">
+  <a href="#81-the-game-loop" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        7.1 The game loop
+        8.1 The game loop
       </span>
     </span>
   </a>
@@ -649,10 +676,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#72-plan-for-the-next-parts" class="md-nav__link">
+  <a href="#82-plan-for-the-next-parts" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        7.2 Plan for the next parts
+        8.2 Plan for the next parts
       </span>
     </span>
   </a>
@@ -676,10 +703,10 @@
                   
 
 
-<h1 id="7-towards-a-game">7. Towards a game<a class="headerlink" href="#7-towards-a-game" title="Permanent link">&para;</a></h1>
+<h1 id="8-towards-a-game">8. Towards a game<a class="headerlink" href="#8-towards-a-game" title="Permanent link">&para;</a></h1>
 <p>An animation plays by itself; a game listens. The step from one to the other is small, and the next parts of this project take it one piece at a time, each from first principles.</p>
-<h2 id="71-the-game-loop">7.1 The game loop<a class="headerlink" href="#71-the-game-loop" title="Permanent link">&para;</a></h2>
-<p>The film loop of Chapter <a href="../physics/#ch:physics">4</a> becomes a <em>game loop</em> with three steps repeated for ever: read the player’s input, update the world, draw. Physics must not depend on how fast the computer draws, so games use a <em>fixed time step</em>: they add the real time that has passed to an accumulator, run as many physics steps of, say, <span class="arithmatex">\(1/120\)</span> s as fit, then draw once.</p>
+<h2 id="81-the-game-loop">8.1 The game loop<a class="headerlink" href="#81-the-game-loop" title="Permanent link">&para;</a></h2>
+<p>The film loop of Chapter <a href="../physics/#ch:physics">5</a> becomes a <em>game loop</em> with three steps repeated for ever: read the player’s input, update the world, draw. Physics must not depend on how fast the computer draws, so games use a <em>fixed time step</em>: they add the real time that has passed to an accumulator, run as many physics steps of, say, <span class="arithmatex">\(1/120\)</span> s as fit, then draw once.</p>
 <div class="highlight"><pre><span></span><code><span class="n">acc</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">120</span>
 <span class="k">while</span> <span class="n">running</span><span class="p">:</span>
     <span class="n">acc</span> <span class="o">+=</span> <span class="n">time_since_last_frame</span><span class="p">()</span>
@@ -689,7 +716,7 @@
         <span class="n">acc</span> <span class="o">-=</span> <span class="n">dt</span>
     <span class="n">draw</span><span class="p">(</span><span class="n">world</span><span class="p">)</span>
 </code></pre></div>
-<h2 id="72-plan-for-the-next-parts">7.2 Plan for the next parts<a class="headerlink" href="#72-plan-for-the-next-parts" title="Permanent link">&para;</a></h2>
+<h2 id="82-plan-for-the-next-parts">8.2 Plan for the next parts<a class="headerlink" href="#82-plan-for-the-next-parts" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
 <p><strong>Input:</strong> steer the kite from the keyboard by letting out or pulling in string (changing <span class="arithmatex">\(L_0\)</span>), with <code>pygame</code> for the window and keys.</p>
@@ -704,7 +731,7 @@
 <p><strong>Sprites and tiles:</strong> small images reused many times, and a scrolling view of the Walled City: the Shahi Qila opposite the mosque and the Hazuri Bagh between them.</p>
 </li>
 <li>
-<p><strong>More landmarks as data:</strong> Government College’s tower, the National College of Arts and the Lahore Museum as new rows in the tables of Figure <a href="../design/#fig:erd">5.3</a>.</p>
+<p><strong>More landmarks as data:</strong> Government College’s tower, the National College of Arts and the Lahore Museum as new rows in the tables of Figure <a href="../design/#fig:erd">6.3</a>.</p>
 </li>
 <li>
 <p><strong>Sound:</strong> tones generated as waveforms, for the cry of <em>bo kata!</em> when a kite is cut.</p>
@@ -744,7 +771,7 @@
         
 
 <nav class="aa-pager" aria-label="Previous and next page">
-  <a href="../low-level-c/"><span>Previous</span>6. The low level: the same picture in C</a>
+  <a href="../low-level-c/"><span>Previous</span>7. The low level: the same picture in C</a>
   <a class="next" href="https://ahmadammar.github.io/teaching.html"><span>Next</span>All guides</a>
 </nav>
 

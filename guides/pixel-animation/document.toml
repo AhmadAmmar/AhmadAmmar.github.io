@@ -4,7 +4,7 @@ subtitle = "Build an 8-bit animation of Badshahi Masjid, Lahore, from single pix
 author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
-chapters = ["ch_start", "ch_stills", "ch_motion", "ch_physics", "ch_design", "ch_lowlevel", "ch_next"]
+chapters = ["ch_first", "ch_start", "ch_stills", "ch_motion", "ch_physics", "ch_design", "ch_lowlevel", "ch_next"]
 figures = "fig"
 defines = ["defs"]
 [notebooks]
@@ -22,6 +22,7 @@ home_label = "All guides"
 edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/pixel-animation"
 rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
 [web.slugs]
+ch_first = "first-picture"
 ch_start = "start"
 ch_stills = "stills"
 ch_motion = "motion"

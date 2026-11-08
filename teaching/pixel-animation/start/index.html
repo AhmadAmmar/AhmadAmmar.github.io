@@ -10,7 +10,7 @@
       
       
       
-        <link rel="prev" href="../notebooks/">
+        <link rel="prev" href="../first-picture/">
       
       
         <link rel="next" href="../stills/">
@@ -24,7 +24,7 @@
     
     
       
-        <title>1. Before you start - Pixel animation from first principles</title>
+        <title>2. Before you start - Pixel animation from first principles</title>
       
     
     
@@ -311,6 +311,33 @@
                   
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../first-picture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Your first picture in twenty lines
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
     
   
   
@@ -330,7 +357,7 @@
   <span class="md-ellipsis">
     
   
-  1. Before you start
+  2. Before you start
 
     
   </span>
@@ -347,7 +374,7 @@
   <span class="md-ellipsis">
     
   
-  1. Before you start
+  2. Before you start
 
     
   </span>
@@ -372,10 +399,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#11-what-you-will-learn" class="md-nav__link">
+  <a href="#21-what-you-will-learn" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1.1 What you will learn
+        2.1 What you will learn
       </span>
     </span>
   </a>
@@ -383,10 +410,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-getting-python-and-the-notebook" class="md-nav__link">
+  <a href="#22-getting-python-and-the-notebook" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1.2 Getting Python and the notebook
+        2.2 Getting Python and the notebook
       </span>
     </span>
   </a>
@@ -394,10 +421,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#13-setup" class="md-nav__link">
+  <a href="#23-setup" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1.3 Setup
+        2.3 Setup
       </span>
     </span>
   </a>
@@ -427,7 +454,7 @@
   <span class="md-ellipsis">
     
   
-  2. Still pictures
+  3. Still pictures
 
     
   </span>
@@ -454,7 +481,7 @@
   <span class="md-ellipsis">
     
   
-  3. Time and motion
+  4. Time and motion
 
     
   </span>
@@ -481,7 +508,7 @@
   <span class="md-ellipsis">
     
   
-  4. Physics and simulation
+  5. Physics and simulation
 
     
   </span>
@@ -508,7 +535,7 @@
   <span class="md-ellipsis">
     
   
-  5. The design as diagrams
+  6. The design as diagrams
 
     
   </span>
@@ -535,7 +562,7 @@
   <span class="md-ellipsis">
     
   
-  6. The low level: the same picture in C
+  7. The low level: the same picture in C
 
     
   </span>
@@ -562,7 +589,7 @@
   <span class="md-ellipsis">
     
   
-  7. Towards a game
+  8. Towards a game
 
     
   </span>
@@ -649,10 +676,10 @@
     
       
         <li class="md-nav__item">
-  <a href="#11-what-you-will-learn" class="md-nav__link">
+  <a href="#21-what-you-will-learn" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1.1 What you will learn
+        2.1 What you will learn
       </span>
     </span>
   </a>
@@ -660,10 +687,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#12-getting-python-and-the-notebook" class="md-nav__link">
+  <a href="#22-getting-python-and-the-notebook" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1.2 Getting Python and the notebook
+        2.2 Getting Python and the notebook
       </span>
     </span>
   </a>
@@ -671,10 +698,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#13-setup" class="md-nav__link">
+  <a href="#23-setup" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
-        1.3 Setup
+        2.3 Setup
       </span>
     </span>
   </a>
@@ -698,10 +725,10 @@
                   
 
 
-<h1 id="1-before-you-start">1. Before you start<a class="headerlink" href="#1-before-you-start" title="Permanent link">&para;</a></h1>
+<h1 id="2-before-you-start">2. Before you start<a class="headerlink" href="#2-before-you-start" title="Permanent link">&para;</a></h1>
 <p>This guide builds a small animated picture of Badshahi Masjid, the great Mughal mosque of Lahore completed in 1673, without drawing anything by hand. Every pixel is computed. You start from a single coloured square and add one idea at a time: lines, filled shapes, a palette, a still picture made of reusable parts, then time, light, and finally physics, with a kite on an elastic string and a flock of pigeons. The same picture is then rebuilt in plain C, the way programs written with <code>graphics.h</code> in Dev-C++ drew, so you see what high-level libraries do for you underneath.</p>
 <p>The style is deliberately <em>8-bit</em>: a 160 by 120 canvas and 16 colours, as on home computers of the 1980s. Small canvases make every idea visible, and the methods are the same ones used in modern games and scientific simulations.</p>
-<h2 id="11-what-you-will-learn">1.1 What you will learn<a class="headerlink" href="#11-what-you-will-learn" title="Permanent link">&para;</a></h2>
+<h2 id="21-what-you-will-learn">2.1 What you will learn<a class="headerlink" href="#21-what-you-will-learn" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p><strong>Pictures:</strong> a picture as a grid of numbers; palettes; Bresenham’s line and the midpoint circle; filling shapes with inside tests; dithering.</p>
@@ -722,14 +749,14 @@
 <p><strong>Low level:</strong> a framebuffer in C, the old BGI drawing calls, and how OpenGL and game engines relate to them.</p>
 </li>
 </ul>
-<h2 id="12-getting-python-and-the-notebook">1.2 Getting Python and the notebook<a class="headerlink" href="#12-getting-python-and-the-notebook" title="Permanent link">&para;</a></h2>
+<h2 id="22-getting-python-and-the-notebook">2.2 Getting Python and the notebook<a class="headerlink" href="#22-getting-python-and-the-notebook" title="Permanent link">&para;</a></h2>
 <p>Open the <em>Notebooks</em> page of this guide and choose <em>Open in Colab</em> to run it in a web browser with nothing to install. On your own computer:</p>
 <div class="highlight"><pre><span></span><code>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>pixels<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.12<span class="w"> </span>numpy<span class="w"> </span>matplotlib<span class="w"> </span>pillow<span class="w"> </span>jupyterlab
 conda<span class="w"> </span>activate<span class="w"> </span>pixels
 jupyter<span class="w"> </span>lab
 </code></pre></div>
 <p>Then open the downloaded <code>pixel_animation.ipynb</code>. Boxes labelled <em>In [n]</em> are code and <em>Out [n]</em> what it printed or drew. Run the cells in order from the top: each section uses functions defined in the ones before. The animated GIFs are written to a <code>data</code> folder beside the notebook.</p>
-<h2 id="13-setup">1.3 Setup<a class="headerlink" href="#13-setup" title="Permanent link">&para;</a></h2>
+<h2 id="23-setup">2.3 Setup<a class="headerlink" href="#23-setup" title="Permanent link">&para;</a></h2>
 <p>This notebook builds an 8-bit animation of Badshahi Masjid, Lahore, from nothing: first single pixels, then lines, shapes and a still picture, then time, motion and physics. Nothing is drawn by hand. Every part of the picture is computed from a few numbers, so it can be changed, repeated and animated.</p>
 <p>Libraries: <strong>numpy</strong> holds the picture as an array of numbers and does arithmetic on all pixels at once; <strong>matplotlib</strong> shows pictures in the notebook; <strong>Pillow</strong> saves images and animated GIFs. All three come with Colab and Anaconda.</p>
 <div class="nb-prompt nb-In">In [1]</div>
@@ -784,8 +811,8 @@ jupyter<span class="w"> </span>lab
         
 
 <nav class="aa-pager" aria-label="Previous and next page">
-  <a href="../notebooks/"><span>Previous</span>Notebooks</a>
-  <a class="next" href="../stills/"><span>Next</span>2. Still pictures</a>
+  <a href="../first-picture/"><span>Previous</span>1. Your first picture in twenty lines</a>
+  <a class="next" href="../stills/"><span>Next</span>3. Still pictures</a>
 </nav>
 
 <footer class="aa-footer">
