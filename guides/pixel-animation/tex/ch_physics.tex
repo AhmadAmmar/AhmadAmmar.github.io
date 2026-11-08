@@ -1,0 +1,29 @@
+\chapter{Physics and simulation}\label{ch:physics}
+
+So far motion has been written as a formula of time. Real things move because forces act on them, and a simulation finds the motion step by step from the forces. Figure~\ref{fig:fbd} shows the forces on the kite before any code: drawing a free-body diagram first is the habit that keeps a simulation honest.
+
+\begin{figure}[H]\centering
+\begin{tikzpicture}[>=Stealth, every node/.style={font=\small}]
+  \fill[black!70] (-4.2,-2.6) rectangle (-3.6,-2.4);
+  \node[below] at (-3.9,-2.6) {anchor (rooftop)};
+  \draw[thick] (-3.9,-2.4) -- (0,0);
+  \fill[orange] (0,0.55) -- (0.4,0) -- (0,-0.55) -- (-0.4,0) -- cycle;
+  \node[circle,fill=black,inner sep=1.2pt] at (0,0) {};
+  \draw[->,very thick,blue!70!black] (0,0) -- (0,-1.6) node[below] {gravity $m\mathbf{g}$};
+  \draw[->,very thick,red!70!black] (0,0) -- (-1.6,-1.0) node[left] {tension $k\,\Delta L$ toward anchor};
+  \draw[->,very thick,green!50!black] (0,0) -- (1.3,2.2) node[above] {drag $c(\mathbf{w}-\mathbf{v})$};
+  \draw[->,gray] (2.6,1.2) -- (3.8,1.2) node[right] {wind $\mathbf{w}$};
+  \draw[->,gray] (2.6,0.6) -- (3.8,0.6);
+  \draw[->,gray] (2.6,0.0) -- (3.8,0.0);
+\end{tikzpicture}
+\caption{Free-body diagram of the kite. Three forces act on one point mass: gravity, the string's tension (only when stretched beyond its rest length $L_0$) and drag from the gusty wind. Newton's second law, $m\mathbf{a}=\sum\mathbf{F}$, gives the acceleration.}\label{fig:fbd}
+\end{figure}
+
+\section{Forces and integration}
+\input{generated/nb_pixel_animation_8}
+\section{A flock of pigeons}
+\input{generated/nb_pixel_animation_9}
+\section{Putting it together: the film}
+\input{generated/nb_pixel_animation_10}
+\section{What you have learned}
+\input{generated/nb_pixel_animation_11}

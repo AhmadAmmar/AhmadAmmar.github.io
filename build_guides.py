@@ -30,6 +30,7 @@ GUIDES = {
     "hypothesis-testing": (HERE / "guides/hypothesis-testing", "Hypothesis_testing_Ahmad_Ammar.pdf"),
     "radar-python": (HERE / "guides/radar-python", "Radar_images_in_Python_Ahmad_Ammar.pdf"),
     "satellite-python": (HERE / "guides/satellite-python", "Satellite_images_in_Python_Ahmad_Ammar.pdf"),
+    "pixel-animation": (HERE / "guides/pixel-animation", "Pixel_animation_Ahmad_Ammar.pdf"),
 }
 
 

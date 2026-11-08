@@ -1,0 +1,1039 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+        <link rel="prev" href="../motion/">
+      
+      
+        <link rel="next" href="../design/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="zensical-0.0.74">
+    
+    
+      
+        <title>4. Physics and simulation - Pixel animation from first principles</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.4ab2de0c.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.b60ce83d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../theme.css">
+    
+      <link rel="stylesheet" href="../rh.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+
+<script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-hidden="true"></label>
+    <div data-md-component="skip">
+      <a href="#__skip" class="md-skip">
+        Skip to content
+      </a>
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<div class="aa-header">
+  <div class="aa-bar">
+    <a class="aa-brand" href="/index.html">Ahmad <span>Ammar</span></a>
+    <button class="aa-icon aa-menu" type="button" data-aa-menu aria-controls="aa-nav" aria-expanded="false" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="aa-nav" id="aa-nav" aria-label="Main">
+      <a href="/index.html">About</a>
+      <a href="/research.html">Research</a>
+      <a href="/teaching.html" aria-current="page">Teaching</a>
+      <a href="/projects.html">Projects</a>
+      <a href="/writing.html">Writing</a>
+      <a href="/cv.html">CV</a>
+      
+    </nav>
+    <button class="aa-icon" type="button" data-aa-theme aria-label="Switch between light and dark theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+  </div>
+</div>
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Pixel animation from first principles">
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Chapters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></label>
+    <button class="aa-icon aa-side" type="button" data-aa-sidebar aria-pressed="false" aria-label="Hide or show the side panels" title="Hide or show the side panels"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16"/></svg></button>
+    <div class="aa-crumb"><a href="/teaching.html">Teaching</a> / <a href="./..">Pixel animation from first principles</a></div>
+    <label class="md-header__button md-icon" for="__search" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></label>
+    <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Pixel animation from first principles" class="md-nav__button md-logo" aria-label="Pixel animation from first principles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-book-open" viewBox="0 0 24 24"><path d="M12 5v16M20.001 19A2 2 0 0 0 22 17V5a2 2 0 0 0-1.999-2L16 3.002A5 5 0 0 0 12 5a5 5 0 0 0-4-2H4a2 2 0 0 0-2 2v12a2 2 0 0 0 1.999 2H8a5 5 0 0 1 4 2 5 5 0 0 1 4-2z"/></svg>
+
+    </a>
+    Pixel animation from first principles
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../full/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  The whole guide on one page
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  PDF
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Notebooks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Chapters
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        
+          <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+            <label class="md-nav__title" for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+              
+  
+  Chapters
+
+            </label>
+            <ul class="md-nav__list" data-md-scrollfix>
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  1. Before you start
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  2. Still pictures
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  3. Time and motion
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Physics and simulation
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Physics and simulation
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  <label class="md-nav__title" for="__toc">
+    <span class="md-nav__icon md-icon"></span>
+    Table of contents
+  </label>
+  <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    
+      
+        <li class="md-nav__item">
+  <a href="#41-forces-and-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Forces and integration
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-a-flock-of-pigeons" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 A flock of pigeons
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-putting-it-together-the-film" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Putting it together: the film
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-what-you-have-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 What you have learned
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    
+  </ul>
+</nav>
+      
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  5. The design as diagrams
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../low-level-c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  6. The low level: the same picture in C
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../next/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  7. Towards a game
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+            </ul>
+          </nav>
+        
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://ahmadammar.github.io/teaching.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  All guides
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  <label class="md-nav__title" for="__toc">
+    <span class="md-nav__icon md-icon"></span>
+    Table of contents
+  </label>
+  <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+    
+      
+        <li class="md-nav__item">
+  <a href="#41-forces-and-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.1 Forces and integration
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-a-flock-of-pigeons" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.2 A flock of pigeons
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-putting-it-together-the-film" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.3 Putting it together: the film
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#44-what-you-have-learned" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        4.4 What you have learned
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                <a id="__skip" tabindex="-1"></a>
+                
+                  
+
+
+<h1 id="4-physics-and-simulation">4. Physics and simulation<a class="headerlink" href="#4-physics-and-simulation" title="Permanent link">&para;</a></h1>
+<p>So far motion has been written as a formula of time. Real things move because forces act on them, and a simulation finds the motion step by step from the forces. Figure <a href="../physics/#fig:fbd">4.1</a> shows the forces on the kite before any code: drawing a free-body diagram first is the habit that keeps a simulation honest.</p>
+<p><a id="fig:fbd"></a></p>
+<p><img alt="Free-body diagram of the kite. Three forces act on one point mass: gravity, the string’s tension (only when stretched beyond its rest length L_0) and drag from the gusty wind. Newton’s second law, mma" src="../fig/f-07.png" /></p>
+<p><strong>Figure 4.1.</strong> Free-body diagram of the kite. Three forces act on one point mass: gravity, the string’s tension (only when stretched beyond its rest length <span class="arithmatex">\(L_0\)</span>) and drag from the gusty wind. Newton’s second law, <span class="arithmatex">\(m\mathbf{a}=\sum\mathbf{F}\)</span>, gives the acceleration.</p>
+<h2 id="41-forces-and-integration">4.1 Forces and integration<a class="headerlink" href="#41-forces-and-integration" title="Permanent link">&para;</a></h2>
+<p>Natural motion comes from <strong>Newton's second law</strong>: the acceleration of a body is the total <strong>force</strong> on it divided by its <strong>mass</strong>, <em>a</em> = <em>F</em>/<em>m</em>. A computer cannot solve this continuously, so it takes small time steps <em>Δt</em> and updates velocity and position in turn. This is <strong>numerical integration</strong>. The simplest rule, <strong>explicit Euler</strong>, moves the position with the old velocity:</p>
+<p><em>x</em> ← <em>x</em> + <em>v</em> Δt, <em>v</em> ← <em>v</em> + <em>a</em> Δt.</p>
+<p><strong>Semi-implicit (symplectic) Euler</strong> updates the velocity first and moves with the new velocity:</p>
+<p><em>v</em> ← <em>v</em> + <em>a</em> Δt, <em>x</em> ← <em>x</em> + <em>v</em> Δt.</p>
+<p>The change looks trivial, but it matters. Test both on a spring, where the exact answer is known: a mass on a spring of stiffness <em>k</em> swings for ever with constant energy ½<em>kx</em>² + ½<em>mv</em>². A good method keeps that energy constant.</p>
+<div class="nb-prompt nb-In">In [8]</div>
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">spring_energy</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">steps</span><span class="p">):</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">k</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">m</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">"explicit"</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span><span class="p">,</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">dt</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">v</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">E</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">v</span> <span class="o">*</span> <span class="n">v</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">E</span><span class="p">)</span>
+
+
+<span class="n">E0</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">**</span> <span class="mi">2</span>
+<span class="n">ex</span><span class="p">,</span> <span class="n">si</span> <span class="o">=</span> <span class="n">spring_energy</span><span class="p">(</span><span class="s2">"explicit"</span><span class="p">),</span> <span class="n">spring_energy</span><span class="p">(</span><span class="s2">"semi"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ex</span> <span class="o">/</span> <span class="n">E0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"explicit Euler"</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">si</span> <span class="o">/</span> <span class="n">E0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"semi-implicit Euler"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s2">":"</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"step"</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"energy / starting energy"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"A spring should keep its energy"</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"after 400 steps (20 s): explicit </span><span class="si">{</span><span class="n">ex</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">E0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> x start, semi-implicit </span><span class="si">{</span><span class="n">si</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">E0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> x start "</span>
+      <span class="sa">f</span><span class="s2">"(range </span><span class="si">{</span><span class="n">si</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">E0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">si</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">E0</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</code></pre></div>
+<div class="nb-prompt nb-Out">Out [8]</div>
+
+<p><img alt="Figure" src="../fig/f-08.png" /></p>
+<div class="nb-prompt nb-Out">Out [8]</div>
+
+<div class="highlight"><pre><span></span><code>after 400 steps (20 s): explicit 53.52 x start, semi-implicit 1.05 x start (range 0.95 to 1.05)
+</code></pre></div>
+<p>The dotted line is the truth: energy stays at 1. Explicit Euler (blue) gains energy every step and has grown about fifty-fold after 20 seconds, so a spring drawn with it would fling itself off the screen. Semi-implicit Euler (orange) wobbles a little around 1 but never drifts, so it can run for ever. We use it for everything that moves.</p>
+<p><strong>The kite.</strong> Basant, the spring kite festival, filled Lahore's sky with kites. Ours is a point mass held by a string from a rooftop at the lower left. Three forces act on it (drawn in the free-body diagram in the guide):</p>
+<ol>
+<li>
+<p><strong>Gravity</strong>, <em>m g</em>, straight down.</p>
+</li>
+<li>
+<p><strong>String tension</strong> from <strong>Hooke's law</strong>: if the string is stretched beyond its rest length <em>L</em>₀ by Δ<em>L</em>, it pulls towards the anchor with force <em>k</em> Δ<em>L</em>. A string can pull but not push, so the force is zero when slack.</p>
+</li>
+<li>
+<p><strong>Wind</strong>, modelled as <strong>drag</strong>: a force proportional to the difference between the wind velocity and the kite's velocity, <em>c</em>(<strong>w</strong> − <strong>v</strong>). The wind blows right and lifts upwards, and it gusts: each component is a constant plus a few sine waves of different periods, so it never quite repeats.</p>
+</li>
+</ol>
+<p>Units are pixels and seconds; <em>g</em> = 20 pixels per second squared is chosen so the motion reads well, not to match the real value of 9.8 m s⁻².</p>
+<div class="nb-prompt nb-In">In [9]</div>
+
+<div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Kite</span><span class="p">:</span>
+    <span class="n">anchor</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">GROUND</span> <span class="o">-</span> <span class="mf">2.0</span><span class="p">)</span>
+    <span class="n">pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">40.0</span><span class="p">,</span> <span class="mf">40.0</span><span class="p">]))</span>
+    <span class="n">vel</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">m</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="n">g</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">20.0</span><span class="p">;</span> <span class="n">k</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">6.0</span><span class="p">;</span> <span class="n">L0</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">90.0</span><span class="p">;</span> <span class="n">drag</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.5</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">wind</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">0.7</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.3</span> <span class="o">*</span> <span class="n">t</span><span class="p">),</span> <span class="o">-</span><span class="mi">30</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">1.3</span> <span class="o">*</span> <span class="n">t</span><span class="p">)])</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forces</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">anchor</span><span class="p">)</span>
+        <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="n">tension</span> <span class="o">=</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">k</span> <span class="o">*</span> <span class="nb">max</span><span class="p">(</span><span class="n">L</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">L0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">d</span> <span class="o">/</span> <span class="n">L</span>
+        <span class="n">gravity</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">])</span>
+        <span class="n">air</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">drag</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">wind</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">vel</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">gravity</span><span class="p">,</span> <span class="n">tension</span><span class="p">,</span> <span class="n">air</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vel</span> <span class="o">+=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">forces</span><span class="p">(</span><span class="n">t</span><span class="p">))</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">m</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pos</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vel</span> <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="n">line</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">anchor</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">pos</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pos</span>
+        <span class="n">diamond</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Y</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+        <span class="n">fill</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">diamond</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span> <span class="n">fill</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">diamond</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">),</span> <span class="mi">6</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">):</span>
+            <span class="n">put_pixel</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">i</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+
+<span class="n">kite</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">track</span> <span class="o">=</span> <span class="n">Kite</span><span class="p">(),</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">80</span><span class="p">,</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">80</span> <span class="o">*</span> <span class="mi">12</span><span class="p">):</span>                              <span class="c1"># 12 seconds in steps of 1/80 s</span>
+    <span class="n">kite</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">dt</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
+    <span class="n">track</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">kite</span><span class="o">.</span><span class="n">pos</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="n">track</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">track</span><span class="p">)</span>
+<span class="n">g</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">A</span> <span class="o">=</span> <span class="n">kite</span><span class="o">.</span><span class="n">forces</span><span class="p">(</span><span class="mf">12.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"position after 12 s:"</span><span class="p">,</span> <span class="n">track</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">" string length:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">track</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">kite</span><span class="o">.</span><span class="n">anchor</span><span class="p">)),</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"forces now  gravity:"</span><span class="p">,</span> <span class="n">g</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">" tension:"</span><span class="p">,</span> <span class="n">T</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">" wind:"</span><span class="p">,</span> <span class="n">A</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">" total:"</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span> <span class="o">+</span> <span class="n">T</span> <span class="o">+</span> <span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">3.2</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">track</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span><span class="p">,</span> <span class="n">track</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"height y (pixels, down is +)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">track</span><span class="p">))</span> <span class="o">*</span> <span class="n">dt</span><span class="p">,</span> <span class="n">track</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">"x (pixels)"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"time (s)"</span><span class="p">);</span> <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"The kite rises, then rides the gusts"</span><span class="p">);</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<div class="nb-prompt nb-Out">Out [9]</div>
+
+<div class="highlight"><pre><span></span><code>position after 12 s: [54.5 20.1]  string length: 96.2
+forces now  gravity: [ 0. 20.]  tension: [-19.4  31.5]  wind: [ 18.3 -48.8]  total: [-1.2  2.8]
+</code></pre></div>
+<div class="nb-prompt nb-Out">Out [9]</div>
+
+<p><img alt="Figure" src="../fig/f-09.png" /></p>
+<p>The kite starts at (40, 40) with no speed. In the first few seconds the wind lifts it (y falls, as y counts downwards) and pushes it right until the string goes taut; from then it hovers near the end of its string, swaying as the gusts rise and fall. The printout checks the physics at 12 seconds: the string is a little longer than its rest length of 90, so it is stretched and pulling; the tension points back towards the anchor (down and left, negative x and positive y); and the three forces nearly cancel, so the total is small. A kite at rest on a taut string is exactly a balance of these three forces.</p>
+<h2 id="42-a-flock-of-pigeons">4.2 A flock of pigeons<a class="headerlink" href="#42-a-flock-of-pigeons" title="Permanent link">&para;</a></h2>
+<p>The pigeons of the Badshahi courtyard wheel together. Craig Reynolds (1987) showed that a flock needs no leader: each bird follows three local rules about the neighbours it can see (here, those within 25 pixels).</p>
+<ol>
+<li>
+<p><strong>Separation</strong>: steer away from birds that are too close (closer than 5 pixels), more strongly the closer they are.</p>
+</li>
+<li>
+<p><strong>Alignment</strong>: steer towards the average heading of neighbours.</p>
+</li>
+<li>
+<p><strong>Cohesion</strong>: steer towards the average position of neighbours.</p>
+</li>
+</ol>
+<p>We add a fourth, a gentle pull towards a point above the mosque, so the flock stays on screen, and keep each bird's speed between 8 and 22 pixels a second. With numpy all birds are updated at once: <code>d``[``i, j``]</code> is the vector from bird <em>j</em> to bird <em>i</em>, and summing over <em>j</em> adds up the effect of all neighbours.</p>
+<div class="nb-prompt nb-In">In [10]</div>
+
+<div class="highlight"><pre><span></span><code><span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Flock</span><span class="p">:</span>
+    <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">140</span><span class="p">,</span> <span class="mi">40</span><span class="p">],</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">+</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e9</span>     <span class="c1"># a bird is not its own neighbour</span>
+        <span class="n">near</span> <span class="o">=</span> <span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">25</span>
+        <span class="n">cnt</span> <span class="o">=</span> <span class="n">near</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">cohesion</span> <span class="o">=</span> <span class="p">(</span><span class="n">near</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">cnt</span> <span class="o">*</span> <span class="mf">0.6</span>
+        <span class="n">alignment</span> <span class="o">=</span> <span class="p">((</span><span class="n">near</span> <span class="o">@</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">)</span> <span class="o">/</span> <span class="n">cnt</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
+        <span class="n">separation</span> <span class="o">=</span> <span class="p">((</span><span class="n">dist</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">d</span> <span class="o">/</span> <span class="n">dist</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mi">60</span>
+        <span class="n">home</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span> <span class="mi">25</span><span class="p">])</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.4</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">+=</span> <span class="p">(</span><span class="n">cohesion</span> <span class="o">+</span> <span class="n">alignment</span> <span class="o">+</span> <span class="n">separation</span> <span class="o">+</span> <span class="n">home</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">speed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">speed</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span> <span class="o">/</span> <span class="n">speed</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">spread</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="kc">None</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">d</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">heading_agreement</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)))</span>           <span class="c1"># 1 = all fly the same way, 0 = random</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">):</span>
+            <span class="n">dy</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="p">(</span><span class="n">frame</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="k">else</span> <span class="mi">1</span>           <span class="c1"># a two-frame wing flap</span>
+            <span class="n">put_pixel</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span> <span class="n">put_pixel</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">,</span> <span class="mi">15</span><span class="p">);</span> <span class="n">put_pixel</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+
+
+<span class="n">flock</span> <span class="o">=</span> <span class="n">Flock</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"start: mean distance between birds </span><span class="si">{</span><span class="n">flock</span><span class="o">.</span><span class="n">spread</span><span class="p">()</span><span class="si">:</span><span class="s2">5.1f</span><span class="si">}</span><span class="s2"> px, heading agreement </span><span class="si">{</span><span class="n">flock</span><span class="o">.</span><span class="n">heading_agreement</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">201</span><span class="p">):</span>
+    <span class="n">flock</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">20</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">200</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">s</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">20</span><span class="si">:</span><span class="s2">4.0f</span><span class="si">}</span><span class="s2"> s: mean distance between birds </span><span class="si">{</span><span class="n">flock</span><span class="o">.</span><span class="n">spread</span><span class="p">()</span><span class="si">:</span><span class="s2">5.1f</span><span class="si">}</span><span class="s2"> px, heading agreement </span><span class="si">{</span><span class="n">flock</span><span class="o">.</span><span class="n">heading_agreement</span><span class="p">()</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">inside</span> <span class="o">=</span> <span class="p">((</span><span class="n">flock</span><span class="o">.</span><span class="n">p</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">flock</span><span class="o">.</span><span class="n">p</span> <span class="o">&lt;</span> <span class="p">[</span><span class="n">W</span><span class="p">,</span> <span class="n">H</span><span class="p">]))</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"birds inside the canvas: </span><span class="si">{</span><span class="n">inside</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2"> of </span><span class="si">{</span><span class="n">flock</span><span class="o">.</span><span class="n">n</span><span class="si">}</span><span class="s2">; flock centre at </span><span class="si">{</span><span class="n">flock</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<div class="nb-prompt nb-Out">Out [10]</div>
+
+<div class="highlight"><pre><span></span><code>start: mean distance between birds  43.1 px, heading agreement 0.73
+   2 s: mean distance between birds  20.0 px, heading agreement 0.31
+  10 s: mean distance between birds  13.5 px, heading agreement 0.54
+birds inside the canvas: 12 of 14; flock centre at [63.  7.]
+</code></pre></div>
+<p>The numbers show a flock forming. At the start the birds are scattered across the sky (43 pixels apart on average) and fairly aligned (0.73), because they were all given a push to the right. Within two seconds they have drawn together (20 pixels apart), and after ten they are packed within about 14 pixels of each other. Heading agreement first falls to 0.31 and then recovers to about a half: the pull towards the mosque turns the flock round, and birds on the inside of a turn point a different way from those outside, so the flock <strong>wheels</strong> over the dome, as courtyard pigeons do, rather than flying off in a line. The flock centre sits near (63, 7), above the central dome; two birds at the top edge are briefly off the canvas (12 of 14 inside), which is harmless because <code>put_pixel</code> ignores them. No rule mentions 'the flock': it emerges from each bird watching its neighbours, which is why this is called <strong>emergent behaviour</strong>.</p>
+<h2 id="43-putting-it-together-the-film">4.3 Putting it together: the film<a class="headerlink" href="#43-putting-it-together-the-film" title="Permanent link">&para;</a></h2>
+<p>The film loop now has three clocks running together: the <strong>phase</strong> of the day, the <strong>physics time</strong> of the kite and birds, and the <strong>frame number</strong> for the wing flap. The kite takes four small physics steps per frame (sub-stepping) because springs need short steps to stay stable; the birds take one.</p>
+<div class="nb-prompt nb-In">In [11]</div>
+
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">film</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">240</span><span class="p">,</span> <span class="n">fps</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">substeps</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">kite</span><span class="p">,</span> <span class="n">flock</span><span class="p">,</span> <span class="n">frames</span> <span class="o">=</span> <span class="n">Kite</span><span class="p">(),</span> <span class="n">Flock</span><span class="p">(),</span> <span class="p">[]</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fps</span>
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">substeps</span><span class="p">):</span>
+            <span class="n">kite</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">f</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">s</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">substeps</span><span class="p">,</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">substeps</span><span class="p">)</span>
+        <span class="n">flock</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+        <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">render</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span> <span class="o">+</span> <span class="mf">1.1</span> <span class="o">*</span> <span class="n">f</span> <span class="o">/</span> <span class="n">n</span><span class="p">,</span> <span class="n">extras</span><span class="o">=</span><span class="p">(</span><span class="k">lambda</span> <span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="n">f</span><span class="p">:</span> <span class="n">flock</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">f</span><span class="p">),</span> <span class="n">kite</span><span class="o">.</span><span class="n">draw</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">frames</span>
+
+
+<span class="n">frames</span> <span class="o">=</span> <span class="n">film</span><span class="p">()</span>
+<span class="n">save_gif</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">OUT</span> <span class="o">/</span> <span class="s2">"badshahi_film.gif"</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mf">2.6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">225</span><span class="p">)):</span>
+    <span class="n">show</span><span class="p">(</span><span class="n">frames</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="sa">f</span><span class="s2">"frame </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">();</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="s2">"frames saved to"</span><span class="p">,</span> <span class="n">OUT</span> <span class="o">/</span> <span class="s2">"badshahi_film.gif"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"(</span><span class="si">{</span><span class="p">(</span><span class="n">OUT</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s1">'badshahi_film.gif'</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1e6</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> MB)"</span><span class="p">)</span>
+</code></pre></div>
+<div class="nb-prompt nb-Out">Out [11]</div>
+
+<p><img alt="Figure" src="../fig/f-10.png" /></p>
+<div class="nb-prompt nb-Out">Out [11]</div>
+
+<div class="highlight"><pre><span></span><code>240 frames saved to data\badshahi_film.gif (0.4 MB)
+</code></pre></div>
+<p>Four frames from the twelve-second film. In frame 30 it is morning (phase 0.09): the sun is low on the left, the flock wheels over the central dome and the kite flies to the left on its taut string. In frame 90 (phase 0.36) the sun is high in the west, on the right. Frame 150 (phase 0.64) is deep night: the building has its night colours, the moon has risen and the birds, drawn in black, all but vanish against the sky, as real birds do. Frame 225 (phase 0.98) is the twilight before dawn, with the purple glow low in the sky; the kite still rides the wind. The whole film comes from about 250 lines of code and no drawn images.</p>
+<h2 id="44-what-you-have-learned">4.4 What you have learned<a class="headerlink" href="#44-what-you-have-learned" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>A picture is an array of palette indices; a palette turns them into colours, and swapping palette entries recolours a scene at once.</p>
+</li>
+<li>
+<p>Lines and circles are drawn with whole-number algorithms (Bresenham, midpoint); filled shapes are inside tests.</p>
+</li>
+<li>
+<p>Architecture can be written as geometry: a Mughal arch is two overlapping discs, an onion dome a width that varies with height.</p>
+</li>
+<li>
+<p>Dithering imitates more colours than the palette has.</p>
+</li>
+<li>
+<p>A scene is a list of components, each a class with a few numbers and a draw method; symmetry halves the work.</p>
+</li>
+<li>
+<p>Animation is drawing the scene as a function of time, many times a second.</p>
+</li>
+<li>
+<p>Motion comes from forces and integration; semi-implicit Euler keeps energy where explicit Euler explodes.</p>
+</li>
+<li>
+<p>Complex group behaviour can emerge from a few local rules.</p>
+</li>
+</ul>
+<p>The guide's later chapters draw the design as diagrams, rebuild the same picture in C as old <code>graphics.h</code> programs did, and turn the film into a game you control.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+
+<nav class="aa-pager" aria-label="Previous and next page">
+  <a href="../motion/"><span>Previous</span>3. Time and motion</a>
+  <a class="next" href="../design/"><span>Next</span>5. The design as diagrams</a>
+</nav>
+
+<footer class="aa-footer">
+  <div class="aa-bar">
+    <div>&copy; 2026 Ahmad Ammar. <a href="/teaching.html">More teaching</a>.</div>
+    <div><a href="mailto:ahmadammargeo@gmail.com">Email</a> &middot; <a href="https://github.com/AhmadAmmar">GitHub</a> &middot; <a href="https://www.linkedin.com/in/ahmadammar/">LinkedIn</a></div>
+  </div>
+</footer>
+
+<div class="admin-edit" data-admin-edit hidden><span>Admin</span> <a href="https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/pixel-animation">Edit the LaTeX source in the browser editor</a> <a href="https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml">Rename this document</a> <span class="admin-src">rebuild with build_guides.py</span></div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog" role="status" aria-atomic="true">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.instant","navigation.top","navigation.footer","toc.follow","search.highlight"],"redirect":null,"search":"../assets/javascripts/workers/search.719e0d91.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","clipboard.error":"Could not copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d31f0ffa.min.js"></script>
+      
+        <script src="../mathjax.js"></script>
+      
+        <script src="../site.js"></script>
+      
+        <script src="../pdfview.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

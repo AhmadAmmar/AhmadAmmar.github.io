@@ -1,0 +1,79 @@
+\chapter{The design as diagrams}\label{ch:design}
+
+The program is small, but it already has the shape of larger ones: data describing a scene, components that draw themselves, simulations that advance in time, and a loop that ties them together. Diagrams make that shape visible before the code grows. Each kind answers a different question.
+
+\section{Class diagram: what the parts are}
+A UML \emph{class diagram} shows each kind of object, the numbers it holds (attributes) and what it can do (methods). Figure~\ref{fig:uml} shows the program's classes. The four building components share one method, \texttt{draw(canvas)}, so the scene can draw any of them without knowing which it is; this is what programmers call an \emph{interface}. The kite and the flock add \texttt{step(dt)}, which advances the simulation by a time step.
+
+\begin{figure}[H]\centering
+\begin{tikzpicture}[every node/.style={font=\scriptsize}, cls/.style={draw, rectangle split, rectangle split parts=3, align=left, text width=3.2cm, fill=white}, >=Stealth]
+  \node[cls] (comp) at (0,3.2) {\textbf{Component}\\\textit{(interface)}\nodepart{second}\nodepart{third}draw(canvas)};
+  \node[cls] (dome) at (-5.4,0) {\textbf{Dome}\nodepart{second}cx, base, R, h, drum\nodepart{third}draw(canvas)};
+  \node[cls] (min) at (-1.8,0) {\textbf{Minaret}\nodepart{second}x, top, w, bottom,\\balconies\nodepart{third}draw(canvas)};
+  \node[cls] (arch) at (1.8,0) {\textbf{Arch}\nodepart{second}cx, spring, bottom, w,\\frame, k, inner\nodepart{third}draw(canvas)};
+  \node[cls] (blk) at (5.4,0) {\textbf{Block}\nodepart{second}x0, y0, x1, y1\nodepart{third}draw(canvas)};
+  \foreach \n in {dome,min,arch,blk} \draw[->, dashed] (\n.north) -- (comp.south);
+  \node[cls] (scene) at (-4.2,-3.4) {\textbf{Scene}\nodepart{second}components: list\nodepart{third}badshahi(), mirror(c)};
+  \node[cls] (kite) at (0,-3.4) {\textbf{Kite}\nodepart{second}pos, vel, m, g, k, L0, drag\nodepart{third}wind(t), forces(t),\\step(t, dt), draw(canvas)};
+  \node[cls] (flock) at (4.2,-3.4) {\textbf{Flock}\nodepart{second}n, p[n,2], v[n,2]\nodepart{third}step(dt), draw(canvas)};
+  \draw[-{Diamond[open]}] (dome.south) -- (scene.north);
+  \draw[-{Diamond[open]}] (min.south) -- ($(scene.north)+(0.6,0)$);
+\end{tikzpicture}
+\caption{Class diagram. Dashed arrows: each building part implements the Component interface. Open diamonds: the scene is an aggregation of components (Arch and Block are aggregated in the same way; their lines are omitted for clarity).}\label{fig:uml}
+\end{figure}
+
+\section{Data-flow diagram: how data moves}
+A \emph{data-flow diagram} (DFD) ignores classes and follows the data: where it comes from, which processes transform it, and where it is stored. Figure~\ref{fig:dfd} shows one frame. Parameters (the scene list, palette, constants) are stored data; the clock supplies time; processes turn them into a grid of indices and finally into an image file.
+
+\begin{figure}[H]\centering
+\begin{tikzpicture}[every node/.style={font=\footnotesize}, proc/.style={draw, circle, minimum size=2.0cm, align=center, fill=blue!6}, store/.style={draw, rectangle, minimum width=2.6cm, minimum height=0.9cm, align=center, fill=gray!10}, ext/.style={draw, rectangle, very thick, align=center, minimum width=1.8cm, minimum height=0.9cm}, lab/.style={fill=white, inner sep=1pt}, >=Stealth]
+  \node[ext] (clock) at (0,3.6) {Clock\\(frame $f$)};
+  \node[proc] (time) at (0,0.6) {1\\time and\\phase};
+  \node[proc] (phys) at (4.4,2.4) {2\\physics\\step};
+  \node[proc] (draw) at (4.4,-2.2) {3\\draw\\scene};
+  \node[store] (state) at (9.6,2.4) {D1 kite and\\flock state};
+  \node[proc] (pal) at (9.6,-2.2) {4\\palette\\lookup};
+  \node[ext] (file) at (9.6,-5.0) {GIF / PNG file};
+  \node[store] (params) at (0,-3.6) {D2 scene list,\\palette, constants};
+  \draw[->] (clock) -- node[lab]{$f$} (time);
+  \draw[->] (time) -- node[lab]{$t$, $\Delta t$} (phys);
+  \draw[->] (time) -- node[lab]{phase} (draw);
+  \draw[->] ([yshift=3mm]phys.east) -- node[lab, above=1mm]{new state} ([yshift=3mm]state.west);
+  \draw[->] ([yshift=-3mm]state.west) -- node[lab, below=1mm]{old state} ([yshift=-3mm]phys.east);
+  \draw[->] (state.south west) -- node[lab]{positions} (draw.north east);
+  \draw[->] (params) -- node[lab]{components} (draw);
+  \draw[->] (draw) -- node[lab]{indices} (pal);
+  \draw[->] (pal) -- node[lab]{RGB} (file);
+\end{tikzpicture}
+\caption{Level-1 data-flow diagram for one frame. Circles are processes, open boxes are stores, bold boxes are external entities.}\label{fig:dfd}
+\end{figure}
+
+\section{Entity--relationship diagram: the scene as data}
+Because the scene is a list of parts, it could live in a table or database instead of code: change a row and the mosque changes. An \emph{entity--relationship diagram} (ERD) designs those tables. Figure~\ref{fig:erd} shows one design: a landmark has many components; each component has a type and its own numbers; a component may be the mirror of another. Adding Government College's tower or the Lahore Museum would mean new rows and perhaps a new component type, not new drawing code for the scene.
+
+\begin{figure}[H]\centering
+\begin{tikzpicture}[every node/.style={font=\footnotesize}, ent/.style={draw, rectangle split, rectangle split parts=2, align=left, text width=3.3cm, fill=white}, card/.style={fill=white, inner sep=1pt}]
+  \node[ent] (lm) at (0,0) {\textbf{LANDMARK}\nodepart{second}\underline{landmark\_id}\\name, city, year\\canvas\_w, canvas\_h};
+  \node[ent] (cp) at (5.4,0) {\textbf{COMPONENT}\nodepart{second}\underline{component\_id}\\landmark\_id (FK)\\type\_id (FK)\\draw\_order\\mirror\_of (FK, optional)};
+  \node[ent] (ty) at (10.8,0) {\textbf{COMPONENT\_TYPE}\nodepart{second}\underline{type\_id}\\name (dome, minaret, \dots)};
+  \node[ent] (pa) at (5.4,-4.0) {\textbf{PARAMETER}\nodepart{second}\underline{component\_id, name}\\value};
+  \node[ent] (pl) at (0,-4.0) {\textbf{PALETTE\_COLOUR}\nodepart{second}\underline{landmark\_id, index}\\r, g, b, night\_index};
+  \draw (lm) -- node[card, pos=0.15]{1} node[card, pos=0.5, above=1mm]{has} node[card, pos=0.85]{N} (cp);
+  \draw (ty) -- node[card, pos=0.15]{1} node[card, pos=0.5, above=1mm]{is of} node[card, pos=0.85]{N} (cp);
+  \draw (cp) -- node[card, pos=0.2]{1} node[card, pos=0.5, right=1mm]{has} node[card, pos=0.8]{N} (pa);
+  \draw (lm) -- node[card, pos=0.2]{1} node[card, pos=0.5, left=1mm]{uses} node[card, pos=0.8]{16} (pl);
+\end{tikzpicture}
+\caption{Entity--relationship diagram for storing landmarks as data. Underlined fields are keys; FK marks a foreign key, a reference to a row in another table. The optional field mirror\_of links a component to the one it mirrors, in the same table.}\label{fig:erd}
+\end{figure}
+
+\section{Which diagram when}
+\begin{tabularx}{\linewidth}{@{}lX@{}}
+\toprule
+Diagram & Question it answers here \\
+\midrule
+Free-body (Figure~\ref{fig:fbd}) & Which forces act on a body, and in which directions? Draw before writing \texttt{forces()}. \\
+Class (Figure~\ref{fig:uml}) & What kinds of object exist, what they hold and what they can do? \\
+Data flow (Figure~\ref{fig:dfd}) & Where does each piece of data come from and go to in one frame? \\
+Entity--relationship (Figure~\ref{fig:erd}) & How would the scene be stored as tables so it can be edited without code? \\
+\bottomrule
+\end{tabularx}

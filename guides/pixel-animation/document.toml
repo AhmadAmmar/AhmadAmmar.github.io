@@ -1,0 +1,31 @@
+name = "pixel_animation"
+title = "Pixel animation from first principles"
+subtitle = "Build an 8-bit animation of Badshahi Masjid, Lahore, from single pixels to physics, in Python and in C"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_start", "ch_stills", "ch_motion", "ch_physics", "ch_design", "ch_lowlevel", "ch_next"]
+figures = "fig"
+defines = ["defs"]
+[notebooks]
+folder = "notebooks"
+sources = ["pixel_animation"]
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/pixel-animation/notebooks"
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Pixel animation from first principles"
+intro = "Build an 8-bit animation of Badshahi Masjid, Lahore, with no drawn images: pixels, lines and shapes first, then a still picture made from reusable parts, then time, a day-and-night cycle, a kite on an elastic string and a flock of pigeons. The same picture is then rebuilt in plain C, the way graphics.h programs drew."
+pdf_url = "/files/Pixel_animation_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/pixel-animation"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
+[web.slugs]
+ch_start = "start"
+ch_stills = "stills"
+ch_motion = "motion"
+ch_physics = "physics"
+ch_design = "design"
+ch_lowlevel = "low-level-c"
+ch_next = "next"

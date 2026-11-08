@@ -1,0 +1,27 @@
+\chapter{Towards a game}\label{ch:next}
+
+An animation plays by itself; a game listens. The step from one to the other is small, and the next parts of this project take it one piece at a time, each from first principles.
+
+\section{The game loop}
+The film loop of Chapter~\ref{ch:physics} becomes a \emph{game loop} with three steps repeated for ever: read the player's input, update the world, draw. Physics must not depend on how fast the computer draws, so games use a \emph{fixed time step}: they add the real time that has passed to an accumulator, run as many physics steps of, say, $1/120$\,s as fit, then draw once.
+\begin{lstlisting}[language=Python]
+acc, dt = 0.0, 1 / 120
+while running:
+    acc += time_since_last_frame()
+    handle_input()
+    while acc >= dt:
+        world.step(dt)
+        acc -= dt
+    draw(world)
+\end{lstlisting}
+
+\section{Plan for the next parts}
+\begin{enumerate}
+\item \textbf{Input:} steer the kite from the keyboard by letting out or pulling in string (changing $L_0$), with \texttt{pygame} for the window and keys.
+\item \textbf{State and rules:} a \emph{pech}, the Basant kite fight: a second kite flown by the computer, and a rule for when one string cuts the other (the intersection of two line segments).
+\item \textbf{Collision:} pigeons that avoid the kite (a fourth flocking rule) and kites that cannot pass through minarets (the inside tests you already have).
+\item \textbf{Sprites and tiles:} small images reused many times, and a scrolling view of the Walled City: the Shahi Qila opposite the mosque and the Hazuri Bagh between them.
+\item \textbf{More landmarks as data:} Government College's tower, the National College of Arts and the Lahore Museum as new rows in the tables of Figure~\ref{fig:erd}.
+\item \textbf{Sound:} tones generated as waveforms, for the cry of \emph{bo kata!} when a kite is cut.
+\end{enumerate}
+Each part follows the pattern of this guide: the idea in words, the smallest code that shows it, a check that the result is what the physics or geometry says it should be, and then its place in the growing program.

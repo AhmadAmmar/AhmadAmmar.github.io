@@ -1,0 +1,87 @@
+\chapter{The low level: the same picture in C}\label{ch:lowlevel}
+
+The Python version leans on numpy to test all 19,200 pixels at once and on Pillow to write image files. Underneath, every graphics system does what this chapter does by hand: it keeps the picture in a block of memory, the \emph{framebuffer}, and writes bytes into it. The C program \texttt{pixel\_lahore.c} in the guide's \texttt{c} folder draws the same mosque, sun and kite with nothing but the C standard library.
+
+\section{A framebuffer and BGI-style calls}
+Students who used Dev-C++ with \texttt{graphics.h} (the Borland Graphics Interface, BGI) will recognise the calls. The program defines its own versions, so it compiles anywhere:
+\begin{lstlisting}[language=C]
+static unsigned char fb[H][W];   /* the framebuffer: one palette index per pixel */
+static int colour = 15;          /* the current colour, as setcolor() sets it */
+
+void setcolor(int c) { colour = c; }
+void putpixel(int x, int y, int c) {
+    if (x >= 0 && x < W && y >= 0 && y < H) fb[y][x] = (unsigned char)c;
+}
+\end{lstlisting}
+Every other drawing call is built on \texttt{putpixel}. The line and circle are the Bresenham and midpoint algorithms of Chapter~\ref{ch:stills}, now in integers only:
+\begin{lstlisting}[language=C]
+void line(int x0, int y0, int x1, int y1) {
+    int dx = abs(x1 - x0), dy = -abs(y1 - y0);
+    int sx = x0 < x1 ? 1 : -1, sy = y0 < y1 ? 1 : -1, err = dx + dy;
+    for (;;) {
+        putpixel(x0, y0, colour);
+        if (x0 == x1 && y0 == y1) return;
+        int e2 = 2 * err;
+        if (e2 >= dy) { err += dy; x0 += sx; }
+        if (e2 <= dx) { err += dx; y0 += sy; }
+    }
+}
+\end{lstlisting}
+The shapes are the same inside tests, written as two nested loops over rows and columns instead of numpy masks. The pointed arch, for example:
+\begin{lstlisting}[language=C]
+static int in_arch(double x, double y, double cx, double spring, double bottom, double w) {
+    double off = 0.25 * w, r = w / 2 + off;          /* two centres, k = 0.5 */
+    if (y >= spring) return fabs(x + 0.5 - cx) <= w / 2 && y < bottom;
+    double a = (x - cx - off) * (x - cx - off) + (y - spring) * (y - spring);
+    double b = (x - cx + off) * (x - cx + off) + (y - spring) * (y - spring);
+    return a <= r * r && b <= r * r;
+}
+\end{lstlisting}
+Symmetry becomes a loop over the two sides, with $x \mapsto W - x$ on the second pass, and the kite is a \texttt{struct} of position and velocity updated by the same semi-implicit Euler step.
+
+\section{Writing an image without a library}
+The simplest image format is PPM: a text header giving the width, height and maximum value, then three bytes (red, green, blue) per pixel. Writing it is a palette lookup per pixel:
+\begin{lstlisting}[language=C]
+void save_ppm(const char *path) {
+    FILE *f = fopen(path, "wb");
+    fprintf(f, "P6\n%d %d\n255\n", W, H);
+    for (int y = 0; y < H; y++)
+        for (int x = 0; x < W; x++) fwrite(PALETTE[fb[y][x]], 1, 3, f);
+    fclose(f);
+}
+\end{lstlisting}
+
+\section{Compile and run}
+With any C compiler (Dev-C++ and Code::Blocks include MinGW's \texttt{gcc}; on Linux and macOS it is usually installed):
+\begin{lstlisting}[language=bash]
+gcc -O2 -Wall -o pixel_lahore pixel_lahore.c -lm
+./pixel_lahore
+\end{lstlisting}
+It writes \texttt{still.ppm} and 120 frames, \texttt{frames/frame\_000.ppm} to \texttt{frame\_119.ppm}, and prints where the kite ended. Compiled with \texttt{gcc} on Windows, it gave no warnings and printed
+\begin{lstlisting}
+wrote still.ppm and 120 frames; kite ended at (54.5, 20.1)
+\end{lstlisting}
+which is the same final kite position as the Python notebook's after twelve seconds, because both integrate the same equations with the same step of $1/80$\,s. Any image viewer that reads PPM (GIMP, IrfanView) opens the frames, and Pillow or the free tool ImageMagick (\texttt{magick frames/*.ppm film.gif}) joins them into a GIF.
+
+\begin{figure}[H]\centering
+\includegraphics[width=0.75\linewidth]{c_still.png}
+\caption{The still written by the C program, enlarged four times. It matches the Python picture except along some edges: compared pixel by pixel, 531 of the 19,200 pixels (2.8\,\%) differ, all on the outlines of round shapes, where C rounds coordinates to whole numbers at different points from numpy.}\label{fig:cstill}
+\end{figure}
+
+\section{Where OpenGL and game engines fit}
+\texttt{graphics.h} and this program draw on the processor, one pixel at a time. OpenGL, Direct3D, Vulkan and Metal hand the work to the graphics card, which runs a small program, a \emph{shader}, for every pixel in parallel. The ideas map across directly:
+
+\begin{tabularx}{\linewidth}{@{}lllX@{}}
+\toprule
+This guide & \texttt{graphics.h} & OpenGL & Note \\
+\midrule
+\texttt{fb} array & screen memory & framebuffer & where the picture lives \\
+\texttt{put\_pixel} & \texttt{putpixel} & \texttt{GL\_POINTS} & one pixel at a time is slow on a GPU \\
+\texttt{line} & \texttt{line} & \texttt{GL\_LINES} & rasterised by the card \\
+inside-test mask & \texttt{fillpoly} & fragment shader & a fragment shader \emph{is} an inside test run for every pixel \\
+palette lookup & \texttt{setpalette} & texture lookup & a 16-entry texture \\
+frame loop & \texttt{cleardevice}, \texttt{delay} & swap buffers & draw to a hidden buffer, then show it \\
+\bottomrule
+\end{tabularx}
+
+The pointed-arch test, written in OpenGL's shading language, would be the same few lines run by the card for every pixel at once. That is why a modern game can draw millions of pixels sixty times a second, while the methods are those you have just written by hand.

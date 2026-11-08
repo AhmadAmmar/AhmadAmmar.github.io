@@ -1,0 +1,27 @@
+\chapter{Before you start}\label{ch:start}
+
+This guide builds a small animated picture of Badshahi Masjid, the great Mughal mosque of Lahore completed in 1673, without drawing anything by hand. Every pixel is computed. You start from a single coloured square and add one idea at a time: lines, filled shapes, a palette, a still picture made of reusable parts, then time, light, and finally physics, with a kite on an elastic string and a flock of pigeons. The same picture is then rebuilt in plain C, the way programs written with \texttt{graphics.h} in Dev-C++ drew, so you see what high-level libraries do for you underneath.
+
+The style is deliberately \emph{8-bit}: a 160 by 120 canvas and 16 colours, as on home computers of the 1980s. Small canvases make every idea visible, and the methods are the same ones used in modern games and scientific simulations.
+
+\section{What you will learn}
+\begin{itemize}
+\item \textbf{Pictures:} a picture as a grid of numbers; palettes; Bresenham's line and the midpoint circle; filling shapes with inside tests; dithering.
+\item \textbf{Procedural modelling:} describing architecture with geometry (a Mughal arch as two overlapping discs, an onion dome as a width that varies with height) and building a scene from a list of parts, using symmetry.
+\item \textbf{Animation:} frames, the animation loop, everything as a function of time, a day-and-night cycle with a palette swap.
+\item \textbf{Simulation science:} forces, Newton's second law, numerical integration and why one form of Euler's method explodes while another is stable; springs, drag and gusty wind; flocking from three local rules.
+\item \textbf{Design:} drawing the program as a class diagram, a data-flow diagram, an entity--relationship diagram and a free-body diagram.
+\item \textbf{Low level:} a framebuffer in C, the old BGI drawing calls, and how OpenGL and game engines relate to them.
+\end{itemize}
+
+\section{Getting Python and the notebook}
+Open the \emph{Notebooks} page of this guide and choose \emph{Open in Colab} to run it in a web browser with nothing to install. On your own computer:
+\begin{lstlisting}[language=bash]
+conda create -n pixels python=3.12 numpy matplotlib pillow jupyterlab
+conda activate pixels
+jupyter lab
+\end{lstlisting}
+Then open the downloaded \texttt{pixel\_animation.ipynb}. Boxes labelled \emph{In [n]} are code and \emph{Out [n]} what it printed or drew. Run the cells in order from the top: each section uses functions defined in the ones before. The animated GIFs are written to a \texttt{data} folder beside the notebook.
+
+\section{Setup}
+\input{generated/nb_pixel_animation_1}
