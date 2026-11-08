@@ -710,6 +710,7 @@
 
 <h1 id="4-time-and-motion">4. Time and motion<a class="headerlink" href="#4-time-and-motion" title="Permanent link">&para;</a></h1>
 <p>Motion is a picture that depends on time. Here the time is the hour of the day: the sun crosses the sky, the sky changes colour, and the building takes its night colours after sunset.</p>
+<p>Watch the result: <a href="https://ahmadammar.github.io/files/pixel-animation/day_and_night.gif">a day and a night as an animated GIF</a>.</p>
 <h2 id="41-time-and-frames">4.1 Time and frames<a class="headerlink" href="#41-time-and-frames" title="Permanent link">&para;</a></h2>
 <p>An animation is a sequence of still pictures, <strong>frames</strong>, shown quickly; at 20 frames a second the eye sees motion. A program makes them with a loop: for each frame, work out the time <em>t</em>, update everything that moves, draw the scene, and store the picture. Everything that changes is a <strong>function of time</strong>.</p>
 <p><strong>The sun</strong> moves on a circle of radius 84 centred below the ground. A day is one turn, <em>phase</em> 0 to 1: the angle is <em>a</em> = 2π × phase, the position is (80 − 84 cos <em>a</em>, 104 − 84 sin <em>a</em>), and sin <em>a</em> is the sun's <strong>elevation</strong>: positive by day, negative by night. The sky's two colours are chosen from the elevation.</p>
