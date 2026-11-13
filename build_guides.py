@@ -61,13 +61,15 @@ def build(course):
     shutil.copy2(made, HERE / "files" / pdf_name)
     stack.web(root)
     stack.deploy(root, dest)
+    if (root / "static").exists():   # files served beside the pages (downloadable examples, screenshots): sources, kept with the guide
+        shutil.copytree(root / "static", dest, dirs_exist_ok=True)
     (dest / "404.html").unlink(missing_ok=True)    # the site has one error page, at its root
 
 
 def check():
     """Every internal link and picture in the built site must point at a file that exists."""
     missing = {}
-    pages = [p for p in HERE.rglob("*.html") if not {"guides", "src", ".git"} & set(p.relative_to(HERE).parts)]
+    pages = [p for p in HERE.rglob("*.html") if not {"guides", "src", ".git", "redirects", "_site"} & set(p.relative_to(HERE).parts)]
     for page in pages:
         for link in re.findall(r'(?:href|src|data-src)="([^"#?]+)', page.read_text(encoding="utf8", errors="replace")):
             if re.match(r"[a-z]+:|//", link):

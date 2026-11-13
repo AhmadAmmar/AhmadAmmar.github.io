@@ -4,7 +4,7 @@ author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
 chapters = ["git_basics", "history", "github", "testing", "ci", "pipelines", "backups", "checklist"]
-figures = "../../teaching/git-ci"
+figures = "static"
 [web]
 edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/git-ci/tex"
 rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"

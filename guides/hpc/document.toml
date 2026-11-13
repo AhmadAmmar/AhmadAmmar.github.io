@@ -4,7 +4,7 @@ author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
 chapters = ["concepts", "shell", "connect", "files", "software", "slurm", "first_jobs", "arrays", "practice", "beyond", "troubleshooting"]
-figures = "../../teaching/hpc"
+figures = "static"
 [web]
 edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/hpc/tex"
 rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"

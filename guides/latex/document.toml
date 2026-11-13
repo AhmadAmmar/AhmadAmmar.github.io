@@ -4,7 +4,7 @@ author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
 chapters = ["basics", "text", "maths", "tables_figures", "references", "macros", "outputs", "practice", "troubleshooting"]
-figures = "../../teaching/latex"
+figures = "static"
 [web]
 edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/latex/tex"
 rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"

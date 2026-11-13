@@ -109,7 +109,7 @@ def main():
     # 4. forwarding page at the old address
     depth = old.count("/") + 1
     rel = "../" * depth + new + "/"
-    stub = HERE / old / "index.html"
+    stub = HERE / "redirects" / old / "index.html"   # tracked forwarding pages, copied into the published site
     print("forward", old, "->", new)
     if not dry:
         stub.parent.mkdir(parents=True, exist_ok=True)

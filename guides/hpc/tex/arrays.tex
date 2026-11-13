@@ -17,13 +17,13 @@ where A is wall area, n is air changes per hour, V is volume and DD is degree da
 
 \textbf{heat\_loss.py}
 
-\lstinputlisting{../../../teaching/hpc/examples/heat_loss.py}
+\lstinputlisting{../static/examples/heat_loss.py}
 
 \section{Step 2: make the inputs}\label{step-2-make-the-inputs}
 
 \textbf{make\_cases.py}
 
-\lstinputlisting{../../../teaching/hpc/examples/make_cases.py}
+\lstinputlisting{../static/examples/make_cases.py}
 
 Three settings, each with three values, give 3 × 3 × 3 = 27 combinations.
 
@@ -67,7 +67,7 @@ Running one input per task works, but very short tasks are wasteful, because sta
 
 \textbf{run\_sweep.sh}
 
-\lstinputlisting{../../../teaching/hpc/examples/run_sweep.sh}
+\lstinputlisting{../static/examples/run_sweep.sh}
 
 Add your \texttt{module\ load} line just before the \texttt{mapfile} line. Slurm usually passes your session\textquotesingle s environment on to the job, but stating it in the script is what makes the job repeatable.
 

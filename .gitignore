@@ -10,3 +10,34 @@ web_figs.*
 *.out
 guides/*/notebooks/data/
 guides/*/tex/generated/
+
+# Built on GitHub by .github/workflows/site.yml from the sources in guides/, src/ and the other repositories;
+# published as an artifact, so not kept here. Local builds still write them, for previewing.
+/_site/
+/teaching/*
+!/teaching/atmosphere/
+/writing/*
+/projects/
+/404.html
+/cv.html
+/index.html
+/projects.html
+/research.html
+/teaching.html
+/writing.html
+/sitemap.xml
+/robots.txt
+/files/HPC_tutorial_Ahmad_Ammar.pdf
+/files/LaTeX_guide_Ahmad_Ammar.pdf
+/files/Git_CI_guide_Ahmad_Ammar.pdf
+/files/Reading_radar_images_Ahmad_Ammar.pdf
+/files/Reproducible_maps_Ahmad_Ammar.pdf
+/files/Website_guide_Ahmad_Ammar.pdf
+/files/Contributing_guide_Ahmad_Ammar.pdf
+/files/Climate_data_Ahmad_Ammar.pdf
+/files/Climate_data_in_Python_Ahmad_Ammar.pdf
+/files/Hypothesis_testing_Ahmad_Ammar.pdf
+/files/Radar_images_in_Python_Ahmad_Ammar.pdf
+/files/Satellite_images_in_Python_Ahmad_Ammar.pdf
+/files/Pixel_animation_Ahmad_Ammar.pdf
+/files/Editing_guide_Ahmad_Ammar.pdf

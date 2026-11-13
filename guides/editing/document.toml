@@ -4,7 +4,7 @@ author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
 chapters = ["cycle", "colleague", "others", "workflows", "ours", "adopt", "howto"]
-figures = "../../teaching/editing"
+figures = "static"
 bibliography = "refs.bib"
 [web]
 rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"

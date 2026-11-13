@@ -8,6 +8,9 @@
 name: Build and publish site
 
 on:
+  push:
+    branches: [main]
+    paths-ignore: ["**.md", ".vscode/**"]
   workflow_dispatch:
     inputs:
       deploy:
@@ -15,7 +18,7 @@ on:
         type: boolean
         default: true
   schedule:
-    - cron: "0 5 1 * *"   # monthly rebuild, so a broken toolchain shows up before an edit needs it
+    - cron: "0 5 * * 1"   # weekly rebuild: checks outside links and shows a broken toolchain before an edit needs it
 
 permissions:
   contents: read
@@ -58,8 +61,8 @@ jobs:
       - name: Pandoc and Poppler (pdftocairo turns figure PDFs into web images)
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
-          wget -q "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
-          sudo dpkg -i "pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          wget -q -O /tmp/pandoc.deb "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          sudo dpkg -i /tmp/pandoc.deb
 
       - name: TeX Live
         uses: TeX-Live/setup-texlive-action@v4
@@ -81,9 +84,22 @@ jobs:
 
       - name: Gather the published files
         run: |
-          rsync -a --delete ./ _site/             --exclude '/.git*' --exclude '/_site' --exclude '/guides' --exclude '/src' --exclude '/tools'             --exclude '/.vscode' --exclude '/.stack-*' --exclude '__pycache__' --exclude '/*.py'             --exclude '/site.toml' --exclude '/README.md' --exclude '/requirements-site.txt' --exclude '/projects/third-pole'             --exclude '/src/pages/project-third-pole.html'
+          rsync -a --delete ./ _site/             --exclude '/.git*' --exclude '/_site' --exclude '/guides' --exclude '/src' --exclude '/tools' --exclude '/redirects'             --exclude '/.vscode' --exclude '/.stack-*' --exclude '__pycache__' --exclude '/*.py'             --exclude '/site.toml' --exclude '/README.md' --exclude '/requirements-site.txt' --exclude '/projects/third-pole'             --exclude '/src/pages/project-third-pole.html'
+          rsync -a redirects/ _site/          # forwarding pages for renamed addresses (tools/rename_page.py)
           touch _site/.nojekyll
           du -sh _site
+
+      - name: Check outside links (reported, never blocks publishing)
+        uses: lycheeverse/lychee-action@v2
+        continue-on-error: true
+        with:
+          args: >-
+            --no-progress --root-dir "${{ github.workspace }}/_site" --scheme https --scheme http
+            --max-concurrency 8 --timeout 20 --accept 200,202,206,403,405,429
+            --exclude "marxist-economics" --exclude "127\.0\.0\.1" --exclude "github\.dev" --exclude "linkedin\.com"
+            "_site/**/*.html"
+          fail: false
+          jobSummary: true
 
       - uses: actions/upload-pages-artifact@v3
         with:
