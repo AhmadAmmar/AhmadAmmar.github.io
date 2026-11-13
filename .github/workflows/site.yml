@@ -55,8 +55,9 @@ jobs:
           python -m pip install --upgrade pip
           python -m pip install -e "$HOME/dev/research-helpers" -r requirements-site.txt
 
-      - name: Pandoc
+      - name: Pandoc and Poppler (pdftocairo turns figure PDFs into web images)
         run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
           wget -q "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
           sudo dpkg -i "pandoc-${PANDOC_VERSION}-1-amd64.deb"
 
