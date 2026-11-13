@@ -11,6 +11,7 @@ on:
   push:
     branches: [main]
     paths-ignore: ["**.md", ".vscode/**"]
+  pull_request:          # a proposed change is built and checked before it is merged; only main is published
   workflow_dispatch:
     inputs:
       deploy:
@@ -26,7 +27,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: site
+  group: site-${{ github.ref }}
   cancel-in-progress: true
 
 env:
@@ -107,7 +108,7 @@ jobs:
 
   deploy:
     needs: build
-    if: github.event_name != 'workflow_dispatch' || inputs.deploy
+    if: github.event_name != 'pull_request' && (github.event_name != 'workflow_dispatch' || inputs.deploy)
     runs-on: ubuntu-24.04
     environment:
       name: github-pages

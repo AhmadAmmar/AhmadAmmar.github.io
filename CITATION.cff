@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use these guides or materials, please cite them as below."
+title: "Ahmad Ammar: guides, teaching materials and writing"
+type: software
+authors:
+  - family-names: Ammar
+    given-names: Ahmad
+    email: ahmadammargeo@gmail.com
+    affiliation: Ulster University
+repository-code: "https://github.com/AhmadAmmar/AhmadAmmar.github.io"
+url: "https://ahmadammar.github.io"

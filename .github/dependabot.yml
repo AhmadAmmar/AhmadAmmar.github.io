@@ -1,0 +1,8 @@
+# Keeps the actions used by the site's workflows up to date: a pull request each month when one has a new
+# version, built and checked by site.yml before it is merged.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
