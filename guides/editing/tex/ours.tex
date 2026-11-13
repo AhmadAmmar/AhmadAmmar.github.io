@@ -1,0 +1,22 @@
+\chapter{Our stack, compared}
+
+Our guides, essays and the Atmosphere handbook are written in LaTeX and built by one shared pipeline, the \texttt{stack} in \href{https://github.com/GeospatialGeeks/research-helpers}{research-helpers}. Each document has a \texttt{document.toml} naming its chapters. From the same chapter files the stack makes the PDF (through LaTeX) and the web pages (through pandoc and the Zensical site builder), with one shared look across the site. Notebooks written as plain Python files are run before each build, and their outputs become part of both versions.
+
+\section{Where we are ahead}
+
+\begin{itemize}
+\item \textbf{One LaTeX source for print and web.} Most projects start from Markdown and make the PDF second. Starting from LaTeX keeps mathematics, cross-references and print layout exact, and the web version follows.
+\item \textbf{Results come from code at build time.} Like Quarto's frozen results, numbers and tables in the text are generated, not typed.
+\item \textbf{Editing tools.} Every page's Admin bar opens that chapter's \texttt{.tex}, in VS Code with a PDF preview, in the browser, or in Studio, which shows the whole document with each chapter beside its rendering and lets plain paragraphs be edited in the rendering itself.
+\item \textbf{Publishing guard.} Studio's \emph{Save and publish} commits only what a rebuild changed and refuses anything listed in \texttt{.stack-hold}.
+\end{itemize}
+
+\section{Where others are ahead}
+
+\begin{itemize}
+\item \textbf{Builds happen on one computer.} Like the Sphinx site in Chapter~2, and unlike every other project in Chapter~3, our pages are built locally. A browser edit is not published until someone rebuilds; there is no record that a clean machine can build the site.
+\item \textbf{No preview of proposed changes.} Others build every pull request.
+\item \textbf{Few automatic checks.} The build reports broken internal links, but not broken external links, missing alternative text or oversized images.
+\item \textbf{No reader-facing feedback button.} Readers cannot report a problem from the page.
+\item \textbf{No archived, citable versions} of guides, as The Turing Way does with Zenodo.
+\end{itemize}

@@ -1,0 +1,48 @@
+\chapter{How other projects do it}
+
+The projects below are open: their repositories show exactly how they are built. They were chosen because each does one part of the cycle unusually well. Repository contents were checked in November 2026.
+
+\section{Quarto books: R for Data Science and Geocomputation with Python}
+
+\href{https://github.com/hadley/r4ds}{R for Data Science} is written as one Quarto (\texttt{.qmd}) file per chapter, configured by \texttt{\_quarto.yml}. A single GitHub Actions workflow, \texttt{build\_book.yaml}, renders and publishes it. Results of code are stored in a committed \texttt{\_freeze} folder, so CI does not have to rerun every computation for each edit; it reruns only chapters whose code changed. \href{https://github.com/geocompx/geocompy}{Geocomputation with Python} goes further: separate workflows build the book on every push (\texttt{main.yaml}), build a preview for every pull request (\texttt{pr.yml}, \texttt{netlify.yml}), and the repository has a \texttt{.devcontainer.json} and \texttt{.gitpod.yml}, so a contributor can open a ready-made environment in the browser with everything installed. It also carries a \texttt{CITATION.bib}.
+
+Quarto renders the same source to HTML and to PDF through LaTeX \citep{quartopub}.
+
+\section{Jupyter Book and MyST: The Turing Way}
+
+\href{https://github.com/the-turing-way/the-turing-way}{The Turing Way}, a community handbook on reproducible research, is a Jupyter Book written in MyST Markdown. Its CI is a set of small, single-purpose checks: \texttt{external\_link\_check.yml} (with a \texttt{lychee.toml}) finds broken links; \texttt{accessibility-alt-text-bot.yml} asks for alternative text on images; \texttt{validate\_citation.yml} checks the \texttt{CITATION.cff}; \texttt{release-drafter.yml} and \texttt{.zenodo.json} turn releases into citable, archived versions with DOIs; \texttt{test-file-size.yml} stops oversized images. Netlify builds a preview of every pull request, reachable at addresses of the form \url{deploy-preview-3153--the-turing-way.netlify.app}, so reviewers read the changed book, not a diff. Contributors are credited through \texttt{.all-contributorsrc}.
+
+Jupyter Book 2 is built on the MyST engine, which exports PDFs through either LaTeX or Typst from the same source \citep{mystpdf}.
+
+\section{Manubot: papers written in the open}
+
+\href{https://github.com/manubot/rootstock}{Manubot Rootstock} is a template for writing a scholarly manuscript in Markdown on GitHub. Each push runs \texttt{manubot.yaml}, which rebuilds the manuscript as HTML and PDF and publishes it. Citations are written as identifiers, for example \texttt{@doi:10.1371/journal.pcbi.1007128}, and Manubot fetches the reference metadata itself \citep{himmelstein2019}. Every version of the manuscript has its own permanent web address.
+
+\section{The Carpentries Workbench: lessons}
+
+\href{https://github.com/carpentries/workbench-template-md}{The Carpentries lesson template} keeps lessons as Markdown episodes with a \texttt{config.yaml}. Its workflows build the lesson in a container (\texttt{docker\_build\_deploy.yaml}), check pull requests before they are built (\texttt{pr-preflight.yaml}) and comment on each pull request with what changed in the rendered lesson (\texttt{pr-comment.yaml}). A \texttt{.devcontainer} gives a ready environment, and translations are managed with Crowdin.
+
+\section{LaTeX with a hosted editor}
+
+Many people who write in LaTeX use Overleaf, a browser editor with a live PDF beside the source and a rich-text view. Overleaf can sync a project with a GitHub repository on its paid plans; the source then lives in git and other tools can build from it. It produces a PDF, not web pages: a web version needs a separate converter.
+
+\section{Side by side}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabularx}{\linewidth}{@{}lXXXX@{}}
+\toprule
+Project & Source & Built by & Preview of changes & After publication \\
+\midrule
+Sphinx site (Ch.~2) & reStructuredText & author's computer & local build & edit button, issues button, rebuild and push \\
+R for Data Science & Quarto & GitHub Actions & local render & push; CI rebuilds; frozen results \\
+Geocomputation with Python & Quarto & GitHub Actions & Netlify per pull request & push or pull request; dev container \\
+The Turing Way & MyST Markdown & CI and Netlify & Netlify per pull request & pull requests checked for links, alt text, file size; DOI releases \\
+Manubot & Markdown & GitHub Actions & each commit is a version & push; citations by DOI \\
+Carpentries & Markdown & GitHub Actions (container) & comment on pull request & pull request; preflight checks \\
+Overleaf & LaTeX & Overleaf & live PDF & edit online; optional git sync (paid) \\
+\bottomrule
+\end{tabularx}
+\caption{How the projects in this chapter handle the editing cycle.}
+\end{table}

@@ -1,0 +1,18 @@
+\chapter{The editing cycle}
+
+Every published document, whatever tool made it, goes round the same loop. There is a \textbf{source}: the files a person writes, in a plain-text format such as Markdown, reStructuredText or LaTeX. A \textbf{build} turns the source into what readers see: HTML pages, a PDF, or both. A \textbf{publish} step copies the built files somewhere public. Editing after the first release means going round the loop again, and the differences between projects are mostly about who does each step, where, and how much of it is automatic.
+
+\section{Four questions that tell projects apart}
+
+\begin{enumerate}
+\item \textbf{What is the source format?} Markdown is the most common: easy to read and write, limited for mathematics and cross-references. MyST Markdown and Quarto Markdown extend it with figures, equations, citations and cross-references. reStructuredText is the older native format of Sphinx. LaTeX is the most expressive for mathematics and print, and the hardest to turn into good web pages.
+\item \textbf{Where is it edited?} A desktop editor (VS Code, RStudio, a LaTeX editor), a browser editor on GitHub, or a hosted service such as Overleaf.
+\item \textbf{Where is it built?} On the author's computer, or by a continuous integration (CI) service such as GitHub Actions each time a change is pushed.
+\item \textbf{How does a change reach readers?} By pushing built files to a branch that GitHub Pages serves, by letting CI build and deploy, or by a documentation host such as Read the Docs or Netlify building from the repository.
+\end{enumerate}
+
+\section{Why the answers matter}
+
+A local build is simple and works offline, but the published site is only as current as the last time someone remembered to build it, and it depends on one computer's setup. A CI build runs the same way every time from a written recipe, which is what makes it reproducible, and it can build a \emph{preview} of every proposed change before it is accepted. The cost is that everything the build needs (for us: TeX, pandoc, Python packages, the data behind figures) must be installable on a clean machine.
+
+The format decides how far a non-specialist can take part. A typo fix in Markdown can be made in the GitHub web editor by anyone; the same fix in a LaTeX chapter with custom macros is easy too, but checking that it still builds is not, unless CI builds it.

@@ -1,0 +1,42 @@
+\chapter{How to edit our documents}
+
+\section{From a published page}
+
+Turn on the Admin bar once in a browser by adding \texttt{?admin=on} to any page address (\texttt{?admin=off} hides it). At the bottom of every page of a guide it then offers:
+\begin{itemize}
+\item \textbf{All chapters in Studio}: the whole document in the local editor (below), opened at the chapter you were reading. Studio must be running.
+\item \textbf{Edit \ldots\ in VS Code}: that chapter's \texttt{.tex} file on this computer.
+\item \textbf{Edit in browser}: the same file in GitHub's web editor. The change is committed to the repository, but the page changes only after a rebuild.
+\end{itemize}
+
+\section{Studio}
+
+Start it with
+\begin{lstlisting}
+python -m research_helpers.stack studio
+\end{lstlisting}
+and open \url{http://127.0.0.1:8770/}. It lists every document with a \texttt{document.toml}. A document opens as one long page: each chapter's LaTeX on the left, its rendering on the right.
+\begin{itemize}
+\item Type in the LaTeX, and the rendering follows after a pause.
+\item Click a plain paragraph or heading in the rendering and type there. When you leave it, that paragraph alone is written back into the LaTeX. Mathematics, citations and references show as grey chips that are carried over unchanged. Paragraphs with environments or equations are edited in the LaTeX: double-click them to jump there.
+\item Click a figure to replace its image or edit its caption. \emph{Add figure}, or dropping an image on the LaTeX, saves the image beside the others (never over one) and inserts a figure at the cursor.
+\item Ctrl+S saves the changed chapters. It refuses if a file was changed elsewhere in the meantime.
+\item \emph{Save and publish} rebuilds the document, commits what the rebuild changed, and pushes. Documents listed in \texttt{.stack-hold} are never published.
+\end{itemize}
+The rendering is a quick approximation. For the exact PDF, use the VS Code task below.
+
+\section{VS Code}
+
+Run once per repository:
+\begin{lstlisting}
+python -m research_helpers.stack editor .
+\end{lstlisting}
+Then, in any chapter, Ctrl+Shift+B builds the document's PDF into \texttt{build/preview/}, and the task \emph{Rebuild this document's web pages} rebuilds the site's pages for it. LaTeX lines wrap in the editor.
+
+\section{From the command line}
+
+\begin{lstlisting}
+python -m research_helpers.stack preview path/to/chapter.tex       # PDF
+python -m research_helpers.stack preview path/to/chapter.tex web   # web pages
+python build_guides.py <guide>                                     # the site's own build
+\end{lstlisting}

@@ -31,6 +31,7 @@ GUIDES = {
     "radar-python": (HERE / "guides/radar-python", "Radar_images_in_Python_Ahmad_Ammar.pdf"),
     "satellite-python": (HERE / "guides/satellite-python", "Satellite_images_in_Python_Ahmad_Ammar.pdf"),
     "pixel-animation": (HERE / "guides/pixel-animation", "Pixel_animation_Ahmad_Ammar.pdf"),
+    "editing": (HERE / "guides/editing", "Editing_guide_Ahmad_Ammar.pdf"),
 }
 
 

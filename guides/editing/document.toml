@@ -1,0 +1,24 @@
+name = "editing"
+title = "Editing published documents"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["cycle", "colleague", "others", "ours", "adopt", "howto"]
+figures = "../../teaching/editing"
+bibliography = "refs.bib"
+[web]
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Editing published documents"
+intro_tex = "intro.tex"
+pdf_url = "/files/Editing_guide_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+[web.slugs]
+cycle = "the-cycle"
+colleague = "a-sphinx-site"
+others = "other-projects"
+ours = "our-stack"
+adopt = "what-to-adopt"
+howto = "how-to-edit"

@@ -1,0 +1,26 @@
+\chapter{A teaching site built with Sphinx}
+
+Bob McNabb's site, \href{https://iamdonovan.github.io}{iamdonovan.github.io}, holds the practicals for several Ulster modules (EGM101, EGM310, EGM702, EGM703, EGM722) alongside research and writing pages. Its repository is public, \href{https://github.com/iamdonovan/iamdonovan.github.io}{github.com/iamdonovan/iamdonovan.github.io}, so how it is made can be read directly. Everything below was taken from that repository in November 2026.
+
+\section{Source and tools}
+
+The source sits in a \texttt{docs} folder: 188 reStructuredText (\texttt{.rst}) files and one Python file, \texttt{conf.py}, which configures Sphinx. A practical is one page; the SAR practical for EGM703 Week 3, for example, is \texttt{docs/teaching/egm703/practicals/week3.rst}, with its 27 screenshots in \texttt{docs/img/egm703/week3/} and the data in \texttt{docs/files/EGM703\_Week3.zip}.
+
+The build environment is a conda file, \texttt{environment.yml}, naming Sphinx extensions: \texttt{sphinx-book-theme} for the look (left navigation, contents panel, search, light and dark mode), \texttt{sphinxcontrib-bibtex} for references from a \texttt{refs.bib}, \texttt{sphinx-design} for cards and tabs, and \texttt{sphinx-copybutton} for copying code. The site is licensed CC BY-SA 4.0.
+
+\section{Build and publish}
+
+There is no CI workflow. The \texttt{Makefile} builds into a folder beside the repository (\texttt{../../iamdonovan-sphinx-docs}), which is a checkout of the \texttt{gh-pages} branch; GitHub Pages serves that branch. Publishing is therefore: edit the \texttt{.rst}, run \texttt{make html}, commit and push the built pages on \texttt{gh-pages}, and commit the source on \texttt{main}. The same \texttt{Makefile} has a \texttt{latexpdf} target, so a PDF can come from the same source through Sphinx's LaTeX writer.
+
+\section{Editing after publication}
+
+The theme is configured with \texttt{use\_repository\_button}, \texttt{use\_issues\_button} and \texttt{use\_edit\_page\_button}. Every page therefore carries three icons: one to the repository, one to open an issue (so a student can report a broken step), and one to edit that page's source on GitHub. The commit history shows the rhythm: small, frequent, plainly described changes (\emph{update instructions for spss version 31}, \emph{re-order teaching links}, \emph{add carrivick LIA paper}).
+
+\section{What it does well}
+
+\begin{itemize}
+\item One plain-text source per page, under version control, with a written environment.
+\item Edit and issue buttons on every page, which invite corrections from readers.
+\item A theme that gives navigation, search and a contents panel with no custom code.
+\item Course materials split out: each module's code and data have their own repository (for example \href{https://github.com/iamdonovan/egm722}{egm722}), and the research packages (for example \href{https://github.com/iamdonovan/spymicmac}{spymicmac}) document themselves on Read the Docs from a \texttt{.readthedocs.yaml}, so their documentation is rebuilt by the host on every push.
+\end{itemize}

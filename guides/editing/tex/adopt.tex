@@ -1,0 +1,26 @@
+\chapter{What to adopt}
+
+Ranked by value for the effort. Each item names where it comes from.
+
+\section{Small and worth doing now}
+
+\begin{enumerate}
+\item \textbf{A ``report a problem'' link on every page} (Sphinx book theme's issues button). A link that opens a GitHub issue already filled in with the page's address and title. Readers, including students, can then flag a broken step without email.
+\item \textbf{External link checking in CI} (The Turing Way's lychee workflow). A weekly and per-push job that lists dead links. It needs no TeX, so it is cheap.
+\item \textbf{Alternative text and file-size checks} (The Turing Way). A build check that every figure has a caption or alt text and that no image is larger than a set size. This puts the accessibility rule we already follow into code.
+\item \textbf{A written build environment} (the Sphinx site's \texttt{environment.yml}, Geocomputation's dev container). One file listing exactly what the build needs, so another machine, or CI, can build the site.
+\end{enumerate}
+
+\section{Larger, worth planning}
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item \textbf{Build the guides in CI} (R for Data Science, Manubot, the Carpentries). A GitHub Actions job with TeX Live, pandoc and the stack. Browser edits would then publish themselves, and the site would no longer depend on one laptop. Heavy notebooks can keep committed outputs, as Quarto's \texttt{\_freeze} does.
+\item \textbf{Previews of proposed changes} (Geocomputation, The Turing Way). Once CI builds, a pull request can build into a separate preview address, so a change can be read as a page before it goes live.
+\item \textbf{Versioned, citable releases} (The Turing Way with Zenodo). A tagged release of a guide gets a DOI and a \texttt{CITATION.cff}, matching how our data and code are released.
+\item \textbf{Moving the remaining long documents onto the stack.} The Marxian pamphlet and the EGM305 handbook still have their own build scripts; with a \texttt{document.toml} each they would gain the same editing tools.
+\end{enumerate}
+
+\section{What not to copy}
+
+Moving from LaTeX to Markdown would make browser editing simpler, but would lose the exact mathematics and print layout that are the point of our sources, and would break the rule that long documents have LaTeX as their one source. MyST and Quarto can both read some LaTeX mathematics, but not our custom environments and macros. The better path is to keep LaTeX and add the checks and CI that these projects show are possible.
