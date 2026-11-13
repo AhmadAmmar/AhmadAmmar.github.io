@@ -1,0 +1,7 @@
+# Python packages the site build needs on a clean machine (GitHub Actions); research_helpers is installed from its repository.
+zensical==0.0.74
+jupytext
+nbclient
+nbformat
+ipykernel
+matplotlib
