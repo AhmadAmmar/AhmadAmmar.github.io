@@ -1,0 +1,32 @@
+{
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "stack preview",
+      "tools": [
+        "stack-preview"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "stack-preview",
+      "command": "C:/Users/Owner/anaconda3/envs/eo/python.exe",
+      "args": [
+        "-m",
+        "research_helpers.stack",
+        "preview",
+        "%DOC_EXT%"
+      ],
+      "env": {
+        "PYTHONIOENCODING": "utf8"
+      }
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "stack preview",
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.outDir": "%DIR%/../build/preview",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.search.rootFiles.exclude": [
+    "**/build/**"
+  ]
+}
