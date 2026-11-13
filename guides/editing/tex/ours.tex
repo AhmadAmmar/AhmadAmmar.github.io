@@ -16,7 +16,17 @@ Our guides, essays and the Atmosphere handbook are written in LaTeX and built by
 \begin{itemize}
 \item \textbf{Builds happen on one computer.} Like the Sphinx site in Chapter~2, and unlike every other project in Chapter~3, our pages are built locally. A browser edit is not published until someone rebuilds; there is no record that a clean machine can build the site.
 \item \textbf{No preview of proposed changes.} Others build every pull request.
-\item \textbf{Few automatic checks.} The build reports broken internal links, but not broken external links, missing alternative text or oversized images.
-\item \textbf{No reader-facing feedback button.} Readers cannot report a problem from the page.
+\item \textbf{Built pages are committed beside the sources}, which makes the history larger and the diffs noisier.
 \item \textbf{No archived, citable versions} of guides, as The Turing Way does with Zenodo.
+\end{itemize}
+
+\section{Already brought in}
+
+These practices from Chapter~3 are now part of the stack and the site:
+\begin{itemize}
+\item \textbf{Report a problem}: every page of every stack document links to a new GitHub issue on that document's own repository, filled in with the page's title and address.
+\item \textbf{An audit after every build}: images without alternative text, images over 800\,KB and pages without a top heading are listed. \texttt{python -m research\_helpers.stack audit <site>} runs it on its own; internal links were already checked.
+\item \textbf{External link check}: a GitHub Actions job, weekly and on every push that changes pages, checks every outside link with lychee and reports in the run summary without blocking deployment.
+\item \textbf{A written build environment}: \texttt{environment-stack.yml} in research-helpers, and \texttt{python -m research\_helpers.stack doctor}, which lists each tool the build needs with its version, or what is missing.
+\item \textbf{Small, plain commit messages}: \emph{Save and publish} names the chapters it changed.
 \end{itemize}

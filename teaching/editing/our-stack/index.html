@@ -475,6 +475,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#53-already-brought-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Already brought in
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     
   </ul>
 </nav>
@@ -660,6 +671,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#53-already-brought-in" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        5.3 Already brought in
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
     
   </ul>
 </nav>
@@ -703,13 +725,29 @@
 <p><strong>No preview of proposed changes.</strong> Others build every pull request.</p>
 </li>
 <li>
-<p><strong>Few automatic checks.</strong> The build reports broken internal links, but not broken external links, missing alternative text or oversized images.</p>
-</li>
-<li>
-<p><strong>No reader-facing feedback button.</strong> Readers cannot report a problem from the page.</p>
+<p><strong>Built pages are committed beside the sources</strong>, which makes the history larger and the diffs noisier.</p>
 </li>
 <li>
 <p><strong>No archived, citable versions</strong> of guides, as The Turing Way does with Zenodo.</p>
+</li>
+</ul>
+<h2 id="53-already-brought-in">5.3 Already brought in<a class="headerlink" href="#53-already-brought-in" title="Permanent link">&para;</a></h2>
+<p>These practices from Chapter 3 are now part of the stack and the site:</p>
+<ul>
+<li>
+<p><strong>Report a problem</strong>: every page of every stack document links to a new GitHub issue on that document’s own repository, filled in with the page’s title and address.</p>
+</li>
+<li>
+<p><strong>An audit after every build</strong>: images without alternative text, images over 800 KB and pages without a top heading are listed. <code>python -m research_helpers.stack audit &lt;site&gt;</code> runs it on its own; internal links were already checked.</p>
+</li>
+<li>
+<p><strong>External link check</strong>: a GitHub Actions job, weekly and on every push that changes pages, checks every outside link with lychee and reports in the run summary without blocking deployment.</p>
+</li>
+<li>
+<p><strong>A written build environment</strong>: <code>environment-stack.yml</code> in research-helpers, and <code>python -m research_helpers.stack doctor</code>, which lists each tool the build needs with its version, or what is missing.</p>
+</li>
+<li>
+<p><strong>Small, plain commit messages</strong>: <em>Save and publish</em> names the chapters it changed.</p>
 </li>
 </ul>
 
