@@ -9,7 +9,7 @@ figures = "fig"
 [notebooks]
 folder = "notebooks"
 sources = ["climate_data"]
-colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/climate-data-python/notebooks"
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/guides/climate-data-python/frozen"
 [web]
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"

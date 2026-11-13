@@ -9,7 +9,7 @@ figures = "fig"
 [notebooks]
 folder = "notebooks"
 sources = ["hypothesis_tests", "by_hand"]
-colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/hypothesis-testing/notebooks"
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/guides/hypothesis-testing/frozen"
 [web]
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"

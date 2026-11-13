@@ -47,6 +47,9 @@ def activate_shots(root):
 
 def build(course):
     root, pdf_name, *section = GUIDES[course]
+    if not (root / "document.toml").exists():   # e.g. a private source not on this machine (CI): keep the committed pages
+        print(f"skip {course}: no source at {root}; its committed pages and PDF stay as they are", flush=True)
+        return
     dest = HERE / (section[0] if section else "teaching") / course       # guides under teaching/, essays under writing/
     activate_shots(root)
     d = stack.load(root)

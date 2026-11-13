@@ -1,0 +1,102 @@
+# Build the whole site from its sources on a clean machine and publish it.
+#
+# Every guide and essay is built from its LaTeX with research_helpers.stack (PDF and web pages), then the
+# site's own pages with build.py. Notebooks are not run here: their last run is committed in each guide's
+# frozen/ folder (RH_FROZEN=1), as Quarto does with _freeze. A guide whose source is private and not
+# reachable here (the Atmosphere handbook) keeps its committed pages. The result is deployed to GitHub Pages
+# as an artifact, so built pages do not need to live in the repository.
+name: Build and publish site
+
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: "Publish the result (untick for a test build only)"
+        type: boolean
+        default: true
+  schedule:
+    - cron: "0 5 1 * *"   # monthly rebuild, so a broken toolchain shows up before an edit needs it
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: site
+  cancel-in-progress: true
+
+env:
+  PANDOC_VERSION: "3.13"   # same as the laptop, so pages match
+  RH_FROZEN: "1"
+  PYTHONIOENCODING: utf8
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sources kept in other public repositories
+        run: |
+          mkdir -p "$HOME/dev"
+          git clone --depth 1 https://github.com/GeospatialGeeks/research-helpers "$HOME/dev/research-helpers"
+          git clone --depth 1 https://github.com/AhmadAmmar/sar-reading-manual "$HOME/dev/sar-reading-manual"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Python tools
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e "$HOME/dev/research-helpers" "zensical==0.0.74" jupytext nbclient nbformat ipykernel matplotlib
+
+      - name: Pandoc
+        run: |
+          wget -q "https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-1-amd64.deb"
+          sudo dpkg -i "pandoc-${PANDOC_VERSION}-1-amd64.deb"
+
+      - name: TeX Live
+        uses: TeX-Live/setup-texlive-action@v4
+        with:
+          packages: |
+            scheme-medium
+            collection-latexextra
+            collection-fontsrecommended
+            collection-xetex
+            collection-bibtexextra
+            latexmk
+            biber
+
+      - name: Check the toolchain
+        run: python -m research_helpers.stack doctor
+
+      - name: Build every guide, then the site
+        run: python build_guides.py
+
+      - name: Gather the published files
+        run: |
+          rsync -a --delete ./ _site/ \
+            --exclude '.git*' --exclude '_site' --exclude 'guides' --exclude 'src' --exclude 'tools' \
+            --exclude '.vscode' --exclude '.stack-*' --exclude '__pycache__' --exclude '*.py' \
+            --exclude 'site.toml' --exclude 'README.md' --exclude 'projects/third-pole'
+          touch _site/.nojekyll
+          du -sh _site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    if: github.event_name != 'workflow_dispatch' || inputs.deploy
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

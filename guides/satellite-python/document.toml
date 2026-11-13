@@ -9,7 +9,7 @@ figures = "fig"
 [notebooks]
 folder = "notebooks"
 sources = ["satellite_images"]
-colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/satellite-python/notebooks"
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/guides/satellite-python/frozen"
 timeout = 1200
 [web]
 site_url = "https://ahmadammar.github.io"

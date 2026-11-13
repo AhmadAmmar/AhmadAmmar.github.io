@@ -9,7 +9,7 @@ figures = "fig"
 [notebooks]
 folder = "notebooks"
 sources = ["radar"]
-colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/radar-python/notebooks"
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/guides/radar-python/frozen"
 [web]
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"

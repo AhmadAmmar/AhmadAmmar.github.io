@@ -10,7 +10,7 @@ defines = ["defs"]
 [notebooks]
 folder = "notebooks"
 sources = ["pixel_animation", "tollinton"]
-colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/pixel-animation/notebooks"
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/guides/pixel-animation/frozen"
 [web]
 site_url = "https://ahmadammar.github.io"
 parent_url = "/teaching/"
