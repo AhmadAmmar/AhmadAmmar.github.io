@@ -3,7 +3,7 @@ title = "Editing published documents"
 author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
-chapters = ["cycle", "colleague", "others", "ours", "adopt", "howto"]
+chapters = ["cycle", "colleague", "others", "workflows", "ours", "adopt", "howto"]
 figures = "../../teaching/editing"
 bibliography = "refs.bib"
 [web]
@@ -19,6 +19,7 @@ home_label = "All guides"
 cycle = "the-cycle"
 colleague = "a-sphinx-site"
 others = "other-projects"
+workflows = "step-by-step"
 ours = "our-stack"
 adopt = "what-to-adopt"
 howto = "how-to-edit"

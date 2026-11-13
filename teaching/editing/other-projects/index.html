@@ -13,7 +13,7 @@
         <link rel="prev" href="../a-sphinx-site/">
       
       
-        <link rel="next" href="../our-stack/">
+        <link rel="next" href="../step-by-step/">
       
       
         
@@ -481,6 +481,33 @@
   
   
     <li class="md-nav__item">
+      <a href="../step-by-step/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  4. Whole workflows, step by step
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+                
+              
+                
+                  
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../our-stack/" class="md-nav__link">
         
   
@@ -488,7 +515,7 @@
   <span class="md-ellipsis">
     
   
-  4. Our stack, compared
+  5. Our stack, compared
 
     
   </span>
@@ -515,7 +542,7 @@
   <span class="md-ellipsis">
     
   
-  5. What to adopt
+  6. What to adopt
 
     
   </span>
@@ -542,7 +569,7 @@
   <span class="md-ellipsis">
     
   
-  6. How to edit our documents
+  7. How to edit our documents
 
     
   </span>
@@ -744,7 +771,7 @@
 <p><a href="https://github.com/hadley/r4ds">R for Data Science</a> is written as one Quarto (<code>.qmd</code>) file per chapter, configured by <code>_quarto.yml</code>. A single GitHub Actions workflow, <code>build_book.yaml</code>, renders and publishes it. Results of code are stored in a committed <code>_freeze</code> folder, so CI does not have to rerun every computation for each edit; it reruns only chapters whose code changed. <a href="https://github.com/geocompx/geocompy">Geocomputation with Python</a> goes further: separate workflows build the book on every push (<code>main.yaml</code>), build a preview for every pull request (<code>pr.yml</code>, <code>netlify.yml</code>), and the repository has a <code>.devcontainer.json</code> and <code>.gitpod.yml</code>, so a contributor can open a ready-made environment in the browser with everything installed. It also carries a <code>CITATION.bib</code>.</p>
 <p>Quarto renders the same source to HTML and to PDF through LaTeX (Posit 2026).</p>
 <h2 id="32-jupyter-book-and-myst-the-turing-way">3.2 Jupyter Book and MyST: The Turing Way<a class="headerlink" href="#32-jupyter-book-and-myst-the-turing-way" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/the-turing-way/the-turing-way">The Turing Way</a>, a community handbook on reproducible research, is a Jupyter Book written in MyST Markdown. Its CI is a set of small, single-purpose checks: <code>external_link_check.yml</code> (with a <code>lychee.toml</code>) finds broken links; <code>accessibility-alt-text-bot.yml</code> asks for alternative text on images; <code>validate_citation.yml</code> checks the <code>CITATION.cff</code>; <code>release-drafter.yml</code> and <code>.zenodo.json</code> turn releases into citable, archived versions with DOIs; <code>test-file-size.yml</code> stops oversized images. Netlify builds a preview of every pull request, reachable at addresses of the form , so reviewers read the changed book, not a diff. Contributors are credited through <code>.all-contributorsrc</code>.</p>
+<p><a href="https://github.com/the-turing-way/the-turing-way">The Turing Way</a>, a community handbook on reproducible research, is a Jupyter Book written in MyST Markdown. Its CI is a set of small, single-purpose checks: <code>external_link_check.yml</code> (with a <code>lychee.toml</code>) finds broken links; <code>accessibility-alt-text-bot.yml</code> asks for alternative text on images; <code>validate_citation.yml</code> checks the <code>CITATION.cff</code>; <code>release-drafter.yml</code> and <code>.zenodo.json</code> turn releases into citable, archived versions with DOIs; <code>test-file-size.yml</code> stops oversized images. Netlify builds a preview of every pull request, reachable at addresses of the form <a href="https://deploy-preview-3153--the-turing-way.netlify.app">https://deploy-preview-3153--the-turing-way.netlify.app</a>, so reviewers read the changed book, not a diff. Contributors are credited through <code>.all-contributorsrc</code>.</p>
 <p>Jupyter Book 2 is built on the MyST engine, which exports PDFs through either LaTeX or Typst from the same source (Executable Books 2026).</p>
 <h2 id="33-manubot-papers-written-in-the-open">3.3 Manubot: papers written in the open<a class="headerlink" href="#33-manubot-papers-written-in-the-open" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/manubot/rootstock">Manubot Rootstock</a> is a template for writing a scholarly manuscript in Markdown on GitHub. Each push runs <code>manubot.yaml</code>, which rebuilds the manuscript as HTML and PDF and publishes it. Citations are written as identifiers, for example <code>@doi:10.1371/journal.pcbi.1007128</code>, and Manubot fetches the reference metadata itself (Himmelstein et al. 2019). Every version of the manuscript has its own permanent web address.</p>
@@ -850,7 +877,7 @@
 
 <nav class="aa-pager" aria-label="Previous and next page">
   <a href="../a-sphinx-site/"><span>Previous</span>2. A teaching site built with Sphinx</a>
-  <a class="next" href="../our-stack/"><span>Next</span>4. Our stack, compared</a>
+  <a class="next" href="../step-by-step/"><span>Next</span>4. Whole workflows, step by step</a>
 </nav>
 
 <footer class="aa-footer">

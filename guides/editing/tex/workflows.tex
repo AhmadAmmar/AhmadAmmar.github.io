@@ -1,0 +1,74 @@
+\chapter{Whole workflows, step by step}
+
+The previous chapters compared tools. This one follows a working day: where a person opens the text, how they see the result while writing, what they type to publish, and what they do the next time something needs changing. Where a step is read from a public repository it says so; where it comes from a tool's own documentation, that is named instead.
+
+\section{A Sphinx teaching site (Chapter~2)}
+
+Read from the repository: the \texttt{.gitignore} was generated for PyCharm, so the source is most likely edited in a JetBrains IDE; the built site lives in a second checkout beside the source; and each commit on the published branch repeats the message of the source commit.
+\begin{enumerate}
+\item Open the \texttt{docs} folder in the editor and change a page, for example \texttt{teaching/egm703/practicals/week3.rst}. Screenshots go in \texttt{docs/img/egm703/week3/}.
+\item Build: \texttt{make html}, which runs \texttt{sphinx-build} and writes the pages into the second checkout (\texttt{../../iamdonovan-sphinx-docs}, the \texttt{gh-pages} branch). Open the built page in a browser to check it.
+\item Commit the source on \texttt{main} and push.
+\item In the second checkout, commit the rebuilt pages with the same message and push. GitHub Pages serves them within a minute.
+\item Next time: the same four steps. A reader who spots a problem can use the issue button on the page; the edit button takes the author straight to the source file on GitHub.
+\end{enumerate}
+Two commits per change, both made by hand, is the cost of not having CI; the benefit is that nothing but Sphinx needs to be installed anywhere.
+
+\section{A Quarto book}
+
+From the Quarto documentation \citep{quartopub} and the R for Data Science repository.
+\begin{enumerate}
+\item Open the project in RStudio or VS Code (both have Quarto extensions). Each chapter is a \texttt{.qmd} file listed in \texttt{\_quarto.yml}.
+\item Run \texttt{quarto preview}. A local server opens the book in the browser and re-renders the chapter each time it is saved.
+\item Commit and push to \texttt{main}. The workflow in \texttt{.github/workflows} renders the whole book on a clean machine and publishes it to GitHub Pages; nothing built is committed by hand. Code results already in \texttt{\_freeze} are reused.
+\item For a larger change: a branch and a pull request. In Geocomputation with Python, that pull request is built into a preview site before it is merged.
+\end{enumerate}
+
+\section{A Jupyter Book or MyST project}
+
+From the Jupyter Book and MyST documentation \citep{mystpdf}.
+\begin{enumerate}
+\item Write MyST Markdown (\texttt{.md}) or notebooks (\texttt{.ipynb}) in VS Code or JupyterLab; the table of contents is in \texttt{myst.yml}.
+\item Run \texttt{jupyter book start} (or \texttt{myst start}): a live local server that updates as files are saved.
+\item Push; CI builds the HTML (and, if configured, a PDF through LaTeX or Typst) and deploys. In The Turing Way, every pull request also runs link, alt-text and file-size checks and gets a Netlify preview.
+\end{enumerate}
+
+\section{A Manubot manuscript}
+
+From the Rootstock template \citep{himmelstein2019}.
+\begin{enumerate}
+\item Edit the Markdown files in \texttt{content/}, in any editor or directly in GitHub's web editor. Cite by identifier, for example \texttt{@doi:10.1371/journal.pcbi.1007128}.
+\item Commit and push (or open a pull request so co-authors can review the change line by line).
+\item The workflow \texttt{manubot.yaml} builds HTML and PDF on GitHub and publishes them; each build keeps its own permanent address, so earlier versions can still be cited.
+\end{enumerate}
+Writing happens entirely in git: review comments, suggested edits and authorship all come from GitHub.
+
+\section{A LaTeX paper or thesis}
+
+The most common setups among people who write LaTeX directly:
+\begin{itemize}
+\item \textbf{VS Code with LaTeX Workshop.} Saving the file runs \texttt{latexmk}, the PDF sits in a tab beside the source, and SyncTeX links the two: Ctrl+click in the PDF jumps to the source line, and a command jumps the other way. The project is a git repository; the author commits and pushes when a section is done. Changes for co-authors or reviewers are shown with \texttt{latexdiff old.tex new.tex > diff.tex}.
+\item \textbf{Overleaf.} The same edit-and-preview loop in the browser, with comments, tracked changes and a rich-text view for co-authors who do not write LaTeX. Git sync is on paid plans.
+\item \textbf{TeXstudio or TeXmaker.} Desktop editors with a built-in PDF viewer and SyncTeX.
+\end{itemize}
+In each case the output is a PDF. Web pages, when wanted, come from a separate tool, which is the gap our stack fills.
+
+\section{Our stack}
+
+\begin{enumerate}
+\item Open the document: from any page's Admin bar (Studio, VS Code or browser), or \texttt{python -m research\_helpers.stack studio}.
+\item Write in the LaTeX or in the rendered preview; Studio re-renders as you type. For the exact PDF, Ctrl+Shift+B in VS Code.
+\item Publish: \emph{Save and publish} in Studio, or \texttt{python build\_guides.py <guide>} then commit and push. The build makes the PDF and the web pages together; both, with the source, are committed to \texttt{main}, and the site's workflow deploys them.
+\item Next time: the same, from the page you want to change.
+\end{enumerate}
+
+\section{Practices nearly everyone shares}
+
+\begin{itemize}
+\item \textbf{A live preview while writing}: \texttt{quarto preview}, \texttt{jupyter book start}, \texttt{sphinx-autobuild}, LaTeX Workshop on save.
+\item \textbf{Built files are never edited.} Changes go into the source and the site is rebuilt.
+\item \textbf{Built files kept out of the source history}, either on a separate branch (the Sphinx site) or produced fresh by CI (Quarto, MyST, Manubot). We commit built pages beside the sources, which makes our history larger and our diffs noisier; building in CI would remove that.
+\item \textbf{Small commits with plain messages} for routine fixes, straight to \texttt{main}.
+\item \textbf{A branch and a pull request} for larger changes or other people's contributions, ideally with a preview build to read before merging.
+\item \textbf{A written environment} (\texttt{environment.yml}, \texttt{DESCRIPTION}, a dev container) so the build is the same on every machine.
+\end{itemize}
