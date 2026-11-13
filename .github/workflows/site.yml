@@ -81,10 +81,7 @@ jobs:
 
       - name: Gather the published files
         run: |
-          rsync -a --delete ./ _site/ \
-            --exclude '.git*' --exclude '_site' --exclude 'guides' --exclude 'src' --exclude 'tools' \
-            --exclude '.vscode' --exclude '.stack-*' --exclude '__pycache__' --exclude '*.py' \
-            --exclude 'site.toml' --exclude 'README.md' --exclude 'requirements-site.txt' --exclude 'projects/third-pole'
+          rsync -a --delete ./ _site/             --exclude '/.git*' --exclude '/_site' --exclude '/guides' --exclude '/src' --exclude '/tools'             --exclude '/.vscode' --exclude '/.stack-*' --exclude '__pycache__' --exclude '/*.py'             --exclude '/site.toml' --exclude '/README.md' --exclude '/requirements-site.txt' --exclude '/projects/third-pole'             --exclude '/src/pages/project-third-pole.html'
           touch _site/.nojekyll
           du -sh _site
 
