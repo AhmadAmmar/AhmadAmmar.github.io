@@ -29,6 +29,19 @@
         "web"
       ],
       "problemMatcher": []
+    },
+    {
+      "label": "Studio: all chapters with previews",
+      "type": "process",
+      "command": "C:/Users/Owner/anaconda3/envs/eo/python.exe",
+      "args": [
+        "-m",
+        "research_helpers.stack",
+        "studio",
+        "${file}"
+      ],
+      "isBackground": true,
+      "problemMatcher": []
     }
   ]
 }

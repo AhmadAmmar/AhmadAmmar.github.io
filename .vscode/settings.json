@@ -28,5 +28,12 @@
   "latex-workshop.view.pdf.viewer": "tab",
   "latex-workshop.latex.search.rootFiles.exclude": [
     "**/build/**"
-  ]
+  ],
+  "[latex]": {
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "same"
+  },
+  "[bibtex]": {
+    "editor.wordWrap": "on"
+  }
 }
