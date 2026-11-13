@@ -48,7 +48,7 @@ jobs:
           git clone --depth 1 https://github.com/GeospatialGeeks/research-helpers "$HOME/dev/research-helpers"
           git clone --depth 1 https://github.com/AhmadAmmar/sar-reading-manual "$HOME/dev/sar-reading-manual"
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
