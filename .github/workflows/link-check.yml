@@ -1,4 +1,5 @@
 # External link check (after The Turing Way's lychee workflow). Runs weekly and on pushes that change pages;
+# checks external (http and https) links only, since every build already checks internal links;
 # reports broken links in the run summary and never blocks the site's deployment.
 name: link-check
 on:
@@ -18,8 +19,8 @@ jobs:
       - uses: lycheeverse/lychee-action@v2
         with:
           args: >-
-            --no-progress --max-concurrency 8 --timeout 20 --accept 200,206,403,429
-            --exclude "127\.0\.0\.1" --exclude "^vscode:" --exclude "github\.dev" --exclude "linkedin\.com"
+            --no-progress --scheme https --scheme http --max-concurrency 8 --timeout 20 --accept 200,202,206,403,405,429
+            --exclude "marxist-economics" --exclude "127\.0\.0\.1" --exclude "^vscode:" --exclude "github\.dev" --exclude "linkedin\.com"
             --exclude-path guides --exclude-path src --exclude-path "projects/third-pole"
             "./**/*.html"
           fail: false
