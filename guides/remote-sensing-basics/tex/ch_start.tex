@@ -1,0 +1,34 @@
+\chapter{Before you start}\label{ch:start}
+
+This guide is a course in the basics of remote sensing and GIS, built from five notebooks you run yourself. It starts where every real project starts, with getting the data: making accounts, keeping keys safe and downloading in bulk from NASA, Copernicus, Google Earth Engine and open catalogues. It then works through what a satellite measures, how images are prepared, what terrain does to them, and how pixels become maps, numbers and trends. Every example uses real data over one place, the Hunza valley in the Karakoram, where snow, glaciers, bare rock, fields, villages and a large river lie within a few kilometres of each other, and where the ground rises more than 5,000 metres.
+
+It continues the \href{https://github.com/GeospatialGeeks/Py4Geo}{Py4Geo} tutorials and the guide \href{https://ahmadammar.github.io/teaching/satellite-python/}{Satellite images in Python}, which cover rasters, vectors, indices and clustering on a Sentinel-2 image of Belfast. This guide goes further back (accounts, physics, preparation) and further on (terrain, accuracy, time series), and can be read on its own.
+
+\section{Who it is for}
+Undergraduates in geography, environmental and Earth sciences, ecology and engineering meeting remote sensing for the first time, and anyone revising the basics. Where an idea from school or first-year science is needed (the speed of light, Planck's law, a lapse rate, why chlorophyll absorbs red, how a trend test works) it is explained where it is used, with the formula and a numerical check. No programming beyond a first course in Python is assumed: each code cell says what it does and why.
+
+\section{What you will learn}
+\begin{itemize}
+\item \textbf{Getting data:} who holds which data; accounts and licences; keeping passwords and keys out of code; plain web downloads, STAC catalogues, NASA Earthdata, the Copernicus data stores and Google Earth Engine; bulk downloads that resume, retry and keep a record.
+\item \textbf{Physics:} light as wave and photon; Planck's, Wien's and the Stefan-Boltzmann laws; atmospheric windows and scattering; bands and the four resolutions; digital numbers, scale factors and reflectance; histograms, stretches, composites and spectral signatures; what atmospheric correction changes.
+\item \textbf{Preparation:} projections and transforms; clipping; reprojection and the choice of resampling; mosaics; stacks; no-data and cloud masks; median composites; saving files others can use.
+\item \textbf{Terrain:} how DEMs are made and what their heights mean; slope and aspect by finite differences; hillshade; illumination and topographic correction; elevation bands, hypsometry, profiles and lapse rates; a little geomorphology and tectonics.
+\item \textbf{Analysis:} indices and the chemistry behind them; thresholds, clustering and a random forest; confusion matrices and honest testing; sieving, vectorising and areas; a time series with the Mann-Kendall test; making a readable map.
+\end{itemize}
+
+\section{Running the notebooks}
+Each chapter is one notebook. Open the \emph{Notebooks} page and choose \emph{Open in Colab}, or download the \texttt{.ipynb} file. The first cell of each installs what Colab lacks. On your own computer:
+\begin{lstlisting}[language=bash]
+conda create -n rs python=3.12 numpy pandas matplotlib scipy scikit-learn xarray netcdf4 rasterio geopandas pystac-client planetary-computer earthaccess cdsapi earthengine-api pyhdf jupyterlab
+conda activate rs
+jupyter lab
+\end{lstlisting}
+Chapters 2 to 5 need no account: their images come from Microsoft's Planetary Computer. Chapter 1 shows how to set up NASA Earthdata, Copernicus and Earth Engine, and its cells skip politely where an account is missing; so do the few later cells that use Earth Engine. Boxes labelled \emph{In [n]} are code and \emph{Out [n]} what it printed or drew; the outputs shown were made by running the notebooks, with real accounts, in November 2026. Images are read over the internet, so allow a few minutes per notebook.
+
+\section{Good practice throughout}
+\begin{itemize}
+\item \textbf{Look before you compute:} read metadata, plot histograms, check coded values.
+\item \textbf{Check against known answers:} every formula here is tested on a case whose answer is known (a plane of known slope, Wien's law against the Planck curve, a hand-computed test statistic against a library).
+\item \textbf{Say what you did:} versions, dates, thresholds, licences, citations, in a manifest or a methods section.
+\item \textbf{Report uncertainty:} accuracies with their confusion matrix, trends with their test and their limits.
+\end{itemize}

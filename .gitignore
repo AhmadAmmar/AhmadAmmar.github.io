@@ -39,5 +39,10 @@ guides/*/tex/generated/
 /files/Hypothesis_testing_Ahmad_Ammar.pdf
 /files/Radar_images_in_Python_Ahmad_Ammar.pdf
 /files/Satellite_images_in_Python_Ahmad_Ammar.pdf
+/files/Remote_sensing_basics_in_Python_Ahmad_Ammar.pdf
 /files/Pixel_animation_Ahmad_Ammar.pdf
 /files/Editing_guide_Ahmad_Ammar.pdf
+
+# downloads and outputs made when the remote-sensing notebooks run
+/guides/remote-sensing-basics/**/rs_data/
+/guides/remote-sensing-basics/**/*.tif

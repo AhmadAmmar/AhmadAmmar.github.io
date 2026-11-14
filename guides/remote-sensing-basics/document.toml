@@ -1,0 +1,31 @@
+name = "remote_sensing_basics"
+title = "Remote sensing basics in Python"
+subtitle = "From accounts and downloads to physics, preparation, terrain and analysis: five notebooks on real data from the Karakoram"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_start", "ch_access", "ch_physics", "ch_prep", "ch_terrain", "ch_analysis", "ch_next"]
+figures = "fig"
+[notebooks]
+folder = "notebooks"
+sources = ["rs_data_access", "rs_physics_bands", "rs_preprocessing", "rs_terrain", "rs_analysis"]
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/guides/remote-sensing-basics/frozen"
+timeout = 2400
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Remote sensing basics in Python"
+intro = "A first course in remote sensing and GIS as five notebooks you run yourself. Make accounts with NASA Earthdata, Copernicus and Google Earth Engine and download in bulk safely; learn what a satellite measures from Planck's law to reflectance; prepare images by clipping, reprojecting, mosaicking, masking and compositing; work with DEMs, slope, illumination and topographic correction; and turn pixels into indices, classified maps, accuracy figures and trends. All on real data from the Hunza valley in the Karakoram, with the science explained where it is used."
+pdf_url = "/files/Remote_sensing_basics_in_Python_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/remote-sensing-basics"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
+[web.slugs]
+ch_start = "start"
+ch_access = "getting-the-data"
+ch_physics = "what-a-satellite-measures"
+ch_prep = "preparing-images"
+ch_terrain = "terrain"
+ch_analysis = "from-pixels-to-answers"
+ch_next = "glossary-and-next-steps"

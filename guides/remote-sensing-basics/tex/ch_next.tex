@@ -1,0 +1,35 @@
+\chapter{Glossary and next steps}\label{ch:next}
+
+\section{Glossary}
+\begin{description}
+\item[Affine transform] Six numbers that place a raster on a map: pixel size, rotation and the corner's coordinates.
+\item[Atmospheric correction] Removing the effects of scattering and absorption by the air, turning top-of-atmosphere into surface reflectance.
+\item[Band] One range of wavelengths recorded by a sensor; one layer of an image.
+\item[Black body] An ideal object that absorbs all radiation and emits according to Planck's law.
+\item[COG] Cloud-Optimised GeoTIFF: a GeoTIFF arranged so that programs can read only the part they need over the web.
+\item[Composite] An image combining many dates, pixel by pixel, usually by the median of clear observations.
+\item[Confusion matrix] A table of reference classes against mapped classes, from which every accuracy measure is computed.
+\item[CRS] Coordinate reference system: the ellipsoid, datum and projection that give coordinates their meaning; named by an EPSG code.
+\item[DEM, DSM, DTM] Digital elevation, surface and terrain models: heights of whatever is seen first (DSM) or of the bare ground (DTM).
+\item[Digital number (DN)] The integer stored in a file, turned into a physical value by a scale factor and offset.
+\item[Geoid] The surface the oceans would take under gravity alone; the zero of heights above sea level.
+\item[Index] A combination of bands, usually a normalised difference, that isolates one property such as vegetation or snow.
+\item[Lapse rate] The fall of air temperature with height: 9.8 K per km for dry rising air, about 6.5 K per km on average.
+\item[Mann-Kendall test] A rank-based test for a monotonic trend; the Sen slope gives its size.
+\item[Mosaic] Several images joined into one.
+\item[NetCDF, HDF] Self-describing file formats for multi-dimensional scientific data.
+\item[Reflectance] The fraction of incoming light a surface reflects, from 0 to 1.
+\item[Resampling] Assigning values to a new grid: nearest neighbour for categories; bilinear, cubic or average for continuous values.
+\item[Resolution] Spatial (pixel size), spectral (bands), temporal (revisit) and radiometric (levels of brightness).
+\item[STAC] SpatioTemporal Asset Catalog: the shared standard for describing collections, items and assets of geospatial data.
+\item[Topographic correction] Removing the brightness differences caused by slopes facing towards or away from the sun.
+\item[UTM] Universal Transverse Mercator: 60 zones, each with its own projection, accurate within the zone.
+\end{description}
+
+\section{Where to go next}
+\begin{itemize}
+\item \href{https://ahmadammar.github.io/teaching/satellite-python/}{Satellite images in Python}: rasters, vectors, indices, clustering and regridding on a Sentinel-2 image of Belfast.
+\item \href{https://ahmadammar.github.io/teaching/radar-python/}{Radar in Python} for images that see through cloud, and \href{https://ahmadammar.github.io/teaching/climate-data-python/}{Climate data in Python} for climate records and simple models.
+\item \href{https://ahmadammar.github.io/teaching/hypothesis-testing/}{Hypothesis testing with climate data} for the statistics behind trend tests in depth.
+\item The documentation of each service is the final word on its data: NASA Earthdata (\texttt{earthdata.nasa.gov}), the Copernicus data stores (\texttt{cds.climate.copernicus.eu}), Earth Engine (\texttt{developers.google.com/earth-engine}) and STAC (\texttt{stacspec.org}).
+\end{itemize}
