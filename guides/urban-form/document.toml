@@ -1,0 +1,32 @@
+name = "urban_form"
+title = "Reading urban form"
+subtitle = "A primer in urban morphology with OpenStreetMap, OSMnx, NetworkX and momepy: streets, buildings, access and neighbourhood types"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_start", "ch_primer", "ch_streets", "ch_buildings", "ch_access", "ch_types", "ch_practice"]
+figures = "fig"
+defines = ["defs"]
+bibliography = "refs.bib"
+[notebooks]
+folder = "notebooks"
+sources = ["urban_form"]
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/teaching/urban-form/notebooks"
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Reading urban form"
+intro = "Learn to read a neighbourhood from open data. Streets become a graph; buildings become density and grain; walking distance becomes access. Four places are compared step by step (Belfast, Barcelona's Eixample, Lahore's Walled City and Craigavon), with every measure explained, its limits stated, and a notebook you can point at your own street. The Urban form explorer applies the same measures to any place in your browser."
+pdf_url = "/files/Reading_urban_form_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/urban-form"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
+[web.slugs]
+ch_start = "start"
+ch_primer = "primer"
+ch_streets = "streets"
+ch_buildings = "buildings"
+ch_access = "access"
+ch_types = "neighbourhood-types"
+ch_practice = "practice"

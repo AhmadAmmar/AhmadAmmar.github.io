@@ -1,0 +1,21 @@
+\chapter{Before you start}\label{ch:start}
+
+A good teacher works towards not being needed. This guide does not hand you conclusions about cities; it gives you the means to ask your own questions of the place you live, and to answer them with evidence you can check. You will learn to read a neighbourhood the way urban morphologists do: its streets as a network, its buildings as grain and density, its everyday places as access. Every measure is computed from open data in a notebook you run yourself, explained in words, shown on a map or chart, and accompanied by what it cannot tell you.
+
+Four places are compared throughout, chosen because they were made in very different ways: the centre of Belfast, a port city grown over four centuries; the Eixample of Barcelona, planned on a grid by Ild\'efons Cerd\`a in 1859; the Walled City of Lahore, a dense pre-modern fabric; and Brownlow in Craigavon, a new town of the 1970s laid out around roads and cul-de-sacs.
+
+\section{Two ways in}
+\begin{itemize}
+\item \textbf{The Urban form explorer} (\href{https://ahmadammar.github.io/urban-form-explorer/}{ahmadammar.github.io/urban-form-explorer}) is a web page: pan to any place in the world, zoom in to a neighbourhood, press \emph{Analyse this view}, and read its streets, buildings, access and indices, each linked to its definition. Nothing to install.
+\item \textbf{The notebook} in this guide does the same analyses step by step in Python, so you see and can change every calculation. Open the \emph{Notebooks} page and choose \emph{Open in Colab}, or on your own computer:
+\end{itemize}
+\begin{lstlisting}[language=bash]
+conda create -n urban python=3.12
+conda activate urban
+pip install osmnx momepy scikit-learn matplotlib jupyterlab
+jupyter lab
+\end{lstlisting}
+Boxes labelled \emph{In [n]} are code and \emph{Out [n]} what it printed or drew. Run the cells in order. The first run downloads data from OpenStreetMap's public servers and keeps a copy in \texttt{data/cache}, so later runs are fast and work offline.
+
+\section{Setup}
+\input{generated/nb_urban_form_1}
