@@ -1,0 +1,30 @@
+\chapter{Four harder tests}\label{ch:deeper}
+
+The first notebook ends with what it did not do. The second notebook, \texttt{climate\_data\_deeper.ipynb}, does those
+four things: it goes back to about 27,000 weather stations, raw and corrected, and rebuilds the averages, including
+from the study's own stations; it removes El Ni\~no and La Ni\~na; it runs every trend on all 200 versions of the global
+record; and it compares the observed trends with full climate models read straight from the cloud. It needs, besides
+the four libraries of the first notebook, \texttt{xarray}, \texttt{zarr} and \texttt{fsspec} (all in Colab), and
+downloads about 230 MB the first time.
+
+\section{The plan}
+\input{generated/nb_climate_data_deeper_1}
+\section{Test 1: back to the stations}
+\input{generated/nb_climate_data_deeper_2}
+\section{Test 2: El Ni\~no}
+\input{generated/nb_climate_data_deeper_3}
+\section{Test 3: the uncertainty of the record}
+\input{generated/nb_climate_data_deeper_4}
+\section{Test 4: what climate models say}
+\input{generated/nb_climate_data_deeper_5}
+\section{What the four tests show}
+\input{generated/nb_climate_data_deeper_6}
+\section{Recording what the run used}
+\input{generated/nb_climate_data_deeper_7}
+
+\section{Where to go next}
+\begin{itemize}
+\item Change the gridding from 5\textdegree{} to 2\textdegree{} or 10\textdegree{} boxes: how much do the trends move?
+\item Use the daily archive for a handful of the study's stations, average maximum and minimum to monthly means, and compare with the monthly file.
+\item Add more CMIP6 models, or several runs of one model, and see how much of the model spread is chance.
+\end{itemize}

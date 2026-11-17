@@ -1,0 +1,118 @@
+\chapter{Four harder tests}
+
+Everything so far used tidy, ready-made records: one global temperature per year, one for the United States. A fair
+reader could object that I never went back to the thermometers the study used, that I ignored El Niño, that I treated
+the global record as if it were known exactly, and that a two-reservoir model is not a climate model. Each objection
+can be tested, so I tested them. The hands-on guide
+\href{https://ahmadammar.github.io/teaching/climate-data-python/}{Climate data in Python} walks through every step in
+code.
+
+\section{Back to the thermometers}
+
+NOAA keeps the monthly records of about 27,000 weather stations in two versions: as reported, and after
+\emph{homogenisation}, the correction for station moves, new instruments and changed reading times described earlier under
+``Old thermometers need correcting''. The station identifiers are the same as in the daily archive the study used, so I could rebuild the study's
+own selection (stations that measured daily maximum and minimum from 1900 or earlier to 2020 or later) and find
+983 of them with a usable monthly record. For those stations, for all land stations and for the United States, I
+turned each station's temperatures into departures from its own 1951--1980 average and combined them in two ways:
+every station counting once, which is what the study's method does, and by area, averaging stations inside
+5-degree boxes first and weighting each box by its size.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{stations_trends.png}
+\caption{Warming rate in each of the paper's four periods (bars, oldest light grey to newest red), for twelve ways of
+building the record: raw or corrected (homogenised) data; every station counted equally or weighted by area; and the
+study's own stations, all land stations, or the contiguous United States. Data: NOAA GHCN-Monthly version 4.}\label{fig:stations_trends}
+\end{figure}
+
+\textbf{How to read Figure~\ref{fig:stations_trends}.} Each group of four bars is one way of building the record. Within
+a group, the yellow bar is 1899--1940 and the red bar is 1983--2024; the question is which is taller.
+
+The result explains the study's finding exactly. Take the study's own stations, uncorrected, every station counted
+once: the early and recent periods come out almost the same, 0.20 and 0.21~°C per decade. That is close to what the
+study reported. Now change one thing at a time. Correct the data, and the recent period rises to 0.30. Weight by area
+instead, and the early period falls to 0.12, because the United States no longer stands in for the world. Do both,
+as every serious temperature record does, and recent warming is 0.36~°C per decade, nearly three times the early rate
+of 0.13. The study's ordering was made by its data choices, not by the climate.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{stations_maps.png}
+\caption{Corrected stations with at least 30 complete years in each period. Red: United States; blue: elsewhere.}\label{fig:stations_maps}
+\end{figure}
+
+\textbf{How to read Figure~\ref{fig:stations_maps}.} Each dot is a station that has a long record in that period.
+Before 1940 the long records are almost all in the United States and Europe; most of Africa, South America and Asia is
+empty. An average that counts stations rather than area is, for those years, an average of the United States.
+
+\section{El Niño}
+
+Every few years the tropical Pacific releases a pulse of heat into the air, an El Niño, and the whole planet is
+warmer for a year; its opposite, La Niña, cools it. If one period happened to begin in a La Niña and end in an El
+Niño, its trend would look steeper than the climate's. I took the standard index of these swings, the sea
+temperature of the central Pacific since 1854, and removed its share from the global record.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{enso.png}
+\caption{Top: global temperature as measured (grey), with El Niño and La Niña removed (blue), and the response of the
+two-reservoir model to all forcings (red). Bottom: the Niño~3.4 index, three months earlier; red bars El Niño, blue
+La Niña. Data: HadCRUT5; NOAA ERSSTv5 via KNMI Climate Explorer.}\label{fig:enso}
+\end{figure}
+
+\textbf{How to read Figure~\ref{fig:enso}.} The blue line is smoother than the grey one: the spikes of 1878, 1998 and
+2016 are gone. Yet the long shape is unchanged. El Niño and La Niña explain part of the year-to-year jitter (the share
+of the variation explained rises from 87\% to 92\%), but they shift no period's trend by more than 0.02~°C per decade.
+They are noise around the trend, not its cause.
+
+\section{How sure are the records?}
+
+Nobody knows the temperature of 1880 exactly. The Met Office therefore publishes 200 equally likely versions of the
+global record, which agree where measurements were plentiful and spread where they were thin. I computed every
+period's trend on all 200 versions, adding the uncertainty from the unmeasured parts of the globe and the uncertainty
+of fitting a line.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\linewidth]{uncertainty.png}
+\caption{The warming rate of each period across 200 versions of the global record (HadCRUT5), including coverage and
+fitting uncertainty. The width of each shape shows how many results fall at that value; the black line spans 95\% of
+them.}\label{fig:uncertainty}
+\end{figure}
+
+\textbf{How to read Figure~\ref{fig:uncertainty}.} The older periods have wider shapes, because the early record is less
+certain. The early period (1899--1940) lies between 0.05 and 0.16~°C per decade; the recent one (1983--2024) between 0.19
+and 0.24. The two ranges do not touch: in all of the 200 versions, the recent period warmed faster.
+
+\section{What full climate models say}
+
+My two-reservoir model is a sketch. Full climate models divide the atmosphere and oceans into boxes about 100~km
+wide and solve the physics of air, water and heat in each, step by step. Modelling centres around the world run them
+with the same historical forcing for a shared experiment, CMIP6. Each model also makes its own weather, including its
+own El Niños at random times, so no single model should match the real wiggles, but together they show what the
+forcing, plus chance, produces. I read the global temperature of 34 of them straight from their public cloud archive.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{cmip6.png}
+\caption{Left: global temperature from 34 climate models (red line, middle model; pink band, the middle 90\%) and as
+measured (black, HadCRUT5), relative to 1850--1900. Right: the warming rate of each period in the models (light bar,
+full range; dark bar, middle 90\%) and as measured (black dot). Data: CMIP6 historical and SSP2-4.5 runs via the
+Pangeo cloud archive.}\label{fig:cmip6}
+\end{figure}
+
+\textbf{How to read Figure~\ref{fig:cmip6}.} On the left, the black line stays mostly inside the pink band: models
+given only the forcing reproduce the slow rise to 1940, the flat middle of the century and the steep climb since. On
+the right, each bar is the spread of the models' rates for one period, and the dot is what was measured. In all 34
+models, 1983--2024 warms faster than any earlier period. The one place the measurements stand out is 1910--1945: the
+real world warmed faster than 33 of the 34 models. That is the unforced, natural part of the early warming that the
+previous chapter's ``unexplained'' bar showed (Figure~\ref{fig:attribution}), now seen in full models too.
+
+
+\section{What the tests add}
+
+None of the four tests changes the answer of the previous chapters, and one of them explains where the study's answer
+came from. Its central result can be reproduced, but only from uncorrected thermometers counted one by one, most of
+them in one country. Correct the thermometers or count by area, and the recent decades warm fastest; account for El
+Niño, for the uncertainty of the record, or compare with full climate models, and they still do.
