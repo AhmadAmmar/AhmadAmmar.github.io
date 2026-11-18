@@ -4,11 +4,11 @@ subtitle = "A hands-on notebook: test a claim about CO₂ and warming from publi
 author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
-chapters = ["ch_start", "ch_data", "ch_trends", "ch_physics", "ch_figures", "ch_deeper"]
+chapters = ["ch_start", "ch_data", "ch_trends", "ch_physics", "ch_figures", "ch_deeper", "ch_robust"]
 figures = "fig"
 [notebooks]
 folder = "notebooks"
-sources = ["climate_data", "climate_data_deeper"]
+sources = ["climate_data", "climate_data_deeper", "climate_data_robustness"]
 colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/guides/climate-data-python/frozen"
 [web]
 site_url = "https://ahmadammar.github.io"
@@ -27,3 +27,4 @@ ch_trends = "trends-and-uncertainty"
 ch_physics = "forcing-and-a-model"
 ch_figures = "figures-and-records"
 ch_deeper = "four-harder-tests"
+ch_robust = "testing-the-tests"

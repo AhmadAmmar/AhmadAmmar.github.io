@@ -1,0 +1,33 @@
+\chapter{Testing the tests}\label{ch:robust}
+
+The third notebook, \texttt{climate\_data\_robustness.ipynb}, removes the shortcuts of the second. It reads the
+daily archive the original study used and compares it with the monthly one, station by station; it builds a
+homogenisation method from scratch (the Standard Normal Homogeneity Test, tested first on made-up data) and compares
+the result with NOAA's and with Berkeley Earth's; it runs the energy-balance model with 135 combinations of
+sensitivity and timescales; it reads ten runs each of two climate models to measure chance; and it computes the
+trend for every start year and window length. Run the second notebook first, or let this one download what it
+needs.
+
+\section{The plan}
+\input{generated/nb_climate_data_robustness_1}
+\section{Daily data}
+\input{generated/nb_climate_data_robustness_2}
+\section{Our own homogenisation}
+\input{generated/nb_climate_data_robustness_3}
+\section{The energy-balance model, 135 ways}
+\input{generated/nb_climate_data_robustness_4}
+\section{Many runs of one model}
+\input{generated/nb_climate_data_robustness_5}
+\section{Every window, not just four}
+\input{generated/nb_climate_data_robustness_6}
+\section{What this notebook adds}
+\input{generated/nb_climate_data_robustness_7}
+\section{Recording what the run used}
+\input{generated/nb_climate_data_robustness_8}
+
+\section{Where to go next}
+\begin{itemize}
+\item Run the homogenisation on all 1,155 of the study's stations (about ten minutes) and compare US and non-US averages.
+\item Add a metadata step: NOAA's station-history database (HOMR) records when US cooperative observers changed their reading time; use it to correct the change from afternoon to morning readings and see how much of NOAA's adjustment it explains.
+\item Try a different break test (for example a penalised likelihood or the Pettitt test) and compare the breaks found.
+\end{itemize}

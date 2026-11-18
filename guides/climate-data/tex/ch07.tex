@@ -110,9 +110,86 @@ real world warmed faster than 33 of the 34 models. That is the unforced, natural
 previous chapter's ``unexplained'' bar showed (Figure~\ref{fig:attribution}), now seen in full models too.
 
 
+\section{Testing the tests}
+
+Each of the four tests leaned on a shortcut, so I removed each shortcut in turn.
+
+\textbf{Daily thermometer readings.} The station test used monthly averages. The study used each day's highest and
+lowest reading, so I downloaded the daily files for all 1,155 of its stations (2.5~GB) and rebuilt the yearly
+averages from (highest + lowest)/2, counting a month only if at least 25 days are complete. Station by station, the
+daily and monthly records give the same trends (United States 0.19 and 0.19\,°C per decade for 1983--2024; elsewhere
+0.46 and 0.44). Fewer stations outside the US have complete daily years in recent decades (62 in 2024, against 108 in
+the monthly archive), which is why the area-weighted daily figure for 1983--2024 is lower (0.25 against 0.30).
+
+\textbf{My own correction.} Instead of trusting NOAA's corrections, I wrote my own: each station is compared with up
+to ten well-correlated neighbours within 500~km, and a standard test (the standard normal homogeneity test) finds the
+years where the difference jumps; the earlier part is shifted to match. A typical station has four such jumps. Outside
+the US my correction and NOAA's agree closely (0.43 and 0.47\,°C per decade for 1983--2024). In the US mine changes
+almost nothing (0.17 against 0.17 raw) while NOAA's raises the trend to 0.26. The reason is that US stations changed
+together---observers moved their reading time from evening to morning, and liquid thermometers were replaced by
+electronic sensors---and a change shared by all neighbours cannot be seen by comparing neighbours. NOAA corrects
+these from station records. Berkeley Earth, a fully independent group, gets 0.24 for the US and 0.32 for all land.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{daily_homog.png}
+\caption{Warming rates for the study's stations from daily and monthly data, raw and corrected (by NOAA and by my
+own test), counted per station (left) and by area (right).}\label{fig:dailyhomog}
+\end{figure}
+
+\textbf{How to read Figure~\ref{fig:dailyhomog}.} Compare bars of the same colour across the periods. Whatever the
+data or correction, the area-weighted bars are tallest in 1983--2024; only the per-station counts of uncorrected or
+neighbour-corrected US-heavy records keep the early and recent periods level.
+
+\textbf{Different reservoir speeds.} The two-reservoir model used fixed response times (4 and 250 years). I reran it
+135 times, varying the climate sensitivity (2--4.5\,°C per doubling of CO\textsubscript{2}), the share of the fast
+reservoir and both response times. The greenhouse-gas part of the 1976--2024 trend ranges 0.09--0.37\,°C per decade
+over all versions and 0.19--0.29 in the quarter that fit best; the unexplained part of 1910--1945 stays at 0.10--0.11
+in those best versions.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{ebm_sensitivity.png}
+\caption{Contributions to each period's trend across 135 versions of the two-reservoir model.}\label{fig:ebmsens}
+\end{figure}
+
+\textbf{How to read Figure~\ref{fig:ebmsens}.} Each box shows how far one contribution moves as the model's settings
+change. The boxes move, but the order does not: greenhouse gases dominate recent warming in every version.
+
+\textbf{Many runs of each model.} The climate-model test used one run per model. I took up to ten runs each (194 runs
+from 45 models). Runs of one model differ only by their own random weather. In every one of the 194 runs, 1983--2024
+is the fastest period. For 1910--1945, runs of one model spread almost as much as different models do, and four
+runs (2\%, all from one model family) reach the measured rate: the early warming is unusual, but chance can produce it.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{members.png}
+\caption{Left: warming rate of each period in 194 model runs (red) and as measured (black). Right: the 1910--1945 rate
+of every run, grouped by model, against the measured rate.}\label{fig:members}
+\end{figure}
+
+\textbf{How to read Figure~\ref{fig:members}.} On the left, the 1983--2024 cloud sits above all the others. On the
+right, each column is one model; dots above the black line are runs that warmed as fast as the real world did in
+1910--1945.
+
+\textbf{Choosing the periods.} The study's periods are fixed 42-year blocks. I computed the trend for every start
+year and every length from 20 to 60 years. For HadCRUT5, the fastest window of every length ends in 2019 or later; for
+the corrected land stations, in 2007 or later. The fastest 42-year HadCRUT5 trend ending by 1945 is 0.14\,°C per
+decade, against 0.22 for 1983--2024.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{windows.png}
+\caption{Warming rate for every start year (across) and window length (up), HadCRUT5 and corrected land stations.
+Dots mark the study's four 42-year periods.}\label{fig:windows}
+\end{figure}
+
+\textbf{How to read Figure~\ref{fig:windows}.} Each point of colour is one window; its position gives its start year
+and length. The darkest reds lie along the sloping right edge, in windows that end in recent years, whatever the length; the study's 1899--1940 dot sits in a paler band.
+
 \section{What the tests add}
 
 None of the four tests changes the answer of the previous chapters, and one of them explains where the study's answer
 came from. Its central result can be reproduced, but only from uncorrected thermometers counted one by one, most of
 them in one country. Correct the thermometers or count by area, and the recent decades warm fastest; account for El
-Niño, for the uncertainty of the record, or compare with full climate models, and they still do.
+Niño, for the uncertainty of the record, or compare with full climate models, and they still do. Daily readings, an independent correction, other model settings, many runs per model and every choice of period all leave that unchanged.
