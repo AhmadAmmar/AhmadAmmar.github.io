@@ -19,7 +19,7 @@ ENV = ["-c", "user.name=Your Name", "-c", "user.email=you@example.org", "-c", "i
 
 def clean(text):
     """Command output made machine-independent: temporary paths removed, remotes and commit ranges
-        replaced by example values.
+    replaced by example values.
     """
     text = text.replace("\r\n", "\n").replace(tmp.as_posix(), "").replace(str(tmp), "")
     text = re.sub(r"(file://)?/?(remote_site|upstream|fork)\.git", lambda m: {"remote_site": "https://github.com/your-name/your-name.github.io.git", "upstream": "https://github.com/their-name/their-project.git", "fork": "https://github.com/your-name/their-project.git"}[m[2]], text)

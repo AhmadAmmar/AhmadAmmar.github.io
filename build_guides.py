@@ -49,7 +49,7 @@ def activate_shots(root):
 
 def build(course):
     """Build one guide's web pages and PDF from its LaTeX source into teaching/ (or its section); skipped,
-        keeping the committed pages, when the source is not on this machine.
+    keeping the committed pages, when the source is not on this machine.
     """
     root, pdf_name, *section = GUIDES[course]
     if not (root / "document.toml").exists():   # e.g. a private source not on this machine (CI): keep the committed pages
