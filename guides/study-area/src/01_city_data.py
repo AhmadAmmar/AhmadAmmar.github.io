@@ -18,6 +18,15 @@
 #
 # Everything is saved to `data/` the first time, so later notebooks (and re-runs) do not download again.
 
+# %% [markdown]
+# *Running this in Google Colab?* The next cell installs the few libraries Colab lacks (about a minute). Notebooks
+# 04-07 read files made by 01 and 02: run those first in the same session, or keep the `data` folder on Google Drive.
+
+# %%
+import sys, subprocess
+if "google.colab" in sys.modules:
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "osmnx", "overturemaps", "mapclassify", "esda", "libpysal", "folium", "plotly"], check=True)
+
 # %%
 import os, sys, warnings
 from pathlib import Path
@@ -233,5 +242,5 @@ m
 #   camps) are often missing. Absence in OSM is not absence on the ground: fieldwork and local knowledge come first.
 # - **Population is modelled.** Use it for comparison, not counting individuals.
 #
-# Next: notebook 02 combines these layers to answer questions: what is near what, who can reach what, where things
+# Next: notebook 02 does the same for the whole province; notebook 04 combines these layers to answer questions: what is near what, who can reach what, where things
 # cluster.

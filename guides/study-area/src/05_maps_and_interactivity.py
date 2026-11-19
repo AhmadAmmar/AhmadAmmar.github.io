@@ -11,6 +11,15 @@
 # | **plotly** | interactive charts: hover, zoom, filter by legend | yes |
 # | **ipywidgets** | sliders and menus that re-run code | only in a live notebook (Jupyter, Colab, VS Code) |
 
+# %% [markdown]
+# *Running this in Google Colab?* The next cell installs the few libraries Colab lacks (about a minute). Notebooks
+# 04-07 read files made by 01 and 02: run those first in the same session, or keep the `data` folder on Google Drive.
+
+# %%
+import sys, subprocess
+if "google.colab" in sys.modules:
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "osmnx", "overturemaps", "mapclassify", "esda", "libpysal", "folium", "plotly"], check=True)
+
 # %%
 import warnings; warnings.filterwarnings("ignore")
 from pathlib import Path

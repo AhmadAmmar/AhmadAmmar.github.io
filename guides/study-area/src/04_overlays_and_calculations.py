@@ -15,6 +15,15 @@
 # | kernel density | where do shops concentrate? |
 # | spatial autocorrelation, hot spots | is that clustering more than chance? |
 
+# %% [markdown]
+# *Running this in Google Colab?* The next cell installs the few libraries Colab lacks (about a minute). Notebooks
+# 04-07 read files made by 01 and 02: run those first in the same session, or keep the `data` folder on Google Drive.
+
+# %%
+import sys, subprocess
+if "google.colab" in sys.modules:
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "osmnx", "overturemaps", "mapclassify", "esda", "libpysal", "folium", "plotly"], check=True)
+
 # %%
 import warnings; warnings.filterwarnings("ignore")
 from pathlib import Path
@@ -152,5 +161,5 @@ grid[["buildings", "built_share", "people", "min_to_clinic", "shops"]].describe(
 # ## Caveats to state in any write-up
 # - Results depend on the grid (try 250 m and 1 km): the *modifiable areal unit problem*.
 # - Missing OSM data look like poor access. Check tags, coverage and local knowledge before claiming a gap.
-# - Walking times ignore slope, safety, gates, traffic and who is allowed where. Notebook 04 shows how to bring
+# - Walking times ignore slope, safety, gates, traffic and who is allowed where. Notebook 06 shows how to bring
 #   these in for particular groups.

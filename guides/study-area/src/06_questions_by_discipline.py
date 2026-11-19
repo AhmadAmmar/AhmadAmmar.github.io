@@ -14,6 +14,16 @@
 # | History | What do street and place names remember? |
 # | Literature | Mapping the places named in a text |
 # | Urban studies | Which parts of the city are dense, built-up and poorly served? |
+# | Political geography | Where are extraction, roads and violence, and who lives near them? (province) |
+
+# %% [markdown]
+# *Running this in Google Colab?* The next cell installs the few libraries Colab lacks (about a minute). Notebooks
+# 04-07 read files made by 01 and 02: run those first in the same session, or keep the `data` folder on Google Drive.
+
+# %%
+import sys, subprocess
+if "google.colab" in sys.modules:
+    subprocess.run([sys.executable, "-m", "pip", "install", "-q", "osmnx", "overturemaps", "mapclassify", "esda", "libpysal", "folium", "plotly"], check=True)
 
 # %%
 import warnings; warnings.filterwarnings("ignore")
@@ -158,6 +168,56 @@ print(f"{lived.flag.sum()} cells are in the densest quarter and >= 15 min walk f
 lived.to_crs(4326).explore(column="flag", cmap=["#dddddd", "#c0392b"], tooltip=["people", "min_to_clinic", "buildings"], tiles="CartoDB positron", style_kwds={"weight": 0, "fillOpacity": .6})
 
 # %% [markdown]
+# ## Political geography: the province (data from notebook 02)
+# Three questions often asked about Balochistan, each as a query. They describe patterns; explaining them needs
+# history, interviews and documents.
+#
+# **Where is extraction, and who lives there?** Mapped mines, quarries, wells and works per district against
+# population and urban share.
+
+# %%
+dist = gpd.read_file(DATA / "bal_districts.gpkg").to_crs(CRS)
+ext = gpd.read_file(DATA / "bal_extraction.gpkg").to_crs(CRS)
+roads = gpd.read_file(DATA / "bal_roads.gpkg").to_crs(CRS)
+dist["extraction_sites"] = gpd.sjoin(ext, dist[["adm2_name", "geometry"]], predicate="within").groupby("adm2_name").size().reindex(dist.adm2_name).fillna(0).values
+dist[["adm2_name", "extraction_sites", "pop2017", "urban_share", "events"]].sort_values("extraction_sites", ascending=False).head(10).round(2)
+
+# %% [markdown]
+# **How far are people from a main road?** A proxy for distance from markets, services and the state, and also from
+# checkpoints. Population-weighted distance from each district's towns and villages to the nearest trunk or primary
+# road:
+
+# %%
+pl = gpd.read_file(DATA / "bal_places.gpkg").to_crs(CRS)
+main = roads[roads.highway.isin(["motorway", "trunk", "primary"])]
+pl = gpd.sjoin_nearest(pl, main[["geometry"]], distance_col="km").drop_duplicates(subset="geometry")
+pl["km"] /= 1000
+pl = gpd.sjoin(pl.drop(columns="index_right"), dist[["adm2_name", "geometry"]], predicate="within")
+r = pl.groupby("adm2_name").km.agg(["size", "median"]).rename(columns={"size": "mapped places", "median": "median km to main road"})
+dist = dist.merge(r, left_on="adm2_name", right_index=True, how="left")
+ax = dist.plot("median km to main road", cmap="magma_r", legend=True, figsize=(9, 9), missing_kwds={"color": "#ddd"}, legend_kwds={"label": "median km from mapped places to a trunk or primary road", "shrink": .6})
+main.plot(ax=ax, color="#2c7fb8", lw=.8); ax.set_axis_off();
+
+# %% [markdown]
+# **Is violence near the roads and the extraction sites?** Share of located UCDP events within 5 km of a main road or
+# 10 km of a mapped extraction site, against the share of the province's area within those distances. A share of
+# events much higher than the share of area means events concentrate there.
+
+# %%
+ev = gpd.read_file(DATA / "bal_events.gpkg").to_crs(CRS)
+ev = ev[ev.where_prec <= 3]
+prov = dist.union_all()
+for label, zone in [("within 5 km of a main road", main.buffer(5000).union_all()), ("within 10 km of a mapped extraction site", ext.buffer(10000).union_all())]:
+    z = zone.intersection(prov)
+    print(f"{label}: {ev.within(z).mean():.0%} of events, {z.area / prov.area:.0%} of the province's area")
+
+# %% [markdown]
+# **Reading:** 55% of located events lie within 5 km of a main road, which covers 15% of the province; 34% lie
+# within 10 km of a mapped extraction site, 6% of its area. Lasbela (industrial estates near Karachi) has by far the
+# most mapped extraction sites; Dera Bugti (gas) and Gwadar (port) combine many sites with many events.
+# Events are reported where reporters, roads and towns are, so closeness to roads is partly a reporting effect. This
+# is the kind of result to discuss with people who know the places before writing it up.
+#
 # ## Turning a question into a query: a recipe
 # 1. **Name the thing** you care about (safety, access, belonging, memory, work).
 # 2. **Find a proxy** in the data, and write down what it misses.
