@@ -35,6 +35,7 @@ FORWARD = """<!doctype html>
 
 
 def clean(p):
+    """A page address checked and trimmed (lower-case letters, digits, - and /)."""
     p = p.strip().strip("/")
     if not re.fullmatch(r"[a-z0-9][a-z0-9/_-]*", p):
         raise SystemExit(f"not a page address: {p!r} (use lower-case letters, digits, - and /)")
@@ -42,6 +43,7 @@ def clean(p):
 
 
 def git_mv(a, b, dry):
+    """Move a file with git (or only print the move when dry)."""
     print("move", a.relative_to(HERE), "->", b.relative_to(HERE))
     if dry:
         return
@@ -54,6 +56,7 @@ def git_mv(a, b, dry):
 
 
 def main():
+    """Rename a page: move it, update its source and every link, and leave a forwarding page."""
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("old"); ap.add_argument("new"); ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args()

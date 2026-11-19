@@ -27,6 +27,7 @@ def yearly_heat(u_wall, wall_area, air_changes, volume, degree_days):
 
 
 def main():
+    """Read one case file (JSON) named on the command line and write its yearly heat loss to a .out file."""
     path = Path(sys.argv[1])                   # sys.argv[1] is the first word after the script name
     case = json.loads(path.read_text())        # read the file, and turn its text into a Python dictionary
     answer = yearly_heat(**case)               # ** passes the dictionary's entries as named arguments

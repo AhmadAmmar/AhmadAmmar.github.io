@@ -8,6 +8,7 @@ def number(text):
 
 
 def read_months(path):
+    """Monthly rows (year, month, maximum and minimum temperature, rain and more) of the Armagh station file."""
     rows = []
     with open(path, encoding="latin-1") as f:
         for line in f:

@@ -101,6 +101,7 @@ FOOT = """</main>
 
 
 def parse(path):
+    """Front matter (key: value lines before ---) and body of a page source."""
     text = path.read_text(encoding="utf-8")
     header, body = text.split("\n---\n", 1)
     meta = {"source": path.relative_to(HERE).as_posix()}
@@ -111,15 +112,18 @@ def parse(path):
 
 
 def brand():
+    """Site name for the header, surname wrapped in a span."""
     first, _, rest = NAME.partition(" ")
     return f"{first} <span>{rest}</span>" if rest else first
 
 
 def social():
+    """Header links to the social profiles listed in the config, with their icons."""
     return "\n".join(f'      <a href="{x["href"]}" aria-label="{x["label"]}">{ICONS[x["icon"]]}</a>' for x in CONFIG.get("social", []))
 
 
 def render(meta, body):
+    """A page's output path and full HTML: shared header, navigation (relative to its depth), body and footer."""
     out = meta["out"]
     depth = out.count("/")
     root = "../" * depth
@@ -168,6 +172,7 @@ SCAN = CONFIG.get("scan_folders", [])           # folders built by another tool,
 
 
 def sitemap(outs):
+    """sitemap.xml of the built pages, other index pages found in SCAN folders and EXTRA_URLS, without hidden pages."""
     scanned = [p.relative_to(HERE).as_posix() for folder in SCAN for p in (HERE / folder).rglob("index.html")]
     paths = sorted({o.replace("index.html", "") for o in [*outs, *scanned] if o != "404.html"} - set(HIDDEN)) + EXTRA_URLS
     urls = "\n".join("  <url><loc>{}/{}</loc></url>".format(SITE_URL, p) for p in paths)
@@ -180,6 +185,7 @@ def robots():
 
 
 def main():
+    """Build every page in the pages folder and write the sitemap."""
     outs = []
     for path in sorted(PAGES.glob("*.html")):
         out, html = render(*parse(path))

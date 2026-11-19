@@ -6,6 +6,7 @@ import time
 
 
 def is_prime(n):
+    """True if n is a prime number."""
     if n < 2:
         return False
     return all(n % d for d in range(2, int(n ** 0.5) + 1))
