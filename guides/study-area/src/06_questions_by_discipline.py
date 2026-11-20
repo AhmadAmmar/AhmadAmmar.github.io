@@ -1,5 +1,5 @@
 # %% [markdown]
-# # 04 · Asking your discipline's questions of a place
+# # 06 · Asking your discipline's questions of a place
 #
 # The same layers answer very different questions. Each section below starts from a question a researcher in one
 # field might ask about Quetta, turns it into a query, and says what the answer can and cannot support. They are

@@ -1,5 +1,5 @@
 # %% [markdown]
-# # 01 · Know your study area: getting the open data
+# # 01 · Quetta: getting the open data for a city
 #
 # **For:** anyone who needs to understand a place from open data, whatever their discipline: sociology,
 # anthropology, gender studies, history, literature, labour studies, urban studies, public health. No GIS

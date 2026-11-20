@@ -1,5 +1,5 @@
 # %% [markdown]
-# # 02 · Overlays and calculations: what is near what, who can reach what, where things cluster
+# # 04 · Overlays and calculations: what is near what, who can reach what, where things cluster
 #
 # Every spatial question is built from a few operations. This notebook does each one on Quetta's data from
 # notebook 01, with the question it answers.

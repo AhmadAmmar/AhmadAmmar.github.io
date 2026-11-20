@@ -1,5 +1,5 @@
 # %% [markdown]
-# # 03 · Making maps and graphics that tell the truth, and making them interactive
+# # 05 · Making maps and graphics that tell the truth, and making them interactive
 #
 # A map is an argument. This notebook shows the choices that change what a reader sees (classes, colours,
 # normalisation), then several kinds of map and chart, then interactivity inside the notebook:
