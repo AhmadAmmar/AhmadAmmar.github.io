@@ -1,14 +1,14 @@
 name = "radar_python"
 title = "Radar images in Python"
-subtitle = "A hands-on notebook: read Sentinel-1 images, measure speckle and polarisation, and map a flood"
+subtitle = "Hands-on notebooks: read Sentinel-1 images, map a flood, test radar for canopy height, and measure subsidence with InSAR"
 author = "Ahmad Ammar"
 layouts = ["manual"]
 source = "tex"
-chapters = ["ch_start", "ch_basics", "ch_london", "ch_flood"]
+chapters = ["ch_start", "ch_basics", "ch_london", "ch_flood", "ch_mangroves", "ch_insar"]
 figures = "fig"
 [notebooks]
 folder = "notebooks"
-sources = ["radar"]
+sources = ["radar", "mangroves", "insar"]
 colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/guides/radar-python/frozen"
 [web]
 site_url = "https://ahmadammar.github.io"
@@ -25,3 +25,5 @@ ch_start = "start"
 ch_basics = "radar-basics"
 ch_london = "reading-london"
 ch_flood = "mapping-a-flood"
+ch_mangroves = "canopy-height"
+ch_insar = "insar-subsidence"
