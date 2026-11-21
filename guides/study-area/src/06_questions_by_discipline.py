@@ -151,7 +151,7 @@ for p in text_places:
 tp = pd.DataFrame(rows); print(tp)
 tp = tp.dropna()
 if len(tp):
-    m = gpd.GeoDataFrame(tp, geometry=gpd.points_from_xy(tp.lon, tp.lat), crs=4326).explore(marker_kwds={"radius": 7}, color="crimson", tooltip=["place"], tiles="CartoDB positron")
+    m = gpd.GeoDataFrame(tp, geometry=gpd.points_from_xy(tp.lon, tp.lat), crs=4326).explore(marker_kwds={"radius": 7}, color="crimson", tooltip=["place"], tiles="Esri.WorldGrayCanvas")
     import folium
     folium.PolyLine(list(zip(tp.lat, tp.lon)), color="crimson", weight=2, dash_array="5").add_to(m)
 m if len(tp) else "no places found"
@@ -165,7 +165,7 @@ m if len(tp) else "no places found"
 # %%
 lived["flag"] = (lived.people >= lived.people.quantile(.75)) & (lived.min_to_clinic >= 15)
 print(f"{lived.flag.sum()} cells are in the densest quarter and >= 15 min walk from a clinic, home to {lived.people[lived.flag].sum():,.0f} people")
-lived.to_crs(4326).explore(column="flag", cmap=["#dddddd", "#c0392b"], tooltip=["people", "min_to_clinic", "buildings"], tiles="CartoDB positron", style_kwds={"weight": 0, "fillOpacity": .6})
+lived.to_crs(4326).explore(column="flag", cmap=["#dddddd", "#c0392b"], tooltip=["people", "min_to_clinic", "buildings"], tiles="Esri.WorldGrayCanvas", style_kwds={"weight": 0, "fillOpacity": .6})
 
 # %% [markdown]
 # ## Political geography: the province (data from notebook 02)

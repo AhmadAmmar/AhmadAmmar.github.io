@@ -223,7 +223,7 @@ ax[1].set_title("Population per 100 m cell (WorldPop 2020, log scale)"); ax[1].s
 
 # %%
 import folium
-m = area.explore(style_kwds={"fill": False, "color": "black"}, name="boundary", tiles="CartoDB positron")
+m = area.explore(style_kwds={"fill": False, "color": "black"}, name="boundary", tiles="Esri.WorldGrayCanvas")
 colours = {"education": "blue", "health": "red", "worship": "green", "shops and markets": "orange",
            "public transport": "purple", "work": "gray", "leisure": "darkgreen", "heritage": "brown"}
 for cat_, col in colours.items():

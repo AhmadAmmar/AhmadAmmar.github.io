@@ -177,7 +177,7 @@ for a in ax: a.set_axis_off()
 # %%
 import folium
 from folium.plugins import TimestampedGeoJson
-m = folium.Map(location=[28.5, 65.5], zoom_start=6, tiles="CartoDB positron")
+m = folium.Map(location=[28.5, 65.5], zoom_start=6, tiles="Esri.WorldGrayCanvas")
 folium.GeoJson(dist[["adm2_name", "pop2017", "events", "geometry"]].to_json(), name="districts",
                style_function=lambda f: {"fillOpacity": 0, "color": "#666", "weight": .6},
                tooltip=folium.GeoJsonTooltip(["adm2_name", "pop2017", "events"])).add_to(m)

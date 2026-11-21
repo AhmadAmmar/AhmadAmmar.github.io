@@ -336,7 +336,7 @@ ax[1].set_title("Population per 100 m cell (WorldPop 2020, log scale)"); ax[1].s
 
 # %%
 import folium
-m = area.explore(style_kwds={"fill": False, "color": "black"}, name="boundary", tiles="CartoDB positron")
+m = area.explore(style_kwds={"fill": False, "color": "black"}, name="boundary", tiles="Esri.WorldGrayCanvas")
 colours = {"education": "blue", "health": "red", "worship": "green", "shops and markets": "orange",
            "public transport": "purple", "work": "gray", "leisure": "darkgreen", "heritage": "brown"}
 for cat_, col in colours.items():
@@ -533,7 +533,7 @@ for a in ax: a.set_axis_off()
 # %%
 import folium
 from folium.plugins import TimestampedGeoJson
-m = folium.Map(location=[28.5, 65.5], zoom_start=6, tiles="CartoDB positron")
+m = folium.Map(location=[28.5, 65.5], zoom_start=6, tiles="Esri.WorldGrayCanvas")
 folium.GeoJson(dist[["adm2_name", "pop2017", "events", "geometry"]].to_json(), name="districts",
                style_function=lambda f: {"fillOpacity": 0, "color": "#666", "weight": .6},
                tooltip=folium.GeoJsonTooltip(["adm2_name", "pop2017", "events"])).add_to(m)
@@ -638,7 +638,7 @@ g[["id", "place_name", "certainty", "geocoded", "theme"]]
 # %%
 radius = {"GPS": 20, "named place": 250, "neighbourhood": 1000, "town (approx.)": 3000}
 gu = g.to_crs(CRS); gu["geometry"] = gu.buffer(gu.certainty.map(radius))
-m = gu.to_crs(4326).explore(column="theme", tooltip=["date", "place_name", "certainty", "note"], tiles="CartoDB positron", style_kwds={"fillOpacity": .25})
+m = gu.to_crs(4326).explore(column="theme", tooltip=["date", "place_name", "certainty", "note"], tiles="Esri.WorldGrayCanvas", style_kwds={"fillOpacity": .25})
 g.explore(m=m, color="black", marker_kwds={"radius": 2}, tooltip=False)
 m
 
@@ -653,7 +653,7 @@ route = gpd.GeoDataFrame({"who": ["respondent B (pseudonym)"], "described": ["da
                          geometry=[LineString([(x, y) for _, x, y in journey])], crs=4326)
 stops = gpd.GeoDataFrame({"stop": [s for s, *_ in journey], "order": range(1, 5)}, geometry=[Point(x, y) for _, x, y in journey], crs=4326)
 print(f"route length: {route.to_crs(CRS).length.iloc[0] / 1000:.1f} km as the crow flies between stops")
-m = route.explore(color="crimson", style_kwds={"weight": 4}, tiles="CartoDB positron", tooltip=["who", "described"])
+m = route.explore(color="crimson", style_kwds={"weight": 4}, tiles="Esri.WorldGrayCanvas", tooltip=["who", "described"])
 stops.explore(m=m, color="crimson", tooltip=["order", "stop"], marker_kwds={"radius": 6}); m
 
 # %% [markdown]
@@ -978,7 +978,7 @@ plt.tight_layout()
 
 # %%
 lived.to_crs(4326).explore(column="min_to_clinic", cmap="RdYlGn_r", scheme="Quantiles", k=5,
-                           tooltip=["people", "buildings", "min_to_clinic", "shops"], tiles="CartoDB positron",
+                           tooltip=["people", "buildings", "min_to_clinic", "shops"], tiles="Esri.WorldGrayCanvas",
                            style_kwds={"weight": 0, "fillOpacity": .6}, legend_kwds={"caption": "walk to clinic (min)"})
 
 # %% [markdown]
@@ -987,7 +987,7 @@ lived.to_crs(4326).explore(column="min_to_clinic", cmap="RdYlGn_r", scheme="Quan
 # %%
 import folium
 from folium.plugins import HeatMap, MiniMap, Fullscreen, MeasureControl
-m = folium.Map(location=[30.19, 67.01], zoom_start=12, tiles="CartoDB positron")
+m = folium.Map(location=[30.19, 67.01], zoom_start=12, tiles="Esri.WorldGrayCanvas")
 folium.TileLayer("OpenStreetMap", name="OpenStreetMap").add_to(m)
 folium.TileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", attr="Esri World Imagery", name="satellite").add_to(m)
 lived.to_crs(4326).explore(m=m, column="people_per_ha", cmap="YlOrRd", scheme="Quantiles", k=5, name="people per hectare", style_kwds={"weight": 0, "fillOpacity": .5})
@@ -1003,7 +1003,7 @@ folium.LayerControl(collapsed=False).add_to(m); m
 # %%
 from folium.plugins import DualMap
 dm = DualMap(location=[30.19, 67.01], zoom_start=13, tiles=None)
-folium.TileLayer("CartoDB positron").add_to(dm.m1)
+folium.TileLayer("Esri.WorldGrayCanvas").add_to(dm.m1)
 folium.TileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", attr="Esri World Imagery").add_to(dm.m2)
 lived.to_crs(4326).explore(m=dm.m1, column="buildings", cmap="viridis", style_kwds={"weight": 0, "fillOpacity": .6}, legend=False)
 dm
@@ -1187,7 +1187,7 @@ for p in text_places:
 tp = pd.DataFrame(rows); print(tp)
 tp = tp.dropna()
 if len(tp):
-    m = gpd.GeoDataFrame(tp, geometry=gpd.points_from_xy(tp.lon, tp.lat), crs=4326).explore(marker_kwds={"radius": 7}, color="crimson", tooltip=["place"], tiles="CartoDB positron")
+    m = gpd.GeoDataFrame(tp, geometry=gpd.points_from_xy(tp.lon, tp.lat), crs=4326).explore(marker_kwds={"radius": 7}, color="crimson", tooltip=["place"], tiles="Esri.WorldGrayCanvas")
     import folium
     folium.PolyLine(list(zip(tp.lat, tp.lon)), color="crimson", weight=2, dash_array="5").add_to(m)
 m if len(tp) else "no places found"
@@ -1201,7 +1201,7 @@ m if len(tp) else "no places found"
 # %%
 lived["flag"] = (lived.people >= lived.people.quantile(.75)) & (lived.min_to_clinic >= 15)
 print(f"{lived.flag.sum()} cells are in the densest quarter and >= 15 min walk from a clinic, home to {lived.people[lived.flag].sum():,.0f} people")
-lived.to_crs(4326).explore(column="flag", cmap=["#dddddd", "#c0392b"], tooltip=["people", "min_to_clinic", "buildings"], tiles="CartoDB positron", style_kwds={"weight": 0, "fillOpacity": .6})
+lived.to_crs(4326).explore(column="flag", cmap=["#dddddd", "#c0392b"], tooltip=["people", "min_to_clinic", "buildings"], tiles="Esri.WorldGrayCanvas", style_kwds={"weight": 0, "fillOpacity": .6})
 
 # %% [markdown]
 # ## Political geography: the province (data from notebook 02)

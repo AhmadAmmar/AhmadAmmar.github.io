@@ -99,7 +99,7 @@ plt.tight_layout()
 
 # %%
 lived.to_crs(4326).explore(column="min_to_clinic", cmap="RdYlGn_r", scheme="Quantiles", k=5,
-                           tooltip=["people", "buildings", "min_to_clinic", "shops"], tiles="CartoDB positron",
+                           tooltip=["people", "buildings", "min_to_clinic", "shops"], tiles="Esri.WorldGrayCanvas",
                            style_kwds={"weight": 0, "fillOpacity": .6}, legend_kwds={"caption": "walk to clinic (min)"})
 
 # %% [markdown]
@@ -108,7 +108,7 @@ lived.to_crs(4326).explore(column="min_to_clinic", cmap="RdYlGn_r", scheme="Quan
 # %%
 import folium
 from folium.plugins import HeatMap, MiniMap, Fullscreen, MeasureControl
-m = folium.Map(location=[30.19, 67.01], zoom_start=12, tiles="CartoDB positron")
+m = folium.Map(location=[30.19, 67.01], zoom_start=12, tiles="Esri.WorldGrayCanvas")
 folium.TileLayer("OpenStreetMap", name="OpenStreetMap").add_to(m)
 folium.TileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", attr="Esri World Imagery", name="satellite").add_to(m)
 lived.to_crs(4326).explore(m=m, column="people_per_ha", cmap="YlOrRd", scheme="Quantiles", k=5, name="people per hectare", style_kwds={"weight": 0, "fillOpacity": .5})
@@ -124,7 +124,7 @@ folium.LayerControl(collapsed=False).add_to(m); m
 # %%
 from folium.plugins import DualMap
 dm = DualMap(location=[30.19, 67.01], zoom_start=13, tiles=None)
-folium.TileLayer("CartoDB positron").add_to(dm.m1)
+folium.TileLayer("Esri.WorldGrayCanvas").add_to(dm.m1)
 folium.TileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", attr="Esri World Imagery").add_to(dm.m2)
 lived.to_crs(4326).explore(m=dm.m1, column="buildings", cmap="viridis", style_kwds={"weight": 0, "fillOpacity": .6}, legend=False)
 dm

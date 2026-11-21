@@ -67,7 +67,7 @@ g[["id", "place_name", "certainty", "geocoded", "theme"]]
 # %%
 radius = {"GPS": 20, "named place": 250, "neighbourhood": 1000, "town (approx.)": 3000}
 gu = g.to_crs(CRS); gu["geometry"] = gu.buffer(gu.certainty.map(radius))
-m = gu.to_crs(4326).explore(column="theme", tooltip=["date", "place_name", "certainty", "note"], tiles="CartoDB positron", style_kwds={"fillOpacity": .25})
+m = gu.to_crs(4326).explore(column="theme", tooltip=["date", "place_name", "certainty", "note"], tiles="Esri.WorldGrayCanvas", style_kwds={"fillOpacity": .25})
 g.explore(m=m, color="black", marker_kwds={"radius": 2}, tooltip=False)
 m
 
@@ -82,7 +82,7 @@ route = gpd.GeoDataFrame({"who": ["respondent B (pseudonym)"], "described": ["da
                          geometry=[LineString([(x, y) for _, x, y in journey])], crs=4326)
 stops = gpd.GeoDataFrame({"stop": [s for s, *_ in journey], "order": range(1, 5)}, geometry=[Point(x, y) for _, x, y in journey], crs=4326)
 print(f"route length: {route.to_crs(CRS).length.iloc[0] / 1000:.1f} km as the crow flies between stops")
-m = route.explore(color="crimson", style_kwds={"weight": 4}, tiles="CartoDB positron", tooltip=["who", "described"])
+m = route.explore(color="crimson", style_kwds={"weight": 4}, tiles="Esri.WorldGrayCanvas", tooltip=["who", "described"])
 stops.explore(m=m, color="crimson", tooltip=["order", "stop"], marker_kwds={"radius": 6}); m
 
 # %% [markdown]
