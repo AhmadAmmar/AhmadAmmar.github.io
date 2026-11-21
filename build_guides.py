@@ -31,6 +31,7 @@ GUIDES = {
     "radar-python": (HERE / "guides/radar-python", "Radar_images_in_Python_Ahmad_Ammar.pdf"),
     "satellite-python": (HERE / "guides/satellite-python", "Satellite_images_in_Python_Ahmad_Ammar.pdf"),
     "remote-sensing-basics": (HERE / "guides/remote-sensing-basics", "Remote_sensing_basics_in_Python_Ahmad_Ammar.pdf"),
+    "gridded-data": (HERE / "guides/gridded-data", "Gridded_data_in_Python_Ahmad_Ammar.pdf"),
     "pixel-animation": (HERE / "guides/pixel-animation", "Pixel_animation_Ahmad_Ammar.pdf"),
     "urban-form": (HERE / "guides/urban-form", "Reading_urban_form_Ahmad_Ammar.pdf"),
     "editing": (HERE / "guides/editing", "Editing_guide_Ahmad_Ammar.pdf"),

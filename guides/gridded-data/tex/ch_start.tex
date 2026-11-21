@@ -1,0 +1,34 @@
+\chapter{Before you start}\label{ch:start}
+
+Most climate and Earth-observation work rests on gridded data: rainfall, temperature, aerosol, snow, water storage, each a number on a regular grid of places, repeated through time, usually stored as NetCDF. This guide teaches the whole path from a blank computer to a trustworthy result, in three notebooks you run yourself:
+
+\begin{enumerate}
+\item \textbf{Accounts, keys and data addresses} (chapter~\ref{ch:access}): which web page to sign up on for which data; the extra permissions some services need (NASA's authorised apps, the Copernicus licence for each dataset); quotas; where each key lives on your computer and how to keep it private; testing a key; and how data web addresses are built, so you can write your own: queries, file-name templates, subsetting addresses, catalogue searches and map tiles. It ends with downloads that survive busy servers.
+\item \textbf{NetCDF files and xarray} (chapter~\ref{ch:netcdf}): what is inside a NetCDF file and the CF conventions that give it meaning; decoding units and awkward time axes; selecting places and periods; totals, climatologies and anomalies; averaging over an area properly; putting two grids on one grid; and writing a tidy file of your own.
+\item \textbf{Checks, algebra, correlations and trends} (chapter~\ref{ch:checks}): sanity checks; arithmetic between grids; checking one product against another; correlation done honestly (seasons, trends, lags, effective sample size); a trend in every cell, and the correction needed when testing thousands of cells at once.
+\end{enumerate}
+
+All three use the same real example: monthly rainfall over Punjab (70--80\,E, 26--34\,N), 2001--2024, from two products, CHIRPS and ERA5-Land. Along the way the notebooks rediscover a genuine fault in one of them, a sudden doubling of CHIRPS rainfall over Indian Punjab around 2009--2010 that ERA5-Land does not show, and use it to show why checks matter.
+
+It builds on \href{https://ahmadammar.github.io/teaching/remote-sensing-basics/}{Remote sensing basics in Python}, whose first chapter introduces the data services, and continues the xarray part of the \href{https://github.com/GeospatialGeeks/Py4Geo}{Py4Geo} tutorials.
+
+\section{Who it is for}
+Students and researchers starting to work with climate or satellite grids in Python, and anyone who has downloaded a NetCDF file and was not sure what to do next. A first course in Python is enough; each idea (a CF attribute, a 360-day calendar, effective sample size, the false discovery rate) is explained where it is used.
+
+\section{Setting up your computer}
+Each chapter is one notebook. Open the \emph{Notebooks} page and choose \emph{Open in Colab}, or download the \texttt{.ipynb} file; the first cell of each installs what is missing. On your own computer, install Miniforge (\url{https://conda-forge.org/download/}), then:
+\begin{lstlisting}[language=bash]
+conda create -n gridded python=3.12 numpy pandas scipy matplotlib xarray netcdf4 cftime requests pystac-client planetary-computer earthaccess cdsapi jupyterlab
+conda activate gridded
+jupyter lab
+\end{lstlisting}
+No account is needed to run any notebook to the end: cells that use an account check first and either skip or fetch a copy made for this guide. To work with your own data you will want at least a NASA Earthdata login and a Copernicus Climate Data Store key; chapter~\ref{ch:access} shows how. The outputs shown were made by running the notebooks, with real accounts, in November 2026.
+
+\section{Good practice throughout}
+\begin{itemize}
+\item \textbf{Keys never in code:} keep them in the files and environment variables each library reads.
+\item \textbf{Look before you compute:} print the dataset; read units, time axis and coordinate order.
+\item \textbf{Cache and retry:} never download the same file twice; wait and retry when a server is busy.
+\item \textbf{Two sources:} check a trend from one product against an independent one before believing it.
+\item \textbf{Say what you did:} write units, sources and dates into every file you make.
+\end{itemize}

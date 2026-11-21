@@ -46,3 +46,4 @@ guides/*/tex/generated/
 # downloads and outputs made when the remote-sensing notebooks run
 /guides/remote-sensing-basics/**/rs_data/
 /guides/remote-sensing-basics/**/*.tif
+guides/gridded-data/notebooks/gd_data/chirps_punjab_monthly.nc

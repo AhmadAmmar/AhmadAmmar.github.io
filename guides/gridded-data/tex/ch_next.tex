@@ -1,0 +1,27 @@
+\chapter{Where next}\label{ch:next}
+
+\section{Exercises}
+\begin{enumerate}
+\item Repeat chapter~\ref{ch:checks} with CHIRPS version 3.0 (\url{https://data.chc.ucsb.edu/products/CHIRPS/v3.0/}). Does the 2009--2010 step over Indian Punjab remain?
+\item Download the India Meteorological Department's gridded rainfall (\url{https://www.imdpune.gov.in}, 0.25\,degree, daily) for the same box and settle which product is right over Punjab.
+\item Replace rainfall with ERA5-Land temperature (\texttt{t2m}, already in the file): which months have warmed most, and is the warming significant after the false discovery rate correction?
+\item Correlate monthly rainfall anomalies with an El Ni\~no index (NOAA's Ni\~no~3.4) at lags of zero to six months, and map where the correlation is strongest.
+\end{enumerate}
+
+\section{Glossary}
+\begin{description}
+\item[API] a set of web addresses a program can call to ask a service for data.
+\item[API key, token] a long secret that identifies your program to a service, in place of a password.
+\item[CF conventions] rules for naming and describing variables in NetCDF so that programs understand them.
+\item[Climatology] the average for each calendar month (or day) over a base period.
+\item[Anomaly] a value minus its climatology.
+\item[Effective sample size] the number of independent values a correlation or trend rests on, fewer than the nominal count when neighbouring values resemble each other.
+\item[False discovery rate] the expected share of false positives among results called significant; controlled by the Benjamini--Hochberg procedure.
+\item[NetCDF] a self-describing file format for labelled arrays, standard in climate science.
+\item[OPeNDAP] a protocol for reading parts of remote NetCDF files over the web.
+\item[STAC] a standard for searchable catalogues of satellite images and other spatial files.
+\item[xarray] a Python library for labelled multi-dimensional arrays, reading NetCDF natively.
+\end{description}
+
+\section{Further reading}
+The xarray documentation (\url{https://docs.xarray.dev}); the CF conventions (\url{https://cfconventions.org}); Wilks, \emph{Statistical Methods in the Atmospheric Sciences} (effective sample size, field significance); Wilks (2016), \emph{The stippling shows statistically significant grid points}, Bulletin of the American Meteorological Society 97(12), on the false discovery rate for maps.

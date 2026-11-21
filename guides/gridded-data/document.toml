@@ -1,0 +1,29 @@
+name = "gridded_data"
+title = "Gridded data in Python"
+subtitle = "Accounts, keys and data addresses; NetCDF and xarray; checks, grid algebra, correlations and trends: three notebooks on real rainfall over Punjab"
+author = "Ahmad Ammar"
+layouts = ["manual"]
+source = "tex"
+chapters = ["ch_start", "ch_access", "ch_netcdf", "ch_checks", "ch_next"]
+figures = "fig"
+[notebooks]
+folder = "notebooks"
+sources = ["gd_accounts_urls", "gd_netcdf_xarray", "gd_checks_stats"]
+colab = "AhmadAmmar/AhmadAmmar.github.io/blob/main/guides/gridded-data/frozen"
+timeout = 2400
+[web]
+site_url = "https://ahmadammar.github.io"
+parent_url = "/teaching/"
+site_name = "Gridded data in Python"
+intro = "From a blank computer to a result you can trust. Which web pages to sign up on for which data, where keys live and how to keep them private, and how data web addresses are built; what is inside a NetCDF file and how to work with it in xarray; then the checks, grid algebra, correlations and per-cell trends most studies need. All on real monthly rainfall over Punjab from CHIRPS and ERA5-Land, where the checks uncover a genuine fault in one product."
+pdf_url = "/files/Gridded_data_in_Python_Ahmad_Ammar.pdf"
+home = "https://ahmadammar.github.io/teaching.html"
+home_label = "All guides"
+edit_url = "https://github.dev/AhmadAmmar/AhmadAmmar.github.io/tree/main/guides/gridded-data"
+rename_url = "https://github.com/AhmadAmmar/AhmadAmmar.github.io/actions/workflows/rename-page.yml"
+[web.slugs]
+ch_start = "start"
+ch_access = "accounts-keys-and-addresses"
+ch_netcdf = "netcdf-and-xarray"
+ch_checks = "checks-algebra-correlations-trends"
+ch_next = "where-next"
