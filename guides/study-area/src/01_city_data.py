@@ -42,8 +42,25 @@ PLACE = "Quetta, Balochistan, Pakistan"
 CRS = 32642                    # UTM zone 42N: metres, right for Quetta. Find yours at https://epsg.io
 DATA = Path("data"); DATA.mkdir(exist_ok=True)
 ox.settings.use_cache = True; ox.settings.cache_folder = str(DATA / "osm_cache")
-ox.settings.requests_timeout = 600     # large areas take a while; if the main server is busy, try a mirror:
-# ox.settings.overpass_url = "https://overpass.kumi.systems/api"
+ox.settings.requests_timeout = 600     # large areas take a while
+
+# Overpass is free and needs no account, but its public servers are often full ("502 ... at capacity").
+# overpass() tries the main server and then mirrors, waiting a little longer each round.
+MIRRORS = ["https://overpass-api.de/api", "https://maps.mail.ru/osm/tools/overpass/api",
+           "https://overpass.private.coffee/api", "https://overpass.kumi.systems/api"]
+
+def overpass(fn, *args, rounds=3, **kw):
+    """Run an OSMnx download (e.g. ox.graph_from_polygon) against each Overpass server until one answers."""
+    import time
+    for r in range(rounds):
+        for url in MIRRORS:
+            ox.settings.overpass_url = url
+            try:
+                return fn(*args, **kw)
+            except Exception as e:
+                print(f"{url.split('/')[2]} did not answer ({type(e).__name__}); trying the next server")
+        time.sleep(30 * (r + 1))
+    raise RuntimeError("No Overpass server answered. Try again later, or use the Geofabrik extract below.")
 
 def cached(name, make):
     """Load data/<name>.gpkg if it exists, otherwise make it, save it and return it."""
@@ -69,7 +86,7 @@ poly = area.geometry.iloc[0]
 
 # %%
 gfile = DATA / "walk.graphml"
-G = ox.load_graphml(gfile) if gfile.exists() else ox.graph_from_polygon(poly, network_type="walk")
+G = ox.load_graphml(gfile) if gfile.exists() else overpass(ox.graph_from_polygon, poly, network_type="walk")
 if not gfile.exists(): ox.save_graphml(G, gfile)
 nodes, edges = ox.graph_to_gdfs(G)
 print(f"{len(nodes):,} junctions, {len(edges):,} street segments, {edges.to_crs(CRS).length.sum() / 2e3:,.0f} km of walkable street")
